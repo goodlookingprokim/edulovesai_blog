@@ -1,5 +1,5 @@
 /**
- * AI Cosmetics Journal - Static Site Generator
+ * AI & Development Journal - Static Site Generator
  * Converts markdown content to static HTML website
  */
 
@@ -15,7 +15,7 @@ const CONFIG = {
   templatesDir: path.join(__dirname, 'pages'),
   publicDir: path.join(__dirname, '../public'),
   siteUrl: process.env.SITE_URL || 'https://passeth.github.io/MY-BLOG_OBSI',
-  siteName: 'AI Cosmetics Innovation Journal',
+  siteName: 'AI & Development Journal',
   categories: [] // Will be populated by scanCategories()
 };
 
@@ -37,58 +37,36 @@ CONFIG.categories = scanCategories();
 
 // Persona data (imported from PERSONAS.md)
 const PERSONAS = {
-  'dr-sarah-kim': {
-    name: 'Dr. Sarah Kim',
-    role: 'R&D Scientist',
-    avatar: '/assets/personas/dr-sarah-kim.svg',
-    bio: '15 years in K-beauty innovation. PhD Cosmetic Chemistry.'
+  'tech-expert': {
+    name: '기술 전문가',
+    role: 'AI & Development Writer',
+    avatar: '/assets/personas/tech-expert.svg',
+    bio: 'AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.'
   },
-  'dr-james-park': {
-    name: 'Dr. James Park',
-    role: 'Clinical Research Director',
-    avatar: '/assets/personas/dr-james-park.svg',
-    bio: '20 years clinical practice. MD from Harvard Medical School.'
+  'claude-specialist': {
+    name: 'Claude 전문가',
+    role: 'Claude Code Specialist',
+    avatar: '/assets/personas/claude-specialist.svg',
+    bio: 'Claude Code와 AI 코딩 도구 활용법을 연구합니다.'
   },
-  'dr-emily-chen': {
-    name: 'Dr. Emily Chen',
-    role: 'Biotechnology Innovation Lead',
-    avatar: '/assets/personas/dr-emily-chen.svg',
-    bio: 'PhD Biochemistry MIT. AI cosmetics formulation pioneer.'
-  },
-  'yuna-lee': {
-    name: 'Yuna Lee',
-    role: 'Beauty Editor',
-    avatar: '/assets/personas/yuna-lee.svg',
-    bio: '6 years beauty journalism. Former Allure Korea editor.'
-  },
-  'alex-thompson': {
-    name: 'Alex Thompson',
-    role: 'Trend Analyst',
-    avatar: '/assets/personas/alex-thompson.svg',
-    bio: '12 years beauty consulting. MBA London Business School.'
-  },
-  'minji-kang': {
-    name: 'Min-ji Kang',
-    role: 'Lifestyle Writer',
-    avatar: '/assets/personas/minji-kang.svg',
-    bio: '10 years lifestyle media. Holistic beauty advocate.'
-  },
-  'dr-david-rodriguez': {
-    name: 'Dr. David Rodriguez',
-    role: 'Sustainability Officer',
-    avatar: '/assets/personas/dr-david-rodriguez.svg',
-    bio: 'PhD Environmental Chemistry. B Corp advisor.'
+  'dev-guide': {
+    name: '개발 가이드',
+    role: 'Development Guide Writer',
+    avatar: '/assets/personas/dev-guide.svg',
+    bio: '초보 개발자를 위한 친절한 가이드를 작성합니다.'
   }
 };
 
 // Category metadata (known categories)
 const CATEGORIES = {
-  development: { name: 'Development', description: 'AI cosmetics R&D process', color: '#6366f1' },
-  products: { name: 'Products', description: 'Product information & reviews', color: '#ec4899' },
-  ingredients: { name: 'Ingredients', description: 'Ingredient science & formulation', color: '#10b981' },
-  trends: { name: 'Trends', description: 'Industry trends & research', color: '#f59e0b' },
-  tips: { name: 'Tips', description: 'Beauty tips & usage guides', color: '#8b5cf6' },
-  videos: { name: 'Videos', description: 'Video notes & learning resources', color: '#ef4444' }
+  'ai-tools': { name: 'AI 도구', description: 'AI 도구 분석 및 활용법', color: '#6366f1' },
+  'claude-code': { name: 'Claude Code', description: 'Claude Code 가이드 및 팁', color: '#ff6b35' },
+  'mcp-servers': { name: 'MCP 서버', description: 'MCP 서버 설치 및 활용', color: '#10b981' },
+  'development-guides': { name: '개발 가이드', description: '개발 도구 및 환경 설정', color: '#f59e0b' },
+  'obsidian-integration': { name: 'Obsidian 통합', description: 'Obsidian AI 워크플로우', color: '#8b5cf6' },
+  'flutter': { name: 'Flutter', description: 'Flutter 앱 개발 가이드', color: '#02569B' },
+  'prompt-engineering': { name: '프롬프트 엔지니어링', description: '효과적인 프롬프트 작성법', color: '#ec4899' },
+  'tutorials': { name: '튜토리얼', description: '단계별 실습 가이드', color: '#14b8a6' }
 };
 
 // Default colors for auto-discovered categories
@@ -155,7 +133,7 @@ function getArticles() {
           rawContent: markdown,  // Original markdown for image detection
           filePath,
           category,
-          persona: PERSONAS[frontmatter.journalist] || PERSONAS['yuna-lee']
+          persona: PERSONAS[frontmatter.journalist] || PERSONAS['tech-expert']
         });
       }
     }
@@ -509,8 +487,8 @@ function buildRssFeed(articles) {
   <channel>
     <title>${CONFIG.siteName}</title>
     <link>${CONFIG.siteUrl}</link>
-    <description>AI-powered insights into cosmetics innovation</description>
-    <language>en-us</language>
+    <description>AI 도구와 개발 기술에 대한 심층 가이드</description>
+    <language>ko-KR</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
     <atom:link href="${CONFIG.siteUrl}/feed.xml" rel="self" type="application/rss+xml"/>
     ${items}
@@ -591,10 +569,10 @@ function copyDir(src, dest) {
 function formatDate(dateStr) {
   if (!dateStr) return '';
   const date = new Date(dateStr);
-  return date.toLocaleDateString('en-US', { 
-    year: 'numeric', 
-    month: 'long', 
-    day: 'numeric' 
+  return date.toLocaleDateString('ko-KR', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
   });
 }
 
@@ -602,7 +580,7 @@ function formatDate(dateStr) {
  * Main build function
  */
 async function build() {
-  console.log('\n>> Building AI Cosmetics Journal...\n');
+  console.log('\n>> Building AI & Development Journal...\n');
   
   const startTime = Date.now();
   

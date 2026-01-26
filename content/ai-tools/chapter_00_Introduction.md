@@ -1,0 +1,292 @@
+---
+title: "Introduction"
+date: 2025-12-13
+created: '2026-01-27'
+last_modified: '2026-01-27'
+status: "published"
+slug: "chapter-00-introduction"
+category: "ai-tools"
+excerpt: "Welcome to Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems. As we look across the landscape of modern artificial intel..."
+tags:
+  - ai-tools
+  - analysis
+reading_time: 13
+journalist: "tech-expert"
+priority: "medium"
+type: "guide"
+---
+
+# Introduction
+
+## Preface
+
+**Welcome to "Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems."**
+
+As we look across the landscape of modern artificial intelligence, we see a clear evolution from simple, reactive programs to sophisticated, autonomous entities capable of understanding context, making decisions, and interacting dynamically with their environment and other systems. These are the intelligent agents and the agentic systems they comprise.
+
+The advent of powerful large language models (LLMs) has provided unprecedented capabilities for understanding and generating human-like content such as text and media, serving as the cognitive engine for many of these agents. However, orchestrating these capabilities into systems that can reliably achieve complex goals requires more than just a powerful model. It requires structure, design, and a thoughtful approach to how the agent perceives, plans, acts, and interacts.
+
+Think of building intelligent systems as creating a complex work of art or engineering on a canvas. This canvas isn't a blank visual space, but rather the underlying infrastructure and frameworks that provide the environment and tools for your agents to exist and operate. It's the foundation upon which you'll build your intelligent application, managing state, communication, tool access, and the flow of logic.
+
+Building effectively on this agentic canvas demands more than just throwing components together. It requires understanding proven techniques – patterns – that address common challenges in designing and implementing agent behavior. Just as architectural patterns guide the construction of a building, or design patterns structure software, agentic design patterns provide reusable solutions for the recurring problems you'll face when bringing intelligent agents to life on your chosen canvas.
+
+## 개요
+
+"Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems"는 현대 인공지능의 진화를 다루는 실용적인 가이드입니다. 이 책은 단순한 반응형 프로그램에서 맥락을 이해하고, 결정을 내리며, 환경 및 다른 시스템과 동적으로 상호작용할 수 있는 정교한 자율 엔티티로의 발전을 설명합니다.
+
+강력한 대형 언어 모델(LLM)의 등장은 텍스트와 미디어와 같은 인간과 유사한 콘텐츠를 이해하고 생성하는 전례 없는 능력을 제공하여 이러한 에이전트 중 많은 것의 인지 엔진 역할을 합니다. 그러나 이러한 능력을 복잡한 목표를 안정적으로 달성할 수 있는 시스템으로 조정하는 것은 강력한 모델만으로는 충분하지 않습니다. 에이전트가 인지하고, 계획하고, 행동하고, 상호작용하는 방식에 대한 구조, 설계 및 신중한 접근이 필요합니다.
+
+지능형 시스템을 구축하는 것을 캔버스에서 복잡한 예술 작품이나 엔지니어링을 만드는 것으로 생각하세요. 이 캔버스는 빈 시각적 공간이 아니라 에이전트가 존재하고 작동할 수 있는 환경과 도구를 제공하는 기본 인프라 및 프레임워크입니다. 상태, 통신, 도구 액세스 및 로직 흐름을 관리하면서 지능형 애플리케이션을 구축할 기반입니다.
+
+이 에이전트 캔버스에서 효과적으로 구축하는 것은 단순히 구성 요소를 함께 던지는 것 이상을 요구합니다. 에이전트 동작을 설계하고 구현하는 데 일반적인 도전 과제를 해결하는 검증된 기술인 패턴을 이해해야 합니다. 건축 패턴이 건물 건설을 안내하거나 디자인 패턴이 소프트웨어를 구조화하는 것처럼, 에이전트 디자인 패턴은 선택한 캔버스에서 지능형 에이전트를 생명에 불어넣을 때 직면하게 될 반복되는 문제에 대한 재사용 가능한 솔루션을 제공합니다.
+
+## What are Agentic Systems?
+
+## Agentic Systems란 무엇인가?
+
+At its core, an agentic system is a computational entity designed to perceive its environment (both digital and potentially physical), make informed decisions based on those perceptions and a set of predefined or learned goals, and execute actions to achieve those goals autonomously. Unlike traditional software, which follows rigid, step-by-step instructions, agents exhibit a degree of flexibility and initiative.
+
+**Agentic System(에이전트 시스템)**은 디지털 및 물리적 환경을 인지하고, 그 인지와 사전 정의되거나 학습된 목표 집합을 기반으로 정보에 입각한 결정을 내리며, 자율적으로 목표를 달성하기 위해 행동을 실행하도록 설계된 계산 엔티티입니다. 전통적인 소프트웨어가 엄격한 단계별 지시사항을 따르는 것과 달리, 에이전트는 유연성과 주도성을 보여줍니다.
+
+### 정의
+
+### 전통적 소프트웨어와의 차이점
+
+Imagine you need a system to manage customer inquiries. A traditional system might follow a fixed script. An agentic system, however, could perceive the nuances of a customer's query, access knowledge bases, interact with other internal systems (like order management), potentially ask clarifying questions, and proactively resolve the issue, perhaps even anticipating future needs. These agents operate on the canvas of your application's infrastructure, utilizing the services and data available to them.
+
+고객 문의를 관리하는 시스템이 필요하다고 상상해보세요. 전통적인 시스템은 고정된 스크립트를 따를 수 있습니다. 그러나 에이전트 시스템은 고객 쿼리의 뉘앙스를 인지하고, 지식 기반에 접근하며, 다른 내부 시스템(주문 관리 등)과 상호작용하고, 잠재적으로 명확화 질문을 할 수 있으며, 능동적으로 문제를 해결하고, 아마도 미래의 필요를 예측할 수 있습니다. 이러한 에이전트는 애플리케이션 인프라의 캔버스에서 작동하며, 사용 가능한 서비스와 데이터를 활용합니다.
+
+**예시: 고객 문의 관리 시스템**
+
+- **전통적 시스템**: 고정된 스크립트를 따름
+- **에이전트 시스템**: 
+  - 고객 쿼리의 뉘앙스를 인지
+  - 지식 기반에 접근
+  - 내부 시스템(주문 관리 등)과 상호작용
+  - 명확화 질문을 할 수 있음
+  - 문제를 능동적으로 해결
+  - 미래의 필요를 예측
+
+### 에이전트 시스템의 특성
+
+```mermaid
+graph TB
+    A[Agentic System] --> B[Autonomy<br/>자율성]
+    A --> C[Proactiveness<br/>주도성]
+    A --> D[Reactiveness<br/>반응성]
+    A --> E[Goal-Oriented<br/>목표 지향]
+    A --> F[Tool Use<br/>도구 사용]
+    A --> G[Memory<br/>메모리]
+    A --> H[Communication<br/>의사소통]
+    
+    B --> B1[인간의 지속적인 감독 없이 작동]
+    C --> C1[목표를 향해 행동을 시작]
+    D --> D1[환경 변화에 효과적으로 반응]
+    E --> E1[지속적으로 목표를 향해 작업]
+    F --> F1[외부 API, 데이터베이스, 서비스와 상호작용]
+    G --> G1[상호작용에 걸쳐 정보 유지]
+    H --> H1[사용자, 다른 시스템, 다른 에이전트와 소통]
+```
+
+#### 1. 자율성 (Autonomy)
+- 인간의 지속적인 감독 없이 작동할 수 있는 능력
+
+#### 2. 주도성 (Proactiveness)
+- 목표를 향해 행동을 시작하는 능력
+
+#### 3. 반응성 (Reactiveness)
+- 환경의 변화에 효과적으로 반응하는 능력
+
+#### 4. 목표 지향성 (Goal-Oriented)
+- 지속적으로 목표를 향해 작업하는 특성
+
+#### 5. 도구 사용 (Tool Use)
+- 외부 API, 데이터베이스, 서비스와 상호작용할 수 있는 능력
+
+#### 6. 메모리 (Memory)
+- 상호작용에 걸쳐 정보를 유지하는 능력
+
+#### 7. 의사소통 (Communication)
+- 사용자, 다른 시스템, 심지어 같은 또는 연결된 캔버스에서 작동하는 다른 에이전트와 소통할 수 있는 능력
+
+Effectively realizing these characteristics introduces significant complexity. How does the agent maintain state across multiple steps on its canvas? How does it decide when and how to use a tool? How is communication between different agents managed? How do you build resilience into the system to handle unexpected outcomes or errors?
+
+이러한 특성을 효과적으로 실현하는 것은 상당한 복잡성을 도입합니다. 에이전트가 캔버스에서 여러 단계에 걸쳐 상태를 어떻게 유지할까요? 언제, 어떻게 도구를 사용할지 어떻게 결정할까요? 다른 에이전트 간의 통신은 어떻게 관리될까요? 예상치 못한 결과나 오류를 처리하기 위해 시스템에 복원력을 어떻게 구축할까요?
+
+## Why Patterns Matter in Agent Development
+
+## 왜 패턴이 에이전트 개발에 중요한가?
+
+### 복잡성의 도전
+
+에이전트 시스템을 효과적으로 구현하는 것은 상당한 복잡성을 도입합니다:
+
+- 캔버스에서 여러 단계에 걸쳐 상태를 어떻게 유지할까?
+- 언제, 어떻게 도구를 사용할지 어떻게 결정할까?
+- 다른 에이전트 간의 통신은 어떻게 관리할까?
+- 예상치 못한 결과나 오류를 처리하기 위해 시스템에 복원력을 어떻게 구축할까?
+
+### 패턴의 역할
+
+This complexity is precisely why agentic design patterns are indispensable. They are not rigid rules, but rather battle-tested templates or blueprints that offer proven approaches to standard design and implementation challenges in the agentic domain.
+
+이러한 복잡성이 바로 에이전트 디자인 패턴이 필수적인 이유입니다. 이들은 엄격한 규칙이 아니라, 에이전트 도메인에서 표준적인 설계 및 구현 도전 과제에 대한 검증된 접근 방식을 제공하는 검증된 템플릿 또는 청사진입니다.
+
+에이전트 디자인 패턴은 이러한 복잡성을 해결하기 위한 검증된 템플릿 또는 청사진입니다:
+
+```mermaid
+graph LR
+    A[Design Patterns] --> B[구조 향상]
+    A --> C[유지보수성 향상]
+    A --> D[신뢰성 향상]
+    A --> E[효율성 향상]
+    
+    B --> B1[명확한 로직]
+    C --> C1[이해하기 쉬운 코드]
+    D --> D1[오류 처리]
+    E --> E1[재사용 가능한 솔루션]
+```
+
+#### 패턴 사용의 이점
+
+1. **기본 솔루션 재발명 방지**: 대화 흐름 관리, 외부 기능 통합, 여러 에이전트 작업 조정과 같은 작업에 대한 기본 솔루션을 재발명할 필요가 없습니다.
+
+2. **공통 언어 제공**: 에이전트의 로직을 더 명확하고 이해하기 쉽게 만드는 공통 언어와 구조를 제공합니다.
+
+3. **견고성 향상**: 오류 처리나 상태 관리에 설계된 패턴을 구현하면 더 견고하고 신뢰할 수 있는 시스템을 구축하는 데 직접적으로 기여합니다.
+
+4. **개발 가속화**: 이러한 확립된 접근 방식을 활용하면 개발 프로세스를 가속화하여 애플리케이션의 고유한 측면에 집중할 수 있습니다.
+
+This book extracts 21 key design patterns that represent fundamental building blocks and techniques for constructing sophisticated agents on various technical canvases. Understanding and applying these patterns will significantly elevate your ability to design and implement intelligent systems effectively.
+
+이 책은 다양한 기술 캔버스에서 정교한 에이전트를 구축하기 위한 근본적인 빌딩 블록과 기술을 나타내는 21가지 핵심 디자인 패턴을 추출합니다. 이러한 패턴을 이해하고 적용하면 지능형 시스템을 효과적으로 설계하고 구현하는 능력을 크게 향상시킬 수 있습니다.
+
+## Overview of the Book and How to Use It
+
+## 책의 구조와 사용 방법
+
+### 조직 구조
+
+This book, "Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems," is crafted to be a practical and accessible resource. Its primary focus is on clearly explaining each agentic pattern and providing concrete, runnable code examples to demonstrate its implementation. Across 21 dedicated chapters, we will explore a diverse range of design patterns, from foundational concepts like structuring sequential operations (Prompt Chaining) and external interaction (Tool Use) to more advanced topics like collaborative work (Multi-Agent Collaboration) and self-improvement (Self-Correction).
+
+이 책 "Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems"는 실용적이고 접근 가능한 리소스로 제작되었습니다. 주요 초점은 각 에이전트 패턴을 명확하게 설명하고 구현을 시연하는 구체적이고 실행 가능한 코드 예제를 제공하는 것입니다. 21개의 전용 챕터에 걸쳐 순차적 작업 구조화(Prompt Chaining) 및 외부 상호작용(Tool Use)과 같은 기초 개념부터 협업 작업(Multi-Agent Collaboration) 및 자기 개선(Self-Correction)과 같은 고급 주제까지 다양한 디자인 패턴을 탐구합니다.
+
+이 책은 21개의 전용 챕터로 구성되어 있으며, 각 챕터는 단일 에이전트 패턴을 다룹니다.
+
+The book is organized chapter by chapter, with each chapter delving into a single agentic pattern.
+
+이 책은 챕터별로 구성되어 있으며, 각 챕터는 단일 에이전트 패턴을 다룹니다.
+
+### 각 챕터의 구성 요소
+
+```mermaid
+graph TD
+    A[Chapter Structure] --> B[Pattern Overview<br/>패턴 개요]
+    A --> C[Practical Applications<br/>& Use Cases]
+    A --> D[Hands-On Code Example<br/>실습 코드 예제]
+    A --> E[Key Takeaways<br/>핵심 요약]
+    A --> F[References<br/>참고 자료]
+    
+    B --> B1[패턴의 명확한 설명<br/>에이전트 디자인에서의 역할]
+    C --> C1[실제 시나리오 예시<br/>패턴이 가치 있는 경우<br/>가져다주는 이점]
+    D --> D1[실용적이고 실행 가능한 코드<br/>주요 에이전트 개발 프레임워크 사용<br/>기술 캔버스 내에서의 구현]
+    E --> E1[빠른 검토를 위한<br/>가장 중요한 포인트 요약]
+    F --> F1[패턴 및 관련 개념에 대한<br/>더 깊은 학습을 위한 리소스]
+```
+
+#### 1. 패턴 개요 (Pattern Overview)
+- 패턴과 에이전트 디자인에서의 역할에 대한 명확한 설명 제공
+
+#### 2. 실용적 응용 및 사용 사례 (Practical Applications & Use Cases)
+- 패턴이 가치 있는 실제 시나리오와 가져다주는 이점을 설명
+
+#### 3. 실습 코드 예제 (Hands-On Code Example)
+- 주요 에이전트 개발 프레임워크를 사용하여 패턴의 구현을 보여주는 실용적이고 실행 가능한 코드 제공
+- 기술 캔버스 내에서 패턴을 적용하는 방법을 보여줌
+
+#### 4. 핵심 요약 (Key Takeaways)
+- 빠른 검토를 위한 가장 중요한 포인트 요약
+
+#### 5. 참고 자료 (References)
+- 패턴 및 관련 개념에 대한 더 깊은 학습을 위한 리소스 제공
+
+### 사용 방법
+
+- **순차적 학습**: 챕터는 개념을 점진적으로 구축하도록 정렬되어 있지만, 참고서로도 사용 가능
+- **특정 챕터 참조**: 자신의 에이전트 개발 프로젝트에서 직면한 특정 도전을 다루는 챕터로 바로 이동 가능
+- **실습 강조**: 코드 예제를 실행하고, 실험하고, 자신의 지능형 시스템을 구축하기 위해 적응하는 것을 강력히 권장
+
+## 사용되는 프레임워크 소개
+
+### 주요 프레임워크
+
+코드 예제를 위한 구체적인 "캔버스"를 제공하기 위해 세 가지 주요 에이전트 개발 프레임워크를 주로 활용합니다:
+
+```mermaid
+graph TB
+    A[Agent Development Frameworks] --> B[LangChain & LangGraph]
+    A --> C[Crew AI]
+    A --> D[Google Agent Developer Kit]
+    
+    B --> B1[언어 모델과 다른 구성 요소를<br/>연결하는 유연한 방법]
+    B --> B2[복잡한 시퀀스와<br/>작업 그래프 구축을 위한<br/>견고한 캔버스]
+    
+    C --> C1[여러 AI 에이전트, 역할,<br/>작업을 조정하기 위해<br/>특별히 설계된 구조화된 프레임워크]
+    C --> C2[협업 에이전트 시스템에<br/>특히 적합한 캔버스]
+    
+    D --> D1[에이전트 구축, 평가,<br/>배포를 위한 도구 및 구성 요소]
+    D --> D2[Google의 AI 인프라와<br/>통합된 가치 있는 캔버스]
+```
+
+#### 1. LangChain & LangGraph
+- **LangChain**: 언어 모델과 다른 구성 요소를 연결하는 유연한 방법 제공
+- **LangGraph**: LangChain의 상태 저장 확장으로, 복잡한 시퀀스와 작업 그래프를 구축하기 위한 견고한 캔버스 제공
+
+#### 2. Crew AI
+- 여러 AI 에이전트, 역할, 작업을 조정하기 위해 특별히 설계된 구조화된 프레임워크
+- 협업 에이전트 시스템에 특히 적합한 캔버스 역할
+
+#### 3. Google Agent Developer Kit (Google ADK)
+- 에이전트 구축, 평가, 배포를 위한 도구 및 구성 요소 제공
+- Google의 AI 인프라와 통합된 가치 있는 캔버스
+
+### 프레임워크 선택의 의미
+
+이러한 프레임워크는 에이전트 개발 캔버스의 다양한 측면을 나타내며, 각각 고유한 강점을 가지고 있습니다. 이러한 도구에 걸쳐 예제를 보여줌으로써, 선택한 특정 기술 환경에 관계없이 패턴을 적용하는 방법에 대한 더 넓은 이해를 얻을 수 있습니다.
+
+These frameworks represent different facets of the agent development canvas, each with its strengths. By showing examples across these tools, you will gain a broader understanding of how the patterns can be applied regardless of the specific technical environment you choose for your agentic systems. The examples are designed to clearly illustrate the pattern's core logic and its implementation on the framework's canvas, focusing on clarity and practicality.
+
+### 왜 빠르게 변하는 AI 분야에서 책을 쓰는가?
+
+**A great question I hear is, 'With AI changing so fast, why write a book that could be quickly outdated?'**
+
+My motivation was actually the opposite. It's precisely because things are moving so quickly that we need to step back and identify the underlying principles that are solidifying. Patterns like RAG, Reflection, Routing, Memory and the others I discuss, are becoming fundamental building blocks. This book is an invitation to reflect on these core ideas, which provide the foundation we need to build upon. Humans need these reflection moments on foundation patterns.
+
+**자주 듣는 질문: 'AI가 이렇게 빠르게 변하는데, 왜 곧 구식이 될 수 있는 책을 쓰는가?'**
+
+제 동기는 실제로 반대였습니다. 바로 모든 것이 너무 빠르게 움직이고 있기 때문에 우리는 한 걸음 물러서서 고정되고 있는 근본 원칙을 식별해야 합니다. RAG, Reflection, Routing, Memory 및 제가 논의하는 다른 패턴들은 근본적인 빌딩 블록이 되고 있습니다. 이 책은 우리가 구축해야 할 기초를 제공하는 이러한 핵심 아이디어에 대해 반성하도록 초대합니다. 인간은 기초 패턴에 대한 이러한 반성 순간이 필요합니다.
+
+By the end of this book, you will not only understand the fundamental concepts behind 21 essential agentic patterns but also possess the practical knowledge and code examples to apply them effectively, enabling you to build more intelligent, capable, and autonomous systems on your chosen development canvas. Let's begin this hands-on journey!
+
+이 책을 마칠 때까지, 여러분은 21가지 필수 에이전트 패턴 뒤에 있는 근본적인 개념을 이해할 뿐만 아니라 이를 효과적으로 적용하기 위한 실용적인 지식과 코드 예제를 갖게 되어, 선택한 개발 캔버스에서 더 지능적이고 능력 있으며 자율적인 시스템을 구축할 수 있게 됩니다. 이 실습 여정을 시작합시다!
+
+## 핵심 요약
+
+1. **에이전트 시스템의 진화**: 단순한 반응형 프로그램에서 정교한 자율 엔티티로의 발전
+
+2. **에이전트의 핵심 특성**: 자율성, 주도성, 반응성, 목표 지향성, 도구 사용, 메모리, 의사소통
+
+3. **패턴의 중요성**: 복잡성을 관리하고 견고하고 신뢰할 수 있는 시스템을 구축하기 위한 검증된 솔루션 제공
+
+4. **실용적 접근**: 이론뿐만 아니라 실행 가능한 코드 예제를 통해 실용적인 지식 제공
+
+5. **프레임워크 다양성**: LangChain, Crew AI, Google ADK 등 다양한 프레임워크를 통한 패턴 구현 방법 학습
+
+## 참고 자료
+
+이 책의 각 챕터는 추가 학습을 위한 참고 자료를 제공합니다. 특정 패턴이나 개념에 대해 더 깊이 알고 싶다면 각 챕터의 참고 자료 섹션을 참조하세요.
+
+---
+
+**다음 챕터**: [What makes an AI system an agent?](chapter_00_What_makes_an_AI_system_an_agent.md)
+
