@@ -15,6 +15,8 @@
 | 1 | 저널리스트 아바타 누락 | 페르소나 SVG 파일 미생성 | 4개 SVG 생성 |
 | 2 | 대표 이미지 404 | 존재하지 않는 파일 참조 | 이미지 존재 검증 필요 |
 | 3 | 코드블록 내 이미지 선택 | regex가 코드블록 무시 안함 | build.js 수정 완료 |
+| 4 | Nav와 Explore Topics 불일치 | 템플릿마다 다른 카테고리 링크 | 모든 템플릿 통일 |
+| 5 | Untitled 기사 30개 | frontmatter에 title 없음 | 파일명에서 제목 자동 생성 |
 
 ---
 
@@ -44,14 +46,22 @@
 
 ### 2. Content Validation (콘텐츠 검증)
 
-#### 2.1 Frontmatter Completeness
+#### 2.1 Article Title Check (필수)
+```
+[x] 모든 기사에 유효한 제목이 있는지 확인
+[x] "Untitled" 또는 빈 제목 기사 감지
+[x] title이 없으면 파일명에서 자동 생성
+    예: chapter_06_Planning.md → "Chapter 06 Planning"
+```
+
+#### 2.2 Frontmatter Completeness
 ```
 [ ] 필수 필드 존재: title, created, tags, status
 [ ] status가 "완료"인 기사만 발행되었는지 확인
 [ ] 날짜 형식 유효성 (YYYY-MM-DD)
 ```
 
-#### 2.2 Article Quality
+#### 2.3 Article Quality
 ```
 [ ] 제목이 비어있지 않은지 확인
 [ ] 본문 내용이 최소 길이 이상인지 확인
@@ -60,14 +70,21 @@
 
 ### 3. Link Validation (링크 검증)
 
-#### 3.1 Internal Links
+#### 3.1 Nav/Category Consistency (필수)
+```
+[x] 상단 Nav의 카테고리 링크가 실제 존재하는 카테고리 페이지 가리킴
+[x] Nav 카테고리에 최소 1개 이상의 기사 존재
+[x] Nav, Explore Topics, Footer 카테고리 일치
+```
+
+#### 3.2 Internal Links
 ```
 [ ] 기사 간 내부 링크가 유효한지 확인
 [ ] 카테고리 링크가 존재하는 카테고리를 가리키는지 확인
 [ ] 저널리스트 링크가 유효한지 확인
 ```
 
-#### 3.2 External Resources
+#### 3.3 External Resources
 ```
 [ ] CSS, JS 파일이 존재하는지 확인
 [ ] favicon.svg 존재 확인
@@ -172,7 +189,7 @@ npm run build:fast     # 검증 생략
 
 ---
 
-## Validation Output Example
+## Validation Output Example (현재 구현됨)
 
 ```
 >> Building AI & Development Journal...
@@ -186,44 +203,44 @@ Built: sitemap.xml
 📋 Post-Build Validation
 ========================
 
-✅ Asset Validation
-   ├── Images: 156/156 exist
-   ├── Avatars: 5/5 exist
-   └── Placeholders: 12/12 exist
+✅ Images: 80/80 exist
+✅ Avatars: 5/5 exist
+✅ Placeholders: 8/8 exist
+✅ Required Files: 4/4 exist
+✅ Article Titles: 80/80 valid          ← 필수: Untitled 검증
+✅ Article Pages: 80/80 generated
+✅ Nav Categories: 6/6 valid            ← 필수: Nav/Explore 일치
+⚠️ Internal Links: 689/1004 valid
 
-✅ Content Validation
-   ├── Frontmatter: 80/80 complete
-   └── Quality: 80/80 pass
-
-⚠️  Link Validation
-   ├── Internal: 245/247 valid
-   │   └── [WARNING] articles/old-post.html: Link to deleted article
-   └── Resources: 12/12 exist
-
-✅ Build Output
-   ├── Required files: 4/4
-   └── Article pages: 80/80
-
-Summary: 79/80 checks passed (1 warning)
+------------------------
+✅ Summary: 952/1267 checks passed
+   ⚠️  315 warning(s)
 
 >> Build complete in 1234ms
 ```
 
 ---
 
-## Priority Implementation Order
+## Current Validation Checks (구현 완료)
 
-1. **P0 (즉시):** 이미지 존재 검증 - 가장 흔한 문제
-2. **P1 (단기):** 아바타/placeholder 검증
-3. **P2 (중기):** 내부 링크 검증
-4. **P3 (장기):** 콘텐츠 품질 검증
+| # | 검증 항목 | 상태 | 우선순위 |
+|---|-----------|------|----------|
+| 1 | Images | ✅ 구현됨 | P0 |
+| 2 | Avatars | ✅ 구현됨 | P0 |
+| 3 | Placeholders | ✅ 구현됨 | P1 |
+| 4 | Required Files | ✅ 구현됨 | P1 |
+| 5 | **Article Titles** | ✅ 구현됨 | **P0 필수** |
+| 6 | Article Pages | ✅ 구현됨 | P1 |
+| 7 | **Nav Categories** | ✅ 구현됨 | **P0 필수** |
+| 8 | Internal Links | ✅ 구현됨 | P2 |
 
 ---
 
 ## Related Files
 
 - `site/src/build.js` - 메인 빌드 스크립트
-- `site/src/validators/post-build-validator.js` - 검증 모듈 (생성 예정)
+- `site/src/validators/post-build-validator.js` - 검증 모듈 ✅
+- `site/src/utils/frontmatter-transformer.js` - 제목 자동 생성
 - `docs/PERSONAS.md` - 페르소나 정의
 - `site/src/utils/category-mapper.js` - 카테고리 매핑
 
