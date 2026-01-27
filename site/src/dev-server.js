@@ -32,29 +32,78 @@ const MIME_TYPES = {
 console.log('\n>> Initial build...\n');
 require('./build.js');
 
+/**
+ * Security: Validate that the resolved path is within the allowed directory
+ * Prevents path traversal attacks (e.g., ../../etc/passwd)
+ */
+function isPathWithinDir(filePath, allowedDir) {
+  const resolvedFile = path.resolve(filePath);
+  const resolvedDir = path.resolve(allowedDir);
+  return resolvedFile.startsWith(resolvedDir + path.sep) || resolvedFile === resolvedDir;
+}
+
+/**
+ * Security: Escape HTML for safe display in error pages
+ */
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 // Create server
 const server = http.createServer((req, res) => {
-  // Parse URL
-  let urlPath = req.url.split('?')[0];
-  
+  // Parse URL and decode it
+  let urlPath = decodeURIComponent(req.url.split('?')[0]);
+
   // Default to index.html for root
   if (urlPath === '/') {
     urlPath = '/index.html';
   }
-  
+
   // Add .html extension if no extension
   if (!path.extname(urlPath) && !urlPath.endsWith('/')) {
     urlPath += '.html';
   }
-  
-  const filePath = path.join(BUILD_DIR, urlPath);
+
+  // Normalize the path to prevent traversal attacks
+  const normalizedPath = path.normalize(urlPath);
+  const filePath = path.join(BUILD_DIR, normalizedPath);
+
+  // Security: Ensure the file path is within BUILD_DIR
+  if (!isPathWithinDir(filePath, BUILD_DIR)) {
+    res.writeHead(403, { 'Content-Type': 'text/html' });
+    res.end(`
+      <!DOCTYPE html>
+      <html>
+      <head>
+        <title>403 - Forbidden</title>
+        <style>
+          body { font-family: system-ui; max-width: 600px; margin: 100px auto; padding: 20px; text-align: center; }
+          h1 { color: #ef4444; }
+          a { color: #6366f1; }
+        </style>
+      </head>
+      <body>
+        <h1>403</h1>
+        <p>Access denied</p>
+        <a href="/">← Back to Home</a>
+      </body>
+      </html>
+    `);
+    return;
+  }
+
   const ext = path.extname(filePath);
   const mimeType = MIME_TYPES[ext] || 'application/octet-stream';
-  
+
   // Check if file exists
   fs.access(filePath, fs.constants.F_OK, (err) => {
     if (err) {
-      // 404 Not Found
+      // 404 Not Found - escape the urlPath to prevent XSS
       res.writeHead(404, { 'Content-Type': 'text/html' });
       res.end(`
         <!DOCTYPE html>
@@ -69,7 +118,7 @@ const server = http.createServer((req, res) => {
         </head>
         <body>
           <h1>404</h1>
-          <p>Page not found: ${urlPath}</p>
+          <p>Page not found: ${escapeHtml(urlPath)}</p>
           <a href="/">← Back to Home</a>
         </body>
         </html>

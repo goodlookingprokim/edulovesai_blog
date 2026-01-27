@@ -8,6 +8,21 @@ const path = require('path');
 const { marked } = require('marked');
 const matter = require('gray-matter');
 
+/**
+ * Security: Escape HTML special characters to prevent XSS
+ * @param {string} str - String to escape
+ * @returns {string} Escaped string
+ */
+function escapeHtml(str) {
+  if (str === null || str === undefined) return '';
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+}
+
 // Configuration
 const CONFIG = {
   contentDir: path.join(__dirname, '../../content'),
@@ -103,74 +118,127 @@ function convertObsidianImages(markdown) {
 }
 
 /**
+ * Validate article frontmatter has required fields
+ * @param {object} frontmatter - Parsed frontmatter
+ * @param {string} filePath - Path to the article file (for error messages)
+ * @returns {boolean} True if valid, false otherwise
+ */
+function validateFrontmatter(frontmatter, filePath) {
+  const requiredFields = ['title', 'slug', 'date'];
+  const missingFields = requiredFields.filter(field => !frontmatter[field]);
+
+  if (missingFields.length > 0) {
+    console.warn(`Warning: ${filePath} is missing required fields: ${missingFields.join(', ')}`);
+    return false;
+  }
+
+  return true;
+}
+
+/**
  * Read all markdown files from content directory
  */
 function getArticles() {
   const articles = [];
-  
+
   for (const category of CONFIG.categories) {
     const categoryDir = path.join(CONFIG.contentDir, category);
-    
+
     if (!fs.existsSync(categoryDir)) {
-      fs.mkdirSync(categoryDir, { recursive: true });
+      try {
+        fs.mkdirSync(categoryDir, { recursive: true });
+      } catch (err) {
+        console.error(`Error creating directory ${categoryDir}:`, err.message);
+      }
       continue;
     }
-    
-    const files = fs.readdirSync(categoryDir).filter(f => f.endsWith('.md'));
-    
+
+    let files;
+    try {
+      files = fs.readdirSync(categoryDir).filter(f => f.endsWith('.md'));
+    } catch (err) {
+      console.error(`Error reading directory ${categoryDir}:`, err.message);
+      continue;
+    }
+
     for (const file of files) {
       const filePath = path.join(categoryDir, file);
-      const content = fs.readFileSync(filePath, 'utf-8');
-      const { data: frontmatter, content: markdown } = matter(content);
-      
-      if (frontmatter.status === 'published') {
-        // Convert Obsidian image links before markdown processing
-        const processedMarkdown = convertObsidianImages(markdown);
-        articles.push({
-          ...frontmatter,
-          content: marked(processedMarkdown),
-          markdown: processedMarkdown,
-          rawContent: markdown,  // Original markdown for image detection
-          filePath,
-          category,
-          persona: PERSONAS[frontmatter.journalist] || PERSONAS['tech-expert']
-        });
+
+      try {
+        const content = fs.readFileSync(filePath, 'utf-8');
+        const { data: frontmatter, content: markdown } = matter(content);
+
+        // Validate frontmatter
+        if (!validateFrontmatter(frontmatter, filePath)) {
+          continue;
+        }
+
+        if (frontmatter.status === 'published') {
+          // Convert Obsidian image links before markdown processing
+          const processedMarkdown = convertObsidianImages(markdown);
+          articles.push({
+            ...frontmatter,
+            content: marked(processedMarkdown),
+            markdown: processedMarkdown,
+            rawContent: markdown,  // Original markdown for image detection
+            filePath,
+            category,
+            persona: PERSONAS[frontmatter.journalist] || PERSONAS['tech-expert']
+          });
+        }
+      } catch (err) {
+        console.error(`Error processing ${filePath}:`, err.message);
       }
     }
   }
-  
+
   // Sort by date (newest first), then by priority
-  articles.sort((a, b) => {
-    if (a.featured && !b.featured) return -1;
-    if (!a.featured && b.featured) return 1;
-    if (a.homepage_priority !== b.homepage_priority) {
-      return (a.homepage_priority || 5) - (b.homepage_priority || 5);
+  articles.sort((articleA, articleB) => {
+    if (articleA.featured && !articleB.featured) return -1;
+    if (!articleA.featured && articleB.featured) return 1;
+    if (articleA.homepage_priority !== articleB.homepage_priority) {
+      return (articleA.homepage_priority || 5) - (articleB.homepage_priority || 5);
     }
-    return new Date(b.date) - new Date(a.date);
+    return new Date(articleB.date) - new Date(articleA.date);
   });
-  
+
   return articles;
 }
 
+// Template variables that contain pre-rendered safe HTML and should NOT be escaped
+const SAFE_TEMPLATE_VARS = new Set([
+  'content',       // Pre-rendered markdown HTML
+  'featured',      // Pre-rendered article cards HTML
+  'articles',      // Pre-rendered article cards HTML
+  'categories',    // Pre-rendered category links HTML
+  'tags',          // Pre-rendered tag links HTML
+  'related',       // Pre-rendered related articles HTML
+  'recentPosts'    // Pre-rendered recent posts HTML
+]);
+
 /**
  * Generate HTML from template
+ * Variables in SAFE_TEMPLATE_VARS are rendered as-is (they contain pre-built HTML)
+ * All other variables are HTML-escaped to prevent XSS
  */
 function renderTemplate(templateName, data) {
   const templatePath = path.join(CONFIG.templatesDir, `${templateName}.html`);
-  
+
   if (!fs.existsSync(templatePath)) {
     console.warn(`Template not found: ${templateName}`);
     return '';
   }
-  
+
   let html = fs.readFileSync(templatePath, 'utf-8');
-  
-  // Simple template variable replacement
+
+  // Template variable replacement with XSS protection
   for (const [key, value] of Object.entries(data)) {
     const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-    html = html.replace(regex, value || '');
+    // Safe variables (pre-rendered HTML) are not escaped; others are escaped
+    const safeValue = SAFE_TEMPLATE_VARS.has(key) ? (value || '') : escapeHtml(value);
+    html = html.replace(regex, safeValue);
   }
-  
+
   return html;
 }
 
@@ -293,10 +361,14 @@ function buildHomepage(articles) {
     categories: categoryLinksHtml,
     year: new Date().getFullYear()
   });
-  
+
   const outputPath = path.join(CONFIG.outputDir, 'index.html');
-  fs.writeFileSync(outputPath, html);
-  console.log('Built: index.html');
+  try {
+    fs.writeFileSync(outputPath, html);
+    console.log('Built: index.html');
+  } catch (err) {
+    console.error('Error writing index.html:', err.message);
+  }
 }
 
 /**
@@ -368,8 +440,12 @@ function buildArticlePages(articles) {
     });
     
     const outputPath = path.join(articlesDir, `${article.slug}.html`);
-    fs.writeFileSync(outputPath, html);
-    console.log(`Built: articles/${article.slug}.html`);
+    try {
+      fs.writeFileSync(outputPath, html);
+      console.log(`Built: articles/${article.slug}.html`);
+    } catch (err) {
+      console.error(`Error writing articles/${article.slug}.html:`, err.message);
+    }
   }
 }
 
@@ -545,21 +621,29 @@ function copyPublicAssets() {
 }
 
 /**
- * Utility: Copy directory recursively
+ * Utility: Copy directory recursively with error handling
  */
 function copyDir(src, dest) {
-  fs.mkdirSync(dest, { recursive: true });
-  const entries = fs.readdirSync(src, { withFileTypes: true });
-  
-  for (const entry of entries) {
-    const srcPath = path.join(src, entry.name);
-    const destPath = path.join(dest, entry.name);
-    
-    if (entry.isDirectory()) {
-      copyDir(srcPath, destPath);
-    } else {
-      fs.copyFileSync(srcPath, destPath);
+  try {
+    fs.mkdirSync(dest, { recursive: true });
+    const entries = fs.readdirSync(src, { withFileTypes: true });
+
+    for (const entry of entries) {
+      const srcPath = path.join(src, entry.name);
+      const destPath = path.join(dest, entry.name);
+
+      if (entry.isDirectory()) {
+        copyDir(srcPath, destPath);
+      } else {
+        try {
+          fs.copyFileSync(srcPath, destPath);
+        } catch (err) {
+          console.error(`Error copying ${srcPath}:`, err.message);
+        }
+      }
     }
+  } catch (err) {
+    console.error(`Error copying directory ${src}:`, err.message);
   }
 }
 

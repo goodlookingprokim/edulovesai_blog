@@ -419,6 +419,25 @@
   <div class="toast" id="toast"></div>
   
   <script>
+    // Security: HTML escape function to prevent XSS
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // Security: Escape HTML attributes
+    function escapeAttr(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
     // Journalist data (mirrors build.js PERSONAS)
     const journalists = {
       'dr-sarah-kim': {
@@ -475,51 +494,141 @@
       }, 3000);
     }
     
-    // Render journalist cards
+    // Render journalist cards (using safe DOM methods)
     function renderJournalists() {
       const container = document.getElementById('journalistsList');
       container.innerHTML = '';
-      
+
       for (const [slug, data] of Object.entries(journalists)) {
         const card = document.createElement('div');
         card.className = 'journalist-card';
-        card.innerHTML = `
-          <div class="journalist-card__header">
-            <div class="journalist-card__avatar-wrapper">
-              <img src="${data.avatar}" alt="${data.name}" class="journalist-card__avatar" id="avatar-${slug}" onerror="this.src='/assets/images/placeholder.svg'">
-              <label class="journalist-card__avatar-upload" title="Change avatar">
-                <svg viewBox="0 0 24 24"><path d="M12 15.2c-1.8 0-3.2-1.4-3.2-3.2s1.4-3.2 3.2-3.2 3.2 1.4 3.2 3.2-1.4 3.2-3.2 3.2zm7.2-9.6h-3l-1.8-2.4H9.6L7.8 5.6h-3c-1.3 0-2.4 1.1-2.4 2.4v10.8c0 1.3 1.1 2.4 2.4 2.4h14.4c1.3 0 2.4-1.1 2.4-2.4V8c0-1.3-1.1-2.4-2.4-2.4z"/></svg>
-                <input type="file" accept="image/*" onchange="handleImageUpload('${slug}', this)">
-              </label>
-            </div>
-            <div class="journalist-card__info">
-              <h3 class="journalist-card__name">${data.name}</h3>
-              <p class="journalist-card__role">${data.role}</p>
-              <p class="journalist-card__slug">${slug}</p>
-            </div>
-          </div>
-          <p class="journalist-card__bio">${data.bio}</p>
-          <form class="journalist-card__form" onsubmit="handleSave(event, '${slug}')">
-            <div class="form-group">
-              <label>Name</label>
-              <input type="text" name="name" value="${data.name}" required>
-            </div>
-            <div class="form-group">
-              <label>Role</label>
-              <input type="text" name="role" value="${data.role}" required>
-            </div>
-            <div class="form-group">
-              <label>Bio</label>
-              <textarea name="bio" required>${data.bio}</textarea>
-            </div>
-            <div class="journalist-card__actions">
-              <button type="submit" class="btn btn--primary">Save Changes</button>
-              <a href="/journalist/${slug}.html" class="btn" target="_blank">View Profile</a>
-            </div>
-          </form>
-        `;
+
+        // Header section
+        const header = document.createElement('div');
+        header.className = 'journalist-card__header';
+
+        // Avatar wrapper
+        const avatarWrapper = document.createElement('div');
+        avatarWrapper.className = 'journalist-card__avatar-wrapper';
+
+        const avatarImg = document.createElement('img');
+        avatarImg.src = data.avatar;
+        avatarImg.alt = data.name;
+        avatarImg.className = 'journalist-card__avatar';
+        avatarImg.id = `avatar-${slug}`;
+        avatarImg.addEventListener('error', function() { this.src = '/assets/images/placeholder.svg'; });
+
+        const avatarUpload = document.createElement('label');
+        avatarUpload.className = 'journalist-card__avatar-upload';
+        avatarUpload.title = 'Change avatar';
+        avatarUpload.innerHTML = '<svg viewBox="0 0 24 24"><path d="M12 15.2c-1.8 0-3.2-1.4-3.2-3.2s1.4-3.2 3.2-3.2 3.2 1.4 3.2 3.2-1.4 3.2-3.2 3.2zm7.2-9.6h-3l-1.8-2.4H9.6L7.8 5.6h-3c-1.3 0-2.4 1.1-2.4 2.4v10.8c0 1.3 1.1 2.4 2.4 2.4h14.4c1.3 0 2.4-1.1 2.4-2.4V8c0-1.3-1.1-2.4-2.4-2.4z"/></svg>';
+
+        const fileInput = document.createElement('input');
+        fileInput.type = 'file';
+        fileInput.accept = 'image/*';
+        fileInput.addEventListener('change', function() { handleImageUpload(slug, this); });
+        avatarUpload.appendChild(fileInput);
+
+        avatarWrapper.appendChild(avatarImg);
+        avatarWrapper.appendChild(avatarUpload);
+
+        // Info section
+        const info = document.createElement('div');
+        info.className = 'journalist-card__info';
+
+        const nameH3 = document.createElement('h3');
+        nameH3.className = 'journalist-card__name';
+        nameH3.textContent = data.name;
+
+        const roleP = document.createElement('p');
+        roleP.className = 'journalist-card__role';
+        roleP.textContent = data.role;
+
+        const slugP = document.createElement('p');
+        slugP.className = 'journalist-card__slug';
+        slugP.textContent = slug;
+
+        info.appendChild(nameH3);
+        info.appendChild(roleP);
+        info.appendChild(slugP);
+
+        header.appendChild(avatarWrapper);
+        header.appendChild(info);
+
+        // Bio section
+        const bioP = document.createElement('p');
+        bioP.className = 'journalist-card__bio';
+        bioP.textContent = data.bio;
+
+        // Form section
+        const form = document.createElement('form');
+        form.className = 'journalist-card__form';
+        form.addEventListener('submit', function(event) { handleSave(event, slug); });
+
+        // Name field
+        const nameGroup = createFormGroup('Name', 'text', 'name', data.name);
+
+        // Role field
+        const roleGroup = createFormGroup('Role', 'text', 'role', data.role);
+
+        // Bio field
+        const bioGroup = document.createElement('div');
+        bioGroup.className = 'form-group';
+        const bioLabel = document.createElement('label');
+        bioLabel.textContent = 'Bio';
+        const bioTextarea = document.createElement('textarea');
+        bioTextarea.name = 'bio';
+        bioTextarea.required = true;
+        bioTextarea.textContent = data.bio;
+        bioGroup.appendChild(bioLabel);
+        bioGroup.appendChild(bioTextarea);
+
+        // Actions
+        const actions = document.createElement('div');
+        actions.className = 'journalist-card__actions';
+
+        const saveBtn = document.createElement('button');
+        saveBtn.type = 'submit';
+        saveBtn.className = 'btn btn--primary';
+        saveBtn.textContent = 'Save Changes';
+
+        const viewLink = document.createElement('a');
+        viewLink.href = `/journalist/${encodeURIComponent(slug)}.html`;
+        viewLink.className = 'btn';
+        viewLink.target = '_blank';
+        viewLink.textContent = 'View Profile';
+
+        actions.appendChild(saveBtn);
+        actions.appendChild(viewLink);
+
+        form.appendChild(nameGroup);
+        form.appendChild(roleGroup);
+        form.appendChild(bioGroup);
+        form.appendChild(actions);
+
+        // Assemble card
+        card.appendChild(header);
+        card.appendChild(bioP);
+        card.appendChild(form);
+
         container.appendChild(card);
       }
+    }
+
+    // Helper to create form groups
+    function createFormGroup(labelText, type, name, value) {
+      const group = document.createElement('div');
+      group.className = 'form-group';
+      const label = document.createElement('label');
+      label.textContent = labelText;
+      const input = document.createElement('input');
+      input.type = type;
+      input.name = name;
+      input.value = value;
+      input.required = true;
+      group.appendChild(label);
+      group.appendChild(input);
+      return group;
     }
     
     // Handle image upload

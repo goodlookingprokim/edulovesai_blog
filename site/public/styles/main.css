@@ -1,17 +1,25 @@
 /**
- * AI & Development Journal - Neo Brutalism Theme
+ * AI & Development Journal - Neo Brutalism Theme v2.0
  * Bold, playful, high-contrast design with hard shadows
+ *
+ * Performance optimizations based on Vercel React Best Practices:
+ * - CSS content-visibility for long lists
+ * - Hardware-accelerated animations (transform, opacity)
+ * - Reduced motion support
+ * - Focus-visible for better accessibility
  */
 
 /* ================================
-   CSS Variables / Neo Brutalism Tokens
+   CSS Variables / Design Tokens
    ================================ */
 
 :root {
-  /* Core Colors - Neo Brutalism Palette */
+  /* ===== Core Colors - Neo Brutalism Palette ===== */
   --nb-black: #000000;
   --nb-white: #ffffff;
   --nb-cream: #fffef0;
+
+  /* Primary Accent Colors */
   --nb-yellow: #ffde59;
   --nb-pink: #ff90e8;
   --nb-blue: #90e0ff;
@@ -20,45 +28,49 @@
   --nb-purple: #c4b5fd;
   --nb-red: #ff6b6b;
 
-  /* Background Colors */
+  /* ===== Semantic Background Colors ===== */
   --color-bg: var(--nb-cream);
   --color-bg-alt: #fff9e6;
-  --color-bg-secondary: var(--nb-white);
+  --color-bg-elevated: var(--nb-white);
   --color-bg-dark: var(--nb-black);
 
-  /* Text Colors */
+  /* ===== Semantic Text Colors ===== */
   --color-text: var(--nb-black);
   --color-text-secondary: #374151;
   --color-text-muted: #6b7280;
   --color-text-light: var(--nb-white);
 
-  /* Borders - Neo Brutalism Core */
+  /* ===== Borders - Neo Brutalism Core ===== */
   --border-thin: 2px solid var(--nb-black);
   --border-thick: 3px solid var(--nb-black);
   --border-heavy: 4px solid var(--nb-black);
+  --border-dashed: 2px dashed var(--nb-black);
 
-  /* Hard Shadows - No Blur! */
+  /* ===== Hard Shadows - No Blur! ===== */
+  --shadow-xs: 2px 2px 0 var(--nb-black);
   --shadow-sm: 3px 3px 0 var(--nb-black);
   --shadow-md: 5px 5px 0 var(--nb-black);
   --shadow-lg: 8px 8px 0 var(--nb-black);
-  --shadow-hover: 2px 2px 0 var(--nb-black);
+  --shadow-xl: 12px 12px 0 var(--nb-black);
 
-  /* Category Colors */
-  --color-ai-tools: var(--nb-yellow);
-  --color-claude-code: var(--nb-orange);
-  --color-mcp: var(--nb-blue);
-  --color-development: var(--nb-green);
-  --color-tutorials: var(--nb-pink);
-  --color-obsidian: var(--nb-purple);
+  /* ===== Hover Effects ===== */
+  --hover-lift: translate(-4px, -4px);
+  --hover-lift-sm: translate(-2px, -2px);
 
-  /* Typography - Bold & Clear */
+  /* ===== Category Colors ===== */
+  --cat-ai-tools: var(--nb-yellow);
+  --cat-claude-code: var(--nb-orange);
+  --cat-mcp: var(--nb-blue);
+  --cat-development: var(--nb-green);
+  --cat-tutorials: var(--nb-pink);
+  --cat-obsidian: var(--nb-purple);
+
+  /* ===== Typography - Bold & Clear ===== */
   --font-display: 'Space Grotesk', 'Pretendard', -apple-system, system-ui, sans-serif;
   --font-body: 'Inter', 'Pretendard', -apple-system, system-ui, sans-serif;
   --font-code: 'JetBrains Mono', 'Fira Code', 'Monaco', monospace;
-  --font-heading: var(--font-display);
-  --font-sans: var(--font-body);
 
-  /* Font Sizes */
+  /* ===== Type Scale (1.25 ratio) ===== */
   --text-xs: 0.75rem;
   --text-sm: 0.875rem;
   --text-base: 1rem;
@@ -70,7 +82,15 @@
   --text-5xl: 3rem;
   --text-6xl: 3.75rem;
 
-  /* Spacing */
+  /* ===== Font Weights ===== */
+  --font-normal: 400;
+  --font-medium: 500;
+  --font-semibold: 600;
+  --font-bold: 700;
+  --font-extrabold: 800;
+  --font-black: 900;
+
+  /* ===== Spacing (4px base) ===== */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -82,18 +102,20 @@
   --space-12: 3rem;
   --space-16: 4rem;
   --space-20: 5rem;
+  --space-24: 6rem;
 
-  /* Border Radius - Minimal for brutalism */
+  /* ===== Border Radius - Minimal for brutalism ===== */
+  --radius-none: 0;
   --radius-sm: 4px;
   --radius-md: 8px;
-  --radius-lg: 0;
   --radius-full: 9999px;
 
-  /* Transitions */
+  /* ===== Transitions ===== */
   --transition-fast: 100ms ease;
   --transition-base: 150ms ease;
+  --transition-slow: 300ms ease;
 
-  /* Container */
+  /* ===== Container Widths ===== */
   --container-max: 1200px;
   --container-narrow: 720px;
 }
@@ -1516,3 +1538,250 @@ p {
   white-space: nowrap;
   border: 0;
 }
+
+/* ================================
+   Performance Optimizations
+   (Vercel React Best Practices)
+   ================================ */
+
+/**
+ * content-visibility: auto - Defers rendering of off-screen elements
+ * contain-intrinsic-size - Estimated size for layout calculations
+ * Reference: rendering-content-visibility rule
+ */
+
+/* Article cards in grids - defer off-screen rendering */
+.article-card {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 420px;
+}
+
+/* Sidebar posts - compact, many items */
+.sidebar-post {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 88px;
+}
+
+/* Category links in grid */
+.category-link {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 100px;
+}
+
+/* ================================
+   Accessibility Enhancements
+   ================================ */
+
+/**
+ * Focus-visible: Better keyboard navigation
+ * Only show focus ring for keyboard users, not mouse
+ */
+:focus {
+  outline: none;
+}
+
+:focus-visible {
+  outline: 3px solid var(--nb-black);
+  outline-offset: 2px;
+}
+
+/* Custom focus for buttons */
+.btn:focus-visible,
+.share-btn:focus-visible,
+.newsletter-form button:focus-visible {
+  outline-color: var(--nb-orange);
+  background: var(--nb-yellow);
+}
+
+/* Custom focus for links */
+a:focus-visible {
+  outline-color: var(--nb-orange);
+  background: var(--nb-yellow);
+}
+
+/* Custom focus for form inputs */
+.input:focus-visible,
+.newsletter-form input:focus-visible {
+  outline: 3px solid var(--nb-orange);
+  outline-offset: 0;
+}
+
+/**
+ * Reduced motion: Respect user preferences
+ * Reference: WCAG 2.1 Success Criterion 2.3.3
+ */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .article-card:hover,
+  .category-link:hover,
+  .btn:hover,
+  .tag:hover,
+  .author-bio__card:hover,
+  .sidebar-post:hover {
+    transform: none !important;
+  }
+}
+
+/* ================================
+   Animation Utilities
+   ================================ */
+
+/* Fade in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-slow) ease-out;
+}
+
+/* Slide up animation */
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp var(--transition-slow) ease-out;
+}
+
+/* Skeleton loading pulse */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--color-bg) 0%,
+    var(--nb-white) 50%,
+    var(--color-bg) 100%
+  );
+  background-size: 200% 100%;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ================================
+   Premium Button Variants
+   ================================ */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-5);
+  font-family: var(--font-display);
+  font-weight: var(--font-bold);
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  border: var(--border-thick);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  background: var(--nb-white);
+  color: var(--color-text);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn:hover {
+  transform: var(--hover-lift-sm);
+  box-shadow: var(--shadow-md);
+}
+
+.btn:active {
+  transform: translate(0, 0);
+  box-shadow: none;
+}
+
+.btn--primary {
+  background: var(--nb-yellow);
+}
+
+.btn--secondary {
+  background: var(--nb-pink);
+}
+
+.btn--cta {
+  background: var(--nb-orange);
+  box-shadow: var(--shadow-md);
+}
+
+.btn--cta:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.btn--sm {
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-xs);
+}
+
+.btn--lg {
+  padding: var(--space-4) var(--space-8);
+  font-size: var(--text-base);
+  box-shadow: var(--shadow-md);
+}
+
+/* ================================
+   Premium Badge Variants
+   ================================ */
+
+.badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: var(--font-bold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: var(--border-thin);
+  background: var(--nb-yellow);
+  color: var(--color-text);
+}
+
+.badge--ai-tools { background: var(--cat-ai-tools); }
+.badge--claude-code { background: var(--cat-claude-code); }
+.badge--mcp { background: var(--cat-mcp); }
+.badge--development { background: var(--cat-development); }
+.badge--tutorials { background: var(--cat-tutorials); }
+.badge--obsidian { background: var(--cat-obsidian); }
+
+/* ================================
+   Dark Mode Support (Future)
+   ================================ */
+
+/*
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-bg: #1a1a1a;
+    --color-bg-elevated: #2d2d2d;
+    --color-text: var(--nb-white);
+    --color-text-secondary: #d1d5db;
+    --shadow-md: 5px 5px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+*/

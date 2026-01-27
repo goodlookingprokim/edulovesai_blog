@@ -416,6 +416,25 @@
   <div class="save-indicator" id="saveIndicator">Changes saved!</div>
   
   <script>
+    // Security: HTML escape function to prevent XSS
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      const div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    // Security: Escape HTML attributes (for use in attributes)
+    function escapeAttr(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
     // Category colors
     const categoryColors = {
       development: '#6366f1',
@@ -473,58 +492,120 @@
       const tbody = document.getElementById('articlesBody');
       
       if (filtered.length === 0) {
-        tbody.innerHTML = `
-          <tr>
-            <td colspan="8">
-              <div class="empty-state">
-                <h3>No articles found</h3>
-                <p>Try adjusting your filters</p>
-              </div>
-            </td>
-          </tr>
-        `;
+        // Build empty state safely using DOM methods
+        tbody.innerHTML = '';
+        const emptyRow = document.createElement('tr');
+        const emptyCell = document.createElement('td');
+        emptyCell.setAttribute('colspan', '8');
+        const emptyDiv = document.createElement('div');
+        emptyDiv.className = 'empty-state';
+        const h3 = document.createElement('h3');
+        h3.textContent = 'No articles found';
+        const p = document.createElement('p');
+        p.textContent = 'Try adjusting your filters';
+        emptyDiv.appendChild(h3);
+        emptyDiv.appendChild(p);
+        emptyCell.appendChild(emptyDiv);
+        emptyRow.appendChild(emptyCell);
+        tbody.appendChild(emptyRow);
         return;
       }
       
-      tbody.innerHTML = filtered.map((article, index) => `
-        <tr data-slug="${article.slug}">
-          <td>
-            <a href="/articles/${article.slug}.html" class="article-title" target="_blank">
-              ${article.title}
-            </a>
-            <div class="article-meta">${article.slug}</div>
-          </td>
-          <td>
-            <span class="category-badge" style="background: ${categoryColors[article.category]}">
-              ${article.category}
-            </span>
-          </td>
-          <td>${article.journalist}</td>
-          <td>
-            <span class="status-badge ${article.status}">${article.status}</span>
-          </td>
-          <td>
-            <label class="toggle-switch">
-              <input type="checkbox" ${article.featured ? 'checked' : ''} 
-                     onchange="toggleFeatured('${article.slug}', this.checked)">
-              <span class="slider"></span>
-            </label>
-          </td>
-          <td>
-            <input type="number" class="priority-input" value="${article.priority}" min="1" max="10"
-                   onchange="updatePriority('${article.slug}', this.value)">
-          </td>
-          <td>${article.date}</td>
-          <td class="actions-cell">
-            <button class="btn btn-secondary btn-sm" onclick="toggleStatus('${article.slug}')">
-              ${article.status === 'published' ? 'Unpublish' : 'Publish'}
-            </button>
-            <button class="btn btn-secondary btn-sm" onclick="previewArticle('${article.slug}')">
-              Preview
-            </button>
-          </td>
-        </tr>
-      `).join('');
+      // Clear existing content
+      tbody.innerHTML = '';
+
+      // Build rows safely using DOM methods
+      filtered.forEach((article) => {
+        const tr = document.createElement('tr');
+        tr.dataset.slug = article.slug;
+
+        // Title cell
+        const tdTitle = document.createElement('td');
+        const titleLink = document.createElement('a');
+        titleLink.href = `/articles/${encodeURIComponent(article.slug)}.html`;
+        titleLink.className = 'article-title';
+        titleLink.target = '_blank';
+        titleLink.textContent = article.title;
+        const metaDiv = document.createElement('div');
+        metaDiv.className = 'article-meta';
+        metaDiv.textContent = article.slug;
+        tdTitle.appendChild(titleLink);
+        tdTitle.appendChild(metaDiv);
+
+        // Category cell
+        const tdCategory = document.createElement('td');
+        const categorySpan = document.createElement('span');
+        categorySpan.className = 'category-badge';
+        categorySpan.style.background = categoryColors[article.category] || '#6366f1';
+        categorySpan.textContent = article.category;
+        tdCategory.appendChild(categorySpan);
+
+        // Journalist cell
+        const tdJournalist = document.createElement('td');
+        tdJournalist.textContent = article.journalist;
+
+        // Status cell
+        const tdStatus = document.createElement('td');
+        const statusSpan = document.createElement('span');
+        statusSpan.className = `status-badge ${article.status}`;
+        statusSpan.textContent = article.status;
+        tdStatus.appendChild(statusSpan);
+
+        // Featured toggle cell
+        const tdFeatured = document.createElement('td');
+        const toggleLabel = document.createElement('label');
+        toggleLabel.className = 'toggle-switch';
+        const checkbox = document.createElement('input');
+        checkbox.type = 'checkbox';
+        checkbox.checked = article.featured;
+        checkbox.addEventListener('change', () => toggleFeatured(article.slug, checkbox.checked));
+        const slider = document.createElement('span');
+        slider.className = 'slider';
+        toggleLabel.appendChild(checkbox);
+        toggleLabel.appendChild(slider);
+        tdFeatured.appendChild(toggleLabel);
+
+        // Priority cell
+        const tdPriority = document.createElement('td');
+        const priorityInput = document.createElement('input');
+        priorityInput.type = 'number';
+        priorityInput.className = 'priority-input';
+        priorityInput.value = article.priority;
+        priorityInput.min = '1';
+        priorityInput.max = '10';
+        priorityInput.addEventListener('change', () => updatePriority(article.slug, priorityInput.value));
+        tdPriority.appendChild(priorityInput);
+
+        // Date cell
+        const tdDate = document.createElement('td');
+        tdDate.textContent = article.date;
+
+        // Actions cell
+        const tdActions = document.createElement('td');
+        tdActions.className = 'actions-cell';
+        const toggleBtn = document.createElement('button');
+        toggleBtn.className = 'btn btn-secondary btn-sm';
+        toggleBtn.textContent = article.status === 'published' ? 'Unpublish' : 'Publish';
+        toggleBtn.addEventListener('click', () => toggleStatus(article.slug));
+        const previewBtn = document.createElement('button');
+        previewBtn.className = 'btn btn-secondary btn-sm';
+        previewBtn.textContent = 'Preview';
+        previewBtn.addEventListener('click', () => previewArticle(article.slug));
+        tdActions.appendChild(toggleBtn);
+        tdActions.appendChild(previewBtn);
+
+        // Append all cells to row
+        tr.appendChild(tdTitle);
+        tr.appendChild(tdCategory);
+        tr.appendChild(tdJournalist);
+        tr.appendChild(tdStatus);
+        tr.appendChild(tdFeatured);
+        tr.appendChild(tdPriority);
+        tr.appendChild(tdDate);
+        tr.appendChild(tdActions);
+
+        tbody.appendChild(tr);
+      });
     }
     
     // Toggle featured status
