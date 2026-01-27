@@ -5,9 +5,19 @@
     <link>https://passeth.github.io/MY-BLOG_OBSI</link>
     <description>AI 도구와 개발 기술에 대한 심층 가이드</description>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 27 Jan 2026 12:30:12 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 27 Jan 2026 13:06:59 GMT</lastBuildDate>
     <atom:link href="https://passeth.github.io/MY-BLOG_OBSI/feed.xml" rel="self" type="application/rss+xml"/>
     
+    <item>
+      <title><![CDATA[초등교원을 위한 Obsidian의 쓸모 - 지현 선생님의 두 번째 뇌 이야기]]></title>
+      <link>https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-for-elementary-teachers.html</link>
+      <description><![CDATA[]]></description>
+      <pubDate>Tue, 27 Jan 2026 00:00:00 GMT</pubDate>
+      <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-for-elementary-teachers.html</guid>
+      <author>기술 분석가</author>
+      <category>AI 도구</category>
+    </item>
+  
     <item>
       <title><![CDATA[Claude Code 완벽 마스터 가이드]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-perfect-guide.html</link>
@@ -196,16 +206,6 @@
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/docling-ai-tools-perfect-guide-part-2-real-world.html</guid>
       <author>기술 분석가</author>
       <category>AI 도구</category>
-    </item>
-  
-    <item>
-      <title><![CDATA[ChatGPT 완벽 활용 가이드 - 초보자편]]></title>
-      <link>https://passeth.github.io/MY-BLOG_OBSI/articles/chatgpt-perfect-practical-guide-beginners.html</link>
-      <description><![CDATA["복잡한 AI 도구를 마치 친구와 대화하듯 쉽게 사용할 수 있다면?" 이 가이드는 개발 초보자들이 ChatGPT를 실전에서 효과적으로 활용할 수 있도록 파인만 기법과 스토리텔링으로 설명합니다. --- 1. #ChatGPT란 무엇인가 2. #왜 개발자에게 필요한가 3....]]></description>
-      <pubDate>Sun, 12 Oct 2025 00:00:00 GMT</pubDate>
-      <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/chatgpt-perfect-practical-guide-beginners.html</guid>
-      <author>기술 분석가</author>
-      <category>LLM 가이드</category>
     </item>
   
   </channel>

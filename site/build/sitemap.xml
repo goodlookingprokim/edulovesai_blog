@@ -7,6 +7,16 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/category/AI 도구.html</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/category/tutorials.html</loc>
+    <priority>0.8</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
     <loc>https://passeth.github.io/MY-BLOG_OBSI/journalist/agent-architect.html</loc>
     <priority>0.7</priority>
     <changefreq>weekly</changefreq>
@@ -29,6 +39,11 @@
   <url>
     <loc>https://passeth.github.io/MY-BLOG_OBSI/journalist/policy-analyst.html</loc>
     <priority>0.7</priority>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-for-elementary-teachers.html</loc>
+    <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
