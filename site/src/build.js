@@ -32,6 +32,9 @@ const tocGenerator = require('./preprocessors/toc-generator');
 const performanceOptimizer = require('./postprocessors/performance');
 const imageOptimizer = require('./postprocessors/image-optimizer');
 
+// Validators
+const postBuildValidator = require('./validators/post-build-validator');
+
 /**
  * Security: Escape HTML special characters to prevent XSS
  * @param {string} str - String to escape
@@ -862,6 +865,11 @@ async function build() {
   const articles = getArticles();
   console.log(`Found ${articles.length} published articles\n`);
 
+  // Add imagePath to each article for validation
+  articles.forEach(article => {
+    article.imagePath = getImagePath(article);
+  });
+
   // Build all pages
   buildHomepage(articles);
   buildArticlePages(articles);
@@ -873,7 +881,18 @@ async function build() {
   copyPublicAssets();
 
   const buildTime = Date.now() - startTime;
-  console.log(`\n>> Build complete in ${buildTime}ms\n`);
+  console.log(`\n>> Build complete in ${buildTime}ms`);
+
+  // Post-build validation
+  const validationResult = postBuildValidator.validate(articles, CONFIG, {
+    personas: PERSONAS,
+    validateLinks: true
+  });
+
+  // Exit with error code if validation failed
+  if (!validationResult.passed) {
+    console.log('\n⚠️  Build completed with validation errors\n');
+  }
 }
 
 // Run build
