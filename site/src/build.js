@@ -430,20 +430,34 @@ function renderTemplate(templateName, data) {
  * Get image path - prioritizes first image in content body
  */
 function getImagePath(article) {
+  // Remove code blocks and commented image lines to find actual display images
+  let cleanContent = article.rawContent || '';
+
+  // Remove fenced code blocks (```...```)
+  cleanContent = cleanContent.replace(/```[\s\S]*?```/g, '');
+
+  // Remove indented code blocks (4+ spaces at line start)
+  cleanContent = cleanContent.replace(/^(?:    |\t).*$/gm, '');
+
+  // Filter out commented lines (lines starting with # followed by space and image)
+  cleanContent = cleanContent.split('\n')
+    .filter(line => !line.match(/^#\s+!\[/))
+    .join('\n');
+
   // 1. Obsidian format
-  const obsidianImageMatch = article.rawContent?.match(/!\[\[@?(?:[^\]]*\/)?([^\]\/]+\.(jpg|jpeg|png|gif|webp))\]\]/i);
+  const obsidianImageMatch = cleanContent.match(/!\[\[@?(?:[^\]]*\/)?([^\]\/]+\.(jpg|jpeg|png|gif|webp))\]\]/i);
   if (obsidianImageMatch) {
     return `/assets/images/${obsidianImageMatch[1]}`;
   }
 
   // 2. Standard markdown format
-  const markdownImageMatch = article.rawContent?.match(/!\[.*?\]\((?:.*\/)?([^\/\)]+\.(jpg|jpeg|png|gif|webp))\)/i);
+  const markdownImageMatch = cleanContent.match(/!\[.*?\]\((?:.*\/)?([^\/\)]+\.(jpg|jpeg|png|gif|webp))\)/i);
   if (markdownImageMatch) {
     return `/assets/images/${markdownImageMatch[1]}`;
   }
 
   // 3. HTML img tag
-  const htmlImageMatch = article.rawContent?.match(/<img[^>]+src=["'](?:\/assets\/images\/)?([^"'\/]+\.(jpg|jpeg|png|gif|webp))["']/i);
+  const htmlImageMatch = cleanContent.match(/<img[^>]+src=["'](?:\/assets\/images\/)?([^"'\/]+\.(jpg|jpeg|png|gif|webp))["']/i);
   if (htmlImageMatch) {
     return `/assets/images/${htmlImageMatch[1]}`;
   }
