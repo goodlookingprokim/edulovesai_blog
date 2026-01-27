@@ -154,7 +154,9 @@ server.listen(PORT, () => {
 const watchDirs = [
   path.join(__dirname, '../../content'),
   path.join(__dirname, 'pages'),
-  path.join(__dirname, '../public')
+  path.join(__dirname, '../public'),
+  // Obsidian vault (READ-ONLY - only watch for changes)
+  '/Users/jmacpro/Documents/Obsidian Vault/R - Resources/AI 및 개발'
 ];
 
 let rebuildTimeout = null;

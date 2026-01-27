@@ -219,9 +219,54 @@
   }
 
   // Console message
-  console.log('%cAI Cosmetics Innovation Journal', 
+  console.log('%cAI & Development Journal',
     'font-size: 18px; font-weight: bold; color: #fff;');
-  console.log('%cPowered by AI-driven insights', 
+  console.log('%cPowered by Obsidian + AI',
     'font-size: 12px; color: #6b7280;');
 
 })();
+
+/**
+ * Copy code from code block
+ * Called by onclick in code block copy buttons
+ */
+function copyCode(codeId) {
+  const codeElement = document.getElementById(codeId);
+  if (!codeElement) return;
+
+  const text = codeElement.textContent;
+  navigator.clipboard.writeText(text).then(function() {
+    const btn = document.querySelector('[data-code-id="' + codeId + '"]');
+    if (btn) {
+      const originalHtml = btn.innerHTML;
+      btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg><span>Copied!</span>';
+      setTimeout(function() {
+        btn.innerHTML = originalHtml;
+      }, 2000);
+    }
+  }).catch(function(err) {
+    console.error('Failed to copy code:', err);
+  });
+}
+
+/**
+ * Toggle TOC visibility
+ * Called by onclick in TOC toggle buttons
+ */
+function toggleToc(button) {
+  const toc = button.closest('.toc');
+  if (!toc) return;
+
+  const list = toc.querySelector('.toc__list');
+  if (!list) return;
+
+  const isExpanded = button.getAttribute('aria-expanded') === 'true';
+
+  button.setAttribute('aria-expanded', !isExpanded);
+  list.style.display = isExpanded ? 'none' : 'block';
+
+  const svg = button.querySelector('svg');
+  if (svg) {
+    svg.style.transform = isExpanded ? 'rotate(-90deg)' : '';
+  }
+}

@@ -1,12 +1,36 @@
 /**
  * AI & Development Journal - Static Site Generator
  * Converts markdown content to static HTML website
+ *
+ * Features:
+ * - Obsidian vault integration (READ-ONLY)
+ * - Frontmatter transformation
+ * - Obsidian links, callouts, code blocks preprocessing
+ * - TOC generation
+ * - Performance optimizations
  */
 
 const fs = require('fs');
 const path = require('path');
 const { marked } = require('marked');
 const matter = require('gray-matter');
+
+// Utility modules
+const frontmatterTransformer = require('./utils/frontmatter-transformer');
+const categoryMapper = require('./utils/category-mapper');
+const slugGenerator = require('./utils/slug-generator');
+const readingTime = require('./utils/reading-time');
+const obsidianSync = require('./utils/obsidian-sync');
+
+// Preprocessors
+const obsidianLinks = require('./preprocessors/obsidian-links');
+const callouts = require('./preprocessors/callouts');
+const codeBlocks = require('./preprocessors/code-blocks');
+const tocGenerator = require('./preprocessors/toc-generator');
+
+// Postprocessors
+const performanceOptimizer = require('./postprocessors/performance');
+const imageOptimizer = require('./postprocessors/image-optimizer');
 
 /**
  * Security: Escape HTML special characters to prevent XSS
@@ -29,9 +53,11 @@ const CONFIG = {
   outputDir: path.join(__dirname, '../build'),
   templatesDir: path.join(__dirname, 'pages'),
   publicDir: path.join(__dirname, '../public'),
+  obsidianDir: obsidianSync.OBSIDIAN_SOURCE,
   siteUrl: process.env.SITE_URL || 'https://passeth.github.io/MY-BLOG_OBSI',
   siteName: 'AI & Development Journal',
-  categories: [] // Will be populated by scanCategories()
+  categories: [],
+  enableObsidianSync: true // Toggle Obsidian integration
 };
 
 /**
@@ -41,7 +67,7 @@ const CONFIG = {
 function scanCategories() {
   const contentDir = CONFIG.contentDir;
   if (!fs.existsSync(contentDir)) return [];
-  
+
   return fs.readdirSync(contentDir, { withFileTypes: true })
     .filter(dirent => dirent.isDirectory() && !dirent.name.startsWith('_'))
     .map(dirent => dirent.name);
@@ -50,7 +76,7 @@ function scanCategories() {
 // Initialize categories from folder scan
 CONFIG.categories = scanCategories();
 
-// Persona data (imported from PERSONAS.md)
+// Persona data
 const PERSONAS = {
   'tech-expert': {
     name: '기술 전문가',
@@ -72,17 +98,8 @@ const PERSONAS = {
   }
 };
 
-// Category metadata (known categories)
-const CATEGORIES = {
-  'ai-tools': { name: 'AI 도구', description: 'AI 도구 분석 및 활용법', color: '#6366f1' },
-  'claude-code': { name: 'Claude Code', description: 'Claude Code 가이드 및 팁', color: '#ff6b35' },
-  'mcp-servers': { name: 'MCP 서버', description: 'MCP 서버 설치 및 활용', color: '#10b981' },
-  'development-guides': { name: '개발 가이드', description: '개발 도구 및 환경 설정', color: '#f59e0b' },
-  'obsidian-integration': { name: 'Obsidian 통합', description: 'Obsidian AI 워크플로우', color: '#8b5cf6' },
-  'flutter': { name: 'Flutter', description: 'Flutter 앱 개발 가이드', color: '#02569B' },
-  'prompt-engineering': { name: '프롬프트 엔지니어링', description: '효과적인 프롬프트 작성법', color: '#ec4899' },
-  'tutorials': { name: '튜토리얼', description: '단계별 실습 가이드', color: '#14b8a6' }
-};
+// Category metadata
+const CATEGORIES = categoryMapper.getAllCategories();
 
 // Default colors for auto-discovered categories
 const DEFAULT_COLORS = ['#6366f1', '#ec4899', '#10b981', '#f59e0b', '#8b5cf6', '#ef4444', '#14b8a6', '#f97316'];
@@ -94,7 +111,6 @@ function getCategoryMeta(categorySlug) {
   if (CATEGORIES[categorySlug]) {
     return CATEGORIES[categorySlug];
   }
-  // Generate default metadata for new categories
   const colorIndex = CONFIG.categories.indexOf(categorySlug) % DEFAULT_COLORS.length;
   return {
     name: categorySlug.charAt(0).toUpperCase() + categorySlug.slice(1).replace(/-/g, ' '),
@@ -105,12 +121,9 @@ function getCategoryMeta(categorySlug) {
 
 /**
  * Convert Obsidian-style image links to HTML
- * ![[@ONGOING_NEW/MY-BLOG_OBSI/content/_assets/images/file.webp]] -> <img src="/assets/images/file.webp">
  */
 function convertObsidianImages(markdown) {
-  // Pattern: ![[path/to/image.ext]] - handles full Obsidian vault paths
   return markdown.replace(/!\[\[@?([^\]]+\.(jpg|jpeg|png|gif|webp|svg))\]\]/gi, (match, filepath) => {
-    // Extract just the filename from full path
     const filename = filepath.split('/').pop();
     const altText = filename.replace(/\.[^/.]+$/, '').replace(/[-_]/g, ' ');
     return `<img src="/assets/images/${filename}" alt="${altText}" class="article-image">`;
@@ -118,10 +131,70 @@ function convertObsidianImages(markdown) {
 }
 
 /**
+ * Apply preprocessing pipeline to markdown content
+ * @param {string} markdown - Raw markdown
+ * @param {Map} articleMap - Map of title -> slug for internal links
+ * @returns {object} { markdown, toc, headings }
+ */
+function preprocessContent(markdown, articleMap = new Map()) {
+  if (!markdown) return { markdown: '', toc: '', headings: [] };
+
+  let processed = markdown;
+
+  // 1. Convert Obsidian images
+  processed = convertObsidianImages(processed);
+
+  // 2. Process Obsidian wiki links
+  processed = obsidianLinks.process(processed, articleMap);
+
+  // 3. Process callouts
+  processed = callouts.process(processed);
+
+  // 4. Process code blocks (before marked.js)
+  processed = codeBlocks.process(processed);
+
+  // 5. Generate TOC
+  const tocResult = tocGenerator.generate(processed, {
+    minHeadings: 3,
+    maxDepth: 3,
+    title: '목차'
+  });
+
+  return {
+    markdown: tocResult.content,
+    toc: tocResult.toc,
+    headings: tocResult.headings || []
+  };
+}
+
+/**
+ * Apply postprocessing pipeline to HTML content
+ * @param {string} html - HTML content
+ * @param {Array} headings - Extracted headings for ID injection
+ * @returns {string} Optimized HTML
+ */
+function postprocessContent(html, headings = []) {
+  if (!html) return '';
+
+  let processed = html;
+
+  // 1. Add heading IDs for TOC anchors
+  processed = tocGenerator.addIdsToHtml(processed, headings);
+
+  // 2. Optimize images (lazy loading, fetchpriority)
+  processed = imageOptimizer.optimize(processed, {
+    aboveFoldCount: 3,
+    generateAlt: true
+  });
+
+  // 3. Apply performance optimizations
+  processed = performanceOptimizer.lazyLoadImages(processed, 3);
+
+  return processed;
+}
+
+/**
  * Validate article frontmatter has required fields
- * @param {object} frontmatter - Parsed frontmatter
- * @param {string} filePath - Path to the article file (for error messages)
- * @returns {boolean} True if valid, false otherwise
  */
 function validateFrontmatter(frontmatter, filePath) {
   const requiredFields = ['title', 'slug', 'date'];
@@ -136,10 +209,83 @@ function validateFrontmatter(frontmatter, filePath) {
 }
 
 /**
- * Read all markdown files from content directory
+ * Get articles from Obsidian vault
+ * READ-ONLY - never writes to Obsidian directory
  */
-function getArticles() {
+function getObsidianArticles() {
+  if (!CONFIG.enableObsidianSync || !obsidianSync.isAvailable()) {
+    console.log('Obsidian sync disabled or vault not available');
+    return [];
+  }
+
+  console.log(`\nSyncing from Obsidian: ${CONFIG.obsidianDir}`);
+  const obsidianFiles = obsidianSync.getAllArticles();
+  console.log(`Found ${obsidianFiles.length} Obsidian files`);
+
   const articles = [];
+
+  // Reset slug generator for fresh build
+  slugGenerator.reset();
+
+  // Build article map for internal links (first pass)
+  const articleMap = new Map();
+  for (const file of obsidianFiles) {
+    if (file.frontmatter?.title) {
+      const slug = slugGenerator.preview(file.frontmatter.title);
+      articleMap.set(file.frontmatter.title, slug);
+    }
+  }
+
+  // Process each file
+  for (const file of obsidianFiles) {
+    try {
+      // Transform frontmatter
+      const transformedFm = frontmatterTransformer.transform(
+        file.frontmatter,
+        file.markdown,
+        file.folderPath
+      );
+
+      // Skip drafts
+      if (transformedFm.status !== 'published') {
+        continue;
+      }
+
+      // Preprocess content
+      const preprocessed = preprocessContent(file.markdown, articleMap);
+
+      // Convert to HTML
+      const html = marked(preprocessed.markdown);
+
+      // Postprocess HTML
+      const finalHtml = postprocessContent(html, preprocessed.headings);
+
+      articles.push({
+        ...transformedFm,
+        content: finalHtml,
+        toc: preprocessed.toc,
+        markdown: preprocessed.markdown,
+        rawContent: file.markdown,
+        filePath: file.filePath,
+        persona: PERSONAS[transformedFm.journalist] || PERSONAS['tech-expert'],
+        source: 'obsidian'
+      });
+    } catch (err) {
+      console.error(`Error processing Obsidian file ${file.filePath}:`, err.message);
+    }
+  }
+
+  return articles;
+}
+
+/**
+ * Get articles from local content directory
+ */
+function getLocalArticles() {
+  const articles = [];
+
+  // Reset slug generator
+  slugGenerator.reset();
 
   for (const category of CONFIG.categories) {
     const categoryDir = path.join(CONFIG.contentDir, category);
@@ -168,22 +314,30 @@ function getArticles() {
         const content = fs.readFileSync(filePath, 'utf-8');
         const { data: frontmatter, content: markdown } = matter(content);
 
-        // Validate frontmatter
         if (!validateFrontmatter(frontmatter, filePath)) {
           continue;
         }
 
         if (frontmatter.status === 'published') {
-          // Convert Obsidian image links before markdown processing
-          const processedMarkdown = convertObsidianImages(markdown);
+          // Preprocess content
+          const preprocessed = preprocessContent(markdown);
+
+          // Convert to HTML
+          const html = marked(preprocessed.markdown);
+
+          // Postprocess HTML
+          const finalHtml = postprocessContent(html, preprocessed.headings);
+
           articles.push({
             ...frontmatter,
-            content: marked(processedMarkdown),
-            markdown: processedMarkdown,
-            rawContent: markdown,  // Original markdown for image detection
+            content: finalHtml,
+            toc: preprocessed.toc,
+            markdown: preprocessed.markdown,
+            rawContent: markdown,
             filePath,
             category,
-            persona: PERSONAS[frontmatter.journalist] || PERSONAS['tech-expert']
+            persona: PERSONAS[frontmatter.journalist] || PERSONAS['tech-expert'],
+            source: 'local'
           });
         }
       } catch (err) {
@@ -192,8 +346,29 @@ function getArticles() {
     }
   }
 
+  return articles;
+}
+
+/**
+ * Read all articles from both sources
+ */
+function getArticles() {
+  // Get articles from Obsidian (priority)
+  const obsidianArticles = getObsidianArticles();
+
+  // Get articles from local content
+  const localArticles = getLocalArticles();
+
+  // Combine (Obsidian articles take priority for duplicates)
+  const slugSet = new Set(obsidianArticles.map(a => a.slug));
+  const uniqueLocalArticles = localArticles.filter(a => !slugSet.has(a.slug));
+
+  const allArticles = [...obsidianArticles, ...uniqueLocalArticles];
+
+  console.log(`Total: ${allArticles.length} articles (${obsidianArticles.length} from Obsidian, ${uniqueLocalArticles.length} from local)`);
+
   // Sort by date (newest first), then by priority
-  articles.sort((articleA, articleB) => {
+  allArticles.sort((articleA, articleB) => {
     if (articleA.featured && !articleB.featured) return -1;
     if (!articleA.featured && articleB.featured) return 1;
     if (articleA.homepage_priority !== articleB.homepage_priority) {
@@ -202,24 +377,17 @@ function getArticles() {
     return new Date(articleB.date) - new Date(articleA.date);
   });
 
-  return articles;
+  return allArticles;
 }
 
-// Template variables that contain pre-rendered safe HTML and should NOT be escaped
+// Template variables that contain pre-rendered safe HTML
 const SAFE_TEMPLATE_VARS = new Set([
-  'content',       // Pre-rendered markdown HTML
-  'featured',      // Pre-rendered article cards HTML
-  'articles',      // Pre-rendered article cards HTML
-  'categories',    // Pre-rendered category links HTML
-  'tags',          // Pre-rendered tag links HTML
-  'related',       // Pre-rendered related articles HTML
-  'recentPosts'    // Pre-rendered recent posts HTML
+  'content', 'featured', 'articles', 'categories', 'tags',
+  'related', 'recentPosts', 'toc'
 ]);
 
 /**
  * Generate HTML from template
- * Variables in SAFE_TEMPLATE_VARS are rendered as-is (they contain pre-built HTML)
- * All other variables are HTML-escaped to prevent XSS
  */
 function renderTemplate(templateName, data) {
   const templatePath = path.join(CONFIG.templatesDir, `${templateName}.html`);
@@ -231,10 +399,8 @@ function renderTemplate(templateName, data) {
 
   let html = fs.readFileSync(templatePath, 'utf-8');
 
-  // Template variable replacement with XSS protection
   for (const [key, value] of Object.entries(data)) {
     const regex = new RegExp(`{{\\s*${key}\\s*}}`, 'g');
-    // Safe variables (pre-rendered HTML) are not escaped; others are escaped
     const safeValue = SAFE_TEMPLATE_VARS.has(key) ? (value || '') : escapeHtml(value);
     html = html.replace(regex, safeValue);
   }
@@ -243,39 +409,36 @@ function renderTemplate(templateName, data) {
 }
 
 /**
- * Get image path - prioritizes first image in content body, then featured_image from YAML
+ * Get image path - prioritizes first image in content body
  */
 function getImagePath(article) {
-  // 1. Find first image in article content (Obsidian format - with or without path)
-  // Matches: ![[image.jpg]] or ![[path/to/image.jpg]] or ![[@vault/path/image.jpg]]
+  // 1. Obsidian format
   const obsidianImageMatch = article.rawContent?.match(/!\[\[@?(?:[^\]]*\/)?([^\]\/]+\.(jpg|jpeg|png|gif|webp))\]\]/i);
   if (obsidianImageMatch) {
     return `/assets/images/${obsidianImageMatch[1]}`;
   }
 
-  // 2. Find first image in article content (standard markdown format - with or without path)
-  // Matches: ![alt](image.jpg) or ![alt](path/to/image.jpg)
+  // 2. Standard markdown format
   const markdownImageMatch = article.rawContent?.match(/!\[.*?\]\((?:.*\/)?([^\/\)]+\.(jpg|jpeg|png|gif|webp))\)/i);
   if (markdownImageMatch) {
     return `/assets/images/${markdownImageMatch[1]}`;
   }
 
-  // 3. Find first HTML img tag (for converted images)
+  // 3. HTML img tag
   const htmlImageMatch = article.rawContent?.match(/<img[^>]+src=["'](?:\/assets\/images\/)?([^"'\/]+\.(jpg|jpeg|png|gif|webp))["']/i);
   if (htmlImageMatch) {
     return `/assets/images/${htmlImageMatch[1]}`;
   }
 
-  // 4. Fallback to featured_image from YAML if exists
+  // 4. Featured image from YAML
   if (article.featured_image) {
-    // If it's just a filename, add the path
     if (!article.featured_image.startsWith('/') && !article.featured_image.startsWith('http')) {
       return `/assets/images/${article.featured_image}`;
     }
     return article.featured_image;
   }
 
-  // 5. Final fallback to category-specific placeholder SVG
+  // 5. Fallback placeholder
   return `/assets/images/${article.category}-placeholder.svg`;
 }
 
@@ -286,7 +449,6 @@ function generateArticleCard(article, size = 'normal') {
   const categoryData = getCategoryMeta(article.category);
   const imagePath = getImagePath(article);
 
-  // Check if article has video_url for video embed
   let mediaHtml;
   if (article.video_url) {
     mediaHtml = `
@@ -339,21 +501,20 @@ function generateArticleCard(article, size = 'normal') {
 function buildHomepage(articles) {
   const featuredArticles = articles.filter(a => a.featured).slice(0, 3);
   const recentArticles = articles.slice(0, 12);
-  
-  const featuredHtml = featuredArticles.map((a, i) => 
+
+  const featuredHtml = featuredArticles.map((a, i) =>
     generateArticleCard(a, i === 0 ? 'featured' : 'normal')
   ).join('');
-  
+
   const articlesHtml = recentArticles.map(a => generateArticleCard(a)).join('');
-  
-  // Build category links
+
   const categoryLinksHtml = Object.entries(CATEGORIES).map(([key, cat]) => `
     <a href="/category/${key}.html" class="category-link" style="--cat-color: ${cat.color}">
       <span class="category-link__name">${cat.name}</span>
       <span class="category-link__count">${articles.filter(a => a.category === key).length} articles</span>
     </a>
   `).join('');
-  
+
   const html = renderTemplate('index', {
     siteName: CONFIG.siteName,
     featured: featuredHtml,
@@ -377,8 +538,7 @@ function buildHomepage(articles) {
 function buildArticlePages(articles) {
   const articlesDir = path.join(CONFIG.outputDir, 'articles');
   fs.mkdirSync(articlesDir, { recursive: true });
-  
-  // Generate recent posts for sidebar (excluding current article)
+
   const generateRecentPosts = (currentSlug) => {
     return articles
       .filter(a => a.slug !== currentSlug)
@@ -395,29 +555,27 @@ function buildArticlePages(articles) {
         </a>
       `).join('');
   };
-  
+
   for (const article of articles) {
     const categoryData = getCategoryMeta(article.category);
-    
-    // Get related articles (same category, different article)
+
     const related = articles
       .filter(a => a.category === article.category && a.slug !== article.slug)
       .slice(0, 3)
       .map(a => generateArticleCard(a, 'small'))
       .join('');
-    
-    // Tags HTML
-    const tagsHtml = (article.tags || []).map(tag => 
+
+    const tagsHtml = (article.tags || []).map(tag =>
       `<a href="/tag/${tag}.html" class="article-tag">${tag}</a>`
     ).join('');
-    
-    // Recent posts for sidebar
+
     const recentPostsHtml = generateRecentPosts(article.slug);
-    
+
     const html = renderTemplate('article', {
       siteName: CONFIG.siteName,
       title: article.title,
       content: article.content,
+      toc: article.toc || '',
       featured_image: getImagePath(article),
       category: categoryData.name,
       categorySlug: article.category,
@@ -438,7 +596,7 @@ function buildArticlePages(articles) {
       url: `${CONFIG.siteUrl}/articles/${article.slug}.html`,
       year: new Date().getFullYear()
     });
-    
+
     const outputPath = path.join(articlesDir, `${article.slug}.html`);
     try {
       fs.writeFileSync(outputPath, html);
@@ -455,11 +613,11 @@ function buildArticlePages(articles) {
 function buildCategoryPages(articles) {
   const categoryDir = path.join(CONFIG.outputDir, 'category');
   fs.mkdirSync(categoryDir, { recursive: true });
-  
+
   for (const [slug, category] of Object.entries(CATEGORIES)) {
     const categoryArticles = articles.filter(a => a.category === slug);
     const articlesHtml = categoryArticles.map(a => generateArticleCard(a)).join('');
-    
+
     const html = renderTemplate('category', {
       siteName: CONFIG.siteName,
       categoryName: category.name,
@@ -470,7 +628,7 @@ function buildCategoryPages(articles) {
       articles: articlesHtml,
       year: new Date().getFullYear()
     });
-    
+
     const outputPath = path.join(categoryDir, `${slug}.html`);
     fs.writeFileSync(outputPath, html);
     console.log(`Built: category/${slug}.html`);
@@ -483,11 +641,11 @@ function buildCategoryPages(articles) {
 function buildJournalistPages(articles) {
   const journalistDir = path.join(CONFIG.outputDir, 'journalist');
   fs.mkdirSync(journalistDir, { recursive: true });
-  
+
   for (const [slug, persona] of Object.entries(PERSONAS)) {
     const journalistArticles = articles.filter(a => a.journalist === slug);
     const articlesHtml = journalistArticles.map(a => generateArticleCard(a)).join('');
-    
+
     const html = renderTemplate('journalist', {
       siteName: CONFIG.siteName,
       journalistName: persona.name,
@@ -499,7 +657,7 @@ function buildJournalistPages(articles) {
       articles: articlesHtml,
       year: new Date().getFullYear()
     });
-    
+
     const outputPath = path.join(journalistDir, `${slug}.html`);
     fs.writeFileSync(outputPath, html);
     console.log(`Built: journalist/${slug}.html`);
@@ -512,8 +670,7 @@ function buildJournalistPages(articles) {
 function buildTagPages(articles) {
   const tagDir = path.join(CONFIG.outputDir, 'tag');
   fs.mkdirSync(tagDir, { recursive: true });
-  
-  // Collect all unique tags
+
   const tagMap = new Map();
   for (const article of articles) {
     for (const tag of (article.tags || [])) {
@@ -523,11 +680,10 @@ function buildTagPages(articles) {
       tagMap.get(tag).push(article);
     }
   }
-  
-  // Build page for each tag
+
   for (const [tag, tagArticles] of tagMap) {
     const articlesHtml = tagArticles.map(a => generateArticleCard(a)).join('');
-    
+
     const html = renderTemplate('tag', {
       siteName: CONFIG.siteName,
       tagName: tag,
@@ -535,7 +691,7 @@ function buildTagPages(articles) {
       articles: articlesHtml,
       year: new Date().getFullYear()
     });
-    
+
     const outputPath = path.join(tagDir, `${tag}.html`);
     fs.writeFileSync(outputPath, html);
     console.log(`Built: tag/${tag}.html`);
@@ -557,7 +713,7 @@ function buildRssFeed(articles) {
       <category>${getCategoryMeta(article.category).name}</category>
     </item>
   `).join('');
-  
+
   const rss = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
@@ -570,7 +726,7 @@ function buildRssFeed(articles) {
     ${items}
   </channel>
 </rss>`;
-  
+
   fs.writeFileSync(path.join(CONFIG.outputDir, 'feed.xml'), rss);
   console.log('Built: feed.xml');
 }
@@ -585,19 +741,19 @@ function buildSitemap(articles) {
     ...Object.keys(PERSONAS).map(p => ({ url: `/journalist/${p}.html`, priority: '0.7' })),
     ...articles.map(a => ({ url: `/articles/${a.slug}.html`, priority: '0.9' }))
   ];
-  
+
   const urls = pages.map(page => `
   <url>
     <loc>${CONFIG.siteUrl}${page.url}</loc>
     <priority>${page.priority}</priority>
     <changefreq>weekly</changefreq>
   </url>`).join('');
-  
+
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 ${urls}
 </urlset>`;
-  
+
   fs.writeFileSync(path.join(CONFIG.outputDir, 'sitemap.xml'), sitemap);
   console.log('Built: sitemap.xml');
 }
@@ -610,8 +766,7 @@ function copyPublicAssets() {
     copyDir(CONFIG.publicDir, CONFIG.outputDir);
     console.log('Copied: public assets');
   }
-  
-  // Copy content assets
+
   const assetsDir = path.join(CONFIG.contentDir, '_assets');
   if (fs.existsSync(assetsDir)) {
     const destAssetsDir = path.join(CONFIG.outputDir, 'assets');
@@ -621,7 +776,7 @@ function copyPublicAssets() {
 }
 
 /**
- * Utility: Copy directory recursively with error handling
+ * Utility: Copy directory recursively
  */
 function copyDir(src, dest) {
   try {
@@ -665,16 +820,16 @@ function formatDate(dateStr) {
  */
 async function build() {
   console.log('\n>> Building AI & Development Journal...\n');
-  
+
   const startTime = Date.now();
-  
-  // Create output directory (don't delete to avoid Dropbox lock issues)
+
+  // Create output directory
   fs.mkdirSync(CONFIG.outputDir, { recursive: true });
-  
-  // Get all articles
+
+  // Get all articles (from Obsidian + local)
   const articles = getArticles();
   console.log(`Found ${articles.length} published articles\n`);
-  
+
   // Build all pages
   buildHomepage(articles);
   buildArticlePages(articles);
@@ -684,7 +839,7 @@ async function build() {
   buildRssFeed(articles);
   buildSitemap(articles);
   copyPublicAssets();
-  
+
   const buildTime = Date.now() - startTime;
   console.log(`\n>> Build complete in ${buildTime}ms\n`);
 }
