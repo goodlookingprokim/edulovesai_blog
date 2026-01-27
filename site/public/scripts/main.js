@@ -224,6 +224,189 @@
   console.log('%cPowered by Obsidian + AI',
     'font-size: 12px; color: #6b7280;');
 
+  // ================================
+  // Search Functionality
+  // ================================
+
+  const searchContainer = document.querySelector('.search-container');
+  const searchToggle = document.querySelector('.search-toggle');
+  const searchDropdown = document.querySelector('.search-dropdown');
+  const searchInput = document.getElementById('search-input');
+  const searchResults = document.getElementById('search-results');
+
+  let searchIndex = null;
+  let searchTimeout = null;
+  let selectedIndex = -1;
+
+  // Toggle search dropdown
+  if (searchToggle && searchDropdown) {
+    searchToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      const isOpen = searchContainer.classList.toggle('active');
+      if (isOpen) {
+        searchInput.focus();
+        loadSearchIndex();
+      }
+    });
+  }
+
+  // Close search when clicking outside
+  document.addEventListener('click', function(e) {
+    if (searchContainer && !searchContainer.contains(e.target)) {
+      searchContainer.classList.remove('active');
+      clearSearchResults();
+    }
+  });
+
+  // Load search index (lazy load)
+  function loadSearchIndex() {
+    if (searchIndex) return Promise.resolve(searchIndex);
+
+    return fetch('/search-index.json')
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        searchIndex = data;
+        return data;
+      })
+      .catch(function(err) {
+        console.error('Failed to load search index:', err);
+        return null;
+      });
+  }
+
+  // Debounce search input
+  if (searchInput) {
+    searchInput.addEventListener('input', function() {
+      clearTimeout(searchTimeout);
+      const query = this.value.trim();
+
+      if (query.length < 2) {
+        clearSearchResults();
+        return;
+      }
+
+      searchTimeout = setTimeout(function() {
+        performSearch(query);
+      }, 150);
+    });
+
+    // Keyboard navigation
+    searchInput.addEventListener('keydown', function(e) {
+      const results = searchResults.querySelectorAll('.search-result-item');
+
+      if (e.key === 'ArrowDown') {
+        e.preventDefault();
+        selectedIndex = Math.min(selectedIndex + 1, results.length - 1);
+        updateSelectedResult(results);
+      } else if (e.key === 'ArrowUp') {
+        e.preventDefault();
+        selectedIndex = Math.max(selectedIndex - 1, -1);
+        updateSelectedResult(results);
+      } else if (e.key === 'Enter') {
+        e.preventDefault();
+        if (selectedIndex >= 0 && results[selectedIndex]) {
+          const link = results[selectedIndex].querySelector('a');
+          if (link) link.click();
+        }
+      } else if (e.key === 'Escape') {
+        searchContainer.classList.remove('active');
+        searchInput.blur();
+        clearSearchResults();
+      }
+    });
+  }
+
+  function updateSelectedResult(results) {
+    results.forEach(function(item, index) {
+      if (index === selectedIndex) {
+        item.classList.add('selected');
+        item.scrollIntoView({ block: 'nearest' });
+      } else {
+        item.classList.remove('selected');
+      }
+    });
+  }
+
+  function performSearch(query) {
+    loadSearchIndex().then(function(data) {
+      if (!data || !data.articles) return;
+
+      const normalizedQuery = query.toLowerCase();
+      const results = data.articles.filter(function(article) {
+        const title = (article.title || '').toLowerCase();
+        const excerpt = (article.excerpt || '').toLowerCase();
+        const category = (article.categoryName || '').toLowerCase();
+        const tags = (article.tags || []).join(' ').toLowerCase();
+        const author = (article.author || '').toLowerCase();
+
+        return title.includes(normalizedQuery) ||
+               excerpt.includes(normalizedQuery) ||
+               category.includes(normalizedQuery) ||
+               tags.includes(normalizedQuery) ||
+               author.includes(normalizedQuery);
+      });
+
+      displaySearchResults(results.slice(0, 8), query);
+    });
+  }
+
+  function displaySearchResults(results, query) {
+    selectedIndex = -1;
+
+    if (results.length === 0) {
+      searchResults.innerHTML = '<div class="search-no-results">검색 결과가 없습니다</div>';
+      return;
+    }
+
+    var html = results.map(function(article) {
+      var highlightedTitle = highlightMatch(article.title, query);
+      return '<div class="search-result-item">' +
+        '<a href="' + article.url + '">' +
+          '<div class="search-result-category" style="background-color: var(--nb-yellow)">' +
+            escapeHtml(article.categoryName) +
+          '</div>' +
+          '<div class="search-result-title">' + highlightedTitle + '</div>' +
+          '<div class="search-result-excerpt">' + escapeHtml(truncate(article.excerpt, 60)) + '</div>' +
+        '</a>' +
+      '</div>';
+    }).join('');
+
+    searchResults.innerHTML = html;
+  }
+
+  function highlightMatch(text, query) {
+    if (!text || !query) return escapeHtml(text || '');
+    var escaped = escapeHtml(text);
+    var regex = new RegExp('(' + escapeRegExp(query) + ')', 'gi');
+    return escaped.replace(regex, '<mark>$1</mark>');
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function escapeRegExp(str) {
+    return str.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  }
+
+  function truncate(str, maxLen) {
+    if (!str) return '';
+    if (str.length <= maxLen) return str;
+    return str.substring(0, maxLen) + '...';
+  }
+
+  function clearSearchResults() {
+    if (searchResults) {
+      searchResults.innerHTML = '';
+    }
+    selectedIndex = -1;
+  }
+
 })();
 
 /**

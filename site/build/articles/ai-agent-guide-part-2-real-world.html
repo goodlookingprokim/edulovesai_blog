@@ -38,6 +38,18 @@
         <a href="/category/claude-skills.html">Claude Skills</a>
         <a href="/category/claude-code.html">Claude Code</a>
       </nav>
+      <div class="search-container">
+        <button class="search-toggle" aria-label="검색 열기">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <div class="search-dropdown">
+          <input type="search" id="search-input" class="search-input" placeholder="검색어를 입력하세요..." autocomplete="off">
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
       <button class="menu-toggle" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -182,7 +194,7 @@
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219210-1563" onclick="copyCode('code-1769519219210-1563')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1563" onclick="copyCode('code-1769519842372-1563')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -190,7 +202,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219210-1563" class="language-plaintext">질문: &quot;AI 에이전트 시스템을 어떻게 설계해야 하나요?&quot;
+  <pre class="code-block__content"><code id="code-1769519842372-1563" class="language-plaintext">질문: &quot;AI 에이전트 시스템을 어떻게 설계해야 하나요?&quot;
 
 이것은 마치 이런 질문과 같습니다:
 &quot;집을 어떻게 지어야 하나요?&quot;
@@ -217,7 +229,7 @@ AI 에이전트도 마찬가지입니다!</code></pre>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219210-1564" onclick="copyCode('code-1769519219210-1564')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1564" onclick="copyCode('code-1769519842372-1564')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -225,7 +237,7 @@ AI 에이전트도 마찬가지입니다!</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219210-1564" class="language-plaintext">단일 에이전트 = &quot;전문 직원 한 명&quot;
+  <pre class="code-block__content"><code id="code-1769519842372-1564" class="language-plaintext">단일 에이전트 = &quot;전문 직원 한 명&quot;
 
 예시: 투자 리서치 도우미
 └─ 입력: &quot;삼성전자 분석해줘&quot;
@@ -243,7 +255,7 @@ AI 에이전트도 마찬가지입니다!</code></pre>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219210-1565" onclick="copyCode('code-1769519219210-1565')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1565" onclick="copyCode('code-1769519842372-1565')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -251,7 +263,7 @@ AI 에이전트도 마찬가지입니다!</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219210-1565" class="language-plaintext">┌─────────────────┐
+  <pre class="code-block__content"><code id="code-1769519842372-1565" class="language-plaintext">┌─────────────────┐
 │   사용자        │
 │  (웹/모바일)    │
 └────────┬────────┘
@@ -292,7 +304,7 @@ AI 에이전트도 마찬가지입니다!</code></pre>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219210-1566" onclick="copyCode('code-1769519219210-1566')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1566" onclick="copyCode('code-1769519842372-1566')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -300,7 +312,7 @@ AI 에이전트도 마찬가지입니다!</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219210-1566" class="language-python">from strands import Agent, Tool
+  <pre class="code-block__content"><code id="code-1769519842372-1566" class="language-python">from strands import Agent, Tool
 from anthropic import Bedrock
 import boto3
 
@@ -410,7 +422,7 @@ print(f&quot;분석 결과: {result[&#39;analysis&#39;]}&quot;)</code></pre>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219210-1567" onclick="copyCode('code-1769519219210-1567')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1567" onclick="copyCode('code-1769519842372-1567')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -418,7 +430,7 @@ print(f&quot;분석 결과: {result[&#39;analysis&#39;]}&quot;)</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219210-1567" class="language-python">from aws_cdk import (
+  <pre class="code-block__content"><code id="code-1769519842372-1567" class="language-python">from aws_cdk import (
     Stack,
     aws_lambda as lambda_,
     aws_apigateway as apigw,
@@ -524,7 +536,7 @@ class ProductionSingleAgentStack(Stack):
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219210-1568" onclick="copyCode('code-1769519219210-1568')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1568" onclick="copyCode('code-1769519842372-1568')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -532,7 +544,7 @@ class ProductionSingleAgentStack(Stack):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219210-1568" class="language-plaintext">멀티 에이전트 = &quot;전문가 팀&quot;
+  <pre class="code-block__content"><code id="code-1769519842372-1568" class="language-plaintext">멀티 에이전트 = &quot;전문가 팀&quot;
 
 예시: 종합 실사 (Due Diligence)
 ┌───────────────────────────┐
@@ -558,7 +570,7 @@ class ProductionSingleAgentStack(Stack):
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219210-1569" onclick="copyCode('code-1769519219210-1569')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1569" onclick="copyCode('code-1769519842372-1569')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -566,7 +578,7 @@ class ProductionSingleAgentStack(Stack):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219210-1569" class="language-plaintext">사용자 요청
+  <pre class="code-block__content"><code id="code-1769519842372-1569" class="language-plaintext">사용자 요청
                          │
                          ▼
               ┌──────────────────┐
@@ -599,7 +611,7 @@ class ProductionSingleAgentStack(Stack):
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219210-1570" onclick="copyCode('code-1769519219210-1570')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1570" onclick="copyCode('code-1769519842372-1570')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -607,7 +619,7 @@ class ProductionSingleAgentStack(Stack):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219210-1570" class="language-python">from typing import List, Dict, Any
+  <pre class="code-block__content"><code id="code-1769519842372-1570" class="language-python">from typing import List, Dict, Any
 import asyncio
 
 class MultiAgentOrchestrator:
@@ -803,7 +815,7 @@ asyncio.run(main())</code></pre>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219210-1571" onclick="copyCode('code-1769519219210-1571')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1571" onclick="copyCode('code-1769519842372-1571')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -811,7 +823,7 @@ asyncio.run(main())</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219210-1571" class="language-python">import json
+  <pre class="code-block__content"><code id="code-1769519842372-1571" class="language-python">import json
 from aws_cdk import (
     Stack,
     aws_stepfunctions as sfn,
@@ -882,7 +894,7 @@ class MultiAgentWorkflowStack(Stack):
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219210-1572" onclick="copyCode('code-1769519219210-1572')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1572" onclick="copyCode('code-1769519842372-1572')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -890,7 +902,7 @@ class MultiAgentWorkflowStack(Stack):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219210-1572" class="language-plaintext">✅ 하나의 성공 사례 만들기
+  <pre class="code-block__content"><code id="code-1769519842372-1572" class="language-plaintext">✅ 하나의 성공 사례 만들기
 ✅ 경영진 설득을 위한 ROI 증명
 ✅ 팀의 AI 에이전트 학습</code></pre>
   <div class="code-block__footer">
@@ -903,7 +915,7 @@ class MultiAgentWorkflowStack(Stack):
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219210-1573" onclick="copyCode('code-1769519219210-1573')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1573" onclick="copyCode('code-1769519842372-1573')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -911,7 +923,7 @@ class MultiAgentWorkflowStack(Stack):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219210-1573" class="language-plaintext">□ 팀 구성 완료
+  <pre class="code-block__content"><code id="code-1769519842372-1573" class="language-plaintext">□ 팀 구성 완료
   ├─ AI/ML 엔지니어 1명
   ├─ 클라우드 엔지니어 1명
   └─ 비즈니스 분석가 1명
@@ -935,7 +947,7 @@ class MultiAgentWorkflowStack(Stack):
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219210-1574" onclick="copyCode('code-1769519219210-1574')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1574" onclick="copyCode('code-1769519842372-1574')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -943,7 +955,7 @@ class MultiAgentWorkflowStack(Stack):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219210-1574" class="language-python">import boto3
+  <pre class="code-block__content"><code id="code-1769519842372-1574" class="language-python">import boto3
 from botocore.exceptions import ClientError
 
 class AWSSetupAutomation:
@@ -1047,7 +1059,7 @@ setup.test_bedrock_connection()</code></pre>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1575" onclick="copyCode('code-1769519219211-1575')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1575" onclick="copyCode('code-1769519842372-1575')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1055,7 +1067,7 @@ setup.test_bedrock_connection()</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1575" class="language-python"># 🌱 초보자용 - MVP (Minimum Viable Product)
+  <pre class="code-block__content"><code id="code-1769519842372-1575" class="language-python"># 🌱 초보자용 - MVP (Minimum Viable Product)
 class SimpleChatbot:
     &quot;&quot;&quot;가장 단순한 고객 문의 챗봇&quot;&quot;&quot;
     
@@ -1102,7 +1114,7 @@ print(answer[&#39;content&#39;][0][&#39;text&#39;])</code></pre>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1576" onclick="copyCode('code-1769519219211-1576')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1576" onclick="copyCode('code-1769519842372-1576')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1110,7 +1122,7 @@ print(answer[&#39;content&#39;][0][&#39;text&#39;])</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1576" class="language-plaintext">1. 기능 테스트
+  <pre class="code-block__content"><code id="code-1769519842372-1576" class="language-plaintext">1. 기능 테스트
    └─ 100개의 실제 고객 문의로 테스트
    └─ 정확도 목표: 85% 이상
 
@@ -1132,7 +1144,7 @@ print(answer[&#39;content&#39;][0][&#39;text&#39;])</code></pre>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1577" onclick="copyCode('code-1769519219211-1577')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1577" onclick="copyCode('code-1769519842372-1577')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1140,7 +1152,7 @@ print(answer[&#39;content&#39;][0][&#39;text&#39;])</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1577" class="language-plaintext">✅ 추가 유스케이스 2-3개 배포
+  <pre class="code-block__content"><code id="code-1769519842372-1577" class="language-plaintext">✅ 추가 유스케이스 2-3개 배포
 ✅ 에이전트 간 협업 시작
 ✅ 프로덕션 레벨 안정성 확보</code></pre>
   <div class="code-block__footer">
@@ -1152,7 +1164,7 @@ print(answer[&#39;content&#39;][0][&#39;text&#39;])</code></pre>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1578" onclick="copyCode('code-1769519219211-1578')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1578" onclick="copyCode('code-1769519842372-1578')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1160,7 +1172,7 @@ print(answer[&#39;content&#39;][0][&#39;text&#39;])</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1578" class="language-python">class ScalableAgentPlatform:
+  <pre class="code-block__content"><code id="code-1769519842372-1578" class="language-python">class ScalableAgentPlatform:
     &quot;&quot;&quot;
     확장 가능한 에이전트 플랫폼
     &quot;&quot;&quot;
@@ -1213,7 +1225,7 @@ result = await platform.route_request({
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1579" onclick="copyCode('code-1769519219211-1579')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1579" onclick="copyCode('code-1769519842372-1579')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1221,7 +1233,7 @@ result = await platform.route_request({
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1579" class="language-plaintext">✅ 10개 이상 에이전트 운영
+  <pre class="code-block__content"><code id="code-1769519842372-1579" class="language-plaintext">✅ 10개 이상 에이전트 운영
 ✅ 완전한 거버넌스 체계
 ✅ 지속적인 최적화</code></pre>
   <div class="code-block__footer">
@@ -1233,7 +1245,7 @@ result = await platform.route_request({
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1580" onclick="copyCode('code-1769519219211-1580')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1580" onclick="copyCode('code-1769519842372-1580')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1241,7 +1253,7 @@ result = await platform.route_request({
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1580" class="language-python">class GovernanceFramework:
+  <pre class="code-block__content"><code id="code-1769519842372-1580" class="language-python">class GovernanceFramework:
     &quot;&quot;&quot;
     AI 에이전트 거버넌스 및 모니터링
     &quot;&quot;&quot;
@@ -1308,7 +1320,7 @@ result = await platform.route_request({
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1581" onclick="copyCode('code-1769519219211-1581')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1581" onclick="copyCode('code-1769519842372-1581')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1316,7 +1328,7 @@ result = await platform.route_request({
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1581" class="language-plaintext">역할:
+  <pre class="code-block__content"><code id="code-1769519842372-1581" class="language-plaintext">역할:
 ├─ 에이전트 로직 개발
 ├─ 프롬프트 엔지니어링
 ├─ 모델 성능 최적화
@@ -1344,7 +1356,7 @@ result = await platform.route_request({
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1582" onclick="copyCode('code-1769519219211-1582')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1582" onclick="copyCode('code-1769519842372-1582')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1352,7 +1364,7 @@ result = await platform.route_request({
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1582" class="language-plaintext">Q1: &quot;Claude의 Constitutional AI가 무엇인지, 왜 금융권에 중요한지 설명해주세요.&quot;
+  <pre class="code-block__content"><code id="code-1769519842372-1582" class="language-plaintext">Q1: &quot;Claude의 Constitutional AI가 무엇인지, 왜 금융권에 중요한지 설명해주세요.&quot;
 
 좋은 답변:
 &quot;Constitutional AI는 AI가 안전하고 윤리적으로 행동하도록 
@@ -1384,7 +1396,7 @@ Q2: &quot;프롬프트 엔지니어링에서 Few-shot Learning을 어떻게 활�
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1583" onclick="copyCode('code-1769519219211-1583')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1583" onclick="copyCode('code-1769519842372-1583')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1392,7 +1404,7 @@ Q2: &quot;프롬프트 엔지니어링에서 Few-shot Learning을 어떻게 활�
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1583" class="language-plaintext">역할:
+  <pre class="code-block__content"><code id="code-1769519842372-1583" class="language-plaintext">역할:
 ├─ AWS 인프라 설계 및 구축
 ├─ Bedrock 설정 및 최적화
 ├─ 보안 및 네트워크 관리
@@ -1412,7 +1424,7 @@ Q2: &quot;프롬프트 엔지니어링에서 Few-shot Learning을 어떻게 활�
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1584" onclick="copyCode('code-1769519219211-1584')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1584" onclick="copyCode('code-1769519842372-1584')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1420,7 +1432,7 @@ Q2: &quot;프롬프트 엔지니어링에서 Few-shot Learning을 어떻게 활�
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1584" class="language-plaintext">역할:
+  <pre class="code-block__content"><code id="code-1769519842372-1584" class="language-plaintext">역할:
 ├─ 레거시 시스템 연동
 ├─ API 개발
 ├─ MCP 서버 구축
@@ -1441,7 +1453,7 @@ Q2: &quot;프롬프트 엔지니어링에서 Few-shot Learning을 어떻게 활�
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1585" onclick="copyCode('code-1769519219211-1585')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1585" onclick="copyCode('code-1769519842372-1585')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1449,7 +1461,7 @@ Q2: &quot;프롬프트 엔지니어링에서 Few-shot Learning을 어떻게 활�
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1585" class="language-plaintext">역할:
+  <pre class="code-block__content"><code id="code-1769519842372-1585" class="language-plaintext">역할:
 ├─ 비즈니스 요구사항 정의
 ├─ 우선순위 결정
 ├─ 이해관계자 관리
@@ -1469,7 +1481,7 @@ KPI:
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1586" onclick="copyCode('code-1769519219211-1586')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1586" onclick="copyCode('code-1769519842372-1586')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1477,7 +1489,7 @@ KPI:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1586" class="language-plaintext">역할:
+  <pre class="code-block__content"><code id="code-1769519842372-1586" class="language-plaintext">역할:
 ├─ 프로세스 분석
 ├─ 요구사항 수집
 ├─ 사용자 테스트 조율
@@ -1499,7 +1511,7 @@ KPI:
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1587" onclick="copyCode('code-1769519219211-1587')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1587" onclick="copyCode('code-1769519842372-1587')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1507,7 +1519,7 @@ KPI:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1587" class="language-plaintext">역할:
+  <pre class="code-block__content"><code id="code-1769519842372-1587" class="language-plaintext">역할:
 ├─ SR 11-7 준수 확인
 ├─ 모델 검증
 ├─ 리스크 평가
@@ -1530,7 +1542,7 @@ KPI:
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1588" onclick="copyCode('code-1769519219211-1588')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1588" onclick="copyCode('code-1769519842372-1588')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1538,7 +1550,7 @@ KPI:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1588" class="language-plaintext">조직: Norwegian Bank Investment Management
+  <pre class="code-block__content"><code id="code-1769519842372-1588" class="language-plaintext">조직: Norwegian Bank Investment Management
 규모: 1.8조 달러 운용
 직원: 700명
 도전과제: 인력 증가 없이 운용 규모 확대</code></pre>
@@ -1551,7 +1563,7 @@ KPI:
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1589" onclick="copyCode('code-1769519219211-1589')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1589" onclick="copyCode('code-1769519842372-1589')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1559,7 +1571,7 @@ KPI:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1589" class="language-python">class NBIMImplementationStrategy:
+  <pre class="code-block__content"><code id="code-1769519842372-1589" class="language-python">class NBIMImplementationStrategy:
     &quot;&quot;&quot;
     NBIM의 AI 도입 전략 재구성
     &quot;&quot;&quot;
@@ -1657,7 +1669,7 @@ success_factors = {
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1590" onclick="copyCode('code-1769519219211-1590')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1590" onclick="copyCode('code-1769519842372-1590')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1665,7 +1677,7 @@ success_factors = {
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1590" class="language-plaintext">🎯 1. 교육에 투자하라
+  <pre class="code-block__content"><code id="code-1769519842372-1590" class="language-plaintext">🎯 1. 교육에 투자하라
 └─ 모든 직원에게 최소 30분 교육
 └─ 실습 중심 커리큘럼
 └─ 지속적인 지원 체계
@@ -1690,7 +1702,7 @@ success_factors = {
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1591" onclick="copyCode('code-1769519219211-1591')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1591" onclick="copyCode('code-1769519842372-1591')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1698,7 +1710,7 @@ success_factors = {
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1591" class="language-plaintext">□ AWS 계정 설정
+  <pre class="code-block__content"><code id="code-1769519842372-1591" class="language-plaintext">□ AWS 계정 설정
   ├─ □ IAM 사용자 생성
   ├─ □ Bedrock 접근 권한 설정
   └─ □ VPC 구성
@@ -1727,7 +1739,7 @@ success_factors = {
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1592" onclick="copyCode('code-1769519219211-1592')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1592" onclick="copyCode('code-1769519842372-1592')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1735,7 +1747,7 @@ success_factors = {
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1592" class="language-plaintext">□ 이해관계자 조율
+  <pre class="code-block__content"><code id="code-1769519842372-1592" class="language-plaintext">□ 이해관계자 조율
   ├─ □ 경영진 승인
   ├─ □ IT 부서 협조
   ├─ □ 컴플라이언스팀 검토
@@ -1761,7 +1773,7 @@ success_factors = {
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1593" onclick="copyCode('code-1769519219211-1593')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1593" onclick="copyCode('code-1769519842372-1593')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1769,7 +1781,7 @@ success_factors = {
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1593" class="language-plaintext">Day 1-2: 킥오프
+  <pre class="code-block__content"><code id="code-1769519842372-1593" class="language-plaintext">Day 1-2: 킥오프
 ├─ 팀 소개 및 목표 공유
 ├─ 기술 스택 리뷰
 └─ AWS 환경 설정 시작
@@ -1800,7 +1812,7 @@ Day 11-14: 테스트 및 개선
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1594" onclick="copyCode('code-1769519219211-1594')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1594" onclick="copyCode('code-1769519842372-1594')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1808,7 +1820,7 @@ Day 11-14: 테스트 및 개선
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1594" class="language-plaintext">A: 초기 파일럿 (3개월 기준)
+  <pre class="code-block__content"><code id="code-1769519842372-1594" class="language-plaintext">A: 초기 파일럿 (3개월 기준)
 
 고정 비용:
 ├─ AWS 인프라: $500-1,000/월
@@ -1834,7 +1846,7 @@ ROI: 직원 1명 시간의 20% 절약 = 월 $5,000 가치
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1595" onclick="copyCode('code-1769519219211-1595')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1595" onclick="copyCode('code-1769519842372-1595')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1842,7 +1854,7 @@ ROI: 직원 1명 시간의 20% 절약 = 월 $5,000 가치
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1595" class="language-plaintext">A: 다층 보안 구조
+  <pre class="code-block__content"><code id="code-1769519842372-1595" class="language-plaintext">A: 다층 보안 구조
 
 1계층: 네트워크 격리
 └─ VPC 내부에서만 접근
@@ -1874,7 +1886,7 @@ ROI: 직원 1명 시간의 20% 절약 = 월 $5,000 가치
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1596" onclick="copyCode('code-1769519219211-1596')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1596" onclick="copyCode('code-1769519842372-1596')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1882,7 +1894,7 @@ ROI: 직원 1명 시간의 20% 절약 = 월 $5,000 가치
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1596" class="language-python"># A: MCP를 활용한 통합 예시
+  <pre class="code-block__content"><code id="code-1769519842372-1596" class="language-python"># A: MCP를 활용한 통합 예시
 
 class LegacySystemConnector:
     &quot;&quot;&quot;
@@ -1938,7 +1950,7 @@ agent = Agent(
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1597" onclick="copyCode('code-1769519219211-1597')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1597" onclick="copyCode('code-1769519842372-1597')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1946,7 +1958,7 @@ agent = Agent(
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1597" class="language-plaintext">A: Human-in-the-Loop 패턴
+  <pre class="code-block__content"><code id="code-1769519842372-1597" class="language-plaintext">A: Human-in-the-Loop 패턴
 
 flowchart TD
     A[AI 에이전트 처리] --&gt; B{신뢰도 확인}
@@ -1969,7 +1981,7 @@ flowchart TD
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1598" onclick="copyCode('code-1769519219211-1598')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1598" onclick="copyCode('code-1769519842372-1598')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1977,7 +1989,7 @@ flowchart TD
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1598" class="language-python">async def safe_agent_execution(agent, task):
+  <pre class="code-block__content"><code id="code-1769519842372-1598" class="language-python">async def safe_agent_execution(agent, task):
     &quot;&quot;&quot;
     안전한 에이전트 실행 패턴
     &quot;&quot;&quot;
@@ -2013,7 +2025,7 @@ flowchart TD
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1599" onclick="copyCode('code-1769519219211-1599')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1599" onclick="copyCode('code-1769519842372-1599')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -2021,7 +2033,7 @@ flowchart TD
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1599" class="language-plaintext">A: 투명성과 설명 가능성 강조
+  <pre class="code-block__content"><code id="code-1769519842372-1599" class="language-plaintext">A: 투명성과 설명 가능성 강조
 
 준비 자료:
 1. 기술 문서
@@ -2082,7 +2094,7 @@ flowchart TD
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519219211-1600" onclick="copyCode('code-1769519219211-1600')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842372-1600" onclick="copyCode('code-1769519842372-1600')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -2090,7 +2102,7 @@ flowchart TD
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219211-1600" class="language-plaintext">&quot;완벽한 계획을 기다리지 마세요.
+  <pre class="code-block__content"><code id="code-1769519842372-1600" class="language-plaintext">&quot;완벽한 계획을 기다리지 마세요.
 작은 MVP로 시작하고, 
 빠르게 학습하고,
 점진적으로 개선하세요.

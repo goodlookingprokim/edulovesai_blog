@@ -38,6 +38,18 @@
         <a href="/category/claude-skills.html">Claude Skills</a>
         <a href="/category/claude-code.html">Claude Code</a>
       </nav>
+      <div class="search-container">
+        <button class="search-toggle" aria-label="검색 열기">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <div class="search-dropdown">
+          <input type="search" id="search-input" class="search-input" placeholder="검색어를 입력하세요..." autocomplete="off">
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
       <button class="menu-toggle" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -247,7 +259,7 @@
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769519219067-767" onclick="copyCode('code-1769519219067-767')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842235-767" onclick="copyCode('code-1769519842235-767')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -255,7 +267,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219067-767" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769519842235-767" class="language-mermaid">graph TD
     A[Exception Handling&lt;br/&gt;예외 처리] --&gt; B[Error Detection&lt;br/&gt;오류 감지]
     A --&gt; C[Error Handling&lt;br/&gt;오류 처리]
     A --&gt; D[Recovery&lt;br/&gt;복구]
@@ -379,7 +391,7 @@
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219068-768" onclick="copyCode('code-1769519219068-768')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842235-768" onclick="copyCode('code-1769519842235-768')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -387,7 +399,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219068-768" class="language-python">from google.adk.agents import Agent, SequentialAgent
+  <pre class="code-block__content"><code id="code-1769519842235-768" class="language-python">from google.adk.agents import Agent, SequentialAgent
 
 # 도구 정의 (예시)
 def get_precise_location_info(address: str) -&gt; dict:
@@ -485,7 +497,7 @@ robust_location_agent = SequentialAgent(
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769519219068-769" onclick="copyCode('code-1769519219068-769')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842235-769" onclick="copyCode('code-1769519842235-769')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -493,7 +505,7 @@ robust_location_agent = SequentialAgent(
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219068-769" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769519842235-769" class="language-mermaid">graph TD
     A[User Request&lt;br/&gt;사용자 요청] --&gt; B[Primary Handler&lt;br/&gt;주요 핸들러]
     B --&gt; C{Success?&lt;br/&gt;성공?}
     C --&gt;|Yes| D[Store Result&lt;br/&gt;결과 저장]
@@ -526,7 +538,7 @@ robust_location_agent = SequentialAgent(
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769519219068-770" onclick="copyCode('code-1769519219068-770')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842235-770" onclick="copyCode('code-1769519842235-770')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -534,7 +546,7 @@ robust_location_agent = SequentialAgent(
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219068-770" class="language-mermaid">graph LR
+  <pre class="code-block__content"><code id="code-1769519842235-770" class="language-mermaid">graph LR
     A[Error Occurs&lt;br/&gt;오류 발생] --&gt; B[Detection&lt;br/&gt;감지]
     B --&gt; C[Handling&lt;br/&gt;처리]
     C --&gt; D{Recoverable?&lt;br/&gt;복구 가능?}
@@ -643,7 +655,7 @@ robust_location_agent = SequentialAgent(
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219068-771" onclick="copyCode('code-1769519219068-771')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842235-771" onclick="copyCode('code-1769519842235-771')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -651,7 +663,7 @@ robust_location_agent = SequentialAgent(
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219068-771" class="language-python">class IntelligentRetryStrategy:
+  <pre class="code-block__content"><code id="code-1769519842235-771" class="language-python">class IntelligentRetryStrategy:
     def __init__(self):
         self.retry_strategies = {
             &#39;transient&#39;: ExponentialBackoff(max_retries=5),
@@ -674,7 +686,7 @@ robust_location_agent = SequentialAgent(
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219068-772" onclick="copyCode('code-1769519219068-772')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842235-772" onclick="copyCode('code-1769519842235-772')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -682,7 +694,7 @@ robust_location_agent = SequentialAgent(
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219068-772" class="language-python">class ErrorPredictor:
+  <pre class="code-block__content"><code id="code-1769519842235-772" class="language-python">class ErrorPredictor:
     def __init__(self):
         self.error_patterns = {}
     
@@ -716,7 +728,7 @@ robust_location_agent = SequentialAgent(
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219068-773" onclick="copyCode('code-1769519219068-773')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842235-773" onclick="copyCode('code-1769519842235-773')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -724,7 +736,7 @@ robust_location_agent = SequentialAgent(
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219068-773" class="language-python">class CircuitBreaker:
+  <pre class="code-block__content"><code id="code-1769519842235-773" class="language-python">class CircuitBreaker:
     def __init__(self, failure_threshold=5, timeout=60):
         self.failure_count = 0
         self.failure_threshold = failure_threshold
@@ -764,7 +776,7 @@ robust_location_agent = SequentialAgent(
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219068-774" onclick="copyCode('code-1769519219068-774')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842235-774" onclick="copyCode('code-1769519842235-774')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -772,7 +784,7 @@ robust_location_agent = SequentialAgent(
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219068-774" class="language-python">class IsolatedComponent:
+  <pre class="code-block__content"><code id="code-1769519842235-774" class="language-python">class IsolatedComponent:
     def __init__(self, component: Component):
         self.component = component
         self.isolation_enabled = True
@@ -858,7 +870,7 @@ robust_location_agent = SequentialAgent(
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769519219068-775" onclick="copyCode('code-1769519219068-775')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842235-775" onclick="copyCode('code-1769519842235-775')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -866,7 +878,7 @@ robust_location_agent = SequentialAgent(
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219068-775" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769519842235-775" class="language-mermaid">graph TD
     A[Request&lt;br/&gt;요청] --&gt; B[Load Balancer&lt;br/&gt;로드 밸런서]
     B --&gt; C[Server 1&lt;br/&gt;서버 1]
     B --&gt; D[Server 2&lt;br/&gt;서버 2]
@@ -890,7 +902,7 @@ robust_location_agent = SequentialAgent(
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219068-776" onclick="copyCode('code-1769519219068-776')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842235-776" onclick="copyCode('code-1769519842235-776')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -898,7 +910,7 @@ robust_location_agent = SequentialAgent(
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219068-776" class="language-python">class ResilientDataPipeline:
+  <pre class="code-block__content"><code id="code-1769519842235-776" class="language-python">class ResilientDataPipeline:
     def __init__(self):
         self.stages = []
         self.checkpoints = {}

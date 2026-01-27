@@ -38,6 +38,18 @@
         <a href="/category/claude-skills.html">Claude Skills</a>
         <a href="/category/claude-code.html">Claude Code</a>
       </nav>
+      <div class="search-container">
+        <button class="search-toggle" aria-label="검색 열기">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <div class="search-dropdown">
+          <input type="search" id="search-input" class="search-input" placeholder="검색어를 입력하세요..." autocomplete="off">
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
       <button class="menu-toggle" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -267,7 +279,7 @@
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-737" onclick="copyCode('code-1769519219057-737')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-737" onclick="copyCode('code-1769519842224-737')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -275,7 +287,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-737" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769519842224-737" class="language-mermaid">graph TD
     A[LLM/Agent&lt;br/&gt;LLM/에이전트] --&gt; B[MCP Client&lt;br/&gt;MCP 클라이언트]
     B --&gt; C[MCP Server&lt;br/&gt;MCP 서버]
     C --&gt; D[Resources&lt;br/&gt;리소스]
@@ -308,7 +320,7 @@
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-738" onclick="copyCode('code-1769519219057-738')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-738" onclick="copyCode('code-1769519842224-738')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -316,7 +328,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-738" class="language-mermaid">graph LR
+  <pre class="code-block__content"><code id="code-1769519842224-738" class="language-mermaid">graph LR
     A[MCP Server&lt;br/&gt;MCP 서버] --&gt; B[Resources&lt;br/&gt;리소스]
     A --&gt; C[Prompts&lt;br/&gt;프롬프트]
     A --&gt; D[Tools&lt;br/&gt;도구]
@@ -451,7 +463,7 @@
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-739" onclick="copyCode('code-1769519219057-739')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-739" onclick="copyCode('code-1769519842224-739')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -459,7 +471,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-739" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769519842224-739" class="language-mermaid">graph TD
     A[LLM&lt;br/&gt;대형 언어 모델] --&gt; B[MCP Client&lt;br/&gt;MCP 클라이언트]
     B --&gt; C[MCP Server&lt;br/&gt;MCP 서버]
     C --&gt; D[3P Service&lt;br/&gt;제3자 서비스]
@@ -491,7 +503,7 @@
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-740" onclick="copyCode('code-1769519219057-740')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-740" onclick="copyCode('code-1769519842224-740')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -499,7 +511,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-740" class="language-mermaid">sequenceDiagram
+  <pre class="code-block__content"><code id="code-1769519842224-740" class="language-mermaid">sequenceDiagram
     participant LLM
     participant Client as MCP Client
     participant Server as MCP Server
@@ -569,7 +581,7 @@
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-741" onclick="copyCode('code-1769519219057-741')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-741" onclick="copyCode('code-1769519842224-741')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -577,7 +589,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-741" class="language-python">import os
+  <pre class="code-block__content"><code id="code-1769519842224-741" class="language-python">import os
 from google.adk.agents import LlmAgent
 from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, StdioServerParameters
 
@@ -626,7 +638,7 @@ root_agent = LlmAgent(
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-742" onclick="copyCode('code-1769519219057-742')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-742" onclick="copyCode('code-1769519842224-742')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -634,7 +646,7 @@ root_agent = LlmAgent(
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-742" class="language-python"># ./adk_agent_samples/mcp_agent/__init__.py
+  <pre class="code-block__content"><code id="code-1769519842224-742" class="language-python"># ./adk_agent_samples/mcp_agent/__init__.py
 from . import agent</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">2 lines</span>
@@ -646,7 +658,7 @@ from . import agent</code></pre>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-743" onclick="copyCode('code-1769519219057-743')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-743" onclick="copyCode('code-1769519842224-743')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -654,7 +666,7 @@ from . import agent</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-743" class="language-python">connection_params = StdioConnectionParams(
+  <pre class="code-block__content"><code id="code-1769519842224-743" class="language-python">connection_params = StdioConnectionParams(
     server_params={
         &quot;command&quot;: &quot;python3&quot;,
         &quot;args&quot;: [&quot;./agent/mcp_server.py&quot;],
@@ -673,7 +685,7 @@ from . import agent</code></pre>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-744" onclick="copyCode('code-1769519219057-744')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-744" onclick="copyCode('code-1769519842224-744')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -681,7 +693,7 @@ from . import agent</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-744" class="language-python">connection_params = StdioConnectionParams(
+  <pre class="code-block__content"><code id="code-1769519842224-744" class="language-python">connection_params = StdioConnectionParams(
     server_params={
         &quot;command&quot;: &quot;uvx&quot;,
         &quot;args&quot;: [&quot;mcp-google-sheets@latest&quot;],
@@ -702,7 +714,7 @@ from . import agent</code></pre>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-745" onclick="copyCode('code-1769519219057-745')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-745" onclick="copyCode('code-1769519842224-745')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -710,7 +722,7 @@ from . import agent</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-745" class="language-python"># fastmcp_server.py
+  <pre class="code-block__content"><code id="code-1769519842224-745" class="language-python"># fastmcp_server.py
 # 이 스크립트는 FastMCP를 사용하여 간단한 MCP 서버를 만드는 방법을 보여줍니다.
 # 인사말을 생성하는 단일 도구를 노출합니다.
 
@@ -752,7 +764,7 @@ if __name__ == &quot;__main__&quot;:
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-746" onclick="copyCode('code-1769519219057-746')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-746" onclick="copyCode('code-1769519842224-746')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -760,7 +772,7 @@ if __name__ == &quot;__main__&quot;:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-746" class="language-python"># ./adk_agent_samples/fastmcp_client_agent/agent.py
+  <pre class="code-block__content"><code id="code-1769519842224-746" class="language-python"># ./adk_agent_samples/fastmcp_client_agent/agent.py
 import os
 from google.adk.agents import LlmAgent
 from google.adk.tools.mcp_tool.mcp_toolset import MCPToolset, HttpServerParameters
@@ -800,7 +812,7 @@ root_agent = LlmAgent(
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-747" onclick="copyCode('code-1769519219057-747')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-747" onclick="copyCode('code-1769519842224-747')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -808,7 +820,7 @@ root_agent = LlmAgent(
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-747" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769519842224-747" class="language-mermaid">graph TD
     A[LLM/Agent&lt;br/&gt;LLM/에이전트] --&gt; B[MCP Client&lt;br/&gt;MCP 클라이언트]
     B --&gt; C[Discovery&lt;br/&gt;발견]
     C --&gt; D[MCP Server&lt;br/&gt;MCP 서버]
@@ -918,7 +930,7 @@ root_agent = LlmAgent(
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-748" onclick="copyCode('code-1769519219057-748')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-748" onclick="copyCode('code-1769519842224-748')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -926,7 +938,7 @@ root_agent = LlmAgent(
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-748" class="language-python">class MCPConnectionPool:
+  <pre class="code-block__content"><code id="code-1769519842224-748" class="language-python">class MCPConnectionPool:
     def __init__(self, max_connections=10):
         self.pool = Queue(maxsize=max_connections)
         self.active_connections = {}
@@ -955,7 +967,7 @@ root_agent = LlmAgent(
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-749" onclick="copyCode('code-1769519219057-749')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-749" onclick="copyCode('code-1769519842224-749')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -963,7 +975,7 @@ root_agent = LlmAgent(
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-749" class="language-python">async def batch_mcp_requests(requests: List[MCPRequest]) -&gt; List[MCPResponse]:
+  <pre class="code-block__content"><code id="code-1769519842224-749" class="language-python">async def batch_mcp_requests(requests: List[MCPRequest]) -&gt; List[MCPResponse]:
     &quot;&quot;&quot;MCP 요청 배치 처리&quot;&quot;&quot;
     # 독립적인 요청은 병렬 처리
     independent_requests = [r for r in requests if r.is_independent]
@@ -982,7 +994,7 @@ root_agent = LlmAgent(
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-750" onclick="copyCode('code-1769519219057-750')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-750" onclick="copyCode('code-1769519842224-750')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -990,7 +1002,7 @@ root_agent = LlmAgent(
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-750" class="language-python">from functools import lru_cache
+  <pre class="code-block__content"><code id="code-1769519842224-750" class="language-python">from functools import lru_cache
 
 class CachedMCPClient:
     def __init__(self, mcp_client):
@@ -1016,7 +1028,7 @@ class CachedMCPClient:
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-751" onclick="copyCode('code-1769519219057-751')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-751" onclick="copyCode('code-1769519842224-751')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1024,7 +1036,7 @@ class CachedMCPClient:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-751" class="language-python">from tenacity import retry, stop_after_attempt, wait_exponential
+  <pre class="code-block__content"><code id="code-1769519842224-751" class="language-python">from tenacity import retry, stop_after_attempt, wait_exponential
 
 @retry(
     stop=stop_after_attempt(3),
@@ -1108,7 +1120,7 @@ async def robust_mcp_call(mcp_client, request: MCPRequest):
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-752" onclick="copyCode('code-1769519219057-752')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-752" onclick="copyCode('code-1769519842224-752')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1116,7 +1128,7 @@ async def robust_mcp_call(mcp_client, request: MCPRequest):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-752" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769519842224-752" class="language-mermaid">graph TD
     A[LLM Agent&lt;br/&gt;LLM 에이전트] --&gt; B[MCP Client&lt;br/&gt;MCP 클라이언트]
     B --&gt; C[CRM MCP Server&lt;br/&gt;CRM MCP 서버]
     B --&gt; D[ERP MCP Server&lt;br/&gt;ERP MCP 서버]
@@ -1137,7 +1149,7 @@ async def robust_mcp_call(mcp_client, request: MCPRequest):
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219057-753" onclick="copyCode('code-1769519219057-753')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842224-753" onclick="copyCode('code-1769519842224-753')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1145,7 +1157,7 @@ async def robust_mcp_call(mcp_client, request: MCPRequest):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219057-753" class="language-python">class IoTMCPBridge:
+  <pre class="code-block__content"><code id="code-1769519842224-753" class="language-python">class IoTMCPBridge:
     def __init__(self):
         self.devices = {}
     

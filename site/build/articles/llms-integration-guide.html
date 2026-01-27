@@ -38,6 +38,18 @@
         <a href="/category/claude-skills.html">Claude Skills</a>
         <a href="/category/claude-code.html">Claude Code</a>
       </nav>
+      <div class="search-container">
+        <button class="search-toggle" aria-label="검색 열기">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <div class="search-dropdown">
+          <input type="search" id="search-input" class="search-input" placeholder="검색어를 입력하세요..." autocomplete="off">
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
       <button class="menu-toggle" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -233,7 +245,7 @@
 <div class="code-block" data-language="bash">
   <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
     <span class="code-block__language">Bash</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1512" onclick="copyCode('code-1769519219199-1512')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1512" onclick="copyCode('code-1769519842361-1512')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -241,7 +253,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1512" class="language-bash"># AI 도구에 프롬프트 작성 시
+  <pre class="code-block__content"><code id="code-1769519842361-1512" class="language-bash"># AI 도구에 프롬프트 작성 시
 &quot;https://docs.tosspayments.com/llms.txt 를 참고하여 토스페이먼츠 결제위젯 연동 방법을 알려줘&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">2 lines</span>
@@ -281,7 +293,7 @@
 <div class="code-block" data-language="json">
   <div class="code-block__header" style="background-color: #292929; color: #fff">
     <span class="code-block__language">JSON</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1513" onclick="copyCode('code-1769519219199-1513')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1513" onclick="copyCode('code-1769519842361-1513')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -289,7 +301,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1513" class="language-json">{
+  <pre class="code-block__content"><code id="code-1769519842361-1513" class="language-json">{
   &quot;mcpServers&quot;: {
     &quot;tosspayments-integration-guide&quot;: {
       &quot;command&quot;: &quot;npx&quot;,
@@ -316,7 +328,7 @@
 <div class="code-block" data-language="bash">
   <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
     <span class="code-block__language">Bash</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1514" onclick="copyCode('code-1769519219199-1514')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1514" onclick="copyCode('code-1769519842361-1514')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -324,7 +336,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1514" class="language-bash"># 1. 설정 파일 위치로 이동
+  <pre class="code-block__content"><code id="code-1769519842361-1514" class="language-bash"># 1. 설정 파일 위치로 이동
 cd ~/.cursor/
 
 # 2. mcp.json 파일 생성 또는 편집
@@ -347,7 +359,7 @@ vim mcp.json
 <div class="code-block" data-language="bash">
   <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
     <span class="code-block__language">Bash</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1515" onclick="copyCode('code-1769519219199-1515')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1515" onclick="copyCode('code-1769519842361-1515')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -355,7 +367,7 @@ vim mcp.json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1515" class="language-bash"># 프로젝트 루트에서
+  <pre class="code-block__content"><code id="code-1769519842361-1515" class="language-bash"># 프로젝트 루트에서
 mkdir -p .vscode
 cd .vscode
 vim mcp.json
@@ -373,7 +385,7 @@ vim mcp.json
 <div class="code-block" data-language="bash">
   <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
     <span class="code-block__language">Bash</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1516" onclick="copyCode('code-1769519219199-1516')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1516" onclick="copyCode('code-1769519842361-1516')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -381,7 +393,7 @@ vim mcp.json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1516" class="language-bash"># 설정 파일 위치
+  <pre class="code-block__content"><code id="code-1769519842361-1516" class="language-bash"># 설정 파일 위치
 ~/.codeium/windsurf/mcp_config.json
 
 # 파일 생성 및 편집
@@ -401,7 +413,7 @@ vim ~/.codeium/windsurf/mcp_config.json
 <div class="code-block" data-language="bash">
   <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
     <span class="code-block__language">Bash</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1517" onclick="copyCode('code-1769519219199-1517')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1517" onclick="copyCode('code-1769519842361-1517')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -409,7 +421,7 @@ vim ~/.codeium/windsurf/mcp_config.json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1517" class="language-bash"># 설정 파일 위치 (OS별로 다름)
+  <pre class="code-block__content"><code id="code-1769519842361-1517" class="language-bash"># 설정 파일 위치 (OS별로 다름)
 # macOS: ~/Library/Application Support/Claude/
 # Windows: %APPDATA%\Claude\
 # Linux: ~/.config/Claude/
@@ -435,7 +447,7 @@ vim ~/.codeium/windsurf/mcp_config.json
 <div class="code-block" data-language="markdown">
   <div class="code-block__header" style="background-color: #083fa1; color: #fff">
     <span class="code-block__language">Markdown</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1518" onclick="copyCode('code-1769519219199-1518')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1518" onclick="copyCode('code-1769519842361-1518')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -443,7 +455,7 @@ vim ~/.codeium/windsurf/mcp_config.json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1518" class="language-markdown">토스페이먼츠 V2 SDK를 사용하여 [기능]을 구현하고 싶습니다.
+  <pre class="code-block__content"><code id="code-1769519842361-1518" class="language-markdown">토스페이먼츠 V2 SDK를 사용하여 [기능]을 구현하고 싶습니다.
 
 환경:
 - 언어: [JavaScript/TypeScript/Python 등]
@@ -466,7 +478,7 @@ vim ~/.codeium/windsurf/mcp_config.json
 <div class="code-block" data-language="markdown">
   <div class="code-block__header" style="background-color: #083fa1; color: #fff">
     <span class="code-block__language">Markdown</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1519" onclick="copyCode('code-1769519219199-1519')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1519" onclick="copyCode('code-1769519842361-1519')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -474,7 +486,7 @@ vim ~/.codeium/windsurf/mcp_config.json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1519" class="language-markdown">&quot;V2 SDK로 주문서 내에 결제위젯을 삽입하는 코드를 작성해줘&quot;</code></pre>
+  <pre class="code-block__content"><code id="code-1769519842361-1519" class="language-markdown">&quot;V2 SDK로 주문서 내에 결제위젯을 삽입하는 코드를 작성해줘&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
@@ -483,7 +495,7 @@ vim ~/.codeium/windsurf/mcp_config.json
 <div class="code-block" data-language="markdown">
   <div class="code-block__header" style="background-color: #083fa1; color: #fff">
     <span class="code-block__language">Markdown</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1520" onclick="copyCode('code-1769519219199-1520')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1520" onclick="copyCode('code-1769519842361-1520')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -491,7 +503,7 @@ vim ~/.codeium/windsurf/mcp_config.json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1520" class="language-markdown">&quot;토스페이먼츠 V2 SDK를 사용하여 React 앱에 결제위젯을 통합하는 코드를 작성해줘. 
+  <pre class="code-block__content"><code id="code-1769519842361-1520" class="language-markdown">&quot;토스페이먼츠 V2 SDK를 사용하여 React 앱에 결제위젯을 통합하는 코드를 작성해줘. 
 주문서 페이지에 결제위젯을 삽입하고, 카드/계좌이체/토스페이 결제수단을 지원해야 해.&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">2 lines</span>
@@ -502,7 +514,7 @@ vim ~/.codeium/windsurf/mcp_config.json
 <div class="code-block" data-language="markdown">
   <div class="code-block__header" style="background-color: #083fa1; color: #fff">
     <span class="code-block__language">Markdown</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1521" onclick="copyCode('code-1769519219199-1521')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1521" onclick="copyCode('code-1769519842361-1521')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -510,7 +522,7 @@ vim ~/.codeium/windsurf/mcp_config.json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1521" class="language-markdown">&quot;결제 승인 요청하는 코드를 작성해줘&quot;</code></pre>
+  <pre class="code-block__content"><code id="code-1769519842361-1521" class="language-markdown">&quot;결제 승인 요청하는 코드를 작성해줘&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
@@ -519,7 +531,7 @@ vim ~/.codeium/windsurf/mcp_config.json
 <div class="code-block" data-language="markdown">
   <div class="code-block__header" style="background-color: #083fa1; color: #fff">
     <span class="code-block__language">Markdown</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1522" onclick="copyCode('code-1769519219199-1522')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1522" onclick="copyCode('code-1769519842361-1522')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -527,7 +539,7 @@ vim ~/.codeium/windsurf/mcp_config.json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1522" class="language-markdown">&quot;Node.js Express 서버에서 토스페이먼츠 결제 승인 API를 호출하는 코드를 작성해줘.
+  <pre class="code-block__content"><code id="code-1769519842361-1522" class="language-markdown">&quot;Node.js Express 서버에서 토스페이먼츠 결제 승인 API를 호출하는 코드를 작성해줘.
 에러 처리와 로깅을 포함하고, TypeScript를 사용해줘.&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">2 lines</span>
@@ -538,7 +550,7 @@ vim ~/.codeium/windsurf/mcp_config.json
 <div class="code-block" data-language="markdown">
   <div class="code-block__header" style="background-color: #083fa1; color: #fff">
     <span class="code-block__language">Markdown</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1523" onclick="copyCode('code-1769519219199-1523')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1523" onclick="copyCode('code-1769519842361-1523')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -546,7 +558,7 @@ vim ~/.codeium/windsurf/mcp_config.json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1523" class="language-markdown">&quot;토스페이먼츠 결제 상태 변경 웹훅을 처리하는 Spring Boot 컨트롤러를 작성해줘.
+  <pre class="code-block__content"><code id="code-1769519842361-1523" class="language-markdown">&quot;토스페이먼츠 결제 상태 변경 웹훅을 처리하는 Spring Boot 컨트롤러를 작성해줘.
 서명 검증과 중복 처리 방지 로직을 포함해줘.&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">2 lines</span>
@@ -557,7 +569,7 @@ vim ~/.codeium/windsurf/mcp_config.json
 <div class="code-block" data-language="markdown">
   <div class="code-block__header" style="background-color: #083fa1; color: #fff">
     <span class="code-block__language">Markdown</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1524" onclick="copyCode('code-1769519219199-1524')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1524" onclick="copyCode('code-1769519842361-1524')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -565,7 +577,7 @@ vim ~/.codeium/windsurf/mcp_config.json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1524" class="language-markdown">&quot;자동결제를 위한 빌링키 발급 프로세스를 구현하는 코드를 작성해줘&quot;</code></pre>
+  <pre class="code-block__content"><code id="code-1769519842361-1524" class="language-markdown">&quot;자동결제를 위한 빌링키 발급 프로세스를 구현하는 코드를 작성해줘&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
@@ -575,7 +587,7 @@ vim ~/.codeium/windsurf/mcp_config.json
 <div class="code-block" data-language="markdown">
   <div class="code-block__header" style="background-color: #083fa1; color: #fff">
     <span class="code-block__language">Markdown</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1525" onclick="copyCode('code-1769519219199-1525')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1525" onclick="copyCode('code-1769519842361-1525')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -583,7 +595,7 @@ vim ~/.codeium/windsurf/mcp_config.json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1525" class="language-markdown">&quot;부분 취소를 지원하는 결제 취소 API 연동 코드를 작성해줘&quot;</code></pre>
+  <pre class="code-block__content"><code id="code-1769519842361-1525" class="language-markdown">&quot;부분 취소를 지원하는 결제 취소 API 연동 코드를 작성해줘&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
@@ -594,7 +606,7 @@ vim ~/.codeium/windsurf/mcp_config.json
 <div class="code-block" data-language="typescript">
   <div class="code-block__header" style="background-color: #3178c6; color: #fff">
     <span class="code-block__language">TypeScript</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1526" onclick="copyCode('code-1769519219199-1526')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1526" onclick="copyCode('code-1769519842361-1526')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -602,7 +614,7 @@ vim ~/.codeium/windsurf/mcp_config.json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1526" class="language-typescript">// AI에게 요청할 프롬프트
+  <pre class="code-block__content"><code id="code-1769519842361-1526" class="language-typescript">// AI에게 요청할 프롬프트
 &quot;토스페이먼츠 V2 결제위젯을 React TypeScript 환경에서 초기화하는 
 커스텀 훅을 만들어줘. 로딩 상태와 에러 처리를 포함해줘.&quot;
 
@@ -647,7 +659,7 @@ export const usePaymentWidget = (clientKey: string): UsePaymentWidgetReturn =&gt
 <div class="code-block" data-language="javascript">
   <div class="code-block__header" style="background-color: #f7df1e; color: #000">
     <span class="code-block__language">JavaScript</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1527" onclick="copyCode('code-1769519219199-1527')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1527" onclick="copyCode('code-1769519842361-1527')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -655,7 +667,7 @@ export const usePaymentWidget = (clientKey: string): UsePaymentWidgetReturn =&gt
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1527" class="language-javascript">// AI에게 요청할 프롬프트
+  <pre class="code-block__content"><code id="code-1769519842361-1527" class="language-javascript">// AI에게 요청할 프롬프트
 &quot;토스페이먼츠 V2 API로 결제 승인을 요청하는 Node.js 함수를 작성해줘.
 axios를 사용하고, 에러 타입별로 처리를 구분해줘.&quot;
 
@@ -721,7 +733,7 @@ async function confirmPayment(paymentKey, orderId, amount) {
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1528" onclick="copyCode('code-1769519219199-1528')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1528" onclick="copyCode('code-1769519842361-1528')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -729,7 +741,7 @@ async function confirmPayment(paymentKey, orderId, amount) {
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1528" class="language-python"># AI에게 요청할 프롬프트
+  <pre class="code-block__content"><code id="code-1769519842361-1528" class="language-python"># AI에게 요청할 프롬프트
 &quot;Python Django에서 토스페이먼츠 V2 결제 취소 API를 호출하는 
 서비스 클래스를 작성해줘. 부분 취소도 지원해야 해.&quot;
 
@@ -787,7 +799,7 @@ class TossPaymentsService:
 <div class="code-block" data-language="bash">
   <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
     <span class="code-block__language">Bash</span>
-    <button class="code-block__copy" data-code-id="code-1769519219199-1529" onclick="copyCode('code-1769519219199-1529')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842361-1529" onclick="copyCode('code-1769519842361-1529')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -795,7 +807,7 @@ class TossPaymentsService:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519219199-1529" class="language-bash"># npx 캐시 클리어
+  <pre class="code-block__content"><code id="code-1769519842361-1529" class="language-bash"># npx 캐시 클리어
 npx clear-npx-cache
 
 # 수동으로 패키지 설치

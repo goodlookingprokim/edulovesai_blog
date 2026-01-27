@@ -38,6 +38,18 @@
         <a href="/category/claude-skills.html">Claude Skills</a>
         <a href="/category/claude-code.html">Claude Code</a>
       </nav>
+      <div class="search-container">
+        <button class="search-toggle" aria-label="검색 열기">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <circle cx="11" cy="11" r="8"></circle>
+            <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+          </svg>
+        </button>
+        <div class="search-dropdown">
+          <input type="search" id="search-input" class="search-input" placeholder="검색어를 입력하세요..." autocomplete="off">
+          <div id="search-results" class="search-results"></div>
+        </div>
+      </div>
       <button class="menu-toggle" aria-label="Toggle menu">
         <span></span>
         <span></span>
@@ -244,7 +256,7 @@
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519218967-520" onclick="copyCode('code-1769519218967-520')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842137-520" onclick="copyCode('code-1769519842137-520')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -252,7 +264,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519218967-520" class="language-plaintext">[카카오톡 메시지] → [메신저 봇 감지] → [웹훅 트리거] 
+  <pre class="code-block__content"><code id="code-1769519842137-520" class="language-plaintext">[카카오톡 메시지] → [메신저 봇 감지] → [웹훅 트리거] 
 → [Make/n8n 워크플로우] → [처리 결과] → [카카오톡 응답]</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">2 lines</span>
@@ -336,7 +348,7 @@
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519218967-521" onclick="copyCode('code-1769519218967-521')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842137-521" onclick="copyCode('code-1769519842137-521')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -344,7 +356,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519218967-521" class="language-plaintext">/storage/emulated/0/MessengerBot/
+  <pre class="code-block__content"><code id="code-1769519842137-521" class="language-plaintext">/storage/emulated/0/MessengerBot/
   ├── scripts/    # 자바스크립트 코드 저장
   └── logs/       # 로그 파일 저장</code></pre>
   <div class="code-block__footer">
@@ -358,7 +370,7 @@
 <div class="code-block" data-language="javascript">
   <div class="code-block__header" style="background-color: #f7df1e; color: #000">
     <span class="code-block__language">JavaScript</span>
-    <button class="code-block__copy" data-code-id="code-1769519218967-522" onclick="copyCode('code-1769519218967-522')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842137-522" onclick="copyCode('code-1769519842137-522')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -366,7 +378,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519218967-522" class="language-javascript">const WEBHOOK_URL = &quot;https://hook.n8n.com/your-webhook-url&quot;;
+  <pre class="code-block__content"><code id="code-1769519842137-522" class="language-javascript">const WEBHOOK_URL = &quot;https://hook.n8n.com/your-webhook-url&quot;;
 // 또는
 const WEBHOOK_URL = &quot;https://hook.make.com/your-webhook-url&quot;;</code></pre>
   <div class="code-block__footer">
@@ -378,7 +390,7 @@ const WEBHOOK_URL = &quot;https://hook.make.com/your-webhook-url&quot;;</code></
 <div class="code-block" data-language="javascript">
   <div class="code-block__header" style="background-color: #f7df1e; color: #000">
     <span class="code-block__language">JavaScript</span>
-    <button class="code-block__copy" data-code-id="code-1769519218967-523" onclick="copyCode('code-1769519218967-523')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842137-523" onclick="copyCode('code-1769519842137-523')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -386,7 +398,7 @@ const WEBHOOK_URL = &quot;https://hook.make.com/your-webhook-url&quot;;</code></
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519218967-523" class="language-javascript">const TARGET_ROOM = &quot;봇테스트방&quot;;  // 실제 카톡방 이름과 일치해야 함</code></pre>
+  <pre class="code-block__content"><code id="code-1769519842137-523" class="language-javascript">const TARGET_ROOM = &quot;봇테스트방&quot;;  // 실제 카톡방 이름과 일치해야 함</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
@@ -396,7 +408,7 @@ const WEBHOOK_URL = &quot;https://hook.make.com/your-webhook-url&quot;;</code></
 <div class="code-block" data-language="javascript">
   <div class="code-block__header" style="background-color: #f7df1e; color: #000">
     <span class="code-block__language">JavaScript</span>
-    <button class="code-block__copy" data-code-id="code-1769519218967-524" onclick="copyCode('code-1769519218967-524')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842137-524" onclick="copyCode('code-1769519842137-524')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -404,7 +416,7 @@ const WEBHOOK_URL = &quot;https://hook.make.com/your-webhook-url&quot;;</code></
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519218967-524" class="language-javascript">const CALL_KEYWORD = &quot;?봇&quot;;  // 반드시 이 문자로 시작해야 동작</code></pre>
+  <pre class="code-block__content"><code id="code-1769519842137-524" class="language-javascript">const CALL_KEYWORD = &quot;?봇&quot;;  // 반드시 이 문자로 시작해야 동작</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
@@ -414,7 +426,7 @@ const WEBHOOK_URL = &quot;https://hook.make.com/your-webhook-url&quot;;</code></
 <div class="code-block" data-language="javascript">
   <div class="code-block__header" style="background-color: #f7df1e; color: #000">
     <span class="code-block__language">JavaScript</span>
-    <button class="code-block__copy" data-code-id="code-1769519218967-525" onclick="copyCode('code-1769519218967-525')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842137-525" onclick="copyCode('code-1769519842137-525')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -422,7 +434,7 @@ const WEBHOOK_URL = &quot;https://hook.make.com/your-webhook-url&quot;;</code></
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519218967-525" class="language-javascript">const ALLOWED_USERS = [&quot;사용자1&quot;, &quot;사용자2&quot;];  // 특정 사용자만 허용
+  <pre class="code-block__content"><code id="code-1769519842137-525" class="language-javascript">const ALLOWED_USERS = [&quot;사용자1&quot;, &quot;사용자2&quot;];  // 특정 사용자만 허용
 // 또는 주석 처리하여 모든 사용자 허용</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">2 lines</span>
@@ -433,7 +445,7 @@ const WEBHOOK_URL = &quot;https://hook.make.com/your-webhook-url&quot;;</code></
 <div class="code-block" data-language="javascript">
   <div class="code-block__header" style="background-color: #f7df1e; color: #000">
     <span class="code-block__language">JavaScript</span>
-    <button class="code-block__copy" data-code-id="code-1769519218967-526" onclick="copyCode('code-1769519218967-526')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842137-526" onclick="copyCode('code-1769519842137-526')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -441,7 +453,7 @@ const WEBHOOK_URL = &quot;https://hook.make.com/your-webhook-url&quot;;</code></
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519218967-526" class="language-javascript">const TIMEOUT = 60000;  // 1분 (밀리초 단위)</code></pre>
+  <pre class="code-block__content"><code id="code-1769519842137-526" class="language-javascript">const TIMEOUT = 60000;  // 1분 (밀리초 단위)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
@@ -493,7 +505,7 @@ const WEBHOOK_URL = &quot;https://hook.make.com/your-webhook-url&quot;;</code></
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519218967-527" onclick="copyCode('code-1769519218967-527')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842137-527" onclick="copyCode('code-1769519842137-527')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -501,7 +513,7 @@ const WEBHOOK_URL = &quot;https://hook.make.com/your-webhook-url&quot;;</code></
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519218967-527" class="language-plaintext">1. Make.com에서 &#39;Run once&#39; 클릭 또는 시나리오 활성화
+  <pre class="code-block__content"><code id="code-1769519842137-527" class="language-plaintext">1. Make.com에서 &#39;Run once&#39; 클릭 또는 시나리오 활성화
 2. 카톡에서 설정한 키워드로 메시지 전송 (예: &quot;?메이크 안녕&quot;)
 3. 메신저 봇 팝업 확인
 4. Make.com에서 데이터 수신 확인
@@ -555,7 +567,7 @@ const WEBHOOK_URL = &quot;https://hook.make.com/your-webhook-url&quot;;</code></
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769519218967-528" onclick="copyCode('code-1769519218967-528')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769519842137-528" onclick="copyCode('code-1769519842137-528')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -563,7 +575,7 @@ const WEBHOOK_URL = &quot;https://hook.make.com/your-webhook-url&quot;;</code></
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769519218967-528" class="language-plaintext">1. 유튜브 링크 입력 (카톡 메시지로 전송)
+  <pre class="code-block__content"><code id="code-1769519842137-528" class="language-plaintext">1. 유튜브 링크 입력 (카톡 메시지로 전송)
 2. URL 전처리:
    - 다양한 형식 지원 (shorts, embedded, watch 등)
    - 자바스크립트로 URL 정규화

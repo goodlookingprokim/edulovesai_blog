@@ -795,6 +795,34 @@ ${urls}
 }
 
 /**
+ * Generate search index for client-side search
+ */
+function buildSearchIndex(articles) {
+  const searchIndex = {
+    articles: articles.map(article => {
+      const categoryData = getCategoryMeta(article.category);
+      return {
+        slug: article.slug,
+        title: article.title,
+        excerpt: article.excerpt || '',
+        category: article.category,
+        categoryName: categoryData.name,
+        tags: article.tags || [],
+        author: article.persona?.name || '',
+        date: article.date,
+        url: `/articles/${article.slug}.html`
+      };
+    })
+  };
+
+  fs.writeFileSync(
+    path.join(CONFIG.outputDir, 'search-index.json'),
+    JSON.stringify(searchIndex, null, 2)
+  );
+  console.log('Built: search-index.json');
+}
+
+/**
  * Copy static assets
  */
 function copyPublicAssets() {
@@ -879,6 +907,7 @@ async function build() {
   buildTagPages(articles);
   buildRssFeed(articles);
   buildSitemap(articles);
+  buildSearchIndex(articles);
   copyPublicAssets();
 
   const buildTime = Date.now() - startTime;
