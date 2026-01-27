@@ -31,12 +31,12 @@
         <span class="site-logo__text">AI 기술 자료 저널</span>
       </a>
       <nav class="site-nav">
+        <a href="/category/agent-patterns.html">Agent 패턴</a>
+        <a href="/category/prompt-engineering.html">프롬프트</a>
         <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/llm-guides.html">LLM 가이드</a>
+        <a href="/category/claude-skills.html">Claude Skills</a>
         <a href="/category/claude-code.html">Claude Code</a>
-        <a href="/category/mcp-servers.html">MCP</a>
-        <a href="/category/development-guides.html">개발 가이드</a>
-        <a href="/category/tutorials.html">튜토리얼</a>
-        <a href="/category/obsidian-integration.html">Obsidian</a>
       </nav>
       <button class="menu-toggle" aria-label="Toggle menu">
         <span></span>
@@ -253,7 +253,7 @@
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769513490179-648" onclick="copyCode('code-1769513490179-648')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769513918135-648" onclick="copyCode('code-1769513918135-648')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -261,7 +261,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769513490179-648" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769513918135-648" class="language-mermaid">graph TD
     A[User Query&lt;br/&gt;사용자 쿼리] --&gt; B[Parallel Execution&lt;br/&gt;병렬 실행]
     B --&gt; C[Task 1&lt;br/&gt;작업 1]
     B --&gt; D[Task 2&lt;br/&gt;작업 2]
@@ -394,7 +394,7 @@
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769513490179-649" onclick="copyCode('code-1769513490179-649')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769513918135-649" onclick="copyCode('code-1769513918135-649')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -402,7 +402,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769513490179-649" class="language-python">import os
+  <pre class="code-block__content"><code id="code-1769513918135-649" class="language-python">import os
 import asyncio
 from typing import Optional
 from langchain_openai import ChatOpenAI
@@ -505,7 +505,7 @@ if __name__ == &quot;__main__&quot;:
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769513490179-650" onclick="copyCode('code-1769513490179-650')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769513918135-650" onclick="copyCode('code-1769513918135-650')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -513,7 +513,7 @@ if __name__ == &quot;__main__&quot;:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769513490179-650" class="language-python">from google.adk.agents import LlmAgent, ParallelAgent, SequentialAgent
+  <pre class="code-block__content"><code id="code-1769513918135-650" class="language-python">from google.adk.agents import LlmAgent, ParallelAgent, SequentialAgent
 from google.adk.tools import google_search
 
 GEMINI_MODEL = &quot;gemini-2.0-flash&quot;
@@ -622,7 +622,7 @@ root_agent = sequential_pipeline_agent</code></pre>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769513490179-651" onclick="copyCode('code-1769513490179-651')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769513918135-651" onclick="copyCode('code-1769513918135-651')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -630,7 +630,7 @@ root_agent = sequential_pipeline_agent</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769513490179-651" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769513918135-651" class="language-mermaid">graph TD
     A[Input&lt;br/&gt;입력] --&gt; B[Parallel Tasks&lt;br/&gt;병렬 작업]
     B --&gt; C[Task 1&lt;br/&gt;작업 1]
     B --&gt; D[Task 2&lt;br/&gt;작업 2]
@@ -676,7 +676,7 @@ root_agent = sequential_pipeline_agent</code></pre>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769513490179-652" onclick="copyCode('code-1769513490179-652')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769513918135-652" onclick="copyCode('code-1769513918135-652')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -684,7 +684,7 @@ root_agent = sequential_pipeline_agent</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769513490179-652" class="language-plaintext">Speedup = 1 / (S + (1-S)/N)</code></pre>
+  <pre class="code-block__content"><code id="code-1769513918135-652" class="language-plaintext">Speedup = 1 / (S + (1-S)/N)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
@@ -731,7 +731,7 @@ root_agent = sequential_pipeline_agent</code></pre>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769513490179-653" onclick="copyCode('code-1769513490179-653')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769513918135-653" onclick="copyCode('code-1769513918135-653')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -739,7 +739,7 @@ root_agent = sequential_pipeline_agent</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769513490179-653" class="language-python">def divide_tasks(tasks: List[Task], num_workers: int) -&gt; List[List[Task]]:
+  <pre class="code-block__content"><code id="code-1769513918135-653" class="language-python">def divide_tasks(tasks: List[Task], num_workers: int) -&gt; List[List[Task]]:
     &quot;&quot;&quot;작업을 워커 수에 맞게 분할&quot;&quot;&quot;
     chunk_size = len(tasks) // num_workers
     return [tasks[i:i+chunk_size] for i in range(0, len(tasks), chunk_size)]</code></pre>
@@ -753,7 +753,7 @@ root_agent = sequential_pipeline_agent</code></pre>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769513490179-654" onclick="copyCode('code-1769513490179-654')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769513918135-654" onclick="copyCode('code-1769513918135-654')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -761,7 +761,7 @@ root_agent = sequential_pipeline_agent</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769513490179-654" class="language-python">async def dynamic_load_balancer(tasks: List[Task]):
+  <pre class="code-block__content"><code id="code-1769513918135-654" class="language-python">async def dynamic_load_balancer(tasks: List[Task]):
     &quot;&quot;&quot;동적 부하 균형 조정&quot;&quot;&quot;
     workers = [Worker() for _ in range(num_workers)]
     task_queue = asyncio.Queue()
@@ -784,7 +784,7 @@ root_agent = sequential_pipeline_agent</code></pre>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769513490179-655" onclick="copyCode('code-1769513490179-655')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769513918135-655" onclick="copyCode('code-1769513918135-655')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -792,7 +792,7 @@ root_agent = sequential_pipeline_agent</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769513490179-655" class="language-python">async def batch_processor(items: List[Item], batch_size: int = 10):
+  <pre class="code-block__content"><code id="code-1769513918135-655" class="language-python">async def batch_processor(items: List[Item], batch_size: int = 10):
     &quot;&quot;&quot;배치 처리로 효율성 향상&quot;&quot;&quot;
     batches = [items[i:i+batch_size] for i in range(0, len(items), batch_size)]
     results = await asyncio.gather(*[process_batch(batch) for batch in batches])
@@ -807,7 +807,7 @@ root_agent = sequential_pipeline_agent</code></pre>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769513490179-656" onclick="copyCode('code-1769513490179-656')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769513918135-656" onclick="copyCode('code-1769513918135-656')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -815,7 +815,7 @@ root_agent = sequential_pipeline_agent</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769513490179-656" class="language-python">from asyncio import Semaphore
+  <pre class="code-block__content"><code id="code-1769513918135-656" class="language-python">from asyncio import Semaphore
 
 async def resource_pool_processor(tasks: List[Task], max_concurrent: int = 5):
     &quot;&quot;&quot;세마포어를 사용한 리소스 풀 관리&quot;&quot;&quot;
@@ -900,7 +900,7 @@ async def resource_pool_processor(tasks: List[Task], max_concurrent: int = 5):
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769513490179-657" onclick="copyCode('code-1769513490179-657')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769513918135-657" onclick="copyCode('code-1769513918135-657')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -908,7 +908,7 @@ async def resource_pool_processor(tasks: List[Task], max_concurrent: int = 5):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769513490179-657" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769513918135-657" class="language-mermaid">graph TD
     A[Data Source&lt;br/&gt;데이터 소스] --&gt; B[Partition&lt;br/&gt;분할]
     B --&gt; C[Worker 1&lt;br/&gt;워커 1]
     B --&gt; D[Worker 2&lt;br/&gt;워커 2]
@@ -937,7 +937,7 @@ async def resource_pool_processor(tasks: List[Task], max_concurrent: int = 5):
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769513490179-658" onclick="copyCode('code-1769513490179-658')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769513918135-658" onclick="copyCode('code-1769513918135-658')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -945,7 +945,7 @@ async def resource_pool_processor(tasks: List[Task], max_concurrent: int = 5):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769513490179-658" class="language-python">async def parallel_crawler(urls: List[str], max_concurrent: int = 10):
+  <pre class="code-block__content"><code id="code-1769513918135-658" class="language-python">async def parallel_crawler(urls: List[str], max_concurrent: int = 10):
     &quot;&quot;&quot;병렬 웹 크롤링&quot;&quot;&quot;
     semaphore = asyncio.Semaphore(max_concurrent)
     

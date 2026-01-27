@@ -301,6 +301,82 @@ function validateInternalLinks(articles, buildDir, result) {
 }
 
 /**
+ * Validate nav and Explore Topics category consistency
+ * Checks that nav links point to existing category pages
+ */
+function validateNavCategories(buildDir, result) {
+  const indexPath = path.join(buildDir, 'index.html');
+  let validCount = 0;
+  let totalCount = 0;
+
+  if (!fileExists(indexPath)) {
+    addFail(result);
+    addIssue(result, 'error', 'Nav Consistency', 'index.html not found', null, 'Rebuild the site');
+    return { valid: 0, total: 1 };
+  }
+
+  const content = fs.readFileSync(indexPath, 'utf-8');
+
+  // Extract nav links
+  const navMatch = content.match(/<nav class="site-nav">([\s\S]*?)<\/nav>/);
+  if (!navMatch) {
+    addFail(result);
+    addIssue(result, 'warning', 'Nav Consistency', 'Could not find site-nav in index.html', null, 'Check template structure');
+    return { valid: 0, total: 1 };
+  }
+
+  const navContent = navMatch[1];
+  const categoryLinkRegex = /href="\/category\/([^"]+)\.html"/g;
+  let match;
+  const navCategories = [];
+
+  while ((match = categoryLinkRegex.exec(navContent)) !== null) {
+    navCategories.push(match[1]);
+  }
+
+  // Check each nav category has a corresponding category page
+  const categoryDir = path.join(buildDir, 'category');
+
+  for (const category of navCategories) {
+    totalCount++;
+    const categoryPath = path.join(categoryDir, `${category}.html`);
+
+    if (fileExists(categoryPath)) {
+      // Check if category has any articles
+      const categoryContent = fs.readFileSync(categoryPath, 'utf-8');
+      const hasArticles = categoryContent.includes('article-card');
+
+      if (hasArticles) {
+        validCount++;
+        addPass(result);
+      } else {
+        addFail(result);
+        addIssue(
+          result,
+          'warning',
+          'Nav Category',
+          `Nav links to empty category: ${category}`,
+          null,
+          `Add articles to ${category} or remove from nav`
+        );
+      }
+    } else {
+      addFail(result);
+      addIssue(
+        result,
+        'error',
+        'Nav Category',
+        `Nav links to non-existent category: ${category}`,
+        null,
+        `Create category page or remove from nav`
+      );
+    }
+  }
+
+  return { valid: validCount, total: totalCount };
+}
+
+/**
  * Main validation function
  */
 function validate(articles, config, options = {}) {
@@ -347,7 +423,12 @@ function validate(articles, config, options = {}) {
   const pagesStatus = pagesResult.valid === pagesResult.total ? '✅' : '❌';
   console.log(`${pagesStatus} Article Pages: ${pagesResult.valid}/${pagesResult.total} generated`);
 
-  // 6. Validate internal links (optional, can be slow)
+  // 6. Validate nav categories
+  const navResult = validateNavCategories(buildDir, result);
+  const navStatus = navResult.valid === navResult.total ? '✅' : '⚠️';
+  console.log(`${navStatus} Nav Categories: ${navResult.valid}/${navResult.total} valid`);
+
+  // 7. Validate internal links (optional, can be slow)
   if (options.validateLinks !== false) {
     const linksResult = validateInternalLinks(articles, buildDir, result);
     if (linksResult.total > 0) {
@@ -390,5 +471,6 @@ module.exports = {
   validatePlaceholders,
   validateRequiredFiles,
   validateArticlePages,
+  validateNavCategories,
   validateInternalLinks
 };
