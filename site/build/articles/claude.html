@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLAUDE.md | AI &amp; Development Journal</title>
+  <meta name="description" content="This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. This repository contains comprehensive Korean d...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="CLAUDE.md">
+  <meta property="og:description" content="This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. This repository contains comprehensive Korean d...">
+  <meta property="og:image" content="/assets/images/claude-code-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/claude.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="CLAUDE.md">
+  <meta name="twitter:description" content="This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository. This repository contains comprehensive Korean d...">
+  <meta name="twitter:image" content="/assets/images/claude-code-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/claude.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/claude-code.html" class="article-category" style="background-color: #ff6b35">
+          Claude Code
+        </a>
+        <h1 class="article-title">CLAUDE.md</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-expert.html" class="article-author">
+            <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 전문가</span>
+              <span class="article-author__role">AI &amp; Development Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 9월 28일">2025년 9월 28일</time>
+            <span class="article-meta__separator">·</span>
+            <span>3 read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#overview" class="toc__link">Overview</a>
+    </li>
+    <li class="toc__item">
+      <a href="#repository-structure" class="toc__link">Repository Structure</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#main-documentation-files" class="toc__link">Main Documentation Files</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#documentation-structure" class="toc__link">Documentation Structure</a>
+    </li>
+    <li class="toc__item">
+      <a href="#key-documentation-features" class="toc__link">Key Documentation Features</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#comprehensive-command-coverage" class="toc__link">Comprehensive Command Coverage</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#educational-approach" class="toc__link">Educational Approach</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#unique-content-elements" class="toc__link">Unique Content Elements</a>
+    </li>
+    <li class="toc__item">
+      <a href="#documentation-standards" class="toc__link">Documentation Standards</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#content-guidelines" class="toc__link">Content Guidelines</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#structure-standards" class="toc__link">Structure Standards</a>
+    </li>
+    <li class="toc__item">
+      <a href="#technical-accuracy" class="toc__link">Technical Accuracy</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#command-clarifications" class="toc__link">Command Clarifications</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#real-world-testing" class="toc__link">Real-World Testing</a>
+    </li>
+    <li class="toc__item">
+      <a href="#content-updates" class="toc__link">Content Updates</a>
+    </li>
+    <li class="toc__item">
+      <a href="#project-evolution" class="toc__link">Project Evolution</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>CLAUDE.md</h1>
+<p>This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.</p>
+<h2 id="overview">Overview {#overview}</h2>
+<p>This repository contains comprehensive Korean documentation for Claude Code slash commands, designed as educational materials for Korean-speaking users. The project has evolved from a basic presentation guide to include detailed individual command documentation and practical usage examples.</p>
+<h2 id="repository-structure">Repository Structure {#repository-structure}</h2>
+<h3 id="main-documentation-files">Main Documentation Files {#main-documentation-files}</h3>
+<ul>
+<li><strong><code>0_Claude Code Slash 명령어 가이드.md</code></strong> - Comprehensive overview of all 21 official slash commands with practical examples</li>
+<li><strong>Individual Command Guides</strong> (1-1 through 4-3) - Detailed documentation for specific commands</li>
+<li><strong><code>CLAUDE.md</code></strong> - This project instruction file</li>
+<li><strong>Language</strong>: Korean (한국어)</li>
+<li><strong>Target Audience</strong>: Non-developers, beginners, and those learning Claude Code</li>
+<li><strong>Format</strong>: Educational guides with practical examples and real-world scenarios</li>
+</ul>
+<h3 id="documentation-structure">Documentation Structure {#documentation-structure}</h3>
+<h4>Part 1: Essential Commands (기본 시작)</h4>
+<ul>
+<li><strong>1-1_init.md</strong> - Project initialization and context management</li>
+<li><strong>1-2_memory.md</strong> - Memory file editing and project information storage</li>
+</ul>
+<h4>Part 2: Conversation Management (대화 관리)</h4>
+<ul>
+<li><strong>2-1_clear.md</strong> - Conversation clearing with safety warnings</li>
+<li><strong>2-2_compact.md</strong> - Conversation compression for performance optimization</li>
+<li><strong>2-3_review.md</strong> - Code review functionality</li>
+</ul>
+<h4>Part 3: System &amp; Account Management (시스템 &amp; 계정)</h4>
+<ul>
+<li><strong>3-1_status.md</strong> - Account and system status checking with real execution results</li>
+<li><strong>3-2_doctor.md</strong> - System diagnostics and troubleshooting</li>
+<li><strong>3-3_config.md</strong> - Configuration management with detailed setting explanations</li>
+<li><strong>3-4_permissions.md</strong> - Permission system with examples for all 4 options (Allow/Ask/Deny/Workspace)</li>
+</ul>
+<h4>Part 4: Advanced Features (고급 기능)</h4>
+<ul>
+<li><strong>4-1_add-dir.md</strong> - Directory access management (clarifies it does NOT create folders)</li>
+<li><strong>4-2_terminal-setup.md</strong> - Terminal optimization with environment-specific configurations</li>
+<li><strong>4-3_Vim-mode.md</strong> - Vim mode usage guide with practical recommendations</li>
+</ul>
+<h2 id="key-documentation-features">Key Documentation Features {#key-documentation-features}</h2>
+<h3 id="comprehensive-command-coverage">Comprehensive Command Coverage {#comprehensive-command-coverage}</h3>
+<ul>
+<li><strong>21 Official Commands</strong>: Complete coverage from basic to advanced features</li>
+<li><strong>Real Usage Examples</strong>: Practical scenarios and actual execution results</li>
+<li><strong>Korean Cultural Context</strong>: Analogies and explanations tailored for Korean users</li>
+<li><strong>Safety Warnings</strong>: Clear guidance on potentially destructive commands like <code>/clear</code></li>
+</ul>
+<h3 id="educational-approach">Educational Approach {#educational-approach}</h3>
+<ul>
+<li><strong>Progressive Learning</strong>: Structured from basic to advanced concepts</li>
+<li><strong>Practical Examples</strong>: Real-world scenarios and use cases</li>
+<li><strong>Problem-Solution Format</strong>: Common issues and their solutions</li>
+<li><strong>Frequency-Based Classification</strong>: Commands categorized by usage frequency</li>
+</ul>
+<h3 id="unique-content-elements">Unique Content Elements {#unique-content-elements}</h3>
+<ul>
+<li><strong>Permission System Documentation</strong>: Detailed examples for Allow/Ask/Deny/Workspace settings</li>
+<li><strong>Terminal Configuration Guide</strong>: Environment-specific setup instructions</li>
+<li><strong>System Diagnostics Results</strong>: Actual <code>/status</code> and <code>/doctor</code> output interpretation</li>
+<li><strong>Vim Mode Recommendations</strong>: Clear guidance on when to use/avoid Vim mode</li>
+</ul>
+<h2 id="documentation-standards">Documentation Standards {#documentation-standards}</h2>
+<h3 id="content-guidelines">Content Guidelines {#content-guidelines}</h3>
+<ul>
+<li><strong>Korean Language Consistency</strong>: All user-facing content in Korean with English technical terms in parentheses</li>
+<li><strong>Practical Focus</strong>: Emphasis on when, why, and how to use each command</li>
+<li><strong>Safety Awareness</strong>: Clear warnings about destructive operations</li>
+<li><strong>Real Examples</strong>: Actual command outputs and practical scenarios</li>
+</ul>
+<h3 id="structure-standards">Structure Standards {#structure-standards}</h3>
+<ul>
+<li><strong>Consistent Numbering</strong>: Sequential numbering system (1-1, 1-2, etc.)</li>
+<li><strong>Standardized Sections</strong>: Usage timing, examples, warnings, and key takeaways</li>
+<li><strong>Cross-References</strong>: Links between related commands and concepts</li>
+<li><strong>Context-Appropriate Content</strong>: Each file focuses on its specific command without irrelevant information</li>
+</ul>
+<h2 id="technical-accuracy">Technical Accuracy {#technical-accuracy}</h2>
+<h3 id="command-clarifications">Command Clarifications {#command-clarifications}</h3>
+<ul>
+<li><strong><code>/add-dir</code></strong>: Explicitly clarifies it adds existing directories to access scope, does NOT create new folders</li>
+<li><strong><code>/terminal-setup</code></strong>: Context-dependent behavior based on current environment analysis</li>
+<li><strong><code>/permissions</code></strong>: Detailed breakdown of all permission options with practical examples</li>
+<li><strong><code>/vim</code></strong>: Clear guidance on when Vim mode is beneficial vs. counterproductive</li>
+</ul>
+<h3 id="real-world-testing">Real-World Testing {#real-world-testing}</h3>
+<ul>
+<li><strong>Actual Execution Results</strong>: Documentation includes real command outputs and their interpretation</li>
+<li><strong>Environment-Specific Behavior</strong>: Accounts for differences across macOS, Windows, and various terminal applications</li>
+<li><strong>Error Scenarios</strong>: Common problems and their solutions</li>
+</ul>
+<h2 id="content-updates">Content Updates {#content-updates}</h2>
+<p>When modifying the documentation:</p>
+<ul>
+<li><strong>Maintain Korean Cultural Context</strong>: Keep analogies and explanations relevant to Korean users</li>
+<li><strong>Update Cross-References</strong>: Ensure related commands reference each other appropriately</li>
+<li><strong>Verify Technical Accuracy</strong>: Test commands and update examples with actual results</li>
+<li><strong>Preserve Safety Warnings</strong>: Maintain clear warnings about destructive operations</li>
+<li><strong>Keep Practical Focus</strong>: Emphasize real-world usage over theoretical concepts</li>
+</ul>
+<h2 id="project-evolution">Project Evolution {#project-evolution}</h2>
+<p>This documentation project has grown from a basic presentation to a comprehensive reference guide, incorporating:</p>
+<ul>
+<li><strong>User Feedback</strong>: Corrections based on contextual appropriateness</li>
+<li><strong>Real Usage Data</strong>: Practical examples from actual Claude Code usage</li>
+<li><strong>Safety Considerations</strong>: Enhanced warnings and best practices</li>
+<li><strong>Technical Clarifications</strong>: Detailed explanations of command behavior and limitations</li>
+</ul>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/claude-code.html" class="article-tag">claude-code</a><a href="/tag/ai-coding.html" class="article-tag">ai-coding</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude.html&text=CLAUDE.md" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude.html&title=CLAUDE.md" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/claude.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-expert.html" class="author-bio__card">
+          <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 전문가</h3>
+            <p class="author-bio__role">AI &amp; Development Writer</p>
+            <p class="author-bio__text">AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-code-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Code 슬래시 명령어 완전 정복 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Code 슬래시 명령어 완전 정복 가이드</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 실전 중심 가이드 --- Claude에게 미리 정해둔 역할을 로 호출하는 기능입니다. 비유: 스마트폰 단축어처럼, 복잡한 지시를 한 단어로 실행 --- 슬래시 명령어는  파일로 구성되며, 크게 YAML 프론트매터와 본문으로 나뉩니다. --- 목적:...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills-beginners-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 만드는 법: 초보자 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 만드는 법: 초보자 완전 가이드</h3>
+          <p class="article-card__excerpt">이 가이드의 목표: Claude Code를 처음 배우는 초보 개발자도 실제로 작동하는 Claude Skill을 만들 수 있도록 단계별로 설명합니다. 복잡한 개념도 쉬운 말로 풀어 설명하고, 실전 예제로 바로 적용할 수 있게 구성했습니다. --- 1.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">25 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 마스터 학습 경로"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 마스터 학습 경로</h3>
+          <p class="article-card__excerpt">초보자에서 마스터까지: 이 경로를 따라가면 Claude Skill을 완벽하게 만들 수 있습니다. --- --- 읽을 문서: Claude Skills가 뭔가요 (5살 버전) || ClaudeSkills초보자가이드#Claude Skills가 뭔가요 (5살 버전) 배울...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

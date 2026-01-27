@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code macOS 설치 가이드 | AI &amp; Development Journal</title>
+  <meta name="description" content="- 핵심 주제: Claude Code를 macOS에서 터미널을 통해 설치하는 방법 - 목적: macOS 사용자를 위한 Claude Code 설치 및 초기 설정 가이드 - 범위: 시스템 요구사항 확인부터 설치 완료 및 실행까지 1.  || #시스템 요구사항 2.  ||...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude Code macOS 설치 가이드">
+  <meta property="og:description" content="- 핵심 주제: Claude Code를 macOS에서 터미널을 통해 설치하는 방법 - 목적: macOS 사용자를 위한 Claude Code 설치 및 초기 설정 가이드 - 범위: 시스템 요구사항 확인부터 설치 완료 및 실행까지 1.  || #시스템 요구사항 2.  ||...">
+  <meta property="og:image" content="/assets/images/claude-code-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-macos-install-guide.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Code macOS 설치 가이드">
+  <meta name="twitter:description" content="- 핵심 주제: Claude Code를 macOS에서 터미널을 통해 설치하는 방법 - 목적: macOS 사용자를 위한 Claude Code 설치 및 초기 설정 가이드 - 범위: 시스템 요구사항 확인부터 설치 완료 및 실행까지 1.  || #시스템 요구사항 2.  ||...">
+  <meta name="twitter:image" content="/assets/images/claude-code-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-macos-install-guide.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/claude-code.html" class="article-category" style="background-color: #ff6b35">
+          Claude Code
+        </a>
+        <h1 class="article-title">Claude Code macOS 설치 가이드</h1>
+        <div class="article-meta">
+          <a href="/journalist/claude-specialist.html" class="article-author">
+            <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">Claude 전문가</span>
+              <span class="article-author__role">Claude Code Specialist</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 6월 13일">2025년 6월 13일</time>
+            <span class="article-meta__separator">·</span>
+            <span>7 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#시스템-요구사항" class="toc__link">시스템 요구사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#최소-요구사항" class="toc__link">최소 요구사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#권한-요구사항" class="toc__link">권한 요구사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#사전-준비사항" class="toc__link">사전 준비사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-homebrew-설치-확인" class="toc__link">1. Homebrew 설치 확인</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-nodejs-및-npm-설치" class="toc__link">2. Node.js 및 npm 설치</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-git-설치-확인" class="toc__link">3. Git 설치 확인</a>
+    </li>
+    <li class="toc__item">
+      <a href="#claude-code-설치하기" class="toc__link">Claude Code 설치하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-npm을-통한-전역-설치" class="toc__link">1. npm을 통한 전역 설치</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-설치-중-발생할-수-있는-권한-오류-해결" class="toc__link">2. 설치 중 발생할 수 있는 권한 오류 해결</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-대체-설치-방법-권한-문제-지속-시" class="toc__link">3. 대체 설치 방법 (권한 문제 지속 시)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#설치-확인-및-첫-실행" class="toc__link">설치 확인 및 첫 실행</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-설치-확인" class="toc__link">1. 설치 확인</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-첫-실행" class="toc__link">2. 첫 실행</a>
+    </li>
+    <li class="toc__item">
+      <a href="#api-키-설정" class="toc__link">API 키 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-anthropic-api-키-획득" class="toc__link">1. Anthropic API 키 획득</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-claude-code에-api-키-설정" class="toc__link">2. Claude Code에 API 키 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-api-키-설정-확인" class="toc__link">3. API 키 설정 확인</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결" class="toc__link">문제 해결</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#일반적인-문제와-해결-방법" class="toc__link">일반적인 문제와 해결 방법</a>
+    </li>
+    <li class="toc__item">
+      <a href="#추가-설정-옵션" class="toc__link">추가 설정 옵션</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-자동-완성-설정" class="toc__link">1. 자동 완성 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-별칭alias-설정" class="toc__link">2. 별칭(Alias) 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-설정-파일-위치" class="toc__link">3. 설정 파일 위치</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-업데이트-방법" class="toc__link">4. 업데이트 방법</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-체크리스트" class="toc__link">구현 체크리스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#유용한-팁" class="toc__link">유용한 팁</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#보안-관련" class="toc__link">보안 관련</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#성능-최적화" class="toc__link">성능 최적화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#활용-팁" class="toc__link">활용 팁</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Claude Code macOS 설치 가이드</h1>
+<h2 id="개요">개요 {#개요}</h2>
+<ul>
+<li><strong>핵심 주제</strong>: Claude Code를 macOS에서 터미널을 통해 설치하는 방법</li>
+<li><strong>목적</strong>: macOS 사용자를 위한 Claude Code 설치 및 초기 설정 가이드</li>
+<li><strong>범위</strong>: 시스템 요구사항 확인부터 설치 완료 및 실행까지</li>
+</ul>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#시스템-요구사항" class="internal-link internal-link--section">시스템 요구사항</a></li>
+<li><a href="#사전-준비사항" class="internal-link internal-link--section">사전 준비사항</a></li>
+<li><a href="#claude-code-설치하기" class="internal-link internal-link--section">Claude Code 설치하기</a></li>
+<li><a href="#설치-확인-및-첫-실행" class="internal-link internal-link--section">설치 확인 및 첫 실행</a></li>
+<li><a href="#api-키-설정" class="internal-link internal-link--section">API 키 설정</a></li>
+<li><a href="#문제-해결" class="internal-link internal-link--section">문제 해결</a></li>
+<li><a href="#추가-설정-옵션" class="internal-link internal-link--section">추가 설정 옵션</a></li>
+</ol>
+<h2 id="시스템-요구사항">시스템 요구사항 {#시스템-요구사항}</h2>
+<h3 id="최소-요구사항">최소 요구사항 {#최소-요구사항}</h3>
+<ul>
+<li><strong>운영체제</strong>: macOS 10.15 (Catalina) 이상</li>
+<li><strong>Node.js</strong>: v18.0.0 이상</li>
+<li><strong>npm</strong>: v8.0.0 이상</li>
+<li><strong>메모리</strong>: 최소 4GB RAM (8GB 이상 권장)</li>
+<li><strong>저장공간</strong>: 최소 1GB 여유 공간</li>
+</ul>
+<h3 id="권한-요구사항">권한 요구사항 {#권한-요구사항}</h3>
+<ul>
+<li>관리자(sudo) 권한 필요</li>
+<li>터미널 실행 권한</li>
+</ul>
+<h2 id="사전-준비사항">사전 준비사항 {#사전-준비사항}</h2>
+<h3 id="1-homebrew-설치-확인">1. Homebrew 설치 확인 {#1-homebrew-설치-확인}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2879" onclick="copyCode('code-1769481054552-2879')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2879" class="language-bash"># Homebrew 설치 여부 확인
+brew --version
+
+<h1>Homebrew가 없다면 설치</h1>
+<p>/bin/bash -c &quot;$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh">https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh</a>)&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h3 id="2-nodejs-및-npm-설치">2. Node.js 및 npm 설치 {#2-nodejs-및-npm-설치}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2880" onclick="copyCode('code-1769481054552-2880')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2880" class="language-bash"># Node.js 설치 (npm 포함)
+brew install node
+
+<h1>설치 확인</h1>
+<p>node --version
+npm --version</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<h3 id="3-git-설치-확인">3. Git 설치 확인 {#3-git-설치-확인}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2881" onclick="copyCode('code-1769481054552-2881')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2881" class="language-bash"># Git 버전 확인
+git --version
+
+<h1>Git이 없다면 설치</h1>
+<p>brew install git</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h2 id="claude-code-설치하기">Claude Code 설치하기 {#claude-code-설치하기}</h2>
+<h3 id="1-npm을-통한-전역-설치">1. npm을 통한 전역 설치 {#1-npm을-통한-전역-설치}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2882" onclick="copyCode('code-1769481054552-2882')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2882" class="language-bash"># Claude Code 전역 설치 (sudo 권한 필요)
+sudo npm install -g @anthropic-ai/claude-code
+
+<h1>설치 진행 상황 확인</h1>
+<h1>✓ @anthropic-ai/claude-code@latest</h1>
+<h1>added XXX packages in XXs</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="2-설치-중-발생할-수-있는-권한-오류-해결">2. 설치 중 발생할 수 있는 권한 오류 해결 {#2-설치-중-발생할-수-있는-권한-오류-해결}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2883" onclick="copyCode('code-1769481054552-2883')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2883" class="language-bash"># npm 전역 디렉토리 권한 확인
+npm config get prefix
+
+<h1>권한 오류 발생 시 npm 디렉토리 소유권 변경</h1>
+<p>sudo chown -R $(whoami) $(npm config get prefix)/{lib/node_modules,bin,share}</p>
+<h1>다시 설치 시도</h1>
+<p>npm install -g @anthropic-ai/claude-code</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h3 id="3-대체-설치-방법-권한-문제-지속-시">3. 대체 설치 방법 (권한 문제 지속 시) {#3-대체-설치-방법-권한-문제-지속-시}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2884" onclick="copyCode('code-1769481054552-2884')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2884" class="language-bash"># npm 전역 경로 변경
+mkdir ~/.npm-global
+npm config set prefix &#39;~/.npm-global&#39;
+echo &#39;export PATH=~/.npm-global/bin:$PATH&#39; &gt;&gt; ~/.zshrc
+source ~/.zshrc
+
+<h1>Claude Code 재설치</h1>
+<p>npm install -g @anthropic-ai/claude-code</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h2 id="설치-확인-및-첫-실행">설치 확인 및 첫 실행 {#설치-확인-및-첫-실행}</h2>
+<h3 id="1-설치-확인">1. 설치 확인 {#1-설치-확인}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2885" onclick="copyCode('code-1769481054552-2885')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2885" class="language-bash"># Claude Code 버전 확인
+claude --version
+
+<h1>도움말 확인</h1>
+<p>claude --help</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h3 id="2-첫-실행">2. 첫 실행 {#2-첫-실행}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2886" onclick="copyCode('code-1769481054552-2886')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2886" class="language-bash"># Claude Code 실행
+claude
+
+<h1>초기 설정 화면이 나타납니다</h1>
+<h1>API 키 입력 프롬프트가 표시됩니다</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h2 id="api-키-설정">API 키 설정 {#api-키-설정}</h2>
+<h3 id="1-anthropic-api-키-획득">1. Anthropic API 키 획득 {#1-anthropic-api-키-획득}</h3>
+<ol>
+<li><a href="https://console.anthropic.com">Anthropic Console</a> 방문</li>
+<li>계정 생성 또는 로그인</li>
+<li>API Keys 섹션에서 새 키 생성</li>
+<li>키 복사 (한 번만 표시되므로 안전하게 보관)</li>
+</ol>
+<h3 id="2-claude-code에-api-키-설정">2. Claude Code에 API 키 설정 {#2-claude-code에-api-키-설정}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2887" onclick="copyCode('code-1769481054552-2887')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2887" class="language-bash"># 방법 1: 환경 변수로 설정
+export ANTHROPIC_API_KEY=&quot;your-api-key-here&quot;
+echo &#39;export ANTHROPIC_API_KEY=&quot;your-api-key-here&quot;&#39; &gt;&gt; ~/.zshrc
+source ~/.zshrc
+
+<h1>방법 2: Claude Code 실행 시 입력</h1>
+<p>claude</p>
+<h1>Enter your Anthropic API key: [키 입력]</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<h3 id="3-api-키-설정-확인">3. API 키 설정 확인 {#3-api-키-설정-확인}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2888" onclick="copyCode('code-1769481054552-2888')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2888" class="language-bash"># 설정된 API 키 확인
+claude config show
+
+<h1>API 연결 테스트</h1>
+<p>claude &quot;Hello, Claude!&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h2 id="문제-해결">문제 해결 {#문제-해결}</h2>
+<h3 id="일반적인-문제와-해결-방법">일반적인 문제와 해결 방법 {#일반적인-문제와-해결-방법}</h3>
+<h4>1. &quot;command not found: claude&quot; 오류</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2889" onclick="copyCode('code-1769481054552-2889')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2889" class="language-bash"># PATH 확인
+echo $PATH
+
+<h1>npm 전역 bin 경로 확인</h1>
+<p>npm bin -g</p>
+<h1>PATH에 추가</h1>
+<p>export PATH=$(npm bin -g):$PATH</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h4>2. 권한 거부 오류</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2890" onclick="copyCode('code-1769481054552-2890')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2890" class="language-bash"># npm 캐시 정리
+sudo npm cache clean --force
+
+<h1>권한 재설정</h1>
+<p>sudo chown -R $(whoami) ~/.npm</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>3. Node.js 버전 문제</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2891" onclick="copyCode('code-1769481054552-2891')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2891" class="language-bash"># Node.js 버전 업그레이드
+brew upgrade node
+
+<h1>nvm을 사용한 버전 관리</h1>
+<p>curl -o- <a href="https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh">https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh</a> | bash
+nvm install 18
+nvm use 18</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h4>4. SSL/네트워크 오류</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2892" onclick="copyCode('code-1769481054552-2892')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2892" class="language-bash"># npm SSL 설정 확인
+npm config set strict-ssl false  # 임시 해결책
+npm config set registry https://registry.npmjs.org/</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h2 id="추가-설정-옵션">추가 설정 옵션 {#추가-설정-옵션}</h2>
+<h3 id="1-자동-완성-설정">1. 자동 완성 설정 {#1-자동-완성-설정}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2893" onclick="copyCode('code-1769481054552-2893')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2893" class="language-bash"># zsh 자동 완성 설정
+claude completion zsh &gt; ~/.claude-completion.zsh
+echo &quot;source ~/.claude-completion.zsh&quot; &gt;&gt; ~/.zshrc
+source ~/.zshrc</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3 id="2-별칭alias-설정">2. 별칭(Alias) 설정 {#2-별칭alias-설정}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2894" onclick="copyCode('code-1769481054552-2894')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2894" class="language-bash"># 짧은 명령어 설정
+echo &#39;alias cl=&quot;claude&quot;&#39; &gt;&gt; ~/.zshrc
+echo &#39;alias clc=&quot;claude chat&quot;&#39; &gt;&gt; ~/.zshrc
+source ~/.zshrc</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3 id="3-설정-파일-위치">3. 설정 파일 위치 {#3-설정-파일-위치}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2895" onclick="copyCode('code-1769481054552-2895')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2895" class="language-bash"># Claude Code 설정 파일 위치
+~/.claude/config.json
+
+<h1>로그 파일 위치</h1>
+<p>~/.claude/logs/</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h3 id="4-업데이트-방법">4. 업데이트 방법 {#4-업데이트-방법}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054552-2896" onclick="copyCode('code-1769481054552-2896')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054552-2896" class="language-bash"># Claude Code 업데이트
+sudo npm update -g @anthropic-ai/claude-code
+
+<h1>특정 버전 설치</h1>
+<p>sudo npm install -g @anthropic-ai/claude-code@특정버전</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h2 id="구현-체크리스트">구현 체크리스트 {#구현-체크리스트}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> macOS 버전 확인 (10.15 이상)</li>
+<li><input disabled="" type="checkbox"> Homebrew 설치</li>
+<li><input disabled="" type="checkbox"> Node.js 18+ 및 npm 설치</li>
+<li><input disabled="" type="checkbox"> Git 설치 확인</li>
+<li><input disabled="" type="checkbox"> Claude Code npm 전역 설치</li>
+<li><input disabled="" type="checkbox"> API 키 획득 및 설정</li>
+<li><input disabled="" type="checkbox"> 첫 실행 테스트</li>
+<li><input disabled="" type="checkbox"> 자동 완성 설정 (선택사항)</li>
+<li><input disabled="" type="checkbox"> 별칭 설정 (선택사항)</li>
+</ul>
+<h2 id="유용한-팁">유용한 팁 {#유용한-팁}</h2>
+<h3 id="보안-관련">보안 관련 {#보안-관련}</h3>
+<ul>
+<li>API 키는 절대 공개 저장소에 커밋하지 마세요</li>
+<li><code>.env</code> 파일이나 환경 변수로 관리하세요</li>
+<li>정기적으로 API 키를 재생성하세요</li>
+</ul>
+<h3 id="성능-최적화">성능 최적화 {#성능-최적화}</h3>
+<ul>
+<li>대용량 프로젝트에서는 <code>.claudeignore</code> 파일 활용</li>
+<li>불필요한 파일 제외로 컨텍스트 최적화</li>
+<li>캐시 정기적 정리: <code>claude cache clear</code></li>
+</ul>
+<h3 id="활용-팁">활용 팁 {#활용-팁}</h3>
+<ul>
+<li>프로젝트 루트에서 실행하면 전체 컨텍스트 활용 가능</li>
+<li><code>claude chat</code> 모드로 대화형 세션 시작</li>
+<li><code>claude --help</code> 로 모든 옵션 확인</li>
+</ul>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/claude-code-practical-obsidian-vault-automation.html" class="internal-link">Claude Code를 활용한 Obsidian Vault 자동화 및 제어</a></li>
+<li><a href="/articles/claudecodeuseanalysis.html" class="internal-link">Claude_Code_사용_경험_및_분석</a></li>
+<li><a href="/articles/mcp-practical.html" class="internal-link">인기있는 MCP 서버 및 활용사례</a></li>
+<li><a href="/articles/mcp.html" class="internal-link">MCP 프로토콜 이해하기</a></li>
+</ul>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/Claude-Code.html" class="article-tag">Claude-Code</a><a href="/tag/MCP.html" class="article-tag">MCP</a><a href="/tag/AI도구.html" class="article-tag">AI도구</a><a href="/tag/설치가이드.html" class="article-tag">설치가이드</a><a href="/tag/macOS.html" class="article-tag">macOS</a><a href="/tag/터미널.html" class="article-tag">터미널</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-macos-install-guide.html&text=Claude Code macOS 설치 가이드" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-macos-install-guide.html&title=Claude Code macOS 설치 가이드" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-macos-install-guide.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/claude-specialist.html" class="author-bio__card">
+          <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">Claude 전문가</h3>
+            <p class="author-bio__role">Claude Code Specialist</p>
+            <p class="author-bio__text">Claude Code와 AI 코딩 도구 활용법을 연구합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-code-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Code 슬래시 명령어 완전 정복 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Code 슬래시 명령어 완전 정복 가이드</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 실전 중심 가이드 --- Claude에게 미리 정해둔 역할을 로 호출하는 기능입니다. 비유: 스마트폰 단축어처럼, 복잡한 지시를 한 단어로 실행 --- 슬래시 명령어는  파일로 구성되며, 크게 YAML 프론트매터와 본문으로 나뉩니다. --- 목적:...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills-beginners-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 만드는 법: 초보자 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 만드는 법: 초보자 완전 가이드</h3>
+          <p class="article-card__excerpt">이 가이드의 목표: Claude Code를 처음 배우는 초보 개발자도 실제로 작동하는 Claude Skill을 만들 수 있도록 단계별로 설명합니다. 복잡한 개념도 쉬운 말로 풀어 설명하고, 실전 예제로 바로 적용할 수 있게 구성했습니다. --- 1.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">25 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 마스터 학습 경로"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 마스터 학습 경로</h3>
+          <p class="article-card__excerpt">초보자에서 마스터까지: 이 경로를 따라가면 Claude Skill을 완벽하게 만들 수 있습니다. --- --- 읽을 문서: Claude Skills가 뭔가요 (5살 버전) || ClaudeSkills초보자가이드#Claude Skills가 뭔가요 (5살 버전) 배울...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

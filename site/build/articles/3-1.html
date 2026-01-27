@@ -1,0 +1,728 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>바이브코딩 라이브 - 커서맛피아가 대신 만들어드림 #3 | AI &amp; Development Journal</title>
+  <meta name="description" content="1.  || #개요 2.  || #주요 내용 3.  || #WorkEasy 프로젝트 소개 4.  || #EasyNext 프레임워크 활용 5.  || #구현 방법 6.  || #핵심 학습 포인트 7.  || #실무 적용점 - 라이브 제목: 바이브코딩 라이브 |...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="바이브코딩 라이브 - 커서맛피아가 대신 만들어드림 #3">
+  <meta property="og:description" content="1.  || #개요 2.  || #주요 내용 3.  || #WorkEasy 프로젝트 소개 4.  || #EasyNext 프레임워크 활용 5.  || #구현 방법 6.  || #핵심 학습 포인트 7.  || #실무 적용점 - 라이브 제목: 바이브코딩 라이브 |...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/3-1.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="바이브코딩 라이브 - 커서맛피아가 대신 만들어드림 #3">
+  <meta name="twitter:description" content="1.  || #개요 2.  || #주요 내용 3.  || #WorkEasy 프로젝트 소개 4.  || #EasyNext 프레임워크 활용 5.  || #구현 방법 6.  || #핵심 학습 포인트 7.  || #실무 적용점 - 라이브 제목: 바이브코딩 라이브 |...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/3-1.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">바이브코딩 라이브 - 커서맛피아가 대신 만들어드림 #3</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 8월 3일">2025년 8월 3일</time>
+            <span class="article-meta__separator">·</span>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#주요-내용" class="toc__link">주요 내용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#라이브-코딩-목표" class="toc__link">라이브 코딩 목표</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시청자-제보-서비스" class="toc__link">시청자 제보 서비스</a>
+    </li>
+    <li class="toc__item">
+      <a href="#workeasy-프로젝트-소개" class="toc__link">WorkEasy 프로젝트 소개</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#서비스-개요" class="toc__link">서비스 개요</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#주요-기능-명세" class="toc__link">주요 기능 명세</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#사용자-플로우-설계" class="toc__link">사용자 플로우 설계</a>
+    </li>
+    <li class="toc__item">
+      <a href="#easynext-프레임워크-활용" class="toc__link">EasyNext 프레임워크 활용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#easynext란" class="toc__link">EasyNext란?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#설치-및-설정" class="toc__link">설치 및 설정</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-방법" class="toc__link">구현 방법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#cursor-활용-팁" class="toc__link">Cursor 활용 팁</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#개발-환경-구성" class="toc__link">개발 환경 구성</a>
+    </li>
+    <li class="toc__item">
+      <a href="#핵심-학습-포인트" class="toc__link">핵심 학습 포인트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-ai-기반-개발-프로세스" class="toc__link">1. AI 기반 개발 프로세스</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-saas-아키텍처-설계" class="toc__link">2. SaaS 아키텍처 설계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-실무-개발-팁" class="toc__link">3. 실무 개발 팁</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실무-적용점" class="toc__link">실무 적용점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#프로젝트-관리" class="toc__link">프로젝트 관리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기술-스택-선택" class="toc__link">기술 스택 선택</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#확장-가능성" class="toc__link">확장 가능성</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-체크리스트" class="toc__link">구현 체크리스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#참고-자료" class="toc__link">참고 자료</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>바이브코딩 라이브 - 커서맛피아가 대신 만들어드림 #3</h1>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#개요" class="internal-link internal-link--section">개요</a></li>
+<li><a href="#주요-내용" class="internal-link internal-link--section">주요 내용</a></li>
+<li><a href="#workeasy-프로젝트-소개" class="internal-link internal-link--section">WorkEasy 프로젝트 소개</a></li>
+<li><a href="#easynext-프레임워크-활용" class="internal-link internal-link--section">EasyNext 프레임워크 활용</a></li>
+<li><a href="#구현-방법" class="internal-link internal-link--section">구현 방법</a></li>
+<li><a href="#핵심-학습-포인트" class="internal-link internal-link--section">핵심 학습 포인트</a></li>
+<li><a href="#실무-적용점" class="internal-link internal-link--section">실무 적용점</a></li>
+</ol>
+<h2 id="개요">개요 {#개요}</h2>
+<ul>
+<li><strong>라이브 제목</strong>: 바이브코딩 라이브 | 커서맛피아가 대신 만들어드림 #3</li>
+<li><strong>방송 시간</strong>: 약 3시간 (10,992초)</li>
+<li><strong>주요 주제</strong>: Cursor AI를 활용한 실시간 SaaS 개발</li>
+<li><strong>개발 프로젝트</strong>: WorkEasy - 알바생 스케줄 관리 서비스</li>
+</ul>
+<h2 id="주요-내용">주요 내용 {#주요-내용}</h2>
+<h3 id="라이브-코딩-목표">라이브 코딩 목표 {#라이브-코딩-목표}</h3>
+<ul>
+<li>SaaS 서비스의 핵심 기능을 실제로 구현</li>
+<li>기능이 &quot;말이 되게&quot; 완성하는 것에 중점</li>
+<li>Cursor AI를 활용한 효율적인 개발 프로세스 시연</li>
+</ul>
+<h3 id="시청자-제보-서비스">시청자 제보 서비스 {#시청자-제보-서비스}</h3>
+<ul>
+<li><strong>서비스명</strong>: WorkEasy (워크이지)</li>
+<li><strong>유사 서비스</strong>: 워크잼(WorkJam)</li>
+<li><strong>주요 기능</strong>:<ul>
+<li>알바생 스케줄 자동 조정</li>
+<li>사내 채팅 기능</li>
+<li>근무 교대 시스템</li>
+</ul>
+</li>
+</ul>
+<h2 id="workeasy-프로젝트-소개">WorkEasy 프로젝트 소개 {#workeasy-프로젝트-소개}</h2>
+<h3 id="서비스-개요">서비스 개요 {#서비스-개요}</h3>
+<ul>
+<li><strong>목적</strong>: 알바생들의 효율적인 근무 스케줄 관리</li>
+<li><strong>타겟</strong>: 알바생이 많은 매장 (카페, 레스토랑, 편의점 등)</li>
+<li><strong>핵심 가치</strong>: 근무 교대의 효율화</li>
+</ul>
+<h3 id="주요-기능-명세">주요 기능 명세 {#주요-기능-명세}</h3>
+<ol>
+<li><p><strong>스케줄 관리</strong></p>
+<ul>
+<li>알바생별 근무 스케줄 조회</li>
+<li>매니저의 통합 스케줄 관리</li>
+</ul>
+</li>
+<li><p><strong>스케줄 변경 및 교환</strong></p>
+<ul>
+<li>알바생 간 근무 교대 요청</li>
+<li>자동 매칭 시스템</li>
+</ul>
+</li>
+<li><p><strong>계정 체계</strong></p>
+<ul>
+<li>매니저 계정: 스케줄 생성 및 관리 권한</li>
+<li>알바생 계정: 스케줄 조회 및 교대 요청 권한</li>
+</ul>
+</li>
+<li><p><strong>부가 기능</strong></p>
+<ul>
+<li>교육 지침 자료 공유</li>
+<li>사내 공지사항</li>
+<li>PWA 설치 시 푸시 알림</li>
+</ul>
+</li>
+</ol>
+<h3 id="사용자-플로우-설계">사용자 플로우 설계 {#사용자-플로우-설계}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054727-3663" onclick="copyCode('code-1769481054727-3663')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054727-3663" class="language-plaintext">매니저 가입 → 매장 생성 → 알바생 계정 발급 → 
+알바생 초대 → 스케줄 등록 → 근무 교대 요청/승인</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h2 id="easynext-프레임워크-활용">EasyNext 프레임워크 활용 {#easynext-프레임워크-활용}</h2>
+<h3 id="easynext란">EasyNext란? {#easynext란}</h3>
+<ul>
+<li>방송 진행자가 개발한 Next.js 기반 프레임워크</li>
+<li>빠른 프로젝트 초기 설정 지원</li>
+<li>SaaS 개발에 최적화된 보일러플레이트</li>
+</ul>
+<h3 id="설치-및-설정">설치 및 설정 {#설치-및-설정}</h3>
+<h4>1. 사전 요구사항</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054727-3664" onclick="copyCode('code-1769481054727-3664')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054727-3664" class="language-bash"># Node.js 버전 확인 (v20 이상 필요)
+node -v</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>2. EasyNext 설치</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054727-3665" onclick="copyCode('code-1769481054727-3665')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054727-3665" class="language-bash"># EasyNext CLI 설치
+npm install -g easynext
+
+<h1>또는 npx 사용</h1>
+<p>npx create-easynext@latest</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>3. 프로젝트 생성</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054727-3666" onclick="copyCode('code-1769481054727-3666')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054727-3666" class="language-bash"># 프로젝트 생성 명령어
+easynext create workeasy
+
+<h1>폴더 이동</h1>
+<p>cd workeasy</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>4. 프로젝트 실행</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054727-3667" onclick="copyCode('code-1769481054727-3667')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054727-3667" class="language-bash"># 개발 서버 실행
+npm run dev</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h2 id="구현-방법">구현 방법 {#구현-방법}</h2>
+<h3 id="cursor-활용-팁">Cursor 활용 팁 {#cursor-활용-팁}</h3>
+<h4>1. 프로젝트 열기</h4>
+<ul>
+<li>Cursor 실행 → Open Project → workeasy 폴더 선택</li>
+</ul>
+<h4>2. 주요 패널 소개</h4>
+<ul>
+<li><strong>파일 탐색기</strong>: 좌측 패널에서 프로젝트 파일 관리</li>
+<li><strong>AI 채팅 패널</strong>: 우측에서 AI에게 기능 요청</li>
+<li><strong>터미널</strong>: Ctrl+J (Windows) 또는 Cmd+J (Mac)로 열기</li>
+</ul>
+<h4>3. AI 활용 예시</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054727-3668" onclick="copyCode('code-1769481054727-3668')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054727-3668" class="language-plaintext">&quot;로그인 기능 만들어 줘&quot;
+&quot;알바생 스케줄 관리 페이지 구현해 줘&quot;
+&quot;근무 교대 요청 시스템 만들어 줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h3 id="개발-환경-구성">개발 환경 구성 {#개발-환경-구성}</h3>
+<h4>필수 도구</h4>
+<ul>
+<li>Node.js (v20 이상)</li>
+<li>Cursor AI Editor</li>
+<li>Git (버전 관리용)</li>
+</ul>
+<h4>터미널 명령어</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054727-3669" onclick="copyCode('code-1769481054727-3669')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054727-3669" class="language-bash"># 프로젝트 실행
+npm run dev
+
+<h1>의존성 설치</h1>
+<p>npm install</p>
+<h1>빌드</h1>
+<p>npm run build</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h2 id="핵심-학습-포인트">핵심 학습 포인트 {#핵심-학습-포인트}</h2>
+<h3 id="1-ai-기반-개발-프로세스">1. AI 기반 개발 프로세스 {#1-ai-기반-개발-프로세스}</h3>
+<ul>
+<li>자연어로 기능 요청</li>
+<li>AI가 생성한 코드 검토 및 수정</li>
+<li>반복적인 개선 과정</li>
+</ul>
+<h3 id="2-saas-아키텍처-설계">2. SaaS 아키텍처 설계 {#2-saas-아키텍처-설계}</h3>
+<ul>
+<li>다중 테넌트 구조 이해</li>
+<li>권한 기반 접근 제어</li>
+<li>실시간 데이터 동기화</li>
+</ul>
+<h3 id="3-실무-개발-팁">3. 실무 개발 팁 {#3-실무-개발-팁}</h3>
+<ul>
+<li>매니저 우선 가입 플로우의 중요성</li>
+<li>현실적인 사용 시나리오 고려</li>
+<li>MVP(최소 기능 제품) 접근법</li>
+</ul>
+<h2 id="실무-적용점">실무 적용점 {#실무-적용점}</h2>
+<h3 id="프로젝트-관리">프로젝트 관리 {#프로젝트-관리}</h3>
+<ol>
+<li><p><strong>단계별 개발</strong></p>
+<ul>
+<li>핵심 기능부터 구현</li>
+<li>점진적 기능 확장</li>
+<li>사용자 피드백 반영</li>
+</ul>
+</li>
+<li><p><strong>효율적인 개발</strong></p>
+<ul>
+<li>AI 도구 적극 활용</li>
+<li>보일러플레이트 활용</li>
+<li>빠른 프로토타이핑</li>
+</ul>
+</li>
+</ol>
+<h3 id="기술-스택-선택">기술 스택 선택 {#기술-스택-선택}</h3>
+<ul>
+<li><strong>프론트엔드</strong>: Next.js + TypeScript</li>
+<li><strong>스타일링</strong>: Tailwind CSS</li>
+<li><strong>상태관리</strong>: React Context 또는 Zustand</li>
+<li><strong>인증</strong>: NextAuth.js</li>
+</ul>
+<h3 id="확장-가능성">확장 가능성 {#확장-가능성}</h3>
+<ul>
+<li>급여 계산 기능</li>
+<li>출퇴근 기록 관리</li>
+<li>매출 연동 인센티브</li>
+<li>다중 매장 관리</li>
+</ul>
+<h2 id="구현-체크리스트">구현 체크리스트 {#구현-체크리스트}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 프로젝트 초기 설정 (EasyNext)</li>
+<li><input disabled="" type="checkbox"> 인증 시스템 구현</li>
+<li><input disabled="" type="checkbox"> 매니저/알바생 계정 분리</li>
+<li><input disabled="" type="checkbox"> 스케줄 CRUD 기능</li>
+<li><input disabled="" type="checkbox"> 근무 교대 요청 시스템</li>
+<li><input disabled="" type="checkbox"> 실시간 알림 기능</li>
+<li><input disabled="" type="checkbox"> PWA 설정</li>
+<li><input disabled="" type="checkbox"> 배포 환경 구성</li>
+</ul>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/cursor-ai-practical-guide.html" class="internal-link">Cursor AI 활용 가이드</a></li>
+<li><a href="/articles/nextjs-saas-development.html" class="internal-link">Next.js SaaS 개발 패턴</a></li>
+<li><a href="/articles/tools.html" class="internal-link">실시간 협업 도구 구현</a></li>
+<li><a href="/articles/pwa-guide.html" class="internal-link">PWA 구현 가이드</a></li>
+</ul>
+<h2 id="참고-자료">참고 자료 {#참고-자료}</h2>
+<ul>
+<li><a href="https://www.youtube.com/live/diQdFJWUYTY">YouTube 원본 영상</a></li>
+<li><a href="https://easynext.dev">EasyNext 공식 문서</a></li>
+<li><a href="https://cursor.sh">Cursor 공식 사이트</a></li>
+</ul>
+<hr>
+<p><strong>💡 핵심 인사이트</strong>: AI 도구를 활용한 개발은 단순히 코드를 생성하는 것이 아니라, 개발자의 의도를 정확히 전달하고 생성된 코드를 이해하며 개선하는 과정이 중요하다. 특히 SaaS 서비스 개발 시 사용자 플로우와 권한 체계를 명확히 설계하는 것이 성공의 핵심이다.</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/라이브코딩.html" class="article-tag">라이브코딩</a><a href="/tag/도구.html" class="article-tag">도구</a><a href="/tag/Cursor.html" class="article-tag">Cursor</a><a href="/tag/프로젝트.html" class="article-tag">프로젝트</a><a href="/tag/SaaS.html" class="article-tag">SaaS</a><a href="/tag/기술.html" class="article-tag">기술</a><a href="/tag/EasyNext.html" class="article-tag">EasyNext</a><a href="/tag/알바관리.html" class="article-tag">알바관리</a><a href="/tag/WorkEasy.html" class="article-tag">WorkEasy</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/3-1.html&text=바이브코딩 라이브 - 커서맛피아가 대신 만들어드림 #3" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/3-1.html&title=바이브코딩 라이브 - 커서맛피아가 대신 만들어드림 #3" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/3-1.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How to Build a Strong AI Agent System: Top 8 Advice | AI Cosmetics Innovation Journal</title>
+  <meta name="description" content="AI Founders, Investors, and Customer Feedback reveal the top 8 principles for building reliable AI agent systems.">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="How to Build a Strong AI Agent System: Top 8 Advice">
+  <meta property="og:description" content="AI Founders, Investors, and Customer Feedback reveal the top 8 principles for building reliable AI agent systems.">
+  <meta property="og:image" content="/assets/images/113.jpg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-system-building-guide.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Build a Strong AI Agent System: Top 8 Advice">
+  <meta name="twitter:description" content="AI Founders, Investors, and Customer Feedback reveal the top 8 principles for building reliable AI agent systems.">
+  <meta name="twitter:image" content="/assets/images/113.jpg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-system-building-guide.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI Cosmetics Innovation Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/development.html">Development</a>
+        <a href="/category/products.html">Products</a>
+        <a href="/category/ingredients.html">Ingredients</a>
+        <a href="/category/trends.html">Trends</a>
+        <a href="/category/tips.html">Tips</a>
+        <a href="/category/videos.html">Videos</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/videos.html" class="article-category" style="background-color: #ef4444">
+          Videos
+        </a>
+        <h1 class="article-title">How to Build a Strong AI Agent System: Top 8 Advice</h1>
+        <div class="article-meta">
+          <a href="/journalist/dr-emily-chen.html" class="article-author">
+            <img src="/assets/personas/dr-emily-chen.svg" alt="Dr. Emily Chen" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">Dr. Emily Chen</span>
+              <span class="article-author__role">Biotechnology Innovation Lead</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="January 16, 2025">January 16, 2025</time>
+            <span class="article-meta__separator">·</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <div class="video-embed">
+<iframe src="https://www.youtube.com/embed/XFo3mHXW34Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</div>
+
+<p><strong>Channel:</strong> Sean&#39;s Stories | <strong>Published:</strong> 2025-11-28</p>
+<hr>
+<h2>Learning Notes</h2>
+<p>This video by Sean Chen shares 8 essential principles for building effective AI agent systems, based on feedback from AI founders, investors, and customers.</p>
+<h3>1. Smart Defaults over Infinite Customization</h3>
+<p>Instead of giving users unlimited customization options, provide <strong>smart defaults</strong> based on domain expertise. Users are not prompt engineers—wrong inputs can degrade performance.</p>
+<p><strong>Example:</strong> In a legal AI like Harvey, an immigration law expert with 10 years of experience sets the default prompt for green card applications, preventing beginners from making errors.</p>
+<h3>2. Meet Users Where They Are</h3>
+<p>Don&#39;t force users to change their existing workflows. Integrate AI into tools they already use (Notion, Google Sheets, etc.).</p>
+<p><strong>Example:</strong> If a startup uses Google Sheets, design your AI agent to work within Sheets rather than forcing them to adopt a new dashboard.</p>
+<h3>3. Vertical-First Strategy</h3>
+<p>Focus on a specific industry first to build high-quality examples that reduce the model&#39;s &quot;foolish behavior.&quot; LLMs have a Mixture of Experts (MoE) architecture—specialize as one expert.</p>
+<p><strong>Example:</strong> Provide 20-30 domain-specific examples (e.g., JSON file processing) to your chatbot agent. Expand horizontally after proving success.</p>
+<h3>4. Examples Must Be Carefully Balanced</h3>
+<p>Too few examples make the model think narrowly; too many or wrong examples cause overfitting. Structure examples naturally and in balance.</p>
+<h3>5. Write Workflows as Explicit Natural-Language Specs</h3>
+<p>Minimize hallucination and increase predictability with step-by-step natural language instructions. Explanations work better than just throwing JSON.</p>
+<p><strong>Example:</strong> &quot;Step 1: Check ABCD. In this case, use Stripe API. If authorized user, fetch data from Supabase.&quot;</p>
+<h3>6. Add Human-in-the-Loop Correction Loops</h3>
+<p>Add approval/rejection cycles for micro-training improvements. Especially useful in customer support (CX).</p>
+<p><strong>Example:</strong> Sierra AI and DoorDash trigger human intervention when dealing with angry customers. Good/bad examples improve future performance.</p>
+<h3>7. Give Your Agent a Single Memory Layer</h3>
+<p>In multi-agent systems, maintain shared context (chat history, highlights, calendar, etc.) in a single layer for consistency.</p>
+<p><strong>Example:</strong> In Notion AI, a paragraph polishing agent and a summary agent share memory access. Email agents reference previous calendar events.</p>
+<h3>8. Add Continuous Evals to Measure and Enforce Reliability</h3>
+<p>Agents regress easily, so maintain stability with automatic evaluations for workflow scenarios and edge cases.</p>
+<p><strong>Example:</strong> Before sending an email, verify subject, content, signature, and previous context. When Claude models update, verify performance with evals.</p>
+<hr>
+<h2>Key Takeaways</h2>
+<ul>
+<li>AI agents should be <strong>example-rich</strong>, <strong>self-improving</strong> through human feedback, <strong>simple for customers</strong>, and <strong>verbose</strong> with natural language prompts</li>
+<li><strong>Evals</strong> and <strong>Memory</strong> are the most important moats for AI products</li>
+<li>LLMs have superpowers; agent failures are prompt failures</li>
+<li>Focus vertically first, then expand after proving market fit</li>
+</ul>
+<hr>
+<h2>Simple Explanation</h2>
+<p>Think of an AI agent like a robot friend helping you run a pizza shop:</p>
+<ol>
+<li><strong>Smart Defaults</strong> = Robot already knows a delicious pizza recipe</li>
+<li><strong>Meet Users</strong> = Robot works with your existing toy box (tools)</li>
+<li><strong>Vertical First</strong> = Master cheese pizza before trying all types</li>
+<li><strong>Balanced Examples</strong> = Right amount of recipe examples</li>
+<li><strong>Natural Language</strong> = Tell robot step-by-step like talking to a friend</li>
+<li><strong>Human Loop</strong> = You correct weird pizzas</li>
+<li><strong>Single Memory</strong> = Robot keeps one notebook for everything</li>
+<li><strong>Continuous Evals</strong> = Daily taste tests to stay perfect</li>
+</ol>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/ai-agent.html" class="article-tag">ai-agent</a><a href="/tag/llm.html" class="article-tag">llm</a><a href="/tag/development.html" class="article-tag">development</a><a href="/tag/video-note.html" class="article-tag">video-note</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/ai-revolutionizing-retinol-formulation.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/1.webp" alt="How AI is Revolutionizing Retinol Formulation" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">How AI is Revolutionizing Retinol Formulation</h4>
+            <span class="sidebar-post__author">Dr. Sarah Kim</span>
+          </div>
+        </a>
+      
+        <a href="/articles/machine-learning-ingredient-discovery.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/2.webp" alt="Machine Learning is Discovering New Skincare Ingredients" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Machine Learning is Discovering New Skincare Ingredients</h4>
+            <span class="sidebar-post__author">Dr. Emily Chen</span>
+          </div>
+        </a>
+      
+        <a href="/articles/best-vitamin-c-serums-2025.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/vitamin.jpg" alt="The 5 Best Vitamin C Serums of 2025: Tested & Ranked" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">The 5 Best Vitamin C Serums of 2025: Tested & Ranked</h4>
+            <span class="sidebar-post__author">Yuna Lee</span>
+          </div>
+        </a>
+      
+        <a href="/articles/niacinamide-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/2025-01-13-niacinamide-complete-guide_20260116_1.png" alt="Niacinamide: The Complete Science-Backed Guide" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Niacinamide: The Complete Science-Backed Guide</h4>
+            <span class="sidebar-post__author">Dr. Sarah Kim</span>
+          </div>
+        </a>
+      
+        <a href="/articles/personalized-skincare-market-trends.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/2025-01-11-personalized-skincare-market_20260124_1.jpg" alt="Personalized Skincare: The $10B Market Brands Are Chasing" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Personalized Skincare: The $10B Market Brands Are Chasing</h4>
+            <span class="sidebar-post__author">Alex Thompson</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-system-building-guide.html&text=How to Build a Strong AI Agent System: Top 8 Advice" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-system-building-guide.html&title=How to Build a Strong AI Agent System: Top 8 Advice" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-system-building-guide.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dr-emily-chen.html" class="author-bio__card">
+          <img src="/assets/personas/dr-emily-chen.svg" alt="Dr. Emily Chen" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">Dr. Emily Chen</h3>
+            <p class="author-bio__role">Biotechnology Innovation Lead</p>
+            <p class="author-bio__text">PhD Biochemistry MIT. AI cosmetics formulation pioneer.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small article-card--video">
+      <a href="/articles/claude-code-video-creation.html" class="article-card__link">
+        
+      <div class="article-card__video">
+        <iframe src="https://www.youtube.com/embed/fOY0_WCR3eY"
+                title="Claude Code can now make videos, here's how"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowfullscreen
+                loading="lazy"></iframe>
+        <span class="article-card__category" style="background-color: #ef4444">
+          Videos
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Code can now make videos, here's how</h3>
+          <p class="article-card__excerpt">Remotion과 Claude Code를 결합하여 AI가 영상 콘텐츠를 프로그래밍적으로 생성하는 방법</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dr-emily-chen.svg" alt="Dr. Emily Chen" class="article-card__avatar">
+              <span>Dr. Emily Chen</span>
+            </div>
+            <span class="article-card__reading-time">10 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI Cosmetics Innovation Journal</span>
+          </span>
+          <p>AI-powered insights into the future of cosmetics and skincare innovation.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/development.html">Development</a>
+          <a href="/category/products.html">Products</a>
+          <a href="/category/ingredients.html">Ingredients</a>
+          <a href="/category/trends.html">Trends</a>
+          <a href="/category/tips.html">Tips</a>
+          <a href="/category/videos.html">Videos</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI Cosmetics Innovation Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1079 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Skills 마스터 학습 경로 | AI &amp; Development Journal</title>
+  <meta name="description" content="초보자에서 마스터까지: 이 경로를 따라가면 Claude Skill을 완벽하게 만들 수 있습니다. --- --- 읽을 문서: Claude Skills가 뭔가요 (5살 버전) || ClaudeSkills초보자가이드#Claude Skills가 뭔가요 (5살 버전) 배울...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude Skills 마스터 학습 경로">
+  <meta property="og:description" content="초보자에서 마스터까지: 이 경로를 따라가면 Claude Skill을 완벽하게 만들 수 있습니다. --- --- 읽을 문서: Claude Skills가 뭔가요 (5살 버전) || ClaudeSkills초보자가이드#Claude Skills가 뭔가요 (5살 버전) 배울...">
+  <meta property="og:image" content="/assets/images/claude-code-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Skills 마스터 학습 경로">
+  <meta name="twitter:description" content="초보자에서 마스터까지: 이 경로를 따라가면 Claude Skill을 완벽하게 만들 수 있습니다. --- --- 읽을 문서: Claude Skills가 뭔가요 (5살 버전) || ClaudeSkills초보자가이드#Claude Skills가 뭔가요 (5살 버전) 배울...">
+  <meta name="twitter:image" content="/assets/images/claude-code-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/claude-code.html" class="article-category" style="background-color: #ff6b35">
+          Claude Code
+        </a>
+        <h1 class="article-title">Claude Skills 마스터 학습 경로</h1>
+        <div class="article-meta">
+          <a href="/journalist/claude-specialist.html" class="article-author">
+            <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">Claude 전문가</span>
+              <span class="article-author__role">Claude Code Specialist</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 11월 16일">2025년 11월 16일</time>
+            <span class="article-meta__separator">·</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#3가지-가이드와의-관계" class="toc__link">🎯 3가지 가이드와의 관계</a>
+    </li>
+    <li class="toc__item">
+      <a href="#학습-단계별-가이드" class="toc__link">📚 학습 단계별 가이드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#level-1-기초-이해-day-1" class="toc__link">🟢 Level 1: 기초 이해 (Day 1)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#level-2-실제-분석-day-2" class="toc__link">🟡 Level 2: 실제 분석 (Day 2)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#level-3-나의-skill-만들기-day-3-4" class="toc__link">🔴 Level 3: 나의 Skill 만들기 (Day 3-4)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#시간표-요약" class="toc__link">📊 시간표 요약</a>
+    </li>
+    <li class="toc__item">
+      <a href="#각-단계별-체크리스트" class="toc__link">🎓 각 단계별 체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#level-1-완료-확인" class="toc__link">✅ Level 1 완료 확인</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#level-2-완료-확인" class="toc__link">✅ Level 2 완료 확인</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#level-3-완료-확인" class="toc__link">✅ Level 3 완료 확인</a>
+    </li>
+    <li class="toc__item">
+      <a href="#다음-레벨-advanced" class="toc__link">🚀 다음 레벨: Advanced</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#level-4-skill-고도화-선택" class="toc__link">Level 4: Skill 고도화 (선택)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#level-5-skill-조합하기-선택" class="toc__link">Level 5: Skill 조합하기 (선택)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#학습-팁" class="toc__link">💡 학습 팁</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tip-1-동시에-3가지를-읽지-말-것" class="toc__link">Tip 1: 동시에 3가지를 읽지 말 것</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tip-2-읽으면서-손으로-따라하기" class="toc__link">Tip 2: 읽으면서 손으로 따라하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tip-3-처음엔-완벽함보다-완성을-목표" class="toc__link">Tip 3: 처음엔 완벽함보다 완성을 목표</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tip-4-실수해도-괜찮다" class="toc__link">Tip 4: 실수해도 괜찮다</a>
+    </li>
+    <li class="toc__item">
+      <a href="#막혔을-때-확인사항" class="toc__link">📞 막혔을 때 확인사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#보너스-커뮤니티-공유" class="toc__link">🎁 보너스: 커뮤니티 공유</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#당신의-skill을-남과-공유하기" class="toc__link">당신의 Skill을 남과 공유하기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#기능" class="toc__link">기능</a>
+    </li>
+    <li class="toc__item">
+      <a href="#사용-방법" class="toc__link">사용 방법</a>
+    </li>
+    <li class="toc__item">
+      <a href="#결과" class="toc__link">결과</a>
+    </li>
+    <li class="toc__item">
+      <a href="#완료-후-당신은" class="toc__link">🏆 완료 후 당신은...</a>
+    </li>
+    <li class="toc__item">
+      <a href="#진행-상황-기록" class="toc__link">📝 진행 상황 기록</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Claude Skills 마스터 학습 경로</h1>
+<blockquote>
+<p><strong>초보자에서 마스터까지</strong>: 이 경로를 따라가면 Claude Skill을 완벽하게 만들 수 있습니다.</p>
+</blockquote>
+<hr>
+<h2 id="3가지-가이드와의-관계">🎯 3가지 가이드와의 관계 {#3가지-가이드와의-관계}</h2>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054569-2977" onclick="copyCode('code-1769481054569-2977')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054569-2977" class="language-plaintext">당신의 수준                    추천 가이드                        학습 시간
+─────────────────────────────────────────────────────────────────────
+❌ &quot;Skill이 뭐죠?&quot; →  Claude_Skills_초보자_가이드 →  30분
+                   (5살 버전부터 상세 설명)
+
+<p>❓ &quot;어떻게 만들어?&quot; →  clipping-processor_실전_분석 →  45분
+                    (실제 예제로 상세 분석)</p>
+<p>✅ &quot;지금 만들고 싶어&quot; → 나의_첫_Skill_만드는_템플릿 →  1-2시간
+                    (바로 쓸 수 있는 템플릿)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="학습-단계별-가이드">📚 학습 단계별 가이드 {#학습-단계별-가이드}</h2>
+<h3 id="level-1-기초-이해-day-1">🟢 Level 1: 기초 이해 (Day 1) {#level-1-기초-이해-day-1}</h3>
+<h4>1-1. 개념 이해하기 (30분)</h4>
+<p><strong>읽을 문서:</strong>
+<a href="/articles/claudeskillsbeginnersguideclaude-skills-5-version.html" class="internal-link">Claude Skills가 뭔가요 (5살 버전)</a></p>
+<p><strong>배울 내용:</strong></p>
+<ul>
+<li>✅ Skill의 정의</li>
+<li>✅ Skill과 일반 명령어의 차이</li>
+<li>✅ Skill이 필요한 이유</li>
+<li>✅ Skill의 기본 가치</li>
+</ul>
+<p><strong>확인 질문:</strong></p>
+<ul>
+<li>&quot;Skill이 뭔가?&quot;에 5살 아이도 이해할 수 있게 설명 가능한가?</li>
+<li>&quot;왜 Skill이 필요한가?&quot;를 말할 수 있는가?</li>
+</ul>
+<h4>1-2. 실제 사례 보기 (30분)</h4>
+<p><strong>읽을 문서:</strong>
+<a href="/articles/claudeskillsbeginnersguide-claude-skill.html" class="internal-link">스토리: 내가 Claude Skill을 만든 이유</a></p>
+<p><strong>배울 내용:</strong></p>
+<ul>
+<li>✅ Skill을 만들어야 하는 상황</li>
+<li>✅ Before/After 비교</li>
+<li>✅ 시간 절감 효과</li>
+</ul>
+<p><strong>확인 질문:</strong></p>
+<ul>
+<li>자신의 반복적인 일 중에 Skill로 자동화할 수 있는 게 있나?</li>
+</ul>
+<h4>1-3. 구조 이해하기 (20분)</h4>
+<p><strong>읽을 문서:</strong>
+<a href="/articles/claudeskillsbeginnersguideskill.html" class="internal-link">Skill의 구조 한눈에 보기</a></p>
+<p><strong>배울 내용:</strong></p>
+<ul>
+<li>✅ SKILL.md의 역할</li>
+<li>✅ JSON 파일의 역할</li>
+<li>✅ 마크다운 가이드 파일의 역할</li>
+</ul>
+<p><strong>과제:</strong> Skill의 4가지 파일을 손가락으로 가리키면서 &quot;이건 뭘 하는 파일인가?&quot; 말하기</p>
+<hr>
+<h3 id="level-2-실제-분석-day-2">🟡 Level 2: 실제 분석 (Day 2) {#level-2-실제-분석-day-2}</h3>
+<h4>2-1. clipping-processor Skill 분석 (60분)</h4>
+<p><strong>읽을 문서:</strong>
+<a href="/articles/clipping-processorreal-worldanalysis-skill.html" class="internal-link">이 Skill이 해결하는 문제</a> ~
+<a href="/articles/clipping-processorreal-worldanalysis-examples.html" class="internal-link">처리 과정: 실제 예제로 따라하기</a></p>
+<p><strong>배울 내용:</strong></p>
+<ul>
+<li>✅ 실제 Skill이 뭘 하는지</li>
+<li>✅ 파일들이 어떻게 연결되는지</li>
+<li>✅ 처리 과정이 어떻게 작동하는지</li>
+<li>✅ <strong>🆕 YouTube 영상 처리 기능</strong> (Skill의 새로운 고도화 버전)</li>
+</ul>
+<p><strong>실습:</strong></p>
+<ol>
+<li>clipping-processor의 SKILL.md 열어보기</li>
+<li>가이드의 설명과 비교하면서 읽기</li>
+<li>&quot;왜 이렇게 설계했을까?&quot;를 생각하기</li>
+<li><strong>🆕 YouTube 영상 처리 워크플로우 섹션 분석하기</strong><ul>
+<li>MCP YouTube Server와 yt-dlp의 차이 이해</li>
+<li>타임스탐프 기반 섹션 분할 로직 이해</li>
+<li>필러 단어 제거 및 톤 변환 규칙 학습</li>
+</ul>
+</li>
+</ol>
+<h4>2-2. 설계 결정 이해하기 (30분)</h4>
+<p><strong>읽을 문서:</strong>
+<a href="/articles/clipping-processorreal-worldanalysis.html" class="internal-link">왜 이렇게 설계했을까</a></p>
+<p><strong>배울 내용:</strong></p>
+<ul>
+<li>✅ 파일을 4가지로 분리한 이유</li>
+<li>✅ JSON을 사용한 이유</li>
+<li>✅ 3단계 예제의 중요성</li>
+<li>✅ Feynman 기법의 가치</li>
+</ul>
+<p><strong>과제:</strong> 각 설계 결정의 장단점을 표로 정리하기</p>
+<h4>2-3. 패턴 인식하기 (30분)</h4>
+<p><strong>읽을 문서:</strong>
+<a href="/articles/clipping-processorreal-worldanalysis-skill-practical.html" class="internal-link">나만의 Skill을 만들 때 활용하기</a></p>
+<p><strong>배울 내용:</strong></p>
+<ul>
+<li>✅ 입력→처리→출력 패턴</li>
+<li>✅ 분류 규칙 정의 패턴</li>
+<li>✅ 품질 점수 시스템 패턴</li>
+</ul>
+<p><strong>과제:</strong> 자신의 미래 Skill이 따를 패턴 선택하기</p>
+<hr>
+<h3 id="level-3-나의-skill-만들기-day-3-4">🔴 Level 3: 나의 Skill 만들기 (Day 3-4) {#level-3-나의-skill-만들기-day-3-4}</h3>
+<h4>3-1. 구상 단계 (30분)</h4>
+<p><strong>준비:</strong></p>
+<ol>
+<li>자신이 반복적으로 하는 일 3가지 적어보기<ul>
+<li>예: 파일 정렬, 텍스트 정리, 메타데이터 생성</li>
+</ul>
+</li>
+<li>각 일에 대해 다음 질문에 답하기:<ul>
+<li>입력: 뭘 받을 건가?</li>
+<li>처리: 어떻게 변환할 건가?</li>
+<li>출력: 어디에 저장할 건가?</li>
+<li>분류: 여러 종류가 있나?</li>
+</ul>
+</li>
+<li><strong>가장 간단한 것 1가지 선택</strong></li>
+</ol>
+<h4>3-2. 파일 준비 (30분)</h4>
+<p><strong>읽을 문서:</strong>
+<a href="/articles/skilltemplate.html" class="internal-link">사전 준비</a></p>
+<p><strong>실행:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054569-2978" onclick="copyCode('code-1769481054569-2978')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054569-2978" class="language-bash">mkdir -p ~/.claude/skills/your-skill-name
+cd ~/.claude/skills/your-skill-name
+touch SKILL.md
+touch category_mapping.json
+touch enhancement_rules.md</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>3-3. SKILL.md 작성 (1시간)</h4>
+<p><strong>읽을 문서:</strong>
+<a href="/articles/skilltemplate-1-skillmd-template.html" class="internal-link">SKILL.md 템플릿</a></p>
+<p><strong>단계별 작성:</strong></p>
+<ol>
+<li><strong>개요</strong>: 한 문장으로 Skill 설명</li>
+<li><strong>핵심 기능</strong>: 3가지 이상의 기능 나열</li>
+<li><strong>사용 방법</strong>: 구체적인 예제 3개 이상</li>
+<li><strong>처리 과정</strong>: Step by Step 설명</li>
+<li><strong>메타데이터</strong>: YAML 샘플 제공</li>
+</ol>
+<p><strong>확인:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> 개요를 읽은 사람이 이해하나?</li>
+<li><input disabled="" type="checkbox"> 사용 예제를 따라할 수 있나?</li>
+<li><input disabled="" type="checkbox"> 처리 과정이 명확한가?</li>
+</ul>
+<h4>3-4. category_mapping.json 작성 (45분)</h4>
+<p><strong>읽을 문서:</strong>
+<a href="/articles/skilltemplate-2-categorymappingjson-template.html" class="internal-link">JSON 템플릿</a></p>
+<p><strong>단계별 작성:</strong></p>
+<ol>
+<li>주요 키워드 3~5가지 생각하기</li>
+<li>각 키워드별 폴더 결정</li>
+<li>태그 정의</li>
+<li>priority 순서 정하기</li>
+</ol>
+<p><strong>검증:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054569-2979" onclick="copyCode('code-1769481054569-2979')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054569-2979" class="language-plaintext">jsonlint.com에서 올바른 형식인지 확인</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>3-5. enhancement_rules.md 작성 (45분)</h4>
+<p><strong>읽을 문서:</strong>
+<a href="/articles/skilltemplate-3-enhancementrulesmd-template.html" class="internal-link">Enhancement 템플릿</a></p>
+<p><strong>단계별 작성:</strong></p>
+<ol>
+<li>Feynman 기법 규칙 정의</li>
+<li>Storytelling 규칙 정의</li>
+<li>3단계 예제 만들기</li>
+<li>품질 체크리스트 작성</li>
+</ol>
+<h4>3-6. 테스트 및 개선 (1시간)</h4>
+<p><strong>테스트:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054569-2980" onclick="copyCode('code-1769481054569-2980')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054569-2980" class="language-plaintext">직접 명령어로 Skill 사용해보기:
+&quot;[your-skill-name] skill으로 [입력]을 처리해줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>확인:</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Skill이 제대로 작동하나?</li>
+<li><input disabled="" type="checkbox"> 예상한 대로 처리되나?</li>
+<li><input disabled="" type="checkbox"> 메타데이터가 생성되나?</li>
+<li><input disabled="" type="checkbox"> 파일이 올바른 위치에 저장되나?</li>
+</ul>
+<p><strong>개선:</strong></p>
+<ul>
+<li>안 되는 부분 찾아서 수정</li>
+<li>예제가 실제로 작동하는지 확인</li>
+<li>설명이 명확한지 재검토</li>
+</ul>
+<hr>
+<h2 id="시간표-요약">📊 시간표 요약 {#시간표-요약}</h2>
+<table>
+<thead>
+<tr>
+<th>날짜</th>
+<th>학습 내용</th>
+<th>시간</th>
+<th>활동</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Day 1</strong></td>
+<td>Claude Skills 개념 이해</td>
+<td>1.5시간</td>
+<td>읽기</td>
+</tr>
+<tr>
+<td><strong>Day 2</strong></td>
+<td>clipping-processor 분석 (+ YouTube 기능)</td>
+<td>2시간</td>
+<td>읽기 + 분석</td>
+</tr>
+<tr>
+<td><strong>Day 3</strong></td>
+<td>첫 번째 Skill 기획 및 작성</td>
+<td>3시간</td>
+<td>구상 + 파일 작성</td>
+</tr>
+<tr>
+<td><strong>Day 4</strong></td>
+<td>테스트 및 개선</td>
+<td>1시간</td>
+<td>실행 + 디버깅</td>
+</tr>
+<tr>
+<td><strong>선택</strong></td>
+<td>YouTube 기능 심화 학습</td>
+<td>1~2시간</td>
+<td>분석 + 설계</td>
+</tr>
+<tr>
+<td><strong>합계</strong></td>
+<td></td>
+<td><strong>7.5-8.5시간</strong></td>
+<td></td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="각-단계별-체크리스트">🎓 각 단계별 체크리스트 {#각-단계별-체크리스트}</h2>
+<h3 id="level-1-완료-확인">✅ Level 1 완료 확인 {#level-1-완료-확인}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Skill이 뭔지 설명할 수 있나?</li>
+<li><input disabled="" type="checkbox"> Skill과 일반 명령어의 차이를 알나?</li>
+<li><input disabled="" type="checkbox"> Skill의 4가지 구성 요소를 말할 수 있나?</li>
+<li><input disabled="" type="checkbox"> 자신의 반복 업무 중 Skill로 자동화할 수 있는 것을 찾았나?</li>
+</ul>
+<h3 id="level-2-완료-확인">✅ Level 2 완료 확인 {#level-2-완료-확인}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> clipping-processor가 뭘 하는지 설명 가능한가?</li>
+<li><input disabled="" type="checkbox"> SKILL.md가 왜 필요한지 알나?</li>
+<li><input disabled="" type="checkbox"> JSON 파일의 역할을 이해했나?</li>
+<li><input disabled="" type="checkbox"> 처리 과정을 그림으로 그릴 수 있나?</li>
+</ul>
+<h3 id="level-3-완료-확인">✅ Level 3 완료 확인 {#level-3-완료-확인}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 첫 번째 Skill 폴더를 만들었나?</li>
+<li><input disabled="" type="checkbox"> SKILL.md, JSON, 마크다운 파일을 모두 작성했나?</li>
+<li><input disabled="" type="checkbox"> 직접 만든 Skill이 작동하나?</li>
+<li><input disabled="" type="checkbox"> 피드백을 반영해서 개선했나?</li>
+</ul>
+<hr>
+<h2 id="다음-레벨-advanced">🚀 다음 레벨: Advanced {#다음-레벨-advanced}</h2>
+<h3 id="level-4-skill-고도화-선택">Level 4: Skill 고도화 (선택) {#level-4-skill-고도화-선택}</h3>
+<p><strong>배울 내용:</strong></p>
+<ul>
+<li>여러 언어 지원</li>
+<li>로깅 시스템 추가</li>
+<li>백업 자동화</li>
+<li>MCP 서버와 연동</li>
+<li><strong>🆕 YouTube 영상 처리 통합</strong> (새 기능!)<ul>
+<li>YouTube URL 감지 및 자동 처리</li>
+<li>MCP YouTube Server 활용</li>
+<li>자막/대본 다운로드 및 정제</li>
+<li>Feynman 기법으로 영상 내용 변환</li>
+<li>타임스탐프 기반 섹션 분할</li>
+<li>필러 단어 제거 및 톤 변환</li>
+</ul>
+</li>
+<li><strong>🆕 품질 기반 파일 관리 시스템</strong> (Quality-Based File Movement!)<ul>
+<li>3-Tier 품질 분류 시스템 (PERFECT / ACCEPTABLE / MINIMAL)</li>
+<li>자동 파일 이동 vs 수동 승인 프로세스</li>
+<li>로그 기반 감사 추적 (audit trail)</li>
+<li>재처리 및 폴백 전략 설계</li>
+</ul>
+</li>
+</ul>
+<p><strong>학습 자료:</strong></p>
+<ul>
+<li><a href="/articles/claude-code-complete-guide.html" class="internal-link">Claude Code 완전 가이드</a> - 고급 기능</li>
+<li>clipping-processor의 translation_guide.md 분석</li>
+<li><strong>🆕 clipping-processor의 SKILL.md - YouTube 영상 처리 워크플로우 섹션</strong></li>
+<li><strong>🆕 enhancement_rules.md - Section 9: YouTube영상 처리 특별 규칙</strong></li>
+<li><strong>🆕 translation_guide.md - Section 10: YouTube 자막 번역 특별 규칙</strong></li>
+<li><strong>🆕 clipping-processor의 SKILL.md - 파일 관리 및 이동 시스템 섹션</strong></li>
+<li><strong>🆕 batch_processing_guide.md - 파일 이동 프로세스 섹션</strong></li>
+<li><strong>🆕 PROCESSING_STATUS.md - 처리 상태 대시보드</strong></li>
+<li><strong>🆕 enhancement_rules.md - Section 10: 품질 수준 정의 및 상태 마킹 시스템</strong></li>
+</ul>
+<h3 id="level-5-skill-조합하기-선택">Level 5: Skill 조합하기 (선택) {#level-5-skill-조합하기-선택}</h3>
+<p><strong>배울 내용:</strong></p>
+<ul>
+<li>여러 Skill을 함께 사용하기</li>
+<li>Skill 간 데이터 넘겨주기</li>
+<li>워크플로우 자동화</li>
+</ul>
+<hr>
+<h2 id="학습-팁">💡 학습 팁 {#학습-팁}</h2>
+<h3 id="tip-1-동시에-3가지를-읽지-말-것">Tip 1: 동시에 3가지를 읽지 말 것 {#tip-1-동시에-3가지를-읽지-말-것}</h3>
+<p><strong>❌ 하지 말 것:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054569-2981" onclick="copyCode('code-1769481054569-2981')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054569-2981" class="language-plaintext">1. 초보자 가이드
+2. 실전 분석
+3. 템플릿
+을 모두 동시에 읽기 → 머리가 복잡함</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>✅ 올바른 방법:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054569-2982" onclick="copyCode('code-1769481054569-2982')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054569-2982" class="language-plaintext">1. 초보자 가이드 완전히 읽기
+2. 하루 쉬기 (뇌가 정보를 정리하는 시간)
+3. 실전 분석 읽기
+4. 하루 쉬기
+5. 템플릿으로 직접 만들어보기</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="tip-2-읽으면서-손으로-따라하기">Tip 2: 읽으면서 손으로 따라하기 {#tip-2-읽으면서-손으로-따라하기}</h3>
+<p><strong>❌ 하지 말 것:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054569-2983" onclick="copyCode('code-1769481054569-2983')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054569-2983" class="language-plaintext">화면에서만 읽기</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>✅ 올바른 방법:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054569-2984" onclick="copyCode('code-1769481054569-2984')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054569-2984" class="language-plaintext">읽은 내용을 직접 타이핑하면서 파일 만들기
+손가락으로 가리키면서 &quot;이건 뭐다&quot; 말하기</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h3 id="tip-3-처음엔-완벽함보다-완성을-목표">Tip 3: 처음엔 완벽함보다 완성을 목표 {#tip-3-처음엔-완벽함보다-완성을-목표}</h3>
+<p><strong>❌ 하지 말 것:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054569-2985" onclick="copyCode('code-1769481054569-2985')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054569-2985" class="language-plaintext">&quot;완벽한 Skill을 만들어야지&quot;
+→ 너무 고민하다가 아무것도 못 함</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>✅ 올바른 방법:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054569-2986" onclick="copyCode('code-1769481054569-2986')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054569-2986" class="language-plaintext">&quot;일단 가장 간단한 버전을 만들고 시작하자&quot;
+→ 기본 Skill 완성 후 계속 개선</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h3 id="tip-4-실수해도-괜찮다">Tip 4: 실수해도 괜찮다 {#tip-4-실수해도-괜찮다}</h3>
+<p><strong>흔한 실수들:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054569-2987" onclick="copyCode('code-1769481054569-2987')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054569-2987" class="language-plaintext">- JSON 형식이 틀림 → 수정하면 됨
+- YAML 메타데이터가 이상함 → 온라인 검증기로 확인
+- 파일이 잘못된 폴더에 저장됨 → category_mapping.json 수정</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>해결:</strong>
+모두 <strong>수정 가능</strong>하고, <strong>수정하면서 배움</strong></p>
+<hr>
+<h2 id="막혔을-때-확인사항">📞 막혔을 때 확인사항 {#막혔을-때-확인사항}</h2>
+<table>
+<thead>
+<tr>
+<th>문제</th>
+<th>확인 방법</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>&quot;Skill 개념이 헷갈려&quot;</td>
+<td><a href="/articles/claudeskillsbeginnersguideclaude-skills-5-version.html" class="internal-link">5살 버전 다시 읽기</a></td>
+</tr>
+<tr>
+<td>&quot;파일 구조가 모호해&quot;</td>
+<td><a href="/articles/clipping-processorreal-worldanalysisskill.html" class="internal-link">파일 구조 섹션 다시 보기</a></td>
+</tr>
+<tr>
+<td>&quot;JSON 형식이 틀렸어&quot;</td>
+<td>jsonlint.com에서 검증</td>
+</tr>
+<tr>
+<td>&quot;SKILL.md를 뭐라고 써야 할까&quot;</td>
+<td><a href="/articles/skilltemplate.html" class="internal-link">템플릿 복사해서 수정</a></td>
+</tr>
+<tr>
+<td>&quot;내 Skill이 작동 안 함&quot;</td>
+<td><a href="/articles/clipping-processorreal-worldanalysis.html" class="internal-link">디버깅 섹션</a> 참고</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="보너스-커뮤니티-공유">🎁 보너스: 커뮤니티 공유 {#보너스-커뮤니티-공유}</h2>
+<h3 id="당신의-skill을-남과-공유하기">당신의 Skill을 남과 공유하기 {#당신의-skill을-남과-공유하기}</h3>
+<p>완성한 Skill을 README.md로 정리해서 공유하면:</p>
+<ul>
+<li>남이 배운다</li>
+<li>피드백을 받는다</li>
+<li>더 나은 Skill로 개선된다</li>
+</ul>
+<p><strong>README.md 템플릿:</strong></p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054569-2988" onclick="copyCode('code-1769481054569-2988')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054569-2988" class="language-markdown"># [Skill 이름]
+
+<h2 id="개요">개요 {#개요}</h2>
+<p>[한 문장 설명]</p>
+<h2 id="기능">기능 {#기능}</h2>
+<ul>
+<li>기능 1</li>
+<li>기능 2</li>
+<li>기능 3</li>
+</ul>
+<h2 id="사용-방법">사용 방법 {#사용-방법}</h2>
+<p>[예제]</p>
+<h2 id="결과">결과 {#결과}</h2>
+<p>[결과물 예시]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="완료-후-당신은">🏆 완료 후 당신은... {#완료-후-당신은}</h2>
+<p>이 경로를 모두 마치면:</p>
+<p>✅ <strong>이해</strong></p>
+<ul>
+<li>Skill이 뭔지 완벽하게 알게 됨</li>
+<li>왜 필요한지 알게 됨</li>
+<li>어떻게 작동하는지 알게 됨</li>
+</ul>
+<p>✅ <strong>만들기</strong></p>
+<ul>
+<li>간단한 Skill을 혼자서 만들 수 있음</li>
+<li>복잡한 Skill의 설계를 이해할 수 있음</li>
+<li>남의 Skill을 분석할 수 있음</li>
+</ul>
+<p>✅ <strong>개선</strong></p>
+<ul>
+<li>기존 Skill을 커스터마이징할 수 있음</li>
+<li>더 나은 규칙을 추가할 수 있음</li>
+<li>팀과 함께 Skill을 관리할 수 있음</li>
+</ul>
+<hr>
+<h2 id="진행-상황-기록">📝 진행 상황 기록 {#진행-상황-기록}</h2>
+<p>이 부분에 날짜를 쓰면서 진행하세요:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054569-2989" onclick="copyCode('code-1769481054569-2989')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054569-2989" class="language-plaintext">Day 1: _____ (날짜)
+- [ ] Level 1-1 완료
+- [ ] Level 1-2 완료
+- [ ] Level 1-3 완료
+
+<p>Day 2: _____ (날짜)</p>
+<ul>
+<li><input disabled="" type="checkbox"> Level 2-1 완료</li>
+<li><input disabled="" type="checkbox"> Level 2-2 완료</li>
+<li><input disabled="" type="checkbox"> Level 2-3 완료</li>
+</ul>
+<p>Day 3: _____ (날짜)</p>
+<ul>
+<li><input disabled="" type="checkbox"> Level 3-1 완료</li>
+<li><input disabled="" type="checkbox"> Level 3-2 완료</li>
+<li><input disabled="" type="checkbox"> Level 3-3 완료</li>
+</ul>
+<p>Day 4: _____ (날짜)</p>
+<ul>
+<li><input disabled="" type="checkbox"> Level 3-4 완료</li>
+<li><input disabled="" type="checkbox"> Level 3-5 완료</li>
+<li><input disabled="" type="checkbox"> Level 3-6 완료</li>
+</ul>
+<p>완료!: _____ (날짜)
+🎉 첫 번째 Skill 완성!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">18 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/claudeskillsbeginnersguide.html" class="internal-link">Claude_Skills_초보자_가이드</a> - 기초 이론서</li>
+<li><a href="/articles/clipping-processorreal-worldanalysis.html" class="internal-link">clipping-processor_실전_분석</a> - 복잡한 사례 분석</li>
+<li><a href="/articles/skilltemplate.html" class="internal-link">나의_첫_Skill_만드는_템플릿</a> - 바로 쓸 수 있는 템플릿</li>
+<li><a href="/articles/claude-code-complete-guide.html" class="internal-link">Claude Code 완전 가이드</a> - Claude Code 마스터하기</li>
+</ul>
+<hr>
+<p><strong>🚀 시작할 준비가 되셨나요? 지금 바로 <a href="/articles/claudeskillsbeginnersguide.html" class="internal-link">초보자 가이드</a>부터 시작하세요!</strong></p>
+<p><strong>💡 Pro Tip</strong>: 이 학습 경로를 따라가면서 느낀 점을 메모해두세요. 나중에 남을 가르칠 때 도움이 됩니다.</p>
+<p><strong>📝 버전 정보</strong></p>
+<ul>
+<li>작성: 2025-11-16</li>
+<li>상태: ✅ 완료</li>
+<li>대상: Claude Code 초보자</li>
+<li>난이도: ⭐⭐ (중상)</li>
+<li>총 학습 시간: 7시간</li>
+</ul>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/claude-skills.html" class="article-tag">claude-skills</a><a href="/tag/학습경로.html" class="article-tag">학습경로</a><a href="/tag/로드맵.html" class="article-tag">로드맵</a><a href="/tag/초보자.html" class="article-tag">초보자</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills.html&text=Claude Skills 마스터 학습 경로" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills.html&title=Claude Skills 마스터 학습 경로" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/claude-specialist.html" class="author-bio__card">
+          <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">Claude 전문가</h3>
+            <p class="author-bio__role">Claude Code Specialist</p>
+            <p class="author-bio__text">Claude Code와 AI 코딩 도구 활용법을 연구합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-code-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Code 슬래시 명령어 완전 정복 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Code 슬래시 명령어 완전 정복 가이드</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 실전 중심 가이드 --- Claude에게 미리 정해둔 역할을 로 호출하는 기능입니다. 비유: 스마트폰 단축어처럼, 복잡한 지시를 한 단어로 실행 --- 슬래시 명령어는  파일로 구성되며, 크게 YAML 프론트매터와 본문으로 나뉩니다. --- 목적:...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills-beginners-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 만드는 법: 초보자 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 만드는 법: 초보자 완전 가이드</h3>
+          <p class="article-card__excerpt">이 가이드의 목표: Claude Code를 처음 배우는 초보 개발자도 실제로 작동하는 Claude Skill을 만들 수 있도록 단계별로 설명합니다. 복잡한 개념도 쉬운 말로 풀어 설명하고, 실전 예제로 바로 적용할 수 있게 구성했습니다. --- 1.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">25 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/skill-real-world-analysis.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="클리핑 처리 Skill 뜯어보기: 실전 사례 분석"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">클리핑 처리 Skill 뜯어보기: 실전 사례 분석</h3>
+          <p class="article-card__excerpt">이 가이드는 실제로 작동하는 'clipping-processor' Skill을 분석합니다. 초보 개발자가 자신의 Skill을 만들 때 참고할 수 있도록 실제 예제 코드와 설계 결정을 모두 설명합니다. --- 1.  || #이 Skill이 해결하는 문제 2.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">21 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

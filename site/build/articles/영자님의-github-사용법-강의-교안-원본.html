@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>영자님의 GitHub 사용법 강의 교안(원본) | AI &amp; Development Journal</title>
+  <meta name="description" content="프로젝트 명칭: test A 가 (A 의 컴퓨터에서) 수정한 코드를 깃헙에 올린다(PUSH) A 가 수정한 내용을 B 가 받아서(PULL) 	수정한 다음, 다시 깃헙에 올린다 (PUSH). 깃허브(GITHUB)에 소스를 저장해 놓고(저장소), ...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="영자님의 GitHub 사용법 강의 교안(원본)">
+  <meta property="og:description" content="프로젝트 명칭: test A 가 (A 의 컴퓨터에서) 수정한 코드를 깃헙에 올린다(PUSH) A 가 수정한 내용을 B 가 받아서(PULL) 	수정한 다음, 다시 깃헙에 올린다 (PUSH). 깃허브(GITHUB)에 소스를 저장해 놓고(저장소), ...">
+  <meta property="og:image" content="/assets/images/tutorials-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/영자님의-github-사용법-강의-교안-원본.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="영자님의 GitHub 사용법 강의 교안(원본)">
+  <meta name="twitter:description" content="프로젝트 명칭: test A 가 (A 의 컴퓨터에서) 수정한 코드를 깃헙에 올린다(PUSH) A 가 수정한 내용을 B 가 받아서(PULL) 	수정한 다음, 다시 깃헙에 올린다 (PUSH). 깃허브(GITHUB)에 소스를 저장해 놓고(저장소), ...">
+  <meta name="twitter:image" content="/assets/images/tutorials-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/영자님의-github-사용법-강의-교안-원본.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/tutorials.html" class="article-category" style="background-color: #14b8a6">
+          튜토리얼
+        </a>
+        <h1 class="article-title">영자님의 GitHub 사용법 강의 교안(원본)</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-expert.html" class="article-author">
+            <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 전문가</span>
+              <span class="article-author__role">AI &amp; Development Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 6월 15일">2025년 6월 15일</time>
+            <span class="article-meta__separator">·</span>
+            <span>1 read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+
+            <p>프로젝트 명칭: test</p>
+<p>A 가 (A 의 컴퓨터에서) 수정한 코드를 깃헙에 올린다(PUSH)
+A 가 수정한 내용을 B 가 받아서(PULL)
+    수정한 다음, 다시 깃헙에 올린다 (PUSH).</p>
+<p>깃허브(GITHUB)에 소스를 저장해 놓고(저장소),
+    여러 사람이, 깃헙에 있는 소스를 다운하고 수정하고, 합치고, 버전변경, ... 테스트, 배포...</p>
+<p>소스 코드는 깃헙의 레포지토리에 저장: 저장소</p>
+<p>깃헙 아이디: thruthesky
+깃헙 레포지토리: test</p>
+<p>레포 생성하는 방법:
+<a href="https://github.com">https://github.com</a> 에서 로그인을 하고, [ New repository ] 버튼을 생성하고, test 라고 레포 이름을 지정하면 됨.
+이 때, Add a README file 을
+    체크하지 않으면, bare repository (초기화가 안된 레포) 가 만들어 짐.
+    체크하면, 기본 repository 가 만들어 짐.
+    여기서는 README file을 선택하지 않고 진행.</p>
+<p>주소: 계정/레포
+thruthesky/test</p>
+<p>전체 주소: 홈주소에는 github.com 을 붙이면 됨.</p>
+<p><a href="https://github.com/thruthesky/test">https://github.com/thruthesky/test</a> 여기에 소스 코드가 저장되고, 이것을 레포지토리(레포), 저장소.</p>
+<p>위의 레포를 내 컴퓨터로 다운.</p>
+<p>맨 처음 (또는 깃헙에 있는) 소스 레포를 다운받기 위해서는 git clone</p>
+<p>예)
+git clone <a href="https://github.com/thruthesky/test">https://github.com/thruthesky/test</a></p>
+<p>결과)
+내 컴퓨터에 test 폴더가 만들어 지고 그 안에 소스 코드가 들어감.</p>
+<hr>
+<p>git clone <a href="https://github.com/thruthesky/test">https://github.com/thruthesky/test</a></p>
+<p>소스 수정 후 ..</p>
+<p>git add . (새로운 파일을 추가)
+git commit -a -m &quot;수정한 내용에 대한 설명&quot;
+git push (내가 수정한 코드를 서버로 올리는 것)</p>
+<p>다른 사람이 수정한 코드를 가져올 때,</p>
+<p>git pull</p>
+<hr>
+<p>PR 을 쓰는 이유
+말 그대로, Pull Request 하기 위한 것입니다.
+Pull 을 요청하는 것입니다.
+Pull 이 뭐냐하면, 소스 코드를 다운 받는 것입니다.
+결론적으로 나의 소스 코드를 다운 받으라고 요청하는 것, pull request.
+나의 코드를 다운 받아서, 테스트 하고, 리뷰하고, 문제 없으면, 프로덕션(또는 메인 브랜치)에 적용하시라.</p>
+<p>가장 많이 쓰이는 방법:
+누구든지, 언제든지, 소스 코드를 수정해서, 나에게 실제 코드(프로덕션, 메인브랜치)에 적용하라고 요청을 해 옴.</p>
+<p>PR 를 하는 대표적인 두 가지 방법:</p>
+<ul>
+<li>Fork -&gt; Branch -&gt; Commit -&gt; Push -&gt; PR -&gt; 어디서(dev1: abc) 어디로(thruthesky/test: main)</li>
+<li>Collaborator</li>
+</ul>
+<hr>
+<p>예전 버전으로 돌아가기
+git reset (현재 버전의 코드를 버리고, 특정 commit 위치로 돌아가기)
+git revert (현재 버전의 코드와 특정 commit 위치의 코드와 병법)
+git checkout (특정 commit 위치의 코드를 살펴보기)</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/tutorial.html" class="article-tag">tutorial</a><a href="/tag/guide.html" class="article-tag">guide</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/영자님의-github-사용법-강의-교안-원본.html&text=영자님의 GitHub 사용법 강의 교안(원본)" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/영자님의-github-사용법-강의-교안-원본.html&title=영자님의 GitHub 사용법 강의 교안(원본)" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/영자님의-github-사용법-강의-교안-원본.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-expert.html" class="author-bio__card">
+          <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 전문가</h3>
+            <p class="author-bio__role">AI &amp; Development Writer</p>
+            <p class="author-bio__text">AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/langcode-가이드-생성-완료-안내.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/tutorials-placeholder.svg"
+             alt="LangCode 입문 완전 가이드 - 생성 완료 보고서"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">LangCode 입문 완전 가이드 - 생성 완료 보고서</h3>
+          <p class="article-card__excerpt">LangCode 입문 완전 가이드 5개 문서 생성 완료 보고서</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">6</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/readme.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/demo.gif"
+             alt="README"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">README</h3>
+          <p class="article-card__excerpt">README</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">10</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/lovable-prompting-bible.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/tutorials-placeholder.svg"
+             alt="{{task_type}} Prompt"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">{{task_type}} Prompt</h3>
+          <p class="article-card__excerpt">The Lovable Prompting Bible: Complete Guide to AI Prompting in Lovable (2025)   ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">90</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

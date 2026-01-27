@@ -1,0 +1,1068 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>카카오톡 자동화 봇 완벽 가이드 - n8n/Make 연동 | AI 기술 자료 저널</title>
+  <meta name="description" content="- 핵심 주제: 카카오톡과 n8n/Make를 연동한 무한 확장 가능한 자동화 봇 구축 - 목적: 24시간 일하는 AI 비서 시스템 구현 및 워크플로우 자동화 - 범위: 환경 설정부터 고급 활용 사례까지 전체 프로세스 이 튜토리얼을 완료하면 다음과 같은 자동화 봇을...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="카카오톡 자동화 봇 완벽 가이드 - n8n/Make 연동">
+  <meta property="og:description" content="- 핵심 주제: 카카오톡과 n8n/Make를 연동한 무한 확장 가능한 자동화 봇 구축 - 목적: 24시간 일하는 AI 비서 시스템 구현 및 워크플로우 자동화 - 범위: 환경 설정부터 고급 활용 사례까지 전체 프로세스 이 튜토리얼을 완료하면 다음과 같은 자동화 봇을...">
+  <meta property="og:image" content="/assets/images/ai-tools-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/automation-perfect-guide-n8nmake-integration.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="카카오톡 자동화 봇 완벽 가이드 - n8n/Make 연동">
+  <meta name="twitter:description" content="- 핵심 주제: 카카오톡과 n8n/Make를 연동한 무한 확장 가능한 자동화 봇 구축 - 목적: 24시간 일하는 AI 비서 시스템 구현 및 워크플로우 자동화 - 범위: 환경 설정부터 고급 활용 사례까지 전체 프로세스 이 튜토리얼을 완료하면 다음과 같은 자동화 봇을...">
+  <meta name="twitter:image" content="/assets/images/ai-tools-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/automation-perfect-guide-n8nmake-integration.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI 기술 자료 저널</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/ai-tools.html" class="article-category" style="background-color: #10b981">
+          AI 도구
+        </a>
+        <h1 class="article-title">카카오톡 자동화 봇 완벽 가이드 - n8n/Make 연동</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-analyst.html" class="article-author">
+            <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 분석가</span>
+              <span class="article-author__role">AI Tools Analyst</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 1월 4일">2025년 1월 4일</time>
+            <span class="article-meta__separator">·</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#최종-결과물-및-효과" class="toc__link">최종 결과물 및 효과</a>
+    </li>
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#카카오톡-자동화-봇-개발-개요" class="toc__link">카카오톡 자동화 봇 개발 개요</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-작동-원리" class="toc__link">핵심 작동 원리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#주요-특징" class="toc__link">주요 특징</a>
+    </li>
+    <li class="toc__item">
+      <a href="#필수-준비물-및-환경-설정" class="toc__link">필수 준비물 및 환경 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-하드웨어-준비" class="toc__link">1. 하드웨어 준비</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-소프트웨어-준비" class="toc__link">2. 소프트웨어 준비</a>
+    </li>
+    <li class="toc__item">
+      <a href="#메신저-봇-앱-설치-및-설정" class="toc__link">메신저 봇 앱 설치 및 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#설치-과정" class="toc__link">설치 과정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#폴더-구조" class="toc__link">폴더 구조</a>
+    </li>
+    <li class="toc__item">
+      <a href="#코드-설정-및-워크플로우-연동" class="toc__link">코드 설정 및 워크플로우 연동</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-설정-요소-45가지" class="toc__link">핵심 설정 요소 (4~5가지)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#코드-저장-시-주의사항" class="toc__link">코드 저장 시 주의사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#make-플랫폼-연동-실습" class="toc__link">Make 플랫폼 연동 실습</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#웹훅-생성-과정" class="toc__link">웹훅 생성 과정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#make-워크플로우-구성" class="toc__link">Make 워크플로우 구성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#테스트-방법" class="toc__link">테스트 방법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#활용-가능한-데이터" class="toc__link">활용 가능한 데이터</a>
+    </li>
+    <li class="toc__item">
+      <a href="#n8n-플랫폼-연동-실습" class="toc__link">n8n 플랫폼 연동 실습</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-템플릿-설정" class="toc__link">워크플로우 템플릿 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#n8n-url-설정-주의사항" class="toc__link">n8n URL 설정 주의사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#주의사항" class="toc__link">주의사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실전-활용-사례" class="toc__link">실전 활용 사례</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-유튜브-영상-요약-봇" class="toc__link">1. 🎥 유튜브 영상 요약 봇</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-스승님-챗봇-고급-rag-시스템" class="toc__link">2. 🧠 스승님 챗봇 (고급 RAG 시스템)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#고급-활용-및-확장-가능성" class="toc__link">고급 활용 및 확장 가능성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#무한-확장-아이디어" class="toc__link">무한 확장 아이디어</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#창의적-활용-팁" class="toc__link">창의적 활용 팁</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-체크리스트" class="toc__link">구현 체크리스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#예상-오류-및-해결법" class="toc__link">예상 오류 및 해결법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#자주-발생하는-문제와-해결책" class="toc__link">자주 발생하는 문제와 해결책</a>
+    </li>
+    <li class="toc__item">
+      <a href="#주요-용어-및-개념-설명" class="toc__link">주요 용어 및 개념 설명</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-개념" class="toc__link">핵심 개념</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#플랫폼-및-도구" class="toc__link">플랫폼 및 도구</a>
+    </li>
+    <li class="toc__item">
+      <a href="#보안-및-주의사항" class="toc__link">보안 및 주의사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#참고-자료" class="toc__link">참고 자료</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>카카오톡 자동화 봇 완벽 가이드 - n8n/Make 연동</h1>
+<h2 id="개요">개요 {#개요}</h2>
+<ul>
+<li><strong>핵심 주제</strong>: 카카오톡과 n8n/Make를 연동한 무한 확장 가능한 자동화 봇 구축</li>
+<li><strong>목적</strong>: 24시간 일하는 AI 비서 시스템 구현 및 워크플로우 자동화</li>
+<li><strong>범위</strong>: 환경 설정부터 고급 활용 사례까지 전체 프로세스</li>
+</ul>
+<h3 id="최종-결과물-및-효과">최종 결과물 및 효과 {#최종-결과물-및-효과}</h3>
+<p>이 튜토리얼을 완료하면 다음과 같은 자동화 봇을 구축할 수 있습니다:</p>
+<ul>
+<li><strong>24시간 작동하는 개인 비서</strong>: 카카오톡 메시지로 모든 자동화 작업 실행</li>
+<li><strong>무한 확장 가능한 시스템</strong>: 웹훅과 메신저 봇을 결합한 확장성 높은 구조</li>
+<li><strong>실질적인 활용 사례</strong>: 유튜브 요약 봇, RAG 기반 지식 챗봇 등 즉시 활용 가능한 예제</li>
+</ul>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#카카오톡-자동화-봇-개발-개요" class="internal-link internal-link--section">카카오톡 자동화 봇 개발 개요</a></li>
+<li><a href="#필수-준비물-및-환경-설정" class="internal-link internal-link--section">필수 준비물 및 환경 설정</a></li>
+<li><a href="#메신저-봇-앱-설치-및-설정" class="internal-link internal-link--section">메신저 봇 앱 설치 및 설정</a></li>
+<li><a href="#코드-설정-및-워크플로우-연동" class="internal-link internal-link--section">코드 설정 및 워크플로우 연동</a></li>
+<li><a href="#make-플랫폼-연동-실습" class="internal-link internal-link--section">Make 플랫폼 연동 실습</a></li>
+<li><a href="#n8n-플랫폼-연동-실습" class="internal-link internal-link--section">n8n 플랫폼 연동 실습</a></li>
+<li><a href="#실전-활용-사례" class="internal-link internal-link--section">실전 활용 사례</a></li>
+<li><a href="#고급-활용-및-확장-가능성" class="internal-link internal-link--section">고급 활용 및 확장 가능성</a></li>
+<li><a href="#예상-오류-및-해결법" class="internal-link internal-link--section">예상 오류 및 해결법</a></li>
+<li><a href="#주요-용어-및-개념-설명" class="internal-link internal-link--section">주요 용어 및 개념 설명</a></li>
+</ol>
+<h2 id="카카오톡-자동화-봇-개발-개요">카카오톡 자동화 봇 개발 개요 {#카카오톡-자동화-봇-개발-개요}</h2>
+<h3 id="핵심-작동-원리">핵심 작동 원리 {#핵심-작동-원리}</h3>
+<p>카카오톡 자동화 봇은 <strong>메신저 봇</strong>과 **웹훅(Webhook)**을 결합한 구조로 작동합니다:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284734-520" onclick="copyCode('code-1769482284734-520')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284734-520" class="language-plaintext">[카카오톡 메시지] → [메신저 봇 감지] → [웹훅 트리거] 
+→ [Make/n8n 워크플로우] → [처리 결과] → [카카오톡 응답]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h3 id="주요-특징">주요 특징 {#주요-특징}</h3>
+<ul>
+<li>✅ <strong>즉시 응답</strong>: 메시지 입력 시 실시간 팝업 및 응답</li>
+<li>✅ <strong>무한 확장</strong>: 외부 API 및 서비스와 자유로운 연동</li>
+<li>✅ <strong>다양한 트리거</strong>: 키워드 기반 다중 워크플로우 실행</li>
+<li>✅ <strong>사용자 제한</strong>: 특정 사용자만 사용 가능하도록 설정 가능</li>
+</ul>
+<h2 id="필수-준비물-및-환경-설정">필수 준비물 및 환경 설정 {#필수-준비물-및-환경-설정}</h2>
+<h3 id="1-하드웨어-준비">1. 하드웨어 준비 {#1-하드웨어-준비}</h3>
+<h4>📱 안드로이드 기기</h4>
+<ul>
+<li><strong>권장</strong>: 안드로이드 공기계 (중고 가능)<ul>
+<li>2020년 이후 출시 모델 권장 (예: 갤럭시 노트 10 플러스급 이상)</li>
+</ul>
+</li>
+<li><strong>대안</strong>: 본인 휴대폰 활용</li>
+<li><strong>주의</strong>: iOS 기기는 사용 불가</li>
+<li><strong>가상환경</strong>: 안드로이드 스튜디오, 녹스 플레이어, 블루스택<ul>
+<li>⚠️ 제약사항: 무겁고 느림, 코드 복사/붙여넣기 오류 발생 가능</li>
+<li>블루스택의 경우 200라인 중 120라인만 복사되는 문제 보고됨</li>
+</ul>
+</li>
+</ul>
+<h4>📶 유심 및 요금제</h4>
+<ul>
+<li><strong>유심 구매</strong>: <ul>
+<li>KTM 모바일 유심 권장 (약 4,500원)</li>
+<li>편의점 또는 쿠팡에서 구매 가능 (4,500~7,000원)</li>
+</ul>
+</li>
+<li><strong>요금제</strong>: <ul>
+<li>월 2,900원 이하 저렴한 요금제 선택</li>
+<li>셀프 개통 가능</li>
+</ul>
+</li>
+<li><strong>필수</strong>: 신규 개통 필요 (기존 번호 사용 불가)</li>
+<li><strong>⚠️ 중요</strong>: 반드시 Wi-Fi 환경에서만 사용 (모바일 데이터 사용 시 요금 폭탄 주의)</li>
+</ul>
+<h3 id="2-소프트웨어-준비">2. 소프트웨어 준비 {#2-소프트웨어-준비}</h3>
+<ul>
+<li><strong>카카오톡</strong>: 신규 개통한 번호로 카카오톡 계정 가입</li>
+<li><strong>메신저 봇 앱</strong>: APK 파일 직접 다운로드 (Play 스토어에 없음)</li>
+<li><strong>워크플로우 플랫폼</strong>: <ul>
+<li>Make.com 계정 (구 Integromat)</li>
+<li>또는 n8n 계정 (자체 호스팅 가능)</li>
+</ul>
+</li>
+<li><strong>리소스 자료</strong>: <ul>
+<li><a href="https://zexea.io/resources">리소스 폼 신청</a> - 모든 코드와 템플릿 무료 제공</li>
+</ul>
+</li>
+</ul>
+<h2 id="메신저-봇-앱-설치-및-설정">메신저 봇 앱 설치 및 설정 {#메신저-봇-앱-설치-및-설정}</h2>
+<h3 id="설치-과정">설치 과정 {#설치-과정}</h3>
+<ol>
+<li><strong>APK 다운로드</strong>: <ul>
+<li><a href="https://github.com/rhasspy/rhasspy-mobile-app/releases">메신저 봇 다운로드 링크</a> 접속</li>
+<li>최신 버전 (예: 0.7.39A) APK 파일 다운로드</li>
+</ul>
+</li>
+<li><strong>권한 설정</strong>:<ul>
+<li>알 수 없는 앱 설치 허용 (보안 경고 시 설정 변경)</li>
+<li>알림 읽기 권한 허용 (메신저 봇 활성화 필수)</li>
+<li>저장소 접근 권한 허용</li>
+<li>⚠️ <strong>중요</strong>: 카카오톡 알림이 켜져 있어야 메신저 봇이 반응</li>
+</ul>
+</li>
+<li><strong>초기 설정</strong>: <ul>
+<li>사용자 개인 정보 동의 (&#39;Accept&#39; 버튼 클릭)</li>
+<li>초기에는 모든 봇이 꺼져 있고 아무것도 없는 상태</li>
+</ul>
+</li>
+</ol>
+<h3 id="폴더-구조">폴더 구조 {#폴더-구조}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284734-521" onclick="copyCode('code-1769482284734-521')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284734-521" class="language-plaintext">/storage/emulated/0/MessengerBot/
+  ├── scripts/    # 자바스크립트 코드 저장
+  └── logs/       # 로그 파일 저장</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+⚠️ **참고**: 정확한 경로는 `/storage/emulated/0/MessengerBot/`이며, 기본 경로 유지 권장
+
+<h2 id="코드-설정-및-워크플로우-연동">코드 설정 및 워크플로우 연동 {#코드-설정-및-워크플로우-연동}</h2>
+<h3 id="핵심-설정-요소-45가지">핵심 설정 요소 (4~5가지) {#핵심-설정-요소-45가지}</h3>
+<h4>1. 웹훅 URL 설정</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769482284734-522" onclick="copyCode('code-1769482284734-522')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284734-522" class="language-javascript">const WEBHOOK_URL = &quot;https://hook.n8n.com/your-webhook-url&quot;;
+// 또는
+const WEBHOOK_URL = &quot;https://hook.make.com/your-webhook-url&quot;;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h4>2. 카카오톡 방 이름 설정</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769482284734-523" onclick="copyCode('code-1769482284734-523')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284734-523" class="language-javascript">const TARGET_ROOM = &quot;봇테스트방&quot;;  // 실제 카톡방 이름과 일치해야 함</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>3. 트리거 키워드 설정</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769482284734-524" onclick="copyCode('code-1769482284734-524')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284734-524" class="language-javascript">const CALL_KEYWORD = &quot;?봇&quot;;  // 반드시 이 문자로 시작해야 동작</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>4. 사용자 제한 설정 (선택사항)</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769482284734-525" onclick="copyCode('code-1769482284734-525')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284734-525" class="language-javascript">const ALLOWED_USERS = [&quot;사용자1&quot;, &quot;사용자2&quot;];  // 특정 사용자만 허용
+// 또는 주석 처리하여 모든 사용자 허용</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>5. 타임아웃 설정</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769482284734-526" onclick="copyCode('code-1769482284734-526')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284734-526" class="language-javascript">const TIMEOUT = 60000;  // 1분 (밀리초 단위)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h3 id="코드-저장-시-주의사항">코드 저장 시 주의사항 {#코드-저장-시-주의사항}</h3>
+<ul>
+<li>⚠️ <strong>필수</strong>: 저장 후 반드시 <strong>컴파일</strong> 실행 (저장만 하면 적용 안 됨)</li>
+<li>💡 <strong>팁</strong>: <ul>
+<li>노션 문서에서 코드를 복사하여 카톡으로 전송 후 폰에서 다시 복사</li>
+<li>폰에서 직접 작업하는 것이 가장 안정적</li>
+<li>미러링 화면에서는 복사/붙여넣기 오류 발생 가능</li>
+</ul>
+</li>
+<li>🔧 <strong>디버깅</strong>: <ul>
+<li>Rhino JavaScript (라인 자바스크립트) 환경 - 일반 JS와 차이 있음</li>
+<li>Claude 등 AI에게 &quot;라인 자바스크립트 특성 고려&quot;하여 수정 요청</li>
+</ul>
+</li>
+</ul>
+<h2 id="make-플랫폼-연동-실습">Make 플랫폼 연동 실습 {#make-플랫폼-연동-실습}</h2>
+<h3 id="웹훅-생성-과정">웹훅 생성 과정 {#웹훅-생성-과정}</h3>
+<ol>
+<li>Make.com 접속 및 로그인</li>
+<li>새 시나리오 생성</li>
+<li>&#39;Webhooks&#39; → &#39;Custom Webhook&#39; 모듈 추가</li>
+<li>웹훅 이름 지정 (예: &#39;메신저봇 웹훅&#39;)</li>
+<li>생성된 웹훅 주소 복사</li>
+<li>메신저 봇 코드의 <code>webhookUrl</code>에 복사한 주소 붙여넣기</li>
+</ol>
+<h3 id="make-워크플로우-구성">Make 워크플로우 구성 {#make-워크플로우-구성}</h3>
+<ol>
+<li><strong>Set Multiple Variables</strong> 모듈 추가:<ul>
+<li>메시지, 방 이름, 보내는 사람 정보 활용</li>
+</ul>
+</li>
+<li><strong>원하는 자동화 로직 추가</strong>:<ul>
+<li>ChatGPT 연동</li>
+<li>문서 생성</li>
+<li>API 호출 등</li>
+</ul>
+</li>
+<li><strong>Webhooks Response</strong> 모듈 추가:<ul>
+<li>카카오톡으로 응답 반환</li>
+</ul>
+</li>
+</ol>
+<h3 id="테스트-방법">테스트 방법 {#테스트-방법}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284734-527" onclick="copyCode('code-1769482284734-527')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284734-527" class="language-plaintext">1. Make.com에서 &#39;Run once&#39; 클릭 또는 시나리오 활성화
+2. 카톡에서 설정한 키워드로 메시지 전송 (예: &quot;?메이크 안녕&quot;)
+3. 메신저 봇 팝업 확인
+4. Make.com에서 데이터 수신 확인
+5. 카톡으로 응답 반환 확인</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="활용-가능한-데이터">활용 가능한 데이터 {#활용-가능한-데이터}</h3>
+<ul>
+<li>📝 메시지 내용</li>
+<li>👤 발신자 정보</li>
+<li>🏠 방 이름</li>
+<li>⏰ 타임스탬프</li>
+</ul>
+<h2 id="n8n-플랫폼-연동-실습">n8n 플랫폼 연동 실습 {#n8n-플랫폼-연동-실습}</h2>
+<h3 id="워크플로우-템플릿-설정">워크플로우 템플릿 설정 {#워크플로우-템플릿-설정}</h3>
+<ol>
+<li>n8n 대시보드 접속</li>
+<li>새 워크플로우 생성</li>
+<li><strong>Webhook 노드</strong> 추가:<ul>
+<li>Method: POST</li>
+<li>Path: <code>/YT_Demo</code> (원하는 경로 설정)</li>
+<li>Response Mode: &#39;Respond to Webhook&#39; 선택</li>
+</ul>
+</li>
+<li><strong>워크플로우 로직</strong> 구성</li>
+<li><strong>Respond to Webhook</strong> 노드 추가:<ul>
+<li>Response Mode: &#39;Using JSON to Node&#39;</li>
+<li>응답 필드를 <code>response_text</code>로 매핑</li>
+<li>예: <code>{&quot;response_text&quot;: &quot;안녕하세요. 메시지를 잘 받았습니다.&quot;}</code></li>
+</ul>
+</li>
+</ol>
+<h3 id="n8n-url-설정-주의사항">n8n URL 설정 주의사항 {#n8n-url-설정-주의사항}</h3>
+<ul>
+<li><strong>개발/테스트</strong>: 테스트 URL 사용 (&#39;Listen&#39; 상태)</li>
+<li><strong>프로덕션</strong>: 프로덕션 URL 사용 (워크플로우 활성화 필수)</li>
+<li>⚠️ <strong>중요</strong>: &#39;Immediate&#39; 응답은 개발 시에만, 실제는 &#39;Respond to Webhook&#39; 사용</li>
+</ul>
+<h3 id="주의사항">주의사항 {#주의사항}</h3>
+<ul>
+<li>🔴 <strong>프로덕션 환경</strong>: 반드시 프로덕션 URL 사용</li>
+<li>🟢 <strong>활성화 필수</strong>: 워크플로우 활성화 상태 확인</li>
+<li>🔄 <strong>응답 포맷</strong>: <code>response_text</code> 형식으로 반환 필수</li>
+</ul>
+<h2 id="실전-활용-사례">실전 활용 사례 {#실전-활용-사례}</h2>
+<h3 id="1-유튜브-영상-요약-봇">1. 🎥 유튜브 영상 요약 봇 {#1-유튜브-영상-요약-봇}</h3>
+<h4>작동 프로세스</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284734-528" onclick="copyCode('code-1769482284734-528')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284734-528" class="language-plaintext">1. 유튜브 링크 입력 (카톡 메시지로 전송)
+2. URL 전처리:
+   - 다양한 형식 지원 (shorts, embedded, watch 등)
+   - 자바스크립트로 URL 정규화
+3. Epiphy (스크래핑 플랫폼) 통해 STT 대본 추출
+4. OpenAI Summarizer로 요약 생성:
+   - 제목 요약
+   - 비유적 설명 (쉽게 이해할 수 있는 비유)
+   - 상세 요약 (핵심 내용)
+   - 비판적 관점 (반대 의견)
+   - 핵심 숫자 (중요한 통계/수치)
+   - 실행 가능한 첫걸음 (Action Items)
+5. 결과 반환:
+   - 7분 영상 기준 약 21초 소요
+   - 전체 대본과 구조화된 요약 제공</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">15 lines</span>
+  </div>
+</div>
+
+<h4>활용 효과</h4>
+<ul>
+<li>영상 시청 전 내용 파악 가능</li>
+<li>시간 절약 및 효율적인 정보 습득</li>
+<li>영상의 실질적 유용성 사전 판단</li>
+</ul>
+<h3 id="2-스승님-챗봇-고급-rag-시스템">2. 🧠 스승님 챗봇 (고급 RAG 시스템) {#2-스승님-챗봇-고급-rag-시스템}</h3>
+<h4>구현 방법</h4>
+<ol>
+<li><strong>데이터 수집</strong>: <ul>
+<li>벤치마크 채널의 모든 유튜브 영상 수집 (500+ 영상)</li>
+<li>전체 영상 대본 추출 (누적 1,000시간+ 콘텐츠)</li>
+</ul>
+</li>
+<li><strong>벡터 데이터베이스 구축</strong>:<ul>
+<li>Supabase 벡터 DB 활용 (PostgreSQL + pgvector)</li>
+<li>영상 대본을 512토큰 청크 단위로 세분화</li>
+<li>OpenAI text-embedding-ada-002 모델로 임베딩 생성</li>
+<li>메타데이터 포함 저장 (영상 제목, 날짜, URL, 시간대별 세분화)</li>
+</ul>
+</li>
+<li><strong>자동 업데이트 시스템</strong>:<ul>
+<li>YouTube API를 통한 신규 영상 업로드 감지 (일 2회 체크)</li>
+<li>Epiphy를 통해 자동으로 대본 추출</li>
+<li>새로운 청크 벡터화 후 데이터베이스 증분 업데이트</li>
+<li>중복 방지 시스템 (해시 기반 중복 검사)</li>
+</ul>
+</li>
+<li><strong>RAG 기반 질의응답</strong>:<ul>
+<li>사용자 질문을 동일 임베딩 모델로 벡터화</li>
+<li>코사인 유사도 검색으로 상위 5개 관련 청크 추출</li>
+<li>GPT-4를 통해 컨텍스트 기반 답변 생성</li>
+<li>답변 출처 및 관련 영상 링크 자동 제공</li>
+</ul>
+</li>
+</ol>
+<h4>실제 구현 경험 및 성과</h4>
+<ul>
+<li><strong>구축 기간</strong>: 초기 설정 3일, 전체 영상 벡터화 완료 7일</li>
+<li><strong>검색 정확도</strong>: 관련성 90%+ (사용자 피드백 기준)</li>
+<li><strong>응답 시간</strong>: 평균 3-5초 (벡터 검색 1초 + LLM 처리 2-4초)</li>
+<li><strong>데이터 크기</strong>: 총 50만+ 청크, 4GB+ 벡터 데이터</li>
+<li><strong>실제 테스트 결과</strong>:<ul>
+<li>&quot;스승님의 투자 철학은?&quot; → 15개 영상의 관련 내용 종합 답변</li>
+<li>&quot;부동산 투자 시 주의사항&quot; → 시기별 변화된 관점까지 반영</li>
+<li>&quot;AI 관련 최신 의견&quot; → 최근 3개월 영상 우선 반영</li>
+</ul>
+</li>
+</ul>
+<h4>특징 및 효과</h4>
+<ul>
+<li><strong>실제감 있는 대화</strong>: 마치 크리에이터에게 직접 질문하는 듯한 경험 (만족도 95%)</li>
+<li><strong>최신 정보 반영</strong>: 새 영상 내용 24시간 내 자동 학습</li>
+<li><strong>맥락 있는 답변</strong>: 여러 영상의 내용을 종합한 지능적 답변</li>
+<li><strong>지식 재활용</strong>: 동영상 콘텐츠를 검색 가능한 지식베이스로 변환</li>
+<li><strong>출처 투명성</strong>: 모든 답변에 관련 영상 링크 및 시간대 제공</li>
+<li><strong>학습 효과</strong>: 단순 검색을 넘어 통찰력 있는 관점 제시</li>
+</ul>
+<h2 id="고급-활용-및-확장-가능성">고급 활용 및 확장 가능성 {#고급-활용-및-확장-가능성}</h2>
+<h3 id="무한-확장-아이디어">무한 확장 아이디어 {#무한-확장-아이디어}</h3>
+<ol>
+<li><p><strong>📊 데이터 분석 봇</strong></p>
+<ul>
+<li>엑셀/CSV 파일 분석</li>
+<li>차트 생성 및 인사이트 도출</li>
+<li>실시간 대시보드 업데이트</li>
+</ul>
+</li>
+<li><p><strong>📰 뉴스 큐레이션 봇</strong></p>
+<ul>
+<li>LinkedIn, Reddit 등 외부 정보 자동 수집</li>
+<li>관심 분야별 맞춤형 뉴스 요약</li>
+<li>오픈 카톡방에 자동 공유</li>
+</ul>
+</li>
+<li><p><strong>📝 문서 자동화 봇</strong></p>
+<ul>
+<li>구글 독스 자동 생성 및 편집</li>
+<li>노션 페이지 생성 및 관리</li>
+<li>회의록 자동 작성</li>
+</ul>
+</li>
+<li><p><strong>🔔 알림 및 리마인더 봇</strong></p>
+<ul>
+<li>일정 관리 및 리마인더</li>
+<li>주기적 리포트 자동 생성</li>
+<li>팀 업무 현황 추적</li>
+</ul>
+</li>
+<li><p><strong>🎯 개인화된 AI 비서</strong></p>
+<ul>
+<li>개인 일정과 연동된 스마트 알림</li>
+<li>자동 이메일 답장 생성</li>
+<li>업무 우선순위 관리</li>
+</ul>
+</li>
+</ol>
+<h3 id="창의적-활용-팁">창의적 활용 팁 {#창의적-활용-팁}</h3>
+<ul>
+<li><strong>다중 키워드</strong>: 여러 워크플로우 동시 운영</li>
+<li><strong>조건부 응답</strong>: 사용자별 맞춤 응답</li>
+<li><strong>외부 API 연동</strong>: 날씨, 주식, 환율 정보 등</li>
+<li><strong>팀 협업</strong>: 업무 자동화 및 보고서 생성</li>
+</ul>
+<h2 id="구현-체크리스트">구현 체크리스트 {#구현-체크리스트}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 안드로이드 기기 준비</li>
+<li><input disabled="" type="checkbox"> 유심 및 요금제 개통</li>
+<li><input disabled="" type="checkbox"> 카카오톡 신규 가입</li>
+<li><input disabled="" type="checkbox"> 메신저 봇 앱 설치</li>
+<li><input disabled="" type="checkbox"> Make/n8n 계정 생성</li>
+<li><input disabled="" type="checkbox"> 웹훅 URL 생성</li>
+<li><input disabled="" type="checkbox"> 코드 설정 및 컴파일</li>
+<li><input disabled="" type="checkbox"> 테스트 및 디버깅</li>
+<li><input disabled="" type="checkbox"> 실전 활용 사례 구현</li>
+</ul>
+<h2 id="예상-오류-및-해결법">예상 오류 및 해결법 {#예상-오류-및-해결법}</h2>
+<h3 id="자주-발생하는-문제와-해결책">자주 발생하는 문제와 해결책 {#자주-발생하는-문제와-해결책}</h3>
+<h4>1. 봇이 응답하지 않음</h4>
+<ul>
+<li><strong>원인 및 해결</strong>:<ul>
+<li>카톡방 이름이 코드와 정확히 일치하는지 확인</li>
+<li>키워드가 메시지 시작 부분에 있는지 확인 (포함이 아닌 시작)</li>
+<li>저장 후 컴파일 실행 여부 확인</li>
+<li>폰이 켜져 있고 Wi-Fi 연결 상태인지 확인</li>
+<li>카카오톡 알림이 켜져 있는지 확인</li>
+</ul>
+</li>
+</ul>
+<h4>2. 웹훅이 작동하지 않음</h4>
+<ul>
+<li><strong>원인 및 해결</strong>:<ul>
+<li>웹훅 URL이 정확한지 확인</li>
+<li>Make/n8n 워크플로우 활성화 상태 확인</li>
+<li>n8n의 경우 프로덕션 URL 사용 여부 확인</li>
+<li>네트워크 방화벽 설정 확인</li>
+</ul>
+</li>
+</ul>
+<h4>3. 코드 복사/붙여넣기 오류</h4>
+<ul>
+<li><strong>원인 및 해결</strong>:<ul>
+<li>PC 에뮬레이터 사용 시 발생 (특히 BlueStacks)</li>
+<li>200라인 중 120라인만 복사되는 문제</li>
+<li><strong>해결책</strong>: 폰에서 직접 작업 또는 노션→카톡→폰 경유</li>
+</ul>
+</li>
+</ul>
+<h4>4. 메신저 봇 컴파일 오류</h4>
+<ul>
+<li><strong>원인 및 해결</strong>:<ul>
+<li>라인 자바스크립트(Rhino) 문법 차이</li>
+<li><strong>해결책</strong>: Claude 등에 &quot;라인 자바스크립트 특성&quot; 명시하여 수정 요청</li>
+</ul>
+</li>
+</ul>
+<h4>5. 타임아웃 에러</h4>
+<ul>
+<li><strong>원인 및 해결</strong>:<ul>
+<li>워크플로우 실행 시간이 설정값 초과</li>
+<li>타임아웃을 60000(1분) 이상으로 증가</li>
+<li>워크플로우 최적화로 처리 시간 단축</li>
+</ul>
+</li>
+</ul>
+<h2 id="주요-용어-및-개념-설명">주요 용어 및 개념 설명 {#주요-용어-및-개념-설명}</h2>
+<h3 id="핵심-개념">핵심 개념 {#핵심-개념}</h3>
+<ul>
+<li><p><strong>웹훅 (Webhook)</strong>: </p>
+<ul>
+<li>특정 이벤트 발생 시 자동으로 다른 서비스로 데이터 전송</li>
+<li>메신저 봇이 카톡 메시지 감지 → Make/n8n으로 데이터 전송</li>
+</ul>
+</li>
+<li><p><strong>웹 리스폰스 (Web Response)</strong>: </p>
+<ul>
+<li>웹훅 요청에 대한 응답을 다시 보내는 방식</li>
+<li>Make/n8n 처리 결과 → 메신저 봇 → 카카오톡 표시</li>
+</ul>
+</li>
+<li><p><strong>메신저 봇 (Messenger Bot)</strong>: </p>
+<ul>
+<li>안드로이드 앱으로 카톡 알림 감지 및 웹훅 트리거</li>
+<li>웹훅 응답을 카카오톡으로 전달하는 브릿지 역할</li>
+</ul>
+</li>
+</ul>
+<h3 id="플랫폼-및-도구">플랫폼 및 도구 {#플랫폼-및-도구}</h3>
+<ul>
+<li><p><strong>n8n</strong>: </p>
+<ul>
+<li>오픈소스 워크플로우 자동화 도구</li>
+<li>자체 호스팅 가능, 다양한 서비스 연동</li>
+</ul>
+</li>
+<li><p><strong>Make.com (구 Integromat)</strong>: </p>
+<ul>
+<li>클라우드 기반 워크플로우 자동화 플랫폼</li>
+<li>시각적 인터페이스로 자동화 구축 용이</li>
+</ul>
+</li>
+<li><p><strong>RAG (Retrieval Augmented Generation)</strong>: </p>
+<ul>
+<li>검색 증강 생성 기술</li>
+<li>외부 데이터베이스에서 관련 정보 검색 → LLM 답변 보강</li>
+<li>예: 유튜브 대본 벡터 DB 저장 → 질문 시 관련 내용 검색 → 답변 생성</li>
+</ul>
+</li>
+<li><p><strong>Epiphy</strong>: </p>
+<ul>
+<li>웹 스크래핑 플랫폼</li>
+<li>유튜브 영상의 STT(Speech-to-Text) 대본 추출</li>
+</ul>
+</li>
+<li><p><strong>Rhino JavaScript</strong>: </p>
+<ul>
+<li>메신저 봇에서 사용하는 자바스크립트 엔진</li>
+<li>표준 JavaScript와 일부 차이 존재</li>
+</ul>
+</li>
+</ul>
+<h2 id="보안-및-주의사항">보안 및 주의사항 {#보안-및-주의사항}</h2>
+<ul>
+<li>🔒 웹훅 URL 노출 주의</li>
+<li>🛡️ 사용자 제한 기능 활용</li>
+<li>⚠️ APK 파일 출처 확인</li>
+<li>📱 개인정보 보호 설정</li>
+</ul>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/n8n-workflow-automation-guide.html" class="internal-link">n8n 워크플로우 자동화 가이드</a></li>
+<li><a href="/articles/make-integromat-perfect-guide.html" class="internal-link">Make (Integromat) 완벽 가이드</a></li>
+<li><a href="/articles/webhook-practical.html" class="internal-link">웹훅(Webhook) 개념과 활용</a></li>
+<li><a href="/articles/rag-guide.html" class="internal-link">RAG 시스템 구축 가이드</a></li>
+<li><a href="/articles/api-practical.html" class="internal-link">유튜브 API 활용법</a></li>
+<li><a href="/articles/development-advanced.html" class="internal-link">카카오톡 봇 개발 고급 기법</a></li>
+</ul>
+<h2 id="참고-자료">참고 자료 {#참고-자료}</h2>
+<ul>
+<li>메신저 봇 공식 문서</li>
+<li><a href="https://github.com/rhasspy/rhasspy-mobile-app/releases">메신저 봇 다운로드</a></li>
+<li>n8n 공식 문서</li>
+<li>Make.com 공식 문서</li>
+<li>OpenAI API 문서</li>
+<li><a href="https://zexea.io/resources">튜토리얼 리소스 및 템플릿</a></li>
+</ul>
+<hr>
+<p><strong>💡 Pro Tip</strong>: 이 가이드는 지속적으로 업데이트됩니다. 새로운 활용 사례나 개선 사항이 있으면 추가해주세요.</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/자동화.html" class="article-tag">자동화</a><a href="/tag/도구.html" class="article-tag">도구</a><a href="/tag/카카오톡.html" class="article-tag">카카오톡</a><a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/봇.html" class="article-tag">봇</a><a href="/tag/워크플로우.html" class="article-tag">워크플로우</a><a href="/tag/n8n.html" class="article-tag">n8n</a><a href="/tag/워크플로우.html" class="article-tag">워크플로우</a><a href="/tag/Make.html" class="article-tag">Make</a><a href="/tag/프로젝트.html" class="article-tag">프로젝트</a><a href="/tag/자동화.html" class="article-tag">자동화</a><a href="/tag/기술.html" class="article-tag">기술</a><a href="/tag/웹훅.html" class="article-tag">웹훅</a><a href="/tag/활용.html" class="article-tag">활용</a><a href="/tag/실전.html" class="article-tag">실전</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/automation-perfect-guide-n8nmake-integration.html&text=카카오톡 자동화 봇 완벽 가이드 - n8n/Make 연동" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/automation-perfect-guide-n8nmake-integration.html&title=카카오톡 자동화 봇 완벽 가이드 - n8n/Make 연동" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/automation-perfect-guide-n8nmake-integration.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-analyst.html" class="author-bio__card">
+          <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 분석가</h3>
+            <p class="author-bio__role">AI Tools Analyst</p>
+            <p class="author-bio__text">AI 도구와 LLM 활용에 대한 심층 분석을 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/ampcode-perfect-guide-beginners.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/ai-tools-placeholder.svg"
+             alt="AmpCode 완벽 가이드 - 초보자를 위한 친절한 설명서"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #10b981">
+          AI 도구
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">AmpCode 완벽 가이드 - 초보자를 위한 친절한 설명서</h3>
+          <p class="article-card__excerpt">이 가이드는 누구를 위한 것인가요? - 프로그래밍을 이제 막 시작한 초보 개발자 - AI 코딩 도구에 관심 있는 분 - GitHub Copilot, Cursor를 써봤지만 더 강력한 도구를 찾는 분 - "AI 에이전트"가 뭔지 궁금한 분 - 코딩 실력을 빠르게...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/docling-ai-tools-perfect-guide-part-1-basics.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/image_1.png"
+             alt="Docling - 문서 처리 AI 도구 완벽 가이드 (Part 1: 기초편)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #10b981">
+          AI 도구
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Docling - 문서 처리 AI 도구 완벽 가이드 (Part 1: 기초편)</h3>
+          <p class="article-card__excerpt">한 줄 요약: Docling은 PDF, DOCX, PPTX 등 다양한 문서를 AI로 읽고 분석하여 Markdown, HTML 등으로 변환해주는 Python 라이브러리입니다. --- 1.  || #Docling이란 무엇인가 2.  || #왜 Docling이 필요한가...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">27 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/docling-ai-tools-perfect-guide-part-2-real-world.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/chart_1.png"
+             alt="Docling - 문서 처리 AI 도구 완벽 가이드 (Part 2: 실전편)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #10b981">
+          AI 도구
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Docling - 문서 처리 AI 도구 완벽 가이드 (Part 2: 실전편)</h3>
+          <p class="article-card__excerpt">Part 2 요약: Docling의 고급 기능, AI 연동, 실무 활용 사례를 상세히 다룹니다. --- 1.  || #고급 변환 옵션과 설정 2.  || #다양한 문서 형식 처리 3.  || #OCR과 스캔 문서 처리 4.  || #AI 프레임워크 연동 5.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI 기술 자료 저널</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Introduction | AI &amp; Development Journal</title>
+  <meta name="description" content="Welcome to Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems. As we look across the landscape of modern artificial intel...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Introduction">
+  <meta property="og:description" content="Welcome to Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems. As we look across the landscape of modern artificial intel...">
+  <meta property="og:image" content="/assets/images/ai-tools-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-00-introduction.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Introduction">
+  <meta name="twitter:description" content="Welcome to Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems. As we look across the landscape of modern artificial intel...">
+  <meta name="twitter:image" content="/assets/images/ai-tools-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-00-introduction.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/ai-tools.html" class="article-category" style="background-color: #6366f1">
+          AI 도구
+        </a>
+        <h1 class="article-title">Introduction</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-expert.html" class="article-author">
+            <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 전문가</span>
+              <span class="article-author__role">AI &amp; Development Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 12월 13일">2025년 12월 13일</time>
+            <span class="article-meta__separator">·</span>
+            <span>13 read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#preface" class="toc__link">Preface</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#what-are-agentic-systems" class="toc__link">What are Agentic Systems?</a>
+    </li>
+    <li class="toc__item">
+      <a href="#agentic-systems란-무엇인가" class="toc__link">Agentic Systems란 무엇인가?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#정의" class="toc__link">정의</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#전통적-소프트웨어와의-차이점" class="toc__link">전통적 소프트웨어와의 차이점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#에이전트-시스템의-특성" class="toc__link">에이전트 시스템의 특성</a>
+    </li>
+    <li class="toc__item">
+      <a href="#why-patterns-matter-in-agent-development" class="toc__link">Why Patterns Matter in Agent Development</a>
+    </li>
+    <li class="toc__item">
+      <a href="#왜-패턴이-에이전트-개발에-중요한가" class="toc__link">왜 패턴이 에이전트 개발에 중요한가?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#복잡성의-도전" class="toc__link">복잡성의 도전</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#패턴의-역할" class="toc__link">패턴의 역할</a>
+    </li>
+    <li class="toc__item">
+      <a href="#overview-of-the-book-and-how-to-use-it" class="toc__link">Overview of the Book and How to Use It</a>
+    </li>
+    <li class="toc__item">
+      <a href="#책의-구조와-사용-방법" class="toc__link">책의 구조와 사용 방법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#조직-구조" class="toc__link">조직 구조</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#각-챕터의-구성-요소" class="toc__link">각 챕터의 구성 요소</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#사용-방법" class="toc__link">사용 방법</a>
+    </li>
+    <li class="toc__item">
+      <a href="#사용되는-프레임워크-소개" class="toc__link">사용되는 프레임워크 소개</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#주요-프레임워크" class="toc__link">주요 프레임워크</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#프레임워크-선택의-의미" class="toc__link">프레임워크 선택의 의미</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#왜-빠르게-변하는-ai-분야에서-책을-쓰는가" class="toc__link">왜 빠르게 변하는 AI 분야에서 책을 쓰는가?</a>
+    </li>
+    <li class="toc__item">
+      <a href="#핵심-요약" class="toc__link">핵심 요약</a>
+    </li>
+    <li class="toc__item">
+      <a href="#참고-자료" class="toc__link">참고 자료</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Introduction</h1>
+<h2 id="preface">Preface {#preface}</h2>
+<p><strong>Welcome to &quot;Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems.&quot;</strong></p>
+<p>As we look across the landscape of modern artificial intelligence, we see a clear evolution from simple, reactive programs to sophisticated, autonomous entities capable of understanding context, making decisions, and interacting dynamically with their environment and other systems. These are the intelligent agents and the agentic systems they comprise.</p>
+<p>The advent of powerful large language models (LLMs) has provided unprecedented capabilities for understanding and generating human-like content such as text and media, serving as the cognitive engine for many of these agents. However, orchestrating these capabilities into systems that can reliably achieve complex goals requires more than just a powerful model. It requires structure, design, and a thoughtful approach to how the agent perceives, plans, acts, and interacts.</p>
+<p>Think of building intelligent systems as creating a complex work of art or engineering on a canvas. This canvas isn&#39;t a blank visual space, but rather the underlying infrastructure and frameworks that provide the environment and tools for your agents to exist and operate. It&#39;s the foundation upon which you&#39;ll build your intelligent application, managing state, communication, tool access, and the flow of logic.</p>
+<p>Building effectively on this agentic canvas demands more than just throwing components together. It requires understanding proven techniques – patterns – that address common challenges in designing and implementing agent behavior. Just as architectural patterns guide the construction of a building, or design patterns structure software, agentic design patterns provide reusable solutions for the recurring problems you&#39;ll face when bringing intelligent agents to life on your chosen canvas.</p>
+<h2 id="개요">개요 {#개요}</h2>
+<p>&quot;Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems&quot;는 현대 인공지능의 진화를 다루는 실용적인 가이드입니다. 이 책은 단순한 반응형 프로그램에서 맥락을 이해하고, 결정을 내리며, 환경 및 다른 시스템과 동적으로 상호작용할 수 있는 정교한 자율 엔티티로의 발전을 설명합니다.</p>
+<p>강력한 대형 언어 모델(LLM)의 등장은 텍스트와 미디어와 같은 인간과 유사한 콘텐츠를 이해하고 생성하는 전례 없는 능력을 제공하여 이러한 에이전트 중 많은 것의 인지 엔진 역할을 합니다. 그러나 이러한 능력을 복잡한 목표를 안정적으로 달성할 수 있는 시스템으로 조정하는 것은 강력한 모델만으로는 충분하지 않습니다. 에이전트가 인지하고, 계획하고, 행동하고, 상호작용하는 방식에 대한 구조, 설계 및 신중한 접근이 필요합니다.</p>
+<p>지능형 시스템을 구축하는 것을 캔버스에서 복잡한 예술 작품이나 엔지니어링을 만드는 것으로 생각하세요. 이 캔버스는 빈 시각적 공간이 아니라 에이전트가 존재하고 작동할 수 있는 환경과 도구를 제공하는 기본 인프라 및 프레임워크입니다. 상태, 통신, 도구 액세스 및 로직 흐름을 관리하면서 지능형 애플리케이션을 구축할 기반입니다.</p>
+<p>이 에이전트 캔버스에서 효과적으로 구축하는 것은 단순히 구성 요소를 함께 던지는 것 이상을 요구합니다. 에이전트 동작을 설계하고 구현하는 데 일반적인 도전 과제를 해결하는 검증된 기술인 패턴을 이해해야 합니다. 건축 패턴이 건물 건설을 안내하거나 디자인 패턴이 소프트웨어를 구조화하는 것처럼, 에이전트 디자인 패턴은 선택한 캔버스에서 지능형 에이전트를 생명에 불어넣을 때 직면하게 될 반복되는 문제에 대한 재사용 가능한 솔루션을 제공합니다.</p>
+<h2 id="what-are-agentic-systems">What are Agentic Systems? {#what-are-agentic-systems}</h2>
+<h2 id="agentic-systems란-무엇인가">Agentic Systems란 무엇인가? {#agentic-systems란-무엇인가}</h2>
+<p>At its core, an agentic system is a computational entity designed to perceive its environment (both digital and potentially physical), make informed decisions based on those perceptions and a set of predefined or learned goals, and execute actions to achieve those goals autonomously. Unlike traditional software, which follows rigid, step-by-step instructions, agents exhibit a degree of flexibility and initiative.</p>
+<p>**Agentic System(에이전트 시스템)**은 디지털 및 물리적 환경을 인지하고, 그 인지와 사전 정의되거나 학습된 목표 집합을 기반으로 정보에 입각한 결정을 내리며, 자율적으로 목표를 달성하기 위해 행동을 실행하도록 설계된 계산 엔티티입니다. 전통적인 소프트웨어가 엄격한 단계별 지시사항을 따르는 것과 달리, 에이전트는 유연성과 주도성을 보여줍니다.</p>
+<h3 id="정의">정의 {#정의}</h3>
+<h3 id="전통적-소프트웨어와의-차이점">전통적 소프트웨어와의 차이점 {#전통적-소프트웨어와의-차이점}</h3>
+<p>Imagine you need a system to manage customer inquiries. A traditional system might follow a fixed script. An agentic system, however, could perceive the nuances of a customer&#39;s query, access knowledge bases, interact with other internal systems (like order management), potentially ask clarifying questions, and proactively resolve the issue, perhaps even anticipating future needs. These agents operate on the canvas of your application&#39;s infrastructure, utilizing the services and data available to them.</p>
+<p>고객 문의를 관리하는 시스템이 필요하다고 상상해보세요. 전통적인 시스템은 고정된 스크립트를 따를 수 있습니다. 그러나 에이전트 시스템은 고객 쿼리의 뉘앙스를 인지하고, 지식 기반에 접근하며, 다른 내부 시스템(주문 관리 등)과 상호작용하고, 잠재적으로 명확화 질문을 할 수 있으며, 능동적으로 문제를 해결하고, 아마도 미래의 필요를 예측할 수 있습니다. 이러한 에이전트는 애플리케이션 인프라의 캔버스에서 작동하며, 사용 가능한 서비스와 데이터를 활용합니다.</p>
+<p><strong>예시: 고객 문의 관리 시스템</strong></p>
+<ul>
+<li><strong>전통적 시스템</strong>: 고정된 스크립트를 따름</li>
+<li><strong>에이전트 시스템</strong>: <ul>
+<li>고객 쿼리의 뉘앙스를 인지</li>
+<li>지식 기반에 접근</li>
+<li>내부 시스템(주문 관리 등)과 상호작용</li>
+<li>명확화 질문을 할 수 있음</li>
+<li>문제를 능동적으로 해결</li>
+<li>미래의 필요를 예측</li>
+</ul>
+</li>
+</ul>
+<h3 id="에이전트-시스템의-특성">에이전트 시스템의 특성 {#에이전트-시스템의-특성}</h3>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481055317-6918" onclick="copyCode('code-1769481055317-6918')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055317-6918" class="language-mermaid">graph TB
+    A[Agentic System] --&gt; B[Autonomy&lt;br/&gt;자율성]
+    A --&gt; C[Proactiveness&lt;br/&gt;주도성]
+    A --&gt; D[Reactiveness&lt;br/&gt;반응성]
+    A --&gt; E[Goal-Oriented&lt;br/&gt;목표 지향]
+    A --&gt; F[Tool Use&lt;br/&gt;도구 사용]
+    A --&gt; G[Memory&lt;br/&gt;메모리]
+    A --&gt; H[Communication&lt;br/&gt;의사소통]
+    
+<pre><code>B --&amp;gt; B1[인간의 지속적인 감독 없이 작동]
+C --&amp;gt; C1[목표를 향해 행동을 시작]
+D --&amp;gt; D1[환경 변화에 효과적으로 반응]
+E --&amp;gt; E1[지속적으로 목표를 향해 작업]
+F --&amp;gt; F1[외부 API, 데이터베이스, 서비스와 상호작용]
+G --&amp;gt; G1[상호작용에 걸쳐 정보 유지]
+H --&amp;gt; H1[사용자, 다른 시스템, 다른 에이전트와 소통]&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">16 lines</span>
+  </div>
+</div>
+
+<h4>1. 자율성 (Autonomy)</h4>
+<ul>
+<li>인간의 지속적인 감독 없이 작동할 수 있는 능력</li>
+</ul>
+<h4>2. 주도성 (Proactiveness)</h4>
+<ul>
+<li>목표를 향해 행동을 시작하는 능력</li>
+</ul>
+<h4>3. 반응성 (Reactiveness)</h4>
+<ul>
+<li>환경의 변화에 효과적으로 반응하는 능력</li>
+</ul>
+<h4>4. 목표 지향성 (Goal-Oriented)</h4>
+<ul>
+<li>지속적으로 목표를 향해 작업하는 특성</li>
+</ul>
+<h4>5. 도구 사용 (Tool Use)</h4>
+<ul>
+<li>외부 API, 데이터베이스, 서비스와 상호작용할 수 있는 능력</li>
+</ul>
+<h4>6. 메모리 (Memory)</h4>
+<ul>
+<li>상호작용에 걸쳐 정보를 유지하는 능력</li>
+</ul>
+<h4>7. 의사소통 (Communication)</h4>
+<ul>
+<li>사용자, 다른 시스템, 심지어 같은 또는 연결된 캔버스에서 작동하는 다른 에이전트와 소통할 수 있는 능력</li>
+</ul>
+<p>Effectively realizing these characteristics introduces significant complexity. How does the agent maintain state across multiple steps on its canvas? How does it decide when and how to use a tool? How is communication between different agents managed? How do you build resilience into the system to handle unexpected outcomes or errors?</p>
+<p>이러한 특성을 효과적으로 실현하는 것은 상당한 복잡성을 도입합니다. 에이전트가 캔버스에서 여러 단계에 걸쳐 상태를 어떻게 유지할까요? 언제, 어떻게 도구를 사용할지 어떻게 결정할까요? 다른 에이전트 간의 통신은 어떻게 관리될까요? 예상치 못한 결과나 오류를 처리하기 위해 시스템에 복원력을 어떻게 구축할까요?</p>
+<h2 id="why-patterns-matter-in-agent-development">Why Patterns Matter in Agent Development {#why-patterns-matter-in-agent-development}</h2>
+<h2 id="왜-패턴이-에이전트-개발에-중요한가">왜 패턴이 에이전트 개발에 중요한가? {#왜-패턴이-에이전트-개발에-중요한가}</h2>
+<h3 id="복잡성의-도전">복잡성의 도전 {#복잡성의-도전}</h3>
+<p>에이전트 시스템을 효과적으로 구현하는 것은 상당한 복잡성을 도입합니다:</p>
+<ul>
+<li>캔버스에서 여러 단계에 걸쳐 상태를 어떻게 유지할까?</li>
+<li>언제, 어떻게 도구를 사용할지 어떻게 결정할까?</li>
+<li>다른 에이전트 간의 통신은 어떻게 관리할까?</li>
+<li>예상치 못한 결과나 오류를 처리하기 위해 시스템에 복원력을 어떻게 구축할까?</li>
+</ul>
+<h3 id="패턴의-역할">패턴의 역할 {#패턴의-역할}</h3>
+<p>This complexity is precisely why agentic design patterns are indispensable. They are not rigid rules, but rather battle-tested templates or blueprints that offer proven approaches to standard design and implementation challenges in the agentic domain.</p>
+<p>이러한 복잡성이 바로 에이전트 디자인 패턴이 필수적인 이유입니다. 이들은 엄격한 규칙이 아니라, 에이전트 도메인에서 표준적인 설계 및 구현 도전 과제에 대한 검증된 접근 방식을 제공하는 검증된 템플릿 또는 청사진입니다.</p>
+<p>에이전트 디자인 패턴은 이러한 복잡성을 해결하기 위한 검증된 템플릿 또는 청사진입니다:</p>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481055317-6919" onclick="copyCode('code-1769481055317-6919')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055317-6919" class="language-mermaid">graph LR
+    A[Design Patterns] --&gt; B[구조 향상]
+    A --&gt; C[유지보수성 향상]
+    A --&gt; D[신뢰성 향상]
+    A --&gt; E[효율성 향상]
+    
+<pre><code>B --&amp;gt; B1[명확한 로직]
+C --&amp;gt; C1[이해하기 쉬운 코드]
+D --&amp;gt; D1[오류 처리]
+E --&amp;gt; E1[재사용 가능한 솔루션]&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div>
+</div>
+
+<h4>패턴 사용의 이점</h4>
+<ol>
+<li><p><strong>기본 솔루션 재발명 방지</strong>: 대화 흐름 관리, 외부 기능 통합, 여러 에이전트 작업 조정과 같은 작업에 대한 기본 솔루션을 재발명할 필요가 없습니다.</p>
+</li>
+<li><p><strong>공통 언어 제공</strong>: 에이전트의 로직을 더 명확하고 이해하기 쉽게 만드는 공통 언어와 구조를 제공합니다.</p>
+</li>
+<li><p><strong>견고성 향상</strong>: 오류 처리나 상태 관리에 설계된 패턴을 구현하면 더 견고하고 신뢰할 수 있는 시스템을 구축하는 데 직접적으로 기여합니다.</p>
+</li>
+<li><p><strong>개발 가속화</strong>: 이러한 확립된 접근 방식을 활용하면 개발 프로세스를 가속화하여 애플리케이션의 고유한 측면에 집중할 수 있습니다.</p>
+</li>
+</ol>
+<p>This book extracts 21 key design patterns that represent fundamental building blocks and techniques for constructing sophisticated agents on various technical canvases. Understanding and applying these patterns will significantly elevate your ability to design and implement intelligent systems effectively.</p>
+<p>이 책은 다양한 기술 캔버스에서 정교한 에이전트를 구축하기 위한 근본적인 빌딩 블록과 기술을 나타내는 21가지 핵심 디자인 패턴을 추출합니다. 이러한 패턴을 이해하고 적용하면 지능형 시스템을 효과적으로 설계하고 구현하는 능력을 크게 향상시킬 수 있습니다.</p>
+<h2 id="overview-of-the-book-and-how-to-use-it">Overview of the Book and How to Use It {#overview-of-the-book-and-how-to-use-it}</h2>
+<h2 id="책의-구조와-사용-방법">책의 구조와 사용 방법 {#책의-구조와-사용-방법}</h2>
+<h3 id="조직-구조">조직 구조 {#조직-구조}</h3>
+<p>This book, &quot;Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems,&quot; is crafted to be a practical and accessible resource. Its primary focus is on clearly explaining each agentic pattern and providing concrete, runnable code examples to demonstrate its implementation. Across 21 dedicated chapters, we will explore a diverse range of design patterns, from foundational concepts like structuring sequential operations (Prompt Chaining) and external interaction (Tool Use) to more advanced topics like collaborative work (Multi-Agent Collaboration) and self-improvement (Self-Correction).</p>
+<p>이 책 &quot;Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems&quot;는 실용적이고 접근 가능한 리소스로 제작되었습니다. 주요 초점은 각 에이전트 패턴을 명확하게 설명하고 구현을 시연하는 구체적이고 실행 가능한 코드 예제를 제공하는 것입니다. 21개의 전용 챕터에 걸쳐 순차적 작업 구조화(Prompt Chaining) 및 외부 상호작용(Tool Use)과 같은 기초 개념부터 협업 작업(Multi-Agent Collaboration) 및 자기 개선(Self-Correction)과 같은 고급 주제까지 다양한 디자인 패턴을 탐구합니다.</p>
+<p>이 책은 21개의 전용 챕터로 구성되어 있으며, 각 챕터는 단일 에이전트 패턴을 다룹니다.</p>
+<p>The book is organized chapter by chapter, with each chapter delving into a single agentic pattern.</p>
+<p>이 책은 챕터별로 구성되어 있으며, 각 챕터는 단일 에이전트 패턴을 다룹니다.</p>
+<h3 id="각-챕터의-구성-요소">각 챕터의 구성 요소 {#각-챕터의-구성-요소}</h3>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481055317-6920" onclick="copyCode('code-1769481055317-6920')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055317-6920" class="language-mermaid">graph TD
+    A[Chapter Structure] --&gt; B[Pattern Overview&lt;br/&gt;패턴 개요]
+    A --&gt; C[Practical Applications&lt;br/&gt;&amp; Use Cases]
+    A --&gt; D[Hands-On Code Example&lt;br/&gt;실습 코드 예제]
+    A --&gt; E[Key Takeaways&lt;br/&gt;핵심 요약]
+    A --&gt; F[References&lt;br/&gt;참고 자료]
+    
+<pre><code>B --&amp;gt; B1[패턴의 명확한 설명&amp;lt;br/&amp;gt;에이전트 디자인에서의 역할]
+C --&amp;gt; C1[실제 시나리오 예시&amp;lt;br/&amp;gt;패턴이 가치 있는 경우&amp;lt;br/&amp;gt;가져다주는 이점]
+D --&amp;gt; D1[실용적이고 실행 가능한 코드&amp;lt;br/&amp;gt;주요 에이전트 개발 프레임워크 사용&amp;lt;br/&amp;gt;기술 캔버스 내에서의 구현]
+E --&amp;gt; E1[빠른 검토를 위한&amp;lt;br/&amp;gt;가장 중요한 포인트 요약]
+F --&amp;gt; F1[패턴 및 관련 개념에 대한&amp;lt;br/&amp;gt;더 깊은 학습을 위한 리소스]&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div>
+</div>
+
+<h4>1. 패턴 개요 (Pattern Overview)</h4>
+<ul>
+<li>패턴과 에이전트 디자인에서의 역할에 대한 명확한 설명 제공</li>
+</ul>
+<h4>2. 실용적 응용 및 사용 사례 (Practical Applications &amp; Use Cases)</h4>
+<ul>
+<li>패턴이 가치 있는 실제 시나리오와 가져다주는 이점을 설명</li>
+</ul>
+<h4>3. 실습 코드 예제 (Hands-On Code Example)</h4>
+<ul>
+<li>주요 에이전트 개발 프레임워크를 사용하여 패턴의 구현을 보여주는 실용적이고 실행 가능한 코드 제공</li>
+<li>기술 캔버스 내에서 패턴을 적용하는 방법을 보여줌</li>
+</ul>
+<h4>4. 핵심 요약 (Key Takeaways)</h4>
+<ul>
+<li>빠른 검토를 위한 가장 중요한 포인트 요약</li>
+</ul>
+<h4>5. 참고 자료 (References)</h4>
+<ul>
+<li>패턴 및 관련 개념에 대한 더 깊은 학습을 위한 리소스 제공</li>
+</ul>
+<h3 id="사용-방법">사용 방법 {#사용-방법}</h3>
+<ul>
+<li><strong>순차적 학습</strong>: 챕터는 개념을 점진적으로 구축하도록 정렬되어 있지만, 참고서로도 사용 가능</li>
+<li><strong>특정 챕터 참조</strong>: 자신의 에이전트 개발 프로젝트에서 직면한 특정 도전을 다루는 챕터로 바로 이동 가능</li>
+<li><strong>실습 강조</strong>: 코드 예제를 실행하고, 실험하고, 자신의 지능형 시스템을 구축하기 위해 적응하는 것을 강력히 권장</li>
+</ul>
+<h2 id="사용되는-프레임워크-소개">사용되는 프레임워크 소개 {#사용되는-프레임워크-소개}</h2>
+<h3 id="주요-프레임워크">주요 프레임워크 {#주요-프레임워크}</h3>
+<p>코드 예제를 위한 구체적인 &quot;캔버스&quot;를 제공하기 위해 세 가지 주요 에이전트 개발 프레임워크를 주로 활용합니다:</p>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481055317-6921" onclick="copyCode('code-1769481055317-6921')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055317-6921" class="language-mermaid">graph TB
+    A[Agent Development Frameworks] --&gt; B[LangChain &amp; LangGraph]
+    A --&gt; C[Crew AI]
+    A --&gt; D[Google Agent Developer Kit]
+    
+<pre><code>B --&amp;gt; B1[언어 모델과 다른 구성 요소를&amp;lt;br/&amp;gt;연결하는 유연한 방법]
+B --&amp;gt; B2[복잡한 시퀀스와&amp;lt;br/&amp;gt;작업 그래프 구축을 위한&amp;lt;br/&amp;gt;견고한 캔버스]
+
+C --&amp;gt; C1[여러 AI 에이전트, 역할,&amp;lt;br/&amp;gt;작업을 조정하기 위해&amp;lt;br/&amp;gt;특별히 설계된 구조화된 프레임워크]
+C --&amp;gt; C2[협업 에이전트 시스템에&amp;lt;br/&amp;gt;특히 적합한 캔버스]
+
+D --&amp;gt; D1[에이전트 구축, 평가,&amp;lt;br/&amp;gt;배포를 위한 도구 및 구성 요소]
+D --&amp;gt; D2[Google의 AI 인프라와&amp;lt;br/&amp;gt;통합된 가치 있는 캔버스]&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div>
+</div>
+
+<h4>1. LangChain &amp; LangGraph</h4>
+<ul>
+<li><strong>LangChain</strong>: 언어 모델과 다른 구성 요소를 연결하는 유연한 방법 제공</li>
+<li><strong>LangGraph</strong>: LangChain의 상태 저장 확장으로, 복잡한 시퀀스와 작업 그래프를 구축하기 위한 견고한 캔버스 제공</li>
+</ul>
+<h4>2. Crew AI</h4>
+<ul>
+<li>여러 AI 에이전트, 역할, 작업을 조정하기 위해 특별히 설계된 구조화된 프레임워크</li>
+<li>협업 에이전트 시스템에 특히 적합한 캔버스 역할</li>
+</ul>
+<h4>3. Google Agent Developer Kit (Google ADK)</h4>
+<ul>
+<li>에이전트 구축, 평가, 배포를 위한 도구 및 구성 요소 제공</li>
+<li>Google의 AI 인프라와 통합된 가치 있는 캔버스</li>
+</ul>
+<h3 id="프레임워크-선택의-의미">프레임워크 선택의 의미 {#프레임워크-선택의-의미}</h3>
+<p>이러한 프레임워크는 에이전트 개발 캔버스의 다양한 측면을 나타내며, 각각 고유한 강점을 가지고 있습니다. 이러한 도구에 걸쳐 예제를 보여줌으로써, 선택한 특정 기술 환경에 관계없이 패턴을 적용하는 방법에 대한 더 넓은 이해를 얻을 수 있습니다.</p>
+<p>These frameworks represent different facets of the agent development canvas, each with its strengths. By showing examples across these tools, you will gain a broader understanding of how the patterns can be applied regardless of the specific technical environment you choose for your agentic systems. The examples are designed to clearly illustrate the pattern&#39;s core logic and its implementation on the framework&#39;s canvas, focusing on clarity and practicality.</p>
+<h3 id="왜-빠르게-변하는-ai-분야에서-책을-쓰는가">왜 빠르게 변하는 AI 분야에서 책을 쓰는가? {#왜-빠르게-변하는-ai-분야에서-책을-쓰는가}</h3>
+<p><strong>A great question I hear is, &#39;With AI changing so fast, why write a book that could be quickly outdated?&#39;</strong></p>
+<p>My motivation was actually the opposite. It&#39;s precisely because things are moving so quickly that we need to step back and identify the underlying principles that are solidifying. Patterns like RAG, Reflection, Routing, Memory and the others I discuss, are becoming fundamental building blocks. This book is an invitation to reflect on these core ideas, which provide the foundation we need to build upon. Humans need these reflection moments on foundation patterns.</p>
+<p><strong>자주 듣는 질문: &#39;AI가 이렇게 빠르게 변하는데, 왜 곧 구식이 될 수 있는 책을 쓰는가?&#39;</strong></p>
+<p>제 동기는 실제로 반대였습니다. 바로 모든 것이 너무 빠르게 움직이고 있기 때문에 우리는 한 걸음 물러서서 고정되고 있는 근본 원칙을 식별해야 합니다. RAG, Reflection, Routing, Memory 및 제가 논의하는 다른 패턴들은 근본적인 빌딩 블록이 되고 있습니다. 이 책은 우리가 구축해야 할 기초를 제공하는 이러한 핵심 아이디어에 대해 반성하도록 초대합니다. 인간은 기초 패턴에 대한 이러한 반성 순간이 필요합니다.</p>
+<p>By the end of this book, you will not only understand the fundamental concepts behind 21 essential agentic patterns but also possess the practical knowledge and code examples to apply them effectively, enabling you to build more intelligent, capable, and autonomous systems on your chosen development canvas. Let&#39;s begin this hands-on journey!</p>
+<p>이 책을 마칠 때까지, 여러분은 21가지 필수 에이전트 패턴 뒤에 있는 근본적인 개념을 이해할 뿐만 아니라 이를 효과적으로 적용하기 위한 실용적인 지식과 코드 예제를 갖게 되어, 선택한 개발 캔버스에서 더 지능적이고 능력 있으며 자율적인 시스템을 구축할 수 있게 됩니다. 이 실습 여정을 시작합시다!</p>
+<h2 id="핵심-요약">핵심 요약 {#핵심-요약}</h2>
+<ol>
+<li><p><strong>에이전트 시스템의 진화</strong>: 단순한 반응형 프로그램에서 정교한 자율 엔티티로의 발전</p>
+</li>
+<li><p><strong>에이전트의 핵심 특성</strong>: 자율성, 주도성, 반응성, 목표 지향성, 도구 사용, 메모리, 의사소통</p>
+</li>
+<li><p><strong>패턴의 중요성</strong>: 복잡성을 관리하고 견고하고 신뢰할 수 있는 시스템을 구축하기 위한 검증된 솔루션 제공</p>
+</li>
+<li><p><strong>실용적 접근</strong>: 이론뿐만 아니라 실행 가능한 코드 예제를 통해 실용적인 지식 제공</p>
+</li>
+<li><p><strong>프레임워크 다양성</strong>: LangChain, Crew AI, Google ADK 등 다양한 프레임워크를 통한 패턴 구현 방법 학습</p>
+</li>
+</ol>
+<h2 id="참고-자료">참고 자료 {#참고-자료}</h2>
+<p>이 책의 각 챕터는 추가 학습을 위한 참고 자료를 제공합니다. 특정 패턴이나 개념에 대해 더 깊이 알고 싶다면 각 챕터의 참고 자료 섹션을 참조하세요.</p>
+<hr>
+<p><strong>다음 챕터</strong>: <a href="chapter_00_What_makes_an_AI_system_an_agent.md">What makes an AI system an agent?</a></p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/ai-tools.html" class="article-tag">ai-tools</a><a href="/tag/analysis.html" class="article-tag">analysis</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-00-introduction.html&text=Introduction" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-00-introduction.html&title=Introduction" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-00-introduction.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-expert.html" class="author-bio__card">
+          <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 전문가</h3>
+            <p class="author-bio__role">AI &amp; Development Writer</p>
+            <p class="author-bio__text">AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-code-perfect-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg"
+             alt="Claude Code 완벽 마스터 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #6366f1">
+          AI 도구
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Code 완벽 마스터 가이드</h3>
+          <p class="article-card__excerpt">! || 999-Attachments/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg 스레드에 ==Choi.OpenAI 글==을 학습용으로 사용하기 위해 편집한 파일입니다. ==Special thanks...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">17 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/ai-agent-guide-part-1-basics.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/ai-tools-placeholder.svg"
+             alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #6366f1">
+          AI 도구
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h3>
+          <p class="article-card__excerpt">🎯 이 가이드의 목표: 초보 개발자도 금융권 AI 에이전트를 이해하고 구축할 수 있도록 돕습니다. 📚 학습 방식: 파인만 기법 + 스토리텔링 + 3단계 예제 (기초→중급→고급) --- 1.  || #AI 에이전트란 무엇인가요 2.  || #금융 기관에 AI...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">31 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/ai-agent-guide-part-2-real-world.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/ai-tools-placeholder.svg"
+             alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #6366f1">
+          AI 도구
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h3>
+          <p class="article-card__excerpt">🎯 Part 2의 목표: 실제로 구축 가능한 아키텍처 설계와 구현 로드맵 제시 👥 대상: Part 1을 읽고 실제 프로젝트를 시작하려는 개발팀 --- 1.  || #아키텍처 패턴 설계 2.  || #구현 로드맵 단계별 가이드 3.  || #팀 구성과 역할 4. ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">46 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,1898 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obsidian Bases 프로젝트 및 작업 관리 완벽 가이드 | AI &amp; Development Journal</title>
+  <meta name="description" content="이 가이드를 통해 다음을 완전히 마스터할 수 있습니다: - ✅ Obsidian Bases 코어 플러그인의 최신 기능 활용법 - ✅ 계층적 프로젝트 관리 시스템 구축 방법 - ✅ 템플릿 자동 생성과 동적 속성 관리 - ✅ Notion과 같은 데이터베이스 기능 구현 -...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Obsidian Bases 프로젝트 및 작업 관리 완벽 가이드">
+  <meta property="og:description" content="이 가이드를 통해 다음을 완전히 마스터할 수 있습니다: - ✅ Obsidian Bases 코어 플러그인의 최신 기능 활용법 - ✅ 계층적 프로젝트 관리 시스템 구축 방법 - ✅ 템플릿 자동 생성과 동적 속성 관리 - ✅ Notion과 같은 데이터베이스 기능 구현 -...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-bases-management-perfect-guide.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Obsidian Bases 프로젝트 및 작업 관리 완벽 가이드">
+  <meta name="twitter:description" content="이 가이드를 통해 다음을 완전히 마스터할 수 있습니다: - ✅ Obsidian Bases 코어 플러그인의 최신 기능 활용법 - ✅ 계층적 프로젝트 관리 시스템 구축 방법 - ✅ 템플릿 자동 생성과 동적 속성 관리 - ✅ Notion과 같은 데이터베이스 기능 구현 -...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-bases-management-perfect-guide.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">Obsidian Bases 프로젝트 및 작업 관리 완벽 가이드</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 7월 7일">2025년 7월 7일</time>
+            <span class="article-meta__separator">·</span>
+            <span>19 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#학습-목표" class="toc__link">📚 학습 목표</a>
+    </li>
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-가치-제안" class="toc__link">🎯 핵심 가치 제안</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#변화의-임팩트" class="toc__link">🚀 변화의 임팩트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#obsidian-bases-최신-업데이트" class="toc__link">Obsidian Bases 최신 업데이트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#주요-신기능" class="toc__link">🆕 주요 신기능</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#접근-권한" class="toc__link">⚠️ 접근 권한</a>
+    </li>
+    <li class="toc__item">
+      <a href="#계층적-프로젝트-관리-시스템" class="toc__link">계층적 프로젝트 관리 시스템</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4단계-계층-구조" class="toc__link">🏗️ 4단계 계층 구조</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#계층별-활용-예시" class="toc__link">📊 계층별 활용 예시</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#아이디어-승격-시스템" class="toc__link">🔄 아이디어 승격 시스템</a>
+    </li>
+    <li class="toc__item">
+      <a href="#bases-설정-및-초기-구성" class="toc__link">Bases 설정 및 초기 구성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-bases-플러그인-활성화" class="toc__link">1️⃣ Bases 플러그인 활성화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-첫-번째-base-생성" class="toc__link">2️⃣ 첫 번째 Base 생성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-핵심-속성-정의" class="toc__link">3️⃣ 핵심 속성 정의</a>
+    </li>
+    <li class="toc__item">
+      <a href="#템플릿-시스템-구축" class="toc__link">템플릿 시스템 구축</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#템플릿-생성-전략" class="toc__link">🎯 템플릿 생성 전략</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#템플릿-파일-구조" class="toc__link">📁 템플릿 파일 구조</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#템플릿-자동-적용-시스템" class="toc__link">🔧 템플릿 자동 적용 시스템</a>
+    </li>
+    <li class="toc__item">
+      <a href="#속성-및-필터-관리" class="toc__link">속성 및 필터 관리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#필터-시스템-설계" class="toc__link">🎛️ 필터 시스템 설계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#동적-속성-활용" class="toc__link">📊 동적 속성 활용</a>
+    </li>
+    <li class="toc__item">
+      <a href="#뷰와-대시보드-설계" class="toc__link">뷰와 대시보드 설계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#뷰-타입별-활용법" class="toc__link">🎨 뷰 타입별 활용법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#프로젝트-대시보드-구축" class="toc__link">🏠 프로젝트 대시보드 구축</a>
+    </li>
+    <li class="toc__item">
+      <a href="#프로젝트-개요" class="toc__link">프로젝트 개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#관련-에픽" class="toc__link">관련 에픽</a>
+    </li>
+    <li class="toc__item">
+      <a href="#현재-작업" class="toc__link">현재 작업</a>
+    </li>
+    <li class="toc__item">
+      <a href="#아이디어-백로그" class="toc__link">아이디어 백로그</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#뷰-최적화-설정" class="toc__link">📱 뷰 최적화 설정</a>
+    </li>
+    <li class="toc__item">
+      <a href="#동적-기능-및-자동화" class="toc__link">동적 기능 및 자동화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#동적-계산-함수" class="toc__link">⚡ 동적 계산 함수</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#관계-기반-자동화" class="toc__link">🔗 관계 기반 자동화</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실전-워크플로우" class="toc__link">실전 워크플로우</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#일일-작업-관리" class="toc__link">🎯 일일 작업 관리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#아이디어에서-실행까지" class="toc__link">📝 아이디어에서 실행까지</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#프로젝트-생명주기" class="toc__link">🔄 프로젝트 생명주기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#ai-통합-활용법" class="toc__link">AI 통합 활용법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#ai-프로젝트-매니저-활용" class="toc__link">🤖 AI 프로젝트 매니저 활용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#ai-기반-자동화" class="toc__link">🧠 AI 기반 자동화</a>
+    </li>
+    <li class="toc__item">
+      <a href="#고급-팁과-최적화" class="toc__link">고급 팁과 최적화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#성능-최적화" class="toc__link">⚡ 성능 최적화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#사용자-경험-개선" class="toc__link">🎨 사용자 경험 개선</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-구성" class="toc__link">🔧 고급 구성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#분석-및-리포팅" class="toc__link">📊 분석 및 리포팅</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결-및-faq" class="toc__link">문제 해결 및 FAQ</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#자주-묻는-질문" class="toc__link">❓ 자주 묻는 질문</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#일반적인-문제와-해결책" class="toc__link">🚨 일반적인 문제와 해결책</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#상위-개념" class="toc__link">🔗 상위 개념</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#하위-세부사항" class="toc__link">🔗 하위 세부사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#병렬-주제" class="toc__link">🔗 병렬 주제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실전-활용" class="toc__link">🔗 실전 활용</a>
+    </li>
+    <li class="toc__item">
+      <a href="#출처-및-참고자료" class="toc__link">📚 출처 및 참고자료</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#주요-출처" class="toc__link">🎬 주요 출처</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-참고자료" class="toc__link">🔗 핵심 참고자료</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실습-관련-자료" class="toc__link">💡 실습 관련 자료</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#추가-학습-자료" class="toc__link">🛠️ 추가 학습 자료</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#관련-도구-및-플랫폼" class="toc__link">🎯 관련 도구 및 플랫폼</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#인용된-기능-및-업데이트" class="toc__link">📊 인용된 기능 및 업데이트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#추가-시리즈-자료" class="toc__link">📚 추가 시리즈 자료</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Obsidian Bases 프로젝트 및 작업 관리 완벽 가이드</h1>
+<h2 id="학습-목표">📚 학습 목표 {#학습-목표}</h2>
+<p>이 가이드를 통해 다음을 완전히 마스터할 수 있습니다:</p>
+<ul>
+<li>✅ Obsidian Bases 코어 플러그인의 <strong>최신 기능 활용법</strong></li>
+<li>✅ <strong>계층적 프로젝트 관리 시스템</strong> 구축 방법</li>
+<li>✅ <strong>템플릿 자동 생성</strong>과 동적 속성 관리</li>
+<li>✅ <strong>Notion과 같은 데이터베이스</strong> 기능 구현</li>
+<li>✅ <strong>AI와 연동한 프로젝트 관리</strong> 워크플로우</li>
+</ul>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#개요" class="internal-link internal-link--section">개요</a></li>
+<li><a href="#obsidian-bases-최신-업데이트" class="internal-link internal-link--section">Obsidian Bases 최신 업데이트</a></li>
+<li><a href="#계층적-프로젝트-관리-시스템" class="internal-link internal-link--section">계층적 프로젝트 관리 시스템</a></li>
+<li><a href="#bases-설정-및-초기-구성" class="internal-link internal-link--section">Bases 설정 및 초기 구성</a></li>
+<li><a href="#템플릿-시스템-구축" class="internal-link internal-link--section">템플릿 시스템 구축</a></li>
+<li><a href="#속성-및-필터-관리" class="internal-link internal-link--section">속성 및 필터 관리</a></li>
+<li><a href="#뷰와-대시보드-설계" class="internal-link internal-link--section">뷰와 대시보드 설계</a></li>
+<li><a href="#동적-기능-및-자동화" class="internal-link internal-link--section">동적 기능 및 자동화</a></li>
+<li><a href="#실전-워크플로우" class="internal-link internal-link--section">실전 워크플로우</a></li>
+<li><a href="#ai-통합-활용법" class="internal-link internal-link--section">AI 통합 활용법</a></li>
+<li><a href="#고급-팁과-최적화" class="internal-link internal-link--section">고급 팁과 최적화</a></li>
+</ol>
+<h2 id="개요">개요 {#개요}</h2>
+<p><strong>Obsidian Bases</strong>는 최근 대폭 업데이트되어 <strong>Notion 수준의 프로젝트 관리</strong> 기능을 Obsidian에서 구현할 수 있게 되었습니다. 이제 테이블 뷰에서 직접 노트를 추가하고, 모든 속성을 자동으로 상속받는 <strong>템플릿 생성기</strong> 역할을 수행합니다.</p>
+<h3 id="핵심-가치-제안">🎯 핵심 가치 제안 {#핵심-가치-제안}</h3>
+<blockquote>
+<p><strong>&quot;Obsidian + Notion의 장점 결합: 마크다운 파워 + 데이터베이스 기능&quot;</strong></p>
+</blockquote>
+<ul>
+<li><strong>템플릿 자동 생성</strong>: 테이블에서 직접 노트 생성시 모든 속성 자동 적용</li>
+<li><strong>동적 속성</strong>: 시간 기반 자동 계산 (예: 마감일까지 남은 일수)</li>
+<li><strong>계층적 관리</strong>: Project → Epic → Story → Task 구조</li>
+<li><strong>완전한 통합</strong>: 다른 Obsidian 플러그인과 완벽 연동</li>
+</ul>
+<h3 id="변화의-임팩트">🚀 변화의 임팩트 {#변화의-임팩트}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4862" onclick="copyCode('code-1769481054909-4862')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4862" class="language-markdown">기존 Obsidian 한계:
+├── 테이블 기능 부족
+├── 프로젝트 관리 도구 부재
+├── 템플릿 수동 적용 필요
+└── 데이터베이스 기능 제한
+
+<p>새로운 Bases 활용:
+├── Notion 수준 테이블 기능
+├── 완전한 프로젝트 관리 시스템
+├── 자동 템플릿 적용
+└── 동적 속성 및 계산 기능</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<h2 id="obsidian-bases-최신-업데이트">Obsidian Bases 최신 업데이트 {#obsidian-bases-최신-업데이트}</h2>
+<h3 id="주요-신기능">🆕 주요 신기능 {#주요-신기능}</h3>
+<h4>1. 직접 노트 추가 기능</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4863" onclick="copyCode('code-1769481054909-4863')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4863" class="language-markdown">기능: 테이블 뷰에서 바로 노트 생성
+혜택:
+- 모든 테이블 속성 자동 상속
+- 템플릿 생성기 역할 수행
+- 필터링 자동 적용
+- 속성 일관성 보장</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h4>2. 동적 함수 시스템</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4864" onclick="copyCode('code-1769481054909-4864')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4864" class="language-markdown">기능: 시간 기반 자동 계산
+예시:
+- 마감일까지 남은 일수
+- 프로젝트 진행률 계산
+- 상태별 자동 분류
+- 관련 노트 자동 연결</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h4>3. 고급 필터링 및 뷰</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4865" onclick="copyCode('code-1769481054909-4865')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4865" class="language-markdown">기능: 다차원 필터링 시스템
+특징:
+- 뷰별 독립 필터 설정
+- 임베드 뷰 지원
+- 카드 뷰 레이아웃
+- 동적 대시보드 생성</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h3 id="접근-권한">⚠️ 접근 권한 {#접근-권한}</h3>
+<ul>
+<li><strong>현재 상태</strong>: Catalyst 멤버 전용 (얼리 액세스)</li>
+<li><strong>정식 출시</strong>: 추후 모든 사용자에게 공개 예정</li>
+<li><strong>버전</strong>: 1.9.4 최신 업데이트 기준</li>
+</ul>
+<h2 id="계층적-프로젝트-관리-시스템">계층적 프로젝트 관리 시스템 {#계층적-프로젝트-관리-시스템}</h2>
+<h3 id="4단계-계층-구조">🏗️ 4단계 계층 구조 {#4단계-계층-구조}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4866" onclick="copyCode('code-1769481054909-4866')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4866" class="language-markdown">Project (프로젝트)
+├── Epic (에픽) - 주요 단계/페이즈
+│   ├── Story (스토리) - 개별 주요 작업
+│   │   ├── Task (작업) - 세부 실행 항목
+│   │   ├── Task
+│   │   └── Task
+│   ├── Story
+│   └── Story
+├── Epic
+└── Epic
+
+<ul>
+<li>Idea (아이디어) - 모든 단계로 승격 가능</li>
+<li>Bug (버그) - 개발 프로젝트용 추가 항목</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">12 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="계층별-활용-예시">📊 계층별 활용 예시 {#계층별-활용-예시}</h3>
+<h4>블로그 프로젝트 예시</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4867" onclick="copyCode('code-1769481054909-4867')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4867" class="language-markdown">프로젝트: &quot;나의 기술 블로그&quot;
+├── 에픽: &quot;100일 글쓰기 챌린지&quot;
+│   ├── 스토리: &quot;Obsidian 활용법 시리즈&quot;
+│   │   ├── 작업: 아이디어 수집
+│   │   ├── 작업: 개요 작성
+│   │   ├── 작업: 초안 작성
+│   │   ├── 작업: 편집 및 검토
+│   │   └── 작업: 발행
+│   ├── 스토리: &quot;AI 도구 리뷰 시리즈&quot;
+│   └── 스토리: &quot;생산성 팁 모음&quot;
+└── 에픽: &quot;독자 커뮤니티 구축&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div>
+</div>
+
+<h4>앱 개발 프로젝트 예시</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4868" onclick="copyCode('code-1769481054909-4868')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4868" class="language-markdown">프로젝트: &quot;Obsidian 플러그인 개발&quot;
+├── 에픽: &quot;기본 기능 구현&quot;
+│   ├── 스토리: &quot;사용자 인터페이스 설계&quot;
+│   ├── 스토리: &quot;핵심 로직 개발&quot;
+│   └── 스토리: &quot;테스트 및 디버깅&quot;
+├── 에픽: &quot;고급 기능 추가&quot;
+└── 에픽: &quot;출시 및 마케팅&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<h3 id="아이디어-승격-시스템">🔄 아이디어 승격 시스템 {#아이디어-승격-시스템}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4869" onclick="copyCode('code-1769481054909-4869')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4869" class="language-markdown">아이디어 → 작업: 단순 실행 항목
+아이디어 → 스토리: 주요 기능/결과물
+아이디어 → 에픽: 프로젝트 주요 단계
+아이디어 → 프로젝트: 완전히 새로운 프로젝트</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h2 id="bases-설정-및-초기-구성">Bases 설정 및 초기 구성 {#bases-설정-및-초기-구성}</h2>
+<h3 id="1-bases-플러그인-활성화">1️⃣ Bases 플러그인 활성화 {#1-bases-플러그인-활성화}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4870" onclick="copyCode('code-1769481054909-4870')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4870" class="language-markdown">📌 설정 단계:
+1. Settings → Core plugins
+2. Bases 플러그인 활성화
+3. 앱 재시작 (필요시)
+4. 새 Base 생성 테스트</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="2-첫-번째-base-생성">2️⃣ 첫 번째 Base 생성 {#2-첫-번째-base-생성}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4871" onclick="copyCode('code-1769481054909-4871')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4871" class="language-markdown">📝 기본 구성:
+1. 새 노트 생성: &quot;Project Management&quot;
+2. Base 뷰 추가
+3. 초기 필터 설정: kind is not empty
+4. 기본 속성 정의</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="3-핵심-속성-정의">3️⃣ 핵심 속성 정의 {#3-핵심-속성-정의}</h3>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4872" onclick="copyCode('code-1769481054909-4872')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4872" class="language-yaml"># 표준 프로젝트 속성 구조
+---
+kind: &quot;project&quot;        # project/epic/story/task/idea/bug
+status: &quot;진행중&quot;       # 백로그/시작전/진행중/완료
+priority: &quot;high&quot;       # high/medium/low
+due_date: &quot;2025-07-15&quot; # 마감일
+tags: [&quot;개발&quot;, &quot;웹&quot;]   # 프로젝트 태그
+parent: &quot;&quot;             # 상위 항목 링크
+project: &quot;&quot;            # 최상위 프로젝트 링크
+description: &quot;&quot;        # 간단한 설명
+cover_image: &quot;&quot;        # 커버 이미지 (카드 뷰용)
+---</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div>
+</div>
+
+<h2 id="템플릿-시스템-구축">템플릿 시스템 구축 {#템플릿-시스템-구축}</h2>
+<h3 id="템플릿-생성-전략">🎯 템플릿 생성 전략 {#템플릿-생성-전략}</h3>
+<h4>1. 마스터 템플릿 생성</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4873" onclick="copyCode('code-1769481054909-4873')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4873" class="language-markdown">목적: 모든 속성이 포함된 기준 템플릿
+위치: Templates 폴더
+이름: &quot;Project Template&quot;
+내용: 모든 가능한 속성 포함</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h4>2. 속성 타입 최적화</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4874" onclick="copyCode('code-1769481054909-4874')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4874" class="language-markdown">중요: 리스트 타입 속성 활용
+이유: 드롭다운 자동 완성 기능
+설정: 테스트 노트에 모든 옵션 미리 정의
+
+<p>예시:</p>
+<ul>
+<li>status: [&quot;백로그&quot;, &quot;시작전&quot;, &quot;진행중&quot;, &quot;완료&quot;]</li>
+<li>priority: [&quot;high&quot;, &quot;medium&quot;, &quot;low&quot;] </li>
+<li>kind: [&quot;project&quot;, &quot;epic&quot;, &quot;story&quot;, &quot;task&quot;, &quot;idea&quot;, &quot;bug&quot;]</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">7 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="템플릿-파일-구조">📁 템플릿 파일 구조 {#템플릿-파일-구조}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4875" onclick="copyCode('code-1769481054909-4875')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4875" class="language-markdown">Templates/
+├── project-template.md     # 프로젝트용
+├── epic-template.md        # 에픽용
+├── story-template.md       # 스토리용
+├── task-template.md        # 작업용
+├── idea-template.md        # 아이디어용
+└── bug-template.md         # 버그용</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<h3 id="템플릿-자동-적용-시스템">🔧 템플릿 자동 적용 시스템 {#템플릿-자동-적용-시스템}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4876" onclick="copyCode('code-1769481054909-4876')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4876" class="language-markdown">1. Base에서 &quot;New&quot; 버튼 클릭
+2. 자동으로 kind 속성 미리 채움
+3. 다른 필수 속성들 드롭다운으로 선택
+4. 저장시 자동으로 해당 뷰에 필터링</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h2 id="속성-및-필터-관리">속성 및 필터 관리 {#속성-및-필터-관리}</h2>
+<h3 id="필터-시스템-설계">🎛️ 필터 시스템 설계 {#필터-시스템-설계}</h3>
+<h4>전역 필터 (All Views)</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4877" onclick="copyCode('code-1769481054909-4877')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4877" class="language-markdown">목적: 모든 뷰에 공통 적용
+설정:
+- kind is not empty (프로젝트 관리 노트만)
+- kind is not &quot;test&quot; (테스트 노트 제외)
+- status is not &quot;완료&quot; (완료 항목 숨김)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>뷰별 개별 필터</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4878" onclick="copyCode('code-1769481054909-4878')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4878" class="language-markdown">All Projects: kind contains &quot;project&quot;
+All Epics: kind contains &quot;epic&quot;  
+All Stories: kind contains &quot;story&quot;
+All Tasks: kind contains &quot;task&quot;
+All Ideas: kind contains &quot;idea&quot;
+All Bugs: kind contains &quot;bug&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h3 id="동적-속성-활용">📊 동적 속성 활용 {#동적-속성-활용}</h3>
+<h4>마감일 계산 예시</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4879" onclick="copyCode('code-1769481054909-4879')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4879" class="language-javascript">// Days Until Due 속성
+relative(due, &quot;days&quot;)
+
+<p>결과: &quot;4일 후&quot;, &quot;-2일 전&quot; 등 자동 계산</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div></p>
+</div>
+
+<h4>프로젝트 진행률 계산</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4880" onclick="copyCode('code-1769481054909-4880')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4880" class="language-javascript">// 완료율 계산 (향후 구현 예정)
+round((완료된작업수 / 전체작업수) * 100) + &quot;%&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h2 id="뷰와-대시보드-설계">뷰와 대시보드 설계 {#뷰와-대시보드-설계}</h2>
+<h3 id="뷰-타입별-활용법">🎨 뷰 타입별 활용법 {#뷰-타입별-활용법}</h3>
+<h4>1. 테이블 뷰</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4881" onclick="copyCode('code-1769481054909-4881')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4881" class="language-markdown">용도: 상세 정보 관리 및 편집
+특징:
+- 모든 속성 표시
+- 인라인 편집 가능
+- 정렬 및 그룹화
+- 벌크 작업 지원</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h4>2. 카드 뷰</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4882" onclick="copyCode('code-1769481054909-4882')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4882" class="language-markdown">용도: 시각적 프로젝트 개요
+특징:
+- 커버 이미지 표시
+- 핵심 정보만 선별 표시
+- 드래그 앤 드롭 (예정)
+- 대시보드 스타일</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h3 id="프로젝트-대시보드-구축">🏠 프로젝트 대시보드 구축 {#프로젝트-대시보드-구축}</h3>
+<h4>임베드 뷰 시스템</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4883" onclick="copyCode('code-1769481054909-4883')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4883" class="language-markdown"># 프로젝트 대시보드 구조
+
+<h2 id="프로젝트-개요">프로젝트 개요 {#프로젝트-개요}</h2>
+<p>!&lt;a href=&quot;/articles/project-managementbase.html#project-files&quot; class=&quot;internal-link&quot;&gt;project-management.base - project-files&lt;/a&gt;</p>
+<h2 id="관련-에픽">관련 에픽 {#관련-에픽}</h2>
+<p>!&lt;a href=&quot;/articles/project-managementbase.html#project-epics&quot; class=&quot;internal-link&quot;&gt;project-management.base - project-epics&lt;/a&gt;</p>
+<h2 id="현재-작업">현재 작업 {#현재-작업}</h2>
+<p>!&lt;a href=&quot;/articles/project-managementbase.html#project-tasks&quot; class=&quot;internal-link&quot;&gt;project-management.base - project-tasks&lt;/a&gt;</p>
+<h2 id="아이디어-백로그">아이디어 백로그 {#아이디어-백로그}</h2>
+<p>!&lt;a href=&quot;/articles/project-managementbase.html#project-ideas&quot; class=&quot;internal-link&quot;&gt;project-management.base - project-ideas&lt;/a&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h4>동적 필터링</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4884" onclick="copyCode('code-1769481054909-4884')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4884" class="language-markdown">필터 설정: project contains this file
+결과: 현재 프로젝트와 관련된 항목만 자동 표시
+장점: 프로젝트별 독립적 대시보드 생성</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h3 id="뷰-최적화-설정">📱 뷰 최적화 설정 {#뷰-최적화-설정}</h3>
+<h4>카드 뷰 설정</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4885" onclick="copyCode('code-1769481054909-4885')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4885" class="language-markdown">이미지: cover_image 속성 사용
+카드 크기: 중간 (조정 가능)
+종횡비: 16:9 또는 4:3
+표시 속성: title, status, priority만 선별</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h4>테이블 뷰 설정</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4886" onclick="copyCode('code-1769481054909-4886')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4886" class="language-markdown">필수 열: kind, title, status, priority, due_date
+선택 열: parent, project, tags, description
+정렬: due_date 오름차순 (마감일 임박순)
+그룹: status별 그룹화</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h2 id="동적-기능-및-자동화">동적 기능 및 자동화 {#동적-기능-및-자동화}</h2>
+<h3 id="동적-계산-함수">⚡ 동적 계산 함수 {#동적-계산-함수}</h3>
+<h4>시간 관련 함수</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4887" onclick="copyCode('code-1769481054909-4887')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4887" class="language-javascript">// 마감일까지 남은 일수
+relative(due, &quot;days&quot;)
+
+<p>// 생성일로부터 경과 일수<br>relative(created, &quot;days&quot;)</p>
+<p>// 특정 날짜와의 차이
+dateutils.diff(due_date, today(), &quot;days&quot;)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h4>텍스트 조작 함수</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4888" onclick="copyCode('code-1769481054909-4888')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4888" class="language-javascript">// 제목 자동 생성
+&quot;[&quot; + kind + &quot;] &quot; + title
+
+<p>// 상태 이모지 추가
+if(status == &quot;완료&quot;, &quot;✅&quot;, 
+   if(status == &quot;진행중&quot;, &quot;🔄&quot;, &quot;⏸️&quot;)) + &quot; &quot; + title</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<h3 id="관계-기반-자동화">🔗 관계 기반 자동화 {#관계-기반-자동화}</h3>
+<h4>하위 항목 자동 집계</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4889" onclick="copyCode('code-1769481054909-4889')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4889" class="language-javascript">// 관련 작업 수 계산
+length(filter(tasks, parent == this.file))
+
+<p>// 완료율 계산
+round(length(filter(tasks, parent == this.file &amp;&amp; status == &quot;완료&quot;)) / 
+      length(filter(tasks, parent == this.file)) * 100) + &quot;%&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<h4>자동 태그 상속</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4890" onclick="copyCode('code-1769481054909-4890')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4890" class="language-javascript">// 상위 프로젝트 태그 자동 상속
+if(parent, parent.tags, [])</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h2 id="실전-워크플로우">실전 워크플로우 {#실전-워크플로우}</h2>
+<h3 id="일일-작업-관리">🎯 일일 작업 관리 {#일일-작업-관리}</h3>
+<h4>아침 루틴</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4891" onclick="copyCode('code-1769481054909-4891')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4891" class="language-markdown">1. All Tasks 뷰 열기
+2. 오늘 마감 작업 확인 (due_date 필터)
+3. 진행중 작업 상태 업데이트
+4. 새로운 작업 추가
+5. 우선순위 재조정</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>주간 검토</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4892" onclick="copyCode('code-1769481054909-4892')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4892" class="language-markdown">1. All Projects 보드 뷰 확인
+2. 완료된 항목 아카이브로 이동
+3. 새로운 에픽/스토리 계획
+4. 다음 주 우선순위 설정
+5. 블로킹 이슈 해결</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="아이디어에서-실행까지">📝 아이디어에서 실행까지 {#아이디어에서-실행까지}</h3>
+<h4>아이디어 캡처</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4893" onclick="copyCode('code-1769481054909-4893')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4893" class="language-markdown">1. All Ideas 뷰에서 &quot;New&quot; 클릭
+2. kind: &quot;idea&quot; 자동 설정됨
+3. 간단한 제목과 설명 입력
+4. 관련 프로젝트 연결 (있다면)
+5. 저장</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>아이디어 승격 과정</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4894" onclick="copyCode('code-1769481054909-4894')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4894" class="language-markdown">아이디어 검토 → 실행 가능성 평가 → 승격 결정
+
+<p>승격 방법:</p>
+<ol>
+<li>아이디어 노트 열기</li>
+<li>kind 속성 변경 (idea → task/story/epic/project)</li>
+<li>추가 속성 입력 (parent, due_date 등)</li>
+<li>자동으로 해당 뷰에 나타남</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">6 lines</span>
+  </div>
+</div></li>
+</ol>
+<h3 id="프로젝트-생명주기">🔄 프로젝트 생명주기 {#프로젝트-생명주기}</h3>
+<h4>프로젝트 시작</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4895" onclick="copyCode('code-1769481054909-4895')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4895" class="language-markdown">1. All Projects에서 새 프로젝트 생성
+2. 프로젝트 템플릿 적용
+3. 커버 이미지 설정
+4. 초기 에픽들 계획
+5. 프로젝트 대시보드 설정</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>진행 중 관리</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4896" onclick="copyCode('code-1769481054909-4896')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4896" class="language-markdown">1. 정기적 상태 업데이트
+2. 블로킹 이슈 추적
+3. 마일스톤 체크
+4. 팀원과 진행사항 공유
+5. 스코프 조정</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>프로젝트 완료</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4897" onclick="copyCode('code-1769481054909-4897')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4897" class="language-markdown">1. 모든 하위 항목 완료 확인
+2. 프로젝트 상태를 &quot;완료&quot;로 변경
+3. 자동으로 아카이브로 이동
+4. 회고 노트 작성
+5. 다음 프로젝트 계획</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h2 id="ai-통합-활용법">AI 통합 활용법 {#ai-통합-활용법}</h2>
+<h3 id="ai-프로젝트-매니저-활용">🤖 AI 프로젝트 매니저 활용 {#ai-프로젝트-매니저-활용}</h3>
+<h4>프로젝트 계획 수립</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4898" onclick="copyCode('code-1769481054909-4898')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4898" class="language-markdown">AI 프롬프트 예시:
+&quot;다음 프로젝트를 Obsidian Bases 구조에 맞춰 분해해줘:
+[프로젝트 설명]
+
+<p>다음 형식으로:</p>
+<ul>
+<li>Project: </li>
+<li>Epics (3-5개):</li>
+<li>Stories (각 Epic당 3-7개):</li>
+<li>Initial Tasks (주요 Story당):</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">8 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>작업 우선순위 결정</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4899" onclick="copyCode('code-1769481054909-4899')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4899" class="language-markdown">AI 활용:
+&quot;현재 진행중인 작업들을 분석해서 우선순위를 추천해줘:
+[현재 작업 목록]
+
+<p>고려사항:</p>
+<ul>
+<li>마감일</li>
+<li>의존관계  </li>
+<li>비즈니스 임팩트</li>
+<li>리소스 가용성&quot;</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">8 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="ai-기반-자동화">🧠 AI 기반 자동화 {#ai-기반-자동화}</h3>
+<h4>스마트 태그 제안</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4900" onclick="copyCode('code-1769481054909-4900')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4900" class="language-markdown">기능: 노트 내용 분석 후 관련 태그 자동 제안
+구현: Smart Connections 플러그인 연동
+활용: 프로젝트 분류 정확도 향상</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h4>진행률 예측</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4901" onclick="copyCode('code-1769481054909-4901')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4901" class="language-markdown">기능: 과거 데이터 기반 완료 시점 예측
+데이터: 작업 완료 패턴, 소요 시간 분석
+결과: 현실적인 마감일 설정 도움</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h2 id="고급-팁과-최적화">고급 팁과 최적화 {#고급-팁과-최적화}</h2>
+<h3 id="성능-최적화">⚡ 성능 최적화 {#성능-최적화}</h3>
+<h4>대용량 프로젝트 관리</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4902" onclick="copyCode('code-1769481054909-4902')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4902" class="language-markdown">문제: 수백 개 노트로 인한 성능 저하
+해결책:
+1. 아카이브 Base 별도 운영
+2. 프로젝트별 Base 분리
+3. 불필요한 속성 제거
+4. 인덱싱 최적화</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h4>필터 최적화</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4903" onclick="copyCode('code-1769481054909-4903')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4903" class="language-markdown">권장사항:
+- 복잡한 OR 조건 최소화
+- 인덱스된 속성 우선 사용
+- 정규식 필터 제한적 사용
+- 전역 필터 간소화</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="사용자-경험-개선">🎨 사용자 경험 개선 {#사용자-경험-개선}</h3>
+<h4>키보드 단축키 설정</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4904" onclick="copyCode('code-1769481054909-4904')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4904" class="language-markdown">추천 설정:
+- Ctrl+Shift+P: 새 프로젝트
+- Ctrl+Shift+T: 새 작업
+- Ctrl+Shift+I: 새 아이디어
+- Ctrl+Shift+A: 아카이브 보기</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>시각적 구분</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4905" onclick="copyCode('code-1769481054909-4905')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4905" class="language-markdown">색상 코딩:
+- 프로젝트: 파란색 커버
+- 에픽: 초록색 커버
+- 스토리: 노란색 커버
+- 작업: 회색 커버
+- 아이디어: 보라색 커버</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h3 id="고급-구성">🔧 고급 구성 {#고급-구성}</h3>
+<h4>다중 워크스페이스 연동</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4906" onclick="copyCode('code-1769481054909-4906')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4906" class="language-markdown">설정:
+1. 개인 프로젝트 Base
+2. 업무 프로젝트 Base  
+3. 학습 프로젝트 Base
+4. 통합 대시보드 Base</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>외부 도구 연동</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4907" onclick="copyCode('code-1769481054909-4907')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4907" class="language-markdown">가능한 연동:
+- GitHub Issues → Obsidian Tasks
+- Jira Tickets → Stories
+- Calendar Events → Milestones
+- Time Tracking → Progress</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="분석-및-리포팅">📊 분석 및 리포팅 {#분석-및-리포팅}</h3>
+<h4>생산성 대시보드</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4908" onclick="copyCode('code-1769481054909-4908')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4908" class="language-markdown">메트릭:
+- 주간 완료 작업 수
+- 평균 작업 완료 시간
+- 프로젝트 진행률
+- 마감일 준수율
+- 아이디어 실행율</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h4>트렌드 분석</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4909" onclick="copyCode('code-1769481054909-4909')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4909" class="language-markdown">추적 항목:
+- 월별 프로젝트 수
+- 카테고리별 작업 분포
+- 우선순위별 완료율
+- 반복 패턴 식별</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h2 id="문제-해결-및-faq">문제 해결 및 FAQ {#문제-해결-및-faq}</h2>
+<h3 id="자주-묻는-질문">❓ 자주 묻는 질문 {#자주-묻는-질문}</h3>
+<h4>Q: Bases가 느려질 때는?</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4910" onclick="copyCode('code-1769481054909-4910')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4910" class="language-markdown">A: 해결 방법
+1. 뷰당 표시 항목 수 제한 (100개 이하)
+2. 복잡한 함수 최소화
+3. 아카이브 분리 운영
+4. 불필요한 속성 정리
+5. Obsidian 재시작</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h4>Q: 템플릿이 적용되지 않을 때는?</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4911" onclick="copyCode('code-1769481054909-4911')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4911" class="language-markdown">A: 체크 포인트
+1. 템플릿 폴더 위치 확인
+2. 속성 이름 정확성 검증
+3. kind 속성 존재 여부
+4. 필터 설정 재확인
+5. 캐시 클리어 후 재시도</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h4>Q: 뷰가 제대로 필터링되지 않을 때는?</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4912" onclick="copyCode('code-1769481054909-4912')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4912" class="language-markdown">A: 문제 해결
+1. 필터 구문 오타 확인
+2. 속성 타입 일치 여부
+3. 전역 필터와 충돌 검사
+4. 대소문자 구분 주의
+5. 정규식 문법 검증</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h3 id="일반적인-문제와-해결책">🚨 일반적인 문제와 해결책 {#일반적인-문제와-해결책}</h3>
+<h4>성능 문제</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4913" onclick="copyCode('code-1769481054909-4913')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4913" class="language-markdown">증상: Base 로딩 지연, 응답 없음
+원인: 과도한 노트 수, 복잡한 필터
+해결: 아카이브 분리, 필터 최적화</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h4>동기화 문제</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4914" onclick="copyCode('code-1769481054909-4914')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4914" class="language-markdown">증상: 다른 기기에서 Base 깨짐
+원인: Catalyst 플러그인 버전 차이
+해결: 모든 기기 동일 버전 사용</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h4>데이터 손실</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054909-4915" onclick="copyCode('code-1769481054909-4915')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054909-4915" class="language-markdown">예방: 정기 백업, Git 버전 관리
+복구: .obsidian/workspace.json 복원</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<h3 id="상위-개념">🔗 상위 개념 {#상위-개념}</h3>
+<ul>
+<li><a href="/articles/obsidian-management.html" class="internal-link">Obsidian 프로젝트 관리 전략</a></li>
+<li><a href="/articles/pkm-guide.html" class="internal-link">PKM 시스템 구축 가이드</a></li>
+<li><a href="/articles/tools.html" class="internal-link">생산성 도구 최적화</a></li>
+</ul>
+<h3 id="하위-세부사항">🔗 하위 세부사항 {#하위-세부사항}</h3>
+<ul>
+<li><a href="/articles/obsidian-bases.html" class="internal-link">Obsidian Bases 함수 레퍼런스</a></li>
+<li><a href="/articles/template.html" class="internal-link">프로젝트 템플릿 라이브러리</a></li>
+<li><a href="/articles/base.html" class="internal-link">Base 최적화 체크리스트</a></li>
+</ul>
+<h3 id="병렬-주제">🔗 병렬 주제 {#병렬-주제}</h3>
+<ul>
+<li><a href="/articles/notion-vs-obsidian.html" class="internal-link">Notion vs Obsidian 비교</a></li>
+<li><a href="/articles/dataview-vs-bases-guide.html" class="internal-link">Dataview vs Bases 선택 가이드</a></li>
+<li><a href="/articles/ai-management-tools.html" class="internal-link">AI 프로젝트 관리 도구</a></li>
+</ul>
+<h3 id="실전-활용">🔗 실전 활용 {#실전-활용}</h3>
+<ul>
+<li><a href="/articles/development-bases-practical.html" class="internal-link">개발자를 위한 Bases 활용법</a></li>
+<li><a href="/articles/management.html" class="internal-link">콘텐츠 크리에이터 프로젝트 관리</a></li>
+<li><a href="/articles/bases-guide.html" class="internal-link">팀 협업 Bases 구축 가이드</a></li>
+</ul>
+<hr>
+<h2 id="출처-및-참고자료">📚 출처 및 참고자료 {#출처-및-참고자료}</h2>
+<h3 id="주요-출처">🎬 주요 출처 {#주요-출처}</h3>
+<ul>
+<li><strong>동영상 제목</strong>: How To Easily Organize Projects &amp; Tasks With Obsidian Bases</li>
+<li><strong>채널명</strong>: Wandloots (Callum)</li>
+<li><strong>원본 링크</strong>: <a href="https://youtu.be/6UZemN4EVA0?si=vnqBeb_mUrZefgCj">https://youtu.be/6UZemN4EVA0?si=vnqBeb_mUrZefgCj</a></li>
+<li><strong>분석 일자</strong>: 2025년 7월 7일</li>
+<li><strong>내용 언어</strong>: 영어 (한국어 분석)</li>
+<li><strong>동영상 길이</strong>: 약 45분</li>
+</ul>
+<h3 id="핵심-참고자료">🔗 핵심 참고자료 {#핵심-참고자료}</h3>
+<ul>
+<li><strong>Obsidian Bases 공식 문서</strong>: Core plugin 가이드 및 업데이트</li>
+<li><strong>Catalyst 라이선스</strong>: 얼리 액세스 프로그램 정보</li>
+<li><strong>Obsidian 1.9.4 업데이트</strong>: 최신 기능 및 개선사항</li>
+<li><strong>Smart Connections 플러그인</strong>: AI 기반 노트 검색 시스템</li>
+</ul>
+<h3 id="실습-관련-자료">💡 실습 관련 자료 {#실습-관련-자료}</h3>
+<ul>
+<li><strong>Bases 함수 문법</strong>: 동적 속성 계산 가이드</li>
+<li><strong>템플릿 시스템</strong>: Obsidian 템플릿 최적화 방법</li>
+<li><strong>필터링 구문</strong>: 고급 필터 설정 예제</li>
+<li><strong>뷰 임베딩</strong>: 대시보드 구축 기법</li>
+</ul>
+<h3 id="추가-학습-자료">🛠️ 추가 학습 자료 {#추가-학습-자료}</h3>
+<ul>
+<li><strong>Obsidian 공식 문서</strong>: Core plugins 및 워크플로우 가이드</li>
+<li><strong>Notion 마이그레이션 가이드</strong>: Notion → Obsidian 전환 전략</li>
+<li><strong>프로젝트 관리 방법론</strong>: Agile, Scrum, Kanban 적용법</li>
+<li><strong>AI 통합 플러그인</strong>: Smart Connections, Text Generator</li>
+</ul>
+<h3 id="관련-도구-및-플랫폼">🎯 관련 도구 및 플랫폼 {#관련-도구-및-플랫폼}</h3>
+<ul>
+<li><strong>Obsidian</strong>: 메인 노트 앱 (v1.9.4+)</li>
+<li><strong>Bases Plugin</strong>: 코어 플러그인 (Catalyst 전용)</li>
+<li><strong>Templater</strong>: 고급 템플릿 기능</li>
+<li><strong>Dataview</strong>: 기존 쿼리 시스템 (비교 참조)</li>
+</ul>
+<h3 id="인용된-기능-및-업데이트">📊 인용된 기능 및 업데이트 {#인용된-기능-및-업데이트}</h3>
+<ul>
+<li><strong>직접 노트 추가</strong>: 테이블에서 바로 노트 생성 기능</li>
+<li><strong>동적 함수</strong>: 시간 기반 자동 계산 (relative() 함수)</li>
+<li><strong>카드 뷰</strong>: 시각적 프로젝트 보드 기능</li>
+<li><strong>임베드 뷰</strong>: 동적 대시보드 구축 기능</li>
+</ul>
+<h3 id="추가-시리즈-자료">📚 추가 시리즈 자료 {#추가-시리즈-자료}</h3>
+<ul>
+<li><strong>Video 1</strong>: Obsidian Bases 기초 소개</li>
+<li><strong>Video 2</strong>: Bases 최신 업데이트 상세 가이드</li>
+<li><strong>Molecular Zettelkasten</strong>: 창작자의 노트 테이킹 시스템</li>
+<li><strong>AI &amp; Obsidian 플레이리스트</strong>: AI 통합 활용법</li>
+</ul>
+<hr>
+<p><strong>💡 Pro Tip</strong>: Obsidian Bases는 단순한 테이블 기능을 넘어서 <strong>완전한 프로젝트 관리 생태계</strong>를 제공합니다. 작은 프로젝트부터 시작해서 점진적으로 시스템을 확장해 나가세요!</p>
+<p><strong>🎯 다음 학습 목표</strong>: 실제 프로젝트에 Bases를 적용하여 Notion 수준의 프로젝트 관리 시스템을 Obsidian에서 완전 구현하기</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/Obsidian.html" class="article-tag">Obsidian</a><a href="/tag/Bases.html" class="article-tag">Bases</a><a href="/tag/프로젝트.html" class="article-tag">프로젝트</a><a href="/tag/관리.html" class="article-tag">관리</a><a href="/tag/작업.html" class="article-tag">작업</a><a href="/tag/관리.html" class="article-tag">관리</a><a href="/tag/생산성.html" class="article-tag">생산성</a><a href="/tag/향상.html" class="article-tag">향상</a><a href="/tag/PKM.html" class="article-tag">PKM</a><a href="/tag/시스템.html" class="article-tag">시스템</a><a href="/tag/템플릿.html" class="article-tag">템플릿</a><a href="/tag/활용.html" class="article-tag">활용</a><a href="/tag/출처.html" class="article-tag">출처</a><a href="/tag/YouTube.html" class="article-tag">YouTube</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-bases-management-perfect-guide.html&text=Obsidian Bases 프로젝트 및 작업 관리 완벽 가이드" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-bases-management-perfect-guide.html&title=Obsidian Bases 프로젝트 및 작업 관리 완벽 가이드" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-bases-management-perfect-guide.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

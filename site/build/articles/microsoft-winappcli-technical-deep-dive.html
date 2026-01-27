@@ -1,0 +1,1123 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Microsoft WinAppCli - Technical Deep Dive | AI &amp; Development Journal</title>
+  <meta name="description" content="초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft&#39;s...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Microsoft WinAppCli - Technical Deep Dive">
+  <meta property="og:description" content="초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft&#39;s...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/microsoft-winappcli-technical-deep-dive.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Microsoft WinAppCli - Technical Deep Dive">
+  <meta name="twitter:description" content="초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft&#39;s...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/microsoft-winappcli-technical-deep-dive.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">Microsoft WinAppCli - Technical Deep Dive</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2026년 1월 25일">2026년 1월 25일</time>
+            <span class="article-meta__separator">·</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#what-winappcli-actually-does-and-why-it-matters" class="toc__link">What WinAppCli actually does (and why it matters)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#core-capabilities-at-a-glance" class="toc__link">Core capabilities at a glance</a>
+    </li>
+    <li class="toc__item">
+      <a href="#the-architecture-behind-the-magic" class="toc__link">The architecture behind the magic</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#how-sparse-packaging-enables-rapid-debugging" class="toc__link">How sparse packaging enables rapid debugging</a>
+    </li>
+    <li class="toc__item">
+      <a href="#getting-started-installation-paths-for-every-developer" class="toc__link">Getting started: installation paths for every developer</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#the-fastest-path-winget-installation" class="toc__link">The fastest path: WinGet installation</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#for-electron-and-nodejs-developers" class="toc__link">For Electron and Node.js developers</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#alternative-installation-methods" class="toc__link">Alternative installation methods</a>
+    </li>
+    <li class="toc__item">
+      <a href="#command-reference-your-complete-toolkit" class="toc__link">Command reference: your complete toolkit</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#initialization-and-environment-commands" class="toc__link">Initialization and environment commands</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#manifest-and-asset-management" class="toc__link">Manifest and asset management</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#certificate-and-signing-operations" class="toc__link">Certificate and signing operations</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#packaging-for-distribution" class="toc__link">Packaging for distribution</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#accessing-windows-sdk-tools-directly" class="toc__link">Accessing Windows SDK tools directly</a>
+    </li>
+    <li class="toc__item">
+      <a href="#practical-workflow-from-code-to-distribution" class="toc__link">Practical workflow: from code to distribution</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#the-complete-development-cycle" class="toc__link">The complete development cycle</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#team-collaboration-pattern" class="toc__link">Team collaboration pattern</a>
+    </li>
+    <li class="toc__item">
+      <a href="#framework-specific-guidance" class="toc__link">Framework-specific guidance</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#electron-the-primary-use-case" class="toc__link">Electron: the primary use case</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#net-c-rust-and-tauri" class="toc__link">.NET, C++, Rust, and Tauri</a>
+    </li>
+    <li class="toc__item">
+      <a href="#how-winappcli-compares-to-existing-tools" class="toc__link">How WinAppCli compares to existing tools</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#winappcli-vs-visual-studio" class="toc__link">WinAppCli vs Visual Studio</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#winappcli-vs-manual-sdkmanifest-management" class="toc__link">WinAppCli vs manual SDK/manifest management</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#relationship-to-windows-app-sdk-and-winget" class="toc__link">Relationship to Windows App SDK and WinGet</a>
+    </li>
+    <li class="toc__item">
+      <a href="#cicd-integration-for-automated-builds" class="toc__link">CI/CD integration for automated builds</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#github-actions" class="toc__link">GitHub Actions</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#azure-devops" class="toc__link">Azure DevOps</a>
+    </li>
+    <li class="toc__item">
+      <a href="#technical-requirements-and-current-limitations" class="toc__link">Technical requirements and current limitations</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#requirements" class="toc__link">Requirements</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#current-limitations-public-preview" class="toc__link">Current limitations (Public Preview)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#learning-resources-and-community" class="toc__link">Learning resources and community</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#official-documentation" class="toc__link">Official documentation</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#getting-help" class="toc__link">Getting help</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#related-tools" class="toc__link">Related tools</a>
+    </li>
+    <li class="toc__item">
+      <a href="#conclusion" class="toc__link">Conclusion</a>
+    </li>
+  </ol>
+</nav>
+
+            <div class="callout callout--tip">
+  <div class="callout__header">
+    <span class="callout__icon">💡</span>
+    <span class="callout__title">🇰🇷 한국어 가이드</span>
+  </div>
+  <div class="callout__content">
+    초보 개발자를 위한 한국어 가이드는 <a href="/articles/windows-app-development-cli-complete.html" class="internal-link">WinApp CLI 완전 정복</a>을 참조하세요.
+  </div>
+</div>
+
+<h1>Microsoft WinAppCli: The unified gateway to Windows app development</h1>
+<p><strong>Windows app development just got dramatically simpler.</strong> Microsoft&#39;s new open-source command-line tool, WinAppCli (branded as <code>winapp</code>), eliminates the fragmented, error-prone setup process that has long plagued developers working outside Visual Studio. Released in public preview on January 22, 2026, this CLI consolidates SDK management, manifest generation, certificate handling, and MSIX packaging into single commands—turning hours of configuration into minutes.</p>
+<p>For developers building with Electron, Rust, C++/CMake, .NET, or Dart, WinAppCli provides the missing bridge to Windows-native capabilities including <strong>Windows AI APIs (Phi Silica)</strong>, system notifications, and modern shell integrations. The tool&#39;s killer feature: testing Package Identity-requiring APIs without creating full MSIX packages, preserving the rapid debug cycle developers depend on.</p>
+<hr>
+<h2 id="what-winappcli-actually-does-and-why-it-matters">What WinAppCli actually does (and why it matters) {#what-winappcli-actually-does-and-why-it-matters}</h2>
+<p>Imagine you&#39;re building an Electron app and want to add Windows AI features—local language model integration using Microsoft&#39;s Phi Silica. Traditionally, this required: downloading the Windows SDK manually, editing complex XML manifests, generating cryptographic certificates, configuring package identity, and navigating MSIX packaging requirements. Each step involved different tools, different documentation, and numerous opportunities for subtle errors.</p>
+<p>WinAppCli replaces this entire workflow with three commands:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1941" onclick="copyCode('code-1769481054336-1941')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1941" class="language-bash">winapp init                              # Downloads SDKs, creates manifests, generates certificates
+winapp create-debug-identity ./app.exe   # Adds Package Identity for testing Windows APIs
+winapp pack ./dist --generate-cert       # Creates signed MSIX package for distribution</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p>The CLI acts as a <strong>unified abstraction layer</strong> over Windows development infrastructure. It wraps the Windows SDK, Windows App SDK, certificate tooling, and MSIX packaging into a coherent interface that works identically whether you&#39;re building in JavaScript, C++, or Rust.</p>
+<h3 id="core-capabilities-at-a-glance">Core capabilities at a glance {#core-capabilities-at-a-glance}</h3>
+<table>
+<thead>
+<tr>
+<th>Domain</th>
+<th>What WinAppCli Handles</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>SDK Management</strong></td>
+<td>Automatic download and configuration of Windows SDK and Windows App SDK</td>
+</tr>
+<tr>
+<td><strong>Manifest Engine</strong></td>
+<td>Generation, validation, and updates to AppxManifest.xml</td>
+</tr>
+<tr>
+<td><strong>Certificate Manager</strong></td>
+<td>Creation, signing, and installation of development certificates</td>
+</tr>
+<tr>
+<td><strong>Identity Manager</strong></td>
+<td>Package Identity for debugging via sparse packaging</td>
+</tr>
+<tr>
+<td><strong>Build Tools</strong></td>
+<td>Direct access to makeappx, signtool, and other SDK utilities</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="the-architecture-behind-the-magic">The architecture behind the magic {#the-architecture-behind-the-magic}</h2>
+<p>WinAppCli operates through a straightforward project structure. When you run <code>winapp init</code>, it creates a workspace containing:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1942" onclick="copyCode('code-1769481054336-1942')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1942" class="language-plaintext">my-project/
+├── winapp.yaml              # Configuration file (SDK versions, settings)
+├── appxmanifest.xml         # Package manifest for Windows
+├── Assets/                  # Auto-generated image assets (icons, logos)
+│   ├── Square44x44Logo.png
+│   ├── Square150x150Logo.png
+│   └── StoreLogo.png
+└── .winapp/                 # Local cache for generated files</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div>
+
+<p>The <strong>winapp.yaml</strong> configuration file tracks your SDK preferences and project settings, enabling the <code>winapp restore</code>command to recreate identical environments across team members&#39; machines or CI/CD runners. This solves the classic &quot;works on my machine&quot; problem for Windows development.</p>
+<p>A global cache at <code>%USERPROFILE%/.winapp</code> stores shared resources—SDK packages and generated projections—preventing redundant downloads across projects. You can relocate this cache using the <code>WINAPP_CLI_CACHE_DIRECTORY</code>environment variable.</p>
+<h3 id="how-sparse-packaging-enables-rapid-debugging">How sparse packaging enables rapid debugging {#how-sparse-packaging-enables-rapid-debugging}</h3>
+<p>The most innovative feature is <strong>debug identity injection</strong>. Traditional Windows development forced a painful cycle: package your app, install it, test, uninstall, modify code, repeat. APIs requiring Package Identity (including Windows AI, notifications, and background tasks) were particularly frustrating to develop against.</p>
+<p>WinAppCli uses <strong>sparse packages</strong>—a Windows feature allowing manifests to reference files in external locations. When you run <code>winapp create-debug-identity</code>, it:</p>
+<ol>
+<li>Creates a minimal manifest with <code>&lt;allowExternalContent&gt;true&lt;/allowExternalContent&gt;</code></li>
+<li>Registers this sparse package with Windows</li>
+<li>Associates your executable with a Package Identity</li>
+<li>Leaves your actual files untouched in their development location</li>
+</ol>
+<p>Your app now has Package Identity for Windows API access, but you can still edit, rebuild, and run it instantly without reinstallation.</p>
+<hr>
+<h2 id="getting-started-installation-paths-for-every-developer">Getting started: installation paths for every developer {#getting-started-installation-paths-for-every-developer}</h2>
+<h3 id="the-fastest-path-winget-installation">The fastest path: WinGet installation {#the-fastest-path-winget-installation}</h3>
+<p>For most developers, WinGet (Windows Package Manager) offers the simplest installation:</p>
+<div class="code-block" data-language="powershell">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1943" onclick="copyCode('code-1769481054336-1943')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1943" class="language-powershell">winget install Microsoft.winappcli --source winget</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p>This automatically adds <code>winapp</code> to your PATH. Verify with:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1944" onclick="copyCode('code-1769481054336-1944')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1944" class="language-bash">winapp --help</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h3 id="for-electron-and-nodejs-developers">For Electron and Node.js developers {#for-electron-and-nodejs-developers}</h3>
+<p>The npm package provides Electron-specific commands:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1945" onclick="copyCode('code-1769481054336-1945')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1945" class="language-bash">npm install @microsoft/winappcli --save-dev
+npx winapp --help</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p>This unlocks additional commands like <code>npx winapp node create-addon</code> for scaffolding native Windows addons and <code>npx winapp node add-electron-debug-identity</code> for injecting identity into Electron processes.</p>
+<h3 id="alternative-installation-methods">Alternative installation methods {#alternative-installation-methods}</h3>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>Command/Process</th>
+<th>Best For</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>MSIX Package</strong></td>
+<td>Download from <a href="https://github.com/microsoft/WinAppCli/releases">GitHub Releases</a>, double-click to install</td>
+<td>Clean Windows app management</td>
+</tr>
+<tr>
+<td><strong>ZIP Binary</strong></td>
+<td>Extract, add to PATH manually</td>
+<td>Portable installations</td>
+</tr>
+<tr>
+<td><strong>CI/CD Setup</strong></td>
+<td><code>uses: microsoft/setup-WinAppCli@v0.1</code></td>
+<td>GitHub Actions/Azure DevOps</td>
+</tr>
+</tbody></table>
+<p><strong>System requirements</strong>: Windows 10 version 1809 (Build 17763) or later. ARM64 and x64 architectures supported. Minimum OS for MSIX packages: Windows 10 Build 19045.</p>
+<hr>
+<h2 id="command-reference-your-complete-toolkit">Command reference: your complete toolkit {#command-reference-your-complete-toolkit}</h2>
+<h3 id="initialization-and-environment-commands">Initialization and environment commands {#initialization-and-environment-commands}</h3>
+<p><strong><code>winapp init</code></strong> bootstraps your development environment:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1946" onclick="copyCode('code-1769481054336-1946')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1946" class="language-bash">winapp init                              # Interactive setup in current directory
+winapp init ./my-project --use-defaults  # Non-interactive, uses sensible defaults
+winapp init --setup-sdks experimental    # Include preview Windows APIs</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p>This single command downloads required SDKs, generates C++/WinRT projections, creates your appxmanifest.xml with proper assets, and generates a development certificate.</p>
+<p><strong><code>winapp restore</code></strong> recreates your environment from winapp.yaml—essential for team projects and CI/CD:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1947" onclick="copyCode('code-1769481054336-1947')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1947" class="language-bash">winapp restore  # Rebuilds environment matching your configuration</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong><code>winapp update</code></strong> upgrades SDK packages to latest versions:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1948" onclick="copyCode('code-1769481054336-1948')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1948" class="language-bash">winapp update --setup-sdks stable  # Update to latest production SDKs</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h3 id="manifest-and-asset-management">Manifest and asset management {#manifest-and-asset-management}</h3>
+<p><strong><code>winapp manifest generate</code></strong> creates AppxManifest.xml from templates:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1949" onclick="copyCode('code-1769481054336-1949')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1949" class="language-bash">winapp manifest generate --package-name &quot;MyCompany.MyApp&quot; \
+                         --publisher-name &quot;CN=My Company&quot; \
+                         --entrypoint &quot;./dist/myapp.exe&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong><code>winapp manifest update-assets</code></strong> generates all required icon sizes from a single source image:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1950" onclick="copyCode('code-1769481054336-1950')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1950" class="language-bash">winapp manifest update-assets ./my-logo.png  # Creates Square44x44Logo, Square150x150Logo, StoreLogo, etc.</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h3 id="certificate-and-signing-operations">Certificate and signing operations {#certificate-and-signing-operations}</h3>
+<p><strong><code>winapp cert generate</code></strong> creates self-signed certificates for development:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1951" onclick="copyCode('code-1769481054336-1951')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1951" class="language-bash">winapp cert generate --publisher &quot;CN=Development Team&quot; --output ./dev.pfx
+winapp cert install ./dev.pfx  # Install to machine store (requires admin)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong><code>winapp sign</code></strong> digitally signs executables and packages:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1952" onclick="copyCode('code-1769481054336-1952')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1952" class="language-bash">winapp sign MyApp.msix --cert ./dev.pfx --cert-password &quot;optional&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h3 id="packaging-for-distribution">Packaging for distribution {#packaging-for-distribution}</h3>
+<p><strong><code>winapp pack</code></strong> creates store-ready MSIX packages:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1953" onclick="copyCode('code-1769481054336-1953')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1953" class="language-bash">winapp pack ./dist                          # Basic packaging
+winapp pack ./dist --generate-cert          # Auto-generate certificate
+winapp pack ./dist --self-contained         # Include WinAppSDK runtime
+winapp pack ./dist --output MyApp.msix --cert ./cert.pfx  # Full control</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3 id="accessing-windows-sdk-tools-directly">Accessing Windows SDK tools directly {#accessing-windows-sdk-tools-directly}</h3>
+<p><strong><code>winapp tool</code></strong> provides passthrough to underlying SDK utilities:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1954" onclick="copyCode('code-1769481054336-1954')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1954" class="language-bash">winapp tool signtool verify /pa MyApp.msix  # Verify package signature
+winapp tool makeappx pack /d ./files /p out.msix  # Direct makeappx access</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="practical-workflow-from-code-to-distribution">Practical workflow: from code to distribution {#practical-workflow-from-code-to-distribution}</h2>
+<h3 id="the-complete-development-cycle">The complete development cycle {#the-complete-development-cycle}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1955" onclick="copyCode('code-1769481054336-1955')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1955" class="language-plaintext">┌─────────────────┐     ┌──────────────────┐     ┌─────────────────┐
+│  winapp init    │────▶│  Development     │────▶│  winapp pack    │
+│  (one-time)     │     │  + debug identity│     │  (distribution) │
+└─────────────────┘     └──────────────────┘     └─────────────────┘</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>Step 1: Initialize once</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1956" onclick="copyCode('code-1769481054336-1956')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1956" class="language-bash">cd my-electron-app
+npm install @microsoft/winappcli --save-dev
+npx winapp init</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>Step 2: Add debug identity for Windows API testing</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1957" onclick="copyCode('code-1769481054336-1957')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1957" class="language-bash">npx winapp node add-electron-debug-identity  # For Electron
+# OR
+winapp create-debug-identity ./bin/MyApp.exe  # For native apps</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>Step 3: Develop normally</strong>—your app now has Package Identity without packaging overhead. Test Windows AI APIs, notifications, and other identity-requiring features.</p>
+<p><strong>Step 4: Package for distribution</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1958" onclick="copyCode('code-1769481054336-1958')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1958" class="language-bash">npx winapp pack ./dist --generate-cert --install-cert</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h3 id="team-collaboration-pattern">Team collaboration pattern {#team-collaboration-pattern}</h3>
+<p>One developer initializes the project and commits configuration:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054336-1959" onclick="copyCode('code-1769481054336-1959')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054336-1959" class="language-bash">winapp init
+git add winapp.yaml appxmanifest.xml Assets/
+git commit -m &quot;Add Windows app configuration&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p>Other team members simply run:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054337-1960" onclick="copyCode('code-1769481054337-1960')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054337-1960" class="language-bash">git pull
+winapp restore  # Recreates identical environment</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="framework-specific-guidance">Framework-specific guidance {#framework-specific-guidance}</h2>
+<h3 id="electron-the-primary-use-case">Electron: the primary use case {#electron-the-primary-use-case}</h3>
+<p>WinAppCli provides deep Electron integration through its npm package. The workflow enables Electron apps to access Windows-native features that previously required complex native module development:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054337-1961" onclick="copyCode('code-1769481054337-1961')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054337-1961" class="language-bash"># Initialize Electron project with Windows support
+npm install @microsoft/winappcli --save-dev
+npx winapp init
+
+<h1>Create native C++ or C# addon for Windows APIs</h1>
+<p>npx winapp node create-addon --name windowsNative</p>
+<h1>Add Package Identity for debugging</h1>
+<p>npx winapp node add-electron-debug-identity</p>
+<h1>Test your app with full Windows API access</h1>
+<p>npm start</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<p>The companion package <strong>@microsoft/winapp-windows-ai</strong> provides direct JavaScript access to Windows AI APIs (Phi Silica). Install it alongside WinAppCli to build AI-powered Electron apps using local language models.</p>
+<p><strong>Known issue</strong>: Sparse packaging may cause Electron apps to crash or render blank on some Windows builds. The fix is in newer Windows versions but not fully propagated. Workaround: use <code>--no-sandbox</code> flag during debugging.</p>
+<h3 id="net-c-rust-and-tauri">.NET, C++, Rust, and Tauri {#net-c-rust-and-tauri}</h3>
+<p>Each framework has dedicated documentation in the repository:</p>
+<ul>
+<li><strong>.NET/WPF/WinForms</strong>: <a href="https://github.com/microsoft/WinAppCli/blob/main/docs/guides/dotnet.md">docs/guides/dotnet.md</a></li>
+<li><strong>C++/CMake</strong>: <a href="https://github.com/microsoft/WinAppCli/blob/main/docs/guides/cpp.md">docs/guides/cpp.md</a></li>
+<li><strong>Rust</strong>: <a href="https://github.com/microsoft/WinAppCli/blob/main/docs/guides/rust.md">docs/guides/rust.md</a></li>
+<li><strong>Tauri</strong>: <a href="https://github.com/microsoft/WinAppCli/blob/main/docs/guides/tauri.md">docs/guides/tauri.md</a></li>
+</ul>
+<p>Python support is experimental and actively being developed.</p>
+<hr>
+<h2 id="how-winappcli-compares-to-existing-tools">How WinAppCli compares to existing tools {#how-winappcli-compares-to-existing-tools}</h2>
+<h3 id="winappcli-vs-visual-studio">WinAppCli vs Visual Studio {#winappcli-vs-visual-studio}</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>Visual Studio</th>
+<th>WinAppCli</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Target audience</strong></td>
+<td>IDE-centric .NET/C++ developers</td>
+<td>Terminal-based, cross-platform developers</td>
+</tr>
+<tr>
+<td><strong>Setup experience</strong></td>
+<td>GUI workload installation</td>
+<td>CLI commands, fully scriptable</td>
+</tr>
+<tr>
+<td><strong>Debug identity</strong></td>
+<td>Requires packaging project setup</td>
+<td>Single command injection</td>
+</tr>
+<tr>
+<td><strong>CI/CD integration</strong></td>
+<td>Requires VS installation on runners</td>
+<td>Lightweight CLI, easy automation</td>
+</tr>
+</tbody></table>
+<p><strong>Key insight</strong>: WinAppCli isn&#39;t replacing Visual Studio—it&#39;s filling the gap for developers who work outside Microsoft&#39;s traditional tooling but still want Windows-native capabilities.</p>
+<h3 id="winappcli-vs-manual-sdkmanifest-management">WinAppCli vs manual SDK/manifest management {#winappcli-vs-manual-sdkmanifest-management}</h3>
+<p>The traditional approach required:</p>
+<ul>
+<li>Downloading SDKs from multiple sources</li>
+<li>Hand-editing complex appxmanifest.xml files</li>
+<li>Using makecert and pvk2pfx for certificates</li>
+<li>Learning separate tools for each task</li>
+</ul>
+<p>WinAppCli consolidates all of this, reducing configuration errors and providing consistent commands regardless of your underlying framework.</p>
+<h3 id="relationship-to-windows-app-sdk-and-winget">Relationship to Windows App SDK and WinGet {#relationship-to-windows-app-sdk-and-winget}</h3>
+<p><strong>Windows App SDK</strong> provides the modern APIs (WinUI 3, notifications, AI APIs) delivered through NuGet. <strong>WinAppCli facilitates</strong> using these APIs—it doesn&#39;t replace them. The CLI automates SDK setup, generates required projections, and handles the Package Identity requirements.</p>
+<p><strong>WinGet</strong> is for end users installing applications. <strong>WinAppCli</strong> is for developers building applications. They&#39;re complementary: you install WinAppCli via WinGet, then use WinAppCli to create MSIX packages that WinGet can eventually deploy.</p>
+<hr>
+<h2 id="cicd-integration-for-automated-builds">CI/CD integration for automated builds {#cicd-integration-for-automated-builds}</h2>
+<h3 id="github-actions">GitHub Actions {#github-actions}</h3>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054337-1962" onclick="copyCode('code-1769481054337-1962')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054337-1962" class="language-yaml">name: Build Windows App
+on: [push]
+
+<p>jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+    - uses: actions/checkout@v6
+    - uses: microsoft/<a href="mailto:setup-WinAppCli@v0.1">setup-WinAppCli@v0.1</a></p>
+<pre><code>- name: Restore environment
+  run: winapp restore
+
+- name: Build application
+  run: dotnet build -c Release
+
+- name: Package MSIX
+  run: winapp pack ./bin/Release --generate-cert --output MyApp.msix
+
+- uses: actions/upload-artifact@v4
+  with:
+    name: msix-package
+    path: MyApp.msix&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">22 lines</span>
+  </div>
+</div>
+
+<h3 id="azure-devops">Azure DevOps {#azure-devops}</h3>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054337-1963" onclick="copyCode('code-1769481054337-1963')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054337-1963" class="language-yaml">pool:
+  vmImage: &#39;windows-latest&#39;
+
+<p>steps:</p>
+<ul>
+<li>checkout: self</li>
+<li>task: UseWinAppCLI@0
+displayName: &#39;Install WinApp CLI&#39;</li>
+<li>script: winapp restore</li>
+<li>script: winapp pack ./dist --generate-cert</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">8 lines</span>
+</div>
+</div></li>
+</ul>
+<p>The <a href="https://github.com/microsoft/setup-WinAppCli">setup-WinAppCli</a> repository provides both the GitHub Action and Azure DevOps extension.</p>
+<hr>
+<h2 id="technical-requirements-and-current-limitations">Technical requirements and current limitations {#technical-requirements-and-current-limitations}</h2>
+<h3 id="requirements">Requirements {#requirements}</h3>
+<ul>
+<li><strong>OS</strong>: Windows 10 Build 17763+ (version 1809) or Windows 11</li>
+<li><strong>Architecture</strong>: x64 or ARM64</li>
+<li><strong>MSIX minimum</strong>: Windows 10 Build 19045</li>
+<li><strong>Windows AI features</strong>: Windows 11 Copilot+ PC with Phi Silica model</li>
+</ul>
+<h3 id="current-limitations-public-preview">Current limitations (Public Preview) {#current-limitations-public-preview}</h3>
+<ul>
+<li><strong>Node.js and Python support</strong>: Experimental with known issues</li>
+<li><strong>Electron sparse packaging</strong>: May cause crashes on older Windows builds</li>
+<li><strong>GUI app</strong>: Experimental wrapper available but requires CLI in PATH</li>
+<li><strong>Active development</strong>: Microsoft actively seeking feedback to shape roadmap</li>
+</ul>
+<hr>
+<h2 id="learning-resources-and-community">Learning resources and community {#learning-resources-and-community}</h2>
+<h3 id="official-documentation">Official documentation {#official-documentation}</h3>
+<ul>
+<li><strong>Main repository</strong>: <a href="https://github.com/microsoft/winappCli">github.com/microsoft/winappCli</a></li>
+<li><strong>Usage documentation</strong>: <a href="https://github.com/microsoft/winappCli/blob/main/docs/usage.md">docs/usage.md</a></li>
+<li><strong>Sample projects</strong>: <a href="https://github.com/microsoft/WinAppCli/tree/main/samples">samples/</a> (Electron, Electron+WinML)</li>
+</ul>
+<h3 id="getting-help">Getting help {#getting-help}</h3>
+<ul>
+<li><strong>Issues</strong>: <a href="https://github.com/microsoft/WinAppCli/issues">github.com/microsoft/WinAppCli/issues</a></li>
+<li><strong>Direct feedback</strong>: <a href="mailto:windowsdevelopertoolkit@microsoft.com">windowsdevelopertoolkit@microsoft.com</a></li>
+<li><strong>Support guide</strong>: <a href="https://github.com/microsoft/WinAppCli/blob/main/SUPPORT.md">SUPPORT.md</a></li>
+</ul>
+<h3 id="related-tools">Related tools {#related-tools}</h3>
+<ul>
+<li><strong>Windows AI Addon</strong>: <a href="https://github.com/microsoft/winapp-windows-ai">github.com/microsoft/winapp-windows-ai</a></li>
+<li><strong>CI/CD Setup</strong>: <a href="https://github.com/microsoft/setup-WinAppCli">github.com/microsoft/setup-WinAppCli</a></li>
+<li><strong>Experimental GUI</strong>: Available in <a href="https://github.com/microsoft/WinAppCli/releases/tag/v0.1.1-gui">releases</a></li>
+</ul>
+<hr>
+<h2 id="conclusion">Conclusion {#conclusion}</h2>
+<p>WinAppCli represents a philosophical shift in Microsoft&#39;s approach to Windows development: acknowledging that many modern developers work outside Visual Studio, using frameworks like Electron, Rust, or custom toolchains, yet still need access to Windows-native capabilities. By consolidating SDK management, manifest handling, certificate generation, and packaging into a single, scriptable CLI, Microsoft has dramatically lowered the barrier to building Windows-native applications.</p>
+<p>The <strong>debug identity injection</strong> feature alone—enabling rapid iteration on Package Identity-requiring APIs without the package-install-test cycle—addresses a longstanding pain point. For Electron developers especially, the combination of WinAppCli and the Windows AI Addon opens direct access to local AI capabilities (Phi Silica) from JavaScript, a previously complex integration.</p>
+<p>As a public preview, expect rough edges. But the direction is clear: Windows app development is becoming framework-agnostic, terminal-friendly, and CI/CD-native. For developers who&#39;ve avoided Windows-specific features due to tooling complexity, WinAppCli offers a compelling reason to reconsider.</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/Windows.html" class="article-tag">Windows</a><a href="/tag/도구.html" class="article-tag">도구</a><a href="/tag/CLI.html" class="article-tag">CLI</a><a href="/tag/패키징.html" class="article-tag">패키징</a><a href="/tag/MSIX.html" class="article-tag">MSIX</a><a href="/tag/프레임워크.html" class="article-tag">프레임워크</a><a href="/tag/Electron.html" class="article-tag">Electron</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/readme-flutter-beginners-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="README - Flutter 입문자 완전 가이드 프로젝트" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">README - Flutter 입문자 완전 가이드 프로젝트</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/microsoft-winappcli-technical-deep-dive.html&text=Microsoft WinAppCli - Technical Deep Dive" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/microsoft-winappcli-technical-deep-dive.html&title=Microsoft WinAppCli - Technical Deep Dive" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/microsoft-winappcli-technical-deep-dive.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/readme-flutter-beginners-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="README - Flutter 입문자 완전 가이드 프로젝트"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">README - Flutter 입문자 완전 가이드 프로젝트</h3>
+          <p class="article-card__excerpt">Flutter를 배우려는 초보 개발자들을 위한 완전한 한글 가이드를 제작했습니다. 이 가이드는 Feynman 기법(복잡한 개념을 단순하게 설명)과 스토리텔링 방식으로 작성되어, 프로그래밍 경험이 없는 사람도 이해할 수 있습니다. --- --- --- - 5살 아이도...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

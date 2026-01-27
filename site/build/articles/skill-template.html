@@ -1,0 +1,1397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>나의 첫 Skill 만드는 템플릿 (복사해서 바로 쓰기) | AI &amp; Development Journal</title>
+  <meta name="description" content="이 문서는 복사해서 바로 쓸 수 있는 템플릿입니다. 자신의 Skill을 만들 때 이 템플릿을 기초로 수정하면서 배우세요. --- 1.  || #사전 준비 2.  || #파일 1: SKILL.md 템플릿 3.  || #파일 2: categorymapping.json...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="나의 첫 Skill 만드는 템플릿 (복사해서 바로 쓰기)">
+  <meta property="og:description" content="이 문서는 복사해서 바로 쓸 수 있는 템플릿입니다. 자신의 Skill을 만들 때 이 템플릿을 기초로 수정하면서 배우세요. --- 1.  || #사전 준비 2.  || #파일 1: SKILL.md 템플릿 3.  || #파일 2: categorymapping.json...">
+  <meta property="og:image" content="/assets/images/claude-code-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/skill-template.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="나의 첫 Skill 만드는 템플릿 (복사해서 바로 쓰기)">
+  <meta name="twitter:description" content="이 문서는 복사해서 바로 쓸 수 있는 템플릿입니다. 자신의 Skill을 만들 때 이 템플릿을 기초로 수정하면서 배우세요. --- 1.  || #사전 준비 2.  || #파일 1: SKILL.md 템플릿 3.  || #파일 2: categorymapping.json...">
+  <meta name="twitter:image" content="/assets/images/claude-code-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/skill-template.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/claude-code.html" class="article-category" style="background-color: #ff6b35">
+          Claude Code
+        </a>
+        <h1 class="article-title">나의 첫 Skill 만드는 템플릿 (복사해서 바로 쓰기)</h1>
+        <div class="article-meta">
+          <a href="/journalist/claude-specialist.html" class="article-author">
+            <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">Claude 전문가</span>
+              <span class="article-author__role">Claude Code Specialist</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 11월 16일">2025년 11월 16일</time>
+            <span class="article-meta__separator">·</span>
+            <span>16 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#사전-준비" class="toc__link">사전 준비</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#step-1-폴더-만들기" class="toc__link">Step 1: 폴더 만들기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#step-2-템플릿-결정" class="toc__link">Step 2: 템플릿 결정</a>
+    </li>
+    <li class="toc__item">
+      <a href="#파일-1-skillmd-템플릿" class="toc__link">파일 1: SKILL.md 템플릿</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#최소-버전-30분에-만들기" class="toc__link">최소 버전 (30분에 만들기)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#핵심-기능" class="toc__link">핵심 기능</a>
+    </li>
+    <li class="toc__item">
+      <a href="#사용-방법" class="toc__link">사용 방법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기본-사용" class="toc__link">기본 사용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#예제-1" class="toc__link">예제 1</a>
+    </li>
+    <li class="toc__item">
+      <a href="#처리-과정" class="toc__link">처리 과정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#step-1-입력-분석" class="toc__link">STEP 1: 입력 분석</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#step-2-처리" class="toc__link">STEP 2: 처리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#step-3-출력" class="toc__link">STEP 3: 출력</a>
+    </li>
+    <li class="toc__item">
+      <a href="#생성되는-메타데이터" class="toc__link">생성되는 메타데이터</a>
+    </li>
+    <li class="toc__item">
+      <a href="#품질-기준" class="toc__link">품질 기준</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중간-버전-1시간-clipping-processor-정도" class="toc__link">중간 버전 (1시간, clipping-processor 정도)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#로그-샘플" class="toc__link">로그 샘플</a>
+    </li>
+    <li class="toc__item">
+      <a href="#처리-요약" class="toc__link">처리 요약</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#처리된-파일" class="toc__link">처리된 파일</a>
+    </li>
+    <li class="toc__item">
+      <a href="#적용-기법" class="toc__link">🎓 적용 기법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#feynman-기법" class="toc__link">Feynman 기법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#storytelling" class="toc__link">Storytelling</a>
+    </li>
+    <li class="toc__item">
+      <a href="#일반적-문제와-해결책" class="toc__link">⚠️ 일반적 문제와 해결책</a>
+    </li>
+    <li class="toc__item">
+      <a href="#파일-2-category_mappingjson-템플릿" class="toc__link">파일 2: category_mapping.json 템플릿</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#최소-버전-분류-1가지만" class="toc__link">최소 버전 (분류 1가지만)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실전-버전-분류-35가지" class="toc__link">실전 버전 (분류 3~5가지)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#json-작성-팁" class="toc__link">📝 JSON 작성 팁</a>
+    </li>
+    <li class="toc__item">
+      <a href="#파일-3-enhancement_rulesmd-템플릿" class="toc__link">파일 3: enhancement_rules.md 템플릿</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#최소-버전-기본-규칙만" class="toc__link">최소 버전 (기본 규칙만)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#feynman-기법-적용" class="toc__link">Feynman 기법 적용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#원칙" class="toc__link">원칙</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#예제" class="toc__link">예제</a>
+    </li>
+    <li class="toc__item">
+      <a href="#storytelling-why-what-how" class="toc__link">Storytelling: WHY → WHAT → HOW</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#why-왜" class="toc__link">WHY (왜?)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#what-뭐" class="toc__link">WHAT (뭐?)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#how-어떻게" class="toc__link">HOW (어떻게?)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#3단계-예제" class="toc__link">3단계 예제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기초" class="toc__link">🌱 기초</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급" class="toc__link">🌿 중급</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급" class="toc__link">🌳 고급</a>
+    </li>
+    <li class="toc__item">
+      <a href="#품질-체크리스트" class="toc__link">품질 체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중간-버전-품질-점수-포함" class="toc__link">중간 버전 (품질 점수 포함)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#품질-점수-계산" class="toc__link">품질 점수 계산</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#점수-항목" class="toc__link">점수 항목</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#등급" class="toc__link">등급</a>
+    </li>
+    <li class="toc__item">
+      <a href="#체크리스트" class="toc__link">체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#만들기-전에" class="toc__link">만들기 전에</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#파일-만든-후에" class="toc__link">파일 만든 후에</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#테스트" class="toc__link">테스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#자주-하는-실수" class="toc__link">자주 하는 실수</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실수-1-너무-복잡하게-시작" class="toc__link">실수 1: 너무 복잡하게 시작</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실수-2-json-형식-오류" class="toc__link">실수 2: JSON 형식 오류</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실수-3-우선순위priority-설정-실수" class="toc__link">실수 3: 우선순위(priority) 설정 실수</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실수-4-yaml-메타데이터-형식-오류" class="toc__link">실수 4: YAML 메타데이터 형식 오류</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실수-5-예제가-작동하지-않음" class="toc__link">실수 5: 예제가 작동하지 않음</a>
+    </li>
+    <li class="toc__item">
+      <a href="#빠른-참고-폴더-구조-다시-보기" class="toc__link">빠른 참고: 폴더 구조 다시 보기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#예제-실제로-만든-예제-15분-skill" class="toc__link">예제: 실제로 만든 예제 (15분 Skill)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#요구사항" class="toc__link">요구사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#skillmd" class="toc__link">SKILL.md</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#사용-방법" class="toc__link">사용 방법</a>
+    </li>
+    <li class="toc__item">
+      <a href="#처리-과정" class="toc__link">처리 과정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#category_mappingjson" class="toc__link">category_mapping.json</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#enhancement_rulesmd" class="toc__link">enhancement_rules.md</a>
+    </li>
+    <li class="toc__item">
+      <a href="#규칙-1-일관된-대소문자" class="toc__link">규칙 1: 일관된 대소문자</a>
+    </li>
+    <li class="toc__item">
+      <a href="#규칙-2-특수문자-제거" class="toc__link">규칙 2: 특수문자 제거</a>
+    </li>
+    <li class="toc__item">
+      <a href="#규칙-3-번호-형식-통일" class="toc__link">규칙 3: 번호 형식 통일</a>
+    </li>
+    <li class="toc__item">
+      <a href="#다음-단계" class="toc__link">다음 단계</a>
+    </li>
+    <li class="toc__item">
+      <a href="#추가-자료" class="toc__link">추가 자료</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>나의 첫 Skill 만드는 템플릿</h1>
+<blockquote>
+<p><strong>이 문서는 복사해서 바로 쓸 수 있는 템플릿입니다</strong>. 자신의 Skill을 만들 때 이 템플릿을 기초로 수정하면서 배우세요.</p>
+</blockquote>
+<hr>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#사전-준비" class="internal-link internal-link--section">사전 준비</a></li>
+<li><a href="#파일-1-skillmd-템플릿" class="internal-link internal-link--section">파일 1: SKILL.md 템플릿</a></li>
+<li><a href="#파일-2-categorymappingjson-템플릿" class="internal-link internal-link--section">파일 2: category_mapping.json 템플릿</a></li>
+<li><a href="#파일-3-enhancementrulesmd-템플릿" class="internal-link internal-link--section">파일 3: enhancement_rules.md 템플릿</a></li>
+<li><a href="#체크리스트" class="internal-link internal-link--section">체크리스트</a></li>
+<li><a href="#자주-하는-실수" class="internal-link internal-link--section">자주 하는 실수</a></li>
+</ol>
+<hr>
+<h2 id="사전-준비">사전 준비 {#사전-준비}</h2>
+<h3 id="step-1-폴더-만들기">Step 1: 폴더 만들기 {#step-1-폴더-만들기}</h3>
+<p>터미널에서 다음을 실행:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3102" onclick="copyCode('code-1769481054589-3102')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3102" class="language-bash"># 1. 폴더 생성
+mkdir -p ~/.claude/skills/my-skill-name
+
+<h1>2. 폴더로 이동</h1>
+<p>cd ~/.claude/skills/my-skill-name</p>
+<h1>3. 파일 생성</h1>
+<p>touch SKILL.md
+touch category_mapping.json
+touch enhancement_rules.md</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h3 id="step-2-템플릿-결정">Step 2: 템플릿 결정 {#step-2-템플릿-결정}</h3>
+<p><strong>자신의 Skill이 할 일은?</strong></p>
+<ul>
+<li>텍스트 변환? (예: 마크다운 → HTML)</li>
+<li>파일 분류? (예: 파일을 주제별로 정렬)</li>
+<li>콘텐츠 향상? (예: 원본 텍스트 → 정리된 노트)</li>
+<li>메타데이터 생성? (예: 파일에 YAML 헤더 추가)</li>
+</ul>
+<p><strong>난이도 선택:</strong></p>
+<ul>
+<li>🟢 쉬움: 텍스트 변환 (2시간)</li>
+<li>🟡 중간: 콘텐츠 향상 + 분류 (4시간)</li>
+<li>🔴 어려움: 다국어 지원 + 로깅 (8시간)</li>
+</ul>
+<hr>
+<h2 id="파일-1-skillmd-템플릿">파일 1: SKILL.md 템플릿 {#파일-1-skillmd-템플릿}</h2>
+<h3 id="최소-버전-30분에-만들기">최소 버전 (30분에 만들기) {#최소-버전-30분에-만들기}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3103" onclick="copyCode('code-1769481054589-3103')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3103" class="language-markdown">---
+name: your-skill-name
+description: &quot;당신의 Skill이 하는 일을 한 문장으로&quot;
+---
+
+<h1>당신의 Skill 이름</h1>
+<h2 id="개요">개요 {#개요}</h2>
+<p>이 Skill은 [입력]을 [출력]으로 변환합니다.</p>
+<p>예: &quot;웹 글을 읽기 좋은 노트로 변환합니다&quot;</p>
+<h2 id="핵심-기능">핵심 기능 {#핵심-기능}</h2>
+<ol>
+<li><p><strong>첫 번째 기능</strong></p>
+<ul>
+<li>설명</li>
+</ul>
+</li>
+<li><p><strong>두 번째 기능</strong></p>
+<ul>
+<li>설명</li>
+</ul>
+</li>
+</ol>
+<h2 id="사용-방법">사용 방법 {#사용-방법}</h2>
+<h3 id="기본-사용">기본 사용 {#기본-사용}</h3>
+<p>```
+your-skill-name skill을 사용해서 [입력]을 처리해줘
+```</p>
+<h3 id="예제-1">예제 1 {#예제-1}</h3>
+<p>```
+your-skill-name skill으로 &quot;파일명.md&quot;를 [옵션]과 함께 처리해줘
+```</p>
+<h2 id="처리-과정">처리 과정 {#처리-과정}</h2>
+<h3 id="step-1-입력-분석">STEP 1: 입력 분석 {#step-1-입력-분석}</h3>
+<ul>
+<li>입력이 [뭔지] 확인</li>
+</ul>
+<h3 id="step-2-처리">STEP 2: 처리 {#step-2-처리}</h3>
+<ul>
+<li>[어떻게] 변환</li>
+</ul>
+<h3 id="step-3-출력">STEP 3: 출력 {#step-3-출력}</h3>
+<ul>
+<li>[어디에] 저장</li>
+</ul>
+<h2 id="생성되는-메타데이터">생성되는 메타데이터 {#생성되는-메타데이터}</h2>
+<h2>```yaml</h2>
+<h2>title: &quot;제목&quot;
+created: &#39;2025-11-16&#39;
+status: &quot;완료&quot;
+tags:
+  - 태그1
+  - 태그2</h2>
+<p>```</p>
+<h2 id="품질-기준">품질 기준 {#품질-기준}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> [기준 1]</li>
+<li><input disabled="" type="checkbox"> [기준 2]</li>
+<li><input disabled="" type="checkbox"> [기준 3]</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">44 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="중간-버전-1시간-clipping-processor-정도">중간 버전 (1시간, clipping-processor 정도) {#중간-버전-1시간-clipping-processor-정도}</h3>
+<p>위의 최소 버전에 다음을 추가:</p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3104" onclick="copyCode('code-1769481054589-3104')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3104" class="language-markdown">## 📊 처리 로그
+
+<p>processing_log.md에 다음을 기록:</p>
+<ul>
+<li>처리된 파일 목록</li>
+<li>성공/실패 여부</li>
+<li>처리 시간</li>
+<li>생성된 메타데이터</li>
+</ul>
+<h3 id="로그-샘플">로그 샘플 {#로그-샘플}</h3>
+<p>```markdown</p>
+<h1>처리 로그</h1>
+<h2 id="처리-요약">처리 요약 {#처리-요약}</h2>
+<ul>
+<li><strong>총 처리:</strong> 3개</li>
+<li><strong>성공:</strong> 3개</li>
+<li><strong>마지막 업데이트:</strong> 2025-11-16</li>
+</ul>
+<h3 id="처리된-파일">처리된 파일 {#처리된-파일}</h3>
+<ul>
+<li>파일1.md → 결과1.md (성공)</li>
+<li>파일2.md → 결과2.md (성공)
+```</li>
+</ul>
+<h2 id="적용-기법">🎓 적용 기법 {#적용-기법}</h2>
+<h3 id="feynman-기법">Feynman 기법 {#feynman-기법}</h3>
+<ul>
+<li>복잡한 개념을 단순하게</li>
+</ul>
+<h3 id="storytelling">Storytelling {#storytelling}</h3>
+<ul>
+<li>WHY → WHAT → HOW 순서</li>
+</ul>
+<h2 id="일반적-문제와-해결책">⚠️ 일반적 문제와 해결책 {#일반적-문제와-해결책}</h2>
+<p><strong>&quot;파일이 처리되지 않았어&quot;</strong>
+→ [해결책]</p>
+<p><strong>&quot;메타데이터가 생성 안 됨&quot;</strong>
+→ [해결책]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">27 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="파일-2-category_mappingjson-템플릿">파일 2: category_mapping.json 템플릿 {#파일-2-category_mappingjson-템플릿}</h2>
+<h3 id="최소-버전-분류-1가지만">최소 버전 (분류 1가지만) {#최소-버전-분류-1가지만}</h3>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3105" onclick="copyCode('code-1769481054589-3105')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3105" class="language-json">{
+  &quot;description&quot;: &quot;당신의 Skill이 분류하는 규칙&quot;,
+  &quot;mappings&quot;: [
+    {
+      &quot;priority&quot;: 1,
+      &quot;keywords&quot;: [&quot;keyword1&quot;, &quot;keyword2&quot;],
+      &quot;folder&quot;: &quot;R - Resources/폴더/&quot;,
+      &quot;tags&quot;: [&quot;tag1&quot;, &quot;tag2&quot;],
+      &quot;description&quot;: &quot;이 규칙의 설명&quot;
+    },
+    {
+      &quot;priority&quot;: 2,
+      &quot;keywords&quot;: [&quot;기타&quot;],
+      &quot;folder&quot;: &quot;R - Resources/기타/&quot;,
+      &quot;tags&quot;: [&quot;기타&quot;],
+      &quot;description&quot;: &quot;기본값 (어느 것도 맞지 않으면)&quot;
+    }
+  ]
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">19 lines</span>
+  </div>
+</div>
+
+<h3 id="실전-버전-분류-35가지">실전 버전 (분류 3~5가지) {#실전-버전-분류-35가지}</h3>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3106" onclick="copyCode('code-1769481054589-3106')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3106" class="language-json">{
+  &quot;description&quot;: &quot;당신의 분류 규칙&quot;,
+  &quot;created&quot;: &quot;2025-11-16&quot;,
+  &quot;mappings&quot;: [
+    {
+      &quot;priority&quot;: 1,
+      &quot;keywords&quot;: [&quot;핵심키워드1&quot;, &quot;keyword-1&quot;],
+      &quot;folder&quot;: &quot;R - Resources/주제1/&quot;,
+      &quot;tags&quot;: [&quot;tag1&quot;, &quot;특징1&quot;],
+      &quot;description&quot;: &quot;주제 1 관련&quot;
+    },
+    {
+      &quot;priority&quot;: 2,
+      &quot;keywords&quot;: [&quot;핵심키워드2&quot;],
+      &quot;folder&quot;: &quot;R - Resources/주제2/&quot;,
+      &quot;tags&quot;: [&quot;tag2&quot;, &quot;특징2&quot;],
+      &quot;description&quot;: &quot;주제 2 관련&quot;
+    },
+    {
+      &quot;priority&quot;: 3,
+      &quot;keywords&quot;: [&quot;기타&quot;],
+      &quot;folder&quot;: &quot;R - Resources/기타/&quot;,
+      &quot;tags&quot;: [&quot;기타&quot;],
+      &quot;description&quot;: &quot;분류되지 않은 항목&quot;
+    }
+  ],
+  &quot;classification_algorithm&quot;: {
+    &quot;step1&quot;: &quot;파일 제목과 처음 500자에서 키워드 추출&quot;,
+    &quot;step2&quot;: &quot;keywords에서 정확히 일치하는 항목 찾기&quot;,
+    &quot;step3&quot;: &quot;일치하는 항목 중 priority가 가장 높은 것 선택&quot;,
+    &quot;step4&quot;: &quot;일치하는 항목이 없으면 기본값 사용&quot;
+  },
+  &quot;notes&quot;: [
+    &quot;키워드 매칭은 대소문자 무시&quot;,
+    &quot;여러 키워드 일치시 priority가 낮은(숫자 작은) 항목 우선&quot;
+  ]
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">37 lines</span>
+  </div>
+</div>
+
+<h3 id="json-작성-팁">📝 JSON 작성 팁 {#json-작성-팁}</h3>
+<p><strong>올바른 형식:</strong></p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3107" onclick="copyCode('code-1769481054589-3107')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3107" class="language-json">✅ {&quot;key&quot;: &quot;value&quot;}
+✅ {&quot;key&quot;: &quot;value&quot;, &quot;number&quot;: 1}
+✅ {&quot;array&quot;: [&quot;item1&quot;, &quot;item2&quot;]}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>틀린 형식:</strong></p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3108" onclick="copyCode('code-1769481054589-3108')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3108" class="language-json">❌ {&quot;key&quot;: &quot;value&quot;,}  // 마지막에 쉼표 있음
+❌ {&quot;key&quot;: value}     // 값에 따옴표 없음
+❌ {&#39;key&#39;: &#39;value&#39;}   // 홑따옴표 사용</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>JSON 검증 도구:</strong></p>
+<ul>
+<li>jsonlint.com</li>
+<li>Visual Studio Code (자동 검증)</li>
+</ul>
+<hr>
+<h2 id="파일-3-enhancement_rulesmd-템플릿">파일 3: enhancement_rules.md 템플릿 {#파일-3-enhancement_rulesmd-템플릿}</h2>
+<h3 id="최소-버전-기본-규칙만">최소 버전 (기본 규칙만) {#최소-버전-기본-규칙만}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3109" onclick="copyCode('code-1769481054589-3109')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3109" class="language-markdown"># 콘텐츠 향상 규칙
+
+<h2 id="feynman-기법-적용">Feynman 기법 적용 {#feynman-기법-적용}</h2>
+<h3 id="원칙">원칙 {#원칙}</h3>
+<ul>
+<li>어려운 단어는 다시 설명</li>
+<li>일상 비유 사용</li>
+<li>5살 아이도 이해하도록</li>
+</ul>
+<h3 id="예제">예제 {#예제}</h3>
+<p>❌ 나쁜 예:
+&quot;이 알고리즘은 O(n log n) 복잡도를 가집니다&quot;</p>
+<p>✅ 좋은 예:
+&quot;이 방법은 데이터가 많을수록 조금 더 느려지지만,
+다른 방법보다는 훨씬 빠릅니다.
+마치 책장에서 책을 찾을 때, 한 권씩 확인하는 것보다
+중간부터 시작해서 찾는 것처럼요.&quot;</p>
+<h2 id="storytelling-why-what-how">Storytelling: WHY → WHAT → HOW {#storytelling-why-what-how}</h2>
+<h3 id="why-왜">WHY (왜?) {#why-왜}</h3>
+<ul>
+<li>왜 이것이 중요한가?</li>
+<li>어떤 문제를 해결하는가?</li>
+</ul>
+<h3 id="what-뭐">WHAT (뭐?) {#what-뭐}</h3>
+<ul>
+<li>이것이 정확히 무엇인가?</li>
+<li>어떻게 작동하는가?</li>
+</ul>
+<h3 id="how-어떻게">HOW (어떻게?) {#how-어떻게}</h3>
+<ul>
+<li>구체적으로 어떻게 쓰는가?</li>
+<li>단계별 가이드</li>
+</ul>
+<h2 id="3단계-예제">3단계 예제 {#3단계-예제}</h2>
+<h3 id="기초">🌱 기초 {#기초}</h3>
+<p>[가장 간단한 예제]</p>
+<h3 id="중급">🌿 중급 {#중급}</h3>
+<p>[실제 사용하는 형태]</p>
+<h3 id="고급">🌳 고급 {#고급}</h3>
+<p>[최적화되고 복잡한 형태]</p>
+<h2 id="품질-체크리스트">품질 체크리스트 {#품질-체크리스트}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 어려운 단어가 설명되었나?</li>
+<li><input disabled="" type="checkbox"> 일상 비유가 있나?</li>
+<li><input disabled="" type="checkbox"> WHY→WHAT→HOW 순서인가?</li>
+<li><input disabled="" type="checkbox"> 3단계 예제가 있나?</li>
+<li><input disabled="" type="checkbox"> 예제가 실제로 작동하나?</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">37 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="중간-버전-품질-점수-포함">중간 버전 (품질 점수 포함) {#중간-버전-품질-점수-포함}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3110" onclick="copyCode('code-1769481054589-3110')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3110" class="language-markdown"># 콘텐츠 향상 규칙
+
+<p>[위의 내용 + 다음 추가]</p>
+<h2 id="품질-점수-계산">품질 점수 계산 {#품질-점수-계산}</h2>
+<h3 id="점수-항목">점수 항목 {#점수-항목}</h3>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>배점</th>
+<th>기준</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Feynman 적용</td>
+<td>30점</td>
+<td>어려운 용어 설명됨</td>
+</tr>
+<tr>
+<td>Storytelling</td>
+<td>30점</td>
+<td>WHY→WHAT→HOW 순서</td>
+</tr>
+<tr>
+<td>예제</td>
+<td>25점</td>
+<td>3단계 예제 완성</td>
+</tr>
+<tr>
+<td>가독성</td>
+<td>15점</td>
+<td>문장이 짧고 명확</td>
+</tr>
+</tbody></table>
+<h3 id="등급">등급 {#등급}</h3>
+<ul>
+<li><p><strong>90점 이상</strong>: 매우 좋음 ⭐⭐⭐⭐⭐</p>
+<ul>
+<li>배포 가능 상태</li>
+<li>모든 기준 만족</li>
+</ul>
+</li>
+<li><p><strong>80~89점</strong>: 좋음 ⭐⭐⭐⭐</p>
+<ul>
+<li>약간의 개선 후 배포 가능</li>
+<li>대부분 기준 만족</li>
+</ul>
+</li>
+<li><p><strong>70~79점</strong>: 만족 ⭐⭐⭐</p>
+<ul>
+<li>개선 필요</li>
+<li>일부 기준 미흡</li>
+</ul>
+</li>
+<li><p><strong>70점 미만</strong>: 개선 필요 ⚠️</p>
+<ul>
+<li>다시 작성 필요</li>
+<li>기본 기준 미충족</code></pre><div class="code-block__footer">
+<span class="code-block__lines">23 lines</span>
+</div>
+</div></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="체크리스트">체크리스트 {#체크리스트}</h2>
+<h3 id="만들기-전에">만들기 전에 {#만들기-전에}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 자신의 Skill 이름 결정했나?</li>
+<li><input disabled="" type="checkbox"> Skill이 할 일을 한 문장으로 설명 가능한가?</li>
+<li><input disabled="" type="checkbox"> 입력과 출력이 명확한가?</li>
+</ul>
+<h3 id="파일-만든-후에">파일 만든 후에 {#파일-만든-후에}</h3>
+<p><strong>SKILL.md</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> 개요 섹션이 명확한가?</li>
+<li><input disabled="" type="checkbox"> 사용 예제가 실제로 쓸 수 있나?</li>
+<li><input disabled="" type="checkbox"> 처리 과정이 Step by Step 설명되나?</li>
+<li><input disabled="" type="checkbox"> 생성되는 메타데이터 샘플이 있나?</li>
+</ul>
+<p><strong>category_mapping.json</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> JSON 형식이 올바른가? (jsonlint.com 확인)</li>
+<li><input disabled="" type="checkbox"> priority 값이 논리적인가?</li>
+<li><input disabled="" type="checkbox"> 기본값(fallback)이 있나?</li>
+<li><input disabled="" type="checkbox"> 각 규칙에 설명이 있나?</li>
+</ul>
+<p><strong>enhancement_rules.md</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> Feynman 기법 규칙이 있나?</li>
+<li><input disabled="" type="checkbox"> Storytelling 규칙이 있나?</li>
+<li><input disabled="" type="checkbox"> 3단계 예제 규칙이 있나?</li>
+<li><input disabled="" type="checkbox"> 품질 체크리스트가 있나?</li>
+</ul>
+<h3 id="테스트">테스트 {#테스트}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 직접 명령어로 Skill 사용해보기</li>
+<li><input disabled="" type="checkbox"> 메타데이터 생성이 올바른가?</li>
+<li><input disabled="" type="checkbox"> 파일이 올바른 위치에 저장되는가?</li>
+<li><input disabled="" type="checkbox"> 로그가 기록되는가?</li>
+</ul>
+<hr>
+<h2 id="자주-하는-실수">자주 하는 실수 {#자주-하는-실수}</h2>
+<h3 id="실수-1-너무-복잡하게-시작">실수 1: 너무 복잡하게 시작 {#실수-1-너무-복잡하게-시작}</h3>
+<p>❌ 처음부터 만들려는 것:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3111" onclick="copyCode('code-1769481054589-3111')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3111" class="language-plaintext">- 5가지 기능
+- 10가지 분류 규칙
+- 로깅 시스템
+- 다국어 지원</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p>✅ 올바른 순서:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3112" onclick="copyCode('code-1769481054589-3112')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3112" class="language-plaintext">1단계: 기본 기능 1가지만 (2시간)
+2단계: 분류 규칙 추가 (1시간)
+3단계: 향상 규칙 추가 (1시간)
+4단계: 고급 기능 추가 (차후)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3 id="실수-2-json-형식-오류">실수 2: JSON 형식 오류 {#실수-2-json-형식-오류}</h3>
+<p>❌ 흔한 실수들:</p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3113" onclick="copyCode('code-1769481054589-3113')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3113" class="language-json">{
+  &quot;keywords&quot;: [&quot;python&quot;, &quot;javascript&quot;],
+  // 주석 (JSON에서 안 됨!)
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p>✅ 올바른 형식:</p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3114" onclick="copyCode('code-1769481054589-3114')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3114" class="language-json">{
+  &quot;keywords&quot;: [&quot;python&quot;, &quot;javascript&quot;],
+  &quot;note&quot;: &quot;주석은 따옴표로 감싸기&quot;
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>해결: jsonlint.com에서 항상 검증하기</strong></p>
+<h3 id="실수-3-우선순위priority-설정-실수">실수 3: 우선순위(priority) 설정 실수 {#실수-3-우선순위priority-설정-실수}</h3>
+<p>❌ 같은 priority:</p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3115" onclick="copyCode('code-1769481054589-3115')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3115" class="language-json">{&quot;priority&quot;: 1, &quot;keywords&quot;: [&quot;Claude Code&quot;, &quot;MCP&quot;]},
+{&quot;priority&quot;: 1, &quot;keywords&quot;: [&quot;Claude&quot;]}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+→ 둘 다 priority 1이면 어느 것을 먼저 적용할까? 혼란!
+
+<p>✅ 명확한 priority:</p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3116" onclick="copyCode('code-1769481054589-3116')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3116" class="language-json">{&quot;priority&quot;: 1, &quot;keywords&quot;: [&quot;Claude Code&quot;]},  // 가장 구체적
+{&quot;priority&quot;: 2, &quot;keywords&quot;: [&quot;Claude&quot;]},      // 그 다음
+{&quot;priority&quot;: 3, &quot;keywords&quot;: [&quot;기타&quot;]}          // 마지막 (기본값)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h3 id="실수-4-yaml-메타데이터-형식-오류">실수 4: YAML 메타데이터 형식 오류 {#실수-4-yaml-메타데이터-형식-오류}</h3>
+<p>❌ 틀린 YAML:</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3117" onclick="copyCode('code-1769481054589-3117')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3117" class="language-yaml">---
+title: 제목          # 따옴표 없음 (숫자 시작하면 필요)
+tags:
+  - tag1
+  tag2              # 들여쓰기 안 맞음
+status: 완료        # 한글도 따옴표로 감싸기
+---</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<p>✅ 올바른 YAML:</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3118" onclick="copyCode('code-1769481054589-3118')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3118" class="language-yaml">---
+title: &quot;제목&quot;
+created: &#39;2025-11-16&#39;
+tags:
+  - tag1
+  - tag2
+status: &quot;완료&quot;
+---</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div>
+
+<h3 id="실수-5-예제가-작동하지-않음">실수 5: 예제가 작동하지 않음 {#실수-5-예제가-작동하지-않음}</h3>
+<p>❌ 나쁜 예제:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3119" onclick="copyCode('code-1769481054589-3119')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3119" class="language-plaintext">your-skill을 사용해서 [입력]을 처리해줘</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+→ 너무 모호함, 실제로 따라할 수 없음
+
+<p>✅ 좋은 예제:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3120" onclick="copyCode('code-1769481054589-3120')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3120" class="language-plaintext">your-skill으로 &quot;README.md&quot; 파일을 마크다운에서 HTML로 변환해줘</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+→ 실제로 쓸 수 있는 명령어, 따라하기 쉬움
+
+<hr>
+<h2 id="빠른-참고-폴더-구조-다시-보기">빠른 참고: 폴더 구조 다시 보기 {#빠른-참고-폴더-구조-다시-보기}</h2>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3121" onclick="copyCode('code-1769481054589-3121')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3121" class="language-plaintext">~/.claude/skills/your-skill-name/
+├── SKILL.md                  ← 메인 가이드
+├── category_mapping.json     ← 분류 규칙 (필요하면)
+├── enhancement_rules.md      ← 향상 규칙 (필요하면)
+└── README.md                 ← (선택) 전체 개요</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="예제-실제로-만든-예제-15분-skill">예제: 실제로 만든 예제 (15분 Skill) {#예제-실제로-만든-예제-15분-skill}</h2>
+<h3 id="요구사항">요구사항 {#요구사항}</h3>
+<p>&quot;마크다운 파일의 제목을 자동으로 정규화하는 Skill&quot;</p>
+<h3 id="skillmd">SKILL.md {#skillmd}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3122" onclick="copyCode('code-1769481054589-3122')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3122" class="language-markdown"># markdown-title-normalizer
+
+<h2 id="개요">개요 {#개요}</h2>
+<p>마크다운 파일의 모든 제목을 일관된 형식으로 변환합니다.</p>
+<h2 id="사용-방법">사용 방법 {#사용-방법}</h2>
+<p>markdown-title-normalizer skill으로 &quot;README.md&quot;를 정규화해줘</p>
+<h2 id="처리-과정">처리 과정 {#처리-과정}</h2>
+<p>STEP 1: 파일 읽기 → 모든 제목(#, ##, ###) 확인
+STEP 2: 정규화 규칙 적용 → 일관된 형식으로 변환
+STEP 3: 파일 저장 → 정규화된 파일 생성</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h3 id="category_mappingjson">category_mapping.json {#category_mappingjson}</h3>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3123" onclick="copyCode('code-1769481054589-3123')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3123" class="language-json">{
+  &quot;mappings&quot;: [
+    {
+      &quot;priority&quot;: 1,
+      &quot;keywords&quot;: [&quot;documentation&quot;, &quot;README&quot;, &quot;가이드&quot;, &quot;문서&quot;],
+      &quot;folder&quot;: &quot;R - Resources/&quot;,
+      &quot;tags&quot;: [&quot;문서&quot;, &quot;정규화&quot;]
+    }
+  ]
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div>
+</div>
+
+<h3 id="enhancement_rulesmd">enhancement_rules.md {#enhancement_rulesmd}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054589-3124" onclick="copyCode('code-1769481054589-3124')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054589-3124" class="language-markdown"># 제목 정규화 규칙
+
+<h2 id="규칙-1-일관된-대소문자">규칙 1: 일관된 대소문자 {#규칙-1-일관된-대소문자}</h2>
+<p>❌ <code># hello world</code> → ✅ <code># Hello World</code></p>
+<h2 id="규칙-2-특수문자-제거">규칙 2: 특수문자 제거 {#규칙-2-특수문자-제거}</h2>
+<p>❌ <code># Section 1!!!</code> → ✅ <code># Section 1</code></p>
+<h2 id="규칙-3-번호-형식-통일">규칙 3: 번호 형식 통일 {#규칙-3-번호-형식-통일}</h2>
+<p>❌ <code># 1. 개요</code> / <code># 2) 내용</code> → ✅ <code># 1. 개요</code> / <code># 2. 내용</code></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="다음-단계">다음 단계 {#다음-단계}</h2>
+<ol>
+<li><strong>템플릿 다운로드</strong>: 이 문서의 각 섹션 복사</li>
+<li><strong>파일 수정</strong>: [자신의 Skill] 정보로 수정</li>
+<li><strong>테스트</strong>: 직접 명령어로 실행</li>
+<li><strong>개선</strong>: 피드백 반영해서 업데이트</li>
+</ol>
+<hr>
+<h2 id="추가-자료">추가 자료 {#추가-자료}</h2>
+<ul>
+<li><a href="/articles/claudeskillsbeginnersguide.html" class="internal-link">Claude_Skills_초보자_가이드</a> - 기초 이론</li>
+<li><a href="/articles/clipping-processorreal-worldanalysis.html" class="internal-link">clipping-processor_실전_분석</a> - 복잡한 예제 분석</li>
+<li><a href="/articles/claude-code-complete-guide.html" class="internal-link">Claude Code 완전 가이드</a> - Claude Code 기능</li>
+</ul>
+<hr>
+<p><strong>💡 Pro Tip</strong>: 처음에는 &quot;완벽함&quot;보다 &quot;완성&quot;을 목표로 하세요. 기본 Skill을 만든 후, 계속 개선하는 것이 더 빠르고 효과적입니다! 🚀</p>
+<p><strong>📝 버전 정보</strong></p>
+<ul>
+<li>작성: 2025-11-16</li>
+<li>상태: ✅ 완료</li>
+<li>대상: 초보자</li>
+<li>난이도: ⭐ (쉬움)</li>
+</ul>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/claude-skills.html" class="article-tag">claude-skills</a><a href="/tag/템플릿.html" class="article-tag">템플릿</a><a href="/tag/초보자.html" class="article-tag">초보자</a><a href="/tag/실습자료.html" class="article-tag">실습자료</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/skill-template.html&text=나의 첫 Skill 만드는 템플릿 (복사해서 바로 쓰기)" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/skill-template.html&title=나의 첫 Skill 만드는 템플릿 (복사해서 바로 쓰기)" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/skill-template.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/claude-specialist.html" class="author-bio__card">
+          <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">Claude 전문가</h3>
+            <p class="author-bio__role">Claude Code Specialist</p>
+            <p class="author-bio__text">Claude Code와 AI 코딩 도구 활용법을 연구합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-code-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Code 슬래시 명령어 완전 정복 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Code 슬래시 명령어 완전 정복 가이드</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 실전 중심 가이드 --- Claude에게 미리 정해둔 역할을 로 호출하는 기능입니다. 비유: 스마트폰 단축어처럼, 복잡한 지시를 한 단어로 실행 --- 슬래시 명령어는  파일로 구성되며, 크게 YAML 프론트매터와 본문으로 나뉩니다. --- 목적:...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills-beginners-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 만드는 법: 초보자 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 만드는 법: 초보자 완전 가이드</h3>
+          <p class="article-card__excerpt">이 가이드의 목표: Claude Code를 처음 배우는 초보 개발자도 실제로 작동하는 Claude Skill을 만들 수 있도록 단계별로 설명합니다. 복잡한 개념도 쉬운 말로 풀어 설명하고, 실전 예제로 바로 적용할 수 있게 구성했습니다. --- 1.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">25 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 마스터 학습 경로"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 마스터 학습 경로</h3>
+          <p class="article-card__excerpt">초보자에서 마스터까지: 이 경로를 따라가면 Claude Skill을 완벽하게 만들 수 있습니다. --- --- 읽을 문서: Claude Skills가 뭔가요 (5살 버전) || ClaudeSkills초보자가이드#Claude Skills가 뭔가요 (5살 버전) 배울...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

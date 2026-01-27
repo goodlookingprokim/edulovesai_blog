@@ -1,0 +1,2268 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obsidian + Gemini CLI 통합 실전 가이드 | AI &amp; Development Journal</title>
+  <meta name="description" content="- 핵심 주제: Obsidian 노트 앱에서 Gemini CLI를 활용한 AI 지원 글쓰기 환경 구축 - 목적: 노트 작성과 지식 관리에 AI를 통합하여 생산성 극대화 - 범위: macOS 기준 설치부터 고급 활용까지 완전 가이드 - 대상 플랫폼: macOS...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Obsidian + Gemini CLI 통합 실전 가이드">
+  <meta property="og:description" content="- 핵심 주제: Obsidian 노트 앱에서 Gemini CLI를 활용한 AI 지원 글쓰기 환경 구축 - 목적: 노트 작성과 지식 관리에 AI를 통합하여 생산성 극대화 - 범위: macOS 기준 설치부터 고급 활용까지 완전 가이드 - 대상 플랫폼: macOS...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-gemini-cli-integration-real-world-guide-1.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Obsidian + Gemini CLI 통합 실전 가이드">
+  <meta name="twitter:description" content="- 핵심 주제: Obsidian 노트 앱에서 Gemini CLI를 활용한 AI 지원 글쓰기 환경 구축 - 목적: 노트 작성과 지식 관리에 AI를 통합하여 생산성 극대화 - 범위: macOS 기준 설치부터 고급 활용까지 완전 가이드 - 대상 플랫폼: macOS...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-gemini-cli-integration-real-world-guide-1.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">Obsidian + Gemini CLI 통합 실전 가이드</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 7월 9일">2025년 7월 9일</time>
+            <span class="article-meta__separator">·</span>
+            <span>29 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#목차-내부-링크-활용" class="toc__link">📋 목차 (내부 링크 활용)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#배경-및-맥락" class="toc__link">배경 및 맥락</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#ai-통합-글쓰기-환경의-필요성" class="toc__link">AI 통합 글쓰기 환경의 필요성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기술-스택-선택-이유" class="toc__link">기술 스택 선택 이유</a>
+    </li>
+    <li class="toc__item">
+      <a href="#핵심-개념-기능" class="toc__link">핵심 개념 기능</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-시스템-아키텍처" class="toc__link">1. 시스템 아키텍처</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-주요-구성-요소" class="toc__link">2. 주요 구성 요소</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-핵심-기능" class="toc__link">3. 핵심 기능</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-워크플로우-다이어그램" class="toc__link">4. 워크플로우 다이어그램</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-방법-활용법" class="toc__link">구현 방법 활용법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-환경-구축-단계" class="toc__link">1. 환경 구축 단계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-기본-동작-확인" class="toc__link">2. 기본 동작 확인</a>
+    </li>
+    <li class="toc__item">
+      <a href="#초급-활용법" class="toc__link">초급 활용법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-기본-사용법-익히기" class="toc__link">1. 기본 사용법 익히기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-단일-파일-작업" class="toc__link">2. 단일 파일 작업</a>
+    </li>
+    <li class="toc__item">
+      <a href="#중급-활용법" class="toc__link">중급 활용법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-다중-파일-작업" class="toc__link">1. 다중 파일 작업</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-폴더-단위-작업" class="toc__link">2. 폴더 단위 작업</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-대화형-모드-활용" class="toc__link">3. 대화형 모드 활용</a>
+    </li>
+    <li class="toc__item">
+      <a href="#고급-활용법" class="toc__link">고급 활용법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-고급-플래그-활용" class="toc__link">1. 고급 플래그 활용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-자동화-스크립트-활용" class="toc__link">2. 자동화 스크립트 활용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-복합-워크플로우" class="toc__link">3. 복합 워크플로우</a>
+    </li>
+    <li class="toc__item">
+      <a href="#사례-및-예시" class="toc__link">사례 및 예시</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-연구-노트-자동화" class="toc__link">1. 연구 노트 자동화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-회의록-정리" class="toc__link">2. 회의록 정리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-콘텐츠-생성" class="toc__link">3. 콘텐츠 생성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-템플릿-활용-예시" class="toc__link">4. 템플릿 활용 예시</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#5-대화형-모드-활용-시나리오" class="toc__link">5. 대화형 모드 활용 시나리오</a>
+    </li>
+    <li class="toc__item">
+      <a href="#장단점-분석" class="toc__link">장단점 분석</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#장점" class="toc__link">장점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#단점" class="toc__link">단점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#사용-방법별-장단점-비교" class="toc__link">사용 방법별 장단점 비교</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#주의사항" class="toc__link">주의사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결-가이드" class="toc__link">문제 해결 가이드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#자가-진단-체크리스트" class="toc__link">🔧 자가 진단 체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#자주-발생하는-문제와-해결책" class="toc__link">🚨 자주 발생하는 문제와 해결책</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-문제-해결" class="toc__link">🛠️ 고급 문제 해결</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#예방적-유지보수" class="toc__link">💡 예방적 유지보수</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#추가-지원-리소스" class="toc__link">📞 추가 지원 리소스</a>
+    </li>
+    <li class="toc__item">
+      <a href="#향후-전망-발전-방향" class="toc__link">향후 전망 발전 방향</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#단기-발전-방향" class="toc__link">단기 발전 방향</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중장기-발전-방향" class="toc__link">중장기 발전 방향</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#생태계-확장" class="toc__link">생태계 확장</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실무-적용점" class="toc__link">실무 적용점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-개인-생산성" class="toc__link">1. 개인 생산성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-팀-협업" class="toc__link">2. 팀 협업</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-콘텐츠-제작" class="toc__link">3. 콘텐츠 제작</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-연구-및-분석" class="toc__link">4. 연구 및 분석</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-체크리스트" class="toc__link">구현 체크리스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#참고-자료" class="toc__link">참고 자료</a>
+    </li>
+    <li class="toc__item">
+      <a href="#변경-이력" class="toc__link">변경 이력</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Obsidian + Gemini CLI 통합 실전 가이드</h1>
+<h2 id="개요">개요 {#개요}</h2>
+<ul>
+<li><strong>핵심 주제</strong>: Obsidian 노트 앱에서 Gemini CLI를 활용한 AI 지원 글쓰기 환경 구축</li>
+<li><strong>목적</strong>: 노트 작성과 지식 관리에 AI를 통합하여 생산성 극대화</li>
+<li><strong>범위</strong>: macOS 기준 설치부터 고급 활용까지 완전 가이드</li>
+<li><strong>대상 플랫폼</strong>: macOS (macOS 12.0 이상 권장)</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>중요</strong>: 이 가이드는 <strong>macOS 사용자</strong>를 기준으로 작성되었습니다. Windows나 Linux 사용자는 일부 명령어와 경로가 다를 수 있습니다.</p>
+</blockquote>
+<h2 id="목차-내부-링크-활용">📋 목차 (내부 링크 활용) {#목차-내부-링크-활용}</h2>
+<ol>
+<li><a href="#배경-및-맥락" class="internal-link internal-link--section">배경 및 맥락</a></li>
+<li><a href="#핵심-개념-기능" class="internal-link internal-link--section">핵심 개념 기능</a></li>
+<li><a href="#구현-방법-활용법" class="internal-link internal-link--section">구현 방법 활용법</a></li>
+<li><a href="#초급-활용법" class="internal-link internal-link--section">초급 활용법</a></li>
+<li><a href="#중급-활용법" class="internal-link internal-link--section">중급 활용법</a></li>
+<li><a href="#고급-활용법" class="internal-link internal-link--section">고급 활용법</a></li>
+<li><a href="#사례-및-예시" class="internal-link internal-link--section">사례 및 예시</a></li>
+<li><a href="#장단점-분석" class="internal-link internal-link--section">장단점 분석</a></li>
+<li><a href="#문제-해결-가이드" class="internal-link internal-link--section">문제 해결 가이드</a></li>
+<li><a href="#향후-전망-발전-방향" class="internal-link internal-link--section">향후 전망 발전 방향</a></li>
+<li><a href="#실무-적용점" class="internal-link internal-link--section">실무 적용점</a></li>
+</ol>
+<h2 id="배경-및-맥락">배경 및 맥락 {#배경-및-맥락}</h2>
+<h3 id="ai-통합-글쓰기-환경의-필요성">AI 통합 글쓰기 환경의 필요성 {#ai-통합-글쓰기-환경의-필요성}</h3>
+<ul>
+<li>단순 노트 작성을 넘어 AI와 협업하는 지식 관리 시스템 구축</li>
+<li>Obsidian의 강력한 노트 관리 기능과 Gemini의 AI 능력 결합</li>
+<li>로컬 환경에서 직접 AI를 활용한 콘텐츠 생성 및 분석</li>
+</ul>
+<h3 id="기술-스택-선택-이유">기술 스택 선택 이유 {#기술-스택-선택-이유}</h3>
+<ul>
+<li><strong>Obsidian</strong>: 마크다운 기반, 로컬 파일 시스템, 확장성</li>
+<li><strong>Gemini CLI</strong>: Google의 대규모 언어 모델 접근, 터미널 통합</li>
+<li><strong>Terminal Plugin</strong>: Obsidian 내부에서 직접 명령어 실행</li>
+</ul>
+<h2 id="핵심-개념-기능">핵심 개념 기능 {#핵심-개념-기능}</h2>
+<h3 id="1-시스템-아키텍처">1. 시스템 아키텍처 {#1-시스템-아키텍처}</h3>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4916" onclick="copyCode('code-1769481054915-4916')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4916" class="language-mermaid">graph TD
+    A[사용자] --&gt; B[Obsidian App]
+    B --&gt; C[Terminal Plugin]
+    C --&gt; D[Gemini CLI]
+    D --&gt; E[Google Gemini API]
+    
+<pre><code>B --&amp;gt; F[Markdown 파일]
+F --&amp;gt; C
+
+E --&amp;gt; G[AI 응답]
+G --&amp;gt; D
+D --&amp;gt; C
+C --&amp;gt; B
+B --&amp;gt; A
+
+style A fill:#e1f5fe
+style B fill:#f3e5f5
+style C fill:#e8f5e8
+style D fill:#fff3e0
+style E fill:#ffebee&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">20 lines</span>
+  </div>
+</div>
+
+<h3 id="2-주요-구성-요소">2. 주요 구성 요소 {#2-주요-구성-요소}</h3>
+<ul>
+<li><strong>Node.js</strong>: JavaScript 런타임 환경</li>
+<li><strong>npm</strong>: Node 패키지 매니저</li>
+<li><strong>Gemini CLI</strong>: Google AI CLI 도구</li>
+<li><strong>Obsidian Terminal</strong>: 터미널 통합 플러그인</li>
+</ul>
+<h3 id="3-핵심-기능">3. 핵심 기능 {#3-핵심-기능}</h3>
+<ul>
+<li>파일 내용 분석 및 요약</li>
+<li>자동 콘텐츠 생성</li>
+<li>주제별 분류 및 정리</li>
+<li>다중 파일 통합 분석</li>
+</ul>
+<h3 id="4-워크플로우-다이어그램">4. 워크플로우 다이어그램 {#4-워크플로우-다이어그램}</h3>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4917" onclick="copyCode('code-1769481054915-4917')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4917" class="language-mermaid">flowchart TD
+    Start([시작]) --&gt; Choice{사용 모드 선택}
+    
+<pre><code>Choice --&amp;gt;|빠른 작업| OneTime[일회성 명령어]
+Choice --&amp;gt;|복합 작업| Interactive[대화형 모드]
+
+OneTime --&amp;gt; SingleFile{파일 개수}
+SingleFile --&amp;gt;|단일| Single[단일 파일 분석]
+SingleFile --&amp;gt;|다중| Multi[다중 파일 통합]
+SingleFile --&amp;gt;|폴더| Folder[폴더 전체 분석]
+
+Interactive --&amp;gt; Dialog[gemini 대화 시작]
+Dialog --&amp;gt; Continuous[연속적 대화]
+Continuous --&amp;gt; Context[컨텍스트 유지]
+Context --&amp;gt; Modify[반복 수정]
+
+Single --&amp;gt; Command1[&amp;quot;`gemini -p &amp;#39;요약해주세요:&amp;#39; &amp;#39;file.md&amp;#39;`&amp;quot;]
+Multi --&amp;gt; Command2[&amp;quot;`gemini -p &amp;#39;비교분석:&amp;#39; &amp;#39;file1.md&amp;#39; &amp;#39;file2.md&amp;#39;`&amp;quot;]
+Folder --&amp;gt; Command3[&amp;quot;`gemini --all_files -p &amp;#39;프로젝트 분석&amp;#39;`&amp;quot;]
+
+Command1 --&amp;gt; Result[결과 출력]
+Command2 --&amp;gt; Result
+Command3 --&amp;gt; Result
+
+Modify --&amp;gt; Exit{작업 완료?}
+Exit --&amp;gt;|아니오| Continuous
+Exit --&amp;gt;|예| End([종료])
+
+Result --&amp;gt; End
+
+style Start fill:#c8e6c9
+style Choice fill:#fff3e0
+style OneTime fill:#e3f2fd
+style Interactive fill:#f3e5f5
+style End fill:#ffcdd2&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">35 lines</span>
+  </div>
+</div>
+
+<h2 id="구현-방법-활용법">구현 방법 활용법 {#구현-방법-활용법}</h2>
+<h3 id="1-환경-구축-단계">1. 환경 구축 단계 {#1-환경-구축-단계}</h3>
+<h4>Node.js 설치</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4918" onclick="copyCode('code-1769481054915-4918')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4918" class="language-bash"># Homebrew로 Node.js 설치
+brew install node
+
+<h1>설치 확인</h1>
+<p>node --version
+npm --version</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<h4>Gemini CLI 설치</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4919" onclick="copyCode('code-1769481054915-4919')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4919" class="language-bash"># 전역 설치
+npm install -g @google/generative-ai-cli
+
+<h1>API 키 설정</h1>
+<p>gemini config set api-key YOUR_API_KEY_HERE</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>Obsidian Terminal 설정</h4>
+<ol>
+<li><strong>플러그인 설치</strong>: Community Plugins에서 &quot;Terminal&quot; 검색 및 설치</li>
+<li><strong>터미널 실행</strong>: 사이드바에 생긴 📟 터미널 아이콘 클릭 → &quot;Open Terminal&quot; 선택</li>
+<li><strong>프로필 선택</strong>: 드롭다운 메뉴에서 <code>darwinIntegratedDefault</code> 선택</li>
+<li><strong>작동 확인</strong>: <code>pwd</code> 명령어로 현재 경로 확인 (Obsidian Vault 경로가 표시되어야 함)</li>
+</ol>
+<h3 id="2-기본-동작-확인">2. 기본 동작 확인 {#2-기본-동작-확인}</h3>
+<h4>API 연결 테스트</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4920" onclick="copyCode('code-1769481054915-4920')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4920" class="language-bash"># 기본 기능 테스트
+gemini -p &quot;안녕하세요. 테스트입니다.&quot;
+
+<h1>모델 목록 확인</h1>
+<p>gemini models list</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h2 id="초급-활용법">초급 활용법 {#초급-활용법}</h2>
+<h3 id="1-기본-사용법-익히기">1. 기본 사용법 익히기 {#1-기본-사용법-익히기}</h3>
+<h4>기본 테스트</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4921" onclick="copyCode('code-1769481054915-4921')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4921" class="language-bash"># 기본 기능 테스트
+gemini -p &quot;안녕하세요. 테스트입니다.&quot;
+
+<h1>파일 없이 프롬프트만 사용</h1>
+<p>gemini -p &quot;한국의 수도는 어디인가요?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>두 가지 사용 방법</h4>
+<p><strong>1. 일회성 명령어 방식 (초보자 권장)</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4922" onclick="copyCode('code-1769481054915-4922')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4922" class="language-bash"># 단일 명령어로 즉시 실행
+gemini -p &quot;질문 내용&quot; &quot;파일경로&quot;
+
+<h1>예시</h1>
+<p>gemini -p &quot;이 파일을 요약해주세요:&quot; &quot;99_템플릿/AI협업_템플릿.md&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<p><strong>2. 대화형 모드 (Interactive Mode)</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4923" onclick="copyCode('code-1769481054915-4923')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4923" class="language-bash"># gemini 명령어만 입력하여 대화 모드 진입
+gemini
+
+<h1>프롬프트가 나타나면 자유롭게 대화</h1>
+<p>&gt; 안녕하세요. 오늘 날씨는 어때요?
+[Gemini 응답]</p>
+<p>&gt; 파일을 분석해주세요: /Users/jmacpro/Documents/Obsidian Cli/99_템플릿/AI협업_템플릿.md
+[Gemini 응답]</p>
+<p>&gt; 종료하려면 Ctrl+C 또는 exit 입력</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h3 id="2-단일-파일-작업">2. 단일 파일 작업 {#2-단일-파일-작업}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4924" onclick="copyCode('code-1769481054915-4924')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4924" class="language-bash"># 파일 요약
+cd &quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+gemini -p &quot;이 파일의 핵심 내용을 3줄로 요약해주세요:&quot; &quot;99_템플릿/AI협업_템플릿.md&quot;
+
+<h1>제목 추천</h1>
+<p>gemini -p &quot;적절한 제목 5개를 제안해주세요:&quot; &quot;99_템플릿/AI협업_템플릿.md&quot;</p>
+<h1>키워드 추출</h1>
+<p>gemini -p &quot;이 파일에서 핵심 키워드 10개를 추출해주세요:&quot; &quot;99_템플릿/AI협업_템플릿.md&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h2 id="중급-활용법">중급 활용법 {#중급-활용법}</h2>
+<h3 id="1-다중-파일-작업">1. 다중 파일 작업 {#1-다중-파일-작업}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4925" onclick="copyCode('code-1769481054915-4925')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4925" class="language-bash"># 여러 파일 비교 분석
+cd &quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+gemini -p &quot;이 템플릿들을 비교 분석해주세요:&quot; &quot;99_템플릿/AI협업_템플릿.md&quot; &quot;99_템플릿/다른템플릿.md&quot;
+
+<h1>파일 통합 요약</h1>
+<p>gemini -p &quot;이 파일들의 공통점과 차이점을 분석해주세요:&quot; &quot;file1.md&quot; &quot;file2.md&quot; &quot;file3.md&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<h3 id="2-폴더-단위-작업">2. 폴더 단위 작업 {#2-폴더-단위-작업}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4926" onclick="copyCode('code-1769481054915-4926')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4926" class="language-bash"># 폴더 내 파일 분류
+gemini -p &quot;이 폴더의 모든 .md 파일을 주제별로 분류해주세요:&quot; &quot;99_템플릿/&quot;
+
+<h1>종합 보고서 생성</h1>
+<p>gemini -p &quot;이 폴더의 내용으로 종합 보고서를 작성해주세요:&quot; &quot;_스크립트/&quot;</p>
+<h1>현재 디렉토리 모든 파일 분석</h1>
+<p>gemini --all_files -p &quot;이 프로젝트의 전체 구조를 분석해주세요&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h3 id="3-대화형-모드-활용">3. 대화형 모드 활용 {#3-대화형-모드-활용}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4927" onclick="copyCode('code-1769481054915-4927')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4927" class="language-bash"># 연속적인 작업 흐름
+gemini
+
+<p>&gt; 파일을 분석해주세요: 99_템플릿/AI협업_템플릿.md
+&gt; 이 템플릿을 바탕으로 프로젝트 관리용 템플릿을 만들어주세요
+&gt; 방금 만든 템플릿에 타임라인 섹션을 추가해주세요
+&gt; exit</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h2 id="고급-활용법">고급 활용법 {#고급-활용법}</h2>
+<h3 id="1-고급-플래그-활용">1. 고급 플래그 활용 {#1-고급-플래그-활용}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4928" onclick="copyCode('code-1769481054915-4928')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4928" class="language-bash"># 샌드박스 모드 실행
+gemini -s -p &quot;코드를 실행해주세요:&quot; &quot;script.py&quot;
+
+<h1>디버그 모드</h1>
+<p>gemini -d -p &quot;오류를 분석해주세요:&quot; &quot;error.log&quot;</p>
+<h1>특정 모델 사용</h1>
+<p>gemini -m &quot;gemini-2.5-pro&quot; -p &quot;복잡한 분석을 해주세요:&quot; &quot;data.md&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h3 id="2-자동화-스크립트-활용">2. 자동화 스크립트 활용 {#2-자동화-스크립트-활용}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4929" onclick="copyCode('code-1769481054915-4929')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4929" class="language-bash"># 배치 처리 스크립트
+#!/bin/bash
+for file in *.md; do
+    gemini -p &quot;이 파일을 요약해주세요:&quot; &quot;$file&quot; &gt; &quot;summary_$file&quot;
+done</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="3-복합-워크플로우">3. 복합 워크플로우 {#3-복합-워크플로우}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4930" onclick="copyCode('code-1769481054915-4930')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4930" class="language-bash"># 1단계: 분석
+gemini -p &quot;이 프로젝트의 문제점을 찾아주세요:&quot; &quot;프로젝트/&quot; --all_files
+
+<h1>2단계: 해결책 제안</h1>
+<p>gemini -p &quot;앞서 분석한 문제점들의 해결책을 제안해주세요:&quot; &quot;프로젝트/analysis.md&quot;</p>
+<h1>3단계: 실행 계획</h1>
+<p>gemini -p &quot;해결책을 단계별 실행 계획으로 만들어주세요:&quot; &quot;프로젝트/solutions.md&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h2 id="사례-및-예시">사례 및 예시 {#사례-및-예시}</h2>
+<h3 id="1-연구-노트-자동화">1. 연구 노트 자동화 {#1-연구-노트-자동화}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4931" onclick="copyCode('code-1769481054915-4931')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4931" class="language-bash"># 연구 주제 확장 (복사 붙여넣기 가능)
+cd &quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+gemini -p &quot;이 연구 주제에 대해 추가로 조사해야 할 항목 10개를 제안해주세요:&quot; &quot;연구노트/research.md&quot;
+
+<h1>참고문헌 생성</h1>
+<p>gemini -p &quot;이 내용을 바탕으로 관련 키워드와 검색어를 추출해주세요:&quot; &quot;/Users/jmacpro/Documents/Obsidian Cli/연구노트/paper.md&quot;</p>
+<h1>논문 초안 작성</h1>
+<p>gemini -p &quot;이 자료들을 바탕으로 논문 초안을 작성해주세요:&quot; &quot;연구노트/research.md&quot; &quot;연구노트/references.md&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h3 id="2-회의록-정리">2. 회의록 정리 {#2-회의록-정리}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4932" onclick="copyCode('code-1769481054915-4932')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4932" class="language-bash"># 회의록 요약 (실제 사용 가능한 경로)
+cd &quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+gemini -p &quot;이 회의록에서 액션 아이템만 추출해주세요:&quot; &quot;회의록/meeting_notes.md&quot;
+
+<h1>후속 조치 생성</h1>
+<p>gemini -p &quot;이 회의록을 바탕으로 팀별 할 일을 정리해주세요:&quot; &quot;/Users/jmacpro/Documents/Obsidian Cli/회의록/meeting_notes.md&quot;</p>
+<h1>회의 요약 및 다음 회의 안건 생성</h1>
+<p>gemini -p &quot;이 회의록을 요약하고 다음 회의 안건을 제안해주세요:&quot; &quot;회의록/meeting_notes.md&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h3 id="3-콘텐츠-생성">3. 콘텐츠 생성 {#3-콘텐츠-생성}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4933" onclick="copyCode('code-1769481054915-4933')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4933" class="language-bash"># 블로그 포스트 작성 (템플릿 활용)
+cd &quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+gemini -p &quot;이 개요를 바탕으로 블로그 포스트를 작성해주세요:&quot; &quot;콘텐츠/outline.md&quot;
+
+<h1>SEO 최적화</h1>
+<p>gemini -p &quot;이 글의 SEO를 위한 메타 설명과 키워드를 생성해주세요:&quot; &quot;/Users/jmacpro/Documents/Obsidian Cli/콘텐츠/article.md&quot;</p>
+<h1>소셜 미디어 요약본 생성</h1>
+<p>gemini -p &quot;이 글을 SNS 게시용으로 요약해주세요 (트위터, 인스타그램, 링크드인 버전):&quot; &quot;콘텐츠/article.md&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h3 id="4-템플릿-활용-예시">4. 템플릿 활용 예시 {#4-템플릿-활용-예시}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4934" onclick="copyCode('code-1769481054915-4934')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4934" class="language-bash"># AI 협업 템플릿 분석 (바로 사용 가능)
+cd &quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+gemini -p &quot;이 템플릿을 분석하고 개선점을 제안해주세요:&quot; &quot;99_템플릿/AI협업_템플릿.md&quot;
+
+<h1>여러 템플릿 비교</h1>
+<p>gemini -p &quot;이 템플릿들을 비교하여 장단점을 분석해주세요:&quot; &quot;99_템플릿/&quot; --all_files</p>
+<h1>새로운 템플릿 생성</h1>
+<p>gemini -p &quot;프로젝트 관리용 템플릿을 만들어주세요. 기존 템플릿을 참고하세요:&quot; &quot;99_템플릿/AI협업_템플릿.md&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h3 id="5-대화형-모드-활용-시나리오">5. 대화형 모드 활용 시나리오 {#5-대화형-모드-활용-시나리오}</h3>
+<h4>장문 작업 시나리오 (대화형 모드 권장)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4935" onclick="copyCode('code-1769481054915-4935')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4935" class="language-bash"># 대화형 모드 시작
+cd &quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+gemini
+
+<h1>연속적인 작업 흐름</h1>
+<p>&gt; 파일을 분석해주세요: 99_템플릿/AI협업_템플릿.md
+[Gemini가 템플릿 분석 결과 제공]</p>
+<p>&gt; 이 템플릿을 바탕으로 프로젝트 관리용 템플릿을 만들어주세요
+[Gemini가 새로운 템플릿 생성]</p>
+<p>&gt; 방금 만든 템플릿에 타임라인 섹션을 추가해주세요
+[Gemini가 타임라인 섹션 추가]</p>
+<p>&gt; 이 템플릿을 마크다운 파일로 저장할 수 있는 형태로 정리해주세요
+[Gemini가 최종 정리된 템플릿 제공]</p>
+<p>&gt; exit (또는 Ctrl+C로 종료)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div></p>
+</div>
+
+<h4>빠른 질문 시나리오 (일회성 명령어 권장)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4936" onclick="copyCode('code-1769481054915-4936')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4936" class="language-bash"># 빠른 단일 질문
+gemini -p &quot;이 파일의 제목을 5개 제안해주세요:&quot; &quot;99_템플릿/AI협업_템플릿.md&quot;
+
+<h1>즉시 요약 필요</h1>
+<p>gemini -p &quot;이 회의록을 3줄로 요약해주세요:&quot; &quot;회의록/team-meeting.md&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h2 id="장단점-분석">장단점 분석 {#장단점-분석}</h2>
+<h3 id="장점">장점 {#장점}</h3>
+<ol>
+<li><strong>통합 환경</strong>: Obsidian 내에서 모든 작업 완료</li>
+<li><strong>자동화</strong>: 반복 작업 대폭 감소</li>
+<li><strong>확장성</strong>: 다양한 워크플로우 구축 가능</li>
+<li><strong>로컬 실행</strong>: 데이터 프라이버시 보장</li>
+<li><strong>무료 사용</strong>: API 할당량 내 무료</li>
+<li><strong>두 가지 모드</strong>: 일회성 명령어와 대화형 모드 선택 가능</li>
+</ol>
+<h3 id="단점">단점 {#단점}</h3>
+<ol>
+<li><strong>초기 설정</strong>: 기술적 진입 장벽 존재</li>
+<li><strong>API 제한</strong>: 일일 사용량 제한</li>
+<li><strong>플랫폼 의존</strong>: macOS 중심 가이드</li>
+<li><strong>네트워크 필요</strong>: 오프라인 사용 불가</li>
+</ol>
+<h3 id="사용-방법별-장단점-비교">사용 방법별 장단점 비교 {#사용-방법별-장단점-비교}</h3>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4937" onclick="copyCode('code-1769481054915-4937')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4937" class="language-mermaid">graph LR
+    subgraph &quot;일회성 명령어 방식&quot;
+        A1[빠른 실행] --&gt; A2[스크립트 자동화]
+        A2 --&gt; A3[명령어 히스토리]
+        A3 --&gt; A4[동시 실행 가능]
+        
+<pre><code>    A5[긴 명령어 입력] --&amp;gt; A6[반복 입력 필요]
+end
+
+subgraph &amp;quot;대화형 모드&amp;quot;
+    B1[연속 대화] --&amp;gt; B2[컨텍스트 유지]
+    B2 --&amp;gt; B3[자연스러운 흐름]
+    B3 --&amp;gt; B4[복잡한 작업 적합]
+    
+    B5[세션 종료시 소실] --&amp;gt; B6[자동화 어려움]
+    B6 --&amp;gt; B7[단일 터미널만]
+end
+
+subgraph &amp;quot;사용 시나리오&amp;quot;
+    C1[빠른 질문] --&amp;gt; A1
+    C2[파일 요약] --&amp;gt; A1
+    C3[일괄 처리] --&amp;gt; A1
+    
+    C4[장문 작업] --&amp;gt; B1
+    C5[반복 수정] --&amp;gt; B1
+    C6[아이디어 발전] --&amp;gt; B1
+end
+
+style A1 fill:#e3f2fd
+style A5 fill:#ffcdd2
+style B1 fill:#f3e5f5
+style B5 fill:#ffcdd2
+style C1 fill:#e8f5e8
+style C4 fill:#fff3e0&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">34 lines</span>
+  </div>
+</div>
+
+<h4>일회성 명령어 방식</h4>
+<p><strong>장점:</strong></p>
+<ul>
+<li>빠른 실행 속도</li>
+<li>스크립트 자동화 가능</li>
+<li>명령어 히스토리 관리 용이</li>
+<li>여러 터미널에서 동시 실행 가능</li>
+</ul>
+<p><strong>단점:</strong></p>
+<ul>
+<li>긴 명령어 입력 필요</li>
+<li>연속적인 작업 시 반복 입력</li>
+</ul>
+<h4>대화형 모드</h4>
+<p><strong>장점:</strong></p>
+<ul>
+<li>연속적인 대화와 수정 가능</li>
+<li>컨텍스트 유지 (이전 대화 기억)</li>
+<li>자연스러운 대화 흐름</li>
+<li>복잡한 작업에 적합</li>
+</ul>
+<p><strong>단점:</strong></p>
+<ul>
+<li>세션 종료 시 컨텍스트 소실</li>
+<li>자동화 스크립트화 어려움</li>
+<li>하나의 터미널에서만 실행 가능</li>
+</ul>
+<h3 id="주의사항">주의사항 {#주의사항}</h3>
+<ul>
+<li>API 키 보안 관리 필수</li>
+<li>대용량 파일 처리 시 토큰 제한 고려</li>
+<li>정기적인 CLI 업데이트 필요</li>
+</ul>
+<h2 id="문제-해결-가이드">문제 해결 가이드 {#문제-해결-가이드}</h2>
+<h3 id="자가-진단-체크리스트">🔧 자가 진단 체크리스트 {#자가-진단-체크리스트}</h3>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4938" onclick="copyCode('code-1769481054915-4938')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4938" class="language-mermaid">graph TD
+    A[문제 발생] --&gt; B{Node.js 설치 확인}
+    B --&gt;|미설치| C[Node.js 설치]
+    B --&gt;|설치됨| D{Gemini CLI 설치 확인}
+    
+<pre><code>C --&amp;gt; D
+D --&amp;gt;|미설치| E[Gemini CLI 설치]
+D --&amp;gt;|설치됨| F{PATH 환경변수 확인}
+
+E --&amp;gt; F
+F --&amp;gt;|미설정| G[PATH 추가]
+F --&amp;gt;|설정됨| H{API 키 확인}
+
+G --&amp;gt; H
+H --&amp;gt;|미설정| I[API 키 설정]
+H --&amp;gt;|설정됨| J{Obsidian Terminal 확인}
+
+I --&amp;gt; J
+J --&amp;gt;|미설치| K[Terminal 플러그인 설치]
+J --&amp;gt;|설치됨| L{권한 확인}
+
+K --&amp;gt; L
+L --&amp;gt;|권한 부족| M[권한 부여]
+L --&amp;gt;|권한 있음| N[테스트 실행]
+
+M --&amp;gt; N
+N --&amp;gt; O{작동 여부}
+O --&amp;gt;|성공| P[문제 해결 완료]
+O --&amp;gt;|실패| Q[고급 문제 해결]
+
+style A fill:#ffcdd2
+style P fill:#c8e6c9
+style Q fill:#fff3e0&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">33 lines</span>
+  </div>
+</div>
+
+<h4>1단계: 기본 환경 점검</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4939" onclick="copyCode('code-1769481054915-4939')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4939" class="language-bash"># Node.js 설치 확인
+node --version  # v18.0.0 이상 권장
+
+<h1>npm 설치 확인</h1>
+<p>npm --version   # v8.0.0 이상 권장</p>
+<h1>Gemini CLI 설치 확인</h1>
+<p>gemini --version</p>
+<h1>PATH 환경변수 확인</h1>
+<p>echo $PATH | grep -E &quot;(node|npm)&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h4>2단계: 권한 및 경로 검증</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4940" onclick="copyCode('code-1769481054915-4940')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4940" class="language-bash"># npm 전역 설치 경로 확인
+npm config get prefix
+
+<h1>실행 권한 확인</h1>
+<p>ls -la $(which gemini)</p>
+<h1>현재 쉘 확인</h1>
+<p>echo $SHELL</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h3 id="자주-발생하는-문제와-해결책">🚨 자주 발생하는 문제와 해결책 {#자주-발생하는-문제와-해결책}</h3>
+<h4>1. &quot;gemini: command not found&quot; 오류</h4>
+<p><strong>원인 분석 단계:</strong></p>
+<ol>
+<li><p>설치 여부 확인</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481054915-4941" onclick="copyCode('code-1769481054915-4941')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4941" class="language-bash">npm list -g @google/generative-ai-cli</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+</li>
+<li><p>PATH 포함 여부 확인</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481054915-4942" onclick="copyCode('code-1769481054915-4942')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4942" class="language-bash">echo $PATH
+which gemini</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">3 lines</span>
+  </div>
+</div></li>
+</ol>
+<p><strong>해결 방법:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4943" onclick="copyCode('code-1769481054915-4943')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4943" class="language-bash"># 방법 1: npm 재설치
+npm uninstall -g @google/generative-ai-cli
+npm install -g @google/generative-ai-cli
+
+<h1>방법 2: PATH 수동 추가</h1>
+<p>echo &#39;export PATH=&quot;$(npm config get prefix)/bin:$PATH&quot;&#39; &gt;&gt; ~/.zshrc
+source ~/.zshrc</p>
+<h1>방법 3: 직접 실행</h1>
+<p>$(npm config get prefix)/bin/gemini</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h4>0. 환경 변수 설정 문제 (macOS)</h4>
+<p><strong>증상:</strong></p>
+<ul>
+<li>터미널에서 <code>gemini</code> 명령어가 인식되지 않음</li>
+<li><code>command not found</code> 오류 지속 발생</li>
+</ul>
+<p><strong>해결 방법:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4944" onclick="copyCode('code-1769481054915-4944')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4944" class="language-bash"># 1. Node 설치 경로 확인
+which node
+# 일반적 결과: /opt/homebrew/bin/node
+
+<h1>2. .zshrc 파일 편집</h1>
+<p>nano ~/.zshrc</p>
+<h1>3. PATH 추가 (파일 최상단에 추가)</h1>
+<p>export PATH=&quot;/opt/homebrew/bin:$PATH&quot;</p>
+<h1>4. 변경사항 적용</h1>
+<p>source ~/.zshrc</p>
+<h1>5. Obsidian 완전 종료 후 재실행</h1>
+<h1>Command+Q로 완전 종료 → 다시 실행</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div>
+</div>
+
+<p><strong>영구적 해결책:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4945" onclick="copyCode('code-1769481054915-4945')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4945" class="language-bash"># .zshrc에 npm 글로벌 경로 추가
+echo &#39;export PATH=&quot;$(npm config get prefix)/bin:$PATH&quot;&#39; &gt;&gt; ~/.zshrc
+
+<h1>변경사항 즉시 적용</h1>
+<p>source ~/.zshrc</p>
+<h1>확인</h1>
+<p>which gemini</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h4>2. API 키 인증 실패</h4>
+<p><strong>진단 스크립트:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4946" onclick="copyCode('code-1769481054915-4946')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4946" class="language-bash"># API 키 설정 확인
+gemini config get api-key
+
+<h1>API 키 유효성 테스트</h1>
+<p>gemini &quot;test&quot; 2&gt;&amp;1 | grep -E &quot;(401|403|Invalid)&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<p><strong>해결 방법:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4947" onclick="copyCode('code-1769481054915-4947')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4947" class="language-bash"># 새 API 키 발급 후 재설정
+gemini config set api-key &quot;YOUR_NEW_API_KEY&quot;
+
+<h1>따옴표 문제 해결</h1>
+<p>gemini config set api-key YOUR_API_KEY_WITHOUT_QUOTES</p>
+<h1>설정 파일 직접 수정</h1>
+<p>nano ~/.gemini-cli/config.json</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h4>3. Obsidian Terminal 플러그인 문제</h4>
+<p><strong>진단 체크:</strong></p>
+<ul>
+<li>플러그인 활성화 여부</li>
+<li>사이드바 터미널 아이콘 표시 여부</li>
+<li>프로필 선택 가능 여부</li>
+</ul>
+<p><strong>해결 단계:</strong></p>
+<ol>
+<li><p><strong>플러그인 재설치</strong></p>
+<ul>
+<li>Settings → Community Plugins → Terminal 비활성화</li>
+<li>앱 재시작 → 다시 활성화</li>
+<li>사이드바에 📟 아이콘 확인</li>
+</ul>
+</li>
+<li><p><strong>올바른 사용 방법</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+ <span class="code-block__language">Plain Text</span>
+ <button class="code-block__copy" data-code-id="code-1769481054915-4948" onclick="copyCode('code-1769481054915-4948')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4948" class="language-plaintext">1. 사이드바 📟 터미널 아이콘 클릭
+2. &quot;Open Terminal&quot; 선택
+3. 프로필 드롭다운에서 &quot;darwinIntegratedDefault&quot; 선택
+4. pwd 명령어로 경로 확인</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+</li>
+<li><p><strong>프로필 설정 문제 해결</strong></p>
+<ul>
+<li>Settings → Plugins → Terminal → Options → Profiles</li>
+<li>기본 프로필이 없는 경우 새로 생성</li>
+<li>프로필 이름: <code>darwinIntegratedDefault</code></li>
+<li>실행 경로: 기본값 사용</li>
+</ul>
+</li>
+<li><p><strong>권한 문제 해결</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481054915-4949" onclick="copyCode('code-1769481054915-4949')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4949" class="language-bash"># macOS 터미널 앱 권한 부여
+System Preferences → Security &amp; Privacy → Privacy → Full Disk Access
+→ Obsidian 앱 추가 또는 체크</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">4 lines</span>
+  </div>
+</div></li>
+</ol>
+<h4>4. 한글 인코딩 문제</h4>
+<p><strong>증상:</strong></p>
+<ul>
+<li>한글 출력 깨짐</li>
+<li>파일 읽기 시 오류</li>
+</ul>
+<p><strong>해결 방법:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4950" onclick="copyCode('code-1769481054915-4950')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4950" class="language-bash"># 터미널 인코딩 설정
+export LANG=ko_KR.UTF-8
+export LC_ALL=ko_KR.UTF-8
+
+<h1>.zshrc에 영구 적용</h1>
+<p>echo &#39;export LANG=ko_KR.UTF-8&#39; &gt;&gt; ~/.zshrc
+echo &#39;export LC_ALL=ko_KR.UTF-8&#39; &gt;&gt; ~/.zshrc</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h4>5. 파일 경로 인식 오류</h4>
+<p><strong>일반적인 실수:</strong></p>
+<ul>
+<li>공백 포함 경로 미처리</li>
+<li>상대 경로 vs 절대 경로</li>
+<li>특수문자 이스케이프</li>
+</ul>
+<p><strong>올바른 사용법:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4951" onclick="copyCode('code-1769481054915-4951')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4951" class="language-bash"># 잘못된 예
+gemini &quot;분석해줘: ~/Obsidian Vault/note.md&quot;
+
+<h1>올바른 예</h1>
+<p>gemini &quot;분석해줘: &#39;/Users/username/Obsidian Vault/note.md&#39;&quot;
+gemini &quot;분석해줘: ~/Obsidian\ Vault/note.md&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<h4>6. Node.js 명령어 구문 오류</h4>
+<p><strong>증상:</strong></p>
+<ul>
+<li><code>Error: Cannot find module &#39;/path/to/...&#39;</code></li>
+<li><code>MODULE_NOT_FOUND</code> 오류 발생</li>
+<li>파일명에 <code>...</code> 포함된 오류 메시지</li>
+</ul>
+<p><strong>원인:</strong></p>
+<ul>
+<li>문서의 <code>...</code> 플레이스홀더를 실제 명령어로 사용</li>
+<li>실제 파일명 대신 점 3개 입력</li>
+</ul>
+<p><strong>해결 방법:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4952" onclick="copyCode('code-1769481054915-4952')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4952" class="language-bash"># 잘못된 예
+node --trace-deprecation ...
+
+<h1>올바른 예</h1>
+<p>node --trace-deprecation your-script.js
+node --trace-deprecation index.js
+node --trace-deprecation _스크립트/hello.js</p>
+<h1>파일 찾기</h1>
+<p>find . -name &quot;*.js&quot; -type f
+ls -la | grep &quot;.js&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<p><strong>디버깅 단계:</strong></p>
+<ol>
+<li>실행하려는 파일 확인</li>
+<li>파일 존재 여부 검증</li>
+<li>상대/절대 경로 정확성 확인</li>
+</ol>
+<h4>7. Obsidian URI 스키마 처리 오류</h4>
+<p><strong>증상:</strong></p>
+<ul>
+<li><code>Unknown argument: 적절한 제목...</code> 오류 발생</li>
+<li><code>obsidian://</code> URI가 명령어로 인식되지 않음</li>
+<li>옵션 도움말이 출력됨</li>
+</ul>
+<p><strong>원인:</strong></p>
+<ul>
+<li>Gemini CLI는 <code>obsidian://</code> URI 스키마를 파일 경로로 인식하지 못함</li>
+<li>로컬 파일 시스템 경로만 처리 가능</li>
+<li>잘못된 플래그 사용법</li>
+</ul>
+<p><strong>해결 방법:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4953" onclick="copyCode('code-1769481054915-4953')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4953" class="language-bash"># 잘못된 예 (obsidian:// URI 사용)
+gemini &quot;적절한 제목 5개를 제안해주세요: obsidian://open?vault=Obsidian%20Cli&amp;file=99_%ED%85%9C%ED%94%8C%EB%A6%BF%2FAI%ED%98%91%EC%97%85_%ED%85%9C%ED%94%8C%EB%A6%BF&quot;
+
+<h1>올바른 예 (실제 파일 경로 사용)</h1>
+<p>gemini -p &quot;적절한 제목 5개를 제안해주세요:&quot; &quot;/Users/jmacpro/Documents/Obsidian Cli/99_템플릿/AI협업_템플릿.md&quot;</p>
+<h1>또는 상대 경로 사용 (Obsidian Vault 내에서)</h1>
+<p>cd &quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+gemini -p &quot;적절한 제목 5개를 제안해주세요:&quot; &quot;99_템플릿/AI협업_템플릿.md&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<p><strong>URI에서 파일 경로 변환하기:</strong></p>
+<ol>
+<li><code>obsidian://open?vault=Obsidian%20Cli&amp;file=99_%ED%85%9C%ED%94%8C%EB%A6%BF%2FAI%ED%98%91%EC%97%85_%ED%85%9C%ED%94%8C%EB%A6%BF</code> </li>
+<li>URL 디코딩: <code>99_템플릿/AI협업_템플릿</code></li>
+<li>실제 경로: <code>/Users/jmacpro/Documents/Obsidian Cli/99_템플릿/AI협업_템플릿.md</code></li>
+</ol>
+<p><strong>자동 변환 스크립트:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4954" onclick="copyCode('code-1769481054915-4954')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4954" class="language-bash">#!/bin/bash
+# obsidian_to_path.sh
+obsidian_uri=&quot;$1&quot;
+vault_path=&quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+
+<h1>URI에서 파일 경로 추출</h1>
+<p>file_path=$(echo &quot;$obsidian_uri&quot; | sed -E &#39;s/.<em>file=([^&amp;]+).</em>/\1/&#39; | python3 -c &quot;import sys, urllib.parse; print(urllib.parse.unquote(sys.stdin.read().strip()))&quot;)</p>
+<h1>실제 파일 경로 생성</h1>
+<p>full_path=&quot;$vault_path/$file_path.md&quot;
+echo &quot;$full_path&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h3 id="고급-문제-해결">🛠️ 고급 문제 해결 {#고급-문제-해결}</h3>
+<h4>명령어 구문 실수 예방 가이드</h4>
+<p><strong>자주 발생하는 구문 오류:</strong></p>
+<ol>
+<li><strong>플레이스홀더 오인</strong><div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481054915-4955" onclick="copyCode('code-1769481054915-4955')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4955" class="language-bash"># 문서에서 본 예시 (잘못된 사용)
+command --option ...
+
+<h1>올바른 사용</h1>
+command --option actual-file.js
+command --option arg1 arg2 arg3</code></pre></li>
+</ol>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<ol start="2">
+<li><strong>따옴표 처리 실수</strong><div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481054915-4956" onclick="copyCode('code-1769481054915-4956')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4956" class="language-bash"># 잘못된 예
+gemini 이 파일을 분석해줘: file.md
+
+<h1>올바른 예</h1>
+gemini &quot;이 파일을 분석해줘: file.md&quot;</code></pre></li>
+</ol>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<ol start="3">
+<li><strong>경로 구분자 혼동</strong><div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481054915-4957" onclick="copyCode('code-1769481054915-4957')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4957" class="language-bash"># Windows 스타일 (잘못된 예)
+node script\file.js
+
+<h1>Unix/macOS 스타일 (올바른 예)</h1>
+node script/file.js</code></pre></li>
+</ol>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<ol start="4">
+<li><p><strong>Gemini CLI 플래그 사용법</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481054915-4958" onclick="copyCode('code-1769481054915-4958')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4958" class="language-bash"># 잘못된 예 (플래그 없이 사용)
+gemini &quot;프롬프트 텍스트 파일경로&quot;
+
+<h1>올바른 예 (적절한 플래그 사용)</h1>
+<p>gemini -p &quot;프롬프트 텍스트&quot; &quot;파일경로&quot;
+gemini --prompt &quot;프롬프트 텍스트&quot; &quot;파일경로&quot;</p>
+<h1>파일 내용만 분석 (프롬프트 없이)</h1>
+<p>gemini &quot;파일경로&quot;</code></pre></p>
+</li>
+</ol>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div>
+</div>
+
+<ol start="5">
+<li><strong>Obsidian 내에서 파일 경로 얻기</strong><div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481054915-4959" onclick="copyCode('code-1769481054915-4959')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4959" class="language-bash"># Obsidian에서 파일 우클릭 → &quot;Copy path&quot; 사용
+# 결과: /Users/username/Documents/Obsidian Vault/note.md
+
+<h1>또는 pwd 명령어로 현재 경로 확인 후 상대 경로 사용</h1>
+pwd<h1>결과: /Users/jmacpro/Documents/Obsidian Cli</h1>
+gemini -p &quot;분석해주세요:&quot; &quot;99_템플릿/AI협업_템플릿.md&quot;</code></pre></li>
+</ol>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div>
+
+<h4>디버그 모드 활용</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4960" onclick="copyCode('code-1769481054915-4960')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4960" class="language-bash"># 상세 로그 출력
+export GEMINI_DEBUG=true
+gemini --verbose &quot;test prompt&quot;
+
+<h1>네트워크 문제 진단</h1>
+<p>curl -I <a href="https://generativelanguage.googleapis.com/v1beta/models">https://generativelanguage.googleapis.com/v1beta/models</a></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<h4>프로세스 모니터링</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4961" onclick="copyCode('code-1769481054915-4961')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4961" class="language-bash"># CPU/메모리 사용량 확인
+top | grep -E &quot;(node|gemini)&quot;
+
+<h1>열린 파일 확인</h1>
+<p>lsof | grep gemini</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>로그 파일 분석</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4962" onclick="copyCode('code-1769481054915-4962')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4962" class="language-bash"># npm 로그 확인
+cat ~/.npm/_logs/*.log | grep error
+
+<h1>시스템 로그 확인</h1>
+<p>tail -f /var/log/system.log | grep -i &quot;obsidian|terminal&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h3 id="예방적-유지보수">💡 예방적 유지보수 {#예방적-유지보수}</h3>
+<h4>정기 점검 스크립트</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4963" onclick="copyCode('code-1769481054915-4963')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4963" class="language-bash">#!/bin/bash
+# health_check.sh
+
+<p>echo &quot;=== Gemini CLI Health Check ===&quot;
+echo &quot;Node version: $(node --version)&quot;
+echo &quot;NPM version: $(npm --version)&quot;
+echo &quot;Gemini CLI: $(gemini --version 2&gt;/dev/null || echo &#39;Not installed&#39;)&quot;
+echo &quot;API Key: $(gemini config get api-key | sed &#39;s/(.{10}).*/\1.../&#39;)&quot;
+echo &quot;PATH includes npm: $(echo $PATH | grep -q npm &amp;&amp; echo &#39;Yes&#39; || echo &#39;No&#39;)&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h4>자동 업데이트 설정</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4964" onclick="copyCode('code-1769481054915-4964')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4964" class="language-bash"># 주간 업데이트 cron 작업
+crontab -e
+# 추가: 0 9 * * 1 npm update -g @google/generative-ai-cli</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h3 id="추가-지원-리소스">📞 추가 지원 리소스 {#추가-지원-리소스}</h3>
+<ol>
+<li><p><strong>공식 문서</strong></p>
+<ul>
+<li><a href="https://github.com/google/generative-ai-cli">Gemini CLI GitHub</a></li>
+<li><a href="https://discord.gg/googleai">Google AI Discord</a></li>
+</ul>
+</li>
+<li><p><strong>커뮤니티 지원</strong></p>
+<ul>
+<li>Obsidian Forum: Terminal 플러그인 스레드</li>
+<li>Reddit: r/ObsidianMD</li>
+</ul>
+</li>
+<li><p><strong>로그 수집 도구</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481054915-4965" onclick="copyCode('code-1769481054915-4965')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4965" class="language-bash"># 문제 보고용 로그 수집
+gemini diagnose &gt; gemini_diagnosis.txt</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">3 lines</span>
+  </div>
+</div></li>
+</ol>
+<h2 id="향후-전망-발전-방향">향후 전망 발전 방향 {#향후-전망-발전-방향}</h2>
+<h3 id="단기-발전-방향">단기 발전 방향 {#단기-발전-방향}</h3>
+<ol>
+<li><strong>스크립트 자동화</strong>: 자주 사용하는 명령어 스크립트화</li>
+<li><strong>템플릿 시스템</strong>: 용도별 프롬프트 템플릿 구축</li>
+<li><strong>다른 AI 통합</strong>: Claude, ChatGPT API 추가 연동</li>
+</ol>
+<h3 id="중장기-발전-방향">중장기 발전 방향 {#중장기-발전-방향}</h3>
+<ol>
+<li><strong>플러그인 개발</strong>: Obsidian 전용 Gemini 플러그인</li>
+<li><strong>로컬 LLM</strong>: Ollama 등 로컬 모델 통합</li>
+<li><strong>협업 기능</strong>: 팀 단위 지식 관리 시스템</li>
+</ol>
+<h3 id="생태계-확장">생태계 확장 {#생태계-확장}</h3>
+<ul>
+<li>MCP(Model Context Protocol) 통합</li>
+<li>자동 백링크 생성</li>
+<li>지능형 태그 추천 시스템</li>
+</ul>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4966" onclick="copyCode('code-1769481054915-4966')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4966" class="language-mermaid">mindmap
+  root((Obsidian + Gemini CLI 통합 생태계))
+    현재 구현
+      Obsidian App
+        Terminal Plugin
+        Markdown Files
+        PARA System
+      Gemini CLI
+        Google API
+        Node.js Runtime
+        Command Interface
+      
+<pre><code>단기 발전
+  스크립트 자동화
+    배치 처리
+    템플릿 시스템
+    반복 작업 자동화
+  다른 AI 통합
+    Claude API
+    ChatGPT API
+    로컬 LLM
+
+중장기 발전
+  전용 플러그인
+    네이티브 통합
+    GUI 인터페이스
+    원클릭 실행
+  협업 기능
+    팀 지식 관리
+    공유 템플릿
+    실시간 동기화
+
+생태계 확장
+  MCP 통합
+    Context Protocol
+    모델 간 연동
+    워크플로우 체인
+  지능형 기능
+    자동 백링크
+    태그 추천
+    콘텐츠 분류&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">41 lines</span>
+  </div>
+</div>
+
+<h2 id="실무-적용점">실무 적용점 {#실무-적용점}</h2>
+<h3 id="1-개인-생산성">1. 개인 생산성 {#1-개인-생산성}</h3>
+<h4>일회성 명령어 방식</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4967" onclick="copyCode('code-1769481054915-4967')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4967" class="language-bash"># 일일 저널 자동 요약 (복사 붙여넣기 가능)
+cd &quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+gemini -p &quot;오늘의 일일 저널을 3줄로 요약해주세요:&quot; &quot;저널/2025-07-09.md&quot;
+
+<h1>주간 리뷰 템플릿 생성</h1>
+<p>gemini -p &quot;이 주간 노트들을 바탕으로 주간 리뷰를 작성해주세요:&quot; &quot;저널/week-28.md&quot;</p>
+<h1>아이디어 확장 및 브레인스토밍</h1>
+<p>gemini -p &quot;이 아이디어를 10가지 방향으로 확장해주세요:&quot; &quot;아이디어/startup-idea.md&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h4>대화형 모드 활용 (심화 작업)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4968" onclick="copyCode('code-1769481054915-4968')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4968" class="language-bash"># 대화형 모드로 아이디어 발전시키기
+cd &quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+gemini
+
+<p>&gt; 파일을 분석해주세요: 아이디어/startup-idea.md
+&gt; 이 아이디어의 시장성을 평가해주세요
+&gt; 경쟁사 분석을 위한 체크리스트를 만들어주세요
+&gt; 사업 계획서 초안을 작성해주세요
+&gt; MVP 개발 로드맵을 제안해주세요
+&gt; exit</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h3 id="2-팀-협업">2. 팀 협업 {#2-팀-협업}</h3>
+<h4>일회성 명령어 방식</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4969" onclick="copyCode('code-1769481054915-4969')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4969" class="language-bash"># 프로젝트 문서 표준화
+cd &quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+gemini -p &quot;이 프로젝트 문서를 표준 형식으로 재구성해주세요:&quot; &quot;프로젝트/project-alpha.md&quot;
+
+<h1>회의록 자동 정리 및 배포</h1>
+<p>gemini -p &quot;이 회의록을 팀원들에게 배포할 수 있는 형식으로 정리해주세요:&quot; &quot;회의록/team-meeting-0709.md&quot;</p>
+<h1>지식 베이스 일관성 유지</h1>
+<p>gemini --all_files -p &quot;이 폴더의 모든 문서에서 일관성을 확인하고 개선점을 제안해주세요:&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h4>대화형 모드 활용 (프로젝트 기획)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4970" onclick="copyCode('code-1769481054915-4970')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4970" class="language-bash"># 프로젝트 기획 세션
+cd &quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+gemini
+
+<p>&gt; 파일을 분석해주세요: 프로젝트/project-alpha.md
+&gt; 이 프로젝트의 위험 요소를 식별해주세요
+&gt; 마일스톤을 5단계로 나누어 주세요
+&gt; 각 마일스톤별 필요한 리소스를 계산해주세요
+&gt; 팀 커뮤니케이션 계획을 세워주세요
+&gt; exit</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h3 id="3-콘텐츠-제작">3. 콘텐츠 제작 {#3-콘텐츠-제작}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4971" onclick="copyCode('code-1769481054915-4971')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4971" class="language-bash"># 블로그 포스트 초안 작성
+cd &quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+gemini -p &quot;이 개요를 바탕으로 2000자 블로그 포스트를 작성해주세요:&quot; &quot;콘텐츠/blog-outline.md&quot;
+
+<h1>교육 자료 구조화</h1>
+<p>gemini -p &quot;이 내용을 초보자를 위한 교육 자료로 구조화해주세요:&quot; &quot;교육/ai-basics.md&quot;</p>
+<h1>기술 문서 자동 생성</h1>
+<p>gemini -p &quot;이 코드 분석을 바탕으로 기술 문서를 작성해주세요:&quot; &quot;_스크립트/classify_note.js&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h3 id="4-연구-및-분석">4. 연구 및 분석 {#4-연구-및-분석}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054915-4972" onclick="copyCode('code-1769481054915-4972')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054915-4972" class="language-bash"># 문헌 리뷰 자동화
+cd &quot;/Users/jmacpro/Documents/Obsidian Cli&quot;
+gemini -p &quot;이 연구 자료들을 종합하여 문헌 리뷰를 작성해주세요:&quot; &quot;연구/literature/&quot; --all_files
+
+<h1>데이터 패턴 분석</h1>
+<p>gemini -p &quot;이 데이터에서 패턴을 찾아 분석해주세요:&quot; &quot;데이터/survey-results.md&quot;</p>
+<h1>인사이트 도출 지원</h1>
+<p>gemini -p &quot;이 분석 결과에서 3가지 핵심 인사이트를 도출해주세요:&quot; &quot;분석/market-analysis.md&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h2 id="구현-체크리스트">구현 체크리스트 {#구현-체크리스트}</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Node.js 및 npm 설치</li>
+<li><input checked="" disabled="" type="checkbox"> Gemini CLI 전역 설치</li>
+<li><input checked="" disabled="" type="checkbox"> Google API 키 발급 및 설정</li>
+<li><input checked="" disabled="" type="checkbox"> Obsidian Terminal 플러그인 설치</li>
+<li><input checked="" disabled="" type="checkbox"> 환경 변수 PATH 설정</li>
+<li><input checked="" disabled="" type="checkbox"> 기본 명령어 테스트</li>
+<li><input disabled="" type="checkbox"> 개인 워크플로우 구축</li>
+<li><input disabled="" type="checkbox"> 자동화 스크립트 작성</li>
+<li><input disabled="" type="checkbox"> 팀 공유 템플릿 제작</li>
+</ul>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><strong>상위 개념</strong>: <a href="/articles/obsidianclaudecodesetupguide.html" class="internal-link">Obsidian_Claude_Code_협업_설정_가이드</a></li>
+<li><strong>하위 세부사항</strong>: <a href="/articles/geminicliusagecursoranalysis.html" class="internal-link">Gemini_CLI_무료_사용법_및_Cursor_대안_분석</a></li>
+<li><strong>병렬 주제</strong>: <a href="/articles/claudecodeclipracticalguide.html" class="internal-link">Claude_Code_CLI_활용_가이드</a></li>
+<li><strong>실전 활용</strong>: <a href="/articles/obsidiangeminicliguide.html" class="internal-link">Obsidian_Gemini_CLI_최강_집필환경_구축_가이드</a></li>
+</ul>
+<h2 id="참고-자료">참고 자료 {#참고-자료}</h2>
+<ul>
+<li><a href="https://makersuite.google.com/">Google AI Studio</a></li>
+<li><a href="https://github.com/polyipseity/obsidian-terminal">Obsidian Terminal Plugin</a></li>
+<li><a href="https://nodejs.org/">Node.js 공식 문서</a></li>
+<li><a href="https://ai.google.dev/">Gemini API 문서</a></li>
+</ul>
+<hr>
+<h2 id="변경-이력">변경 이력 {#변경-이력}</h2>
+<ul>
+<li>2025-07-09: 초안 작성 - 기존 가이드 분석 및 재구성</li>
+<li>2025-07-09: 문제 해결 가이드 섹션 추가 - 자가 진단 및 해결 방법 상세화</li>
+<li>2025-07-09: 모든 명령어 예시를 올바른 플래그 형식으로 수정 - 복사 붙여넣기 가능한 실용적 예시로 변경</li>
+<li>2025-07-09: Gemini 대화형 모드 사용법 추가 - 일회성 명령어와 대화형 모드 비교 및 활용 시나리오 제공</li>
+<li>2025-07-09: 목차 구조 개선 및 사용자 편의성 강화 - macOS 기준 명시, 초급/중급/고급 활용법 세분화, 환경 변수 설정을 문제 해결 가이드로 이동</li>
+</ul>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/Obsidian.html" class="article-tag">Obsidian</a><a href="/tag/Gemini.html" class="article-tag">Gemini</a><a href="/tag/CLI.html" class="article-tag">CLI</a><a href="/tag/AI도구.html" class="article-tag">AI도구</a><a href="/tag/자동화.html" class="article-tag">자동화</a><a href="/tag/PKM.html" class="article-tag">PKM</a><a href="/tag/개발도구.html" class="article-tag">개발도구</a><a href="/tag/생산성.html" class="article-tag">생산성</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-gemini-cli-integration-real-world-guide-1.html&text=Obsidian + Gemini CLI 통합 실전 가이드" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-gemini-cli-integration-real-world-guide-1.html&title=Obsidian + Gemini CLI 통합 실전 가이드" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-gemini-cli-integration-real-world-guide-1.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

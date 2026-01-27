@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Glass Desktop App 완전 가이드 및 Live Insights 복구 | AI &amp; Development Journal</title>
+  <meta name="description" content="- 핵심 주제: Glass by Pickle 데스크톱 애플리케이션의 Live Insights 기능 복구 및 사용법 완전 정리 - 목적: Glass 앱의 문제점 해결, 실행 방법 개선, Live Insights 기능 완전 복구를 통한 사용자 경험 향상 - 범위: 기술적...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Glass Desktop App 완전 가이드 및 Live Insights 복구">
+  <meta property="og:description" content="- 핵심 주제: Glass by Pickle 데스크톱 애플리케이션의 Live Insights 기능 복구 및 사용법 완전 정리 - 목적: Glass 앱의 문제점 해결, 실행 방법 개선, Live Insights 기능 완전 복구를 통한 사용자 경험 향상 - 범위: 기술적...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/glass-desktop-app-complete-guide-live-insights.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Glass Desktop App 완전 가이드 및 Live Insights 복구">
+  <meta name="twitter:description" content="- 핵심 주제: Glass by Pickle 데스크톱 애플리케이션의 Live Insights 기능 복구 및 사용법 완전 정리 - 목적: Glass 앱의 문제점 해결, 실행 방법 개선, Live Insights 기능 완전 복구를 통한 사용자 경험 향상 - 범위: 기술적...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/glass-desktop-app-complete-guide-live-insights.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">Glass Desktop App 완전 가이드 및 Live Insights 복구</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 7월 21일">2025년 7월 21일</time>
+            <span class="article-meta__separator">·</span>
+            <span>15 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#glass-소개-및-개요" class="toc__link">Glass 소개 및 개요</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#glass-by-pickle이란" class="toc__link">Glass by Pickle이란?</a>
+    </li>
+    <li class="toc__item">
+      <a href="#발견된-문제점-및-해결-과정" class="toc__link">발견된 문제점 및 해결 과정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#주요-문제점들" class="toc__link">🚨 주요 문제점들</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#해결-과정-단계별-분석" class="toc__link">🔧 해결 과정 단계별 분석</a>
+    </li>
+    <li class="toc__item">
+      <a href="#live-insights-기능-완전-복구" class="toc__link">Live Insights 기능 완전 복구</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#live-insights-작동-원리" class="toc__link">🧠 Live Insights 작동 원리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#구현된-수정-사항" class="toc__link">🔨 구현된 수정 사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#uiux-개선-사항" class="toc__link">🎨 UI/UX 개선 사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#향상된-실행-방법들" class="toc__link">향상된 실행 방법들</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#다양한-실행-옵션-구현" class="toc__link">🚀 다양한 실행 옵션 구현</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실행-방법별-비교" class="toc__link">📊 실행 방법별 비교</a>
+    </li>
+    <li class="toc__item">
+      <a href="#상세-사용법-가이드" class="toc__link">상세 사용법 가이드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#glass-실행하기" class="toc__link">🎯 Glass 실행하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#live-insights-사용법" class="toc__link">🎙️ Live Insights 사용법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#ask-기능-활용" class="toc__link">🤖 Ask 기능 활용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-설정-및-커스터마이징" class="toc__link">🔧 고급 설정 및 커스터마이징</a>
+    </li>
+    <li class="toc__item">
+      <a href="#기술적-구현-세부사항" class="toc__link">기술적 구현 세부사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#아키텍처-패턴" class="toc__link">🏗️ 아키텍처 패턴</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#주요-서비스들" class="toc__link">🔌 주요 서비스들</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#ui-컴포넌트-구조" class="toc__link">🎨 UI 컴포넌트 구조</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실제-테스트-결과" class="toc__link">실제 테스트 결과</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#성공적인-복구-확인" class="toc__link">✅ 성공적인 복구 확인</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#사용-시나리오별-테스트" class="toc__link">🎯 사용 시나리오별 테스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#향후-개선-방향" class="toc__link">향후 개선 방향</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#단기-개선-계획" class="toc__link">🚀 단기 개선 계획</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#장기-비전" class="toc__link">🔮 장기 비전</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-체크리스트" class="toc__link">구현 체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#완료된-항목" class="toc__link">✅ 완료된 항목</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#진행-중인-항목" class="toc__link">🔄 진행 중인 항목</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#향후-계획" class="toc__link">📋 향후 계획</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#참고-자료" class="toc__link">참고 자료</a>
+    </li>
+    <li class="toc__item">
+      <a href="#변경-이력" class="toc__link">변경 이력</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Glass Desktop App 완전 가이드 및 Live Insights 복구</h1>
+<h2 id="개요">개요 {#개요}</h2>
+<ul>
+<li><strong>핵심 주제</strong>: Glass by Pickle 데스크톱 애플리케이션의 Live Insights 기능 복구 및 사용법 완전 정리</li>
+<li><strong>목적</strong>: Glass 앱의 문제점 해결, 실행 방법 개선, Live Insights 기능 완전 복구를 통한 사용자 경험 향상</li>
+<li><strong>범위</strong>: 기술적 문제 해결부터 일반 사용법까지 포괄적 가이드</li>
+</ul>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#glass-소개-및-개요" class="internal-link internal-link--section">Glass 소개 및 개요</a></li>
+<li><a href="#발견된-문제점-및-해결-과정" class="internal-link internal-link--section">발견된 문제점 및 해결 과정</a></li>
+<li><a href="#live-insights-기능-완전-복구" class="internal-link internal-link--section">Live Insights 기능 완전 복구</a></li>
+<li><a href="#향상된-실행-방법들" class="internal-link internal-link--section">향상된 실행 방법들</a></li>
+<li><a href="#상세-사용법-가이드" class="internal-link internal-link--section">상세 사용법 가이드</a></li>
+<li><a href="#기술적-구현-세부사항" class="internal-link internal-link--section">기술적 구현 세부사항</a></li>
+<li><a href="#실제-테스트-결과" class="internal-link internal-link--section">실제 테스트 결과</a></li>
+<li><a href="#향후-개선-방향" class="internal-link internal-link--section">향후 개선 방향</a></li>
+</ol>
+<h2 id="glass-소개-및-개요">Glass 소개 및 개요 {#glass-소개-및-개요}</h2>
+<h3 id="glass-by-pickle이란">Glass by Pickle이란? {#glass-by-pickle이란}</h3>
+<p>Glass는 <strong>Digital Mind Extension</strong>을 표방하는 혁신적인 AI 기반 데스크톱 애플리케이션입니다.</p>
+<h4>🎯 핵심 기능</h4>
+<ul>
+<li><strong>실시간 화면 캡처</strong>: 사용자의 모든 디지털 활동 모니터링</li>
+<li><strong>음성 인식 및 텍스트 변환</strong>: 실시간 STT(Speech-to-Text) 기능</li>
+<li><strong>Live Insights</strong>: AI 기반 실시간 대화 분석 및 인사이트 제공</li>
+<li><strong>Ask 기능</strong>: 현재 컨텍스트를 이해하는 AI 질의응답</li>
+</ul>
+<h4>🏗️ 기술 스택</h4>
+<ul>
+<li><strong>Frontend</strong>: Electron 기반 데스크톱 앱</li>
+<li><strong>Backend</strong>: Node.js + Express</li>
+<li><strong>AI 통합</strong>: OpenAI, Anthropic, Ollama 등 다중 AI 프로바이더 지원</li>
+<li><strong>Database</strong>: SQLite + Firebase 듀얼 시스템</li>
+<li><strong>Architecture</strong>: Service-Repository 패턴</li>
+</ul>
+<h2 id="발견된-문제점-및-해결-과정">발견된 문제점 및 해결 과정 {#발견된-문제점-및-해결-과정}</h2>
+<h3 id="주요-문제점들">🚨 주요 문제점들 {#주요-문제점들}</h3>
+<h4>1. Live Insights 기능 미작동</h4>
+<p><strong>증상</strong>: </p>
+<ul>
+<li>음성 인식은 정상 작동하지만 AI 분석 결과가 표시되지 않음</li>
+<li>&quot;No insights yet...&quot; 메시지만 계속 표시</li>
+</ul>
+<p><strong>원인 분석</strong>:</p>
+<ul>
+<li>Ollama 서비스 연결 실패 (<code>localhost:11434</code> 접속 불가)</li>
+<li>IPC 핸들러 누락 (<code>check-permissions-completed</code>)</li>
+<li>AI 모델 설정 자동 전환 로직 부재</li>
+</ul>
+<h4>2. 복잡한 실행 과정</h4>
+<p><strong>문제</strong>: </p>
+<ul>
+<li>개발자가 아닌 사용자에게는 <code>npm start</code> 명령어가 불친절</li>
+<li>매번 의존성 설치 및 빌드 과정 필요</li>
+</ul>
+<h4>3. 사용법 가이드 부재</h4>
+<p><strong>문제</strong>: </p>
+<ul>
+<li>기능은 강력하지만 사용법이 직관적이지 않음</li>
+<li>새 사용자를 위한 가이드 부재</li>
+</ul>
+<h3 id="해결-과정-단계별-분석">🔧 해결 과정 단계별 분석 {#해결-과정-단계별-분석}</h3>
+<h4>1단계: 시스템 진단</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3786" onclick="copyCode('code-1769481054760-3786')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3786" class="language-bash"># Ollama 서비스 상태 확인
+curl -s http://localhost:11434/api/ps
+
+<h1>결과: Ollama not running (미설치 확인)</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h4>2단계: 코드 분석</h4>
+<ul>
+<li><strong>SummaryService.js</strong>: Live Insights 핵심 로직 확인</li>
+<li><strong>ModelStateService.js</strong>: AI 모델 선택 및 설정 로직 분석</li>
+<li><strong>ListenService.js</strong>: 누락된 IPC 핸들러 발견</li>
+</ul>
+<h4>3단계: 체계적 수정</h4>
+<ol>
+<li><strong>IPC 핸들러 추가</strong>: <code>setupIpcHandlers()</code> 메서드 구현</li>
+<li><strong>AI 모델 자동 전환</strong>: Ollama 미설치 시 대체 프로바이더 사용</li>
+<li><strong>에러 핸들링 강화</strong>: 사용자 친화적 에러 메시지 추가</li>
+<li><strong>UI/UX 개선</strong>: 진행 상태 표시 및 피드백 시스템</li>
+</ol>
+<h2 id="live-insights-기능-완전-복구">Live Insights 기능 완전 복구 {#live-insights-기능-완전-복구}</h2>
+<h3 id="live-insights-작동-원리">🧠 Live Insights 작동 원리 {#live-insights-작동-원리}</h3>
+<h4>데이터 플로우</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3787" onclick="copyCode('code-1769481054760-3787')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3787" class="language-plaintext">음성 입력 → STT 변환 → 대화 히스토리 축적 → AI 분석 → 구조화된 결과 → UI 업데이트</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>트리거 조건</h4>
+<ul>
+<li><strong>첫 분석</strong>: 대화 3개 수집 후</li>
+<li><strong>후속 분석</strong>: 이후 2개씩 추가될 때마다</li>
+<li><strong>실시간 업데이트</strong>: 분석 완료 시 즉시 UI 반영</li>
+</ul>
+<h3 id="구현된-수정-사항">🔨 구현된 수정 사항 {#구현된-수정-사항}</h3>
+<h4>1. 누락된 IPC 핸들러 추가</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3788" onclick="copyCode('code-1769481054760-3788')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3788" class="language-javascript">// ListenService.js에 추가
+setupIpcHandlers() {
+    const { ipcMain } = require(&#39;electron&#39;);
+    
+<pre><code>ipcMain.handle(&amp;#39;check-permissions-completed&amp;#39;, async () =&amp;gt; {
+    try {
+        const permissionService = require(&amp;#39;../common/services/permissionService&amp;#39;);
+        const status = await permissionService.getCompletionStatus();
+        return { success: true, completed: status };
+    } catch (error) {
+        console.error(&amp;#39;[ListenService] Error checking permissions:&amp;#39;, error);
+        return { success: false, error: error.message };
+    }
+});
+</code></pre>
+<p>}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">15 lines</span>
+  </div></p>
+</div>
+
+<h4>2. AI 모델 자동 전환 로직</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3789" onclick="copyCode('code-1769481054760-3789')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3789" class="language-javascript">// SummaryService.js에 추가
+if (!modelInfo || !modelInfo.apiKey) {
+    console.warn(&#39;❌ [SummaryService] No AI model configured. Checking available providers...&#39;);
+    
+<pre><code>// Try to auto-select an available model
+await modelStateService._autoSelectAvailableModels([&amp;#39;llm&amp;#39;], false);
+const retryModelInfo = await modelStateService.getCurrentModelInfo(&amp;#39;llm&amp;#39;);
+
+if (!retryModelInfo || !retryModelInfo.apiKey) {
+    this.sendToRenderer(&amp;#39;summary-error&amp;#39;, {
+        message: &amp;#39;Live Insights requires an AI model. Please configure OpenAI, Anthropic, or other supported AI provider in Settings.&amp;#39;,
+        type: &amp;#39;no_model&amp;#39;
+    });
+    return null;
+}
+</code></pre>
+<p>}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">16 lines</span>
+  </div></p>
+</div>
+
+<h4>3. 향상된 사용자 피드백 시스템</h4>
+<ul>
+<li><strong>진행률 표시</strong>: 대화 수집 진행률 바</li>
+<li><strong>분석 상태</strong>: &quot;분석 중...&quot; 애니메이션</li>
+<li><strong>에러 상태</strong>: 명확한 에러 메시지와 해결 방법 제시</li>
+</ul>
+<h3 id="uiux-개선-사항">🎨 UI/UX 개선 사항 {#uiux-개선-사항}</h3>
+<h4>새로운 상태 표시</h4>
+<ol>
+<li><strong>Progress State</strong>: 대화 수집 진행률</li>
+<li><strong>Analyzing State</strong>: AI 분석 진행 중 표시</li>
+<li><strong>Error State</strong>: 에러 발생 시 해결 방법 제시</li>
+</ol>
+<h4>CSS 스타일링 개선</h4>
+<div class="code-block" data-language="css">
+  <div class="code-block__header" style="background-color: #264de4; color: #fff">
+    <span class="code-block__language">CSS</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3790" onclick="copyCode('code-1769481054760-3790')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3790" class="language-css">.analyzing-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: #8be9fd;
+    font-size: 11px;
+}
+
+<p>.analyzing-state .analyzing-icon {
+    font-size: 20px;
+    margin-bottom: 12px;
+    animation: pulse 2s infinite;
+}</p>
+<p>@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">18 lines</span>
+  </div></p>
+</div>
+
+<h2 id="향상된-실행-방법들">향상된 실행 방법들 {#향상된-실행-방법들}</h2>
+<h3 id="다양한-실행-옵션-구현">🚀 다양한 실행 옵션 구현 {#다양한-실행-옵션-구현}</h3>
+<h4>1. 더블클릭 실행 (.app 번들)</h4>
+<p><strong>생성</strong>: <code>Glass-Launcher.app</code></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3791" onclick="copyCode('code-1769481054760-3791')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3791" class="language-bash"># 구조
+Glass-Launcher.app/
+├── Contents/
+│   ├── Info.plist
+│   └── MacOS/
+│       └── glass-launcher</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<p><strong>사용법</strong>: Finder에서 더블클릭만 하면 터미널이 열리며 Glass 자동 실행</p>
+<h4>2. 스마트 스크립트들</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3792" onclick="copyCode('code-1769481054760-3792')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3792" class="language-bash"># 완전 자동 설정 및 실행
+./setup-glass.sh      # 의존성 설치 + 빌드 + 설정 + 실행
+
+<h1>안전한 실행 (의존성 체크 포함)</h1>
+<p>./start-glass.sh      # 의존성 체크 후 안전 실행</p>
+<h1>빠른 개발용 실행</h1>
+<p>./quick-start.sh      # 최소한의 체크로 빠른 실행</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h4>3. NPM 단축 명령어</h4>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3793" onclick="copyCode('code-1769481054760-3793')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3793" class="language-json">// package.json에 추가
+&quot;scripts&quot;: {
+    &quot;glass&quot;: &quot;npm run build:renderer &amp;&amp; npm start&quot;,
+    &quot;dev&quot;: &quot;npm run build:renderer &amp;&amp; npm start&quot;,
+    &quot;launch&quot;: &quot;./start-glass.sh&quot;,
+    &quot;quick&quot;: &quot;./quick-start.sh&quot;
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<h4>4. 편의 기능들</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3794" onclick="copyCode('code-1769481054760-3794')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3794" class="language-bash"># 데스크톱 바로가기 생성
+./create-desktop-shortcut.sh
+
+<h1>로그인 시 자동 시작 설정</h1>
+<p>./setup-auto-start.sh</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>5. 시스템 트레이 통합</h4>
+<ul>
+<li><strong>Quick Restart</strong>: 우클릭 메뉴에서 빠른 재시작</li>
+<li><strong>Show/Hide</strong>: 창 표시/숨김 토글</li>
+</ul>
+<h3 id="실행-방법별-비교">📊 실행 방법별 비교 {#실행-방법별-비교}</h3>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>편의성</th>
+<th>속도</th>
+<th>대상 사용자</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>더블클릭 (.app)</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>모든 사용자</td>
+</tr>
+<tr>
+<td>setup-glass.sh</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐</td>
+<td>첫 설치</td>
+</tr>
+<tr>
+<td>start-glass.sh</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐</td>
+<td>일반 사용</td>
+</tr>
+<tr>
+<td>quick-start.sh</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>개발자</td>
+</tr>
+<tr>
+<td>npm run glass</td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>NPM 선호자</td>
+</tr>
+<tr>
+<td>npm start</td>
+<td>⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>기존 사용자</td>
+</tr>
+</tbody></table>
+<h2 id="상세-사용법-가이드">상세 사용법 가이드 {#상세-사용법-가이드}</h2>
+<h3 id="glass-실행하기">🎯 Glass 실행하기 {#glass-실행하기}</h3>
+<h4>첫 설치 및 설정</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3795" onclick="copyCode('code-1769481054760-3795')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3795" class="language-bash"># 1. 저장소 클론
+git clone [repository-url]
+cd glass
+
+<h1>2. 원클릭 설정</h1>
+<p>./setup-glass.sh</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<p>설정 스크립트는 다음을 자동으로 처리합니다:</p>
+<ul>
+<li>✅ Node.js 의존성 설치</li>
+<li>✅ 애플리케이션 빌드</li>
+<li>✅ 실행 옵션 설정</li>
+<li>✅ 바로가기 생성 옵션</li>
+<li>✅ 자동 시작 설정 옵션</li>
+</ul>
+<h4>일상적 사용</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3796" onclick="copyCode('code-1769481054760-3796')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3796" class="language-bash"># 가장 간단한 방법
+Glass-Launcher.app 더블클릭
+
+<h1>터미널 사용자</h1>
+<p>npm run glass</p>
+<h1>개발자 빠른 시작</h1>
+<p>./quick-start.sh</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h3 id="live-insights-사용법">🎙️ Live Insights 사용법 {#live-insights-사용법}</h3>
+<h4>1. 기본 설정</h4>
+<ol>
+<li><strong>AI 모델 설정</strong>: 설정 → AI Models → API 키 입력</li>
+<li><strong>권한 허용</strong>: 마이크, 화면 녹화 권한 허용</li>
+<li><strong>Listen 시작</strong>: 헤더의 &quot;Listen&quot; 버튼 클릭</li>
+</ol>
+<h4>2. Live Insights 활성화</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3797" onclick="copyCode('code-1769481054760-3797')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3797" class="language-plaintext">Listen 창 → &quot;Show Insights&quot; 토글</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>작동 과정</strong>:</p>
+<ol>
+<li>음성 인식으로 대화 텍스트 수집</li>
+<li>3개 텍스트 수집 시 첫 번째 AI 분석 시작</li>
+<li>이후 2개씩 추가될 때마다 새로운 분석</li>
+<li>실시간으로 한국어 구조화된 인사이트 제공</li>
+</ol>
+<h4>3. 분석 결과 형태</h4>
+<p>Live Insights는 다음 구조로 제공됩니다:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3798" onclick="copyCode('code-1769481054760-3798')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3798" class="language-plaintext">📊 요약 개요
+- 주요 논의 사항과 맥락
+
+<p>🎯 핵심 주제: [자동 생성된 주제명]</p>
+<ul>
+<li>첫 번째 핵심 인사이트</li>
+<li>두 번째 핵심 인사이트</li>
+<li>세 번째 핵심 인사이트</li>
+</ul>
+<p>📝 상세 설명
+맥락과 시사점을 설명하는 2-3개 문장</p>
+<p>❓ 제안 질문</p>
+<ol>
+<li>첫 번째 후속 질문?</li>
+<li>두 번째 후속 질문?</li>
+<li>세 번째 후속 질문?</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">12 lines</span>
+  </div>
+</div></li>
+</ol>
+<h3 id="ask-기능-활용">🤖 Ask 기능 활용 {#ask-기능-활용}</h3>
+<h4>컨텍스트 기반 질문</h4>
+<p>Glass는 현재 화면과 음성 기록을 모두 이해하므로 다음과 같은 질문이 가능합니다:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3799" onclick="copyCode('code-1769481054760-3799')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3799" class="language-plaintext">회의 상황:
+- &quot;방금 회의에서 결정된 액션 아이템 3가지만 알려줘&quot;
+- &quot;참석자별 주요 의견 차이점은 뭐야?&quot;
+
+<p>개발 작업:</p>
+<ul>
+<li>&quot;화면에 보이는 이 에러를 어떻게 해결해야 해?&quot;</li>
+<li>&quot;현재 코드의 성능 최적화 방안을 제안해줘&quot;</li>
+</ul>
+<p>학습 상황:</p>
+<ul>
+<li>&quot;방금 설명한 개념을 더 쉽게 정리해줘&quot;</li>
+<li>&quot;이 내용과 관련된 추가 학습 자료를 추천해줘&quot;</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">9 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="고급-설정-및-커스터마이징">🔧 고급 설정 및 커스터마이징 {#고급-설정-및-커스터마이징}</h3>
+<h4>AI 모델 선택</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3800" onclick="copyCode('code-1769481054760-3800')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3800" class="language-plaintext">설정 → AI Models</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+- **OpenAI**: GPT-4 시리즈 (API 키 필요)
+- **Anthropic**: Claude 시리즈 (API 키 필요)
+- **Firebase 로그인**: 자동으로 AI 서비스 제공
+- **Ollama**: 로컬 모델 (설치 필요)
+
+<h4>권한 관리</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3801" onclick="copyCode('code-1769481054760-3801')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3801" class="language-plaintext">설정 → Permissions</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+- ✅ **마이크 권한**: 음성 인식용
+- ✅ **화면 녹화 권한**: 화면 컨텍스트 이해용
+- ✅ **키체인 권한**: API 키 보안 저장용
+
+<h4>키보드 단축키 설정</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3802" onclick="copyCode('code-1769481054760-3802')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3802" class="language-plaintext">설정 → Shortcuts</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+- 전체 창 토글
+- 빠른 녹음 시작/중지
+- Ask 창 호출
+
+<h2 id="기술적-구현-세부사항">기술적 구현 세부사항 {#기술적-구현-세부사항}</h2>
+<h3 id="아키텍처-패턴">🏗️ 아키텍처 패턴 {#아키텍처-패턴}</h3>
+<h4>Service-Repository 패턴</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3803" onclick="copyCode('code-1769481054760-3803')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3803" class="language-plaintext">Views (UI) → Services (비즈니스 로직) → Repositories (데이터 접근)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>듀얼 데이터베이스 전략</h4>
+<ul>
+<li><strong>SQLite</strong>: 기본 로컬 저장소</li>
+<li><strong>Firebase</strong>: 클라우드 동기화 (인증 사용자)</li>
+</ul>
+<h4>IPC 통신 플로우</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3804" onclick="copyCode('code-1769481054760-3804')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3804" class="language-plaintext">Next.js Frontend → HTTP → Node.js Backend → IPC → Electron Main → Database</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h3 id="주요-서비스들">🔌 주요 서비스들 {#주요-서비스들}</h3>
+<h4>SummaryService (Live Insights 엔진)</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3805" onclick="copyCode('code-1769481054760-3805')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3805" class="language-javascript">class SummaryService {
+    // 대화 히스토리 관리
+    addConversationTurn(speaker, text)
+    
+<pre><code>// AI 분석 트리거
+triggerAnalysisIfNeeded()
+
+// 구조화된 분석 수행
+makeOutlineAndRequests(conversationTexts)
+
+// UI 업데이트
+sendToRenderer(channel, data)
+</code></pre>
+<p>}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div></p>
+</div>
+
+<h4>ModelStateService (AI 모델 관리)</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3806" onclick="copyCode('code-1769481054760-3806')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3806" class="language-javascript">class ModelStateService {
+    // 모델 자동 선택
+    _autoSelectAvailableModels(types, isInitialBoot)
+    
+<pre><code>// API 키 설정
+setApiKey(provider, key)
+
+// 현재 모델 정보
+getCurrentModelInfo(type)
+</code></pre>
+<p>}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<h4>ListenService (통합 관리)</h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3807" onclick="copyCode('code-1769481054760-3807')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3807" class="language-javascript">class ListenService {
+    // 세션 초기화
+    initializeSession(language)
+    
+<pre><code>// 오디오 처리
+sendMicAudioContent(data, mimeType)
+
+// IPC 핸들러 설정
+setupIpcHandlers()
+</code></pre>
+<p>}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<h3 id="ui-컴포넌트-구조">🎨 UI 컴포넌트 구조 {#ui-컴포넌트-구조}</h3>
+<h4>ListenView (메인 컨테이너)</h4>
+<ul>
+<li>상단 바: 타이틀, 토글 버튼, 복사 버튼</li>
+<li>SttView: 실시간 텍스트 변환 표시</li>
+<li>SummaryView: Live Insights 결과 표시</li>
+</ul>
+<h4>SummaryView (인사이트 표시)</h4>
+<ul>
+<li>Progress State: 수집 진행률 표시</li>
+<li>Analyzing State: 분석 진행 애니메이션</li>
+<li>Error State: 에러 메시지 및 해결책</li>
+<li>Content State: 구조화된 인사이트 표시</li>
+</ul>
+<h2 id="실제-테스트-결과">실제 테스트 결과 {#실제-테스트-결과}</h2>
+<h3 id="성공적인-복구-확인">✅ 성공적인 복구 확인 {#성공적인-복구-확인}</h3>
+<h4>테스트 로그 분석</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3808" onclick="copyCode('code-1769481054760-3808')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3808" class="language-bash">npm run glass 실행 시:
+
+<p>[ModelStateService] Auto-selected available model: openai-glass/gpt-4.1-glass
+🤖 Sending analysis request to openai-glass using model gpt-4.1-glass
+✅ Analysis response received: <strong>요약 개요</strong></p>
+<ul>
+<li>음성 녹음 및 인사이트 기능 테스트 과정에서...
+✅ [SummaryService] Analysis completed, updating UI</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">6 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>확인된 작동 기능</h4>
+<ul>
+<li>✅ <strong>음성 인식</strong>: 실시간 STT 정상 작동</li>
+<li>✅ <strong>AI 분석</strong>: openai-glass 모델을 통한 분석 수행</li>
+<li>✅ <strong>한국어 응답</strong>: 구조화된 한국어 인사이트 생성</li>
+<li>✅ <strong>UI 업데이트</strong>: 실시간 인사이트 표시</li>
+<li>✅ <strong>에러 핸들링</strong>: 모델 미설정 시 자동 선택</li>
+<li>✅ <strong>사용자 피드백</strong>: 진행률 및 상태 표시</li>
+</ul>
+<h4>성능 지표</h4>
+<ul>
+<li><strong>분석 트리거</strong>: 3개 → 2개 패턴 정확히 작동</li>
+<li><strong>응답 시간</strong>: 평균 3-5초 내 분석 완료</li>
+<li><strong>UI 반응성</strong>: 즉시 상태 업데이트</li>
+<li><strong>메모리 사용</strong>: 안정적인 메모리 관리</li>
+</ul>
+<h3 id="사용-시나리오별-테스트">🎯 사용 시나리오별 테스트 {#사용-시나리오별-테스트}</h3>
+<h4>회의 시나리오</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054760-3809" onclick="copyCode('code-1769481054760-3809')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054760-3809" class="language-plaintext">입력: &quot;인사이트 기능이 왜 안 되는지 궁금해요&quot;, &quot;테스트 중입니다&quot;, &quot;제발 잘 되길 바랍니다&quot;
+
+<p>출력:
+<strong>요약 개요</strong></p>
+<ul>
+<li>음성 인식 및 인사이트 기능 테스트 과정에서 기술적 문제와 사용자 경험에 대한 고민</li>
+</ul>
+<p><strong>핵심 주제: 인사이트 기능 정상 작동 여부</strong></p>
+<ul>
+<li>인사이트 기능이 기대만큼 제대로 작동하지 않음</li>
+<li>사용자 인터페이스 변화에 대한 관찰 및 기대감 표출</li>
+<li>기능 분석 및 테스트 반복 시도</li>
+</ul>
+<p><strong>제안 질문</strong></p>
+<ol>
+<li>인사이트 기능이 정상적으로 동작하지 않는 구체적 증상은 무엇인가요?</li>
+<li>최근 인터페이스 변경 후 추가로 발견한 변화나 개선점이 있나요?</li>
+<li>인사이트 결과에 기대하는 주요 정보나 기능은 무엇인가요?</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">12 lines</span>
+  </div>
+</div></li>
+</ol>
+<h2 id="향후-개선-방향">향후 개선 방향 {#향후-개선-방향}</h2>
+<h3 id="단기-개선-계획">🚀 단기 개선 계획 {#단기-개선-계획}</h3>
+<h4>1. 사용성 개선</h4>
+<ul>
+<li><strong>온보딩 프로세스</strong>: 신규 사용자 가이드 추가</li>
+<li><strong>툴팁 시스템</strong>: 주요 기능별 설명 툴팁</li>
+<li><strong>키보드 단축키</strong>: 더 직관적인 단축키 시스템</li>
+</ul>
+<h4>2. 성능 최적화</h4>
+<ul>
+<li><strong>분석 속도</strong>: 프롬프트 최적화로 응답 시간 단축</li>
+<li><strong>메모리 관리</strong>: 대화 히스토리 자동 정리</li>
+<li><strong>배터리 효율</strong>: 백그라운드 프로세스 최적화</li>
+</ul>
+<h4>3. 기능 확장</h4>
+<ul>
+<li><strong>다국어 지원</strong>: 영어, 일본어 등 추가 언어</li>
+<li><strong>커스텀 프롬프트</strong>: 사용자 정의 분석 템플릿</li>
+<li><strong>내보내기 기능</strong>: 분석 결과 다양한 형식으로 저장</li>
+</ul>
+<h3 id="장기-비전">🔮 장기 비전 {#장기-비전}</h3>
+<h4>1. AI 모델 확장</h4>
+<ul>
+<li><strong>로컬 LLM</strong>: Ollama 기반 완전 오프라인 모드</li>
+<li><strong>전문 모델</strong>: 도메인별 특화 AI 모델 지원</li>
+<li><strong>멀티모달</strong>: 이미지, 문서 분석 기능 추가</li>
+</ul>
+<h4>2. 협업 기능</h4>
+<ul>
+<li><strong>팀 공유</strong>: 분석 결과 팀원 간 공유</li>
+<li><strong>회의 요약</strong>: 자동 회의록 생성 및 배포</li>
+<li><strong>액션 아이템</strong>: 할 일 관리 도구 연동</li>
+</ul>
+<h4>3. 생태계 확장</h4>
+<ul>
+<li><strong>플러그인 시스템</strong>: 서드파티 확장 지원</li>
+<li><strong>API 제공</strong>: 외부 도구 연동 API</li>
+<li><strong>클라우드 서비스</strong>: 완전 클라우드 기반 서비스</li>
+</ul>
+<h2 id="구현-체크리스트">구현 체크리스트 {#구현-체크리스트}</h2>
+<h3 id="완료된-항목">✅ 완료된 항목 {#완료된-항목}</h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Live Insights 기능 완전 복구</li>
+<li><input checked="" disabled="" type="checkbox"> IPC 핸들러 누락 문제 해결</li>
+<li><input checked="" disabled="" type="checkbox"> AI 모델 자동 전환 로직 구현</li>
+<li><input checked="" disabled="" type="checkbox"> 사용자 친화적 에러 처리</li>
+<li><input checked="" disabled="" type="checkbox"> 진행률 및 상태 표시 시스템</li>
+<li><input checked="" disabled="" type="checkbox"> 다양한 실행 방법 구현</li>
+<li><input checked="" disabled="" type="checkbox"> 시스템 트레이 통합</li>
+<li><input checked="" disabled="" type="checkbox"> 데스크톱 바로가기 생성</li>
+<li><input checked="" disabled="" type="checkbox"> 자동 시작 설정</li>
+<li><input checked="" disabled="" type="checkbox"> 포괄적 사용법 가이드 작성</li>
+<li><input checked="" disabled="" type="checkbox"> 실제 테스트 및 검증</li>
+</ul>
+<h3 id="진행-중인-항목">🔄 진행 중인 항목 {#진행-중인-항목}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 온보딩 프로세스 개선</li>
+<li><input disabled="" type="checkbox"> 성능 최적화</li>
+<li><input disabled="" type="checkbox"> 다국어 지원 준비</li>
+</ul>
+<h3 id="향후-계획">📋 향후 계획 {#향후-계획}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 플러그인 시스템 설계</li>
+<li><input disabled="" type="checkbox"> 협업 기능 구현</li>
+<li><input disabled="" type="checkbox"> 모바일 앱 연동</li>
+</ul>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><strong>상위 개념</strong>: <a href="/articles/claude-code-practical-guide.html" class="internal-link">Claude Code 활용 가이드</a></li>
+<li><strong>하위 세부사항</strong>: <a href="/articles/glass-tech-analysis.html" class="internal-link">Glass 기술적 아키텍처 분석</a></li>
+<li><strong>병렬 주제</strong>: <a href="/articles/electron-development.html" class="internal-link">Electron 기반 데스크톱 앱 개발</a></li>
+<li><strong>실전 활용</strong>: <a href="/articles/ai-analysis-tools-practical.html" class="internal-link">AI 기반 실시간 분석 도구 활용법</a></li>
+</ul>
+<h2 id="참고-자료">참고 자료 {#참고-자료}</h2>
+<ul>
+<li><a href="https://github.com/pickle-org/glass">Glass by Pickle 공식 저장소</a></li>
+<li><a href="https://www.electronjs.org/docs">Electron 공식 문서</a></li>
+<li><a href="https://platform.openai.com/docs">OpenAI API 문서</a></li>
+<li><a href="https://docs.anthropic.com">Claude API 문서</a></li>
+</ul>
+<hr>
+<h2 id="변경-이력">변경 이력 {#변경-이력}</h2>
+<ul>
+<li>2025-07-21: 초안 작성 및 전체 구현 완료</li>
+<li>2025-07-21: Live Insights 기능 완전 복구 확인</li>
+<li>2025-07-21: 사용법 가이드 및 기술 문서 통합 완성</li>
+</ul>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/Glass.html" class="article-tag">Glass</a><a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/데스크톱앱.html" class="article-tag">데스크톱앱</a><a href="/tag/Claude-Code.html" class="article-tag">Claude-Code</a><a href="/tag/Live-Insights.html" class="article-tag">Live-Insights</a><a href="/tag/Electron.html" class="article-tag">Electron</a><a href="/tag/개발도구.html" class="article-tag">개발도구</a><a href="/tag/디버깅.html" class="article-tag">디버깅</a><a href="/tag/사용자경험.html" class="article-tag">사용자경험</a><a href="/tag/실시간분석.html" class="article-tag">실시간분석</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/glass-desktop-app-complete-guide-live-insights.html&text=Glass Desktop App 완전 가이드 및 Live Insights 복구" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/glass-desktop-app-complete-guide-live-insights.html&title=Glass Desktop App 완전 가이드 및 Live Insights 복구" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/glass-desktop-app-complete-guide-live-insights.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

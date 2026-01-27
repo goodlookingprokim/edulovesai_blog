@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notion to Obsidian 마이그레이션 완전 가이드 | AI &amp; Development Journal</title>
+  <meta name="description" content="1.  || #왜 Notion에서 Obsidian으로 옮기나요 2.  || #notion2obsidian이 뭔가요 3.  || #어떻게 작동하나요 4.  || #설치하고 사용하기 5.  || #실전 마이그레이션 예제 6.  || #문제 해결 가이드 7.  || #핵심...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Notion to Obsidian 마이그레이션 완전 가이드">
+  <meta property="og:description" content="1.  || #왜 Notion에서 Obsidian으로 옮기나요 2.  || #notion2obsidian이 뭔가요 3.  || #어떻게 작동하나요 4.  || #설치하고 사용하기 5.  || #실전 마이그레이션 예제 6.  || #문제 해결 가이드 7.  || #핵심...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/notion-to-obsidian-complete-guide.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Notion to Obsidian 마이그레이션 완전 가이드">
+  <meta name="twitter:description" content="1.  || #왜 Notion에서 Obsidian으로 옮기나요 2.  || #notion2obsidian이 뭔가요 3.  || #어떻게 작동하나요 4.  || #설치하고 사용하기 5.  || #실전 마이그레이션 예제 6.  || #문제 해결 가이드 7.  || #핵심...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/notion-to-obsidian-complete-guide.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">Notion to Obsidian 마이그레이션 완전 가이드</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 10월 6일">2025년 10월 6일</time>
+            <span class="article-meta__separator">·</span>
+            <span>14 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#왜-notion에서-obsidian으로-옮기나요" class="toc__link">왜 Notion에서 Obsidian으로 옮기나요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실생활-이야기로-이해하기" class="toc__link">📖 실생활 이야기로 이해하기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#notion2obsidian이-뭔가요" class="toc__link">notion2obsidian이 뭔가요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#택배-정리-도우미-비유" class="toc__link">📦 택배 정리 도우미 비유</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-개념-5살-아이에게-설명한다면" class="toc__link">🎯 핵심 개념 (5살 아이에게 설명한다면)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#어떻게-작동하나요" class="toc__link">어떻게 작동하나요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#처리-과정-why-what-how" class="toc__link">🔄 처리 과정 (WHY → WHAT → HOW)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#설치하고-사용하기" class="toc__link">설치하고 사용하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기초-예제-초보자용" class="toc__link">🌱 기초 예제 (초보자용)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급-예제-실무-적용" class="toc__link">🌿 중급 예제 (실무 적용)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-예제-심화-학습" class="toc__link">🌳 고급 예제 (심화 학습)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실전-마이그레이션-예제" class="toc__link">실전 마이그레이션 예제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#완전한-실전-예제" class="toc__link">🎯 완전한 실전 예제</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결-가이드" class="toc__link">문제 해결 가이드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#자주-발생하는-문제들" class="toc__link">⚠️ 자주 발생하는 문제들</a>
+    </li>
+    <li class="toc__item">
+      <a href="#핵심-정리" class="toc__link">핵심 정리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#꼭-기억할-5가지" class="toc__link">✅ 꼭 기억할 5가지</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#before-after-비교" class="toc__link">📊 Before &amp; After 비교</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#다음-단계-학습" class="toc__link">🎓 다음 단계 학습</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#pro-tips" class="toc__link">💡 Pro Tips</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#참고-자료" class="toc__link">참고 자료</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Notion to Obsidian 마이그레이션 완전 가이드</h1>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#왜-notion에서-obsidian으로-옮기나요" class="internal-link internal-link--section">왜 Notion에서 Obsidian으로 옮기나요</a></li>
+<li><a href="#notion2obsidian이-뭔가요" class="internal-link internal-link--section">notion2obsidian이 뭔가요</a></li>
+<li><a href="#어떻게-작동하나요" class="internal-link internal-link--section">어떻게 작동하나요</a></li>
+<li><a href="#설치하고-사용하기" class="internal-link internal-link--section">설치하고 사용하기</a></li>
+<li><a href="#실전-마이그레이션-예제" class="internal-link internal-link--section">실전 마이그레이션 예제</a></li>
+<li><a href="#문제-해결-가이드" class="internal-link internal-link--section">문제 해결 가이드</a></li>
+<li><a href="#핵심-정리" class="internal-link internal-link--section">핵심 정리</a></li>
+</ol>
+<hr>
+<h2 id="왜-notion에서-obsidian으로-옮기나요">왜 Notion에서 Obsidian으로 옮기나요? {#왜-notion에서-obsidian으로-옮기나요}</h2>
+<h3 id="실생활-이야기로-이해하기">📖 실생활 이야기로 이해하기 {#실생활-이야기로-이해하기}</h3>
+<blockquote>
+<p>여러분의 모든 노트가 한 회사의 서버에만 있다고 상상해보세요. 마치 모든 일기를 남의 집 창고에 보관하는 것과 같죠. 언젠가 그 창고가 문을 닫거나, 요금이 너무 비싸지면 어떡할까요?</p>
+</blockquote>
+<p><strong>Notion의 문제점</strong>:</p>
+<ul>
+<li>인터넷 없이는 접근 어려움 (비행기에서 노트를 볼 수 없어요!)</li>
+<li>데이터가 Notion 서버에만 존재 (내 컴퓨터에 진짜 파일이 없어요)</li>
+<li>다른 앱으로 옮기기 어려움 (한번 들어가면 나오기 힘든 호텔 캘리포니아 같아요)</li>
+</ul>
+<p><strong>Obsidian의 장점</strong>:</p>
+<ul>
+<li>내 컴퓨터에 실제 파일로 저장 (<code>.md</code> 마크다운 파일)</li>
+<li>인터넷 없이도 언제나 사용 가능</li>
+<li>다른 앱에서도 쉽게 열림 (메모장으로도 볼 수 있어요!)</li>
+</ul>
+<p>이것은 마치 <strong>임대 아파트에서 내 집으로 이사하는 것</strong>과 같습니다! 🏠</p>
+<hr>
+<h2 id="notion2obsidian이-뭔가요">notion2obsidian이 뭔가요? {#notion2obsidian이-뭔가요}</h2>
+<h3 id="택배-정리-도우미-비유">📦 택배 정리 도우미 비유 {#택배-정리-도우미-비유}</h3>
+<p>notion2obsidian은 <strong>이사 짐 정리 전문가</strong>라고 생각하면 됩니다.</p>
+<p>Notion에서 내보낸 파일은 이렇게 엉망입니다:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054905-4824" onclick="copyCode('code-1769481054905-4824')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054905-4824" class="language-plaintext">내 일기 abc123def456789012345678901234567.md
+여행 계획 xyz789uvw456rst123mno456pqr789.md</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p>이 도구는 이렇게 깔끔하게 정리해줍니다:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054905-4825" onclick="copyCode('code-1769481054905-4825')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054905-4825" class="language-plaintext">내 일기.md
+여행 계획.md</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>무엇을 하는 도구인가요?</strong></p>
+<ul>
+<li>Notion에서 내보낸 지저분한 파일들을 Obsidian용으로 <strong>자동 변환</strong></li>
+<li>32자짜리 이상한 ID를 <strong>자동으로 제거</strong></li>
+<li>링크를 Obsidian 형식으로 <strong>자동 변경</strong></li>
+<li>파일에 메타데이터(설명 정보)를 <strong>자동 추가</strong></li>
+</ul>
+<h3 id="핵심-개념-5살-아이에게-설명한다면">🎯 핵심 개념 (5살 아이에게 설명한다면) {#핵심-개념-5살-아이에게-설명한다면}</h3>
+<p>&quot;notion2obsidian은 지저분한 장난감 상자를 받아서, 모든 장난감을 깨끗이 정리하고, 라벨을 붙이고, 제자리에 놓아주는 마법 상자예요!&quot;</p>
+<hr>
+<h2 id="어떻게-작동하나요">어떻게 작동하나요? {#어떻게-작동하나요}</h2>
+<h3 id="처리-과정-why-what-how">🔄 처리 과정 (WHY → WHAT → HOW) {#처리-과정-why-what-how}</h3>
+<h4>1️⃣ WHY (왜 이 과정이 필요할까요?)</h4>
+<p>Notion은 내보낼 때 모든 파일에 <strong>고유 ID</strong>를 붙입니다. 이건 마치 도서관에서 책마다 바코드 번호를 붙이는 것과 같아요. 하지만 집에서 책을 읽을 때 바코드가 필요할까요? 아니죠!</p>
+<h4>2️⃣ WHAT (무엇을 변환하나요?)</h4>
+<p><strong>변환 전 (Notion 형식)</strong>:</p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054905-4826" onclick="copyCode('code-1769481054905-4826')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054905-4826" class="language-markdown">[다른 노트 보기](My%20Note%20abc123def456.md)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>변환 후 (Obsidian 형식)</strong>:</p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054905-4827" onclick="copyCode('code-1769481054905-4827')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054905-4827" class="language-markdown">&lt;a href=&quot;/articles/my-note.html&quot; class=&quot;internal-link&quot;&gt;다른 노트 보기&lt;/a&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>3️⃣ HOW (어떻게 작동하나요?)</h4>
+<p>마치 <strong>공장 생산 라인</strong>처럼 단계별로 처리합니다:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054905-4828" onclick="copyCode('code-1769481054905-4828')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054905-4828" class="language-plaintext">📥 1단계: 파일 분석
+    ↓
+🔍 2단계: 이상한 ID 찾기
+    ↓
+✂️  3단계: ID 제거하기
+    ↓
+🔗 4단계: 링크 변환하기
+    ↓
+📝 5단계: 메타데이터 추가
+    ↓
+✅ 6단계: 완성!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="설치하고-사용하기">설치하고 사용하기 {#설치하고-사용하기}</h2>
+<h3 id="기초-예제-초보자용">🌱 기초 예제 (초보자용) {#기초-예제-초보자용}</h3>
+<h4>준비물</h4>
+<ul>
+<li>컴퓨터 (Mac, Windows, Linux 모두 가능)</li>
+<li>Notion에서 내보낸 ZIP 파일</li>
+<li>10분의 시간</li>
+</ul>
+<h4>Step 1: Bun 설치 (실행 엔진)</h4>
+<p><strong>Bun이 뭔가요?</strong></p>
+<ul>
+<li>JavaScript를 빠르게 실행해주는 프로그램</li>
+<li>마치 자동차를 움직이는 엔진 같은 존재</li>
+</ul>
+<p><strong>설치 방법</strong> (Mac/Linux):</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054905-4829" onclick="copyCode('code-1769481054905-4829')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054905-4829" class="language-bash"># 이 명령어 하나만 복사해서 터미널에 붙여넣기!
+curl -fsSL https://bun.sh/install | bash</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>설치 방법</strong> (Windows):</p>
+<div class="code-block" data-language="powershell">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481054905-4830" onclick="copyCode('code-1769481054905-4830')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054905-4830" class="language-powershell"># PowerShell에서 실행
+irm bun.sh/install.ps1 | iex</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>Step 2: notion2obsidian 다운로드</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054905-4831" onclick="copyCode('code-1769481054905-4831')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054905-4831" class="language-bash"># 1. 프로젝트 폴더 받기
+git clone https://github.com/bitbonsai/notion2obsidian.git
+
+<h1>2. 폴더로 이동</h1>
+<p>cd notion2obsidian</p>
+<h1>3. 필요한 도구들 설치 (자동으로 설치됨)</h1>
+<p>bun install</p>
+<h1>4. 실행 권한 주기 (Mac/Linux만)</h1>
+<p>chmod +x notion2obsidian.js</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🤔 생각해보기</strong>: <code>bun install</code>은 왜 필요할까요?</p>
+<details>
+<summary>답변 보기</summary>
+프로그램이 작동하려면 여러 보조 도구들이 필요해요. 마치 요리할 때 재료가 필요한 것처럼요! `bun install`은 필요한 모든 재료를 자동으로 준비해줍니다.
+</details>
+
+<h4>Step 3: 첫 번째 변환 (가장 간단한 방법)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054905-4832" onclick="copyCode('code-1769481054905-4832')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054905-4832" class="language-bash"># Notion에서 내보낸 파일을 변환하기
+./notion2obsidian.js ./Export-abc123.zip</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>실행하면 이런 화면이 나옵니다</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054905-4833" onclick="copyCode('code-1769481054905-4833')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054905-4833" class="language-plaintext">📦 Extracting zip file...
+Extracting to: Export-2d6f-extracted
+
+<p>✓ Extracted 542 files</p>
+<p>📦 Notion to Obsidian
+Found 542 markdown files
+Found 23 directories</p>
+<p>Press ENTER to proceed...</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<p><strong>ENTER를 누르면 자동으로 변환이 시작됩니다!</strong> 🎉</p>
+<hr>
+<h3 id="중급-예제-실무-적용">🌿 중급 예제 (실무 적용) {#중급-예제-실무-적용}</h3>
+<p>이제 실제로 자주 사용하는 옵션들을 배워봅시다!</p>
+<h4>옵션 1: 미리보기 모드 (안전하게 확인하기)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054905-4834" onclick="copyCode('code-1769481054905-4834')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054905-4834" class="language-bash"># --dry-run: 실제로 변환하지 않고 미리보기만
+./notion2obsidian.js ./Export-abc123.zip --dry-run</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>이것은 마치 옷을 사기 전에 먼저 입어보는 것과 같아요!</strong></p>
+<p><strong>미리보기 결과 예시</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054905-4835" onclick="copyCode('code-1769481054905-4835')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054905-4835" class="language-plaintext">═══ MIGRATION PREVIEW ═══
+
+<p>Files to rename: 542</p>
+<p>Sample:
+  − My Note abc123def456...xyz.md</p>
+<ul>
+<li>My Note.md</li>
+</ul>
+<p>Directories to rename: 23</p>
+<h2>Sample frontmatter:</h2>
+<h2>title: &quot;My Note&quot;
+tags: [projects, work]</h2>
+<p>Press ENTER to proceed, or Ctrl+C to cancel...</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<h4>옵션 2: 출력 폴더 지정하기</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054905-4836" onclick="copyCode('code-1769481054905-4836')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054905-4836" class="language-bash"># -o 옵션: 변환된 파일을 원하는 곳에 저장
+./notion2obsidian.js ./Export-abc123.zip -o ~/Documents/Obsidian/내Vault</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>실생활 비유</strong>: 택배를 받을 때 &quot;현관문 앞에 놔주세요&quot; vs &quot;경비실에 맡겨주세요&quot;를 선택하는 것과 같아요!</p>
+<h4>옵션 3: 여러 ZIP 파일 한 번에 처리</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054905-4837" onclick="copyCode('code-1769481054905-4837')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054905-4837" class="language-bash"># *.zip: 현재 폴더의 모든 ZIP 파일 처리
+./notion2obsidian.js *.zip -o ~/Documents/Obsidian</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>🤔 생각해보기</strong>: <code>*.zip</code>에서 <code>*</code>는 무슨 뜻일까요?</p>
+<details>
+<summary>답변 보기</summary>
+`*`는 "모든 것"을 의미하는 와일드카드예요. `*.zip`는 "이름이 뭐든 상관없이 .zip으로 끝나는 모든 파일"이라는 뜻입니다!
+</details>
+
+<hr>
+<h3 id="고급-예제-심화-학습">🌳 고급 예제 (심화 학습) {#고급-예제-심화-학습}</h3>
+<h4>복잡한 시나리오: 대량 파일 + 커스텀 설정</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4838" onclick="copyCode('code-1769481054906-4838')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4838" class="language-bash"># 여러 옵션을 동시에 사용하기
+./notion2obsidian.js \
+  Export-*.zip \
+  -o ~/Documents/Obsidian/ImportedNotes \
+  --dataview \
+  --verbose</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<p><strong>각 옵션 설명</strong>:</p>
+<ul>
+<li><code>Export-*.zip</code>: Export로 시작하는 모든 ZIP 파일</li>
+<li><code>-o</code>: 저장할 폴더 지정</li>
+<li><code>--dataview</code>: 데이터베이스를 Dataview 플러그인용으로 변환</li>
+<li><code>--verbose</code>: 자세한 처리 과정 표시</li>
+</ul>
+<h4>성능 최적화 (대용량 파일용)</h4>
+<p>notion2obsidian은 **배치 처리(Batch Processing)**를 사용합니다.</p>
+<p><strong>배치 처리란?</strong></p>
+<ul>
+<li>한 번에 하나씩 처리 ❌ (느림)</li>
+<li>50개씩 묶어서 동시 처리 ✅ (빠름)</li>
+</ul>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4839" onclick="copyCode('code-1769481054906-4839')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4839" class="language-javascript">// 코드 내부 설정 (고급 사용자용)
+const BATCH_SIZE = 50; // 기본값
+
+<p>// 메모리가 적은 컴퓨터라면?
+const BATCH_SIZE = 25; // 반으로 줄이기</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<p><strong>실생활 비유</strong>:</p>
+<ul>
+<li>접시 하나씩 설거지 vs 여러 접시를 한꺼번에 담가두고 설거지</li>
+<li>당연히 한꺼번에 하는 게 빠르겠죠!</li>
+</ul>
+<hr>
+<h2 id="실전-마이그레이션-예제">실전 마이그레이션 예제 {#실전-마이그레이션-예제}</h2>
+<h3 id="완전한-실전-예제">🎯 완전한 실전 예제 {#완전한-실전-예제}</h3>
+<h4>상황</h4>
+<p>수진이는 Notion에 3년간 작성한 1,200개의 노트를 Obsidian으로 옮기고 싶습니다.</p>
+<h4>전체 과정 (A부터 Z까지)</h4>
+<p><strong>1단계: Notion에서 내보내기</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4840" onclick="copyCode('code-1769481054906-4840')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4840" class="language-plaintext">Notion → Settings &amp; Members → Settings → Export all workspace content
+→ Export format: Markdown &amp; CSV
+→ Include subpages: Yes
+→ Export 클릭!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p>다운로드되는 파일: <code>Export-20251006.zip</code></p>
+<p><strong>2단계: 안전하게 미리보기</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4841" onclick="copyCode('code-1769481054906-4841')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4841" class="language-bash"># 먼저 어떻게 변환될지 확인
+./notion2obsidian.js Export-20251006.zip --dry-run</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>결과</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4842" onclick="copyCode('code-1769481054906-4842')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4842" class="language-plaintext">Found 1,200 markdown files
+Found 87 directories
+⚠ Warning: 15 duplicate filenames found
+
+<p>Sample transformation:
+  − 프로젝트 계획 abc123def456.md → 프로젝트 계획.md
+  − 회의록 xyz789uvw456.md → 회의록.md</p>
+<p>Press ENTER to proceed or Ctrl+C to cancel</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<p><strong>3단계: 실제 변환 실행</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4843" onclick="copyCode('code-1769481054906-4843')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4843" class="language-bash"># 이제 진짜 변환! Obsidian 폴더에 바로 저장
+./notion2obsidian.js Export-20251006.zip -o ~/Documents/Obsidian/Notion-Import</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>4단계: 결과 확인</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4844" onclick="copyCode('code-1769481054906-4844')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4844" class="language-plaintext">✅ Migration complete!
+
+<p>Summary:
+   📄 Added frontmatter to 1,200 files
+   🔗 Converted 3,456 links
+   ✏️  Renamed 1,200 files
+   📁 Renamed 87 directories</p>
+<p>Your files are ready at:
+~/Documents/Obsidian/Notion-Import</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<p><strong>5단계: Obsidian에서 열기</strong></p>
+<ul>
+<li>Obsidian 열기</li>
+<li>&quot;Open folder as vault&quot; 클릭</li>
+<li><code>~/Documents/Obsidian/Notion-Import</code> 선택</li>
+<li>완료! 🎉</li>
+</ul>
+<hr>
+<h2 id="문제-해결-가이드">문제 해결 가이드 {#문제-해결-가이드}</h2>
+<h3 id="자주-발생하는-문제들">⚠️ 자주 발생하는 문제들 {#자주-발생하는-문제들}</h3>
+<h4>문제 1: &quot;Permission denied&quot; 오류</h4>
+<p><strong>증상</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4845" onclick="copyCode('code-1769481054906-4845')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4845" class="language-plaintext">bash: ./notion2obsidian.js: Permission denied</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>원인</strong>: 파일에 실행 권한이 없어요.</p>
+<p><strong>해결책</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4846" onclick="copyCode('code-1769481054906-4846')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4846" class="language-bash"># 실행 권한 주기 (Mac/Linux)
+chmod +x notion2obsidian.js
+
+<h1>다시 실행</h1>
+<p>./notion2obsidian.js Export-abc123.zip</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<p><strong>실생활 비유</strong>: 자물쇠 걸린 문을 열쇠로 여는 것과 같아요!</p>
+<hr>
+<h4>문제 2: 중복 파일명 경고</h4>
+<p><strong>증상</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4847" onclick="copyCode('code-1769481054906-4847')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4847" class="language-plaintext">⚠ Warning: 15 duplicate filenames found
+These will be disambiguated using folder paths</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>원인</strong>: Notion에서 다른 폴더에 같은 이름의 파일이 있었어요.</p>
+<p><strong>해결책</strong>: 걱정하지 마세요! 자동으로 처리됩니다.</p>
+<p><strong>처리 방법</strong>:</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4848" onclick="copyCode('code-1769481054906-4848')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4848" class="language-yaml"># 파일 1 (Work/Projects/계획.md)
+---
+title: &quot;계획&quot;
+folder: &quot;Work/Projects&quot;
+---
+
+<h1>파일 2 (Personal/Life/계획.md)</h1>
+<hr>
+<p>title: &quot;계획&quot;
+folder: &quot;Personal/Life&quot;
+---</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<p>폴더 정보가 메타데이터에 저장되어 구분됩니다!</p>
+<hr>
+<h4>문제 3: 링크가 깨졌어요</h4>
+<p><strong>증상</strong>: Obsidian에서 링크를 클릭하면 &quot;파일을 찾을 수 없음&quot;</p>
+<p><strong>원인</strong>:</p>
+<ol>
+<li>원본 Notion에서 이미 깨진 링크였거나</li>
+<li>특수문자가 포함된 파일명</li>
+</ol>
+<p><strong>해결책</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4849" onclick="copyCode('code-1769481054906-4849')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4849" class="language-bash"># 변환 후 Obsidian의 &quot;Find orphaned files&quot; 기능 사용
+# Settings → Files &amp; Links → Detect all broken links</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<hr>
+<h4>문제 4: 메모리 부족 (대용량 파일)</h4>
+<p><strong>증상</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4850" onclick="copyCode('code-1769481054906-4850')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4850" class="language-plaintext">FATAL ERROR: Ineffective mark-compacts near heap limit</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>원인</strong>: 10,000개 이상의 파일을 한 번에 처리하려고 할 때</p>
+<p><strong>해결책 1</strong>: 배치 크기 줄이기</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4851" onclick="copyCode('code-1769481054906-4851')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4851" class="language-bash"># notion2obsidian.js 파일 편집
+# 50 → 25로 변경
+const BATCH_SIZE = 25;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>해결책 2</strong>: ZIP 파일 나누기</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4852" onclick="copyCode('code-1769481054906-4852')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4852" class="language-bash"># 큰 ZIP을 작은 ZIP으로 나누어 처리
+./notion2obsidian.js Part1.zip -o ~/Obsidian/Import1
+./notion2obsidian.js Part2.zip -o ~/Obsidian/Import2</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="핵심-정리">핵심 정리 {#핵심-정리}</h2>
+<h3 id="꼭-기억할-5가지">✅ 꼭 기억할 5가지 {#꼭-기억할-5가지}</h3>
+<ol>
+<li><p><strong>항상 --dry-run으로 먼저 확인하기</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481054906-4853" onclick="copyCode('code-1769481054906-4853')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4853" class="language-bash">./notion2obsidian.js file.zip --dry-run</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+</li>
+<li><p><strong>출력 폴더를 명시하면 안전</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481054906-4854" onclick="copyCode('code-1769481054906-4854')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4854" class="language-bash">./notion2obsidian.js file.zip -o ~/safe-location</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+</li>
+<li><p><strong>중복 파일은 자동으로 처리됨</strong> (걱정 No!)</p>
+</li>
+<li><p><strong>원본 ZIP 파일은 항상 백업 보관</strong></p>
+</li>
+<li><p><strong>문제 생기면 다시 실행하면 됨</strong> (멱등성 보장)</p>
+</li>
+</ol>
+<hr>
+<h3>📊 Before &amp; After 비교 {#before-after-비교}</h3>
+<h4>변환 전 (Notion 형식)</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4855" onclick="copyCode('code-1769481054906-4855')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4855" class="language-plaintext">📁 내보낸파일/
+├── 프로젝트abc123def456789.md
+├── 회의록xyz789uvw456rst.md
+└── 이미지폴더mno456pqr789/
+    └── 스크린샷abc123.png</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>파일 내용</strong>:</p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4856" onclick="copyCode('code-1769481054906-4856')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4856" class="language-markdown"># 프로젝트
+
+<p><a href="%ED%9A%8C%EC%9D%98%EB%A1%9D%20xyz789.md">관련 문서</a>를 참고하세요.</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div></p>
+</div>
+
+<h4>변환 후 (Obsidian 형식)</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4857" onclick="copyCode('code-1769481054906-4857')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4857" class="language-plaintext">📁 내보낸파일/
+├── 프로젝트.md
+├── 회의록.md
+└── 이미지폴더/
+    └── 스크린샷.png</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>파일 내용</strong>:</p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4858" onclick="copyCode('code-1769481054906-4858')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4858" class="language-markdown">---
+title: &quot;프로젝트&quot;
+tags: [work, projects]
+notion-id: &quot;abc123def456789&quot;
+created: 2025-10-06
+---
+
+<h1>프로젝트</h1>
+<p>&lt;a href=&quot;/articles/article.html&quot; class=&quot;internal-link&quot;&gt;관련 문서&lt;/a&gt;를 참고하세요.</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3 id="다음-단계-학습">🎓 다음 단계 학습 {#다음-단계-학습}</h3>
+<p>notion2obsidian을 마스터했다면:</p>
+<ol>
+<li><p><strong>Obsidian Dataview 플러그인</strong> 배우기</p>
+<ul>
+<li>데이터베이스처럼 노트 쿼리하기</li>
+</ul>
+</li>
+<li><p><strong>Templater 플러그인</strong> 활용</p>
+<ul>
+<li>자동화된 노트 생성</li>
+</ul>
+</li>
+<li><p><strong>Graph View</strong> 활용</p>
+<ul>
+<li>지식 네트워크 시각화</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="pro-tips">💡 Pro Tips {#pro-tips}</h3>
+<h4>Tip 1: 태그 자동 생성 활용</h4>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4859" onclick="copyCode('code-1769481054906-4859')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4859" class="language-yaml"># 폴더 구조: Work/Projects/2025/AI
+# 자동 생성되는 태그:
+tags: [work, projects, 2025, ai]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h4>Tip 2: 원본 파일명 보존</h4>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4860" onclick="copyCode('code-1769481054906-4860')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4860" class="language-yaml"># aliases에 원본 이름이 저장됨
+aliases:
+  - &quot;프로젝트 abc123def456789&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p>나중에 원본 이름으로도 검색 가능!</p>
+<h4>Tip 3: Notion ID로 역추적</h4>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054906-4861" onclick="copyCode('code-1769481054906-4861')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054906-4861" class="language-yaml"># 문제 생기면 원본 찾기 쉬움
+notion-id: &quot;abc123def456789&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/obsidian-getting-started-guide.html" class="internal-link">Obsidian 시작 가이드</a></li>
+<li><a href="/articles/para-note-organized.html" class="internal-link">PARA 시스템으로 노트 정리하기</a></li>
+<li><a href="/articles/dataview-plugin-complete.html" class="internal-link">Dataview 플러그인 완전 정복</a></li>
+<li><a href="/articles/organized.html" class="internal-link">마크다운 문법 총정리</a></li>
+<li><a href="/articles/knowledgemanagement.html" class="internal-link">지식관리 시스템 구축하기</a></li>
+</ul>
+<hr>
+<h2 id="참고-자료">참고 자료 {#참고-자료}</h2>
+<ul>
+<li><strong>공식 GitHub</strong>: <a href="https://github.com/bitbonsai/notion2obsidian">https://github.com/bitbonsai/notion2obsidian</a></li>
+<li><strong>공식 문서</strong>: <a href="https://bitbonsai.github.io/notion2obsidian/">https://bitbonsai.github.io/notion2obsidian/</a></li>
+<li><strong>Obsidian 포럼</strong>: <a href="https://forum.obsidian.md">https://forum.obsidian.md</a></li>
+<li><strong>Notion 내보내기 가이드</strong>: <a href="https://www.notion.so/help/export-your-content">https://www.notion.so/help/export-your-content</a></li>
+</ul>
+<hr>
+<p><strong>💬 마지막 조언</strong></p>
+<blockquote>
+<p>&quot;처음엔 어려워 보여도 괜찮아요! 한 번 성공하면 다음엔 5분 만에 할 수 있게 됩니다. 실수해도 원본 ZIP 파일만 있으면 언제든 다시 시작할 수 있으니 용기내서 시도해보세요!&quot;</p>
+</blockquote>
+<p><strong>Happy migrating! 🚀</strong></p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/Obsidian.html" class="article-tag">Obsidian</a><a href="/tag/마이그레이션.html" class="article-tag">마이그레이션</a><a href="/tag/Notion.html" class="article-tag">Notion</a><a href="/tag/내보내기.html" class="article-tag">내보내기</a><a href="/tag/개발도구.html" class="article-tag">개발도구</a><a href="/tag/CLI.html" class="article-tag">CLI</a><a href="/tag/지식관리.html" class="article-tag">지식관리</a><a href="/tag/전환.html" class="article-tag">전환</a><a href="/tag/튜토리얼.html" class="article-tag">튜토리얼</a><a href="/tag/초보자.html" class="article-tag">초보자</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/notion-to-obsidian-complete-guide.html&text=Notion to Obsidian 마이그레이션 완전 가이드" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/notion-to-obsidian-complete-guide.html&title=Notion to Obsidian 마이그레이션 완전 가이드" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/notion-to-obsidian-complete-guide.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

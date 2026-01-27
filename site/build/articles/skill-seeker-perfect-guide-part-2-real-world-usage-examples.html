@@ -1,0 +1,3298 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Seeker 완벽 가이드 Part 2 - 실전 사용법과 예제 | AI &amp; Development Journal</title>
+  <meta name="description" content="이번 Part에서는: - 실제로 첫 Skill을 만들어봐요! 🎯 - 단계별로 따라하면서 배워요! 📝 - 3가지 레벨 (초급/중급/고급) 예제 제공! 🌱🌿🌳 - 문제가 생기면 어떻게 해결하는지 배워요! 🔧 --- 1.  || #첫 번째 Skill 만들기 -...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Skill Seeker 완벽 가이드 Part 2 - 실전 사용법과 예제">
+  <meta property="og:description" content="이번 Part에서는: - 실제로 첫 Skill을 만들어봐요! 🎯 - 단계별로 따라하면서 배워요! 📝 - 3가지 레벨 (초급/중급/고급) 예제 제공! 🌱🌿🌳 - 문제가 생기면 어떻게 해결하는지 배워요! 🔧 --- 1.  || #첫 번째 Skill 만들기 -...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/skill-seeker-perfect-guide-part-2-real-world-usage-examples.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Skill Seeker 완벽 가이드 Part 2 - 실전 사용법과 예제">
+  <meta name="twitter:description" content="이번 Part에서는: - 실제로 첫 Skill을 만들어봐요! 🎯 - 단계별로 따라하면서 배워요! 📝 - 3가지 레벨 (초급/중급/고급) 예제 제공! 🌱🌿🌳 - 문제가 생기면 어떻게 해결하는지 배워요! 🔧 --- 1.  || #첫 번째 Skill 만들기 -...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/skill-seeker-perfect-guide-part-2-real-world-usage-examples.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">Skill Seeker 완벽 가이드 Part 2 - 실전 사용법과 예제</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 10월 24일">2025년 10월 24일</time>
+            <span class="article-meta__separator">·</span>
+            <span>43 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#첫-번째-skill-만들기-react-예제" class="toc__link">첫 번째 Skill 만들기 - React 예제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#전체-과정-미리보기" class="toc__link">🎬 전체 과정 미리보기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초급-가장-쉬운-방법-프리셋-사용" class="toc__link">🌱 초급 - 가장 쉬운 방법 (프리셋 사용)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#when-to-use-this-skill" class="toc__link">When to Use This Skill</a>
+    </li>
+    <li class="toc__item">
+      <a href="#quick-reference" class="toc__link">Quick Reference</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#basic-componentcodepre" class="toc__link">Basic Component&lt;/code&gt;&lt;/pre&gt;</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급-ai-향상-기능-사용하기" class="toc__link">🌿 중급 - AI 향상 기능 사용하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초보자-설명" class="toc__link">🌱 초보자 설명</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#가장-간단한-예제codepre" class="toc__link">가장 간단한 예제&lt;/code&gt;&lt;/pre&gt;</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#주의사항" class="toc__link">⚠️ 주의사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-커스텀-설정으로-skill-만들기" class="toc__link">🌳 고급 - 커스텀 설정으로 Skill 만들기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#두-번째-skill-만들기-더-쉽게" class="toc__link">두 번째 Skill 만들기 - 더 쉽게</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#데이터-재사용의-마법" class="toc__link">💡 데이터 재사용의 마법</a>
+    </li>
+    <li class="toc__item">
+      <a href="#다양한-방법으로-skill-만들기" class="toc__link">다양한 방법으로 Skill 만들기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3가지-메소드-비교" class="toc__link">🎨 3가지 메소드 비교</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#예제-1-vuejs-skill-프리셋" class="toc__link">🌱 예제 1: Vue.js Skill (프리셋)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#예제-2-django-skill-대화형" class="toc__link">🌿 예제 2: Django Skill (대화형)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#예제-3-회사-내부-문서-커스텀-설정" class="toc__link">🌳 예제 3: 회사 내부 문서 (커스텀 설정)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#pdf-문서로-skill-만들기" class="toc__link">PDF 문서로 Skill 만들기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#pdf-skill의-필요성" class="toc__link">📄 PDF Skill의 필요성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기본-pdf-skill-만들기" class="toc__link">🌱 기본 PDF Skill 만들기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-pdf-기능" class="toc__link">🌿 고급 PDF 기능</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#pdf-실전-예제" class="toc__link">🌳 PDF 실전 예제</a>
+    </li>
+    <li class="toc__item">
+      <a href="#skill-업로드하고-사용하기" class="toc__link">Skill 업로드하고 사용하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#step-1-skill-패키징" class="toc__link">📦 Step 1: Skill 패키징</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#step-2-claude에-업로드" class="toc__link">🚀 Step 2: Claude에 업로드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#step-3-skill-사용하기" class="toc__link">🎯 Step 3: Skill 사용하기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실전-팁과-요령" class="toc__link">실전 팁과 요령</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tip-1-페이지-수-예측하기" class="toc__link">💎 Tip 1: 페이지 수 예측하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tip-2-테스트는-작게-시작" class="toc__link">💎 Tip 2: 테스트는 작게 시작</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tip-3-캐싱-활용" class="toc__link">💎 Tip 3: 캐싱 활용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tip-4-여러-skill-동시-만들기" class="toc__link">💎 Tip 4: 여러 Skill 동시 만들기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tip-5-선택자-찾기-꿀팁" class="toc__link">💎 Tip 5: 선택자 찾기 꿀팁</a>
+    </li>
+    <li class="toc__item">
+      <a href="#part-2-마무리" class="toc__link">🎯 Part 2 마무리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#이번에-배운-것들" class="toc__link">🎓 이번에 배운 것들</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#다음-단계" class="toc__link">📚 다음 단계</a>
+    </li>
+    <li class="toc__item">
+      <a href="#자주-하는-실수와-해결법" class="toc__link">🤔 자주 하는 실수와 해결법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실수-1-가상환경-미활성화" class="toc__link">❌ 실수 1: 가상환경 미활성화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실수-2-경로-오타" class="toc__link">❌ 실수 2: 경로 오타</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실수-3-선택자-잘못-설정" class="toc__link">❌ 실수 3: 선택자 잘못 설정</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">🔗 연결된 노트</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>🚀 Skill Seeker 완벽 가이드 Part 2 - 실전 사용법과 예제</h1>
+<blockquote>
+<p><strong>이번 Part에서는:</strong></p>
+<ul>
+<li>실제로 첫 Skill을 만들어봐요! 🎯</li>
+<li>단계별로 따라하면서 배워요! 📝</li>
+<li>3가지 레벨 (초급/중급/고급) 예제 제공! 🌱🌿🌳</li>
+<li>문제가 생기면 어떻게 해결하는지 배워요! 🔧</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#첫-번째-skill-만들기-react-예제" class="internal-link internal-link--section">첫 번째 Skill 만들기 - React 예제</a></li>
+<li><a href="#두-번째-skill-만들기-더-쉽게" class="internal-link internal-link--section">두 번째 Skill 만들기 - 더 쉽게</a></li>
+<li><a href="#다양한-방법으로-skill-만들기" class="internal-link internal-link--section">다양한 방법으로 Skill 만들기</a></li>
+<li><a href="#pdf-문서로-skill-만들기" class="internal-link internal-link--section">PDF 문서로 Skill 만들기</a></li>
+<li><a href="#skill-업로드하고-사용하기" class="internal-link internal-link--section">Skill 업로드하고 사용하기</a></li>
+<li><a href="#실전-팁과-요령" class="internal-link internal-link--section">실전 팁과 요령</a></li>
+</ol>
+<hr>
+<h2 id="첫-번째-skill-만들기-react-예제">첫 번째 Skill 만들기 - React 예제 {#첫-번째-skill-만들기-react-예제}</h2>
+<h3 id="전체-과정-미리보기">🎬 전체 과정 미리보기 {#전체-과정-미리보기}</h3>
+<p><strong>이번 여정의 지도:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5255" onclick="copyCode('code-1769481054966-5255')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5255" class="language-plaintext">출발점 (지금)
+   ↓
+설정 파일 확인 (1분)
+   ↓
+Skill 생성 시작 (명령어 입력)
+   ↓
+커피 한 잔 타임 ☕ (20~40분 대기)
+   ↓
+결과 확인
+   ↓
+Claude에 업로드
+   ↓
+도착점 (React 전문가 Claude!) 🎉</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div>
+</div>
+
+<h3 id="초급-가장-쉬운-방법-프리셋-사용">🌱 초급 - 가장 쉬운 방법 (프리셋 사용) {#초급-가장-쉬운-방법-프리셋-사용}</h3>
+<p><strong>이 방법은 누구에게 좋을까요?</strong></p>
+<ul>
+<li>코딩 처음 배우는 분 👶</li>
+<li>빨리 결과를 보고 싶은 분 ⚡</li>
+<li>설정 파일 만들기 무서운 분 😰</li>
+</ul>
+<h4>Step 1: 터미널 열고 폴더 이동</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5256" onclick="copyCode('code-1769481054966-5256')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5256" class="language-bash"># 1. 터미널 열기
+#    Mac: ⌘(Command) + Space → &quot;Terminal&quot; 입력
+#    Windows: 시작 → &quot;cmd&quot; 검색
+
+<h1>2. Skill Seeker 폴더로 이동</h1>
+<p>cd Desktop/Skill_Seekers</p>
+<h1>3. 가상환경 활성화 (중요!)</h1>
+<p>source venv/bin/activate</p>
+<h1>Windows는: venv\Scripts\activate</h1>
+<h1>성공하면 이렇게 보여요:</h1>
+<p>(venv) YourName@Computer Skill_Seekers %</p>
+<h1>↑ 이게 보이면 성공!</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div>
+</div>
+
+<p><strong>🤔 생각해보기:</strong></p>
+<ul>
+<li><code>cd</code>는 &quot;change directory&quot;의 약자예요 (폴더 이동)</li>
+<li><code>source</code>는 &quot;이 파일을 실행해줘&quot;라는 뜻이에요</li>
+<li><code>venv/bin/activate</code>가 가상환경을 켜는 스위치예요</li>
+</ul>
+<h4>Step 2: 프리셋 파일 확인하기</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5257" onclick="copyCode('code-1769481054966-5257')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5257" class="language-bash"># 어떤 프리셋이 있는지 볼까요?
+ls configs/
+
+<h1>결과:</h1>
+<p>ansible-core.json
+django.json
+fastapi.json
+godot.json
+react.json    ← 우리가 사용할 파일!
+vue.json</p>
+<h1>React 설정 내용 확인 (선택사항)</h1>
+<p>cat configs/react.json</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<p><strong>프리셋 파일 내용 이해하기:</strong></p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5258" onclick="copyCode('code-1769481054966-5258')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5258" class="language-json">{
+  &quot;name&quot;: &quot;react&quot;,
+  &quot;description&quot;: &quot;React framework for building user interfaces&quot;,
+  &quot;base_url&quot;: &quot;https://react.dev/&quot;,
+  &quot;max_pages&quot;: 200
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<p><strong>각 줄이 의미하는 것:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5259" onclick="copyCode('code-1769481054966-5259')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5259" class="language-plaintext">&quot;name&quot;: &quot;react&quot;
+→ &quot;이 Skill의 이름은 react야&quot;
+→ 결과 파일: output/react/
+
+<p>&quot;description&quot;: &quot;...&quot;
+→ &quot;이 Skill이 뭔지 한 줄로 설명&quot;
+→ Claude가 언제 이 Skill을 쓸지 판단해요</p>
+<p>&quot;base_url&quot;: &quot;<a href="https://react.dev/">https://react.dev/</a>&quot;
+→ &quot;여기 문서를 읽어와&quot;
+→ 시작점 URL</p>
+<p>&quot;max_pages&quot;: 200
+→ &quot;최대 200페이지까지만 읽어&quot;
+→ 너무 많으면 오래 걸려요!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<h4>Step 3: Skill 생성 실행!</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5260" onclick="copyCode('code-1769481054966-5260')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5260" class="language-bash"># 자, 이제 진짜 시작!
+python3 cli/doc_scraper.py --config configs/react.json
+
+<h1>이 명령어의 의미:</h1>
+<h1>python3         → Python으로 실행해줘</h1>
+<h1>cli/doc_scraper.py → 이 프로그램을</h1>
+<h1>--config        → 설정 파일은</h1>
+<h1>configs/react.json → 여기 있어!</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<p><strong>⚠️ 주의사항:</strong></p>
+<ul>
+<li>명령어 입력할 때 오타 주의!</li>
+<li><code>--config</code> 앞에 공백 2개 있어야 해요</li>
+<li>경로 확인 (configs/react.json)</li>
+</ul>
+<h4>Step 4: 진행 과정 구경하기</h4>
+<p><strong>화면에 이런 메시지들이 나타나요:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5261" onclick="copyCode('code-1769481054966-5261')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5261" class="language-plaintext">🎯 Starting documentation scraping...
+📊 Configuration:
+   - Name: react
+   - URL: https://react.dev/
+   - Max pages: 200
+
+<p>🔍 Checking for existing data...
+❌ No existing data found</p>
+<p>📥 Starting fresh scrape...
+[=====&gt;              ] 25/200 (12%)
+⏱️  Elapsed: 2.5 min | Estimated remaining: 18 min
+💾 Saved: output/react_data/pages/intro-001.json</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<p><strong>각 단계 설명:</strong></p>
+<p><strong>1단계: 준비 단계</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5262" onclick="copyCode('code-1769481054966-5262')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5262" class="language-plaintext">🎯 Starting documentation scraping...
+→ &quot;준비 중이에요! 잠시만 기다려주세요&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>2단계: 설정 확인</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5263" onclick="copyCode('code-1769481054966-5263')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5263" class="language-plaintext">📊 Configuration:
+→ &quot;이런 설정으로 시작할게요&quot;
+→ 설정 내용 한 번 더 확인</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>3단계: 기존 데이터 확인</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5264" onclick="copyCode('code-1769481054966-5264')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5264" class="language-plaintext">🔍 Checking for existing data...
+→ &quot;이전에 받은 데이터 있나 확인 중...&quot;
+→ 있으면 재사용 물어봐요
+→ 없으면 새로 시작!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>4단계: 스크래핑 진행</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5265" onclick="copyCode('code-1769481054966-5265')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5265" class="language-plaintext">[=====&gt;              ] 25/200 (12%)
+→ 진행 상황 표시
+→ 25페이지 / 200페이지 중 (12% 완료)
+
+<p>⏱️  Estimated remaining: 18 min
+→ &quot;약 18분 남았어요&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🤔 생각해보기:</strong></p>
+<ul>
+<li>왜 시간이 오래 걸릴까요?<ul>
+<li>웹사이트에서 페이지 하나씩 읽어와야 해요</li>
+<li>너무 빨리 요청하면 차단될 수 있어요</li>
+<li>예의를 지키기 위해 약간씩 쉬어가요 (rate_limit)</li>
+</ul>
+</li>
+</ul>
+<h4>Step 5: 완료 확인</h4>
+<p><strong>20~40분 후, 이런 메시지가 나타나요:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5266" onclick="copyCode('code-1769481054966-5266')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5266" class="language-plaintext">✅ Scraping completed!
+📊 Summary:
+   - Total pages: 180
+   - Categories found: 8
+   - Code examples: 245
+
+<p>📁 Data saved to: output/react_data/
+🎨 Building skill structure...
+✅ Skill built successfully!
+📦 Skill location: output/react/</p>
+<p>Next steps:</p>
+<ol>
+<li>Review the skill: cat output/react/SKILL.md</li>
+<li>Package: python3 cli/package_skill.py output/react/</li>
+<li>Upload to Claude: <a href="https://claude.ai/skills">https://claude.ai/skills</a></code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">13 lines</span>
+  </div>
+</div></li>
+</ol>
+<p><strong>축하합니다! 🎉</strong></p>
+<ul>
+<li>React 문서 180페이지 읽음 ✅</li>
+<li>8개 카테고리로 분류 ✅</li>
+<li>245개 코드 예제 추출 ✅</li>
+<li>Skill 파일 생성 완료 ✅</li>
+</ul>
+<h4>Step 6: 결과 확인하기</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5267" onclick="copyCode('code-1769481054966-5267')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5267" class="language-bash"># 1. Skill 폴더 구조 보기
+ls -R output/react/
+
+<h1>결과:</h1>
+<p>output/react/
+├── SKILL.md                # 핵심 가이드
+├── references/            # 상세 문서
+│   ├── index.md
+│   ├── getting_started.md
+│   ├── core_concepts.md
+│   ├── hooks.md
+│   └── ...
+└── scripts/              # (비어있음)</p>
+<h1>2. SKILL.md 내용 보기</h1>
+<p>cat output/react/SKILL.md | head -50</p>
+<h1>head -50 = 처음 50줄만 보기</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">15 lines</span>
+  </div>
+</div>
+
+<p><strong>SKILL.md 예시:</strong></p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5268" onclick="copyCode('code-1769481054966-5268')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5268" class="language-markdown"># React Skill
+
+<h2 id="when-to-use-this-skill">When to Use This Skill {#when-to-use-this-skill}</h2>
+<p>Use this skill when you need help with:</p>
+<ul>
+<li>Building React user interfaces</li>
+<li>Understanding React hooks</li>
+<li>Component composition</li>
+<li>State management
+...</li>
+</ul>
+<h2 id="quick-reference">Quick Reference {#quick-reference}</h2>
+<h3 id="basic-componentcodepre">Basic Component</code></pre> {#basic-componentcodepre}</h3>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div>
+</div>jsx
+function Welcome() {
+  return <h1>Hello, React!</h1>;
+}
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5269" onclick="copyCode('code-1769481054966-5269')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5269" class="language-plaintext">### useState Hook</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>jsx
+function Counter() {
+  const [count, setCount] = useState(0);
+  return <button onClick={() => setCount(count + 1)}>
+    Count: {count}
+  </button>;
+}
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5270" onclick="copyCode('code-1769481054966-5270')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5270" class="language-plaintext">...</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<hr>
+<h3 id="중급-ai-향상-기능-사용하기">🌿 중급 - AI 향상 기능 사용하기 {#중급-ai-향상-기능-사용하기}</h3>
+<p><strong>이 방법은 누구에게 좋을까요?</strong></p>
+<ul>
+<li>더 좋은 품질의 Skill을 원하는 분 💎</li>
+<li>Claude Code Max 구독 중인 분 🤖</li>
+<li>AI 향상 기능이 궁금한 분 ✨</li>
+</ul>
+<h4>AI 향상이 뭔가요?</h4>
+<p><strong>비유: 레시피 업그레이드</strong></p>
+<p><strong>BEFORE (기본 Skill):</strong></p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5271" onclick="copyCode('code-1769481054966-5271')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5271" class="language-markdown">## useState
+상태를 관리하는 Hook입니다.</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>jsx
+const [state, setState] = useState(initialValue);
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5272" onclick="copyCode('code-1769481054966-5272')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5272" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>
+
+<p><strong>AFTER (AI 향상된 Skill):</strong></p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5273" onclick="copyCode('code-1769481054966-5273')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5273" class="language-markdown">## useState - 상태 관리의 마법사 🪄
+
+<h3 id="초보자-설명">🌱 초보자 설명 {#초보자-설명}</h3>
+<p>useState는 마치 &quot;기억력&quot;을 가진 변수예요!
+일반 변수는 화면이 새로고침되면 잊어버리지만,
+useState로 만든 변수는 값을 기억해요.</p>
+<h3 id="가장-간단한-예제codepre">가장 간단한 예제</code></pre> {#가장-간단한-예제codepre}</h3>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>jsx
+// 버튼 클릭 횟수를 기억하는 카운터
+function Counter() {
+  // count: 현재 값 (처음엔 0)
+  // setCount: 값을 바꾸는 함수
+  const [count, setCount] = useState(0);
+  
+<p>  return (
+    &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+      클릭 횟수: {count}번
+    </button>
+  );
+}</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5274" onclick="copyCode('code-1769481054966-5274')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5274" class="language-plaintext">### 🤔 생각해보기
+- `count`는 왜 직접 바꾸면 안 될까요?
+- `setCount`를 쓰면 화면이 자동으로 업데이트돼요!
+
+<h3 id="주의사항">⚠️ 주의사항 {#주의사항}</h3>
+<ul>
+<li>컴포넌트 안에서만 사용하세요</li>
+<li>조건문 안에 넣으면 안 돼요
+...</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">7 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>차이점:</strong></p>
+<ul>
+<li>설명이 더 자세해요</li>
+<li>초보자 친화적 예제 추가</li>
+<li>이모지로 가독성 향상</li>
+<li>주의사항과 팁 제공</li>
+<li>&quot;왜 그런지&quot; 설명 추가</li>
+</ul>
+<h4>사용 방법 - LOCAL 향상 (무료!)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5275" onclick="copyCode('code-1769481054966-5275')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5275" class="language-bash"># 스크래핑할 때 --enhance-local 옵션 추가
+python3 cli/doc_scraper.py \
+  --config configs/react.json \
+  --enhance-local
+
+<h1>또는 이미 만든 Skill을 향상시키기:</h1>
+<p>python3 cli/enhance_skill_local.py output/react/</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<p><strong>어떤 일이 일어나나요?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5276" onclick="copyCode('code-1769481054966-5276')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5276" class="language-plaintext">1. 기본 Skill 생성 (20~40분)
+   ↓
+2. 새 터미널 창이 열림
+   ↓
+3. Claude Code가 자동으로 시작됨
+   ↓
+4. AI가 SKILL.md를 분석하고 개선 (30~60초)
+   ↓
+5. 향상된 버전으로 자동 교체
+   ↓
+6. 원본은 SKILL.md.backup으로 보관
+   ↓
+완료! ✨</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div>
+</div>
+
+<p><strong>터미널 화면:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5277" onclick="copyCode('code-1769481054966-5277')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5277" class="language-plaintext">✅ Basic skill built successfully!
+🤖 Starting AI enhancement (LOCAL mode)...
+📂 Opening Claude Code...
+
+<p>[New Terminal Window]
+🔍 Analyzing references...
+✨ Generating enhanced SKILL.md...
+💾 Backing up original: SKILL.md.backup
+✅ Enhancement complete!</p>
+<p>📊 Comparison:
+   Before: 75 lines
+   After: 512 lines
+   Quality: ⭐⭐⭐⭐⭐ (9/10)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3 id="고급-커스텀-설정으로-skill-만들기">🌳 고급 - 커스텀 설정으로 Skill 만들기 {#고급-커스텀-설정으로-skill-만들기}</h3>
+<p><strong>이 방법은 누구에게 좋을까요?</strong></p>
+<ul>
+<li>프리셋에 없는 문서 사이트 사용하는 분 🎯</li>
+<li>설정을 직접 조정하고 싶은 분 ⚙️</li>
+<li>더 세밀한 컨트롤을 원하는 분 🎮</li>
+</ul>
+<h4>Method 1: 대화형 모드 (Interactive)</h4>
+<p><strong>완전 초보자에게 추천!</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5278" onclick="copyCode('code-1769481054966-5278')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5278" class="language-bash"># 대화형 모드 시작
+python3 cli/doc_scraper.py --interactive
+
+<h1>화면:</h1>
+<p>🎯 Interactive Skill Creator
+━━━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>📝 Skill name:</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<p><strong>단계별 대답하기:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5279" onclick="copyCode('code-1769481054966-5279')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5279" class="language-plaintext">📝 Skill name: tailwind
+→ &quot;Skill 이름을 뭐로 할까요?&quot;
+→ 입력: tailwind
+
+<p>📖 Description: 
+→ &quot;어떤 Skill인지 한 줄로 설명해주세요&quot;
+→ 입력: Utility-first CSS framework</p>
+<p>🌐 Base URL: 
+→ &quot;문서 사이트 주소를 알려주세요&quot;
+→ 입력: <a href="https://tailwindcss.com/docs">https://tailwindcss.com/docs</a></p>
+<p>📊 Max pages (default 500): 
+→ &quot;최대 몇 페이지까지 읽을까요?&quot;
+→ 입력: 300 (또는 Enter로 기본값)</p>
+<p>✨ Enable AI enhancement? (y/n): 
+→ &quot;AI로 향상시킬까요?&quot;
+→ 입력: y</p>
+<p>🎨 Use local enhancement? (FREE, uses Claude Code) (y/n): 
+→ &quot;LOCAL 향상 사용할까요? (무료)&quot;
+→ 입력: y</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 Summary:
+   Name: tailwind
+   Description: Utility-first CSS framework
+   URL: <a href="https://tailwindcss.com/docs">https://tailwindcss.com/docs</a>
+   Max pages: 300
+   Enhancement: LOCAL</p>
+<p>✅ Look good? Start scraping? (y/n): 
+→ &quot;괜찮아요? 시작할까요?&quot;
+→ 입력: y</p>
+<p>🚀 Starting...</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">29 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🎓 학습 포인트:</strong></p>
+<ul>
+<li>대화형이라 실수해도 괜찮아요</li>
+<li>각 옵션을 하나씩 설명해줘요</li>
+<li>최종 확인 단계가 있어요</li>
+</ul>
+<h4>Method 2: 빠른 명령 (Quick Mode)</h4>
+<p><strong>급하게 만들 때 좋아요!</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5280" onclick="copyCode('code-1769481054966-5280')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5280" class="language-bash"># 한 줄로 끝!
+python3 cli/doc_scraper.py \
+  --name tailwind \
+  --url https://tailwindcss.com/docs \
+  --description &quot;Utility-first CSS framework&quot;
+
+<h1>옵션 설명:</h1>
+<h1>--name      → Skill 이름</h1>
+<h1>--url       → 문서 사이트 주소</h1>
+<h1>--description → 한 줄 설명</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
+</div>
+
+<p><strong>장점:</strong></p>
+<ul>
+<li>✅ 매우 빠름 (타이핑 한 번)</li>
+<li>✅ 스크립트로 자동화 가능</li>
+<li>✅ 반복 작업에 유리</li>
+</ul>
+<p><strong>단점:</strong></p>
+<ul>
+<li>❌ 세밀한 설정 불가</li>
+<li>❌ 기본값으로 설정됨</li>
+<li>❌ 나중에 조정 필요할 수도</li>
+</ul>
+<h4>Method 3: 설정 파일 만들기 (Config File)</h4>
+<p><strong>완벽한 컨트롤을 원할 때!</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5281" onclick="copyCode('code-1769481054966-5281')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5281" class="language-bash"># 1. 템플릿 복사
+cp configs/react.json configs/tailwind.json
+
+<h1>2. 편집기로 열기</h1>
+<p>nano configs/tailwind.json</p>
+<h1>또는</h1>
+<p>code configs/tailwind.json  # VS Code 사용 시</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<p><strong>설정 파일 작성:</strong></p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5282" onclick="copyCode('code-1769481054966-5282')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5282" class="language-json">{
+  &quot;name&quot;: &quot;tailwind&quot;,
+  &quot;description&quot;: &quot;Utility-first CSS framework for rapid UI development&quot;,
+  &quot;base_url&quot;: &quot;https://tailwindcss.com/docs&quot;,
+  
+<p>  &quot;selectors&quot;: {
+    &quot;main_content&quot;: &quot;article&quot;,
+    &quot;title&quot;: &quot;h1&quot;,
+    &quot;code_blocks&quot;: &quot;pre code&quot;
+  },</p>
+<p>  &quot;url_patterns&quot;: {
+    &quot;include&quot;: [&quot;/docs&quot;],
+    &quot;exclude&quot;: [&quot;/blog&quot;, &quot;/showcase&quot;]
+  },</p>
+<p>  &quot;categories&quot;: {
+    &quot;getting_started&quot;: [&quot;installation&quot;, &quot;editor&quot;, &quot;setup&quot;],
+    &quot;core_concepts&quot;: [&quot;utility&quot;, &quot;responsive&quot;, &quot;hover&quot;],
+    &quot;customization&quot;: [&quot;configuration&quot;, &quot;theme&quot;, &quot;plugins&quot;]
+  },</p>
+<p>  &quot;rate_limit&quot;: 0.5,
+  &quot;max_pages&quot;: 300,
+  &quot;checkpoint&quot;: {
+    &quot;enabled&quot;: true,
+    &quot;interval&quot;: 50
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">29 lines</span>
+  </div></p>
+</div>
+
+<p><strong>각 섹션 설명:</strong></p>
+<p><strong>1. 기본 정보</strong></p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5283" onclick="copyCode('code-1769481054966-5283')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5283" class="language-json">{
+  &quot;name&quot;: &quot;tailwind&quot;,
+  → Skill 이름 (파일명, 폴더명에 사용)
+  
+<p>  &quot;description&quot;: &quot;...&quot;,
+  → Claude가 언제 이 Skill을 사용할지 판단</p>
+<p>  &quot;base_url&quot;: &quot;https://...&quot;,
+  → 문서 사이트 시작점
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<p><strong>2. 선택자 (Selectors)</strong></p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5284" onclick="copyCode('code-1769481054966-5284')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5284" class="language-json">{
+  &quot;selectors&quot;: {
+    &quot;main_content&quot;: &quot;article&quot;,
+    → &quot;본문 내용은 &lt;article&gt; 태그 안에 있어&quot;
+    
+<pre><code>&amp;quot;title&amp;quot;: &amp;quot;h1&amp;quot;,
+→ &amp;quot;제목은 &amp;lt;h1&amp;gt; 태그야&amp;quot;
+
+&amp;quot;code_blocks&amp;quot;: &amp;quot;pre code&amp;quot;
+→ &amp;quot;코드는 &amp;lt;pre&amp;gt;&amp;lt;code&amp;gt; 안에 있어&amp;quot;
+</code></pre>
+<p>  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🔍 선택자 찾는 방법:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5285" onclick="copyCode('code-1769481054966-5285')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5285" class="language-plaintext">1. 문서 사이트 방문
+2. F12 키 누르기 (개발자 도구)
+3. 검사 도구 클릭 (왼쪽 위 화살표)
+4. 본문 영역 클릭
+5. 오른쪽에 HTML 태그 보임
+   예: &lt;article class=&quot;prose&quot;&gt;
+   → &quot;article&quot;이 선택자!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<p><strong>3. URL 패턴</strong></p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5286" onclick="copyCode('code-1769481054966-5286')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5286" class="language-json">{
+  &quot;url_patterns&quot;: {
+    &quot;include&quot;: [&quot;/docs&quot;],
+    → &quot;/docs&quot;로 시작하는 페이지만
+    
+<pre><code>&amp;quot;exclude&amp;quot;: [&amp;quot;/blog&amp;quot;, &amp;quot;/showcase&amp;quot;]
+→ 블로그, 쇼케이스 페이지 제외
+</code></pre>
+<p>  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<p><strong>예시:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5287" onclick="copyCode('code-1769481054966-5287')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5287" class="language-plaintext">✅ https://tailwindcss.com/docs/installation
+   → &quot;/docs&quot; 포함 → 가져와!
+
+<p>❌ <a href="https://tailwindcss.com/blog/new-update">https://tailwindcss.com/blog/new-update</a>
+   → &quot;/blog&quot; 포함 → 제외!</p>
+<p>❌ <a href="https://tailwindcss.com/showcase/websites">https://tailwindcss.com/showcase/websites</a>
+   → &quot;/showcase&quot; 포함 → 제외!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<p><strong>4. 카테고리 분류</strong></p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5288" onclick="copyCode('code-1769481054966-5288')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5288" class="language-json">{
+  &quot;categories&quot;: {
+    &quot;getting_started&quot;: [&quot;installation&quot;, &quot;editor&quot;, &quot;setup&quot;],
+    → URL에 이 단어들 있으면 &quot;getting_started&quot; 폴더에
+    
+<pre><code>&amp;quot;core_concepts&amp;quot;: [&amp;quot;utility&amp;quot;, &amp;quot;responsive&amp;quot;, &amp;quot;hover&amp;quot;],
+→ 이 단어들 있으면 &amp;quot;core_concepts&amp;quot; 폴더에
+</code></pre>
+<p>  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<p><strong>적용 예:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5289" onclick="copyCode('code-1769481054966-5289')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5289" class="language-plaintext">페이지: https://tailwindcss.com/docs/installation
+                                          ↑ 이 단어!
+→ &quot;installation&quot;이 getting_started 키워드에 있음
+→ references/getting_started.md 에 추가</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>5. 성능 설정</strong></p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5290" onclick="copyCode('code-1769481054966-5290')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5290" class="language-json">{
+  &quot;rate_limit&quot;: 0.5,
+  → 페이지 요청 사이 0.5초 대기
+  → 서버에 부담 안 주기
+  → 빠르게: 0.2 | 안전하게: 1.0
+  
+<p>  &quot;max_pages&quot;: 300,
+  → 최대 300페이지만
+  → 테스트할 땐 20으로 설정!</p>
+<p>  &quot;checkpoint&quot;: {
+    &quot;enabled&quot;: true,
+    → 중간 저장 활성화</p>
+<pre><code>&amp;quot;interval&amp;quot;: 50
+→ 50페이지마다 저장
+</code></pre>
+<p>  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">18 lines</span>
+  </div></p>
+</div>
+
+<p><strong>사용하기:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5291" onclick="copyCode('code-1769481054966-5291')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5291" class="language-bash"># 설정 파일로 실행
+python3 cli/doc_scraper.py --config configs/tailwind.json</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="두-번째-skill-만들기-더-쉽게">두 번째 Skill 만들기 - 더 쉽게 {#두-번째-skill-만들기-더-쉽게}</h2>
+<h3 id="데이터-재사용의-마법">💡 데이터 재사용의 마법 {#데이터-재사용의-마법}</h3>
+<p><strong>상황:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5292" onclick="copyCode('code-1769481054966-5292')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5292" class="language-plaintext">어제 React Skill 만들었는데 (40분 걸림)
+오늘 다시 만들고 싶어요
+또 40분 기다려야 하나요? 😰</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>해답:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5293" onclick="copyCode('code-1769481054966-5293')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5293" class="language-plaintext">아니요! 이미 받은 데이터를 재사용하면
+1분 안에 끝나요! ⚡</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>🎯 시나리오 1: 같은 Skill 다시 만들기</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5294" onclick="copyCode('code-1769481054966-5294')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5294" class="language-bash"># 첫 번째 (어제): 40분 걸림
+python3 cli/doc_scraper.py --config configs/react.json
+
+<h1>오늘 다시 실행하면:</h1>
+<p>python3 cli/doc_scraper.py --config configs/react.json</p>
+<h1>화면:</h1>
+<p>🔍 Checking for existing data...
+✅ Found existing data: output/react_data/</p>
+<ul>
+<li>180 pages</li>
+<li>Last updated: 2025-10-23</li>
+</ul>
+<p>💡 Use existing data? (y/n):</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<p><strong>선택지:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5295" onclick="copyCode('code-1769481054966-5295')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5295" class="language-plaintext">y 입력 → 기존 데이터 사용 (1분 만에 완료!)
+n 입력 → 처음부터 다시 (40분...)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>🎯 시나리오 2: 향상만 다시 하기</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5296" onclick="copyCode('code-1769481054966-5296')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5296" class="language-bash"># 기본 Skill은 있는데 AI 향상만 하고 싶을 때:
+python3 cli/enhance_skill_local.py output/react/
+
+<h1>시간: 30~60초</h1>
+<h1>결과: 향상된 SKILL.md</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h4>🎯 시나리오 3: 강제로 처음부터</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5297" onclick="copyCode('code-1769481054966-5297')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5297" class="language-bash"># 데이터가 있어도 무시하고 새로 받기:
+
+<h1>방법 1: 데이터 삭제</h1>
+<p>rm -rf output/react_data/
+python3 cli/doc_scraper.py --config configs/react.json</p>
+<h1>방법 2: --fresh 플래그 (향후 버전)</h1>
+<p>python3 cli/doc_scraper.py --config configs/react.json --fresh</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="다양한-방법으로-skill-만들기">다양한 방법으로 Skill 만들기 {#다양한-방법으로-skill-만들기}</h2>
+<h3 id="3가지-메소드-비교">🎨 3가지 메소드 비교 {#3가지-메소드-비교}</h3>
+<table>
+<thead>
+<tr>
+<th>방법</th>
+<th>난이도</th>
+<th>속도</th>
+<th>유연성</th>
+<th>추천 대상</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>프리셋</td>
+<td>⭐ 쉬움</td>
+<td>⚡ 빠름</td>
+<td>🔒 낮음</td>
+<td>초보자</td>
+</tr>
+<tr>
+<td>대화형</td>
+<td>⭐⭐ 보통</td>
+<td>⚡⚡ 보통</td>
+<td>🔓 중간</td>
+<td>일반 사용자</td>
+</tr>
+<tr>
+<td>설정 파일</td>
+<td>⭐⭐⭐ 어려움</td>
+<td>⚡⚡⚡ 느림</td>
+<td>🔓🔓 높음</td>
+<td>고급 사용자</td>
+</tr>
+</tbody></table>
+<h3 id="예제-1-vuejs-skill-프리셋">🌱 예제 1: Vue.js Skill (프리셋) {#예제-1-vuejs-skill-프리셋}</h3>
+<p><strong>가장 쉬운 방법!</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5298" onclick="copyCode('code-1769481054966-5298')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5298" class="language-bash"># 1. 가상환경 활성화
+source venv/bin/activate
+
+<h1>2. 실행</h1>
+<p>python3 cli/doc_scraper.py --config configs/vue.json</p>
+<h1>3. 끝! (20~30분 대기)</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>예상 결과:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5299" onclick="copyCode('code-1769481054966-5299')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5299" class="language-plaintext">✅ Vue.js skill created!
+📊 180 pages, 8 categories
+📁 Location: output/vue/</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h3 id="예제-2-django-skill-대화형">🌿 예제 2: Django Skill (대화형) {#예제-2-django-skill-대화형}</h3>
+<p><strong>설정하면서 배우는 방법!</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5300" onclick="copyCode('code-1769481054966-5300')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5300" class="language-bash">python3 cli/doc_scraper.py --interactive
+
+<h1>대화:</h1>
+<p>📝 Skill name: django
+📖 Description: Python web framework
+🌐 Base URL: <a href="https://docs.djangoproject.com/">https://docs.djangoproject.com/</a>
+📊 Max pages: 400
+✨ Enhancement: y (yes)
+🎨 Local enhancement: y (yes)</p>
+<p>✅ Start? y</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h3 id="예제-3-회사-내부-문서-커스텀-설정">🌳 예제 3: 회사 내부 문서 (커스텀 설정) {#예제-3-회사-내부-문서-커스텀-설정}</h3>
+<p><strong>실무 예제!</strong></p>
+<p><strong>상황:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5301" onclick="copyCode('code-1769481054966-5301')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5301" class="language-plaintext">우리 회사 API 문서를 Skill로 만들고 싶어요
+- URL: https://docs.mycompany.com/api
+- 인증 필요 없음 (공개 문서)
+- 100페이지 정도</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>설정 파일: configs/mycompany.json</strong></p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5302" onclick="copyCode('code-1769481054966-5302')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5302" class="language-json">{
+  &quot;name&quot;: &quot;mycompany-api&quot;,
+  &quot;description&quot;: &quot;MyCompany API documentation for internal use&quot;,
+  &quot;base_url&quot;: &quot;https://docs.mycompany.com/api&quot;,
+  
+<p>  &quot;selectors&quot;: {
+    &quot;main_content&quot;: &quot;div.doc-content&quot;,
+    &quot;title&quot;: &quot;h1.page-title&quot;,
+    &quot;code_blocks&quot;: &quot;pre.code-block&quot;
+  },</p>
+<p>  &quot;url_patterns&quot;: {
+    &quot;include&quot;: [&quot;/api/&quot;],
+    &quot;exclude&quot;: [&quot;/changelog&quot;, &quot;/deprecated&quot;]
+  },</p>
+<p>  &quot;categories&quot;: {
+    &quot;authentication&quot;: [&quot;auth&quot;, &quot;login&quot;, &quot;token&quot;],
+    &quot;endpoints&quot;: [&quot;endpoint&quot;, &quot;resource&quot;, &quot;method&quot;],
+    &quot;examples&quot;: [&quot;example&quot;, &quot;tutorial&quot;, &quot;guide&quot;]
+  },</p>
+<p>  &quot;rate_limit&quot;: 1.0,
+  &quot;max_pages&quot;: 100
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">25 lines</span>
+  </div></p>
+</div>
+
+<p><strong>실행:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5303" onclick="copyCode('code-1769481054966-5303')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5303" class="language-bash">python3 cli/doc_scraper.py \
+  --config configs/mycompany.json \
+  --enhance-local</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="pdf-문서로-skill-만들기">PDF 문서로 Skill 만들기 {#pdf-문서로-skill-만들기}</h2>
+<h3 id="pdf-skill의-필요성">📄 PDF Skill의 필요성 {#pdf-skill의-필요성}</h3>
+<p><strong>언제 사용하나요?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5304" onclick="copyCode('code-1769481054966-5304')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5304" class="language-plaintext">✅ 회사 내부 매뉴얼 (PDF)
+✅ 기술 서적 (PDF)
+✅ 학술 논문 모음
+✅ 제품 사양서
+✅ 오프라인 문서</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>웹 스크래핑 vs PDF 추출:</strong></p>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>웹 스크래핑</th>
+<th>PDF 추출</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>소스</td>
+<td>웹사이트 🌐</td>
+<td>PDF 파일 📄</td>
+</tr>
+<tr>
+<td>속도</td>
+<td>느림 (20~40분)</td>
+<td>빠름 (5~15분)</td>
+</tr>
+<tr>
+<td>인터넷</td>
+<td>필요 ✅</td>
+<td>불필요 ❌</td>
+</tr>
+<tr>
+<td>구조화</td>
+<td>자동 ✅</td>
+<td>제한적 ⚠️</td>
+</tr>
+</tbody></table>
+<h3 id="기본-pdf-skill-만들기">🌱 기본 PDF Skill 만들기 {#기본-pdf-skill-만들기}</h3>
+<h4>Step 1: PDF 라이브러리 설치</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5305" onclick="copyCode('code-1769481054966-5305')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5305" class="language-bash"># 가상환경 활성화 (중요!)
+source venv/bin/activate
+
+<h1>PyMuPDF 설치</h1>
+<p>pip install PyMuPDF</p>
+<h1>설치 확인</h1>
+<p>pip list | grep PyMuPDF</p>
+<h1>결과: PyMuPDF  1.23.8  ✅</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<p><strong>PyMuPDF가 뭔가요?</strong></p>
+<blockquote>
+<p>PDF 파일을 읽고 내용을 추출하는 Python 라이브러리예요.
+마치 PDF를 &quot;번역&quot;해서 프로그램이 이해할 수 있게 만들어줘요.</p>
+</blockquote>
+<h4>Step 2: 기본 사용법</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5306" onclick="copyCode('code-1769481054966-5306')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5306" class="language-bash"># 가장 간단한 형태
+python3 cli/pdf_scraper.py \
+  --pdf docs/manual.pdf \
+  --name mymanual
+
+<h1>각 부분 설명:</h1>
+<h1>cli/pdf_scraper.py  → PDF 전용 스크래퍼</h1>
+<h1>--pdf               → PDF 파일 경로</h1>
+<h1>docs/manual.pdf     → 읽을 PDF</h1>
+<h1>--name              → Skill 이름</h1>
+<h1>mymanual            → 결과 폴더명</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div>
+</div>
+
+<p><strong>진행 화면:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5307" onclick="copyCode('code-1769481054966-5307')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5307" class="language-plaintext">📄 PDF Skill Creator
+━━━━━━━━━━━━━━━━━
+
+<p>📂 Reading PDF: docs/manual.pdf
+📊 Total pages: 125
+⏱️  Estimated time: 5-8 minutes</p>
+<p>[Progress bar]
+[==============&gt;     ] 89/125 (71%)
+⏱️  2.3 min elapsed | 0.9 min remaining</p>
+<p>✨ Extracting:</p>
+<ul>
+<li>Text: ✅</li>
+<li>Code blocks: ✅</li>
+<li>Images: ✅</li>
+<li>Tables: ⏭️ (use --extract-tables)</li>
+</ul>
+<p>💾 Saving to: output/mymanual/
+✅ PDF skill created successfully!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">15 lines</span>
+  </div></p>
+</div>
+
+<h3 id="고급-pdf-기능">🌿 고급 PDF 기능 {#고급-pdf-기능}</h3>
+<h4>기능 1: 테이블 추출</h4>
+<p><strong>언제 필요할까요?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5308" onclick="copyCode('code-1769481054966-5308')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5308" class="language-plaintext">PDF에 이런 표가 있을 때:
+
+<table>
+<thead>
+<tr>
+<th>API Endpoint</th>
+<th>Method</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>/api/users</td>
+<td>GET</td>
+<td>Get users</td>
+</tr>
+<tr>
+<td>/api/posts</td>
+<td>POST</td>
+<td>Create post</td>
+</tr>
+<tr>
+<td><div class="code-block__footer"></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<pre><code>&lt;span class=&quot;code-block__lines&quot;&gt;5 lines&lt;/span&gt;
+</code></pre>
+  </div>
+</div>
+
+<p><strong>사용법:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5309" onclick="copyCode('code-1769481054966-5309')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5309" class="language-bash">python3 cli/pdf_scraper.py \
+  --pdf docs/manual.pdf \
+  --name mymanual \
+  --extract-tables
+
+<h1>결과:</h1>
+<p>✅ Tables extracted and formatted as Markdown</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h4>기능 2: 병렬 처리 (빠른 속도!)</h4>
+<p><strong>일반 vs 병렬 비교:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5310" onclick="copyCode('code-1769481054966-5310')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5310" class="language-plaintext">일반 모드:
+페이지1 처리 → 페이지2 처리 → 페이지3 처리
+⏱️  15분 소요
+
+<p>병렬 모드 (8 workers):
+페이지1,2,3,4,5,6,7,8 동시 처리!
+⏱️  5분 소요 (3배 빠름!)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<p><strong>사용법:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5311" onclick="copyCode('code-1769481054966-5311')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5311" class="language-bash">python3 cli/pdf_scraper.py \
+  --pdf docs/large_manual.pdf \
+  --name mymanual \
+  --parallel \
+  --workers 8
+
+<h1>옵션 설명:</h1>
+<h1>--parallel  → 병렬 처리 활성화</h1>
+<h1>--workers 8 → CPU 코어 8개 사용</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div>
+
+<p><strong>💡 Worker 수 선택 가이드:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5312" onclick="copyCode('code-1769481054966-5312')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5312" class="language-bash"># CPU 코어 수 확인
+sysctl -n hw.ncpu  # Mac
+nproc              # Linux
+
+<h1>결과: 8</h1>
+<h1>권장: 코어 수와 같거나 적게</h1>
+<h1>예: 8코어 → --workers 8 또는 6</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h4>기능 3: 스캔된 PDF (OCR)</h4>
+<p><strong>스캔된 PDF란?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5313" onclick="copyCode('code-1769481054966-5313')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5313" class="language-plaintext">종이 문서를 스캐너로 찍은 PDF
+→ 이미지로 저장됨
+→ 텍스트 복사 안 됨 😰
+→ OCR로 해결! 🎯</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>설치:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5314" onclick="copyCode('code-1769481054966-5314')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5314" class="language-bash"># 1. Tesseract 설치 (OCR 엔진)
+# Mac:
+brew install tesseract
+
+<h1>Ubuntu/Debian:</h1>
+<p>sudo apt-get install tesseract-ocr</p>
+<h1>Windows:</h1>
+<h1><a href="https://github.com/UB-Mannheim/tesseract/wiki">https://github.com/UB-Mannheim/tesseract/wiki</a> 에서 설치</h1>
+<h1>2. Python 라이브러리 설치</h1>
+<p>pip install pytesseract Pillow</p>
+<h1>3. 확인</h1>
+<p>tesseract --version</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<p><strong>사용법:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5315" onclick="copyCode('code-1769481054966-5315')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5315" class="language-bash">python3 cli/pdf_scraper.py \
+  --pdf docs/scanned_manual.pdf \
+  --name mymanual \
+  --ocr
+
+<h1>진행:</h1>
+<p>🔍 OCR mode enabled
+📸 Processing page 1/100...</p>
+<ul>
+<li>Converting to image...</li>
+<li>Running OCR...</li>
+<li>Extracting text: &quot;Chapter 1: Introduction...&quot;
+✅ Page 1 complete</li>
+</ul>
+<p>⏱️  Slower than normal (OCR processing)
+   Estimated: 10-20 minutes</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div></p>
+</div>
+
+<h4>기능 4: 암호화된 PDF</h4>
+<p><strong>암호로 보호된 PDF 열기:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5316" onclick="copyCode('code-1769481054966-5316')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5316" class="language-bash">python3 cli/pdf_scraper.py \
+  --pdf docs/confidential.pdf \
+  --name mymanual \
+  --password mySecretPassword123
+
+<h1>주의:</h1>
+<h1>- 터미널 히스토리에 암호 남음</h1>
+<h1>- 민감한 문서는 조심!</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<h3 id="pdf-실전-예제">🌳 PDF 실전 예제 {#pdf-실전-예제}</h3>
+<h4>예제 1: 제품 매뉴얼 → Claude Skill</h4>
+<p><strong>상황:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5317" onclick="copyCode('code-1769481054966-5317')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5317" class="language-plaintext">제품: 로봇 청소기
+매뉴얼: product_manual.pdf (80페이지)
+내용: 사용법, 문제 해결, 사양
+목표: Claude에게 물어보면 답변하도록</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>실행:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5318" onclick="copyCode('code-1769481054966-5318')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5318" class="language-bash">python3 cli/pdf_scraper.py \
+  --pdf docs/robot_vacuum_manual.pdf \
+  --name robot-vacuum \
+  --extract-tables \
+  --parallel \
+  --workers 4
+
+<h1>5분 후:</h1>
+<p>✅ Skill created: output/robot-vacuum/</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<p><strong>사용 예:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5319" onclick="copyCode('code-1769481054966-5319')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5319" class="language-plaintext">[Claude에 Skill 업로드 후]
+
+<p>사용자: &quot;먼지통은 어떻게 청소하나요?&quot;
+Claude: &quot;로봇 청소기 매뉴얼에 따르면:
+         1. 먼지통 버튼을 누르세요
+         2. 먼지통을 당겨서 분리하세요
+         3. 내용물을 버리고 물로 헹구세요
+         4. 완전히 말린 후 재장착하세요&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h4>예제 2: 프로그래밍 책 → Skill</h4>
+<p><strong>상황:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5320" onclick="copyCode('code-1769481054966-5320')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5320" class="language-plaintext">책: &quot;Python 완벽 가이드&quot;
+파일: python_guide.pdf (350페이지)
+특징: 코드 예제 많음, 표 포함</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>실행:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5321" onclick="copyCode('code-1769481054966-5321')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5321" class="language-bash">python3 cli/pdf_scraper.py \
+  --pdf books/python_guide.pdf \
+  --name python-guide \
+  --extract-tables \
+  --parallel \
+  --workers 8
+
+<h1>고급 설정 (config 파일):</h1>
+<p>{
+  &quot;code_detection&quot;: true,
+  &quot;language_hints&quot;: [&quot;python&quot;],
+  &quot;extract_images&quot;: false
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="skill-업로드하고-사용하기">Skill 업로드하고 사용하기 {#skill-업로드하고-사용하기}</h2>
+<h3 id="step-1-skill-패키징">📦 Step 1: Skill 패키징 {#step-1-skill-패키징}</h3>
+<p><strong>왜 패키징이 필요한가요?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5322" onclick="copyCode('code-1769481054966-5322')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5322" class="language-plaintext">현재 상태:
+output/react/
+├── SKILL.md
+├── references/
+│   ├── file1.md
+│   ├── file2.md
+│   └── ...100개 파일
+└── scripts/
+
+<p>문제:
+❌ 파일이 너무 많아요 (100개+)
+❌ 폴더째 업로드는 안 돼요
+❌ 하나씩 업로드? 너무 힘들어요</p>
+<p>해결:
+✅ .zip 파일 하나로 압축!
+✅ 한 번에 업로드!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">15 lines</span>
+  </div></p>
+</div>
+
+<p><strong>패키징 실행:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5323" onclick="copyCode('code-1769481054966-5323')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5323" class="language-bash"># 방법 1: package_skill.py 사용
+python3 cli/package_skill.py output/react/
+
+<h1>진행:</h1>
+<p>📦 Packaging skill...</p>
+<ul>
+<li>Validating structure... ✅</li>
+<li>Compressing files... ✅</li>
+<li>Creating react.zip... ✅</li>
+</ul>
+<p>✅ Package created: output/react.zip
+💾 Size: 2.3 MB
+📊 Files included: 127</p>
+<p>📂 Opening output folder...
+[Finder/Explorer 자동으로 열림]</p>
+<p>📤 Next step:</p>
+<ol>
+<li>Go to <a href="https://claude.ai/skills">https://claude.ai/skills</a></li>
+<li>Click &quot;Upload Skill&quot;</li>
+<li>Select react.zip</li>
+<li>Done! ✅</code></pre>  <div class="code-block__footer">
+    <span class="code-block__lines">17 lines</span>
+  </div>
+</div></li>
+</ol>
+<h3 id="step-2-claude에-업로드">🚀 Step 2: Claude에 업로드 {#step-2-claude에-업로드}</h3>
+<h4>옵션 1: 자동 업로드 (API 키 필요)</h4>
+<p><strong>API 키 받기:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5324" onclick="copyCode('code-1769481054966-5324')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5324" class="language-plaintext">1. https://console.anthropic.com/ 방문
+2. 로그인
+3. &quot;API Keys&quot; 메뉴
+4. &quot;Create Key&quot; 클릭
+5. 키 복사: sk-ant-api03-xxx...</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>환경 변수 설정:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5325" onclick="copyCode('code-1769481054966-5325')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5325" class="language-bash"># Mac/Linux:
+export ANTHROPIC_API_KEY=sk-ant-api03-xxx...
+
+<h1>또는 .bashrc/.zshrc에 추가해서 영구 저장:</h1>
+<p>echo &#39;export ANTHROPIC_API_KEY=sk-ant-api03-xxx...&#39; &gt;&gt; ~/.zshrc</p>
+<h1>Windows:</h1>
+<p>set ANTHROPIC_API_KEY=sk-ant-api03-xxx...</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<p><strong>자동 업로드:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5326" onclick="copyCode('code-1769481054966-5326')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5326" class="language-bash"># 패키징과 동시에 업로드
+python3 cli/package_skill.py output/react/ --upload
+
+<h1>또는 이미 만든 .zip 업로드</h1>
+<p>python3 cli/upload_skill.py output/react.zip</p>
+<h1>진행:</h1>
+<p>📤 Uploading to Claude AI...
+🔐 Authenticating...
+📦 Uploading react.zip (2.3 MB)...
+[===================&gt;] 100%</p>
+<p>✅ Upload successful!
+🎉 Skill &quot;react&quot; is now available in Claude!</p>
+<p>🔗 Access at: <a href="https://claude.ai/skills">https://claude.ai/skills</a></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<h4>옵션 2: 수동 업로드 (API 키 불필요)</h4>
+<p><strong>Step-by-step:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5327" onclick="copyCode('code-1769481054966-5327')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5327" class="language-plaintext">1. output/react.zip 파일 확인
+   (package_skill.py 실행 시 자동으로 폴더 열림)
+
+<ol start="2">
+<li><p>브라우저에서 <a href="https://claude.ai/skills">https://claude.ai/skills</a> 접속</p>
+</li>
+<li><p>오른쪽 위 &quot;Upload Skill&quot; 버튼 클릭</p>
+</li>
+<li><p>react.zip 파일 선택</p>
+</li>
+<li><p>업로드 대기 (보통 10~30초)</p>
+</li>
+<li><p>&quot;Skill uploaded successfully!&quot; 메시지 확인</p>
+</li>
+</ol>
+<p>완료! 🎉</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h3 id="step-3-skill-사용하기">🎯 Step 3: Skill 사용하기 {#step-3-skill-사용하기}</h3>
+<p><strong>Claude와 대화:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5328" onclick="copyCode('code-1769481054966-5328')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5328" class="language-plaintext">━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+👤 사용자
+React에서 useState는 어떻게 사용하나요?
+
+<p>🤖 Claude
+좋은 질문이에요! React Skill을 활용해서 
+자세히 알려드릴게요.</p>
+<p>useState는 React 함수 컴포넌트에서 
+상태를 관리하는 Hook입니다.</p>
+<p>기본 문법:</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>jsx
+const [state, setState] = useState(initialValue);
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5329" onclick="copyCode('code-1769481054966-5329')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5329" class="language-plaintext">실전 예제:</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>jsx
+function Counter() {
+  const [count, setCount] = useState(0);
+  
+<p>  return (
+    <div>
+      <p>Count: {count}</p>
+      &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+        증가
+      </button>
+    </div>
+  );
+}</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5330" onclick="copyCode('code-1769481054966-5330')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5330" class="language-plaintext">주요 포인트:
+1. `count`: 현재 상태 값
+2. `setCount`: 상태 업데이트 함수
+3. `useState(0)`: 초기값 0으로 설정
+
+<p>더 자세한 내용이 궁금하신가요?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<p><strong>💡 Skill 활용 팁:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5331" onclick="copyCode('code-1769481054966-5331')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5331" class="language-plaintext">✅ 구체적으로 질문하기:
+   &quot;useState 예제 보여줘&quot;
+   &quot;useEffect와 useState 차이점&quot;
+   &quot;useState 주의사항&quot;
+
+<p>✅ 난이도 명시하기:
+   &quot;초보자용으로 설명해줘&quot;
+   &quot;고급 기술 알려줘&quot;</p>
+<p>✅ 실전 시나리오:
+   &quot;로그인 폼을 useState로 만들려면?&quot;
+   &quot;여러 input을 하나의 useState로 관리하려면?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="실전-팁과-요령">실전 팁과 요령 {#실전-팁과-요령}</h2>
+<h3 id="tip-1-페이지-수-예측하기">💎 Tip 1: 페이지 수 예측하기 {#tip-1-페이지-수-예측하기}</h3>
+<p><strong>문제:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5332" onclick="copyCode('code-1769481054966-5332')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5332" class="language-plaintext">문서가 몇 페이지인지 모르겠어요
+max_pages를 얼마로 설정해야 할까요?</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>해결책:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5333" onclick="copyCode('code-1769481054966-5333')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5333" class="language-bash"># 페이지 수 예측 도구 사용
+python3 cli/estimate_pages.py configs/react.json
+
+<h1>결과:</h1>
+<p>📊 ESTIMATION RESULTS
+━━━━━━━━━━━━━━━━━━━━━━━━━
+✅ Pages Discovered: 180
+📈 Estimated Total: 230
+⏱️  Time Elapsed: 1.2 minutes
+💡 Recommended max_pages: 280</p>
+<p>Breakdown by category:</p>
+<ul>
+<li>getting_started: 45 pages</li>
+<li>api: 89 pages</li>
+<li>guides: 67 pages</li>
+<li>advanced: 29 pages</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">14 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>활용:</strong></p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5334" onclick="copyCode('code-1769481054966-5334')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5334" class="language-json">{
+  &quot;name&quot;: &quot;react&quot;,
+  &quot;max_pages&quot;: 280
+         ↑ 예측 결과 활용!
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="tip-2-테스트는-작게-시작">💎 Tip 2: 테스트는 작게 시작 {#tip-2-테스트는-작게-시작}</h3>
+<p><strong>전략:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5335" onclick="copyCode('code-1769481054966-5335')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5335" class="language-plaintext">1단계: 20페이지로 테스트
+   ↓
+설정이 제대로 작동하는지 확인
+   ↓
+2단계: 전체 페이지로 실행</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>실전:</strong></p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5336" onclick="copyCode('code-1769481054966-5336')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5336" class="language-json">{
+  &quot;name&quot;: &quot;react&quot;,
+  &quot;max_pages&quot;: 20,  ← 테스트용
+  ...
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5337" onclick="copyCode('code-1769481054966-5337')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5337" class="language-bash"># 1. 테스트 실행 (2~3분)
+python3 cli/doc_scraper.py --config configs/react.json
+
+<h1>2. 결과 확인</h1>
+<p>cat output/react/SKILL.md
+ls output/react/references/</p>
+<h1>3. 좋으면 max_pages 수정</h1>
+<p>nano configs/react.json</p>
+<h1>max_pages: 20 → 200</h1>
+<h1>4. 본격 실행</h1>
+<p>python3 cli/doc_scraper.py --config configs/react.json</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<h3 id="tip-3-캐싱-활용">💎 Tip 3: 캐싱 활용 {#tip-3-캐싱-활용}</h3>
+<p><strong>상황:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5338" onclick="copyCode('code-1769481054966-5338')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5338" class="language-plaintext">스크래핑 완료했는데
+SKILL.md가 마음에 안 들어요
+다시 스크래핑? 40분 또 기다려요? 😱</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>해결:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5339" onclick="copyCode('code-1769481054966-5339')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5339" class="language-bash"># 데이터는 그대로 두고 Skill만 재생성
+python3 cli/doc_scraper.py \
+  --config configs/react.json \
+  --skip-scrape
+
+<h1>시간: 1분 미만! ⚡</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>언제 유용할까?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5340" onclick="copyCode('code-1769481054966-5340')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5340" class="language-plaintext">✅ 카테고리 분류 수정했을 때
+✅ SKILL.md 템플릿 바꿨을 때
+✅ 선택자는 맞는데 정리만 다시 하고 싶을 때</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h3 id="tip-4-여러-skill-동시-만들기">💎 Tip 4: 여러 Skill 동시 만들기 {#tip-4-여러-skill-동시-만들기}</h3>
+<p><strong>시나리오:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5341" onclick="copyCode('code-1769481054966-5341')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5341" class="language-plaintext">React, Vue, Django 
+3개 Skill을 만들고 싶어요
+하나씩 하면 2시간 걸려요 😰</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>병렬 실행:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5342" onclick="copyCode('code-1769481054966-5342')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5342" class="language-bash"># Mac/Linux:
+python3 cli/doc_scraper.py --config configs/react.json &amp;
+python3 cli/doc_scraper.py --config configs/vue.json &amp;
+python3 cli/doc_scraper.py --config configs/django.json &amp;
+wait
+
+<h1>&amp; = 백그라운드 실행</h1>
+<h1>wait = 모두 완료될 때까지 대기</h1>
+<h1>Windows (PowerShell):</h1>
+<p>Start-Process python3 -ArgumentList &quot;cli/doc_scraper.py --config configs/react.json&quot;
+Start-Process python3 -ArgumentList &quot;cli/doc_scraper.py --config configs/vue.json&quot;
+Start-Process python3 -ArgumentList &quot;cli/doc_scraper.py --config configs/django.json&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<p><strong>주의사항:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5343" onclick="copyCode('code-1769481054966-5343')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5343" class="language-plaintext">⚠️ CPU와 메모리 사용량 증가
+⚠️ 네트워크 대역폭 공유
+⚠️ 터미널 3개 띄워서 각각 실행하는 게 더 안전</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h3 id="tip-5-선택자-찾기-꿀팁">💎 Tip 5: 선택자 찾기 꿀팁 {#tip-5-선택자-찾기-꿀팁}</h3>
+<p><strong>문제:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5344" onclick="copyCode('code-1769481054966-5344')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5344" class="language-plaintext">&quot;main_content&quot; 선택자를 뭐로 해야 할지 모르겠어요 😕</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>해결 - 브라우저 개발자 도구 활용:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5345" onclick="copyCode('code-1769481054966-5345')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5345" class="language-plaintext">Step 1: 문서 페이지 열기
+Step 2: F12 (개발자 도구)
+Step 3: 검사 도구 (왼쪽 위 화살표 아이콘)
+Step 4: 본문 영역 클릭
+Step 5: Elements 탭에서 확인
+
+<p>예시:
+&lt;article class=&quot;doc-content&quot;&gt;
+  ← 이게 본문!</p>
+<p>선택자: &quot;article&quot; 또는 &quot;article.doc-content&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<p><strong>자주 사용되는 선택자:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5346" onclick="copyCode('code-1769481054966-5346')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5346" class="language-plaintext">일반 문서 사이트:
+- &quot;article&quot;
+- &quot;main&quot;
+- &quot;div.content&quot;
+- &quot;div[role=&#39;main&#39;]&quot;
+
+<p>개발자 문서:</p>
+<ul>
+<li>&quot;div.markdown-body&quot;</li>
+<li>&quot;article.prose&quot;</li>
+<li>&quot;main.docs-content&quot;</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">9 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>선택자 테스트:</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5347" onclick="copyCode('code-1769481054966-5347')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5347" class="language-python"># Python으로 빠르게 테스트
+from bs4 import BeautifulSoup
+import requests
+
+<p>url = &quot;<a href="https://react.dev/learn">https://react.dev/learn</a>&quot;
+soup = BeautifulSoup(requests.get(url).content, &#39;html.parser&#39;)</p>
+<h1>여러 선택자 시도</h1>
+<p>print(soup.select_one(&#39;article&#39;))    # 결과 있음?
+print(soup.select_one(&#39;main&#39;))       # 결과 있음?
+print(soup.select_one(&#39;div.content&#39;)) # 결과 있음?</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="part-2-마무리">🎯 Part 2 마무리 {#part-2-마무리}</h2>
+<h3 id="이번에-배운-것들">🎓 이번에 배운 것들 {#이번에-배운-것들}</h3>
+<p>✅ <strong>첫 Skill 만들기</strong></p>
+<ul>
+<li>프리셋 사용법</li>
+<li>대화형 모드</li>
+<li>커스텀 설정</li>
+</ul>
+<p>✅ <strong>AI 향상 기능</strong></p>
+<ul>
+<li>LOCAL 향상 (무료)</li>
+<li>품질 비교</li>
+<li>백업과 복원</li>
+</ul>
+<p>✅ <strong>PDF Skill</strong></p>
+<ul>
+<li>기본 PDF 처리</li>
+<li>OCR, 테이블 추출</li>
+<li>병렬 처리</li>
+</ul>
+<p>✅ <strong>업로드와 사용</strong></p>
+<ul>
+<li>패키징 방법</li>
+<li>자동/수동 업로드</li>
+<li>Claude와 대화</li>
+</ul>
+<p>✅ <strong>실전 팁</strong></p>
+<ul>
+<li>페이지 예측</li>
+<li>테스트 전략</li>
+<li>캐싱 활용</li>
+</ul>
+<h3 id="다음-단계">📚 다음 단계 {#다음-단계}</h3>
+<p><strong>Part 3에서 다룰 내용:</strong></p>
+<ul>
+<li>🔧 문제 해결 가이드</li>
+<li>🚀 대용량 문서 처리 (10K+ 페이지)</li>
+<li>⚡ 성능 최적화</li>
+<li>🎨 고급 커스터마이징</li>
+<li>💡 프로 사용자 팁</li>
+</ul>
+<p><strong>준비 운동:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5348" onclick="copyCode('code-1769481054966-5348')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5348" class="language-plaintext">✅ 첫 Skill 만들어봤어요
+✅ AI 향상 이해했어요
+✅ PDF도 해봤어요
+✅ Claude에 업로드 성공!
+
+<p>→ Part 3 준비 완료! 🎯</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="자주-하는-실수와-해결법">🤔 자주 하는 실수와 해결법 {#자주-하는-실수와-해결법}</h2>
+<h3 id="실수-1-가상환경-미활성화">❌ 실수 1: 가상환경 미활성화 {#실수-1-가상환경-미활성화}</h3>
+<p><strong>증상:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5349" onclick="copyCode('code-1769481054966-5349')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5349" class="language-bash">$ python3 cli/doc_scraper.py ...
+ModuleNotFoundError: No module named &#39;requests&#39;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>원인:</strong>
+가상환경을 활성화하지 않음</p>
+<p><strong>해결:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5350" onclick="copyCode('code-1769481054966-5350')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5350" class="language-bash">source venv/bin/activate
+# (venv) 표시 확인 후 다시 실행</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h3 id="실수-2-경로-오타">❌ 실수 2: 경로 오타 {#실수-2-경로-오타}</h3>
+<p><strong>증상:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5351" onclick="copyCode('code-1769481054966-5351')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5351" class="language-bash">$ python3 cli/doc_scraper.py --config configs/reakt.json
+FileNotFoundError: configs/reakt.json
+                                  ↑ 오타!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>해결:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5352" onclick="copyCode('code-1769481054966-5352')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5352" class="language-bash"># 파일 목록 확인
+ls configs/
+
+<h1>정확한 이름 복사-붙여넣기</h1>
+<p>python3 cli/doc_scraper.py --config configs/react.json</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h3 id="실수-3-선택자-잘못-설정">❌ 실수 3: 선택자 잘못 설정 {#실수-3-선택자-잘못-설정}</h3>
+<p><strong>증상:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5353" onclick="copyCode('code-1769481054966-5353')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5353" class="language-plaintext">✅ 200 pages scraped
+❌ But all pages are empty!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>원인:</strong>
+잘못된 선택자로 본문을 못 찾음</p>
+<p><strong>해결:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054966-5354" onclick="copyCode('code-1769481054966-5354')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054966-5354" class="language-bash"># 브라우저 개발자 도구로 확인
+# F12 → 검사 → 올바른 선택자 찾기
+
+<h1>설정 파일 수정</h1>
+<p>{
+  &quot;selectors&quot;: {
+    &quot;main_content&quot;: &quot;article&quot;  ← 올바른 선택자로
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="연결된-노트">🔗 연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/skillseekerperfectguidepart1.html" class="internal-link">Skill_Seeker_완벽_가이드_Part1</a> - 기본 개념과 설치</li>
+<li><a href="/articles/skillseekerperfectguidepart3.html" class="internal-link">Skill_Seeker_완벽_가이드_Part3</a> - 고급 기능과 최적화</li>
+<li><a href="/articles/claude-ai-skills-practical.html" class="internal-link">Claude AI Skills 활용법</a></li>
+<li><a href="/articles/ai-prompt.html" class="internal-link">효과적인 AI 프롬프트 작성법</a></li>
+</ul>
+<hr>
+<p><strong>💡 Pro Tip:</strong>
+처음에는 프리셋으로 시작하세요!
+성공 경험이 쌓이면 자연스럽게
+커스텀 설정을 시도하게 될 거예요! 🌱→🌳</p>
+<hr>
+<p><em>마지막 업데이트: 2025-10-24</em>
+<em>난이도: ⭐⭐ 초급-중급</em>
+<em>예상 학습 시간: 45분</em></p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/도구.html" class="article-tag">도구</a><a href="/tag/Claude.html" class="article-tag">Claude</a><a href="/tag/Skills.html" class="article-tag">Skills</a><a href="/tag/개발도구.html" class="article-tag">개발도구</a><a href="/tag/문서화.html" class="article-tag">문서화</a><a href="/tag/초보자가이드.html" class="article-tag">초보자가이드</a><a href="/tag/실전예제.html" class="article-tag">실전예제</a><a href="/tag/튜토리얼.html" class="article-tag">튜토리얼</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/skill-seeker-perfect-guide-part-2-real-world-usage-examples.html&text=Skill Seeker 완벽 가이드 Part 2 - 실전 사용법과 예제" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/skill-seeker-perfect-guide-part-2-real-world-usage-examples.html&title=Skill Seeker 완벽 가이드 Part 2 - 실전 사용법과 예제" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/skill-seeker-perfect-guide-part-2-real-world-usage-examples.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

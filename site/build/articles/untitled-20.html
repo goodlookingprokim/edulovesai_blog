@@ -1,0 +1,1388 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untitled | AI 기술 자료 저널</title>
+  <meta name="description" content="This chapter reviews methodologies that enable intelligent agents to systematically evaluate their performance, monitor their progress toward goal...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Untitled">
+  <meta property="og:description" content="This chapter reviews methodologies that enable intelligent agents to systematically evaluate their performance, monitor their progress toward goal...">
+  <meta property="og:image" content="/assets/images/agent-patterns-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-20.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Untitled">
+  <meta name="twitter:description" content="This chapter reviews methodologies that enable intelligent agents to systematically evaluate their performance, monitor their progress toward goal...">
+  <meta name="twitter:image" content="/assets/images/agent-patterns-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-20.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI 기술 자료 저널</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/agent-patterns.html" class="article-category" style="background-color: #6366f1">
+          Agent 패턴
+        </a>
+        <h1 class="article-title">Untitled</h1>
+        <div class="article-meta">
+          <a href="/journalist/agent-architect.html" class="article-author">
+            <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">에이전트 아키텍트</span>
+              <span class="article-author__role">AI Agent Systems Designer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2026년 1월 27일">2026년 1월 27일</time>
+            <span class="article-meta__separator">·</span>
+            <span>40 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#패턴-개요-pattern-overview" class="toc__link">패턴 개요 (Pattern Overview)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#주요-구성-요소" class="toc__link">주요 구성 요소</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실용적-응용-및-사용-사례" class="toc__link">실용적 응용 및 사용 사례</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실습-코드-예제" class="toc__link">실습 코드 예제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#에이전트-응답-평가" class="toc__link">에이전트 응답 평가</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#지연-시간-모니터링" class="toc__link">지연 시간 모니터링</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#llm-상호작용에-대한-토큰-사용-추적" class="toc__link">LLM 상호작용에 대한 토큰 사용 추적</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#도움에-대한-사용자-정의-메트릭-llm-as-a-judge-사용" class="toc__link">&quot;도움&quot;에 대한 사용자 정의 메트릭: LLM-as-a-Judge 사용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#평가-방법-비교" class="toc__link">평가 방법 비교</a>
+    </li>
+    <li class="toc__item">
+      <a href="#에이전트-궤적-평가" class="toc__link">에이전트 궤적 평가</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#test-files와-evalset-files" class="toc__link">Test Files와 Evalset Files</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#다중-에이전트-평가" class="toc__link">다중 에이전트 평가</a>
+    </li>
+    <li class="toc__item">
+      <a href="#에이전트에서-고급-계약자로" class="toc__link">에이전트에서 고급 계약자로</a>
+    </li>
+    <li class="toc__item">
+      <a href="#google의-adk" class="toc__link">Google의 ADK</a>
+    </li>
+    <li class="toc__item">
+      <a href="#한눈에-보기-at-a-glance" class="toc__link">한눈에 보기 (At a Glance)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#무엇-what" class="toc__link">무엇 (What)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#왜-why" class="toc__link">왜 (Why)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#경험-법칙-rule-of-thumb" class="toc__link">경험 법칙 (Rule of Thumb)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#핵심-요약-key-takeaways" class="toc__link">핵심 요약 (Key Takeaways)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#결론-conclusions" class="toc__link">결론 (Conclusions)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati" class="toc__link">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#평가-이론-evaluation-theory" class="toc__link">평가 이론 (Evaluation Theory)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#메트릭-이론" class="toc__link">메트릭 이론</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#관찰-가능성-observability-이론" class="toc__link">관찰 가능성 (Observability) 이론</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#통계적-가설-검정" class="toc__link">통계적 가설 검정</a>
+    </li>
+    <li class="toc__item">
+      <a href="#성능-최적화-기법-performance-optimization-techniques" class="toc__link">성능 최적화 기법 (Performance Optimization Techniques)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-자동화된-평가-파이프라인" class="toc__link">1. 자동화된 평가 파이프라인</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-다차원-메트릭-대시보드" class="toc__link">2. 다차원 메트릭 대시보드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-적응형-테스트-케이스-생성" class="toc__link">3. 적응형 테스트 케이스 생성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-실시간-성능-모니터링" class="toc__link">4. 실시간 성능 모니터링</a>
+    </li>
+    <li class="toc__item">
+      <a href="#트레이드오프-및-한계점-trade-offs-and-limitations" class="toc__link">트레이드오프 및 한계점 (Trade-offs and Limitations)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#evaluation-and-monitoring의-장점" class="toc__link">Evaluation and Monitoring의 장점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#evaluation-and-monitoring의-한계" class="toc__link">Evaluation and Monitoring의 한계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#완화-전략" class="toc__link">완화 전략</a>
+    </li>
+    <li class="toc__item">
+      <a href="#관련-패턴과의-비교-comparison-with-related-patterns" class="toc__link">관련 패턴과의 비교 (Comparison with Related Patterns)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#evaluation-vs-testing" class="toc__link">Evaluation vs. Testing</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#evaluation-vs-monitoring" class="toc__link">Evaluation vs. Monitoring</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실무-적용-사례-확장-extended-practical-applications" class="toc__link">실무 적용 사례 확장 (Extended Practical Applications)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-지속적-통합-및-배포-cicd" class="toc__link">1. 지속적 통합 및 배포 (CI/CD)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-ab-테스트-플랫폼" class="toc__link">2. A/B 테스트 플랫폼</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-다중-에이전트-시스템-평가" class="toc__link">3. 다중 에이전트 시스템 평가</a>
+    </li>
+    <li class="toc__item">
+      <a href="#참고-자료-references" class="toc__link">참고 자료 (References)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#학술-논문" class="toc__link">학술 논문</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#프레임워크-및-도구-문서" class="toc__link">프레임워크 및 도구 문서</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#추가-학습-자료" class="toc__link">추가 학습 자료</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Chapter 19: Evaluation and Monitoring</h1>
+<h2 id="개요">개요 {#개요}</h2>
+<p>This chapter reviews methodologies that enable intelligent agents to systematically evaluate their performance, monitor their progress toward goal achievement, and detect operational anomalies. While Chapter 11 addresses goal setting and monitoring, and Chapter 17 covers reasoning mechanisms, this chapter focuses on the continuous, often external measurement of an agent&#39;s effectiveness, efficiency, and compliance with requirements.</p>
+<p>이 챕터는 지능형 에이전트가 체계적으로 성능을 평가하고, 목표 달성 진행 상황을 모니터링하며, 운영 이상을 감지할 수 있는 방법론을 검토합니다. Chapter 11은 목표 설정과 모니터링을 다루고, Chapter 17은 추론 메커니즘을 다루지만, 이 챕터는 에이전트의 효과성, 효율성 및 요구사항 준수를 지속적이고 종종 외부적으로 측정하는 것에 초점을 맞춥니다.</p>
+<h2 id="패턴-개요-pattern-overview">패턴 개요 (Pattern Overview) {#패턴-개요-pattern-overview}</h2>
+<p>This chapter examines methodologies that allow intelligent agents to systematically assess their performance, monitor progress toward goals, and detect operational anomalies. While Chapter 11 outlines goal setting and monitoring, and Chapter 17 addresses Reasoning mechanisms, this chapter focuses on the continuous, often external, measurement of an agent&#39;s effectiveness, efficiency, and compliance with requirements.</p>
+<p>이 챕터는 지능형 에이전트가 체계적으로 성능을 평가하고, 목표 달성 진행 상황을 모니터링하며, 운영 이상을 감지할 수 있는 방법론을 검토합니다. Chapter 11은 목표 설정과 모니터링을 다루고, Chapter 17은 추론 메커니즘을 다루지만, 이 챕터는 에이전트의 효과성, 효율성 및 요구사항 준수를 지속적이고 종종 외부적으로 측정하는 것에 초점을 맞춥니다.</p>
+<p>This includes defining metrics, establishing feedback loops, and implementing reporting systems to ensure agent performance aligns with expectations in operational environments.</p>
+<p>이것은 메트릭 정의, 피드백 루프 설정, 운영 환경에서 에이전트 성능이 기대치와 일치하도록 보장하는 보고 시스템 구현을 포함합니다.</p>
+<p>Evaluation and Monitoring는 다음을 포함합니다:</p>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769482284861-850" onclick="copyCode('code-1769482284861-850')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284861-850" class="language-mermaid">graph TD
+    A[Evaluation &amp; Monitoring&lt;br/&gt;평가 및 모니터링] --&gt; B[Performance Tracking&lt;br/&gt;성능 추적]
+    A --&gt; C[A/B Testing&lt;br/&gt;A/B 테스트]
+    A --&gt; D[Compliance Audits&lt;br/&gt;규정 준수 감사]
+    A --&gt; E[Drift Detection&lt;br/&gt;드리프트 감지]
+    A --&gt; F[Anomaly Detection&lt;br/&gt;이상 탐지]
+    A --&gt; G[Learning Assessment&lt;br/&gt;학습 평가]
+    
+<pre><code>style A fill:#ff9999&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
+</div>
+
+<h3 id="주요-구성-요소">주요 구성 요소 {#주요-구성-요소}</h3>
+<ol>
+<li><strong>메트릭 정의</strong>: 정확성, 지연 시간, 리소스 소비 등</li>
+<li><strong>피드백 루프</strong>: 지속적인 개선을 위한 피드백 메커니즘</li>
+<li><strong>보고 시스템</strong>: 운영 환경에서 에이전트 성능이 기대치와 일치하는지 보장</li>
+</ol>
+<h2 id="실용적-응용-및-사용-사례">실용적 응용 및 사용 사례 {#실용적-응용-및-사용-사례}</h2>
+<p>가장 일반적인 응용 및 사용 사례:</p>
+<ul>
+<li><p><strong>라이브 시스템의 성능 추적</strong>: 프로덕션 환경에 배포된 에이전트의 정확성, 지연 시간, 리소스 소비를 지속적으로 모니터링합니다(예: 고객 서비스 챗봇의 해결률, 응답 시간).</p>
+</li>
+<li><p><strong>에이전트 개선을 위한 A/B 테스트</strong>: 최적 접근 방식을 식별하기 위해 다른 에이전트 버전 또는 전략을 병렬로 체계적으로 비교합니다(예: 물류 에이전트에 대해 두 가지 다른 계획 알고리즘 시도).</p>
+</li>
+<li><p><strong>규정 준수 및 안전 감사</strong>: 윤리적 가이드라인, 규제 요구사항, 안전 프로토콜에 대한 에이전트의 규정 준수를 시간에 걸쳐 추적하는 자동화된 감사 보고서를 생성합니다. 이러한 보고서는 human-in-the-loop 또는 다른 에이전트에 의해 검증될 수 있으며, 문제를 식별할 때 KPI를 생성하거나 경고를 트리거할 수 있습니다.</p>
+</li>
+<li><p><strong>엔터프라이즈 시스템</strong>: 기업 시스템에서 Agentic AI를 관리하기 위해 새로운 제어 도구인 AI &quot;Contract&quot;가 필요합니다. 이 동적 계약은 AI 위임 작업에 대한 목표, 규칙 및 제어를 명문화합니다.</p>
+</li>
+<li><p><strong>드리프트 감지</strong>: 입력 데이터 분포 변경(개념 드리프트) 또는 환경 변화로 인한 성능 저하를 감지하여 시간에 걸쳐 에이전트 출력의 관련성 또는 정확성을 모니터링합니다.</p>
+</li>
+<li><p><strong>에이전트 행동의 이상 탐지</strong>: 오류, 악의적 공격 또는 원하지 않는 긴급 행동을 나타낼 수 있는 에이전트가 취한 비정상적이거나 예상치 못한 행동을 식별합니다.</p>
+</li>
+<li><p><strong>학습 진행 평가</strong>: 학습을 위해 설계된 에이전트의 학습 곡선, 특정 기술 개선, 또는 다른 작업이나 데이터 세트에 걸친 일반화 능력을 추적합니다.</p>
+</li>
+</ul>
+<h2 id="실습-코드-예제">실습 코드 예제 {#실습-코드-예제}</h2>
+<p>AI 에이전트를 위한 포괄적인 평가 프레임워크를 개발하는 것은 학문적 분야나 상당한 출판물의 복잡성에 비유할 수 있는 도전적인 작업입니다. 이 어려움은 모델 성능, 사용자 상호작용, 윤리적 함의, 더 넓은 사회적 영향과 같은 고려해야 할 많은 요인에서 비롯됩니다. 그럼에도 불구하고 실용적인 구현을 위해 AI 에이전트의 효율적이고 효과적인 작동에 필수적인 중요한 사용 사례에 초점을 맞출 수 있습니다.</p>
+<h3 id="에이전트-응답-평가">에이전트 응답 평가 {#에이전트-응답-평가}</h3>
+<p>이 핵심 프로세스는 에이전트 출력의 품질과 정확성을 평가하는 데 필수적입니다. 이것은 에이전트가 주어진 입력에 대해 관련성 있고, 정확하며, 논리적이고, 편향되지 않으며, 정확한 정보를 제공하는지 결정하는 것을 포함합니다. 평가 메트릭은 사실적 정확성, 유창성, 문법적 정밀도, 사용자의 의도한 목적 준수를 포함할 수 있습니다.</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284861-851" onclick="copyCode('code-1769482284861-851')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284861-851" class="language-python">def evaluate_response_accuracy(agent_output: str, expected_output: str) -&gt; float:
+    &quot;&quot;&quot;Calculates a simple accuracy score for agent responses.&quot;&quot;&quot;
+    # This is a very basic exact match; real-world would use more sophisticated metrics
+    return 1.0 if agent_output.strip().lower() == expected_output.strip().lower() else 0.0
+
+<h1>Example usage</h1>
+<p>agent_response = &quot;The capital of France is Paris.&quot;
+ground_truth = &quot;Paris is the capital of France.&quot;
+score = evaluate_response_accuracy(agent_response, ground_truth)
+print(f&quot;Response accuracy: {score}&quot;)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<p>Python 함수 <code>evaluate_response_accuracy</code>는 선행 또는 후행 공백을 제거한 후 에이전트의 출력과 예상 출력 간의 정확한 대소문자 무시 비교를 수행하여 AI 에이전트 응답에 대한 기본 정확성 점수를 계산합니다. 이것은 정확한 일치에 대해 1.0의 점수를 반환하고 그렇지 않으면 0.0을 반환하여 이진 정확 또는 부정확 평가를 나타냅니다. 이 방법은 간단한 검사에는 간단하지만, 패러프레이징이나 의미적 동등성과 같은 변형을 고려하지 않습니다.</p>
+<p>문제는 비교 방법에 있습니다. 함수는 두 문자열의 엄격한 문자 대 문자 비교를 수행합니다. 제공된 예제에서:</p>
+<ul>
+<li>agent_response: &quot;The capital of France is Paris.&quot;</li>
+<li>ground_truth: &quot;Paris is the capital of France.&quot;</li>
+</ul>
+<p>공백을 제거하고 소문자로 변환한 후에도 이 두 문자열은 동일하지 않습니다. 결과적으로 함수는 두 문장이 동일한 의미를 전달하더라도 부정확하게 정확성 점수 0.0을 반환합니다.</p>
+<p>간단한 비교는 의미적 유사성을 평가하는 데 부족하며, 에이전트의 응답이 예상 출력과 정확히 일치하는 경우에만 성공합니다. 더 효과적인 평가는 문장 간의 의미를 구별하기 위한 고급 자연어 처리(NLP) 기술을 필요로 합니다. 실제 시나리오에서 철저한 AI 에이전트 평가를 위해 더 정교한 메트릭이 종종 필수적입니다. 이러한 메트릭은 Levenshtein 거리 및 Jaccard 유사성과 같은 문자열 유사성 측정, 특정 키워드의 존재 또는 부재에 대한 키워드 분석, 임베딩 모델을 사용한 코사인 유사성을 사용한 의미적 유사성, LLM-as-a-Judge 평가(미묘한 정확성 및 도움을 평가하기 위해 나중에 논의됨), 그리고 신뢰성 및 관련성과 같은 RAG 특정 메트릭을 포함할 수 있습니다.</p>
+<h3 id="지연-시간-모니터링">지연 시간 모니터링 {#지연-시간-모니터링}</h3>
+<p>에이전트 행동에 대한 지연 시간 모니터링은 AI 에이전트의 응답 또는 행동 속도가 중요한 요소인 애플리케이션에서 중요합니다. 이 프로세스는 에이전트가 요청을 처리하고 출력을 생성하는 데 필요한 기간을 측정합니다. 높은 지연 시간은 사용자 경험과 에이전트의 전반적 효과성에 부정적인 영향을 미칠 수 있으며, 특히 실시간 또는 대화형 환경에서 그렇습니다. 실용적인 애플리케이션에서 단순히 지연 시간 데이터를 콘솔에 인쇄하는 것은 불충분합니다. 이 정보를 영구 저장 시스템에 로깅하는 것이 권장됩니다. 옵션에는 구조화된 로그 파일(예: JSON), 시계열 데이터베이스(예: InfluxDB, Prometheus), 데이터 웨어하우스(예: Snowflake, BigQuery, PostgreSQL), 또는 관찰 가능성 플랫폼(예: Datadog, Splunk, Grafana Cloud)이 포함됩니다.</p>
+<h3 id="llm-상호작용에-대한-토큰-사용-추적">LLM 상호작용에 대한 토큰 사용 추적 {#llm-상호작용에-대한-토큰-사용-추적}</h3>
+<p>LLM 기반 에이전트의 경우, 토큰 사용 추적은 비용 관리 및 리소스 할당 최적화에 중요합니다. LLM 상호작용에 대한 청구는 종종 처리된 토큰 수(입력 및 출력)에 따라 달라집니다. 따라서 효율적인 토큰 사용은 운영 비용을 직접적으로 줄입니다. 또한 토큰 수를 모니터링하면 프롬프트 엔지니어링 또는 응답 생성 프로세스에서 개선이 필요한 잠재적 영역을 식별하는 데 도움이 됩니다.</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284861-852" onclick="copyCode('code-1769482284861-852')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284861-852" class="language-python"># This is conceptual as actual token counting depends on the LLM API
+class LLMInteractionMonitor:
+    def __init__(self):
+        self.total_input_tokens = 0
+        self.total_output_tokens = 0
+
+<pre><code>def record_interaction(self, prompt: str, response: str):
+    # In a real scenario, use LLM API&amp;#39;s token counter or a tokenizer
+    input_tokens = len(prompt.split())  # Placeholder
+    output_tokens = len(response.split())  # Placeholder
+    self.total_input_tokens += input_tokens
+    self.total_output_tokens += output_tokens
+    print(f&amp;quot;Recorded interaction: Input tokens={input_tokens}, Output tokens={output_tokens}&amp;quot;)
+
+def get_total_tokens(self):
+    return self.total_input_tokens, self.total_output_tokens
+</code></pre>
+<h1>Example usage</h1>
+<p>monitor = LLMInteractionMonitor()
+monitor.record_interaction(&quot;What is the capital of France?&quot;, &quot;The capital of France is Paris.&quot;)
+monitor.record_interaction(&quot;Tell me a joke.&quot;, &quot;Why don&#39;t scientists trust atoms? Because they make up everything!&quot;)
+input_t, output_t = monitor.get_total_tokens()
+print(f&quot;Total input tokens: {input_t}, Total output tokens: {output_t}&quot;)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">20 lines</span>
+  </div></p>
+</div>
+
+<p>이 섹션은 대규모 언어 모델 상호작용에서 토큰 사용을 추적하기 위해 개발된 개념적 Python 클래스인 <code>LLMInteractionMonitor</code>를 소개합니다. 클래스는 입력 및 출력 토큰 모두에 대한 카운터를 통합합니다. <code>record_interaction</code> 메서드는 프롬프트 및 응답 문자열을 분할하여 토큰 계산을 시뮬레이션합니다. 실용적인 구현에서는 정확한 토큰 수를 위해 특정 LLM API 토크나이저가 사용됩니다. 상호작용이 발생함에 따라 모니터는 총 입력 및 출력 토큰 수를 누적합니다. <code>get_total_tokens</code> 메서드는 이러한 누적 합계에 대한 액세스를 제공하며, 이는 비용 관리 및 LLM 사용 최적화에 필수적입니다.</p>
+<h3>&quot;도움&quot;에 대한 사용자 정의 메트릭: LLM-as-a-Judge 사용 {#도움에-대한-사용자-정의-메트릭-llm-as-a-judge-사용}</h3>
+<p>AI 에이전트의 &quot;도움&quot;과 같은 주관적 품질을 평가하는 것은 표준 객관적 메트릭을 넘어서는 도전을 제시합니다. 잠재적 프레임워크는 LLM을 평가자로 사용하는 것을 포함합니다. 이 LLM-as-a-Judge 접근 방식은 &quot;도움&quot;에 대한 사전 정의된 기준에 따라 다른 AI 에이전트의 출력을 평가합니다. LLM의 고급 언어 능력을 활용하여 이 방법은 간단한 키워드 일치 또는 규칙 기반 평가를 능가하는 미묘하고 인간과 같은 주관적 품질 평가를 제공합니다. 개발 중이지만 이 기술은 정성적 평가를 자동화하고 확장하는 데 유망합니다.</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284861-853" onclick="copyCode('code-1769482284861-853')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284861-853" class="language-python">import google.generativeai as genai
+import os
+import json
+import logging
+from typing import Optional
+
+<h1>--- Configuration ---</h1>
+<p>logging.basicConfig(level=logging.INFO, format=&#39;%(asctime)s - %(levelname)s - %(message)s&#39;)</p>
+<h1>Set your API key as an environment variable to run this script</h1>
+<h1>For example, in your terminal: export GOOGLE_API_KEY=&#39;your_key_here&#39;</h1>
+<p>try:
+    genai.configure(api_key=os.environ[&quot;GOOGLE_API_KEY&quot;])
+except KeyError:
+    logging.error(&quot;Error: GOOGLE_API_KEY environment variable not set.&quot;)
+    exit(1)</p>
+<h1>--- LLM-as-a-Judge Rubric for Legal Survey Quality ---</h1>
+<p>LEGAL_SURVEY_RUBRIC = &quot;&quot;&quot;
+You are an expert legal survey methodologist and a critical legal
+reviewer. Your task is to evaluate the quality of a given legal
+survey question.</p>
+<p>Provide a score from 1 to 5 for overall quality, along with a
+detailed rationale and specific feedback.</p>
+<p>Focus on the following criteria:</p>
+<ol>
+<li><strong>Clarity &amp; Precision (Score 1-5):</strong></li>
+</ol>
+<ul>
+<li>1: Extremely vague, highly ambiguous, or confusing.</li>
+<li>3: Moderately clear, but could be more precise.</li>
+<li>5: Perfectly clear, unambiguous, and precise in its legal
+terminology (if applicable) and intent.</li>
+</ul>
+<ol start="2">
+<li><strong>Neutrality &amp; Bias (Score 1-5):</strong></li>
+</ol>
+<ul>
+<li>1: Highly leading or biased, clearly influencing the respondent
+towards a specific answer.</li>
+<li>3: Slightly suggestive or could be interpreted as leading.</li>
+<li>5: Completely neutral, objective, and free from any leading
+language or loaded terms.</li>
+</ul>
+<ol start="3">
+<li><strong>Relevance &amp; Focus (Score 1-5):</strong></li>
+</ol>
+<ul>
+<li>1: Irrelevant to the stated survey topic or out of scope.</li>
+<li>3: Loosely related but could be more focused.</li>
+<li>5: Directly relevant to the survey&#39;s objectives and well-focused
+on a single concept.</li>
+</ul>
+<ol start="4">
+<li><strong>Completeness (Score 1-5):</strong></li>
+</ol>
+<ul>
+<li>1: Omits critical information needed to answer accurately or
+provides insufficient context.</li>
+<li>3: Mostly complete, but minor details are missing.</li>
+<li>5: Provides all necessary context and information for the
+respondent to answer thoroughly.</li>
+</ul>
+<ol start="5">
+<li><strong>Appropriateness for Audience (Score 1-5):</strong></li>
+</ol>
+<ul>
+<li>1: Uses jargon inaccessible to the target audience or is overly
+simplistic for experts.</li>
+<li>3: Generally appropriate, but some terms might be challenging or
+oversimplified.</li>
+<li>5: Perfectly tailored to the assumed legal knowledge and
+background of the target survey audience.</li>
+</ul>
+<p><strong>Output Format:</strong>
+Your response MUST be a JSON object with the following keys:</p>
+<ul>
+<li><code>overall_score</code>: An integer from 1 to 5 (average of criterion
+scores, or your holistic judgment).</li>
+<li><code>rationale</code>: A concise summary of why this score was given,
+highlighting major strengths and weaknesses.</li>
+<li><code>detailed_feedback</code>: A bullet-point list detailing feedback for
+each criterion (Clarity, Neutrality, Relevance, Completeness,
+Audience Appropriateness). Suggest specific improvements.</li>
+<li><code>concerns</code>: A list of any specific legal, ethical, or
+methodological concerns.</li>
+<li><code>recommended_action</code>: A brief recommendation (e.g., &quot;Revise for
+neutrality&quot;, &quot;Approve as is&quot;, &quot;Clarify scope&quot;).
+&quot;&quot;&quot;</li>
+</ul>
+<p>class LLMJudgeForLegalSurvey:
+    &quot;&quot;&quot;A class to evaluate legal survey questions using a generative AI model.&quot;&quot;&quot;
+    def <strong>init</strong>(self, model_name: str = &#39;gemini-1.5-flash-latest&#39;, temperature: float = 0.2):
+        &quot;&quot;&quot;
+        Initializes the LLM Judge.
+        Args:
+            model_name (str): The name of the Gemini model to use.
+                &#39;gemini-1.5-flash-latest&#39; is recommended for speed and cost.
+                &#39;gemini-1.5-pro-latest&#39; offers the highest quality.
+            temperature (float): The generation temperature. Lower is better for deterministic evaluation.
+        &quot;&quot;&quot;
+        self.model = genai.GenerativeModel(model_name)
+        self.temperature = temperature</p>
+<pre><code>def _generate_prompt(self, survey_question: str) -&amp;gt; str:
+    &amp;quot;&amp;quot;&amp;quot;Constructs the full prompt for the LLM judge.&amp;quot;&amp;quot;&amp;quot;
+    return f&amp;quot;{LEGAL_SURVEY_RUBRIC}\n\n---\n**LEGAL SURVEY QUESTION TO EVALUATE:**\n{survey_question}\n---&amp;quot;
+
+def judge_survey_question(self, survey_question: str) -&amp;gt; Optional[dict]:
+    &amp;quot;&amp;quot;&amp;quot;
+    Judges the quality of a single legal survey question using the LLM.
+    Args:
+        survey_question (str): The legal survey question to be evaluated.
+    Returns:
+        Optional[dict]: A dictionary containing the LLM&amp;#39;s judgment, or None if an error occurs.
+    &amp;quot;&amp;quot;&amp;quot;
+    full_prompt = self._generate_prompt(survey_question)
+    try:
+        logging.info(f&amp;quot;Sending request to &amp;#39;{self.model.model_name}&amp;#39; for judgment...&amp;quot;)
+        response = self.model.generate_content(
+            full_prompt,
+            generation_config=genai.types.GenerationConfig(
+                temperature=self.temperature,
+                response_mime_type=&amp;quot;application/json&amp;quot;
+            )
+        )
+        # Check for content moderation or other reasons for an empty response.
+        if not response.parts:
+            safety_ratings = response.prompt_feedback.safety_ratings
+            logging.error(f&amp;quot;LLM response was empty or blocked. Safety Ratings: {safety_ratings}&amp;quot;)
+            return None
+        return json.loads(response.text)
+    except json.JSONDecodeError:
+        logging.error(f&amp;quot;Failed to decode LLM response as JSON. Raw response: {response.text}&amp;quot;)
+        return None
+    except Exception as e:
+        logging.error(f&amp;quot;An unexpected error occurred during LLM judgment: {e}&amp;quot;)
+        return None
+</code></pre>
+<h1>--- Example Usage ---</h1>
+<p>if <strong>name</strong> == &quot;<strong>main</strong>&quot;:
+    judge = LLMJudgeForLegalSurvey()</p>
+<pre><code># --- Good Example ---
+good_legal_survey_question = &amp;quot;&amp;quot;&amp;quot;
+To what extent do you agree or disagree that current intellectual
+property laws in Switzerland adequately protect emerging AI-generated
+content, assuming the content meets the originality criteria
+established by the Federal Supreme Court?
+(Select one: Strongly Disagree, Disagree, Neutral, Agree, Strongly Agree)
+&amp;quot;&amp;quot;&amp;quot;
+print(&amp;quot;\n--- Evaluating Good Legal Survey Question ---&amp;quot;)
+judgment_good = judge.judge_survey_question(good_legal_survey_question)
+if judgment_good:
+    print(json.dumps(judgment_good, indent=2))
+
+# --- Biased/Poor Example ---
+biased_legal_survey_question = &amp;quot;&amp;quot;&amp;quot;
+Don&amp;#39;t you agree that overly restrictive data privacy laws like the
+FADP are hindering essential technological innovation and economic
+growth in Switzerland?
+(Select one: Yes, No)
+&amp;quot;&amp;quot;&amp;quot;
+print(&amp;quot;\n--- Evaluating Biased Legal Survey Question ---&amp;quot;)
+judgment_biased = judge.judge_survey_question(biased_legal_survey_question)
+if judgment_biased:
+    print(json.dumps(judgment_biased, indent=2))
+
+# --- Ambiguous/Vague Example ---
+vague_legal_survey_question = &amp;quot;&amp;quot;&amp;quot;
+What are your thoughts on legal tech?
+&amp;quot;&amp;quot;&amp;quot;
+print(&amp;quot;\n--- Evaluating Vague Legal Survey Question ---&amp;quot;)
+judgment_vague = judge.judge_survey_question(vague_legal_survey_question)
+if judgment_vague:
+    print(json.dumps(judgment_vague, indent=2))&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">148 lines</span>
+  </div>
+</div>
+
+<p>Python 코드는 생성 AI 모델을 사용하여 법률 설문 질문의 품질을 평가하도록 설계된 클래스 LLMJudgeForLegalSurvey를 정의합니다. 이것은 Gemini 모델과 상호작용하기 위해 google.generativeai 라이브러리를 활용합니다.</p>
+<p>핵심 기능은 평가를 위한 상세한 루브릭과 함께 설문 질문을 모델에 보내는 것을 포함합니다. 루브릭은 설문 질문을 판단하기 위한 다섯 가지 기준을 지정합니다: 명확성 및 정밀도, 중립성 및 편향, 관련성 및 초점, 완전성, 그리고 청중 적절성. 각 기준에 대해 1에서 5까지의 점수가 할당되며, 출력에 상세한 근거 및 피드백이 필요합니다. 코드는 루브릭과 평가할 설문 질문을 포함하는 프롬프트를 구성합니다.</p>
+<p>judge_survey_question 메서드는 이 프롬프트를 구성된 Gemini 모델에 보내고, 정의된 구조에 따라 JSON 응답을 요청합니다. 예상 출력 JSON은 전체 점수, 요약 근거, 각 기준에 대한 상세 피드백, 우려 사항 목록 및 권장 조치를 포함합니다. 클래스는 JSON 디코딩 문제나 빈 응답과 같은 AI 모델 상호작용 중 잠재적 오류를 처리합니다. 스크립트는 법률 설문 질문의 예제를 평가하여 작동을 시연하며, 사전 정의된 기준에 따라 AI가 품질을 평가하는 방법을 보여줍니다.</p>
+<h3 id="평가-방법-비교">평가 방법 비교 {#평가-방법-비교}</h3>
+<p>결론을 내리기 전에 강점과 약점을 고려하여 다양한 평가 방법을 검토하겠습니다.</p>
+<table>
+<thead>
+<tr>
+<th>평가 방법</th>
+<th>강점</th>
+<th>약점</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>인간 평가</td>
+<td>미묘한 행동 포착</td>
+<td>확장하기 어렵고, 비용이 많이 들며, 시간이 많이 걸리며, 주관적 인간 요인을 고려합니다.</td>
+</tr>
+<tr>
+<td>LLM-as-a-Judge</td>
+<td>일관되고 효율적이며 확장 가능합니다.</td>
+<td>중간 단계가 간과될 수 있습니다. LLM 기능에 의해 제한됩니다.</td>
+</tr>
+<tr>
+<td>자동화된 메트릭</td>
+<td>확장 가능하고 효율적이며 객관적입니다.</td>
+<td>완전한 능력을 포착하는 데 잠재적 제한이 있습니다.</td>
+</tr>
+</tbody></table>
+<h2 id="에이전트-궤적-평가">에이전트 궤적 평가 {#에이전트-궤적-평가}</h2>
+<p>에이전트의 궤적을 평가하는 것은 필수적입니다. 왜냐하면 전통적인 소프트웨어 테스트가 불충분하기 때문입니다. 표준 코드는 예측 가능한 통과/실패 결과를 산출하지만, 에이전트는 확률적으로 작동하므로 최종 출력과 솔루션에 도달하기 위해 취한 단계의 시퀀스인 에이전트의 궤적에 대한 정성적 평가가 필요합니다.</p>
+<p>다중 에이전트 시스템을 평가하는 것은 도전적입니다. 왜냐하면 그것들이 지속적으로 변화하기 때문입니다. 이것은 개별 성능을 넘어서 의사 소통 및 팀워크의 효과성을 측정하는 정교한 메트릭 개발을 요구합니다. 더욱이 환경 자체가 정적이지 않으므로 테스트 케이스를 포함한 평가 방법이 시간에 걸쳐 적응해야 합니다.</p>
+<p>이것은 결정의 품질, 추론 프로세스 및 전반적 결과를 검토하는 것을 포함합니다. 자동화된 평가를 구현하는 것은 특히 프로토타입 단계를 넘어 개발에 가치가 있습니다. 궤적 및 도구 사용 분석은 에이전트가 목표를 달성하기 위해 사용하는 단계를 평가하는 것을 포함하며, 도구 선택, 전략 및 작업 효율성과 같은 것을 포함합니다. 예를 들어, 고객의 제품 쿼리를 다루는 에이전트는 이상적으로 의도 결정, 데이터베이스 검색 도구 사용, 결과 검토 및 보고서 생성을 포함하는 궤적을 따를 수 있습니다. 에이전트의 실제 행동은 오류 및 비효율성을 식별하기 위해 이 예상되거나 ground truth 궤적과 비교됩니다. 비교 방법에는 정확한 일치(이상적인 시퀀스와의 완벽한 일치 요구), 순서 내 일치(순서대로 올바른 행동, 추가 단계 허용), 임의 순서 일치(임의 순서로 올바른 행동, 추가 단계 허용), 정밀도(예측된 행동의 관련성 측정), 재현율(얼마나 많은 필수 행동이 포착되는지 측정), 단일 도구 사용(특정 행동 확인)이 포함됩니다. 메트릭 선택은 특정 에이전트 요구사항에 따라 달라지며, 높은 위험 시나리오는 잠재적으로 정확한 일치를 요구하는 반면, 더 유연한 상황은 순서 내 또는 임의 순서 일치를 사용할 수 있습니다.</p>
+<h3 id="test-files와-evalset-files">Test Files와 Evalset Files {#test-files와-evalset-files}</h3>
+<p>AI 에이전트 평가는 test files 사용과 evalset files 사용이라는 두 가지 주요 접근 방식을 포함합니다. Test files는 JSON 형식으로 단일, 간단한 에이전트-모델 상호작용 또는 세션을 나타내며, 활성 개발 중 단위 테스트에 이상적이며, 빠른 실행 및 간단한 세션 복잡성에 초점을 맞춥니다. 각 test file은 여러 턴을 가진 단일 세션을 포함하며, 여기서 턴은 사용자의 쿼리, 예상 도구 사용 궤적, 중간 에이전트 응답 및 최종 응답을 포함하는 사용자-에이전트 상호작용입니다. 예를 들어, test file은 &quot;침실에서 device_2를 끄기&quot;라는 사용자 요청을 자세히 설명하고, location: Bedroom, device_id: device_2, status: OFF와 같은 매개변수를 가진 set_device_info 도구의 에이전트 사용을 지정하고, &quot;device_2 상태를 끄기로 설정했습니다.&quot;라는 예상 최종 응답을 지정할 수 있습니다. Test files는 폴더로 구성될 수 있으며 평가 기준을 정의하는 test_config.json 파일을 포함할 수 있습니다.</p>
+<p>Evalset files는 &quot;evalset&quot;이라는 데이터셋을 사용하여 상호작용을 평가하며, 복잡한 다중 턴 대화 및 통합 테스트를 시뮬레이션하는 데 적합한 여러 잠재적으로 긴 세션을 포함합니다. Evalset file은 여러 &quot;eval&quot;로 구성되며, 각각은 사용자 쿼리, 예상 도구 사용, 중간 응답 및 참조 최종 응답을 포함하는 하나 이상의 &quot;턴&quot;을 가진 고유한 세션을 나타냅니다. Evalset의 예는 사용자가 먼저 &quot;무엇을 할 수 있나요?&quot;라고 묻고 그 다음 &quot;10면 주사위를 두 번 굴린 다음 9가 소수인지 확인하세요&quot;라고 말하는 세션을 포함할 수 있으며, 예상 roll_die 도구 호출 및 check_prime 도구 호출을 정의하고 주사위 굴림 및 소수 확인을 요약하는 최종 응답을 포함합니다.</p>
+<h3 id="다중-에이전트-평가">다중 에이전트 평가 {#다중-에이전트-평가}</h3>
+<p>여러 에이전트를 가진 복잡한 AI 시스템을 평가하는 것은 팀 프로젝트를 평가하는 것과 매우 유사합니다. 많은 단계와 인계가 있기 때문에 그 복잡성은 각 단계에서 작업의 품질을 확인할 수 있게 하는 이점입니다. 각 개별 &quot;에이전트&quot;가 특정 작업을 얼마나 잘 수행하는지 검토할 수 있지만, 전체 시스템이 전체적으로 어떻게 수행되는지도 평가해야 합니다.</p>
+<p>이를 수행하기 위해 구체적인 예제로 뒷받침되는 팀의 역학에 대한 핵심 질문을 합니다:</p>
+<ul>
+<li><p><strong>에이전트가 효과적으로 협력하고 있나요?</strong> 예를 들어, &#39;항공편 예약 에이전트&#39;가 항공편을 확보한 후, 올바른 날짜와 목적지를 &#39;호텔 예약 에이전트&#39;에 성공적으로 전달하나요? 협력 실패는 잘못된 주에 호텔이 예약되는 결과를 초래할 수 있습니다.</p>
+</li>
+<li><p><strong>좋은 계획을 만들고 그것을 고수했나요?</strong> 계획이 먼저 항공편을 예약한 다음 호텔을 예약하는 것이라고 상상해보세요. &#39;호텔 에이전트&#39;가 항공편이 확인되기 전에 방을 예약하려고 시도하면 계획에서 벗어난 것입니다. 또한 에이전트가 예를 들어 &quot;완벽한&quot; 렌터카를 끝없이 검색하고 다음 단계로 절대 이동하지 않는 것과 같이 막히는지 확인합니다.</p>
+</li>
+<li><p><strong>올바른 작업에 대해 올바른 에이전트가 선택되고 있나요?</strong> 사용자가 여행에 대한 날씨에 대해 묻는 경우, 시스템은 실시간 데이터를 제공하는 전문 &#39;날씨 에이전트&#39;를 사용해야 합니다. 대신 &quot;여름에는 보통 따뜻합니다&quot;와 같은 일반적인 답변을 제공하는 &#39;일반 지식 에이전트&#39;를 사용하면 작업에 대해 잘못된 도구를 선택한 것입니다.</p>
+</li>
+<li><p><strong>마지막으로, 더 많은 에이전트를 추가하면 성능이 향상되나요?</strong> 팀에 새로운 &#39;레스토랑 예약 에이전트&#39;를 추가하면 전체 여행 계획이 더 좋고 효율적으로 만들어지나요? 아니면 충돌을 만들고 시스템을 느리게 만들어 확장성 문제를 나타내나요?</p>
+</li>
+</ul>
+<h2 id="에이전트에서-고급-계약자로">에이전트에서 고급 계약자로 {#에이전트에서-고급-계약자로}</h2>
+<p>최근에 간단한 AI 에이전트에서 고급 &quot;계약자&quot;로의 진화가 제안되었습니다(Agent Companion, gulli et al.). 이것은 확률적이고 종종 신뢰할 수 없는 시스템에서 복잡하고 높은 위험 환경을 위해 설계된 더 결정론적이고 책임 있는 것으로 이동합니다.</p>
+<p>오늘날의 일반적인 AI 에이전트는 간단하고 불충분하게 지정된 지시에서 작동하며, 이것은 간단한 시연에는 적합하지만 모호성이 실패로 이어지는 프로덕션에서는 취약합니다. &quot;계약자&quot; 모델은 명확하게 정의되고 상호 합의된 조건의 기반 위에 구축된 사용자와 AI 간의 엄격하고 공식화된 관계를 설정함으로써 이를 해결합니다. 이것은 인간 세계의 법률 서비스 계약과 매우 유사합니다. 이 변환은 이전에 자율 시스템의 범위를 넘어선 작업의 명확성, 신뢰성 및 견고한 실행을 집합적으로 보장하는 네 가지 핵심 기둥에 의해 지원됩니다.</p>
+<p>첫 번째는 공식화된 계약의 기둥으로, 작업에 대한 단일 진실 소스 역할을 하는 상세한 사양입니다. 이것은 간단한 프롬프트를 훨씬 넘어섭니다. 예를 들어, 재무 분석 작업에 대한 계약은 단순히 &quot;지난 분기 매출 분석&quot;이라고 말하는 것이 아니라 &quot;2025년 1분기 유럽 시장 매출을 분석하는 20페이지 PDF 보고서, 5개의 특정 데이터 시각화, 2024년 1분기와의 비교 분석, 포함된 공급망 중단 데이터셋을 기반으로 한 위험 평가를 요구할 것입니다.&quot; 이 계약은 필요한 결과물, 정확한 사양, 허용 가능한 데이터 소스, 작업 범위, 심지어 예상 계산 비용 및 완료 시간을 명시적으로 정의하여 결과를 객관적으로 검증 가능하게 만듭니다.</p>
+<p>두 번째는 협상 및 피드백의 동적 생명주기 기둥입니다. 계약은 정적 명령이 아니라 대화의 시작입니다. 계약자 에이전트는 초기 조건을 분석하고 협상할 수 있습니다. 예를 들어, 계약이 에이전트가 액세스할 수 없는 특정 독점 데이터 소스 사용을 요구하는 경우, &quot;지정된 XYZ 데이터베이스에 액세스할 수 없습니다. 자격 증명을 제공하거나 데이터의 세분성을 약간 변경할 수 있는 대체 공개 데이터베이스 사용을 승인해주세요&quot;라고 피드백을 반환할 수 있습니다. 에이전트가 모호성이나 잠재적 위험을 플래그할 수 있도록 하는 이 협상 단계는 실행이 시작되기 전에 오해를 해결하여 비용이 많이 드는 실패를 방지하고 최종 출력이 사용자의 실제 의도와 완벽하게 일치하도록 보장합니다.</p>
+<p>세 번째 기둥은 품질 중심 반복 실행입니다. 낮은 지연 시간 응답을 위해 설계된 에이전트와 달리, 계약자는 정확성과 품질을 우선시합니다. 이것은 자체 검증 및 수정 원칙에서 작동합니다. 코드 생성 계약의 경우, 예를 들어, 에이전트는 단순히 코드를 작성하는 것이 아니라 여러 알고리즘 접근 방식을 생성하고, 계약 내에서 정의된 단위 테스트 모음에 대해 컴파일하고 실행하고, 성능, 보안 및 가독성과 같은 메트릭에서 각 솔루션을 점수화하고, 모든 검증 기준을 통과하는 버전만 제출할 것입니다. 계약의 사양이 충족될 때까지 자체 작업을 생성, 검토 및 개선하는 이 내부 루프는 출력에 대한 신뢰를 구축하는 데 중요합니다.</p>
+<p>마지막으로 네 번째 기둥은 하위 계약을 통한 계층적 분해입니다. 상당한 복잡성의 작업의 경우, 주요 계약자 에이전트는 프로젝트 관리자 역할을 하며 주요 목표를 더 작고 관리 가능한 하위 작업으로 나눌 수 있습니다. 이것은 새로운 공식 &quot;하위 계약&quot;을 생성함으로써 달성됩니다. 예를 들어, &quot;전자상거래 모바일 애플리케이션 구축&quot;이라는 마스터 계약은 주요 에이전트에 의해 &quot;UI/UX 설계&quot;, &quot;사용자 인증 모듈 개발&quot;, &quot;제품 데이터베이스 스키마 생성&quot;, &quot;결제 게이트웨이 통합&quot;에 대한 하위 계약으로 분해될 수 있습니다. 이러한 하위 계약 각각은 자체 결과물 및 사양을 가진 완전하고 독립적인 계약이며, 다른 전문 에이전트에 할당될 수 있습니다. 이 구조화된 분해는 시스템이 매우 조직적이고 확장 가능한 방식으로 거대하고 다면적인 프로젝트를 처리할 수 있게 하며, AI가 간단한 도구에서 진정으로 자율적이고 신뢰할 수 있는 문제 해결 엔진으로의 전환을 표시합니다.</p>
+<p>궁극적으로 이 계약자 프레임워크는 공식 사양, 협상 및 검증 가능한 실행의 원칙을 에이전트의 핵심 로직에 직접 내장함으로써 AI 상호작용을 재구상합니다. 이 체계적 접근 방식은 인공 지능을 유망하지만 종종 예측할 수 없는 어시스턴트에서 감사 가능한 정밀도로 복잡한 프로젝트를 자율적으로 관리할 수 있는 신뢰할 수 있는 시스템으로 향상시킵니다. 모호성과 신뢰성의 중요한 도전을 해결함으로써 이 모델은 신뢰와 책임이 가장 중요한 미션 크리티컬 도메인에서 AI를 배포하는 데 필요한 길을 닦습니다.</p>
+<h2 id="google의-adk">Google의 ADK {#google의-adk}</h2>
+<p>결론을 내리기 전에 평가를 지원하는 프레임워크의 구체적인 예를 살펴보겠습니다. Google의 ADK를 사용한 에이전트 평가는 세 가지 방법으로 수행될 수 있습니다: 대화형 평가 및 데이터셋 생성을 위한 웹 기반 UI(adk web), 테스트 파이프라인에 통합하기 위해 pytest를 사용한 프로그래밍 통합, 정기적인 빌드 생성 및 검증 프로세스에 적합한 자동화된 평가를 위한 직접 명령줄 인터페이스(adk eval).</p>
+<p>웹 기반 UI는 대화형 세션 생성 및 기존 또는 새로운 eval 세트로 저장을 가능하게 하며 평가 상태를 표시합니다. Pytest 통합은 에이전트 모듈 및 테스트 파일 경로를 지정하여 AgentEvaluator.evaluate를 호출하여 통합 테스트의 일부로 테스트 파일을 실행할 수 있게 합니다.</p>
+<p>명령줄 인터페이스는 에이전트 모듈 경로 및 eval 세트 파일을 제공하여 자동화된 평가를 용이하게 하며, 구성 파일을 지정하거나 상세한 결과를 인쇄하는 옵션을 제공합니다. 더 큰 eval 세트 내의 특정 eval은 eval 세트 파일명 뒤에 쉼표로 구분하여 나열하여 실행을 위해 선택할 수 있습니다.</p>
+<h2 id="한눈에-보기-at-a-glance">한눈에 보기 (At a Glance) {#한눈에-보기-at-a-glance}</h2>
+<h3 id="무엇-what">무엇 (What) {#무엇-what}</h3>
+<p>에이전트 시스템 및 LLM은 성능이 시간에 걸쳐 저하될 수 있는 복잡하고 동적인 환경에서 작동합니다. 그들의 확률적이고 비결정론적 특성은 신뢰성을 보장하기 위해 전통적인 소프트웨어 테스트가 불충분함을 의미합니다. 동적 다중 에이전트 시스템을 평가하는 것은 지속적으로 변화하는 특성과 환경의 특성 때문에 중요한 도전이며, 개별 성능을 넘어서 협업 성공을 측정할 수 있는 적응형 테스트 방법 및 정교한 메트릭 개발을 요구합니다. 데이터 드리프트, 예상치 못한 상호작용, 도구 호출 및 의도한 목표에서의 편차와 같은 문제는 배포 후에 발생할 수 있습니다. 따라서 에이전트의 효과성, 효율성 및 운영 및 안전 요구사항 준수를 측정하기 위한 지속적인 평가가 필요합니다.</p>
+<h3 id="왜-why">왜 (Why) {#왜-why}</h3>
+<p>표준화된 평가 및 모니터링 프레임워크는 지능형 에이전트의 지속적인 성능을 평가하고 보장하기 위한 체계적인 방법을 제공합니다. 이것은 정확성, 지연 시간 및 LLM의 경우 토큰 사용과 같은 리소스 소비에 대한 명확한 메트릭을 정의하는 것을 포함합니다. 또한 추론 프로세스를 이해하기 위해 에이전트 궤적을 분석하고 미묘하고 정성적 평가를 위해 LLM-as-a-Judge를 사용하는 것과 같은 고급 기술을 포함합니다. 피드백 루프 및 보고 시스템을 설정함으로써 이 프레임워크는 지속적인 개선, A/B 테스트 및 이상 또는 성능 드리프트 감지를 가능하게 하여 에이전트가 목표와 정렬된 상태를 유지하도록 보장합니다.</p>
+<h3 id="경험-법칙-rule-of-thumb">경험 법칙 (Rule of Thumb) {#경험-법칙-rule-of-thumb}</h3>
+<p>실시간 성능 및 신뢰성이 중요한 라이브, 프로덕션 환경에서 에이전트를 배포할 때 이 패턴을 사용하세요. 또한 개선을 추진하기 위해 에이전트 또는 기본 모델의 다른 버전을 체계적으로 비교해야 할 때, 그리고 규정 준수, 안전 및 윤리적 감사가 필요한 규제되거나 높은 위험 도메인에서 운영할 때 사용하세요. 이 패턴은 데이터 또는 환경(드리프트)의 변화로 인해 에이전트의 성능이 시간에 걸쳐 저하될 수 있을 때, 또는 행동 시퀀스(궤적) 및 도움과 같은 주관적 출력의 품질을 포함하여 복잡한 에이전트 행동을 평가할 때도 적합합니다.</p>
+<h2 id="핵심-요약-key-takeaways">핵심 요약 (Key Takeaways) {#핵심-요약-key-takeaways}</h2>
+<ol>
+<li><p><strong>지능형 에이전트 평가는 전통적인 테스트를 넘어서 실제 환경에서 효과성, 효율성 및 요구사항 준수를 지속적으로 측정합니다.</strong></p>
+</li>
+<li><p><strong>에이전트 평가의 실용적 응용에는 라이브 시스템의 성능 추적, 개선을 위한 A/B 테스트, 규정 준수 감사, 행동의 드리프트 또는 이상 감지가 포함됩니다.</strong></p>
+</li>
+<li><p><strong>기본 에이전트 평가는 응답 정확성 평가를 포함하는 반면, 실제 시나리오는 LLM 기반 에이전트에 대한 지연 시간 모니터링 및 토큰 사용 추적과 같은 더 정교한 메트릭을 요구합니다.</strong></p>
+</li>
+<li><p><strong>에이전트 궤적, 에이전트가 취하는 단계의 시퀀스는 평가에 중요하며, 오류 및 비효율성을 식별하기 위해 실제 행동을 이상적이고 ground-truth 경로와 비교합니다.</strong></p>
+</li>
+<li><p><strong>ADK는 단위 테스트를 위한 개별 테스트 파일과 통합 테스트를 위한 포괄적인 evalset 파일을 통해 구조화된 평가 방법을 제공하며, 둘 다 예상 에이전트 행동을 정의합니다.</strong></p>
+</li>
+<li><p><strong>에이전트 평가는 대화형 테스트를 위한 웹 기반 UI, CI/CD 통합을 위한 pytest를 사용한 프로그래밍 방식, 또는 자동화된 워크플로를 위한 명령줄 인터페이스를 통해 실행될 수 있습니다.</strong></p>
+</li>
+<li><p><strong>복잡하고 높은 위험 작업에 대해 AI를 신뢰할 수 있게 만들기 위해 간단한 프롬프트에서 검증 가능한 결과물과 범위를 정확히 정의하는 공식 &quot;계약&quot;으로 이동해야 합니다. 이 구조화된 계약은 에이전트가 협상하고, 모호성을 명확히 하며, 자체 작업을 반복적으로 검증할 수 있게 하여 예측할 수 없는 도구에서 책임 있고 신뢰할 수 있는 시스템으로 변환합니다.</strong></p>
+</li>
+</ol>
+<h2 id="결론-conclusions">결론 (Conclusions) {#결론-conclusions}</h2>
+<p>결론적으로, AI 에이전트를 효과적으로 평가하는 것은 간단한 정확성 검사를 넘어서 동적 환경에서 성능에 대한 지속적이고 다면적인 평가로 이동하는 것을 요구합니다. 이것은 지연 시간 및 리소스 소비와 같은 메트릭의 실용적 모니터링뿐만 아니라 궤적을 통한 에이전트의 의사 결정 프로세스에 대한 정교한 분석을 포함합니다. 도움과 같은 미묘한 품질의 경우, LLM-as-a-Judge와 같은 혁신적인 방법이 필수가 되고 있으며, Google의 ADK와 같은 프레임워크는 단위 및 통합 테스트를 위한 구조화된 도구를 제공합니다. 도전은 다중 에이전트 시스템에서 강화되며, 여기서 초점은 협업 성공 및 효과적인 협력 평가로 이동합니다.</p>
+<p>미션 크리티컬 애플리케이션에서 신뢰성을 보장하기 위해 패러다임은 간단한 프롬프트 기반 에이전트에서 공식 계약에 의해 구속되는 고급 &quot;계약자&quot;로 이동하고 있습니다. 이러한 계약자 에이전트는 명시적이고 검증 가능한 조건에서 작동하여 협상하고, 작업을 분해하며, 엄격한 품질 표준을 충족하기 위해 자체 작업을 검증할 수 있습니다. 이 구조화된 접근 방식은 예측할 수 없는 도구에서 복잡하고 높은 위험 작업을 처리할 수 있는 책임 있는 시스템으로 에이전트를 변환합니다. 궁극적으로 이 진화는 미션 크리티컬 도메인에서 정교한 에이전트 AI를 배포하는 데 필요한 신뢰를 구축하는 데 중요합니다.</p>
+<h2 id="이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation) {#이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati}</h2>
+<h3 id="평가-이론-evaluation-theory">평가 이론 (Evaluation Theory) {#평가-이론-evaluation-theory}</h3>
+<p>평가는 시스템의 가치를 판단하는 체계적 과정입니다.</p>
+<p><strong>평가 유형</strong>:</p>
+<ul>
+<li><strong>형성 평가 (Formative Evaluation)</strong>: 개발 중 지속적 평가</li>
+<li><strong>총괄 평가 (Summative Evaluation)</strong>: 최종 결과 평가</li>
+<li><strong>진단 평가 (Diagnostic Evaluation)</strong>: 문제 진단을 위한 평가</li>
+</ul>
+<p><strong>에이전트 평가에서의 적용</strong>:</p>
+<ul>
+<li>개발 단계별 평가</li>
+<li>최종 성능 평가</li>
+<li>문제 영역 식별</li>
+</ul>
+<h3 id="메트릭-이론">메트릭 이론 {#메트릭-이론}</h3>
+<p>메트릭은 성능을 정량화하는 도구입니다.</p>
+<p><strong>메트릭 설계 원칙</strong>:</p>
+<ul>
+<li><strong>유효성 (Validity)</strong>: 측정하려는 것을 정확히 측정</li>
+<li><strong>신뢰성 (Reliability)</strong>: 일관된 측정 결과</li>
+<li><strong>민감도 (Sensitivity)</strong>: 변화를 감지할 수 있는 능력</li>
+<li><strong>특이도 (Specificity)</strong>: 관련 없는 변화 무시</li>
+</ul>
+<p><strong>에이전트 메트릭</strong>:</p>
+<ul>
+<li>정확도, 정밀도, 재현율</li>
+<li>지연 시간, 처리량</li>
+<li>비용, 리소스 사용량</li>
+<li>사용자 만족도</li>
+</ul>
+<h3 id="관찰-가능성-observability-이론">관찰 가능성 (Observability) 이론 {#관찰-가능성-observability-이론}</h3>
+<p>관찰 가능성은 시스템의 내부 상태를 외부에서 추론할 수 있는 능력입니다.</p>
+<p><strong>관찰 가능성의 세 가지 기둥</strong>:</p>
+<ul>
+<li><strong>메트릭 (Metrics)</strong>: 수치적 측정값</li>
+<li><strong>로그 (Logs)</strong>: 이벤트 기록</li>
+<li><strong>트레이스 (Traces)</strong>: 요청 경로 추적</li>
+</ul>
+<p><strong>에이전트 시스템에서의 구현</strong>:</p>
+<ul>
+<li>성능 메트릭 수집</li>
+<li>상세한 로깅</li>
+<li>에이전트 궤적 추적</li>
+</ul>
+<h3 id="통계적-가설-검정">통계적 가설 검정 {#통계적-가설-검정}</h3>
+<p>평가 결과의 통계적 유의성을 검정합니다.</p>
+<p><strong>가설 검정</strong>:</p>
+<ul>
+<li><strong>귀무 가설</strong>: 차이가 없다는 가설</li>
+<li><strong>대립 가설</strong>: 차이가 있다는 가설</li>
+<li><strong>유의 수준</strong>: 오류 허용 확률</li>
+<li><strong>검정력</strong>: 실제 차이를 감지할 확률</li>
+</ul>
+<p><strong>A/B 테스트에서의 적용</strong>:</p>
+<ul>
+<li>두 버전의 성능 비교</li>
+<li>통계적 유의성 검정</li>
+<li>효과 크기 측정</li>
+</ul>
+<h2 id="성능-최적화-기법-performance-optimization-techniques">성능 최적화 기법 (Performance Optimization Techniques) {#성능-최적화-기법-performance-optimization-techniques}</h2>
+<h3 id="1-자동화된-평가-파이프라인">1. 자동화된 평가 파이프라인 {#1-자동화된-평가-파이프라인}</h3>
+<p>지속적 평가 자동화:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284861-854" onclick="copyCode('code-1769482284861-854')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284861-854" class="language-python">class AutomatedEvaluationPipeline:
+    def __init__(self):
+        self.evaluators = {
+            &#39;accuracy&#39;: AccuracyEvaluator(),
+            &#39;latency&#39;: LatencyEvaluator(),
+            &#39;cost&#39;: CostEvaluator(),
+            &#39;safety&#39;: SafetyEvaluator()
+        }
+        self.test_suite = TestSuite()
+    
+<pre><code>def run_evaluation(self, agent: Agent, test_cases: List[TestCase]) -&amp;gt; EvaluationReport:
+    &amp;quot;&amp;quot;&amp;quot;자동화된 평가 실행&amp;quot;&amp;quot;&amp;quot;
+    results = {}
+    
+    for evaluator_name, evaluator in self.evaluators.items():
+        scores = []
+        for test_case in test_cases:
+            score = evaluator.evaluate(agent, test_case)
+            scores.append(score)
+        
+        results[evaluator_name] = {
+            &amp;#39;mean&amp;#39;: np.mean(scores),
+            &amp;#39;std&amp;#39;: np.std(scores),
+            &amp;#39;min&amp;#39;: np.min(scores),
+            &amp;#39;max&amp;#39;: np.max(scores)
+        }
+    
+    return EvaluationReport(results)
+
+def continuous_evaluation(self, agent: Agent):
+    &amp;quot;&amp;quot;&amp;quot;지속적 평가&amp;quot;&amp;quot;&amp;quot;
+    while True:
+        # 새 테스트 케이스 생성
+        new_cases = self.test_suite.generate_cases()
+        
+        # 평가 실행
+        report = self.run_evaluation(agent, new_cases)
+        
+        # 결과 분석
+        self.analyze_results(report)
+        
+        # 임계값 초과 시 알림
+        if self.check_thresholds(report):
+            self.send_alert(report)
+        
+        time.sleep(3600)  # 1시간마다 평가&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">46 lines</span>
+  </div>
+</div>
+
+<h3 id="2-다차원-메트릭-대시보드">2. 다차원 메트릭 대시보드 {#2-다차원-메트릭-대시보드}</h3>
+<p>종합적인 성능 모니터링:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284861-855" onclick="copyCode('code-1769482284861-855')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284861-855" class="language-python">class MultiDimensionalMetricsDashboard:
+    def __init__(self):
+        self.metrics_collector = MetricsCollector()
+        self.visualizer = MetricsVisualizer()
+    
+<pre><code>def collect_metrics(self, agent: Agent, time_window: timedelta):
+    &amp;quot;&amp;quot;&amp;quot;다차원 메트릭 수집&amp;quot;&amp;quot;&amp;quot;
+    metrics = {
+        &amp;#39;performance&amp;#39;: {
+            &amp;#39;accuracy&amp;#39;: self.metrics_collector.accuracy(agent, time_window),
+            &amp;#39;latency&amp;#39;: self.metrics_collector.latency(agent, time_window),
+            &amp;#39;throughput&amp;#39;: self.metrics_collector.throughput(agent, time_window)
+        },
+        &amp;#39;resource&amp;#39;: {
+            &amp;#39;cpu_usage&amp;#39;: self.metrics_collector.cpu_usage(agent, time_window),
+            &amp;#39;memory_usage&amp;#39;: self.metrics_collector.memory_usage(agent, time_window),
+            &amp;#39;cost&amp;#39;: self.metrics_collector.cost(agent, time_window)
+        },
+        &amp;#39;quality&amp;#39;: {
+            &amp;#39;user_satisfaction&amp;#39;: self.metrics_collector.user_satisfaction(agent, time_window),
+            &amp;#39;error_rate&amp;#39;: self.metrics_collector.error_rate(agent, time_window),
+            &amp;#39;safety_score&amp;#39;: self.metrics_collector.safety_score(agent, time_window)
+        }
+    }
+    
+    return metrics
+
+def visualize(self, metrics: dict):
+    &amp;quot;&amp;quot;&amp;quot;메트릭 시각화&amp;quot;&amp;quot;&amp;quot;
+    self.visualizer.plot_performance(metrics[&amp;#39;performance&amp;#39;])
+    self.visualizer.plot_resources(metrics[&amp;#39;resource&amp;#39;])
+    self.visualizer.plot_quality(metrics[&amp;#39;quality&amp;#39;])
+    self.visualizer.plot_correlations(metrics)&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">33 lines</span>
+  </div>
+</div>
+
+<h3 id="3-적응형-테스트-케이스-생성">3. 적응형 테스트 케이스 생성 {#3-적응형-테스트-케이스-생성}</h3>
+<p>에이전트 약점에 집중한 테스트:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284861-856" onclick="copyCode('code-1769482284861-856')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284861-856" class="language-python">class AdaptiveTestCaseGenerator:
+    def __init__(self):
+        self.failure_patterns = []
+        self.test_generator = TestCaseGenerator()
+    
+<pre><code>def learn_from_failures(self, failures: List[Failure]):
+    &amp;quot;&amp;quot;&amp;quot;실패로부터 학습&amp;quot;&amp;quot;&amp;quot;
+    for failure in failures:
+        pattern = self.extract_pattern(failure)
+        self.failure_patterns.append(pattern)
+
+def generate_targeted_tests(self, agent: Agent) -&amp;gt; List[TestCase]:
+    &amp;quot;&amp;quot;&amp;quot;타겟 테스트 케이스 생성&amp;quot;&amp;quot;&amp;quot;
+    targeted_tests = []
+    
+    # 실패 패턴 기반 테스트 생성
+    for pattern in self.failure_patterns:
+        test = self.test_generator.generate_from_pattern(pattern)
+        targeted_tests.append(test)
+    
+    # 약점 영역 집중 테스트
+    weak_areas = self.identify_weak_areas(agent)
+    for area in weak_areas:
+        test = self.test_generator.generate_for_area(area)
+        targeted_tests.append(test)
+    
+    return targeted_tests&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">27 lines</span>
+  </div>
+</div>
+
+<h3 id="4-실시간-성능-모니터링">4. 실시간 성능 모니터링 {#4-실시간-성능-모니터링}</h3>
+<p>실시간 성능 추적 및 알림:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284861-857" onclick="copyCode('code-1769482284861-857')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284861-857" class="language-python">class RealTimePerformanceMonitor:
+    def __init__(self, alert_thresholds: dict):
+        self.thresholds = alert_thresholds
+        self.metrics_buffer = deque(maxlen=1000)
+        self.alert_system = AlertSystem()
+    
+<pre><code>def monitor(self, agent: Agent):
+    &amp;quot;&amp;quot;&amp;quot;실시간 모니터링&amp;quot;&amp;quot;&amp;quot;
+    while True:
+        # 현재 메트릭 수집
+        current_metrics = self.collect_current_metrics(agent)
+        self.metrics_buffer.append(current_metrics)
+        
+        # 이상 탐지
+        anomalies = self.detect_anomalies(current_metrics)
+        if anomalies:
+            self.handle_anomalies(anomalies)
+        
+        # 임계값 확인
+        for metric_name, value in current_metrics.items():
+            threshold = self.thresholds.get(metric_name)
+            if threshold and value &amp;gt; threshold:
+                self.alert_system.send_alert(
+                    metric=metric_name,
+                    value=value,
+                    threshold=threshold
+                )
+        
+        time.sleep(1)  # 1초마다 모니터링
+
+def detect_anomalies(self, metrics: dict) -&amp;gt; List[Anomaly]:
+    &amp;quot;&amp;quot;&amp;quot;이상 탐지&amp;quot;&amp;quot;&amp;quot;
+    anomalies = []
+    
+    # 통계적 이상 탐지
+    for metric_name, value in metrics.items():
+        historical = [m[metric_name] for m in self.metrics_buffer]
+        if len(historical) &amp;gt; 10:
+            mean = np.mean(historical)
+            std = np.std(historical)
+            if abs(value - mean) &amp;gt; 3 * std:
+                anomalies.append(Anomaly(metric_name, value))
+    
+    return anomalies&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">44 lines</span>
+  </div>
+</div>
+
+<h2 id="트레이드오프-및-한계점-trade-offs-and-limitations">트레이드오프 및 한계점 (Trade-offs and Limitations) {#트레이드오프-및-한계점-trade-offs-and-limitations}</h2>
+<h3 id="evaluation-and-monitoring의-장점">Evaluation and Monitoring의 장점 {#evaluation-and-monitoring의-장점}</h3>
+<ol>
+<li><strong>품질 보장</strong>: 지속적 평가로 품질 유지</li>
+<li><strong>문제 조기 발견</strong>: 문제를 조기에 발견 및 해결</li>
+<li><strong>데이터 기반 개선</strong>: 평가 데이터로 개선 방향 결정</li>
+<li><strong>신뢰성</strong>: 사용자에게 신뢰성 제공</li>
+</ol>
+<h3 id="evaluation-and-monitoring의-한계">Evaluation and Monitoring의 한계 {#evaluation-and-monitoring의-한계}</h3>
+<ol>
+<li><strong>평가 비용</strong>: 평가에 소요되는 리소스</li>
+<li><strong>메트릭 한계</strong>: 모든 측면을 측정하기 어려움</li>
+<li><strong>평가 편향</strong>: 평가 방법의 편향 가능성</li>
+<li><strong>과도한 모니터링</strong>: 모니터링 오버헤드</li>
+</ol>
+<h3 id="완화-전략">완화 전략 {#완화-전략}</h3>
+<ol>
+<li><strong>효율적 평가</strong>: 샘플링 및 자동화로 비용 절감</li>
+<li><strong>다양한 메트릭</strong>: 여러 관점에서 평가</li>
+<li><strong>편향 인식</strong>: 평가 편향 인식 및 보정</li>
+<li><strong>선택적 모니터링</strong>: 중요한 메트릭만 모니터링</li>
+</ol>
+<h2 id="관련-패턴과의-비교-comparison-with-related-patterns">관련 패턴과의 비교 (Comparison with Related Patterns) {#관련-패턴과의-비교-comparison-with-related-patterns}</h2>
+<h3 id="evaluation-vs-testing">Evaluation vs. Testing {#evaluation-vs-testing}</h3>
+<table>
+<thead>
+<tr>
+<th>특성</th>
+<th>Testing</th>
+<th>Evaluation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>목적</td>
+<td>버그 발견</td>
+<td>성능 측정</td>
+</tr>
+<tr>
+<td>시점</td>
+<td>개발 중</td>
+<td>지속적</td>
+</tr>
+<tr>
+<td>범위</td>
+<td>제한적</td>
+<td>포괄적</td>
+</tr>
+<tr>
+<td>메트릭</td>
+<td>통과/실패</td>
+<td>정량적 점수</td>
+</tr>
+</tbody></table>
+<h3 id="evaluation-vs-monitoring">Evaluation vs. Monitoring {#evaluation-vs-monitoring}</h3>
+<ul>
+<li><strong>Evaluation</strong>: 정기적 성능 평가</li>
+<li><strong>Monitoring</strong>: 실시간 상태 추적</li>
+<li><strong>결합</strong>: 평가와 모니터링을 함께 사용</li>
+</ul>
+<h2 id="실무-적용-사례-확장-extended-practical-applications">실무 적용 사례 확장 (Extended Practical Applications) {#실무-적용-사례-확장-extended-practical-applications}</h2>
+<h3 id="1-지속적-통합-및-배포-cicd">1. 지속적 통합 및 배포 (CI/CD) {#1-지속적-통합-및-배포-cicd}</h3>
+<p>에이전트의 자동화된 평가 및 배포:</p>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769482284861-858" onclick="copyCode('code-1769482284861-858')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284861-858" class="language-mermaid">graph TD
+    A[Code Commit&lt;br/&gt;코드 커밋] --&gt; B[Automated Tests&lt;br/&gt;자동화 테스트]
+    B --&gt; C[Evaluation&lt;br/&gt;평가]
+    C --&gt; D{Pass?&lt;br/&gt;통과?}
+    D --&gt;|Yes| E[Deploy&lt;br/&gt;배포]
+    D --&gt;|No| F[Alert&lt;br/&gt;알림]
+    E --&gt; G[Monitor&lt;br/&gt;모니터링]
+    G --&gt; H[Performance Metrics&lt;br/&gt;성능 메트릭]
+    
+<pre><code>style A fill:#ff9999
+style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div>
+</div>
+
+<h3 id="2-ab-테스트-플랫폼">2. A/B 테스트 플랫폼 {#2-ab-테스트-플랫폼}</h3>
+<p>에이전트 버전 비교:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284861-859" onclick="copyCode('code-1769482284861-859')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284861-859" class="language-python">class ABTestingPlatform:
+    def __init__(self):
+        self.variants = {}
+        self.assignment_strategy = RandomAssignment()
+    
+<pre><code>def create_experiment(self, variant_a: Agent, variant_b: Agent) -&amp;gt; Experiment:
+    &amp;quot;&amp;quot;&amp;quot;A/B 테스트 실험 생성&amp;quot;&amp;quot;&amp;quot;
+    experiment = Experiment(
+        variant_a=variant_a,
+        variant_b=variant_b,
+        assignment_strategy=self.assignment_strategy
+    )
+    return experiment
+
+def run_experiment(self, experiment: Experiment, duration: timedelta):
+    &amp;quot;&amp;quot;&amp;quot;실험 실행&amp;quot;&amp;quot;&amp;quot;
+    start_time = datetime.now()
+    
+    while datetime.now() - start_time &amp;lt; duration:
+        # 사용자 할당
+        user = self.get_next_user()
+        variant = experiment.assign_variant(user)
+        
+        # 에이전트 실행
+        result = variant.process(user.request)
+        
+        # 결과 기록
+        experiment.record_result(user, variant, result)
+    
+    # 통계적 분석
+    analysis = self.statistical_analysis(experiment)
+    return analysis
+
+def statistical_analysis(self, experiment: Experiment) -&amp;gt; Analysis:
+    &amp;quot;&amp;quot;&amp;quot;통계적 분석&amp;quot;&amp;quot;&amp;quot;
+    # 성공률 비교
+    success_rate_a = experiment.get_success_rate(&amp;#39;variant_a&amp;#39;)
+    success_rate_b = experiment.get_success_rate(&amp;#39;variant_b&amp;#39;)
+    
+    # 통계적 유의성 검정
+    p_value = self.t_test(success_rate_a, success_rate_b)
+    
+    # 효과 크기
+    effect_size = self.calculate_effect_size(success_rate_a, success_rate_b)
+    
+    return Analysis(
+        p_value=p_value,
+        effect_size=effect_size,
+        recommendation=self.recommend_variant(experiment)
+    )&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">50 lines</span>
+  </div>
+</div>
+
+<h3 id="3-다중-에이전트-시스템-평가">3. 다중 에이전트 시스템 평가 {#3-다중-에이전트-시스템-평가}</h3>
+<p>협업 성능 평가:</p>
+<ul>
+<li><strong>개별 에이전트 평가</strong>: 각 에이전트의 성능</li>
+<li><strong>협업 평가</strong>: 에이전트 간 협업 효과</li>
+<li><strong>시스템 전체 평가</strong>: 전체 시스템 성능</li>
+<li><strong>상호작용 분석</strong>: 에이전트 간 상호작용 패턴</li>
+</ul>
+<h2 id="참고-자료-references">참고 자료 (References) {#참고-자료-references}</h2>
+<h3 id="학술-논문">학술 논문 {#학술-논문}</h3>
+<ol>
+<li><p>Zheng, L., et al. (2024). &quot;Judging LLM-as-a-Judge with MT-Bench and Chatbot Arena.&quot; <em>Advances in Neural Information Processing Systems</em>.</p>
+</li>
+<li><p>Wang, A., et al. (2023). &quot;Survey on Evaluation of LLM-based Agents.&quot; <em>arXiv preprint arXiv:2503.16416</em>.</p>
+</li>
+<li><p>Li, C., et al. (2024). &quot;Agent-as-a-Judge: Evaluate Agents with Agents.&quot; <em>arXiv preprint arXiv:2410.10934</em>.</p>
+</li>
+<li><p>Zhou, J., et al. (2023). &quot;AgentBench: Evaluating LLMs as Agents.&quot; <em>arXiv preprint arXiv:2308.03688</em>.</p>
+</li>
+<li><p>Liu, X., et al. (2023). &quot;AgentSims: An Open-Source Sandbox for Large Language Model Evaluation.&quot; <em>arXiv preprint arXiv:2308.04026</em>.</p>
+</li>
+<li><p>Park, J. S., et al. (2023). &quot;How Far Can Camels Go? Exploring the State of Instruction Tuning on Open Resources.&quot; <em>arXiv preprint arXiv:2306.04751</em>.</p>
+</li>
+</ol>
+<h3 id="프레임워크-및-도구-문서">프레임워크 및 도구 문서 {#프레임워크-및-도구-문서}</h3>
+<ol>
+<li><p>ADK Web: 
+<a href="https://github.com/google/adk-web">https://github.com/google/adk-web</a></p>
+</li>
+<li><p>ADK Evaluate: 
+<a href="https://google.github.io/adk-docs/evaluate/">https://google.github.io/adk-docs/evaluate/</a></p>
+</li>
+<li><p>Survey on Evaluation of LLM-based Agents: 
+<a href="https://arxiv.org/abs/2503.16416">https://arxiv.org/abs/2503.16416</a></p>
+</li>
+<li><p>Agent-as-a-Judge: Evaluate Agents with Agents: 
+<a href="https://arxiv.org/abs/2410.10934">https://arxiv.org/abs/2410.10934</a></p>
+</li>
+<li><p>Agent Companion, gulli et al.: 
+<a href="https://www.kaggle.com/whitepaper-agent-companion">https://www.kaggle.com/whitepaper-agent-companion</a></p>
+</li>
+</ol>
+<h3 id="추가-학습-자료">추가 학습 자료 {#추가-학습-자료}</h3>
+<ol start="6">
+<li><p>&quot;Evaluating Machine Learning Models&quot; by Alice Zheng</p>
+</li>
+<li><p>&quot;A/B Testing: The Most Powerful Way to Turn Clicks Into Customers&quot; by Dan Siroker &amp; Pete Koomen</p>
+</li>
+<li><p>&quot;Observability Engineering&quot; by Charity Majors et al.</p>
+</li>
+</ol>
+<hr>
+<p><strong>이전 챕터</strong>: <a href="chapter_18_Guardrails.md">Chapter 18: Guardrails/Safety Patterns</a><br><strong>다음 챕터</strong>: <a href="chapter_20_Prioritization.md">Chapter 20: Prioritization</a></p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-20.html&text=Untitled" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-20.html&title=Untitled" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-20.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/agent-architect.html" class="author-bio__card">
+          <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">에이전트 아키텍트</h3>
+            <p class="author-bio__role">AI Agent Systems Designer</p>
+            <p class="author-bio__text">AI 에이전트 시스템 설계와 디자인 패턴을 전문으로 다룹니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/untitled.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/agent-patterns-placeholder.svg"
+             alt="Untitled"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #6366f1">
+          Agent 패턴
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Untitled</h3>
+          <p class="article-card__excerpt">Welcome to "Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems." As we look across the landscape of modern artificial...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-card__avatar">
+              <span>에이전트 아키텍트</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/untitled-1.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/agent-patterns-placeholder.svg"
+             alt="Untitled"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #6366f1">
+          Agent 패턴
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Untitled</h3>
+          <p class="article-card__excerpt">In simple terms, an AI agent is a system designed to perceive its environment and take actions to achieve a specific goal. It's an evolution from a...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-card__avatar">
+              <span>에이전트 아키텍트</span>
+            </div>
+            <span class="article-card__reading-time">32 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/untitled-2.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/agent-patterns-placeholder.svg"
+             alt="Untitled"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #6366f1">
+          Agent 패턴
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Untitled</h3>
+          <p class="article-card__excerpt">Prompt chaining, sometimes referred to as Pipeline pattern, represents a powerful paradigm for handling intricate tasks when leveraging large...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-card__avatar">
+              <span>에이전트 아키텍트</span>
+            </div>
+            <span class="article-card__reading-time">46 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI 기술 자료 저널</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

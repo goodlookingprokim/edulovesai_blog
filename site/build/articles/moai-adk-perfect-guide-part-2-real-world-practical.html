@@ -1,0 +1,3754 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoAI-ADK 완벽 가이드 Part 2 - 실전 활용 | AI &amp; Development Journal</title>
+  <meta name="description" content="🎯 이 노트의 목적: Part 1에서 배운 기초를 바탕으로 실제 프로젝트에서 MoAI-ADK를 효과적으로 활용하는 방법을 배웁니다. --- 1.  || #3단계 워크플로우 완전 정복 2.  || #TRUST 5원칙 실전 적용 3.  || #TAG 시스템 고급 활용...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="MoAI-ADK 완벽 가이드 Part 2 - 실전 활용">
+  <meta property="og:description" content="🎯 이 노트의 목적: Part 1에서 배운 기초를 바탕으로 실제 프로젝트에서 MoAI-ADK를 효과적으로 활용하는 방법을 배웁니다. --- 1.  || #3단계 워크플로우 완전 정복 2.  || #TRUST 5원칙 실전 적용 3.  || #TAG 시스템 고급 활용...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/moai-adk-perfect-guide-part-2-real-world-practical.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="MoAI-ADK 완벽 가이드 Part 2 - 실전 활용">
+  <meta name="twitter:description" content="🎯 이 노트의 목적: Part 1에서 배운 기초를 바탕으로 실제 프로젝트에서 MoAI-ADK를 효과적으로 활용하는 방법을 배웁니다. --- 1.  || #3단계 워크플로우 완전 정복 2.  || #TRUST 5원칙 실전 적용 3.  || #TAG 시스템 고급 활용...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/moai-adk-perfect-guide-part-2-real-world-practical.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">MoAI-ADK 완벽 가이드 Part 2 - 실전 활용</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 10월 12일">2025년 10월 12일</time>
+            <span class="article-meta__separator">·</span>
+            <span>59 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#3단계-워크플로우-완전-정복" class="toc__link">3단계 워크플로우 완전 정복</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-전체-흐름-이해하기" class="toc__link">워크플로우 전체 흐름 이해하기 🔄</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1단계-spec-작성-명확한-설계도-그리기" class="toc__link">1단계: SPEC 작성 - 명확한 설계도 그리기 🏗️</a>
+    </li>
+    <li class="toc__item">
+      <a href="#요구사항-무엇을-하는가" class="toc__link">📝 요구사항 (무엇을 하는가)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#조건-어떤-규칙이-있는가" class="toc__link">⚙️ 조건 (어떤 규칙이 있는가)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#예상-결과-성공하면-어떻게-되는가" class="toc__link">✅ 예상 결과 (성공하면 어떻게 되는가)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#예외-처리-실패하면-어떻게-되는가" class="toc__link">❌ 예외 처리 (실패하면 어떻게 되는가)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#요구사항" class="toc__link">📝 요구사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#조건" class="toc__link">⚙️ 조건</a>
+    </li>
+    <li class="toc__item">
+      <a href="#예상-결과codepre" class="toc__link">✅ 예상 결과&lt;/code&gt;&lt;/pre&gt;</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2단계-build-tdd로-구현하기" class="toc__link">2단계: BUILD - TDD로 구현하기 💎</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3단계-sync-문서-동기화하기" class="toc__link">3단계: SYNC - 문서 동기화하기 📖</a>
+    </li>
+    <li class="toc__item">
+      <a href="#addtocart" class="toc__link">addToCart</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시그니처codepre" class="toc__link">시그니처&lt;/code&gt;&lt;/pre&gt;</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#매개변수" class="toc__link">매개변수</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#반환값codepre" class="toc__link">반환값&lt;/code&gt;&lt;/pre&gt;</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#사용-예시codepre" class="toc__link">사용 예시&lt;/code&gt;&lt;/pre&gt;</a>
+    </li>
+    <li class="toc__item">
+      <a href="#trust-5원칙-실전-적용" class="toc__link">TRUST 5원칙 실전 적용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#t-test-first-테스트-우선" class="toc__link">T - Test First (테스트 우선) 🧪</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#r-readable-가독성" class="toc__link">R - Readable (가독성) 📖</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#u-unified-통합성" class="toc__link">U - Unified (통합성) 🧩</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#s-secured-보안성" class="toc__link">S - Secured (보안성) 🔒</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#t-trackable-추적성" class="toc__link">T - Trackable (추적성) 🔍</a>
+    </li>
+    <li class="toc__item">
+      <a href="#v030-2025-10-12" class="toc__link">v0.3.0 (2025-10-12)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#v020-2025-10-05" class="toc__link">v0.2.0 (2025-10-05)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#v010-2025-10-01" class="toc__link">v0.1.0 (2025-10-01)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#tag-시스템-고급-활용" class="toc__link">TAG 시스템 고급 활용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tag-구조-완전-이해" class="toc__link">TAG 구조 완전 이해</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tag-id-명명-규칙" class="toc__link">TAG ID 명명 규칙</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tag-주석-작성법" class="toc__link">TAG 주석 작성법</a>
+    </li>
+    <li class="toc__item">
+      <a href="#관련-문서" class="toc__link">관련 문서</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tag-검색-및-추적" class="toc__link">TAG 검색 및 추적</a>
+    </li>
+    <li class="toc__item">
+      <a href="#언어별-실전-예제" class="toc__link">언어별 실전 예제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#python-프로젝트" class="toc__link">Python 프로젝트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#java-프로젝트" class="toc__link">Java 프로젝트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#flutterdart-프로젝트" class="toc__link">Flutter/Dart 프로젝트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결과-디버깅" class="toc__link">문제 해결과 디버깅</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#자주-발생하는-문제-top-10" class="toc__link">자주 발생하는 문제 Top 10</a>
+    </li>
+    <li class="toc__item">
+      <a href="#팀-협업-전략" class="toc__link">팀 협업 전략</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#personal-vs-team-모드" class="toc__link">Personal vs Team 모드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#팀-워크플로우" class="toc__link">팀 워크플로우</a>
+    </li>
+    <li class="toc__item">
+      <a href="#spec-정보" class="toc__link">SPEC 정보</a>
+    </li>
+    <li class="toc__item">
+      <a href="#tag-체인" class="toc__link">TAG 체인</a>
+    </li>
+    <li class="toc__item">
+      <a href="#trust-체크리스트" class="toc__link">TRUST 체크리스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#변경사항" class="toc__link">변경사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#온보딩-가이드" class="toc__link">온보딩 가이드</a>
+    </li>
+    <li class="toc__item">
+      <a href="#day-1-환경-설정" class="toc__link">Day 1: 환경 설정</a>
+    </li>
+    <li class="toc__item">
+      <a href="#day-2-기본-개념-학습" class="toc__link">Day 2: 기본 개념 학습</a>
+    </li>
+    <li class="toc__item">
+      <a href="#day-3-실습" class="toc__link">Day 3: 실습</a>
+    </li>
+    <li class="toc__item">
+      <a href="#day-4-첫-이슈-해결" class="toc__link">Day 4: 첫 이슈 해결</a>
+    </li>
+    <li class="toc__item">
+      <a href="#day-5-복습-및-질문" class="toc__link">Day 5: 복습 및 질문</a>
+    </li>
+    <li class="toc__item">
+      <a href="#고급-팁과-트릭" class="toc__link">고급 팁과 트릭</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#생산성-향상-팁" class="toc__link">생산성 향상 팁</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-tag-활용" class="toc__link">고급 TAG 활용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#대규모-프로젝트-팁" class="toc__link">대규모 프로젝트 팁</a>
+    </li>
+    <li class="toc__item">
+      <a href="#용어-설명" class="toc__link">용어 설명</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#개발-방법론" class="toc__link">개발 방법론</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#보안-개념" class="toc__link">보안 개념</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#코드-품질-지표" class="toc__link">코드 품질 지표</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#아키텍처-패턴" class="toc__link">아키텍처 패턴</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#버전-관리" class="toc__link">버전 관리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#동시성-개념" class="toc__link">동시성 개념</a>
+    </li>
+    <li class="toc__item">
+      <a href="#다음-단계" class="toc__link">다음 단계</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>MoAI-ADK 완벽 가이드 Part 2: 실전 활용</h1>
+<blockquote>
+<p><strong>🎯 이 노트의 목적</strong>: Part 1에서 배운 기초를 바탕으로 실제 프로젝트에서 MoAI-ADK를 효과적으로 활용하는 방법을 배웁니다.</p>
+</blockquote>
+<hr>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#3단계-워크플로우-완전-정복" class="internal-link internal-link--section">3단계 워크플로우 완전 정복</a></li>
+<li><a href="#trust-5원칙-실전-적용" class="internal-link internal-link--section">TRUST 5원칙 실전 적용</a></li>
+<li><a href="#tag-시스템-고급-활용" class="internal-link internal-link--section">TAG 시스템 고급 활용</a></li>
+<li><a href="#언어별-실전-예제" class="internal-link internal-link--section">언어별 실전 예제</a></li>
+<li><a href="#문제-해결과-디버깅" class="internal-link internal-link--section">문제 해결과 디버깅</a></li>
+<li><a href="#팀-협업-전략" class="internal-link internal-link--section">팀 협업 전략</a></li>
+<li><a href="#고급-팁과-트릭" class="internal-link internal-link--section">고급 팁과 트릭</a></li>
+<li><a href="#용어-설명" class="internal-link internal-link--section">용어 설명</a></li>
+</ol>
+<hr>
+<h2 id="3단계-워크플로우-완전-정복">3단계 워크플로우 완전 정복 {#3단계-워크플로우-완전-정복}</h2>
+<h3 id="워크플로우-전체-흐름-이해하기">워크플로우 전체 흐름 이해하기 🔄 {#워크플로우-전체-흐름-이해하기}</h3>
+<p><strong>MoAI-ADK의 핵심은 3단계 파이프라인입니다:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4731" onclick="copyCode('code-1769481054889-4731')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4731" class="language-plaintext">1️⃣ SPEC      →     2️⃣ BUILD     →     3️⃣ SYNC
+(무엇을?)         (어떻게?)           (문서화)
+
+<p>명세 작성    →   TDD 구현     →   문서 동기화</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div></p>
+</div>
+
+<p><strong>식당에 비유하면:</strong></p>
+<ol>
+<li><strong>SPEC</strong>: 손님이 주문 (무엇을 만들지 결정)</li>
+<li><strong>BUILD</strong>: 요리사가 조리 (실제로 만들기)</li>
+<li><strong>SYNC</strong>: 서빙 및 설명 (완성된 것 전달)</li>
+</ol>
+<h3 id="1단계-spec-작성-명확한-설계도-그리기">1단계: SPEC 작성 - 명확한 설계도 그리기 🏗️ {#1단계-spec-작성-명확한-설계도-그리기}</h3>
+<h4>명령어</h4>
+<div class="code-block" data-language="text">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4732" onclick="copyCode('code-1769481054889-4732')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4732" class="language-text">/alfred:1-spec &quot;기능 설명&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>좋은 SPEC vs 나쁜 SPEC</h4>
+<p><strong>❌ 나쁜 SPEC 예시:</strong></p>
+<div class="code-block" data-language="text">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4733" onclick="copyCode('code-1769481054889-4733')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4733" class="language-text">/alfred:1-spec &quot;로그인 만들어줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>문제점:</strong></p>
+<ul>
+<li>너무 모호함</li>
+<li>어떤 인증 방식인지 불명확</li>
+<li>예외 상황 처리 없음</li>
+</ul>
+<p><strong>✅ 좋은 SPEC 예시:</strong></p>
+<div class="code-block" data-language="text">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4734" onclick="copyCode('code-1769481054889-4734')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4734" class="language-text">/alfred:1-spec &quot;JWT 기반 이메일/비밀번호 로그인. 3회 실패 시 5분 잠금. 성공 시 액세스/리프레시 토큰 반환&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>왜 좋은가:</strong></p>
+<ul>
+<li>인증 방식 명시 (JWT)</li>
+<li>보안 요구사항 포함 (3회 실패 잠금)</li>
+<li>예상 결과 명확 (토큰 2개)</li>
+</ul>
+<h4>SPEC 작성 템플릿</h4>
+<p><strong>기본 구조:</strong></p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4735" onclick="copyCode('code-1769481054889-4735')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4735" class="language-markdown"># SPEC-{DOMAIN}-{NUMBER}: {기능명}
+
+<h2 id="요구사항-무엇을-하는가">📝 요구사항 (무엇을 하는가) {#요구사항-무엇을-하는가}</h2>
+<p>명확하고 구체적으로 작성</p>
+<h2 id="조건-어떤-규칙이-있는가">⚙️ 조건 (어떤 규칙이 있는가) {#조건-어떤-규칙이-있는가}</h2>
+<ul>
+<li>조건 1</li>
+<li>조건 2</li>
+<li>조건 3</li>
+</ul>
+<h2 id="예상-결과-성공하면-어떻게-되는가">✅ 예상 결과 (성공하면 어떻게 되는가) {#예상-결과-성공하면-어떻게-되는가}</h2>
+<p>입력: {예시}
+출력: {예시}</p>
+<h2 id="예외-처리-실패하면-어떻게-되는가">❌ 예외 처리 (실패하면 어떻게 되는가) {#예외-처리-실패하면-어떻게-되는가}</h2>
+<ul>
+<li>예외 상황 1: 처리 방법</li>
+<li>예외 상황 2: 처리 방법</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">13 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>실전 예시: 쇼핑몰 장바구니</h4>
+<p><strong>시나리오</strong>: 사용자가 상품을 장바구니에 추가하는 기능</p>
+<p><strong>Step 1: SPEC 작성 명령</strong></p>
+<div class="code-block" data-language="text">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4736" onclick="copyCode('code-1769481054889-4736')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4736" class="language-text">/alfred:1-spec &quot;사용자가 상품을 장바구니에 추가할 수 있다. 재고 확인 필수. 수량 1-99 제한. 이미 있으면 수량 증가&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>Step 2: Alfred가 생성한 SPEC</strong></p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4737" onclick="copyCode('code-1769481054889-4737')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4737" class="language-markdown"># SPEC-CART-001: 장바구니 상품 추가
+
+<h2 id="요구사항">📝 요구사항 {#요구사항}</h2>
+<p>로그인한 사용자가 상품을 장바구니에 추가할 수 있어야 합니다.</p>
+<h2 id="조건">⚙️ 조건 {#조건}</h2>
+<ul>
+<li>재고가 있는 상품만 추가 가능</li>
+<li>추가 수량은 1-99개 사이</li>
+<li>재고보다 많이 추가 불가</li>
+<li>동일 상품이 이미 있으면 수량만 증가</li>
+<li>비로그인 사용자는 에러</li>
+</ul>
+<h2 id="예상-결과codepre">✅ 예상 결과</code></pre> {#예상-결과codepre}</h2>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div>
+</div>typescript
+// 입력
+addToCart(userId: 1, productId: 100, quantity: 2)
+
+<p>// 출력
+{
+  cartItemId: 1,
+  userId: 1,
+  productId: 100,
+  quantity: 2,
+  addedAt: &quot;2025-10-12T10:30:00Z&quot;
+}</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4738" onclick="copyCode('code-1769481054889-4738')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4738" class="language-plaintext">## ❌ 예외 처리
+- 재고 없음 → &quot;재고가 부족합니다&quot;
+- 수량 초과 → &quot;수량은 1-99개 사이로 입력하세요&quot;
+- 재고 부족 → &quot;재고가 {N}개만 남았습니다&quot;
+- 비로그인 → &quot;로그인이 필요합니다&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>Step 3: 확인할 것들</strong></p>
+<ul>
+<li><input disabled="" type="checkbox"> 도메인 코드가 명확한가? (CART = 장바구니)</li>
+<li><input disabled="" type="checkbox"> 모든 엣지 케이스를 다뤘는가?</li>
+<li><input disabled="" type="checkbox"> 입출력 예시가 구체적인가?</li>
+<li><input disabled="" type="checkbox"> 에러 메시지가 사용자 친화적인가?</li>
+</ul>
+<h3 id="2단계-build-tdd로-구현하기">2단계: BUILD - TDD로 구현하기 💎 {#2단계-build-tdd로-구현하기}</h3>
+<h4>명령어</h4>
+<div class="code-block" data-language="text">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4739" onclick="copyCode('code-1769481054889-4739')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4739" class="language-text">/alfred:2-build {SPEC-ID}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>TDD 3색 신호등 🚦</h4>
+<p><strong>🔴 RED Phase: 실패하는 테스트 작성</strong></p>
+<p><strong>목표</strong>: &quot;이렇게 동작해야 한다&quot;를 코드로 표현</p>
+<p><strong>장바구니 예시:</strong></p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4740" onclick="copyCode('code-1769481054889-4740')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4740" class="language-typescript">// tests/cart/add.test.ts
+// @TEST:CART-001
+
+<p>describe(&#39;장바구니 상품 추가&#39;, () =&gt; {
+  // 테스트 1: 정상 케이스
+  test(&#39;재고가 충분한 상품을 장바구니에 추가할 수 있다&#39;, async () =&gt; {
+    // Given: 준비
+    const userId = 1;
+    const productId = 100;
+    const quantity = 2;
+    mockProductStock(productId, 50); // 재고 50개</p>
+<pre><code>// When: 실행
+const result = await addToCart(userId, productId, quantity);
+
+// Then: 검증
+expect(result.cartItemId).toBeDefined();
+expect(result.quantity).toBe(2);
+expect(result.productId).toBe(100);
+</code></pre>
+<p>  });</p>
+<p>  // 테스트 2: 재고 부족
+  test(&#39;재고보다 많은 수량을 추가하면 에러가 발생한다&#39;, async () =&gt; {
+    mockProductStock(100, 5); // 재고 5개만</p>
+<pre><code>await expect(
+  addToCart(1, 100, 10) // 10개 주문
+).rejects.toThrow(&amp;#39;재고가 5개만 남았습니다&amp;#39;);
+</code></pre>
+<p>  });</p>
+<p>  // 테스트 3: 수량 제한
+  test(&#39;100개 이상은 추가할 수 없다&#39;, async () =&gt; {
+    mockProductStock(100, 200);</p>
+<pre><code>await expect(
+  addToCart(1, 100, 100)
+).rejects.toThrow(&amp;#39;수량은 1-99개 사이&amp;#39;);
+</code></pre>
+<p>  });</p>
+<p>  // 테스트 4: 중복 추가
+  test(&#39;이미 있는 상품은 수량만 증가한다&#39;, async () =&gt; {
+    mockProductStock(100, 50);
+    await addToCart(1, 100, 2); // 2개 추가</p>
+<pre><code>const result = await addToCart(1, 100, 3); // 3개 더 추가
+
+expect(result.quantity).toBe(5); // 총 5개
+</code></pre>
+<p>  });</p>
+<p>  // 테스트 5: 비로그인
+  test(&#39;비로그인 사용자는 추가할 수 없다&#39;, async () =&gt; {
+    await expect(
+      addToCart(null, 100, 1)
+    ).rejects.toThrow(&#39;로그인이 필요합니다&#39;);
+  });
+});</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">45 lines</span>
+  </div></p>
+</div>
+
+<p><strong>테스트 실행:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4741" onclick="copyCode('code-1769481054889-4741')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4741" class="language-bash">npm test
+
+<h1>결과</h1>
+<p>❌ FAIL tests/cart/add.test.ts
+  ✗ 재고가 충분한 상품을 장바구니에 추가할 수 있다
+    ReferenceError: addToCart is not defined</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🟢 GREEN Phase: 최소 구현으로 테스트 통과</strong></p>
+<p><strong>목표</strong>: 테스트를 통과할 최소한의 코드 작성</p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4742" onclick="copyCode('code-1769481054889-4742')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4742" class="language-typescript">// src/cart/service.ts
+// @CODE:CART-001
+
+<p>interface CartItem {
+  cartItemId: number;
+  userId: number;
+  productId: number;
+  quantity: number;
+  addedAt: string;
+}</p>
+<p>// 임시 저장소 (실제로는 DB)
+const cartStorage: Map&lt;string, CartItem&gt; = new Map();
+let cartIdCounter = 0;</p>
+<p>export async function addToCart(
+  userId: number | null,
+  productId: number,
+  quantity: number
+): Promise&lt;CartItem&gt; {
+  // 1. 로그인 확인
+  if (!userId) {
+    throw new Error(&#39;로그인이 필요합니다&#39;);
+  }</p>
+<p>  // 2. 수량 검증
+  if (quantity &lt; 1 || quantity &gt; 99) {
+    throw new Error(&#39;수량은 1-99개 사이로 입력하세요&#39;);
+  }</p>
+<p>  // 3. 재고 확인
+  const stock = await getProductStock(productId);
+  if (stock === 0) {
+    throw new Error(&#39;재고가 부족합니다&#39;);
+  }
+  if (quantity &gt; stock) {
+    throw new Error(<code>재고가 ${stock}개만 남았습니다</code>);
+  }</p>
+<p>  // 4. 기존 장바구니 아이템 확인
+  const key = <code>${userId}-${productId}</code>;
+  const existingItem = cartStorage.get(key);</p>
+<p>  if (existingItem) {
+    // 기존 수량 증가
+    const newQuantity = existingItem.quantity + quantity;</p>
+<pre><code>// 증가된 수량도 재고 체크
+if (newQuantity &amp;gt; stock) {
+  throw new Error(`재고가 ${stock}개만 남았습니다`);
+}
+
+existingItem.quantity = newQuantity;
+cartStorage.set(key, existingItem);
+return existingItem;
+</code></pre>
+<p>  }</p>
+<p>  // 5. 새 아이템 추가
+  const newItem: CartItem = {
+    cartItemId: ++cartIdCounter,
+    userId,
+    productId,
+    quantity,
+    addedAt: new Date().toISOString()
+  };</p>
+<p>  cartStorage.set(key, newItem);
+  return newItem;
+}</p>
+<p>// 헬퍼 함수 (실제로는 DB 조회)
+async function getProductStock(productId: number): Promise&lt;number&gt; {
+  // 모킹된 재고 정보 반환
+  return mockStocks.get(productId) || 0;
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">63 lines</span>
+  </div></p>
+</div>
+
+<p><strong>테스트 실행:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4743" onclick="copyCode('code-1769481054889-4743')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4743" class="language-bash">npm test
+
+<h1>결과</h1>
+<p>✅ PASS tests/cart/add.test.ts
+  ✓ 재고가 충분한 상품을 장바구니에 추가할 수 있다
+  ✓ 재고보다 많은 수량을 추가하면 에러가 발생한다
+  ✓ 100개 이상은 추가할 수 없다
+  ✓ 이미 있는 상품은 수량만 증가한다
+  ✓ 비로그인 사용자는 추가할 수 없다</p>
+<p>Tests: 5 passed, 5 total
+Coverage: 100%</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🔵 REFACTOR Phase: 코드 품질 개선</strong></p>
+<p>Alfred가 자동으로 수행:</p>
+<ol>
+<li><p><strong>타입 안전성 추가</strong></p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+ <span class="code-block__language">TypeScript</span>
+ <button class="code-block__copy" data-code-id="code-1769481054889-4744" onclick="copyCode('code-1769481054889-4744')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4744" class="language-typescript">// Enum으로 에러 메시지 관리
+enum CartErrorMessages {
+  LOGIN_REQUIRED = &#39;로그인이 필요합니다&#39;,
+  INVALID_QUANTITY = &#39;수량은 1-99개 사이로 입력하세요&#39;,
+  OUT_OF_STOCK = &#39;재고가 부족합니다&#39;,
+  INSUFFICIENT_STOCK = &#39;재고가 {stock}개만 남았습니다&#39;
+}</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+</li>
+<li><p><strong>함수 분리</strong></p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+ <span class="code-block__language">TypeScript</span>
+ <button class="code-block__copy" data-code-id="code-1769481054889-4745" onclick="copyCode('code-1769481054889-4745')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4745" class="language-typescript">// 검증 로직 분리
+function validateQuantity(quantity: number): void {
+  if (quantity &lt; 1 || quantity &gt; 99) {
+ throw new Error(CartErrorMessages.INVALID_QUANTITY);
+  }
+}</li>
+</ol>
+<p>function validateStock(requested: number, available: number): void {
+  if (available === 0) {
+    throw new Error(CartErrorMessages.OUT_OF_STOCK);
+  }
+  if (requested &gt; available) {
+    throw new Error(
+      CartErrorMessages.INSUFFICIENT_STOCK.replace(&#39;{stock}&#39;, String(available))
+    );
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">16 lines</span>
+  </div></p>
+</div>
+
+<ol start="3">
+<li><strong>주석 추가</strong><div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+ <span class="code-block__language">TypeScript</span>
+ <button class="code-block__copy" data-code-id="code-1769481054889-4746" onclick="copyCode('code-1769481054889-4746')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4746" class="language-typescript">/**</li>
+</ol>
+<ul>
+<li>@CODE:CART-001: 장바구니 상품 추가</li>
+<li></li>
+<li>사용자의 장바구니에 상품을 추가합니다.</li>
+<li>이미 존재하는 상품의 경우 수량만 증가시킵니다.</li>
+<li></li>
+<li>@param userId - 사용자 ID (로그인 필수)</li>
+<li>@param productId - 상품 ID</li>
+<li>@param quantity - 추가할 수량 (1-99)</li>
+<li>@returns 장바구니 아이템 정보</li>
+<li>@throws {Error} 로그인 안 됨, 수량 초과, 재고 부족 등</li>
+<li></li>
+<li>@example</li>
+<li>const item = await addToCart(1, 100, 2);</li>
+<li>console.log(item.quantity); // 2
+ */</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">16 lines</span>
+  </div>
+</div></li>
+</ul>
+<h3 id="3단계-sync-문서-동기화하기">3단계: SYNC - 문서 동기화하기 📖 {#3단계-sync-문서-동기화하기}</h3>
+<h4>명령어</h4>
+<div class="code-block" data-language="text">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4747" onclick="copyCode('code-1769481054889-4747')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4747" class="language-text">/alfred:3-sync</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>Alfred가 자동으로 하는 일</h4>
+<p><strong>1. TAG 체인 검증</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4748" onclick="copyCode('code-1769481054889-4748')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4748" class="language-plaintext">🔍 TAG 체인 스캔 중...
+✅ @SPEC:CART-001 → spec.md 연결됨
+✅ @TEST:CART-001 → add.test.ts 연결됨
+✅ @CODE:CART-001 → service.ts 연결됨
+⚠️ @DOC:CART-001 누락 → 자동 생성합니다</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>2. API 문서 자동 생성</strong></p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4749" onclick="copyCode('code-1769481054889-4749')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4749" class="language-markdown"># 장바구니 API 문서
+
+<h2 id="addtocart">addToCart {#addtocart}</h2>
+<h3 id="시그니처codepre">시그니처</code></pre> {#시그니처codepre}</h3>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>typescript
+async function addToCart(
+  userId: number | null,
+  productId: number,
+  quantity: number
+): Promise<CartItem>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4750" onclick="copyCode('code-1769481054889-4750')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4750" class="language-plaintext">### 설명
+로그인한 사용자의 장바구니에 상품을 추가합니다.
+
+<h3 id="매개변수">매개변수 {#매개변수}</h3>
+<ul>
+<li><code>userId</code> (number | null): 사용자 ID. 로그인 필수.</li>
+<li><code>productId</code> (number): 추가할 상품 ID</li>
+<li><code>quantity</code> (number): 추가할 수량 (1-99)</li>
+</ul>
+<h3 id="반환값codepre">반환값</code></pre> {#반환값codepre}</h3>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>typescript
+{
+  cartItemId: number;
+  userId: number;
+  productId: number;
+  quantity: number;
+  addedAt: string; // ISO 8601 형식
+}
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4751" onclick="copyCode('code-1769481054889-4751')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4751" class="language-plaintext">### 예외
+| 상황 | 에러 메시지 |
+|------|------------|
+| 비로그인 | &quot;로그인이 필요합니다&quot; |
+| 수량 범위 초과 | &quot;수량은 1-99개 사이로 입력하세요&quot; |
+| 재고 없음 | &quot;재고가 부족합니다&quot; |
+| 재고 부족 | &quot;재고가 {N}개만 남았습니다&quot; |
+
+<h3 id="사용-예시codepre">사용 예시</code></pre> {#사용-예시codepre}</h3>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div>typescript
+// 정상 케이스
+const item = await addToCart(1, 100, 2);
+console.log(item);
+// { cartItemId: 1, userId: 1, productId: 100, quantity: 2, ... }
+
+<p>// 에러 케이스
+try {
+  await addToCart(null, 100, 2);
+} catch (error) {
+  console.error(error.message); // &quot;로그인이 필요합니다&quot;
+}</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4752" onclick="copyCode('code-1769481054889-4752')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4752" class="language-plaintext">### 관련 문서
+- SPEC: [SPEC-CART-001](../.moai/specs/SPEC-CART-001/spec.md)
+- 테스트: [tests/cart/add.test.ts](../../tests/cart/add.test.ts)
+- 구현: [src/cart/service.ts](../../src/cart/service.ts)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>3. 고아 TAG 검사</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4753" onclick="copyCode('code-1769481054889-4753')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4753" class="language-bash"># 고아 TAG = 연결이 끊어진 TAG
+
+<h1>예시 1: SPEC 없이 CODE만 있음</h1>
+<p>⚠️ @CODE:USER-005 발견
+   → 연결된 @SPEC:USER-005를 찾을 수 없습니다
+   → 액션: SPEC 문서를 작성하거나 TAG 제거</p>
+<h1>예시 2: 삭제된 코드의 TEST가 남아있음</h1>
+<p>⚠️ @TEST:PAYMENT-003 발견
+   → 연결된 @CODE:PAYMENT-003를 찾을 수 없습니다
+   → 액션: 테스트 파일 삭제 또는 코드 복구</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<p><strong>4. Git 상태 업데이트</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4754" onclick="copyCode('code-1769481054889-4754')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4754" class="language-bash">✅ Git 브랜치: feature/SPEC-CART-001-add-to-cart
+✅ 커밋 메시지 자동 생성:
+   &quot;feat(cart): 장바구니 상품 추가 기능 구현
+
+<ul>
+<li>SPEC-CART-001 구현 완료</li>
+<li>테스트 커버리지 100%</li>
+<li>재고 확인 및 수량 제한 추가</li>
+</ul>
+<p>   @SPEC:CART-001 → @TEST:CART-001 → @CODE:CART-001 → @DOC:CART-001&quot;</p>
+<p>✅ PR 상태: Draft → Ready for Review</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="trust-5원칙-실전-적용">TRUST 5원칙 실전 적용 {#trust-5원칙-실전-적용}</h2>
+<h3 id="t-test-first-테스트-우선">T - Test First (테스트 우선) 🧪 {#t-test-first-테스트-우선}</h3>
+<h4>테스트 커버리지 85% 이상 유지</h4>
+<p><strong>왜 85%인가?</strong></p>
+<ul>
+<li>100%는 비현실적 (보일러플레이트, getter/setter)</li>
+<li>85%면 핵심 로직은 모두 커버</li>
+</ul>
+<p><strong>커버리지 확인:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4755" onclick="copyCode('code-1769481054889-4755')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4755" class="language-bash">npm test -- --coverage
+
+<h1>결과</h1>
+<table>
+<thead>
+<tr>
+<th>File</th>
+<th>% Stmts</th>
+<th>% Branch</th>
+<th>% Funcs</th>
+<th>% Lines</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>cart/service.ts</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+<td>100</td>
+</tr>
+<tr>
+<td>user/auth.ts</td>
+<td>92.5</td>
+<td>90.0</td>
+<td>100</td>
+<td>92.3</td>
+</tr>
+<tr>
+<td>payment/pay.ts</td>
+<td>78.3</td>
+<td>75.0</td>
+<td>83.3</td>
+<td>77.8</td>
+</tr>
+<tr>
+<td><div class="code-block__footer"></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<pre><code>&lt;span class=&quot;code-block__lines&quot;&gt;7 lines&lt;/span&gt;
+</code></pre>
+  </div>
+</div>
+
+<p><strong>커버리지 부족한 경우:</strong></p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4756" onclick="copyCode('code-1769481054889-4756')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4756" class="language-typescript">// payment/pay.ts - 커버리지 78% (85% 미만)
+
+<p>// 문제: 이 분기를 테스트하지 않았음
+if (amount &gt; 1000000) {
+  return validateLargePayment(amount); // ❌ 테스트 없음
+}</p>
+<p>// 해결: 테스트 추가
+test(&#39;100만원 초과 결제는 추가 검증을 거친다&#39;, () =&gt; {
+  const result = processPayment(1500000);
+  expect(result.requiresVerification).toBe(true);
+});</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<h4>엣지 케이스 체크리스트</h4>
+<p><strong>모든 함수에서 확인해야 할 것들:</strong></p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4757" onclick="copyCode('code-1769481054889-4757')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4757" class="language-typescript">// 1. null/undefined 입력
+test(&#39;null 입력 시 에러&#39;, () =&gt; {
+  expect(() =&gt; processData(null)).toThrow();
+});
+
+<p>// 2. 빈 값 (빈 문자열, 빈 배열, 빈 객체)
+test(&#39;빈 배열 입력 시 빈 배열 반환&#39;, () =&gt; {
+  expect(filterItems([])).toEqual([]);
+});</p>
+<p>// 3. 경계값 (0, -1, 최소값, 최대값)
+test(&#39;0개 주문 시 에러&#39;, () =&gt; {
+  expect(() =&gt; order(0)).toThrow(&#39;수량은 1개 이상&#39;);
+});</p>
+<p>test(&#39;99개 주문은 성공&#39;, () =&gt; {
+  expect(() =&gt; order(99)).not.toThrow();
+});</p>
+<p>test(&#39;100개 주문 시 에러&#39;, () =&gt; {
+  expect(() =&gt; order(100)).toThrow(&#39;수량은 99개 이하&#39;);
+});</p>
+<p>// 4. 타입 불일치
+test(&#39;문자열 대신 숫자 입력 시 에러&#39;, () =&gt; {
+  expect(() =&gt; validateEmail(12345)).toThrow();
+});</p>
+<p>// 5. 동시성 문제 (비동기)
+test(&#39;동시에 같은 상품 추가 시 수량 정확히 증가&#39;, async () =&gt; {
+  await Promise.all([
+    addToCart(1, 100, 2),
+    addToCart(1, 100, 3)
+  ]);</p>
+<p>  const cart = await getCart(1);
+  expect(cart.find(i =&gt; i.productId === 100).quantity).toBe(5);
+});</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">31 lines</span>
+  </div></p>
+</div>
+
+<h3 id="r-readable-가독성">R - Readable (가독성) 📖 {#r-readable-가독성}</h3>
+<h4>코드 제약 규칙</h4>
+<p><strong>1. 파일당 300줄 이하</strong></p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4758" onclick="copyCode('code-1769481054889-4758')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4758" class="language-typescript">// ❌ 나쁜 예: 1개 파일에 1000줄
+// user-service.ts (1000줄)
+class UserService {
+  login() { /* 100줄 */ }
+  register() { /* 150줄 */ }
+  updateProfile() { /* 200줄 */ }
+  // ... 더 많은 메서드
+}
+
+<p>// ✅ 좋은 예: 기능별로 파일 분리
+// auth/login.ts (100줄)
+export function login() { /* ... */ }</p>
+<p>// auth/register.ts (150줄)
+export function register() { /* ... */ }</p>
+<p>// user/profile.ts (200줄)
+export function updateProfile() { /* ... */ }</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">15 lines</span>
+  </div></p>
+</div>
+
+<p><strong>2. 함수당 50줄 이하</strong></p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4759" onclick="copyCode('code-1769481054889-4759')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4759" class="language-typescript">// ❌ 나쁜 예: 150줄 함수
+function processOrder(order) {
+  // 입력 검증 (20줄)
+  // 재고 확인 (30줄)
+  // 결제 처리 (40줄)
+  // 배송 정보 생성 (30줄)
+  // 이메일 발송 (30줄)
+  // 총 150줄...
+}
+
+<p>// ✅ 좋은 예: 작은 함수로 분리
+function processOrder(order) {
+  validateOrder(order);           // 20줄 함수
+  checkInventory(order);          // 30줄 함수
+  const payment = processPayment(order);  // 40줄 함수
+  const shipping = createShipping(order); // 30줄 함수
+  sendConfirmationEmail(order, payment);  // 30줄 함수
+  return { payment, shipping };
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">18 lines</span>
+  </div></p>
+</div>
+
+<p><strong>3. 매개변수 5개 이하</strong></p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4760" onclick="copyCode('code-1769481054889-4760')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4760" class="language-typescript">// ❌ 나쁜 예: 매개변수 8개
+function createUser(
+  name, email, password, phone,
+  address, city, country, zipCode
+) { /* ... */ }
+
+<p>// ✅ 좋은 예: 객체로 묶기
+interface UserData {
+  name: string;
+  email: string;
+  password: string;
+  phone: string;
+  address: Address; // 주소 정보도 객체로
+}</p>
+<p>interface Address {
+  street: string;
+  city: string;
+  country: string;
+  zipCode: string;
+}</p>
+<p>function createUser(userData: UserData) { /* ... */ }</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">20 lines</span>
+  </div></p>
+</div>
+
+<p><strong>4. 순환 복잡도 10 이하</strong></p>
+<p><strong>순환 복잡도란?</strong>
+코드의 복잡도를 숫자로 나타낸 것. if, for, while 등이 많을수록 높아짐.</p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4761" onclick="copyCode('code-1769481054889-4761')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4761" class="language-typescript">// ❌ 나쁜 예: 복잡도 15
+function calculateDiscount(user, product, date) {
+  if (user.isPremium) {
+    if (product.category === &#39;electronics&#39;) {
+      if (date.isHoliday) {
+        if (product.price &gt; 100000) {
+          return 0.25;
+        } else if (product.price &gt; 50000) {
+          return 0.20;
+        } else {
+          return 0.15;
+        }
+      } else {
+        return 0.10;
+      }
+    } else if (product.category === &#39;fashion&#39;) {
+      // ... 더 많은 중첩 if
+    }
+  } else {
+    // ... 일반 사용자 로직
+  }
+}
+
+<p>// ✅ 좋은 예: 전략 패턴으로 단순화
+const discountStrategies = {
+  premiumElectronicsHoliday: (price) =&gt;
+    price &gt; 100000 ? 0.25 : price &gt; 50000 ? 0.20 : 0.15,
+  premiumElectronics: () =&gt; 0.10,
+  premiumFashion: () =&gt; 0.15,
+  // ...
+};</p>
+<p>function calculateDiscount(user, product, date) {
+  const key = buildStrategyKey(user, product, date);
+  const strategy = discountStrategies[key];
+  return strategy ? strategy(product.price) : 0;
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">35 lines</span>
+  </div></p>
+</div>
+
+<h4>네이밍 컨벤션</h4>
+<p><strong>일관된 이름 규칙:</strong></p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4762" onclick="copyCode('code-1769481054889-4762')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4762" class="language-typescript">// 함수: 동사 + 명사
+getUserById()        // ✅
+getUser()           // ✅
+user()              // ❌ 동사 없음
+
+<p>// Boolean: is/has/can + 형용사
+isActive            // ✅
+hasPermission       // ✅
+canEdit             // ✅
+active              // ❌ 의미 불명확</p>
+<p>// 상수: 대문자_스네이크_케이스
+MAX_RETRY_COUNT     // ✅
+API_BASE_URL        // ✅
+maxRetryCount       // ❌ 상수인지 변수인지 불명확</p>
+<p>// 클래스: 파스칼케이스 (명사)
+UserService         // ✅
+OrderProcessor      // ✅
+handleOrder         // ❌ 함수같은 이름</p>
+<p>// 인터페이스: 파스칼케이스 + I 접두사 (선택)
+IUser 또는 User     // ✅ (프로젝트 규칙 따름)</p>
+<p>// 파일명: 케밥-케이스
+user-service.ts     // ✅
+order-processor.ts  // ✅
+UserService.ts      // ❌ (일부 프레임워크 제외)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">23 lines</span>
+  </div></p>
+</div>
+
+<h3 id="u-unified-통합성">U - Unified (통합성) 🧩 {#u-unified-통합성}</h3>
+<h4>아키텍처 일관성</h4>
+<p><strong>같은 패턴을 프로젝트 전체에 적용:</strong></p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4763" onclick="copyCode('code-1769481054889-4763')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4763" class="language-typescript">// 모든 서비스가 같은 구조
+// auth-service.ts
+export class AuthService {
+  constructor(private db: Database) {}
+
+<p>  async login(credentials: LoginDto): Promise&lt;AuthResult&gt; {
+    // 구현
+  }
+}</p>
+<p>// cart-service.ts
+export class CartService {
+  constructor(private db: Database) {}</p>
+<p>  async addItem(data: AddCartItemDto): Promise&lt;CartItem&gt; {
+    // 구현
+  }
+}</p>
+<p>// order-service.ts
+export class OrderService {
+  constructor(private db: Database) {}</p>
+<p>  async createOrder(data: CreateOrderDto): Promise&lt;Order&gt; {
+    // 구현
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">22 lines</span>
+  </div></p>
+</div>
+
+<h4>에러 처리 통일</h4>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4764" onclick="copyCode('code-1769481054889-4764')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4764" class="language-typescript">// 프로젝트 전체에서 같은 에러 구조 사용
+
+<p>// errors.ts
+export class AppError extends Error {
+  constructor(
+    public code: string,
+    message: string,
+    public statusCode: number = 500
+  ) {
+    super(message);
+  }
+}</p>
+<p>export class ValidationError extends AppError {
+  constructor(message: string) {
+    super(&#39;VALIDATION_ERROR&#39;, message, 400);
+  }
+}</p>
+<p>export class NotFoundError extends AppError {
+  constructor(resource: string) {
+    super(&#39;NOT_FOUND&#39;, <code>${resource}을 찾을 수 없습니다</code>, 404);
+  }
+}</p>
+<p>// 사용
+if (!user) {
+  throw new NotFoundError(&#39;사용자&#39;);
+}</p>
+<p>if (quantity &lt; 1) {
+  throw new ValidationError(&#39;수량은 1개 이상이어야 합니다&#39;);
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">28 lines</span>
+  </div></p>
+</div>
+
+<h3 id="s-secured-보안성">S - Secured (보안성) 🔒 {#s-secured-보안성}</h3>
+<h4>입력 검증</h4>
+<p><strong>모든 외부 입력은 검증:</strong></p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4765" onclick="copyCode('code-1769481054889-4765')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4765" class="language-typescript">import { z } from &#39;zod&#39;; // 타입 검증 라이브러리
+
+<p>// 스키마 정의
+const LoginSchema = z.object({
+  email: z.string().email(&#39;올바른 이메일 형식이 아닙니다&#39;),
+  password: z.string()
+    .min(8, &#39;비밀번호는 최소 8자&#39;)
+    .regex(/[A-Z]/, &#39;대문자 포함 필수&#39;)
+    .regex(/[0-9]/, &#39;숫자 포함 필수&#39;)
+    .regex(/[^A-Za-z0-9]/, &#39;특수문자 포함 필수&#39;)
+});</p>
+<p>// 사용
+function login(input: unknown) {
+  // 검증 실패 시 자동으로 에러 발생
+  const { email, password } = LoginSchema.parse(input);</p>
+<p>  // 이제 타입 안전하게 사용 가능
+  // email: string, password: string
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">17 lines</span>
+  </div></p>
+</div>
+
+<h4>SQL Injection 방지</h4>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4766" onclick="copyCode('code-1769481054889-4766')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4766" class="language-typescript">// ❌ 위험: 직접 문자열 결합
+const query = `SELECT * FROM users WHERE email = &#39;${email}&#39;`;
+// 공격: email = &quot;&#39; OR &#39;1&#39;=&#39;1&quot; → 모든 사용자 정보 유출
+
+<p>// ✅ 안전: Prepared Statement
+const query = <code>SELECT * FROM users WHERE email = ?</code>;
+db.execute(query, [email]); // 자동 이스케이핑</p>
+<p>// ✅ 안전: ORM 사용
+const user = await User.findOne({ where: { email } });</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h4>XSS (크로스 사이트 스크립팅) 방지</h4>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4767" onclick="copyCode('code-1769481054889-4767')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4767" class="language-typescript">// ❌ 위험: HTML 직접 삽입
+element.innerHTML = userInput;
+// 공격: userInput = &quot;&lt;script&gt;alert(&#39;해킹&#39;)&lt;/script&gt;&quot;
+
+<p>// ✅ 안전: 텍스트로만 삽입
+element.textContent = userInput; // 자동 이스케이프</p>
+<p>// ✅ 안전: 검증된 HTML만 허용
+import DOMPurify from &#39;dompurify&#39;;
+element.innerHTML = DOMPurify.sanitize(userInput);</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h4>비밀번호 해싱</h4>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4768" onclick="copyCode('code-1769481054889-4768')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4768" class="language-typescript">import bcrypt from &#39;bcrypt&#39;;
+
+<p>// 회원가입 시
+async function register(email: string, password: string) {
+  // ❌ 절대 안 됨: 평문 저장
+  // await db.insert({ email, password });</p>
+<p>  // ✅ 해싱 (최소 10 라운드)
+  const hashedPassword = await bcrypt.hash(password, 10);
+  await db.insert({ email, password: hashedPassword });
+}</p>
+<p>// 로그인 시
+async function login(email: string, password: string) {
+  const user = await db.findByEmail(email);</p>
+<p>  // ❌ 절대 안 됨: 평문 비교
+  // if (user.password === password) { ... }</p>
+<p>  // ✅ 해시 비교
+  const isValid = await bcrypt.compare(password, user.password);
+  if (!isValid) {
+    throw new Error(&#39;비밀번호가 틀렸습니다&#39;);
+  }</p>
+<p>  return generateToken(user);
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">21 lines</span>
+  </div></p>
+</div>
+
+<h3 id="t-trackable-추적성">T - Trackable (추적성) 🔍 {#t-trackable-추적성}</h3>
+<h4>TAG 체인 완성도 검사</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4769" onclick="copyCode('code-1769481054889-4769')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4769" class="language-bash"># Alfred가 자동으로 체크
+/alfred:3-sync
+
+<h1>체크 항목</h1>
+<p>✅ @SPEC → @TEST 연결 확인
+✅ @TEST → @CODE 연결 확인
+✅ @CODE → @DOC 연결 확인
+⚠️ 고아 TAG 검사
+❌ 끊어진 링크 발견</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h4>의미있는 커밋 메시지</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4770" onclick="copyCode('code-1769481054889-4770')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4770" class="language-bash"># ❌ 나쁜 예
+git commit -m &quot;fix bug&quot;
+git commit -m &quot;update&quot;
+git commit -m &quot;.&quot;
+
+<h1>✅ 좋은 예</h1>
+<p>git commit -m &quot;feat(auth): JWT 토큰 갱신 기능 추가</p>
+<ul>
+<li>리프레시 토큰으로 액세스 토큰 재발급</li>
+<li>만료 7일 전 자동 갱신 로직 구현</li>
+<li>테스트 커버리지 95%</li>
+</ul>
+<p>@CODE:AUTH-003&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<h4>변경 이력 문서화</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4771" onclick="copyCode('code-1769481054889-4771')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4771" class="language-markdown"># SPEC-AUTH-001/HISTORY.md
+
+<h2 id="v030-2025-10-12">v0.3.0 (2025-10-12) {#v030-2025-10-12}</h2>
+<ul>
+<li>변경: 비밀번호 최소 길이 8자 → 10자</li>
+<li>이유: 보안 정책 강화 (보안팀 요청)</li>
+<li>영향: 기존 8-9자 비밀번호 사용자는 재설정 필요</li>
+</ul>
+<h2 id="v020-2025-10-05">v0.2.0 (2025-10-05) {#v020-2025-10-05}</h2>
+<ul>
+<li>추가: 소셜 로그인 (Google, Naver) 지원</li>
+<li>이유: 사용자 편의성 증대</li>
+<li>영향: 소셜 로그인 사용자는 비밀번호 없음</li>
+</ul>
+<h2 id="v010-2025-10-01">v0.1.0 (2025-10-01) {#v010-2025-10-01}</h2>
+<ul>
+<li>초기 구현: 이메일/비밀번호 로그인</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">11 lines</span>
+</div>
+</div></li>
+</ul>
+<hr>
+<h2 id="tag-시스템-고급-활용">TAG 시스템 고급 활용 {#tag-시스템-고급-활용}</h2>
+<h3 id="tag-구조-완전-이해">TAG 구조 완전 이해 {#tag-구조-완전-이해}</h3>
+<p><strong>4가지 TAG 타입:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4772" onclick="copyCode('code-1769481054889-4772')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4772" class="language-plaintext">@SPEC:ID    → 무엇을 만들지 (명세)
+@TEST:ID    → 어떻게 테스트할지
+@CODE:ID    → 어떻게 구현했는지
+@DOC:ID     → 어떻게 사용하는지</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3 id="tag-id-명명-규칙">TAG ID 명명 규칙 {#tag-id-명명-규칙}</h3>
+<p><strong>형식</strong>: <code>{DOMAIN}-{NUMBER}</code></p>
+<p><strong>도메인 선택 가이드:</strong></p>
+<table>
+<thead>
+<tr>
+<th>기능 영역</th>
+<th>도메인 코드</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>인증/권한</td>
+<td>AUTH</td>
+<td>AUTH-001</td>
+</tr>
+<tr>
+<td>사용자</td>
+<td>USER</td>
+<td>USER-001</td>
+</tr>
+<tr>
+<td>장바구니</td>
+<td>CART</td>
+<td>CART-001</td>
+</tr>
+<tr>
+<td>주문</td>
+<td>ORDER</td>
+<td>ORDER-001</td>
+</tr>
+<tr>
+<td>결제</td>
+<td>PAYMENT</td>
+<td>PAYMENT-001</td>
+</tr>
+<tr>
+<td>상품</td>
+<td>PRODUCT</td>
+<td>PRODUCT-001</td>
+</tr>
+<tr>
+<td>배송</td>
+<td>SHIPPING</td>
+<td>SHIPPING-001</td>
+</tr>
+</tbody></table>
+<p><strong>번호 부여 규칙:</strong></p>
+<ul>
+<li>001부터 시작</li>
+<li>순차 증가</li>
+<li>중복 금지</li>
+<li>결번 허용 (삭제된 기능)</li>
+</ul>
+<h3 id="tag-주석-작성법">TAG 주석 작성법 {#tag-주석-작성법}</h3>
+<h4>SPEC 문서</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4773" onclick="copyCode('code-1769481054889-4773')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4773" class="language-markdown">&lt;!-- @SPEC:AUTH-001 --&gt;
+# JWT 기반 로그인
+
+<p>이 명세는 JWT 토큰을 사용한 인증 시스템을 정의합니다.
+관련 테스트: @TEST:AUTH-001
+관련 코드: @CODE:AUTH-001</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<h4>테스트 파일</h4>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4774" onclick="copyCode('code-1769481054889-4774')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4774" class="language-typescript">// @TEST:AUTH-001 | SPEC: .moai/specs/SPEC-AUTH-001/spec.md
+
+<p>/**</p>
+<ul>
+<li>@TEST:AUTH-001: JWT 로그인 테스트 스위트</li>
+<li></li>
+<li>이 테스트는 SPEC-AUTH-001에 정의된 로그인 기능을 검증합니다.
+ */
+describe(&#39;JWT 로그인&#39;, () =&gt; {
+  // 테스트 케이스들...
+});</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">9 lines</span>
+  </div>
+</div></li>
+</ul>
+<h4>구현 코드</h4>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4775" onclick="copyCode('code-1769481054889-4775')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4775" class="language-typescript">// @CODE:AUTH-001 | SPEC: .moai/specs/SPEC-AUTH-001/spec.md | TEST: tests/auth/login.test.ts
+
+<p>/**</p>
+<ul>
+<li>@CODE:AUTH-001: JWT 인증 서비스</li>
+<li></li>
+<li>SPEC-AUTH-001에 정의된 JWT 기반 로그인을 구현합니다.</li>
+<li></li>
+<li>TDD 이력:</li>
+<li><ul>
+<li>RED: tests/auth/login.test.ts 작성 (10개 테스트)</li>
+</ul>
+</li>
+<li><ul>
+<li>GREEN: 최소 구현 (bcrypt + jsonwebtoken)</li>
+</ul>
+</li>
+<li><ul>
+<li>REFACTOR: 에러 처리, 타입 안전성 추가</li>
+</ul>
+</li>
+<li></li>
+<li>관련 SPEC: .moai/specs/SPEC-AUTH-001/spec.md</li>
+<li>테스트: tests/auth/login.test.ts</li>
+<li>문서: docs/api/auth.md
+ */
+export class AuthService {
+  // 구현...
+}</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">18 lines</span>
+  </div>
+</div></li>
+</ul>
+<h4>API 문서</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4776" onclick="copyCode('code-1769481054889-4776')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4776" class="language-markdown">&lt;!-- @DOC:AUTH-001 --&gt;
+# 인증 API
+
+<p>이 문서는 @CODE:AUTH-001에서 구현된 JWT 인증 기능을 설명합니다.</p>
+<h2 id="관련-문서">관련 문서 {#관련-문서}</h2>
+<ul>
+<li>SPEC: <a href="../.moai/specs/SPEC-AUTH-001/spec.md">SPEC-AUTH-001</a></li>
+<li>테스트: <a href="../../tests/auth/login.test.ts">tests/auth/login.test.ts</a></li>
+<li>구현: <a href="../../src/auth/service.ts">src/auth/service.ts</a></code></pre><div class="code-block__footer">
+  <span class="code-block__lines">7 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="tag-검색-및-추적">TAG 검색 및 추적 {#tag-검색-및-추적}</h3>
+<p><strong>기존 TAG 찾기:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4777" onclick="copyCode('code-1769481054889-4777')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4777" class="language-bash"># 모든 AUTH 도메인 TAG 검색
+rg &quot;@(SPEC|TEST|CODE|DOC):AUTH&quot; -n
+
+<h1>특정 ID의 모든 TAG 찾기</h1>
+<p>rg &quot;@(SPEC|TEST|CODE|DOC):AUTH-001&quot; -n</p>
+<h1>고아 TAG 찾기 (연결 안 된 TAG)</h1>
+<p>moai doctor --check-tags</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<p><strong>TAG 체인 시각화:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4778" onclick="copyCode('code-1769481054889-4778')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4778" class="language-plaintext">SPEC-AUTH-001
+│
+├─ @TEST:AUTH-001
+│  ├─ tests/auth/login.test.ts:5
+│  └─ tests/auth/token.test.ts:10
+│
+├─ @CODE:AUTH-001
+│  ├─ src/auth/service.ts:15
+│  ├─ src/auth/jwt.ts:8
+│  └─ src/auth/validate.ts:20
+│
+└─ @DOC:AUTH-001
+   └─ docs/api/auth.md:3</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="언어별-실전-예제">언어별 실전 예제 {#언어별-실전-예제}</h2>
+<h3 id="python-프로젝트">Python 프로젝트 {#python-프로젝트}</h3>
+<p><strong>프로젝트</strong>: Flask REST API</p>
+<h4>SPEC 작성</h4>
+<div class="code-block" data-language="text">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4779" onclick="copyCode('code-1769481054889-4779')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4779" class="language-text">/alfred:1-spec &quot;사용자 정보 조회 API. GET /users/{id}. 존재하지 않으면 404. JSON 반환&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>TDD 구현</h4>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4780" onclick="copyCode('code-1769481054889-4780')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4780" class="language-python"># tests/test_user_api.py
+# @TEST:USER-001
+
+<p>import pytest
+from app import app</p>
+<p>@pytest.fixture
+def client():
+    with app.test_client() as client:
+        yield client</p>
+<p>def test_get_user_success(client):
+    &quot;&quot;&quot;사용자 조회 성공&quot;&quot;&quot;
+    response = client.get(&#39;/users/1&#39;)</p>
+<pre><code>assert response.status_code == 200
+assert response.json[&amp;#39;id&amp;#39;] == 1
+assert &amp;#39;name&amp;#39; in response.json
+assert &amp;#39;email&amp;#39; in response.json
+</code></pre>
+<p>def test_get_user_not_found(client):
+    &quot;&quot;&quot;존재하지 않는 사용자&quot;&quot;&quot;
+    response = client.get(&#39;/users/9999&#39;)</p>
+<pre><code>assert response.status_code == 404
+assert &amp;#39;error&amp;#39; in response.json
+</code></pre>
+<p>def test_get_user_invalid_id(client):
+    &quot;&quot;&quot;잘못된 ID 형식&quot;&quot;&quot;
+    response = client.get(&#39;/users/abc&#39;)</p>
+<pre><code>assert response.status_code == 400&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">24 lines</span>
+  </div>
+</div>
+
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4781" onclick="copyCode('code-1769481054889-4781')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4781" class="language-python"># app/routes/user.py
+# @CODE:USER-001
+
+<p>from flask import Blueprint, jsonify, abort
+from app.models import User</p>
+<p>user_bp = Blueprint(&#39;user&#39;, <strong>name</strong>)</p>
+<p>@user_bp.route(&#39;/users/&lt;int:user_id&gt;&#39;, methods=[&#39;GET&#39;])
+def get_user(user_id: int):
+    &quot;&quot;&quot;
+    @CODE:USER-001: 사용자 정보 조회 API</p>
+<pre><code>사용자 ID로 정보를 조회합니다.
+
+Args:
+    user_id: 사용자 ID (양수)
+
+Returns:
+    JSON: 사용자 정보
+
+Raises:
+    404: 사용자를 찾을 수 없음
+&amp;quot;&amp;quot;&amp;quot;
+user = User.query.get(user_id)
+
+if user is None:
+    abort(404, description=&amp;quot;사용자를 찾을 수 없습니다&amp;quot;)
+
+return jsonify({
+    &amp;#39;id&amp;#39;: user.id,
+    &amp;#39;name&amp;#39;: user.name,
+    &amp;#39;email&amp;#39;: user.email,
+    &amp;#39;created_at&amp;#39;: user.created_at.isoformat()
+})&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">26 lines</span>
+  </div>
+</div>
+
+<h3 id="java-프로젝트">Java 프로젝트 {#java-프로젝트}</h3>
+<p><strong>프로젝트</strong>: Spring Boot 서비스</p>
+<h4>SPEC 작성</h4>
+<div class="code-block" data-language="text">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4782" onclick="copyCode('code-1769481054889-4782')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4782" class="language-text">/alfred:1-spec &quot;상품 재고 차감. 재고 부족 시 예외. 동시성 제어 필수&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>TDD 구현</h4>
+<div class="code-block" data-language="java">
+  <div class="code-block__header" style="background-color: #b07219; color: #fff">
+    <span class="code-block__language">Java</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4783" onclick="copyCode('code-1769481054889-4783')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4783" class="language-java">// tests/ProductServiceTest.java
+// @TEST:PRODUCT-001
+
+<p>import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;</p>
+<p>class ProductServiceTest {
+    @Test
+    void 재고가_충분하면_차감에_성공한다() {
+        // Given
+        Product product = new Product(1L, &quot;노트북&quot;, 10);
+        ProductService service = new ProductService();</p>
+<pre><code>    // When
+    service.decreaseStock(product, 5);
+
+    // Then
+    assertEquals(5, product.getStock());
+}
+
+@Test
+void 재고가_부족하면_예외가_발생한다() {
+    // Given
+    Product product = new Product(1L, &amp;quot;노트북&amp;quot;, 3);
+    ProductService service = new ProductService();
+
+    // When &amp;amp; Then
+    assertThrows(
+        OutOfStockException.class,
+        () -&amp;gt; service.decreaseStock(product, 5)
+    );
+}
+
+@Test
+void 동시에_재고를_차감해도_정확하다() throws InterruptedException {
+    // Given
+    Product product = new Product(1L, &amp;quot;노트북&amp;quot;, 100);
+    ProductService service = new ProductService();
+
+    // When: 10개 스레드가 동시에 10개씩 차감
+    CountDownLatch latch = new CountDownLatch(10);
+    for (int i = 0; i &amp;lt; 10; i++) {
+        new Thread(() -&amp;gt; {
+            service.decreaseStock(product, 10);
+            latch.countDown();
+        }).start();
+    }
+    latch.await();
+
+    // Then: 정확히 0이어야 함
+    assertEquals(0, product.getStock());
+}
+</code></pre>
+<p>}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">44 lines</span>
+  </div></p>
+</div>
+
+<div class="code-block" data-language="java">
+  <div class="code-block__header" style="background-color: #b07219; color: #fff">
+    <span class="code-block__language">Java</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4784" onclick="copyCode('code-1769481054889-4784')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4784" class="language-java">// src/service/ProductService.java
+// @CODE:PRODUCT-001
+
+<p>/**</p>
+<ul>
+<li><p>@CODE:PRODUCT-001: 상품 재고 관리 서비스</p>
+</li>
+<li></li>
+<li><p>상품의 재고를 안전하게 차감합니다.</p>
+</li>
+<li><p>동시성 문제를 synchronized로 해결합니다.</p>
+</li>
+<li></li>
+<li><p>@author MoAI-ADK</p>
+</li>
+<li><p>@since 2025-10-12
+ */
+@Service
+public class ProductService {</p>
+<p> /**</p>
+<ul>
+<li><p>상품 재고를 차감합니다.</p>
+</li>
+<li></li>
+<li><p>@param product 상품</p>
+</li>
+<li><p>@param quantity 차감할 수량</p>
+</li>
+<li><p>@throws OutOfStockException 재고 부족 시</p>
+</li>
+<li><p>@throws IllegalArgumentException 음수 수량 입력 시
+  */
+ public synchronized void decreaseStock(Product product, int quantity) {
+ // 입력 검증
+ if (quantity &lt; 0) {
+ throw new IllegalArgumentException(&quot;수량은 0 이상이어야 합니다&quot;);
+ }</p>
+<p> // 재고 확인
+ if (product.getStock() &lt; quantity) {
+ throw new OutOfStockException(
+     String.format(
+         &quot;재고가 부족합니다. 현재: %d, 요청: %d&quot;,
+         product.getStock(),
+         quantity
+     )
+ );
+ }</p>
+<p> // 재고 차감
+ product.setStock(product.getStock() - quantity);</p>
+</li>
+</ul>
+<p> }</p>
+</li>
+</ul>
+<p>}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">40 lines</span>
+  </div></p>
+</div>
+
+<h3 id="flutterdart-프로젝트">Flutter/Dart 프로젝트 {#flutterdart-프로젝트}</h3>
+<p><strong>프로젝트</strong>: 모바일 앱 UI</p>
+<h4>SPEC 작성</h4>
+<div class="code-block" data-language="text">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4785" onclick="copyCode('code-1769481054889-4785')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4785" class="language-text">/alfred:1-spec &quot;할 일 목록 위젯. 체크 시 취소선. 삭제 버튼. 상태 관리 Riverpod&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>TDD 구현</h4>
+<div class="code-block" data-language="dart">
+  <div class="code-block__header" style="background-color: #00b4ab; color: #fff">
+    <span class="code-block__language">Dart</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4786" onclick="copyCode('code-1769481054889-4786')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4786" class="language-dart">// test/todo_list_test.dart
+// @TEST:TODO-001
+
+<p>import &#39;package:flutter_test/flutter_test.dart&#39;;
+import &#39;package:flutter_riverpod/flutter_riverpod.dart&#39;;</p>
+<p>void main() {
+  testWidgets(&#39;할 일이 화면에 표시된다&#39;, (tester) async {
+    // Given
+    final todos = [
+      Todo(id: 1, title: &#39;장보기&#39;, completed: false),
+      Todo(id: 2, title: &#39;운동하기&#39;, completed: true),
+    ];</p>
+<pre><code>// When
+await tester.pumpWidget(
+  ProviderScope(
+    overrides: [
+      todosProvider.overrideWith((ref) =&amp;gt; todos),
+    ],
+    child: MaterialApp(home: TodoListWidget()),
+  ),
+);
+
+// Then
+expect(find.text(&amp;#39;장보기&amp;#39;), findsOneWidget);
+expect(find.text(&amp;#39;운동하기&amp;#39;), findsOneWidget);
+</code></pre>
+<p>  });</p>
+<p>  testWidgets(&#39;완료된 할 일은 취소선이 그어진다&#39;, (tester) async {
+    // Given
+    final todo = Todo(id: 1, title: &#39;운동하기&#39;, completed: true);</p>
+<pre><code>// When
+await tester.pumpWidget(
+  ProviderScope(
+    child: MaterialApp(home: TodoItemWidget(todo: todo)),
+  ),
+);
+
+// Then
+final text = tester.widget&amp;lt;Text&amp;gt;(find.text(&amp;#39;운동하기&amp;#39;));
+expect(
+  text.style?.decoration,
+  equals(TextDecoration.lineThrough),
+);
+</code></pre>
+<p>  });
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">41 lines</span>
+  </div></p>
+</div>
+
+<div class="code-block" data-language="dart">
+  <div class="code-block__header" style="background-color: #00b4ab; color: #fff">
+    <span class="code-block__language">Dart</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4787" onclick="copyCode('code-1769481054889-4787')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4787" class="language-dart">// lib/widgets/todo_list.dart
+// @CODE:TODO-001
+
+<p>import &#39;package:flutter/material.dart&#39;;
+import &#39;package:flutter_riverpod/flutter_riverpod.dart&#39;;</p>
+<p>/// @CODE:TODO-001: 할 일 목록 위젯
+///
+/// SPEC-TODO-001에 정의된 할 일 목록 UI를 구현합니다.
+/// Riverpod으로 상태를 관리합니다.
+class TodoListWidget extends ConsumerWidget {
+  const TodoListWidget({Key? key}) : super(key: key);</p>
+<p>  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final todos = ref.watch(todosProvider);</p>
+<pre><code>return ListView.builder(
+  itemCount: todos.length,
+  itemBuilder: (context, index) {
+    return TodoItemWidget(todo: todos[index]);
+  },
+);
+</code></pre>
+<p>  }
+}</p>
+<p>class TodoItemWidget extends ConsumerWidget {
+  final Todo todo;</p>
+<p>  const TodoItemWidget({required this.todo, Key? key}) : super(key: key);</p>
+<p>  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    return ListTile(
+      leading: Checkbox(
+        value: todo.completed,
+        onChanged: (value) {
+          ref.read(todosProvider.notifier).toggle(todo.id);
+        },
+      ),
+      title: Text(
+        todo.title,
+        style: TextStyle(
+          decoration: todo.completed
+            ? TextDecoration.lineThrough
+            : null,
+        ),
+      ),
+      trailing: IconButton(
+        icon: Icon(Icons.delete),
+        onPressed: () {
+          ref.read(todosProvider.notifier).delete(todo.id);
+        },
+      ),
+    );
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">50 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="문제-해결과-디버깅">문제 해결과 디버깅 {#문제-해결과-디버깅}</h2>
+<h3 id="자주-발생하는-문제-top-10">자주 발생하는 문제 Top 10 {#자주-발생하는-문제-top-10}</h3>
+<h4>1. &quot;SPEC not found&quot; 에러</h4>
+<p><strong>증상:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4788" onclick="copyCode('code-1769481054889-4788')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4788" class="language-plaintext">❌ Error: SPEC-AUTH-001 not found</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>원인:</strong> <code>/alfred:1-spec</code> 단계를 건너뛰었거나, SPEC 파일이 삭제됨</p>
+<p><strong>해결:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4789" onclick="copyCode('code-1769481054889-4789')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4789" class="language-bash"># SPEC 파일 확인
+ls .moai/specs/
+
+<h1>SPEC이 없으면 생성</h1>
+<p>/alfred:1-spec &quot;기능 설명&quot;</p>
+<h1>또는 기존 SPEC ID 확인 후 재실행</h1>
+<p>/alfred:2-build CORRECT-ID</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h4>2. 테스트 통과 안 됨</h4>
+<p><strong>증상:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4790" onclick="copyCode('code-1769481054889-4790')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4790" class="language-plaintext">❌ FAIL tests/auth/login.test.ts
+  ✗ 로그인 성공 시 토큰 반환
+    Expected: { token: ... }
+    Received: undefined</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>디버깅 체크리스트:</strong></p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4791" onclick="copyCode('code-1769481054889-4791')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4791" class="language-typescript">// 1. 반환값 확인
+console.log(&#39;result:&#39;, result); // undefined?
+
+<p>// 2. 함수 호출 확인
+console.log(&#39;함수 실행됨&#39;);</p>
+<p>// 3. 조건문 확인
+if (user) {
+  console.log(&#39;사용자 존재:&#39;, user);
+} else {
+  console.log(&#39;❌ 사용자 없음&#39;);
+}</p>
+<p>// 4. 비동기 처리 확인
+await login(); // await 빼먹지 않았나?</p>
+<p>// 5. 모킹 확인
+mockUserDatabase.findByEmail.mockReturnValue(null); // 잘못된 모킹?</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">14 lines</span>
+  </div></p>
+</div>
+
+<p><strong>해결:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4792" onclick="copyCode('code-1769481054889-4792')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4792" class="language-bash"># debug-helper 에이전트 호출
+@agent-debug-helper &quot;테스트 실패 에러 전문&quot;
+
+<h1>또는 직접 수정 후 재실행</h1>
+<p>npm test tests/auth/login.test.ts</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>3. TAG 체인 끊어짐</h4>
+<p><strong>증상:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4793" onclick="copyCode('code-1769481054889-4793')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4793" class="language-plaintext">⚠️ 고아 TAG 발견
+  @CODE:USER-005 in src/user/service.ts:10
+  → 연결된 @SPEC:USER-005를 찾을 수 없습니다</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>원인:</strong></p>
+<ul>
+<li>SPEC 없이 코드만 작성</li>
+<li>SPEC을 삭제했지만 코드는 남음</li>
+<li>TAG ID 오타</li>
+</ul>
+<p><strong>해결:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4794" onclick="copyCode('code-1769481054889-4794')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4794" class="language-bash"># 1. SPEC 문서 존재 확인
+ls .moai/specs/ | grep USER-005
+
+<h1>2. 없으면 SPEC 작성</h1>
+<p>/alfred:1-spec &quot;USER-005 기능 설명&quot;</p>
+<h1>3. TAG ID 확인</h1>
+<p>rg &quot;@SPEC:USER-005&quot; -n .moai/specs/
+rg &quot;@CODE:USER-005&quot; -n src/</p>
+<h1>4. 재검증</h1>
+<p>/alfred:3-sync</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h4>4. 의존성 설치 실패</h4>
+<p><strong>증상:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4795" onclick="copyCode('code-1769481054889-4795')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4795" class="language-plaintext">npm ERR! code ERESOLVE
+npm ERR! ERESOLVE unable to resolve dependency tree</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>해결:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4796" onclick="copyCode('code-1769481054889-4796')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4796" class="language-bash"># 1. 캐시 삭제
+npm cache clean --force
+rm -rf node_modules package-lock.json
+
+<h1>2. 재설치</h1>
+<p>npm install</p>
+<h1>3. 여전히 실패하면 legacy 모드</h1>
+<p>npm install --legacy-peer-deps</p>
+<h1>4. Bun 사용 (더 나은 의존성 해결)</h1>
+<p>bun install</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h4>5. Git 브랜치 충돌</h4>
+<p><strong>증상:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4797" onclick="copyCode('code-1769481054889-4797')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4797" class="language-plaintext">fatal: A branch named &#39;feature/SPEC-AUTH-001&#39; already exists.</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>해결:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4798" onclick="copyCode('code-1769481054889-4798')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4798" class="language-bash"># 1. 기존 브랜치 확인
+git branch -a
+
+<h1>2. 기존 브랜치로 전환 (계속 작업)</h1>
+<p>git checkout feature/SPEC-AUTH-001</p>
+<h1>3. 또는 삭제 후 새로 생성</h1>
+<p>git branch -D feature/SPEC-AUTH-001
+/alfred:1-spec &quot;기능 설명&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h4>6. 커버리지 85% 미만</h4>
+<p><strong>증상:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4799" onclick="copyCode('code-1769481054889-4799')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4799" class="language-plaintext">❌ TRUST 검증 실패
+  테스트 커버리지: 78% (목표: 85%)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>누락된 브랜치 찾기:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4800" onclick="copyCode('code-1769481054889-4800')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4800" class="language-bash"># 커버리지 리포트 확인
+npm test -- --coverage
+
+<h1>HTML 리포트 열기</h1>
+<p>open coverage/index.html</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<p><strong>빨간색 라인 = 테스트 안 된 코드</strong></p>
+<p><strong>해결:</strong></p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4801" onclick="copyCode('code-1769481054889-4801')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4801" class="language-typescript">// 누락된 엣지 케이스 테스트 추가
+
+<p>// null 체크 추가
+test(&#39;null 입력 시 에러&#39;, () =&gt; {
+  expect(() =&gt; func(null)).toThrow();
+});</p>
+<p>// 빈 배열 체크 추가
+test(&#39;빈 배열은 빈 배열 반환&#39;, () =&gt; {
+  expect(func([])).toEqual([]);
+});</p>
+<p>// 경계값 추가
+test(&#39;최대값 입력 시 성공&#39;, () =&gt; {
+  expect(() =&gt; func(MAX_VALUE)).not.toThrow();
+});</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div></p>
+</div>
+
+<h4>7. 권한 에러</h4>
+<p><strong>증상:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4802" onclick="copyCode('code-1769481054889-4802')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4802" class="language-plaintext">Error: EACCES: permission denied</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>해결:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4803" onclick="copyCode('code-1769481054889-4803')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4803" class="language-bash"># Mac/Linux
+sudo npm install -g moai-adk
+
+<h1>또는 권한 수정</h1>
+<p>chmod +x .claude/commands/*.md</p>
+<h1>또는 Alfred에게 자동 수정 요청</h1>
+<p>/alfred:9-update --fix-permissions</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h4>8. Alfred 명령어 인식 안 됨</h4>
+<p><strong>증상:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4804" onclick="copyCode('code-1769481054889-4804')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4804" class="language-plaintext">Unknown command: /alfred:1-spec</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>해결:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4805" onclick="copyCode('code-1769481054889-4805')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4805" class="language-bash"># 1. Claude Code 재시작
+exit
+claude
+
+<h1>2. 명령어 파일 확인</h1>
+<p>ls .claude/commands/</p>
+<h1>3. 없으면 재설치</h1>
+<p>moai init . --force</p>
+<h1>4. Alfred 업데이트</h1>
+<p>/alfred:9-update</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h4>9. 빌드 실패</h4>
+<p><strong>증상:</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4806" onclick="copyCode('code-1769481054889-4806')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4806" class="language-plaintext">TypeScript error: Cannot find module &#39;xxx&#39;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>해결:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4807" onclick="copyCode('code-1769481054889-4807')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4807" class="language-bash"># 1. 타입 정의 설치
+npm install --save-dev @types/xxx
+
+<h1>2. tsconfig.json 확인</h1>
+<p>cat tsconfig.json</p>
+<h1>3. 전체 재빌드</h1>
+<p>rm -rf dist/
+npm run build</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h4>10. 프로덕션 버그</h4>
+<p><strong>증상:</strong> 개발 환경에서는 정상, 프로덕션에서만 에러</p>
+<p><strong>디버깅 전략:</strong></p>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4808" onclick="copyCode('code-1769481054889-4808')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4808" class="language-typescript">// 1. 환경변수 확인
+console.log(&#39;NODE_ENV:&#39;, process.env.NODE_ENV);
+
+<p>// 2. 설정 차이 확인
+console.log(&#39;Config:&#39;, config);</p>
+<p>// 3. 로그 레벨 높이기
+logger.level = &#39;debug&#39;;</p>
+<p>// 4. TAG 추적
+// @CODE:AUTH-001로 관련 SPEC, TEST 찾기
+// → 원래 의도와 다르게 동작하는지 확인</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="팀-협업-전략">팀 협업 전략 {#팀-협업-전략}</h2>
+<h3 id="personal-vs-team-모드">Personal vs Team 모드 {#personal-vs-team-모드}</h3>
+<h4>Personal 모드 (개인 개발)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4809" onclick="copyCode('code-1769481054889-4809')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4809" class="language-bash">moai init . --personal</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>특징:</strong></p>
+<ul>
+<li><code>.moai</code> 폴더를 Git에 추가하지 않음</li>
+<li>개인 SPEC만 관리</li>
+<li>빠른 프로토타이핑</li>
+</ul>
+<h4>Team 모드 (팀 협업)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4810" onclick="copyCode('code-1769481054889-4810')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4810" class="language-bash">moai init . --team</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>특징:</strong></p>
+<ul>
+<li><code>.moai</code> 폴더를 Git에 커밋</li>
+<li>SPEC 공유 및 버전 관리</li>
+<li>코드 리뷰 필수</li>
+</ul>
+<h3 id="팀-워크플로우">팀 워크플로우 {#팀-워크플로우}</h3>
+<p><strong>1. Feature 브랜치 전략</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4811" onclick="copyCode('code-1769481054889-4811')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4811" class="language-bash"># 개발자 A
+/alfred:1-spec &quot;사용자 프로필 수정&quot;
+# → 브랜치: feature/SPEC-USER-002-update-profile
+
+<h1>개발자 B</h1>
+<p>/alfred:1-spec &quot;결제 모듈 통합&quot;</p>
+<h1>→ 브랜치: feature/SPEC-PAYMENT-001-integration</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<p><strong>2. 코드 리뷰</strong></p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4812" onclick="copyCode('code-1769481054889-4812')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4812" class="language-markdown"># Pull Request 템플릿
+
+<h2 id="spec-정보">SPEC 정보 {#spec-정보}</h2>
+<ul>
+<li>ID: SPEC-USER-002</li>
+<li>제목: 사용자 프로필 수정</li>
+<li>SPEC 문서: <a href=".moai/specs/SPEC-USER-002/spec.md">링크</a></li>
+</ul>
+<h2 id="tag-체인">TAG 체인 {#tag-체인}</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> @SPEC:USER-002 존재</li>
+<li><input checked="" disabled="" type="checkbox"> @TEST:USER-002 연결</li>
+<li><input checked="" disabled="" type="checkbox"> @CODE:USER-002 구현</li>
+<li><input checked="" disabled="" type="checkbox"> @DOC:USER-002 문서화</li>
+</ul>
+<h2 id="trust-체크리스트">TRUST 체크리스트 {#trust-체크리스트}</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 테스트 커버리지 ≥ 85%</li>
+<li><input checked="" disabled="" type="checkbox"> 함수당 ≤ 50줄</li>
+<li><input checked="" disabled="" type="checkbox"> 매개변수 ≤ 5개</li>
+<li><input checked="" disabled="" type="checkbox"> 보안 검증 통과</li>
+<li><input checked="" disabled="" type="checkbox"> TAG 체인 완전</li>
+</ul>
+<h2 id="변경사항">변경사항 {#변경사항}</h2>
+<ul>
+<li>프로필 이미지 업로드 추가</li>
+<li>닉네임 중복 검사 개선</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">19 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>3. SPEC 충돌 해결</strong></p>
+<p><strong>상황:</strong> 두 명이 동시에 같은 기능 개발</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4813" onclick="copyCode('code-1769481054889-4813')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4813" class="language-bash"># 개발자 A
+/alfred:1-spec &quot;로그인 세션 관리&quot;
+# → SPEC-AUTH-003 생성
+
+<h1>개발자 B (같은 시간에)</h1>
+<p>/alfred:1-spec &quot;로그인 세션 타임아웃&quot;</p>
+<h1>→ SPEC-AUTH-003 생성 (충돌!)</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<p><strong>해결:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4814" onclick="copyCode('code-1769481054889-4814')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4814" class="language-bash"># Git에서 확인
+git pull origin main
+
+<h1>SPEC ID 재부여</h1>
+<h1>개발자 B의 SPEC을 AUTH-004로 변경</h1>
+<p>mv .moai/specs/SPEC-AUTH-003 .moai/specs/SPEC-AUTH-004</p>
+<h1>TAG 일괄 수정</h1>
+<p>rg &quot;@(SPEC|TEST|CODE|DOC):AUTH-003&quot; -l | xargs sed -i &#39;s/AUTH-003/AUTH-004/g&#39;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h3 id="온보딩-가이드">온보딩 가이드 {#온보딩-가이드}</h3>
+<p><strong>신규 팀원을 위한 체크리스트:</strong></p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4815" onclick="copyCode('code-1769481054889-4815')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4815" class="language-markdown"># MoAI-ADK 온보딩 (신규 개발자용)
+
+<h2 id="day-1-환경-설정">Day 1: 환경 설정 {#day-1-환경-설정}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Node.js 18+ 설치</li>
+<li><input disabled="" type="checkbox"> Bun 설치 (권장)</li>
+<li><input disabled="" type="checkbox"> Claude Code 설치</li>
+<li><input disabled="" type="checkbox"> 저장소 클론</li>
+<li><input disabled="" type="checkbox"> <code>moai doctor</code> 실행 → 모두 ✅</li>
+</ul>
+<h2 id="day-2-기본-개념-학습">Day 2: 기본 개념 학습 {#day-2-기본-개념-학습}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> &lt;a href=&quot;/articles/moai-adk-guide-part-1.html&quot; class=&quot;internal-link&quot;&gt;MoAI-ADK 가이드 Part 1&lt;/a&gt; 읽기</li>
+<li><input disabled="" type="checkbox"> SPEC → TDD → SYNC 흐름 이해</li>
+<li><input disabled="" type="checkbox"> TRUST 5원칙 숙지</li>
+</ul>
+<h2 id="day-3-실습">Day 3: 실습 {#day-3-실습}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 샘플 SPEC 작성 (<code>/alfred:1-spec &amp;quot;테스트 기능&amp;quot;</code>)</li>
+<li><input disabled="" type="checkbox"> TDD로 구현 (<code>/alfred:2-build TEST-001</code>)</li>
+<li><input disabled="" type="checkbox"> 문서 동기화 (<code>/alfred:3-sync</code>)</li>
+<li><input disabled="" type="checkbox"> TAG 체인 확인</li>
+</ul>
+<h2 id="day-4-첫-이슈-해결">Day 4: 첫 이슈 해결 {#day-4-첫-이슈-해결}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 라벨이 &quot;good first issue&quot;인 이슈 선택</li>
+<li><input disabled="" type="checkbox"> SPEC 작성</li>
+<li><input disabled="" type="checkbox"> TDD 구현</li>
+<li><input disabled="" type="checkbox"> PR 생성</li>
+<li><input disabled="" type="checkbox"> 코드 리뷰 받기</li>
+</ul>
+<h2 id="day-5-복습-및-질문">Day 5: 복습 및 질문 {#day-5-복습-및-질문}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 막힌 부분 정리</li>
+<li><input disabled="" type="checkbox"> 팀원에게 질문</li>
+<li><input disabled="" type="checkbox"> 개선 아이디어 제안</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">26 lines</span>
+</div>
+</div></li>
+</ul>
+<hr>
+<h2 id="고급-팁과-트릭">고급 팁과 트릭 {#고급-팁과-트릭}</h2>
+<h3 id="생산성-향상-팁">생산성 향상 팁 {#생산성-향상-팁}</h3>
+<h4>1. 별칭(Alias) 설정</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4816" onclick="copyCode('code-1769481054889-4816')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4816" class="language-bash"># ~/.bashrc 또는 ~/.zshrc에 추가
+
+<h1>Alfred 명령어 단축키</h1>
+<p>alias a1=&#39;echo &quot;/alfred:1-spec&quot;&#39;
+alias a2=&#39;echo &quot;/alfred:2-build&quot;&#39;
+alias a3=&#39;echo &quot;/alfred:3-sync&quot;&#39;
+alias a8=&#39;echo &quot;/alfred:8-project&quot;&#39;</p>
+<h1>테스트 단축키</h1>
+<p>alias t=&#39;npm test&#39;
+alias tw=&#39;npm test -- --watch&#39;
+alias tc=&#39;npm test -- --coverage&#39;</p>
+<h1>Git 단축키</h1>
+<p>alias gs=&#39;git status&#39;
+alias ga=&#39;git add .&#39;
+alias gc=&#39;git commit -m&#39;
+alias gp=&#39;git push&#39;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">15 lines</span>
+  </div></p>
+</div>
+
+<h4>2. VS Code 스니펫</h4>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4817" onclick="copyCode('code-1769481054889-4817')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4817" class="language-json">// .vscode/snippets.json
+{
+  &quot;MoAI TAG Comment&quot;: {
+    &quot;prefix&quot;: &quot;@tag&quot;,
+    &quot;body&quot;: [
+      &quot;// @${1|SPEC,TEST,CODE,DOC|}:${2:DOMAIN}-${3:001} | SPEC: .moai/specs/SPEC-${2}-${3}/spec.md&quot;,
+      &quot;/**&quot;,
+      &quot; * @${1}:${2}-${3}: ${4:설명}&quot;,
+      &quot; * &quot;,
+      &quot; * ${5:상세 내용}&quot;,
+      &quot; */&quot;
+    ]
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">14 lines</span>
+  </div>
+</div>
+
+<h4>3. 자동 SPEC 생성 스크립트</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4818" onclick="copyCode('code-1769481054889-4818')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4818" class="language-bash">#!/bin/bash
+# quick-spec.sh
+
+<h1>사용법: ./quick-spec.sh AUTH &quot;JWT 로그인&quot;</h1>
+<p>DOMAIN=$1
+TITLE=$2</p>
+<p>if [ -z &quot;$DOMAIN&quot; ] || [ -z &quot;$TITLE&quot; ]; then
+  echo &quot;Usage: ./quick-spec.sh DOMAIN &amp;quot;TITLE&amp;quot;&quot;
+  exit 1
+fi</p>
+<h1>Claude Code에서 SPEC 생성</h1>
+<p>claude -c &quot;/alfred:1-spec &amp;quot;$TITLE&amp;quot;&quot;</p>
+<p>echo &quot;✅ SPEC-$DOMAIN-XXX 생성 완료&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<h3 id="고급-tag-활용">고급 TAG 활용 {#고급-tag-활용}</h3>
+<h4>계층적 TAG 구조</h4>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4819" onclick="copyCode('code-1769481054889-4819')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4819" class="language-typescript">// 대분류 TAG
+// @CODE:AUTH-001
+
+<p>// 세부 기능별 TAG
+// @CODE:AUTH-001:LOGIN: 로그인 로직
+function login() { /* ... */ }</p>
+<p>// @CODE:AUTH-001:VALIDATE: 입력 검증
+function validateCredentials() { /* ... */ }</p>
+<p>// @CODE:AUTH-001:TOKEN: 토큰 생성
+function generateToken() { /* ... */ }</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h4>Cross-Reference TAG</h4>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4820" onclick="copyCode('code-1769481054889-4820')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4820" class="language-typescript">// 여러 SPEC에 걸친 코드
+// @CODE:AUTH-001,USER-003: 로그인 시 사용자 정보 갱신
+async function loginAndUpdateUser(email, password) {
+  const token = await login(email, password);  // @CODE:AUTH-001
+  await updateLastLogin(email);                // @CODE:USER-003
+  return token;
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<h3 id="대규모-프로젝트-팁">대규모 프로젝트 팁 {#대규모-프로젝트-팁}</h3>
+<h4>도메인 분리 전략</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4821" onclick="copyCode('code-1769481054889-4821')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4821" class="language-plaintext">.moai/specs/
+├── AUTH/       # 인증/권한
+│   ├── SPEC-AUTH-001/
+│   ├── SPEC-AUTH-002/
+│   └── SPEC-AUTH-003/
+├── USER/       # 사용자
+│   ├── SPEC-USER-001/
+│   └── SPEC-USER-002/
+└── PAYMENT/    # 결제
+    ├── SPEC-PAYMENT-001/
+    └── SPEC-PAYMENT-002/</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div>
+</div>
+
+<h4>의존성 그래프 시각화</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4822" onclick="copyCode('code-1769481054889-4822')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4822" class="language-bash"># Alfred에게 의존성 그래프 생성 요청
+@agent-tag-agent &quot;모든 SPEC의 의존 관계 시각화&quot;
+
+<h1>결과: Mermaid 다이어그램</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>mermaid
+graph TD
+  AUTH-001[로그인] --> USER-001[사용자 조회]
+  USER-001 --> USER-002[프로필 조회]
+  ORDER-001[주문] --> PAYMENT-001[결제]
+  ORDER-001 --> CART-001[장바구니]
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054889-4823" onclick="copyCode('code-1769481054889-4823')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054889-4823" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="용어-설명">용어 설명 {#용어-설명}</h2>
+<h3 id="개발-방법론">개발 방법론 {#개발-방법론}</h3>
+<p><strong>🔹 TDD (Test Driven Development)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: 요리를 만들기 전에 &quot;이 요리는 이런 맛이어야 해&quot;라고 먼저 정하는 것</li>
+<li><strong>실제</strong>: 코드를 쓰기 전에 테스트를 먼저 작성하는 개발 방식</li>
+<li><strong>3단계</strong>: 🔴 RED → 🟢 GREEN → 🔵 REFACTOR</li>
+</ul>
+<p><strong>🔹 CI/CD (Continuous Integration/Deployment)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: 자동으로 코드를 검사하고 배포하는 로봇 공장</li>
+<li><strong>실제</strong>: 코드를 푸시하면 자동으로 테스트, 빌드, 배포하는 시스템</li>
+</ul>
+<p><strong>🔹 Pair Programming (짝 프로그래밍)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: 두 명이 한 컴퓨터로 코딩. 한 명은 운전, 한 명은 내비게이션</li>
+<li><strong>실제</strong>: 드라이버(타이핑)와 네비게이터(검토) 역할을 번갈아 하며 개발</li>
+</ul>
+<h3 id="보안-개념">보안 개념 {#보안-개념}</h3>
+<p><strong>🔹 SQL Injection</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: 나쁜 사람이 주문서에 &quot;모든 물건 공짜로 줘&quot;라고 적는 것</li>
+<li><strong>실제</strong>: SQL 쿼리에 악의적인 코드를 삽입하는 공격</li>
+<li><strong>방어</strong>: Prepared Statement, ORM 사용</li>
+</ul>
+<p><strong>🔹 XSS (Cross-Site Scripting)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: 게시판에 &quot;이걸 클릭하면 바이러스!&quot;라는 함정 링크를 남기는 것</li>
+<li><strong>실제</strong>: 웹페이지에 악성 스크립트를 삽입하는 공격</li>
+<li><strong>방어</strong>: HTML 이스케이프, CSP 헤더</li>
+</ul>
+<p><strong>🔹 CSRF (Cross-Site Request Forgery)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: 로그인된 상태에서 나도 모르게 송금하기 버튼이 눌리는 것</li>
+<li><strong>실제</strong>: 사용자가 의도하지 않은 요청을 강제로 실행시키는 공격</li>
+<li><strong>방어</strong>: CSRF 토큰, SameSite 쿠키</li>
+</ul>
+<p><strong>🔹 해싱 (Hashing)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: 문서를 불에 태워서 재만 남기는 것. 재로는 원본을 복원 못 함</li>
+<li><strong>실제</strong>: 원본 데이터를 복호화 불가능한 고정 길이 문자열로 변환</li>
+<li><strong>용도</strong>: 비밀번호 저장 (bcrypt, argon2)</li>
+</ul>
+<h3 id="코드-품질-지표">코드 품질 지표 {#코드-품질-지표}</h3>
+<p><strong>🔹 순환 복잡도 (Cyclomatic Complexity)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: 미로의 갈림길 개수. 갈림길이 많을수록 길을 잃기 쉬움</li>
+<li><strong>실제</strong>: 코드의 독립적인 경로 수 (if, while, for마다 +1)</li>
+<li><strong>목표</strong>: 10 이하</li>
+</ul>
+<p><strong>🔹 코드 커버리지 (Code Coverage)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: 교과서의 몇 %를 공부했는지</li>
+<li><strong>실제</strong>: 테스트가 실행한 코드의 비율</li>
+<li><strong>종류</strong>:<ul>
+<li>Statement Coverage: 실행된 라인 %</li>
+<li>Branch Coverage: 실행된 분기 %</li>
+<li>Function Coverage: 실행된 함수 %</li>
+</ul>
+</li>
+</ul>
+<p><strong>🔹 기술 부채 (Technical Debt)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: &quot;나중에 정리하자&quot;고 방치한 방. 점점 더러워져서 청소하기 힘들어짐</li>
+<li><strong>실제</strong>: 빠른 개발을 위해 품질을 희생한 결과 쌓이는 유지보수 부담</li>
+<li><strong>해결</strong>: 리팩토링, 테스트 추가, 문서화</li>
+</ul>
+<h3 id="아키텍처-패턴">아키텍처 패턴 {#아키텍처-패턴}</h3>
+<p><strong>🔹 MVC (Model-View-Controller)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>:<ul>
+<li>Model: 주방 (데이터 저장/처리)</li>
+<li>View: 손님이 보는 메뉴판 (UI)</li>
+<li>Controller: 웨이터 (중간 조율)</li>
+</ul>
+</li>
+<li><strong>실제</strong>: 데이터, UI, 로직을 분리하는 디자인 패턴</li>
+</ul>
+<p><strong>🔹 Repository 패턴</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: 도서관 사서. 책이 어디 있는지 몰라도 사서에게만 물으면 됨</li>
+<li><strong>실제</strong>: 데이터 접근 로직을 캡슐화하는 패턴</li>
+<li><strong>장점</strong>: DB를 바꿔도 비즈니스 로직은 안 바뀜</li>
+</ul>
+<p><strong>🔹 Dependency Injection (의존성 주입)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: 요리사가 재료를 직접 사오지 않고, 누군가 갖다주는 것</li>
+<li><strong>실제</strong>: 객체가 필요한 의존성을 외부에서 주입받는 패턴</li>
+<li><strong>장점</strong>: 테스트 쉬움, 결합도 낮음</li>
+</ul>
+<h3 id="버전-관리">버전 관리 {#버전-관리}</h3>
+<p><strong>🔹 Semantic Versioning (MAJOR.MINOR.PATCH)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>:<ul>
+<li>MAJOR: 자동차를 전기차로 바꿈 (기존 코드 깨짐)</li>
+<li>MINOR: 선루프 추가 (새 기능)</li>
+<li>PATCH: 타이어 교체 (버그 수정)</li>
+</ul>
+</li>
+<li><strong>예시</strong>: v2.3.5 → v3.0.0 (대규모 변경)</li>
+</ul>
+<p><strong>🔹 Rebase vs Merge</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>:<ul>
+<li>Merge: 두 이야기를 합쳐서 &quot;그리고&quot;로 연결</li>
+<li>Rebase: 내 이야기를 상대방 이야기 다음으로 옮김</li>
+</ul>
+</li>
+<li><strong>실제</strong>: Git에서 브랜치를 합치는 두 가지 방법</li>
+</ul>
+<p><strong>🔹 Cherry-pick</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: 과일 바구니에서 딱 먹고 싶은 것만 골라 담기</li>
+<li><strong>실제</strong>: 특정 커밋만 선택해서 다른 브랜치에 적용</li>
+</ul>
+<h3 id="동시성-개념">동시성 개념 {#동시성-개념}</h3>
+<p><strong>🔹 Race Condition (경쟁 상태)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: 두 명이 동시에 같은 버튼을 눌러서 중복 결제됨</li>
+<li><strong>실제</strong>: 여러 프로세스가 동시에 같은 자원에 접근하여 예상 밖의 결과 발생</li>
+<li><strong>해결</strong>: Lock, Mutex, Semaphore</li>
+</ul>
+<p><strong>🔹 Deadlock (교착 상태)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: A는 B가 내놓길 기다리고, B는 A가 내놓길 기다려서 둘 다 못 움직임</li>
+<li><strong>실제</strong>: 두 개 이상의 프로세스가 서로 자원을 기다려서 멈춘 상태</li>
+</ul>
+<p><strong>🔹 Idempotent (멱등성)</strong></p>
+<ul>
+<li><strong>파인만 설명</strong>: 전등 스위치를 10번 껐다 켜도 결과는 같음 (켜짐)</li>
+<li><strong>실제</strong>: 같은 요청을 여러 번 해도 결과가 같음</li>
+<li><strong>중요한 이유</strong>: 네트워크 오류로 재시도해도 안전</li>
+</ul>
+<hr>
+<h2 id="다음-단계">다음 단계 {#다음-단계}</h2>
+<p><strong>Part 2에서 배운 것:</strong></p>
+<ul>
+<li>✅ 3단계 워크플로우 완전 정복</li>
+<li>✅ TRUST 5원칙 실전 적용</li>
+<li>✅ TAG 시스템 고급 활용</li>
+<li>✅ 언어별 실전 예제 (Python, Java, Flutter)</li>
+<li>✅ 문제 해결 및 디버깅 전략</li>
+<li>✅ 팀 협업 워크플로우</li>
+<li>✅ 고급 팁과 트릭</li>
+</ul>
+<p><strong>더 배우고 싶다면:</strong></p>
+<ul>
+<li><a href="/articles/moai-adk-github.html" class="internal-link">MoAI-ADK 공식 GitHub</a>(<a href="https://github.com/modu-ai/moai-adk">https://github.com/modu-ai/moai-adk</a>)</li>
+<li><a href="/articles/claude-code-advanced-practical.html" class="internal-link">Claude Code 고급 활용법</a></li>
+<li><a href="/articles/tdd.html" class="internal-link">TDD 마스터 클래스</a></li>
+<li><a href="/articles/guide.html" class="internal-link">보안 코딩 가이드</a></li>
+<li><a href="/articles/article.html" class="internal-link">대규모 시스템 아키텍처</a></li>
+</ul>
+<p><strong>커뮤니티 참여:</strong></p>
+<ul>
+<li>GitHub Issues: 버그 리포트, 기능 제안</li>
+<li>GitHub Discussions: 질문, 경험 공유</li>
+<li>Discord: 실시간 도움</li>
+</ul>
+<hr>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/moai-adk-perfect-guide-part-1-basics-getting-started.html" class="internal-link">MoAI-ADK 완벽 가이드 Part 1 - 기초와 시작</a></li>
+<li><a href="/articles/claude-code-practical-guide.html" class="internal-link">Claude Code 활용 가이드</a></li>
+<li><a href="/articles/tdd-real-world.html" class="internal-link">TDD 실전 패턴</a></li>
+<li><a href="/articles/article.html" class="internal-link">코드 리뷰 체크리스트</a></li>
+<li><a href="/articles/article.html" class="internal-link">팀 협업 베스트 프랙티스</a></li>
+</ul>
+<hr>
+<p><strong>📝 노트 작성 정보</strong></p>
+<ul>
+<li>작성 방법: 파인만 기법 + 실전 예제</li>
+<li>대상 독자: 기초를 마친 개발자, 팀 리더</li>
+<li>학습 소요 시간: 약 60-90분</li>
+<li>실습 포함: ✅ (다양한 언어별 예제)</li>
+<li>난이도: 중급~고급</li>
+</ul>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/개발도구.html" class="article-tag">개발도구</a><a href="/tag/MoAI-ADK.html" class="article-tag">MoAI-ADK</a><a href="/tag/Alfred.html" class="article-tag">Alfred</a><a href="/tag/실전가이드.html" class="article-tag">실전가이드</a><a href="/tag/TDD.html" class="article-tag">TDD</a><a href="/tag/워크플로우.html" class="article-tag">워크플로우</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/moai-adk-perfect-guide-part-2-real-world-practical.html&text=MoAI-ADK 완벽 가이드 Part 2 - 실전 활용" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/moai-adk-perfect-guide-part-2-real-world-practical.html&title=MoAI-ADK 완벽 가이드 Part 2 - 실전 활용" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/moai-adk-perfect-guide-part-2-real-world-practical.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

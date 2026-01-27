@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code를 윈도우즈에서 쉽게 설치하기 | AI &amp; Development Journal</title>
+  <meta name="description" content="- Claude Code 사용 준비   - Windows 환경에서 Node.js 18 버전 이상 필수   - Anthropic 계정 및 API 키 (또는 Claude Pro/Max 멤버십)   - 관련 자료 수집: 공식 문서, YouTube 튜토리얼, 커뮤니티 가이드...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude Code를 윈도우즈에서 쉽게 설치하기">
+  <meta property="og:description" content="- Claude Code 사용 준비   - Windows 환경에서 Node.js 18 버전 이상 필수   - Anthropic 계정 및 API 키 (또는 Claude Pro/Max 멤버십)   - 관련 자료 수집: 공식 문서, YouTube 튜토리얼, 커뮤니티 가이드...">
+  <meta property="og:image" content="/assets/images/claude-code-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-install.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Code를 윈도우즈에서 쉽게 설치하기">
+  <meta name="twitter:description" content="- Claude Code 사용 준비   - Windows 환경에서 Node.js 18 버전 이상 필수   - Anthropic 계정 및 API 키 (또는 Claude Pro/Max 멤버십)   - 관련 자료 수집: 공식 문서, YouTube 튜토리얼, 커뮤니티 가이드...">
+  <meta name="twitter:image" content="/assets/images/claude-code-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-install.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/claude-code.html" class="article-category" style="background-color: #ff6b35">
+          Claude Code
+        </a>
+        <h1 class="article-title">Claude Code를 윈도우즈에서 쉽게 설치하기</h1>
+        <div class="article-meta">
+          <a href="/journalist/claude-specialist.html" class="article-author">
+            <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">Claude 전문가</span>
+              <span class="article-author__role">Claude Code Specialist</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 1월 26일">2025년 1월 26일</time>
+            <span class="article-meta__separator">·</span>
+            <span>9 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#준비-사항" class="toc__link">🚀 준비 사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실행-단계" class="toc__link">💡 실행 단계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#claude-code-학습-3단계-이해" class="toc__link">Claude Code 학습 3단계 이해</a>
+    </li>
+    <li class="toc__item">
+      <a href="#주요-내용" class="toc__link">주요 내용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-claude-code로-전체-흐름-파악하기" class="toc__link">1. Claude Code로 전체 흐름 파악하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-핵심-프롬프트-활용으로-깊이-있는-학습" class="toc__link">2. 핵심 프롬프트 활용으로 깊이 있는 학습</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-구현-방법활용법" class="toc__link">3. 구현 방법/활용법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-사례-및-예시" class="toc__link">4. 사례 및 예시</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#5-장단점-분석" class="toc__link">5. 장단점 분석</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#6-향후-전망발전-방향" class="toc__link">6. 향후 전망/발전 방향</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#7-실무-적용점" class="toc__link">7. 실무 적용점</a>
+    </li>
+    <li class="toc__item">
+      <a href="#학습-체크리스트" class="toc__link">학습 체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#필수-준비-사항" class="toc__link">필수 준비 사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기본-학습-단계" class="toc__link">기본 학습 단계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#심화-학습-단계" class="toc__link">심화 학습 단계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실전-프로젝트-단계" class="toc__link">실전 프로젝트 단계</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실습-프로젝트-단계별-가이드" class="toc__link">실습 프로젝트 단계별 가이드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-프롬프트-활용-예시" class="toc__link">핵심 프롬프트 활용 예시</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#무더위쉼터-찾기-사이트-만들기" class="toc__link">무더위쉼터 찾기 사이트 만들기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결-가이드" class="toc__link">문제 해결 가이드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#자주-발생하는-오류" class="toc__link">자주 발생하는 오류</a>
+    </li>
+    <li class="toc__item">
+      <a href="#학습-후-평가-질문" class="toc__link">학습 후 평가 질문</a>
+    </li>
+    <li class="toc__item">
+      <a href="#학습-자료-추천" class="toc__link">학습 자료 추천</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Claude Code를 윈도우즈에서 쉽게 설치하기</h1>
+<h2 id="준비-사항">🚀 준비 사항 {#준비-사항}</h2>
+<ul>
+<li><strong>Claude Code 사용 준비</strong><ul>
+<li>Windows 환경에서 Node.js 18 버전 이상 필수</li>
+<li>Anthropic 계정 및 API 키 (또는 Claude Pro/Max 멤버십)</li>
+<li><strong>관련 자료 수집</strong>: 공식 문서, YouTube 튜토리얼, 커뮤니티 가이드 참고</li>
+<li><strong>실습 환경 준비</strong>: Cursor IDE, GitHub 계정, Netlify 계정</li>
+</ul>
+</li>
+</ul>
+<h2 id="실행-단계">💡 실행 단계 {#실행-단계}</h2>
+<h3 id="claude-code-학습-3단계-이해">Claude Code 학습 3단계 이해 {#claude-code-학습-3단계-이해}</h3>
+<ul>
+<li><strong>1단계: 핵심 개념 및 전체 구조 파악</strong><ul>
+<li>Claude Code의 작동 원리와 기본 명령어 이해</li>
+<li>CLI 도구로서의 장점과 활용 범위 파악</li>
+</ul>
+</li>
+<li><strong>2단계: 다른 AI 코딩 도구와의 공통점과 차이점 이해</strong><ul>
+<li>GitHub Copilot, Cursor AI와의 비교</li>
+<li>Claude Code만의 독특한 기능 (MCP, 파일 시스템 직접 접근)</li>
+</ul>
+</li>
+<li><strong>3단계: 실전 프로젝트로 질문하고 설명하기</strong><ul>
+<li>무더위쉼터 찾기 웹앱 프로젝트 실습</li>
+<li>프롬프트 작성법과 코드 생성 패턴 학습</li>
+</ul>
+</li>
+</ul>
+<h2 id="주요-내용">주요 내용 {#주요-내용}</h2>
+<h3 id="1-claude-code로-전체-흐름-파악하기">1. Claude Code로 전체 흐름 파악하기 {#1-claude-code로-전체-흐름-파악하기}</h3>
+<ul>
+<li><strong>공식 문서 활용</strong><ul>
+<li>Anthropic 공식 문서에서 핵심 용어 확인</li>
+<li>CLI, MCP, API 키 등 기본 개념 이해</li>
+</ul>
+</li>
+<li><strong>YouTube 튜토리얼 활용</strong><ul>
+<li>필로소피 AI 교육 영상으로 전체 흐름 파악</li>
+<li>설치부터 배포까지 전 과정 시청</li>
+</ul>
+</li>
+<li><strong>커뮤니티 가이드 확인</strong><ul>
+<li>GitHub Issues, Discord 등에서 FAQ 확인</li>
+<li>사용자들의 경험과 팁 수집</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-핵심-프롬프트-활용으로-깊이-있는-학습">2. 핵심 프롬프트 활용으로 깊이 있는 학습 {#2-핵심-프롬프트-활용으로-깊이-있는-학습}</h3>
+<ul>
+<li><p><strong>프롬프트 1: &quot;다른 AI 코딩 도구와 달리 Claude Code만의 가장 중요한 기능은 무엇인가요?&quot;</strong></p>
+<ul>
+<li>파일 시스템 직접 접근의 강점 파악</li>
+<li>MCP 서버를 통한 확장성 이해</li>
+<li>Cursor 유료 버전 대체 가능성 탐구</li>
+</ul>
+</li>
+<li><p><strong>프롬프트 2: &quot;Claude Pro 회원과 API 키 사용자의 차이점은 무엇이고, 각각 어떤 장단점이 있나요?&quot;</strong></p>
+<ul>
+<li>비용 효율성 비교</li>
+<li>사용 제한 및 기능 차이 파악</li>
+<li>개인 상황에 맞는 선택 기준 제시</li>
+</ul>
+</li>
+<li><p><strong>프롬프트 3: &quot;이 사이트를 좀 더 세련되게 만들어줘라고 요청했을 때 Claude Code가 어떤 근거로 디자인을 개선하나요?&quot;</strong></p>
+<ul>
+<li>AI의 디자인 개선 로직 이해</li>
+<li>효과적인 프롬프트 작성법</li>
+<li>바이브 코딩의 핵심 원리</li>
+</ul>
+</li>
+<li><p><strong>프롬프트 4: &quot;Claude Code를 비판하는 사람들의 주장과 그 근거는 무엇인가요?&quot;</strong></p>
+<ul>
+<li>CLI 환경의 진입장벽</li>
+<li>API 키 관리의 복잡성</li>
+<li>개선 방향과 대안 탐색</li>
+</ul>
+</li>
+</ul>
+<h3 id="3-구현-방법활용법">3. 구현 방법/활용법 {#3-구현-방법활용법}</h3>
+<h4>Step 1: Node.js 설치하기</h4>
+<ul>
+<li><a href="https://nodejs.org">Node.js 공식 사이트</a>에서 Windows용 설치 파일 다운로드</li>
+<li>LTS(Long Term Support) 버전 권장</li>
+<li>설치 시 &quot;Add to PATH&quot; 옵션 체크 필수</li>
+</ul>
+<h4>Step 2: Claude Code 설치하기</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054524-2737" onclick="copyCode('code-1769481054524-2737')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054524-2737" class="language-bash"># cmd 창에서 실행
+npm install -g @anthropic-ai/claude-code</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+- 전역 설치(-g)로 어디서든 실행 가능
+- 설치 완료 후 'claude' 명령어 사용 가능
+
+<h4>Step 3: Claude Code 실행하기</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054524-2738" onclick="copyCode('code-1769481054524-2738')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054524-2738" class="language-bash"># cmd 창에서 실행
+claude</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+- 처음 실행 시 API 키 입력 필요
+- [Anthropic Console](https://console.anthropic.com)에서 API 키 발급
+
+<h4>Step 4: Cursor에서 Claude 불러오기</h4>
+<ul>
+<li>Cursor IDE에서 Claude Code Extension 설치</li>
+<li>Extensions 메뉴에서 &quot;Claude Code&quot; 검색</li>
+<li>설치 후 설정에서 API 키 입력</li>
+</ul>
+<h4>Step 5: 실전 프로젝트 - 학습앱 만들기</h4>
+<ul>
+<li>HTML, CSS, JavaScript를 활용한 웹앱 개발</li>
+<li>Claude Code로 코드 생성 및 수정</li>
+<li>Netlify를 통한 배포까지 완성</li>
+</ul>
+<h5>영상에서 보여준 Claude Code 활용 팁</h5>
+<ol>
+<li><p><strong>효과적인 프롬프트 사용</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+ <span class="code-block__language">Plain Text</span>
+ <button class="code-block__copy" data-code-id="code-1769481054524-2739" onclick="copyCode('code-1769481054524-2739')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054524-2739" class="language-plaintext">&quot;이 사이트를 좀 더 세련되게 만들어줘&quot;</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+- 간단한 명령으로도 전체적인 디자인 개선 가능
+- Claude Code가 자동으로 폰트, 색상, 레이아웃 개선
+</li>
+<li><p><strong>권한 관리 옵션</strong></p>
+<ul>
+<li><code>1</code>: 개별 파일 수정 승인</li>
+<li><code>2</code>: 모든 변경사항 자동 승인</li>
+<li><code>3</code>: 다른 작업으로 전환</li>
+</ul>
+</li>
+<li><p><strong>바이브 코딩(Vibe Coding) 개념</strong></p>
+<ul>
+<li>AI와 대화하며 실시간으로 코드 작성</li>
+<li>프로그래밍 지식 없이도 웹사이트 제작 가능</li>
+<li>&quot;우리가 만들지 못했던 것들을 만들 수 있는 시대&quot;</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-사례-및-예시">4. 사례 및 예시 {#4-사례-및-예시}</h3>
+<h4>무더위쉼터 찾기 웹앱 프로젝트</h4>
+<ul>
+<li><strong>참고 영상</strong>: <a href="https://youtu.be/ktKhthCeX4U">Claude Code를 활용한 바이브 코딩</a></li>
+<li><strong>제작자</strong>: 필로소피 AI 교육</li>
+<li><strong>영상 길이</strong>: 약 15분</li>
+<li><strong>주요 내용</strong>:<ul>
+<li>Windows에서 Claude Code 설치부터 실제 웹사이트 제작까지 전 과정 시연</li>
+<li>공공데이터포털의 무더위쉼터 정보 활용</li>
+<li>HTML, CSS, JavaScript를 활용한 웹앱 개발</li>
+<li>Cursor IDE와 Claude Code Extension 연동</li>
+<li>GitHub 저장소 생성 및 Netlify 배포</li>
+</ul>
+</li>
+</ul>
+<h5>영상에서 다룬 핵심 내용</h5>
+<ol>
+<li><p><strong>Claude Code 설치 과정</strong></p>
+<ul>
+<li>Anthropic 공식 문서 참조</li>
+<li>Node.js 18버전 이상 필수</li>
+<li>CMD에서 간단한 명령어로 설치</li>
+</ul>
+</li>
+<li><p><strong>Cursor와 Claude Code 통합</strong></p>
+<ul>
+<li>Cursor의 유료 버전 없이도 Claude 유료 회원은 활용 가능</li>
+<li>Claude Code Extension 설치로 편리한 코드 편집</li>
+<li>터미널에서 <code>claude</code> 명령으로 즉시 실행</li>
+</ul>
+</li>
+<li><p><strong>실습 프로젝트: 무더위쉼터 찾기 사이트</strong></p>
+<ul>
+<li>공공데이터포털에서 서울시 무더위쉼터 데이터 활용</li>
+<li>CSV 파일로 20개 쉼터 정보 표시</li>
+<li>Claude Code에 &quot;사이트를 좀 더 세련되게 만들어줘&quot; 명령</li>
+<li>자동으로 UI/UX 개선 및 스타일링 적용</li>
+</ul>
+</li>
+<li><p><strong>배포 프로세스</strong></p>
+<ul>
+<li>4개 파일(HTML, CSS, JS, CSV) GitHub에 업로드</li>
+<li>Netlify와 GitHub 연동</li>
+<li>자동 배포로 즉시 웹사이트 공개</li>
+</ul>
+</li>
+</ol>
+<h5>프로젝트 파일 구조</h5>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054524-2740" onclick="copyCode('code-1769481054524-2740')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054524-2740" class="language-plaintext">shelter-finder/
+├── index.html     # 메인 HTML 파일
+├── style.css      # 스타일링
+├── script.js      # 기능 구현
+└── shelters.csv   # 무더위쉼터 데이터</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="5-장단점-분석">5. 장단점 분석 {#5-장단점-분석}</h3>
+<h4>장점</h4>
+<ul>
+<li>터미널에서 직접 AI와 대화하며 코딩 가능</li>
+<li>파일 시스템 직접 접근으로 빠른 편집</li>
+<li>MCP 서버를 통한 확장 기능</li>
+<li>무료 사용 가능 (API 사용량 제한)</li>
+<li><strong>Cursor 유료 버전 대체 가능</strong>: Claude 유료 회원은 Cursor 유료 기능 대부분 활용</li>
+<li><strong>초보자 친화적</strong>: 영상처럼 간단한 명령어로 전문적인 웹사이트 제작</li>
+</ul>
+<h4>단점</h4>
+<ul>
+<li>명령줄 인터페이스에 익숙하지 않은 사용자 진입장벽</li>
+<li>API 키 관리 필요</li>
+<li>인터넷 연결 필수</li>
+</ul>
+<h3 id="6-향후-전망발전-방향">6. 향후 전망/발전 방향 {#6-향후-전망발전-방향}</h3>
+<ul>
+<li>더 많은 IDE와의 통합 예정</li>
+<li>MCP 생태계 확장으로 더 많은 기능 추가</li>
+<li>로컬 모델 지원 가능성</li>
+</ul>
+<h3 id="7-실무-적용점">7. 실무 적용점 {#7-실무-적용점}</h3>
+<ul>
+<li>빠른 프로토타이핑</li>
+<li>반복적인 코드 작업 자동화</li>
+<li>코드 리뷰 및 디버깅 지원</li>
+<li>학습 도구로 활용</li>
+</ul>
+<h2 id="학습-체크리스트">학습 체크리스트 {#학습-체크리스트}</h2>
+<h3 id="필수-준비-사항">필수 준비 사항 {#필수-준비-사항}</h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Node.js 설치 및 PATH 설정 확인</li>
+<li><input checked="" disabled="" type="checkbox"> Claude Code npm 패키지 전역 설치</li>
+<li><input checked="" disabled="" type="checkbox"> API 키 발급 및 설정 (또는 Claude 계정 연동)</li>
+</ul>
+<h3 id="기본-학습-단계">기본 학습 단계 {#기본-학습-단계}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Claude Code 공식 문서 정독</li>
+<li><input disabled="" type="checkbox"> YouTube 튜토리얼 시청 및 따라하기</li>
+<li><input disabled="" type="checkbox"> 기본 명령어 실습 (<code>claude</code>, <code>claude --help</code>)</li>
+<li><input disabled="" type="checkbox"> 첫 번째 코드 생성 요청하기</li>
+</ul>
+<h3 id="심화-학습-단계">심화 학습 단계 {#심화-학습-단계}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Cursor IDE 설치 및 Claude Code Extension 추가</li>
+<li><input disabled="" type="checkbox"> MCP 서버 개념 이해 및 설치</li>
+<li><input disabled="" type="checkbox"> 프롬프트 최적화 기법 학습</li>
+<li><input disabled="" type="checkbox"> 다른 AI 코딩 도구와 비교 분석</li>
+</ul>
+<h3 id="실전-프로젝트-단계">실전 프로젝트 단계 {#실전-프로젝트-단계}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 공공데이터포털 회원가입 및 API 키 발급</li>
+<li><input disabled="" type="checkbox"> GitHub 계정 생성 및 저장소 설정</li>
+<li><input disabled="" type="checkbox"> Netlify 계정 생성 및 GitHub 연동</li>
+<li><input disabled="" type="checkbox"> 무더위쉼터 찾기 프로젝트 완성</li>
+<li><input disabled="" type="checkbox"> 자신만의 프로젝트 기획 및 구현</li>
+</ul>
+<h2 id="실습-프로젝트-단계별-가이드">실습 프로젝트 단계별 가이드 {#실습-프로젝트-단계별-가이드}</h2>
+<h3 id="핵심-프롬프트-활용-예시">핵심 프롬프트 활용 예시 {#핵심-프롬프트-활용-예시}</h3>
+<h4>초급 프롬프트 (단순 요청)</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054524-2741" onclick="copyCode('code-1769481054524-2741')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054524-2741" class="language-plaintext">&quot;무더위쉼터 정보를 보여주는 웹사이트를 만들어줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+- AI가 기본적인 HTML 구조 생성
+- 단순한 요약으로 끝날 가능성
+
+<h4>중급 프롬프트 (구체적 요구사항)</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054524-2742" onclick="copyCode('code-1769481054524-2742')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054524-2742" class="language-plaintext">&quot;무더위쉼터 CSV 데이터를 읽어서 
+HTML 테이블로 표시하고, 
+검색 기능과 필터링을 추가해줘. 
+반응형 디자인으로 만들어줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+- 구체적인 기능 명시
+- 여러 요구사항 동시 처리
+
+<h4>고급 프롬프트 (차별화된 요청)</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054524-2743" onclick="copyCode('code-1769481054524-2743')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054524-2743" class="language-plaintext">&quot;다른 무더위쉼터 사이트와 달리, 
+우리 사이트만의 독특한 기능을 추가해줘:
+1. 현재 위치에서 가장 가까운 쉼터 표시
+2. 쉼터별 혼잡도 실시간 업데이트
+3. 사용자 리뷰 및 평점 기능&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+- 차별화 포인트 명확히 제시
+- 세부 기능 단계별 설명
+
+<h3 id="무더위쉼터-찾기-사이트-만들기">무더위쉼터 찾기 사이트 만들기 {#무더위쉼터-찾기-사이트-만들기}</h3>
+<ol>
+<li><p><strong>데이터 준비</strong></p>
+<ul>
+<li><a href="https://www.data.go.kr">공공데이터포털</a> 접속</li>
+<li>&quot;무더위쉼터&quot; 검색 후 CSV 다운로드</li>
+<li>필요한 정보만 추출 (이름, 주소, 운영시간 등)</li>
+</ul>
+</li>
+<li><p><strong>기본 파일 생성</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481054524-2744" onclick="copyCode('code-1769481054524-2744')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054524-2744" class="language-bash"># Cursor에서 새 터미널 열기
+claude
+
+<h1>Claude에게 요청</h1>
+<p>&quot;무더위쉼터 정보를 보여주는 웹사이트를 만들어줘. 
+HTML, CSS, JavaScript 파일을 생성하고 CSV 데이터를 읽어서 표시해줘&quot;</code></pre></p>
+</li>
+</ol>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<ol start="3">
+<li><p><strong>디자인 개선</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481054524-2745" onclick="copyCode('code-1769481054524-2745')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054524-2745" class="language-bash">&quot;이 사이트를 좀 더 세련되게 만들어줘. 
+모던한 디자인에 반응형으로 만들고, 검색 기능도 추가해줘&quot;</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+</li>
+<li><p><strong>GitHub 업로드</strong></p>
+<ul>
+<li>새 저장소 생성 (예: shelter-finder)</li>
+<li>4개 파일 업로드</li>
+<li>Commit 후 저장</li>
+</ul>
+</li>
+<li><p><strong>Netlify 배포</strong></p>
+<ul>
+<li>&quot;Import an existing project&quot; 클릭</li>
+<li>GitHub 연동 및 저장소 선택</li>
+<li>Deploy 클릭으로 자동 배포</li>
+</ul>
+</li>
+</ol>
+<h2 id="문제-해결-가이드">문제 해결 가이드 {#문제-해결-가이드}</h2>
+<h3 id="자주-발생하는-오류">자주 발생하는 오류 {#자주-발생하는-오류}</h3>
+<ol>
+<li><p><strong>&#39;claude&#39; is not recognized</strong> </p>
+<ul>
+<li>해결: npm 전역 경로를 PATH에 추가</li>
+</ul>
+</li>
+<li><p><strong>EACCES 권한 오류</strong></p>
+<ul>
+<li>해결: 관리자 권한으로 cmd 실행</li>
+</ul>
+</li>
+<li><p><strong>API 키 인증 실패</strong></p>
+<ul>
+<li>해결: API 키 재발급 및 올바른 입력 확인</li>
+</ul>
+</li>
+</ol>
+<h2 id="학습-후-평가-질문">학습 후 평가 질문 {#학습-후-평가-질문}</h2>
+<ul>
+<li>&quot;내가 만든 사이트에서 가장 중요한 코드 부분은 무엇인가요?&quot;</li>
+<li>&quot;Claude Code가 생성한 코드의 품질을 어떻게 평가하나요?&quot;</li>
+<li>&quot;다른 개발자들은 이 프로젝트를 어떻게 개선할 수 있을까요?&quot;</li>
+</ul>
+<h2 id="학습-자료-추천">학습 자료 추천 {#학습-자료-추천}</h2>
+<ul>
+<li><strong>공식 문서</strong>: <a href="https://docs.anthropic.com/claude-code">Anthropic Claude Code Docs</a></li>
+<li><strong>YouTube 튜토리얼</strong>: 필로소피 AI 교육 채널</li>
+<li><strong>커뮤니티</strong>: GitHub Discussions, Discord Claude 채널</li>
+<li><strong>실습 자료</strong>: 공공데이터포털 API 문서</li>
+</ul>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><strong>상위 개념</strong>: <a href="/articles/claude-code-guide.html" class="internal-link">Claude Code 종합 가이드</a></li>
+<li><strong>하위 세부사항</strong>: <a href="/articles/claude-code-mcp-setup.html" class="internal-link">Claude Code MCP 서버 설정</a></li>
+<li><strong>병렬 주제</strong>: <a href="/articles/beginners-perfect-install.html" class="internal-link">왕초보를 위한 윈도우즈에서 클로드 코드 완벽 설치</a></li>
+<li><strong>실전 활용</strong>: <a href="/articles/claude-code-practical.html" class="internal-link">Claude Code를 활용한 프로젝트 사례집</a></li>
+<li><strong>학습 방법론</strong>: <a href="/articles/notelm-prompt-tips.html" class="internal-link">노트북LM은 이렇게 쓰는 겁니다 (프롬프트 꿀팁 방출)</a></li>
+</ul>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/Claude-Code.html" class="article-tag">Claude-Code</a><a href="/tag/개발도구.html" class="article-tag">개발도구</a><a href="/tag/설치.html" class="article-tag">설치</a><a href="/tag/Windows.html" class="article-tag">Windows</a><a href="/tag/AI코딩.html" class="article-tag">AI코딩</a><a href="/tag/설치가이드.html" class="article-tag">설치가이드</a><a href="/tag/초보자.html" class="article-tag">초보자</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-install.html&text=Claude Code를 윈도우즈에서 쉽게 설치하기" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-install.html&title=Claude Code를 윈도우즈에서 쉽게 설치하기" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-install.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/claude-specialist.html" class="author-bio__card">
+          <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">Claude 전문가</h3>
+            <p class="author-bio__role">Claude Code Specialist</p>
+            <p class="author-bio__text">Claude Code와 AI 코딩 도구 활용법을 연구합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-code-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Code 슬래시 명령어 완전 정복 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Code 슬래시 명령어 완전 정복 가이드</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 실전 중심 가이드 --- Claude에게 미리 정해둔 역할을 로 호출하는 기능입니다. 비유: 스마트폰 단축어처럼, 복잡한 지시를 한 단어로 실행 --- 슬래시 명령어는  파일로 구성되며, 크게 YAML 프론트매터와 본문으로 나뉩니다. --- 목적:...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills-beginners-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 만드는 법: 초보자 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 만드는 법: 초보자 완전 가이드</h3>
+          <p class="article-card__excerpt">이 가이드의 목표: Claude Code를 처음 배우는 초보 개발자도 실제로 작동하는 Claude Skill을 만들 수 있도록 단계별로 설명합니다. 복잡한 개념도 쉬운 말로 풀어 설명하고, 실전 예제로 바로 적용할 수 있게 구성했습니다. --- 1.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">25 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 마스터 학습 경로"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 마스터 학습 경로</h3>
+          <p class="article-card__excerpt">초보자에서 마스터까지: 이 경로를 따라가면 Claude Skill을 완벽하게 만들 수 있습니다. --- --- 읽을 문서: Claude Skills가 뭔가요 (5살 버전) || ClaudeSkills초보자가이드#Claude Skills가 뭔가요 (5살 버전) 배울...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

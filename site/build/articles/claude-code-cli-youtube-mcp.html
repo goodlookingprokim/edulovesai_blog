@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code CLI만으로 YouTube MCP 붙이기 | AI &amp; Development Journal</title>
+  <meta name="description" content="데스크톱 앱은 claudedesktopconfig.json을 고치지만, CLI는  한 줄이면 끝입니다. 설정 범위(scope)만 지정해 주면 별도 JSON 수정이 필요 없습니다. --- | 필수              | 설치 예시                    ...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude Code CLI만으로 YouTube MCP 붙이기">
+  <meta property="og:description" content="데스크톱 앱은 claudedesktopconfig.json을 고치지만, CLI는  한 줄이면 끝입니다. 설정 범위(scope)만 지정해 주면 별도 JSON 수정이 필요 없습니다. --- | 필수              | 설치 예시                    ...">
+  <meta property="og:image" content="/assets/images/mcp-servers-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-cli-youtube-mcp.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Code CLI만으로 YouTube MCP 붙이기">
+  <meta name="twitter:description" content="데스크톱 앱은 claudedesktopconfig.json을 고치지만, CLI는  한 줄이면 끝입니다. 설정 범위(scope)만 지정해 주면 별도 JSON 수정이 필요 없습니다. --- | 필수              | 설치 예시                    ...">
+  <meta name="twitter:image" content="/assets/images/mcp-servers-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-cli-youtube-mcp.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/mcp-servers.html" class="article-category" style="background-color: #10b981">
+          MCP 서버
+        </a>
+        <h1 class="article-title">Claude Code CLI만으로 YouTube MCP 붙이기</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-expert.html" class="article-author">
+            <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 전문가</span>
+              <span class="article-author__role">AI &amp; Development Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 7월 5일">2025년 7월 5일</time>
+            <span class="article-meta__separator">·</span>
+            <span>3 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#핵심-차이" class="toc__link">💡 핵심 차이</a>
+    </li>
+    <li class="toc__item">
+      <a href="#1단계-선행-조건-확인" class="toc__link">1단계: 선행 조건 확인</a>
+    </li>
+    <li class="toc__item">
+      <a href="#2단계-mcp-installer-서버-등록" class="toc__link">2단계: mcp-installer 서버 등록</a>
+    </li>
+    <li class="toc__item">
+      <a href="#3단계-cli-안에서-youtube-mcp-설치시키기" class="toc__link">3단계: CLI 안에서 YouTube MCP 설치시키기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#선택-직접-수동-설치하는-법" class="toc__link">(선택) 직접 수동 설치하는 법</a>
+    </li>
+    <li class="toc__item">
+      <a href="#4단계-동작-테스트" class="toc__link">4단계: 동작 테스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#자주-걸리는-오류-해결" class="toc__link">자주 걸리는 오류 &amp; 해결</a>
+    </li>
+    <li class="toc__item">
+      <a href="#한-줄-정리" class="toc__link">한 줄 정리</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-체크리스트" class="toc__link">구현 체크리스트</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Claude Code CLI만으로 YouTube MCP 붙이기</h1>
+<h2 id="핵심-차이">💡 핵심 차이 {#핵심-차이}</h2>
+<p>데스크톱 앱은 claude_desktop_config.json을 고치지만, CLI는 <code>claude mcp add …</code> 한 줄이면 끝입니다. 설정 범위(scope)만 지정해 주면 별도 JSON 수정이 필요 없습니다.</p>
+<hr>
+<h2 id="1단계-선행-조건-확인">1단계: 선행 조건 확인 {#1단계-선행-조건-확인}</h2>
+<table>
+<thead>
+<tr>
+<th>필수</th>
+<th>설치 예시</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Node ≥ 18 + npx</td>
+<td><code>brew install node</code> / <code>choco install nodejs</code></td>
+</tr>
+<tr>
+<td>uv(Python MCP용)</td>
+<td><code>pip install uv</code></td>
+</tr>
+<tr>
+<td>yt-dlp(자막 다운로드)</td>
+<td><code>brew install yt-dlp</code> / <code>pip install -U yt-dlp</code></td>
+</tr>
+</tbody></table>
+<p>mcp-installer가 &quot;npx · uv 필수&quot;라고 명시합니다.</p>
+<hr>
+<h2 id="2단계-mcp-installer-서버-등록">2단계: mcp-installer 서버 등록 {#2단계-mcp-installer-서버-등록}</h2>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054301-1740" onclick="copyCode('code-1769481054301-1740')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054301-1740" class="language-bash"># 전역(user) 범위로 등록 ─ 모든 프로젝트에서 재사용
+claude mcp add mcp-installer -s user -- npx -y @anaisbetts/mcp-installer</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<ul>
+<li><code>-s user</code>: 내 계정 전역 (프로젝트마다 따로 쓰려면 <code>-s local</code>, 팀 공유는 <code>-s project</code>)</li>
+<li><code>--</code> 뒤에는 실제 실행 커맨드를 그대로 적습니다.</li>
+</ul>
+<p><strong>확인</strong>: <code>claude mcp list</code> → mcp-installer가 떠 있으면 성공.</p>
+<hr>
+<h2 id="3단계-cli-안에서-youtube-mcp-설치시키기">3단계: CLI 안에서 YouTube MCP 설치시키기 {#3단계-cli-안에서-youtube-mcp-설치시키기}</h2>
+<p>이제 Claude REPL 프롬프트에 자연어로 한 마디면 됩니다.</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054301-1741" onclick="copyCode('code-1769481054301-1741')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054301-1741" class="language-plaintext">Hey Claude, install the server @anaisbetts/mcp-youtube</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p>mcp-installer가 npm/PyPI에서 받아 CLI에 자동 등록합니다.</p>
+<p>첫 실행 뒤 <code>/mcp</code> 명령으로 연결 상태를 확인해 보세요.</p>
+<hr>
+<h2 id="선택-직접-수동-설치하는-법">(선택) 직접 수동 설치하는 법 {#선택-직접-수동-설치하는-법}</h2>
+<p>mcp-installer 없이 바로 붙이고 싶다면:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054301-1742" onclick="copyCode('code-1769481054301-1742')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054301-1742" class="language-bash"># 1) 서버 패키지 설치
+uv tool install git+https://github.com/anaisbetts/mcp-youtube   # 또는 다른 포크
+
+<h1>2) Claude에 등록</h1>
+<p>claude mcp add mcp-youtube -s user -- mcp-youtube</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<p>uv tool … 방식은 공식 README가 안내합니다.</p>
+<hr>
+<h2 id="4단계-동작-테스트">4단계: 동작 테스트 {#4단계-동작-테스트}</h2>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054301-1743" onclick="copyCode('code-1769481054301-1743')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054301-1743" class="language-bash"># Claude REPL 예시
+Summarize the YouTube video https://www.youtube.com/watch?v=dQw4w9WgXcQ</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<ul>
+<li>처음 요청 시 yt-dlp가 자막을 내려받고 Claude가 요약을 반환하면 성공입니다.</li>
+</ul>
+<hr>
+<h2>자주 걸리는 오류 &amp; 해결 {#자주-걸리는-오류-해결}</h2>
+<table>
+<thead>
+<tr>
+<th>증상</th>
+<th>대응</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>npx: command not found</code></td>
+<td>Node PATH 누락 → 터미널 재시작 or 재설치</td>
+</tr>
+<tr>
+<td><code>uv: command not found</code></td>
+<td><code>pip install uv</code> 후 다시 시도</td>
+</tr>
+<tr>
+<td><code>yt-dlp … not found</code></td>
+<td>yt-dlp 설치 또는 PATH 확인</td>
+</tr>
+<tr>
+<td><code>Could not connect to MCP server …</code></td>
+<td><code>claude mcp list</code>로 상태 확인 → 포트 충돌·방화벽 체크</td>
+</tr>
+<tr>
+<td>CLI 응답이 &quot;Unknown MCP server&quot;</td>
+<td>이름 오타, mcp add 스코프 확인, REPL 재시작</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="한-줄-정리">한 줄 정리 {#한-줄-정리}</h2>
+<ol>
+<li><code>claude mcp add mcp-installer …</code> 로 CLI에 설치기 등록</li>
+<li>REPL에서 &quot;install @anaisbetts/mcp-youtube&quot; 라고 말한다</li>
+<li>yt-dlp만 깔려 있으면 바로 YouTube 요약 프롬프트 사용 가능!</li>
+</ol>
+<hr>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/mcp-automation.html" class="internal-link">MCP 및 자동화</a></li>
+<li><a href="/articles/claude-code-practical-obsidian-vault-automation.html" class="internal-link">Claude Code를 활용한 Obsidian Vault 자동화 및 제어</a></li>
+<li><a href="/articles/mcp-practical.html" class="internal-link">인기있는 MCP 서버 및 활용사례</a></li>
+</ul>
+<h2 id="구현-체크리스트">구현 체크리스트 {#구현-체크리스트}</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> 선행 조건 확인 (Node.js, uv, yt-dlp)</li>
+<li><input checked="" disabled="" type="checkbox"> mcp-installer 서버 등록</li>
+<li><input checked="" disabled="" type="checkbox"> YouTube MCP 설치 과정 정리</li>
+<li><input checked="" disabled="" type="checkbox"> 동작 테스트 방법 설명</li>
+<li><input checked="" disabled="" type="checkbox"> 트러블슈팅 가이드 제공</li>
+</ul>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/Claude-Code.html" class="article-tag">Claude-Code</a><a href="/tag/MCP.html" class="article-tag">MCP</a><a href="/tag/YouTube.html" class="article-tag">YouTube</a><a href="/tag/설치가이드.html" class="article-tag">설치가이드</a><a href="/tag/자동화.html" class="article-tag">자동화</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-cli-youtube-mcp.html&text=Claude Code CLI만으로 YouTube MCP 붙이기" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-cli-youtube-mcp.html&title=Claude Code CLI만으로 YouTube MCP 붙이기" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-cli-youtube-mcp.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-expert.html" class="author-bio__card">
+          <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 전문가</h3>
+            <p class="author-bio__role">AI &amp; Development Writer</p>
+            <p class="author-bio__text">AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/google-search-console-mcp-server-beginners-perfect-guide-part-1.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/mcp-servers-placeholder.svg"
+             alt="Google Search Console MCP Server 초보자 완벽 가이드 (Part 1)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #10b981">
+          MCP 서버
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Google Search Console MCP Server 초보자 완벽 가이드 (Part 1)</h3>
+          <p class="article-card__excerpt">이 가이드는 누구를 위한 것인가요? - 프로그래밍을 이제 막 시작한 초보 개발자 - 웹사이트 SEO(검색 엔진 최적화)에 관심 있는 분 - Claude Code나 AI 도구를 활용해 자동화를 배우고 싶은 분 - Google Search Console API를 처음...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">20 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/google-search-console-mcp-server-beginners-perfect-guide-part-2.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/mcp-servers-placeholder.svg"
+             alt="Google Search Console MCP Server 초보자 완벽 가이드 (Part 2)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #10b981">
+          MCP 서버
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Google Search Console MCP Server 초보자 완벽 가이드 (Part 2)</h3>
+          <p class="article-card__excerpt">Part 2에서 배울 내용 - Google Cloud Platform 설정하기 (스크린샷처럼 자세하게!) - OAuth 인증 완벽 이해하기 - MCP Server 설치 및 설정하기 - 3단계 실전 예제 (초급 → 중급 → 고급) - 문제 해결 완전 정복 --- 1. ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">50 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/beginners-development-mcp-perfect-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/mcp-servers-placeholder.svg"
+             alt="초보 개발자를 위한 MCP 서버 완벽 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #10b981">
+          MCP 서버
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">초보 개발자를 위한 MCP 서버 완벽 가이드</h3>
+          <p class="article-card__excerpt">💡 이 노트는 누구를 위한 것인가요? 프론트엔드 개발을 시작한 지 얼마 안 된 분들, AI 도구를 개발에 활용하고 싶은 분들을 위한 쉽고 친절한 MCP 입문 가이드입니다! --- 1.  || #MCP가 뭔가요? - 일상 비유로 이해하기 2.  || #왜 MCP를...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">21 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

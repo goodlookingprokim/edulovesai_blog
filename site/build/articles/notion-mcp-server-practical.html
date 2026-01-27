@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notion MCP Server 활용 사례집 | AI &amp; Development Journal</title>
+  <meta name="description" content="- 핵심 주제: Claude Code와 Notion MCP Server 연동을 통한 Notion 자동화 - 목적: Notion 데이터베이스와 페이지를 Claude Code로 자동 관리하는 방법 - 범위: 설치부터 고급 활용 사례까지 완전 가이드 1.  ||...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Notion MCP Server 활용 사례집">
+  <meta property="og:description" content="- 핵심 주제: Claude Code와 Notion MCP Server 연동을 통한 Notion 자동화 - 목적: Notion 데이터베이스와 페이지를 Claude Code로 자동 관리하는 방법 - 범위: 설치부터 고급 활용 사례까지 완전 가이드 1.  ||...">
+  <meta property="og:image" content="/assets/images/mcp-servers-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/notion-mcp-server-practical.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Notion MCP Server 활용 사례집">
+  <meta name="twitter:description" content="- 핵심 주제: Claude Code와 Notion MCP Server 연동을 통한 Notion 자동화 - 목적: Notion 데이터베이스와 페이지를 Claude Code로 자동 관리하는 방법 - 범위: 설치부터 고급 활용 사례까지 완전 가이드 1.  ||...">
+  <meta name="twitter:image" content="/assets/images/mcp-servers-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/notion-mcp-server-practical.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/mcp-servers.html" class="article-category" style="background-color: #10b981">
+          MCP 서버
+        </a>
+        <h1 class="article-title">Notion MCP Server 활용 사례집</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-expert.html" class="article-author">
+            <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 전문가</span>
+              <span class="article-author__role">AI &amp; Development Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 6월 13일">2025년 6월 13일</time>
+            <span class="article-meta__separator">·</span>
+            <span>16 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#notion-mcp-server란" class="toc__link">Notion MCP Server란</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-개념" class="toc__link">핵심 개념</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#지원하는-notion-기능" class="toc__link">지원하는 Notion 기능</a>
+    </li>
+    <li class="toc__item">
+      <a href="#사전-준비사항" class="toc__link">사전 준비사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시스템-요구사항" class="toc__link">시스템 요구사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중요한-참고사항" class="toc__link">중요한 참고사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#notion-워크스페이스-준비" class="toc__link">Notion 워크스페이스 준비</a>
+    </li>
+    <li class="toc__item">
+      <a href="#notion-api-설정" class="toc__link">Notion API 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-notion-integration-생성" class="toc__link">1. Notion Integration 생성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-페이지데이터베이스-권한-부여" class="toc__link">2. 페이지/데이터베이스 권한 부여</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-데이터베이스-id-확인" class="toc__link">3. 데이터베이스 ID 확인</a>
+    </li>
+    <li class="toc__item">
+      <a href="#mcp-server-설치-및-설정" class="toc__link">MCP Server 설치 및 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#사용-가능한-notion-mcp-server-옵션" class="toc__link">사용 가능한 Notion MCP Server 옵션</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#claude-code-설정-파일-구성" class="toc__link">Claude Code 설정 파일 구성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#설정-검증-및-테스트" class="toc__link">설정 검증 및 테스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-설정-옵션" class="toc__link">고급 설정 옵션</a>
+    </li>
+    <li class="toc__item">
+      <a href="#기본-활용-사례" class="toc__link">기본 활용 사례</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#사례-1-새-프로젝트-페이지-생성" class="toc__link">사례 1: 새 프로젝트 페이지 생성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#사례-2-일일-작업-목록-자동-생성" class="toc__link">사례 2: 일일 작업 목록 자동 생성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#사례-3-회의록-템플릿-생성" class="toc__link">사례 3: 회의록 템플릿 생성</a>
+    </li>
+    <li class="toc__item">
+      <a href="#고급-활용-사례" class="toc__link">고급 활용 사례</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#사례-4-프로젝트-진행-상황-대시보드-생성" class="toc__link">사례 4: 프로젝트 진행 상황 대시보드 생성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#사례-5-지식-베이스-자동-정리" class="toc__link">사례 5: 지식 베이스 자동 정리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#사례-6-반복-작업-자동화" class="toc__link">사례 6: 반복 작업 자동화</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실전-워크플로우" class="toc__link">실전 워크플로우</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-1-콘텐츠-제작-파이프라인" class="toc__link">워크플로우 1: 콘텐츠 제작 파이프라인</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-2-학습-관리-시스템" class="toc__link">워크플로우 2: 학습 관리 시스템</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-3-팀-협업-관리" class="toc__link">워크플로우 3: 팀 협업 관리</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결" class="toc__link">문제 해결</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#일반적인-오류와-해결책" class="toc__link">일반적인 오류와 해결책</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#성능-최적화-팁" class="toc__link">성능 최적화 팁</a>
+    </li>
+    <li class="toc__item">
+      <a href="#보안-및-권한-관리" class="toc__link">보안 및 권한 관리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#api-토큰-보안" class="toc__link">API 토큰 보안</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#권한-최소화-원칙" class="toc__link">권한 최소화 원칙</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#데이터-백업-전략" class="toc__link">데이터 백업 전략</a>
+    </li>
+    <li class="toc__item">
+      <a href="#고급-설정-및-커스터마이징" class="toc__link">고급 설정 및 커스터마이징</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-커스텀-템플릿-생성" class="toc__link">1. 커스텀 템플릿 생성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-자동화-스크립트" class="toc__link">2. 자동화 스크립트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-웹훅-연동-고급" class="toc__link">3. 웹훅 연동 (고급)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-체크리스트" class="toc__link">구현 체크리스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#참고-자료-및-확장" class="toc__link">참고 자료 및 확장</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#유용한-리소스" class="toc__link">유용한 리소스</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#관련-mcp-server" class="toc__link">관련 MCP Server</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Notion MCP Server 활용 사례집</h1>
+<h2 id="개요">개요 {#개요}</h2>
+<ul>
+<li><strong>핵심 주제</strong>: Claude Code와 Notion MCP Server 연동을 통한 Notion 자동화</li>
+<li><strong>목적</strong>: Notion 데이터베이스와 페이지를 Claude Code로 자동 관리하는 방법</li>
+<li><strong>범위</strong>: 설치부터 고급 활용 사례까지 완전 가이드</li>
+</ul>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#notion-mcp-server란" class="internal-link internal-link--section">Notion MCP Server란</a></li>
+<li><a href="#사전-준비사항" class="internal-link internal-link--section">사전 준비사항</a></li>
+<li><a href="#notion-api-설정" class="internal-link internal-link--section">Notion API 설정</a></li>
+<li><a href="#mcp-server-설치-및-설정" class="internal-link internal-link--section">MCP Server 설치 및 설정</a></li>
+<li><a href="#claude-code-연동-설정" class="internal-link internal-link--section">Claude Code 연동 설정</a></li>
+<li><a href="#기본-활용-사례" class="internal-link internal-link--section">기본 활용 사례</a></li>
+<li><a href="#고급-활용-사례" class="internal-link internal-link--section">고급 활용 사례</a></li>
+<li><a href="#실전-워크플로우" class="internal-link internal-link--section">실전 워크플로우</a></li>
+<li><a href="#문제-해결" class="internal-link internal-link--section">문제 해결</a></li>
+<li><a href="#보안-및-권한-관리" class="internal-link internal-link--section">보안 및 권한 관리</a></li>
+</ol>
+<h2 id="notion-mcp-server란">Notion MCP Server란 {#notion-mcp-server란}</h2>
+<h3 id="핵심-개념">핵심 개념 {#핵심-개념}</h3>
+<ul>
+<li><strong>MCP (Model Context Protocol)</strong>: AI 모델이 외부 도구와 상호작용할 수 있게 하는 프로토콜</li>
+<li><strong>Notion MCP Server</strong>: Notion API를 MCP 프로토콜로 감싸 Claude가 Notion과 직접 상호작용할 수 있게 하는 서버</li>
+<li><strong>주요 기능</strong>: 페이지 생성/수정/삭제, 데이터베이스 쿼리, 블록 조작</li>
+</ul>
+<h3 id="지원하는-notion-기능">지원하는 Notion 기능 {#지원하는-notion-기능}</h3>
+<ul>
+<li>✅ 페이지 생성, 읽기, 업데이트</li>
+<li>✅ 데이터베이스 쿼리 및 필터링</li>
+<li>✅ 블록 생성 및 수정 (텍스트, 헤딩, 리스트 등)</li>
+<li>✅ 속성 관리 (제목, 태그, 날짜, 체크박스 등)</li>
+<li>✅ 관계형 데이터베이스 연결</li>
+<li>✅ 템플릿 기반 페이지 생성</li>
+</ul>
+<h2 id="사전-준비사항">사전 준비사항 {#사전-준비사항}</h2>
+<h3 id="시스템-요구사항">시스템 요구사항 {#시스템-요구사항}</h3>
+<ul>
+<li><strong>Claude Desktop</strong>: 공식 Claude Desktop 앱 설치 및 실행</li>
+<li><strong>Claude Code CLI</strong>: 옵션사항 (명령줄 인터페이스 선호 시)</li>
+<li><strong>Node.js</strong>: 18.0+ 버전 설치</li>
+<li><strong>Notion 계정</strong>: 개인 또는 팀 워크스페이스</li>
+<li><strong>관리자 권한</strong>: Integration 만들기 및 연결 권한</li>
+</ul>
+<h3 id="중요한-참고사항">중요한 참고사항 {#중요한-참고사항}</h3>
+<ul>
+<li><strong>Claude Desktop vs CLI</strong>: MCP 서버는 주로 Claude Desktop에서 사용</li>
+<li><strong>보안 고려사항</strong>: Notion API는 생성/수정 권한이 있으므로 주의 필요</li>
+<li><strong>데이터 리스크</strong>: 이미지, 링크, 테이블 등이 일부 손실될 수 있음</li>
+</ul>
+<h3 id="notion-워크스페이스-준비">Notion 워크스페이스 준비 {#notion-워크스페이스-준비}</h3>
+<ol>
+<li><strong>테스트용 워크스페이스</strong> 생성 (강력 추천)</li>
+<li><strong>샘플 데이터베이스</strong> 준비:<ul>
+<li>프로젝트 관리 DB (제목, 상태, 우선순위, 날짜)</li>
+<li>할일 관리 DB (작업, 체크박스, 카테고리)</li>
+<li>지식 베이스 DB (개념, 태그, 참조)</li>
+</ul>
+</li>
+<li><strong>백업 준비</strong>: 중요한 데이터는 사전 백업</li>
+</ol>
+<h2 id="notion-api-설정">Notion API 설정 {#notion-api-설정}</h2>
+<h3 id="1-notion-integration-생성">1. Notion Integration 생성 {#1-notion-integration-생성}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1774" onclick="copyCode('code-1769481054307-1774')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1774" class="language-plaintext">1. https://www.notion.so/my-integrations 방문
+2. &quot;New integration&quot; 클릭
+3. 기본 정보 입력:
+   - Name: &quot;Claude Code MCP&quot;
+   - Associated workspace: 원하는 워크스페이스 선택
+   - Type: Internal
+4. Capabilities 설정:
+   - Read content: ✅
+   - Update content: ✅
+   - Insert content: ✅
+5. &quot;Submit&quot; 클릭
+6. Internal Integration Token 복사 (중요!)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div>
+</div>
+
+<h3 id="2-페이지데이터베이스-권한-부여">2. 페이지/데이터베이스 권한 부여 {#2-페이지데이터베이스-권한-부여}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1775" onclick="copyCode('code-1769481054307-1775')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1775" class="language-plaintext">각 Notion 페이지/데이터베이스에서:
+1. 우측 상단 &quot;...&quot; 메뉴 클릭
+2. &quot;Add connections&quot; 선택
+3. 생성한 Integration 선택
+4. &quot;Confirm&quot; 클릭</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="3-데이터베이스-id-확인">3. 데이터베이스 ID 확인 {#3-데이터베이스-id-확인}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1776" onclick="copyCode('code-1769481054307-1776')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1776" class="language-plaintext">데이터베이스 URL에서 ID 추출:
+https://notion.so/workspace/DATABASE_ID?v=VIEW_ID
+                          ↑ 이 부분이 DATABASE_ID</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h2 id="mcp-server-설치-및-설정">MCP Server 설치 및 설정 {#mcp-server-설치-및-설정}</h2>
+<h3 id="사용-가능한-notion-mcp-server-옵션">사용 가능한 Notion MCP Server 옵션 {#사용-가능한-notion-mcp-server-옵션}</h3>
+<h4>1. 공식 Notion MCP Server (권장)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1777" onclick="copyCode('code-1769481054307-1777')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1777" class="language-bash"># Smithery를 통한 자동 설치 (가장 쉬운 방법)
+npx -y @smithery/cli install @makenotion/notion-mcp-server --client claude</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>2. 커뮤니티 서버</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1778" onclick="copyCode('code-1769481054307-1778')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1778" class="language-bash"># 수동 설치 방법
+npx -y @suekou/mcp-notion-server</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h3 id="claude-code-설정-파일-구성">Claude Code 설정 파일 구성 {#claude-code-설정-파일-구성}</h3>
+<h4>1. 설정 파일 위치 확인</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1779" onclick="copyCode('code-1769481054307-1779')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1779" class="language-bash"># macOS에서 Claude Desktop 설정 파일 위치
+~/.config/claude-desktop/claude_desktop_config.json
+
+<h1>또는 Claude Code CLI 설정 (CLI 전용)</h1>
+<p>~/.claude/config.json</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>2. 설정 파일 생성 및 편집</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1780" onclick="copyCode('code-1769481054307-1780')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1780" class="language-bash"># 설정 디렉토리 생성
+mkdir -p ~/.config/claude-desktop
+
+<h1>설정 파일 생성</h1>
+<p>touch ~/.config/claude-desktop/claude_desktop_config.json</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>3. MCP Server 설정 추가</h4>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1781" onclick="copyCode('code-1769481054307-1781')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1781" class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;notion&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@makenotion/notion-mcp-server&quot;],
+      &quot;env&quot;: {
+        &quot;NOTION_API_TOKEN&quot;: &quot;your-notion-integration-token&quot;
+      }
+    }
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div>
+</div>
+
+<p><strong>주요 변경사항:</strong></p>
+<ul>
+<li>환경 변수명: <code>NOTION_API_KEY</code> → <code>NOTION_API_TOKEN</code></li>
+<li>공식 서버 패키지: <code>@makenotion/notion-mcp-server</code></li>
+<li>npx 실행 시 <code>-y</code> 플래그 추가</li>
+</ul>
+<h4>4. 대체 설정 (커뮤니티 서버 사용 시)</h4>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1782" onclick="copyCode('code-1769481054307-1782')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1782" class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;notion&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@suekou/mcp-notion-server&quot;],
+      &quot;env&quot;: {
+        &quot;NOTION_API_TOKEN&quot;: &quot;your-notion-integration-token&quot;
+      }
+    }
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div>
+</div>
+
+<h3 id="설정-검증-및-테스트">설정 검증 및 테스트 {#설정-검증-및-테스트}</h3>
+<h4>1. Claude Desktop 재시작</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1783" onclick="copyCode('code-1769481054307-1783')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1783" class="language-bash"># Claude Desktop 완전 종료 후 재시작
+# macOS: Cmd+Q로 완전 종료 후 재실행</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>2. 연결 상태 확인</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1784" onclick="copyCode('code-1769481054307-1784')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1784" class="language-bash"># Claude Code CLI에서 확인
+claude
+
+<h1>성공 시 로그 메시지:</h1>
+<h1>&quot;🔗 Connected to MCP servers: notion&quot;</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h4>3. 기본 테스트</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1785" onclick="copyCode('code-1769481054307-1785')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1785" class="language-plaintext"># Claude Desktop에서 다음과 같이 요청:
+&quot;내 Notion 워크스페이스에서 사용 가능한 데이터베이스 목록을 보여줘&quot;
+
+<h1>또는</h1>
+<p>&quot;Notion에 &#39;테스트 페이지&#39; 제목으로 간단한 테스트 페이지를 생성해줘&quot;</p>
+<h1>성공 예상 결과:</h1>
+<ul>
+<li>연결된 데이터베이스 목록 표시</li>
+<li>새 페이지 생성 성공 메시지</li>
+<li>Notion에서 실제 페이지 확인 가능</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">8 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="고급-설정-옵션">고급 설정 옵션 {#고급-설정-옵션}</h3>
+<h4>읽기 전용 모드 설정</h4>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1786" onclick="copyCode('code-1769481054307-1786')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1786" class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;notion-readonly&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@makenotion/notion-mcp-server&quot;, &quot;--readonly&quot;],
+      &quot;env&quot;: {
+        &quot;NOTION_API_TOKEN&quot;: &quot;your-readonly-token&quot;
+      }
+    }
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div>
+</div>
+
+<h4>여러 MCP 서버 동시 사용</h4>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1787" onclick="copyCode('code-1769481054307-1787')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1787" class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;notion&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@makenotion/notion-mcp-server&quot;],
+      &quot;env&quot;: {
+        &quot;NOTION_API_TOKEN&quot;: &quot;your-token&quot;
+      }
+    },
+    &quot;github&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@modelcontextprotocol/server-github&quot;],
+      &quot;env&quot;: {
+        &quot;GITHUB_PERSONAL_ACCESS_TOKEN&quot;: &quot;your-github-token&quot;
+      }
+    }
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">18 lines</span>
+  </div>
+</div>
+
+<h2 id="기본-활용-사례">기본 활용 사례 {#기본-활용-사례}</h2>
+<h3 id="사례-1-새-프로젝트-페이지-생성">사례 1: 새 프로젝트 페이지 생성 {#사례-1-새-프로젝트-페이지-생성}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1788" onclick="copyCode('code-1769481054307-1788')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1788" class="language-plaintext">프롬프트:
+&quot;Notion의 &#39;프로젝트 관리&#39; 데이터베이스에 새 프로젝트를 생성해줘. 
+제목: &#39;Claude Code 자동화 구축&#39;
+상태: 진행중
+우선순위: 높음
+시작일: 오늘
+담당자: 본인&quot;
+
+<p>Claude의 작업:</p>
+<ol>
+<li>데이터베이스 구조 파악</li>
+<li>새 페이지 생성</li>
+<li>속성 값 설정</li>
+<li>템플릿 콘텐츠 추가</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">12 lines</span>
+  </div>
+</div></li>
+</ol>
+<h3 id="사례-2-일일-작업-목록-자동-생성">사례 2: 일일 작업 목록 자동 생성 {#사례-2-일일-작업-목록-자동-생성}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1789" onclick="copyCode('code-1769481054307-1789')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1789" class="language-plaintext">프롬프트:
+&quot;오늘 날짜로 일일 작업 목록 페이지를 생성하고, 
+진행중인 프로젝트에서 오늘 해야 할 작업들을 정리해줘&quot;
+
+<p>Claude의 작업:</p>
+<ol>
+<li>날짜 기반 페이지 생성</li>
+<li>진행중 프로젝트 쿼리</li>
+<li>우선순위별 작업 정렬</li>
+<li>체크리스트 형태로 정리</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">8 lines</span>
+  </div>
+</div></li>
+</ol>
+<h3 id="사례-3-회의록-템플릿-생성">사례 3: 회의록 템플릿 생성 {#사례-3-회의록-템플릿-생성}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1790" onclick="copyCode('code-1769481054307-1790')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1790" class="language-plaintext">프롬프트:
+&quot;&#39;팀 미팅 2025-06-13&#39; 제목으로 회의록 페이지를 생성하고,
+표준 회의록 템플릿을 적용해줘&quot;
+
+<p>생성되는 구조:</p>
+<ul>
+<li>회의 기본정보 (날짜, 참석자, 아젠다)</li>
+<li>논의사항 섹션</li>
+<li>결정사항 섹션  </li>
+<li>액션 아이템 섹션</li>
+<li>다음 회의 일정</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">9 lines</span>
+</div>
+</div></li>
+</ul>
+<h2 id="고급-활용-사례">고급 활용 사례 {#고급-활용-사례}</h2>
+<h3 id="사례-4-프로젝트-진행-상황-대시보드-생성">사례 4: 프로젝트 진행 상황 대시보드 생성 {#사례-4-프로젝트-진행-상황-대시보드-생성}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1791" onclick="copyCode('code-1769481054307-1791')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1791" class="language-plaintext">프롬프트:
+&quot;현재 진행중인 모든 프로젝트의 상태를 분석하고,
+주간 리포트 페이지를 생성해줘&quot;
+
+<p>Claude의 고급 작업:</p>
+<ol>
+<li>여러 데이터베이스 크로스 쿼리</li>
+<li>진행률 계산 및 분석</li>
+<li>지연 프로젝트 식별</li>
+<li>시각적 진행 상황 표시</li>
+<li>다음 주 우선순위 제안</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">9 lines</span>
+  </div>
+</div></li>
+</ol>
+<h3 id="사례-5-지식-베이스-자동-정리">사례 5: 지식 베이스 자동 정리 {#사례-5-지식-베이스-자동-정리}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1792" onclick="copyCode('code-1769481054307-1792')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1792" class="language-plaintext">프롬프트:
+&quot;지난 한 달간 생성된 모든 학습 노트를 주제별로 분류하고,
+카테고리별 인덱스 페이지를 생성해줘&quot;
+
+<p>자동화 과정:</p>
+<ol>
+<li>날짜 범위 필터링</li>
+<li>태그 및 제목 기반 분류</li>
+<li>관련 노트 간 링크 생성</li>
+<li>카테고리별 요약 생성</li>
+<li>마스터 인덱스 업데이트</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">9 lines</span>
+  </div>
+</div></li>
+</ol>
+<h3 id="사례-6-반복-작업-자동화">사례 6: 반복 작업 자동화 {#사례-6-반복-작업-자동화}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1793" onclick="copyCode('code-1769481054307-1793')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1793" class="language-plaintext">프롬프트:
+&quot;매주 월요일마다 실행할 주간 계획 템플릿을 생성하고,
+지난 주 완료 작업을 자동으로 아카이빙해줘&quot;
+
+<p>자동화 워크플로우:</p>
+<ol>
+<li>이전 주 완료 작업 식별</li>
+<li>아카이브 데이터베이스로 이동</li>
+<li>새 주간 계획 페이지 생성</li>
+<li>미완료 작업 자동 이월</li>
+<li>우선순위 재조정</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">9 lines</span>
+  </div>
+</div></li>
+</ol>
+<h2 id="실전-워크플로우">실전 워크플로우 {#실전-워크플로우}</h2>
+<h3 id="워크플로우-1-콘텐츠-제작-파이프라인">워크플로우 1: 콘텐츠 제작 파이프라인 {#워크플로우-1-콘텐츠-제작-파이프라인}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1794" onclick="copyCode('code-1769481054307-1794')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1794" class="language-bash"># 1단계: 아이디어 수집
+&quot;브레인스토밍 세션 결과를 &#39;콘텐츠 아이디어&#39; DB에 정리해줘&quot;
+
+<h1>2단계: 콘텐츠 기획</h1>
+<p>&quot;선택된 아이디어로 상세 콘텐츠 기획안을 작성해줘&quot;</p>
+<h1>3단계: 제작 일정 관리</h1>
+<p>&quot;기획안을 바탕으로 제작 일정을 프로젝트 DB에 등록해줘&quot;</p>
+<h1>4단계: 진행 상황 추적</h1>
+<p>&quot;콘텐츠 제작 진행 상황을 주간 리포트에 정리해줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h3 id="워크플로우-2-학습-관리-시스템">워크플로우 2: 학습 관리 시스템 {#워크플로우-2-학습-관리-시스템}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1795" onclick="copyCode('code-1769481054307-1795')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1795" class="language-bash"># 학습 계획 생성
+&quot;이번 달 학습 목표를 바탕으로 주별 학습 계획을 세워줘&quot;
+
+<h1>학습 노트 정리</h1>
+<p>&quot;오늘 학습한 내용을 구조화해서 지식베이스에 저장해줘&quot;</p>
+<h1>복습 스케줄 관리</h1>
+<p>&quot;에빙하우스 망각곡선을 고려한 복습 일정을 생성해줘&quot;</p>
+<h1>학습 성과 분석</h1>
+<p>&quot;월간 학습 성과 리포트를 생성하고 개선점을 제안해줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h3 id="워크플로우-3-팀-협업-관리">워크플로우 3: 팀 협업 관리 {#워크플로우-3-팀-협업-관리}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1796" onclick="copyCode('code-1769481054307-1796')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1796" class="language-bash"># 팀 미팅 준비
+&quot;다음 팀 미팅 아젠다를 미완료 작업 기준으로 생성해줘&quot;
+
+<h1>작업 할당</h1>
+<p>&quot;프로젝트 우선순위에 따라 팀원별 작업을 할당해줘&quot;</p>
+<h1>진행 상황 공유</h1>
+<p>&quot;팀 전체 진행 상황을 정리한 위클리 리포트를 작성해줘&quot;</p>
+<h1>성과 평가</h1>
+<p>&quot;프로젝트 완료 후 회고 및 성과 분석 페이지를 생성해줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h2 id="문제-해결">문제 해결 {#문제-해결}</h2>
+<h3 id="일반적인-오류와-해결책">일반적인 오류와 해결책 {#일반적인-오류와-해결책}</h3>
+<h4>1. API 연결 오류</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1797" onclick="copyCode('code-1769481054307-1797')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1797" class="language-bash"># 오류: &quot;Notion API authentication failed&quot;
+# 해결책:
+1. API 토큰 재확인 (NOTION_API_TOKEN)
+2. Integration 권한 점검
+3. 페이지/DB 연결 상태 확인
+4. 설정 파일 경로 확인
+
+<h1>디버깅 명령</h1>
+<p>echo $NOTION_API_TOKEN
+curl -H &quot;Authorization: Bearer $NOTION_API_TOKEN&quot; <br>     -H &quot;Notion-Version: 2022-06-28&quot; <br>     <a href="https://api.notion.com/v1/users/me">https://api.notion.com/v1/users/me</a></p>
+<h1>설정 파일 위치 확인</h1>
+<p>ls -la ~/.config/claude-desktop/claude_desktop_config.json</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div></p>
+</div>
+
+<h4>2. 권한 오류</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1798" onclick="copyCode('code-1769481054307-1798')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1798" class="language-bash"># 오류: &quot;Insufficient permissions&quot;
+# 해결책:
+1. Integration을 각 페이지/DB에 명시적 연결
+2. 워크스페이스 권한 확인
+3. 필요 시 관리자 권한 요청</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>3. 데이터베이스 스키마 오류</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1799" onclick="copyCode('code-1769481054307-1799')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1799" class="language-bash"># 오류: &quot;Property not found&quot;
+# 해결책:
+1. DB 속성명 정확성 확인
+2. 속성 타입 일치 여부 점검
+3. 필수 속성 누락 확인</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="성능-최적화-팁">성능 최적화 팁 {#성능-최적화-팁}</h3>
+<h4>1. 배치 처리 활용</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1800" onclick="copyCode('code-1769481054307-1800')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1800" class="language-plaintext">단일 요청보다는 배치 처리로 성능 향상:
+- 여러 페이지 동시 생성
+- 대량 데이터 일괄 업데이트
+- 쿼리 결과 캐싱 활용</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h4>2. 필터링 최적화</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1801" onclick="copyCode('code-1769481054307-1801')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1801" class="language-plaintext">효율적인 데이터베이스 쿼리:
+- 필요한 속성만 선택
+- 적절한 필터 조건 사용
+- 정렬 조건 최소화</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h2 id="보안-및-권한-관리">보안 및 권한 관리 {#보안-및-권한-관리}</h2>
+<h3 id="api-토큰-보안">API 토큰 보안 {#api-토큰-보안}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1802" onclick="copyCode('code-1769481054307-1802')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1802" class="language-bash"># 1. 환경 변수로 관리 (권장)
+export NOTION_API_TOKEN=&quot;your_integration_token&quot;
+
+<h1>2. 설정 파일 권한 제한</h1>
+<p>chmod 600 ~/.config/claude-desktop/claude_desktop_config.json</p>
+<h1>3. Git에서 제외</h1>
+<p>echo &quot;*.env&quot; &gt;&gt; .gitignore
+echo &quot;.config/claude-desktop/&quot; &gt;&gt; .gitignore</p>
+<h1>4. 토큰 유효성 검증</h1>
+<p>curl -H &quot;Authorization: Bearer $NOTION_API_TOKEN&quot; <br>     -H &quot;Notion-Version: 2022-06-28&quot; <br>     <a href="https://api.notion.com/v1/users/me">https://api.notion.com/v1/users/me</a></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<h3 id="권한-최소화-원칙">권한 최소화 원칙 {#권한-최소화-원칙}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1803" onclick="copyCode('code-1769481054307-1803')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1803" class="language-plaintext">Integration 권한 설정:
+- 필요한 최소 권한만 부여
+- 테스트 워크스페이스 우선 사용
+- 정기적인 권한 검토
+- 사용하지 않는 Integration 제거</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="데이터-백업-전략">데이터 백업 전략 {#데이터-백업-전략}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1804" onclick="copyCode('code-1769481054307-1804')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1804" class="language-bash"># 중요 데이터베이스 정기 백업
+# 스크립트 예시
+notion-backup() {
+    echo &quot;Notion 데이터베이스 백업 중...&quot;
+    # 백업 로직 구현
+}
+
+<h1>크론탭 등록으로 자동 백업</h1>
+<h1>0 2 * * * /path/to/notion-backup.sh</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div>
+
+<h2 id="고급-설정-및-커스터마이징">고급 설정 및 커스터마이징 {#고급-설정-및-커스터마이징}</h2>
+<h3 id="1-커스텀-템플릿-생성">1. 커스텀 템플릿 생성 {#1-커스텀-템플릿-생성}</h3>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1805" onclick="copyCode('code-1769481054307-1805')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1805" class="language-json">{
+  &quot;templates&quot;: {
+    &quot;project&quot;: {
+      &quot;title&quot;: &quot;프로젝트 템플릿&quot;,
+      &quot;properties&quot;: {
+        &quot;Status&quot;: &quot;Not Started&quot;,
+        &quot;Priority&quot;: &quot;Medium&quot;,
+        &quot;Type&quot;: &quot;Project&quot;
+      },
+      &quot;content&quot;: [
+        {
+          &quot;type&quot;: &quot;heading_1&quot;,
+          &quot;text&quot;: &quot;프로젝트 개요&quot;
+        }
+      ]
+    }
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">18 lines</span>
+  </div>
+</div>
+
+<h3 id="2-자동화-스크립트">2. 자동화 스크립트 {#2-자동화-스크립트}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1806" onclick="copyCode('code-1769481054307-1806')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1806" class="language-bash">#!/bin/bash
+# daily-notion-update.sh
+
+<h1>일일 자동 업데이트 스크립트</h1>
+<p>claude &quot;오늘의 작업 진행 상황을 업데이트하고 내일 계획을 세워줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h3 id="3-웹훅-연동-고급">3. 웹훅 연동 (고급) {#3-웹훅-연동-고급}</h3>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054307-1807" onclick="copyCode('code-1769481054307-1807')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054307-1807" class="language-javascript">// Notion 변경사항을 실시간으로 감지하고 Claude에 알림
+const notionWebhook = {
+  onPageUpdate: (pageId) =&gt; {
+    // Claude Code에 변경사항 알림
+  }
+};</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h2 id="구현-체크리스트">구현 체크리스트 {#구현-체크리스트}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> Notion 계정 및 워크스페이스 준비</li>
+<li><input disabled="" type="checkbox"> Notion Integration 생성 및 API 키 획득</li>
+<li><input disabled="" type="checkbox"> 테스트용 데이터베이스 생성</li>
+<li><input disabled="" type="checkbox"> MCP Server 설치 및 설정</li>
+<li><input disabled="" type="checkbox"> Claude Code 연동 설정</li>
+<li><input disabled="" type="checkbox"> 기본 기능 테스트 (페이지 생성/읽기)</li>
+<li><input disabled="" type="checkbox"> 실전 사용 사례 구현</li>
+<li><input disabled="" type="checkbox"> 자동화 워크플로우 구축</li>
+<li><input disabled="" type="checkbox"> 보안 설정 완료</li>
+<li><input disabled="" type="checkbox"> 백업 체계 구축</li>
+</ul>
+<h2 id="참고-자료-및-확장">참고 자료 및 확장 {#참고-자료-및-확장}</h2>
+<h3 id="유용한-리소스">유용한 리소스 {#유용한-리소스}</h3>
+<ul>
+<li><a href="https://developers.notion.com/">Notion API 공식 문서</a></li>
+<li><a href="https://modelcontextprotocol.io/">MCP 프로토콜 사양</a></li>
+<li><a href="https://docs.anthropic.com/claude/docs">Claude Code 공식 가이드</a></li>
+</ul>
+<h3 id="관련-mcp-server">관련 MCP Server {#관련-mcp-server}</h3>
+<ul>
+<li><strong>Google Drive MCP</strong>: 문서 관리 자동화</li>
+<li><strong>Slack MCP</strong>: 팀 커뮤니케이션 연동</li>
+<li><strong>GitHub MCP</strong>: 개발 워크플로우 통합</li>
+</ul>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/claude-code-practical-obsidian-vault-automation.html" class="internal-link">Claude Code를 활용한 Obsidian Vault 자동화 및 제어</a></li>
+<li><a href="/articles/mcp-practical.html" class="internal-link">인기있는 MCP 서버 및 활용사례</a></li>
+<li><a href="/articles/mcp.html" class="internal-link">MCP 프로토콜 이해하기</a></li>
+<li><a href="/articles/tools-automation.html" class="internal-link">생산성 도구 자동화 전략</a></li>
+<li><a href="/articles/claudecodemacosinstallguide.html" class="internal-link">Claude_Code_macOS_설치_가이드</a></li>
+</ul>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/Claude-Code.html" class="article-tag">Claude-Code</a><a href="/tag/MCP.html" class="article-tag">MCP</a><a href="/tag/Notion.html" class="article-tag">Notion</a><a href="/tag/자동화.html" class="article-tag">자동화</a><a href="/tag/워크플로우.html" class="article-tag">워크플로우</a><a href="/tag/생산성도구.html" class="article-tag">생산성도구</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/notion-mcp-server-practical.html&text=Notion MCP Server 활용 사례집" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/notion-mcp-server-practical.html&title=Notion MCP Server 활용 사례집" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/notion-mcp-server-practical.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-expert.html" class="author-bio__card">
+          <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 전문가</h3>
+            <p class="author-bio__role">AI &amp; Development Writer</p>
+            <p class="author-bio__text">AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/google-search-console-mcp-server-beginners-perfect-guide-part-1.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/mcp-servers-placeholder.svg"
+             alt="Google Search Console MCP Server 초보자 완벽 가이드 (Part 1)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #10b981">
+          MCP 서버
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Google Search Console MCP Server 초보자 완벽 가이드 (Part 1)</h3>
+          <p class="article-card__excerpt">이 가이드는 누구를 위한 것인가요? - 프로그래밍을 이제 막 시작한 초보 개발자 - 웹사이트 SEO(검색 엔진 최적화)에 관심 있는 분 - Claude Code나 AI 도구를 활용해 자동화를 배우고 싶은 분 - Google Search Console API를 처음...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">20 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/google-search-console-mcp-server-beginners-perfect-guide-part-2.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/mcp-servers-placeholder.svg"
+             alt="Google Search Console MCP Server 초보자 완벽 가이드 (Part 2)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #10b981">
+          MCP 서버
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Google Search Console MCP Server 초보자 완벽 가이드 (Part 2)</h3>
+          <p class="article-card__excerpt">Part 2에서 배울 내용 - Google Cloud Platform 설정하기 (스크린샷처럼 자세하게!) - OAuth 인증 완벽 이해하기 - MCP Server 설치 및 설정하기 - 3단계 실전 예제 (초급 → 중급 → 고급) - 문제 해결 완전 정복 --- 1. ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">50 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/beginners-development-mcp-perfect-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/mcp-servers-placeholder.svg"
+             alt="초보 개발자를 위한 MCP 서버 완벽 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #10b981">
+          MCP 서버
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">초보 개발자를 위한 MCP 서버 완벽 가이드</h3>
+          <p class="article-card__excerpt">💡 이 노트는 누구를 위한 것인가요? 프론트엔드 개발을 시작한 지 얼마 안 된 분들, AI 도구를 개발에 활용하고 싶은 분들을 위한 쉽고 친절한 MCP 입문 가이드입니다! --- 1.  || #MCP가 뭔가요? - 일상 비유로 이해하기 2.  || #왜 MCP를...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">21 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

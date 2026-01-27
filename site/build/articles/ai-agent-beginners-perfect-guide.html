@@ -1,0 +1,3228 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI 에이전트 디자인 패턴 - 초보자를 위한 완벽 가이드 | AI 기술 자료 저널</title>
+  <meta name="description" content="💡 이 노트의 목적: 복잡한 AI 에이전트 시스템을 5살 아이도 이해할 수 있게 설명하고, 실제로 당신이 직접 만들 수 있도록 돕는 것입니다. 1.  || #프롤로그 - AI 에이전트와의 첫 만남 2.  || #AI 에이전트란 무엇인가 - 로봇 비서 이야기 3. ...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="AI 에이전트 디자인 패턴 - 초보자를 위한 완벽 가이드">
+  <meta property="og:description" content="💡 이 노트의 목적: 복잡한 AI 에이전트 시스템을 5살 아이도 이해할 수 있게 설명하고, 실제로 당신이 직접 만들 수 있도록 돕는 것입니다. 1.  || #프롤로그 - AI 에이전트와의 첫 만남 2.  || #AI 에이전트란 무엇인가 - 로봇 비서 이야기 3. ...">
+  <meta property="og:image" content="/assets/images/ai-resources-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-beginners-perfect-guide.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI 에이전트 디자인 패턴 - 초보자를 위한 완벽 가이드">
+  <meta name="twitter:description" content="💡 이 노트의 목적: 복잡한 AI 에이전트 시스템을 5살 아이도 이해할 수 있게 설명하고, 실제로 당신이 직접 만들 수 있도록 돕는 것입니다. 1.  || #프롤로그 - AI 에이전트와의 첫 만남 2.  || #AI 에이전트란 무엇인가 - 로봇 비서 이야기 3. ...">
+  <meta name="twitter:image" content="/assets/images/ai-resources-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-beginners-perfect-guide.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI 기술 자료 저널</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/ai-resources.html" class="article-category" style="background-color: #a855f7">
+          AI 자료
+        </a>
+        <h1 class="article-title">AI 에이전트 디자인 패턴 - 초보자를 위한 완벽 가이드</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-analyst.html" class="article-author">
+            <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 분석가</span>
+              <span class="article-author__role">AI Tools Analyst</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 10월 11일">2025년 10월 11일</time>
+            <span class="article-meta__separator">·</span>
+            <span>60 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#프롤로그-ai-에이전트와의-첫-만남" class="toc__link">프롤로그 - AI 에이전트와의 첫 만남</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#이야기로-시작하는-ai-에이전트" class="toc__link">🎭 이야기로 시작하는 AI 에이전트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#파인만-기법으로-이해하기" class="toc__link">🎯 파인만 기법으로 이해하기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#ai-에이전트란-무엇인가-로봇-비서-이야기" class="toc__link">AI 에이전트란 무엇인가 - 로봇 비서 이야기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#일반-프로그램-vs-ai-에이전트" class="toc__link">🤔 일반 프로그램 vs AI 에이전트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실생활-비유로-이해하기" class="toc__link">🎨 실생활 비유로 이해하기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#7가지-핵심-디자인-패턴-레고-블록처럼-조립하기" class="toc__link">7가지 핵심 디자인 패턴 - 레고 블록처럼 조립하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#패턴-1-prompt-chaining-프롬프트-체이닝" class="toc__link">🧩 패턴 1: Prompt Chaining (프롬프트 체이닝)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#패턴-2-routing-라우팅" class="toc__link">🧩 패턴 2: Routing (라우팅)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#패턴-3-parallelization-병렬-처리" class="toc__link">🧩 패턴 3: Parallelization (병렬 처리)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#패턴-4-reflection-반성개선" class="toc__link">🧩 패턴 4: Reflection (반성/개선)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#패턴-5-tool-use-도구-사용" class="toc__link">🧩 패턴 5: Tool Use (도구 사용)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#패턴-6-planning-계획-수립" class="toc__link">🧩 패턴 6: Planning (계획 수립)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#패턴-7-multi-agent-다중-에이전트" class="toc__link">🧩 패턴 7: Multi-Agent (다중 에이전트)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#초보자를-위한-단계별-실습" class="toc__link">초보자를 위한 단계별 실습</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#레벨-1-hello-agent-첫-번째-에이전트" class="toc__link">🎓 레벨 1: Hello Agent! (첫 번째 에이전트)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#레벨-2-체인-만들기-작업-연결" class="toc__link">🎓 레벨 2: 체인 만들기 (작업 연결)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#레벨-3-도구-사용-에이전트" class="toc__link">🎓 레벨 3: 도구 사용 에이전트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실전-프로젝트-나만의-ai-비서-만들기" class="toc__link">실전 프로젝트 - 나만의 AI 비서 만들기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#프로젝트-개인-업무-도우미-에이전트" class="toc__link">🚀 프로젝트: 개인 업무 도우미 에이전트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#용어-사전-어려운-말-쉽게-이해하기" class="toc__link">용어 사전 - 어려운 말 쉽게 이해하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-용어-설명" class="toc__link">📚 핵심 용어 설명</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#자주-나오는-코드-패턴-설명" class="toc__link">💡 자주 나오는 코드 패턴 설명</a>
+    </li>
+    <li class="toc__item">
+      <a href="#더-나아가기-성장-로드맵" class="toc__link">더 나아가기 - 성장 로드맵</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#학습-경로" class="toc__link">🗺️ 학습 경로</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#추천-학습-자료" class="toc__link">📚 추천 학습 자료</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#프로젝트-아이디어" class="toc__link">🎯 프로젝트 아이디어</a>
+    </li>
+    <li class="toc__item">
+      <a href="#마무리-당신도-할-수-있습니다" class="toc__link">마무리 - 당신도 할 수 있습니다!</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기억해야-할-핵심" class="toc__link">🌟 기억해야 할 핵심</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#격려의-말" class="toc__link">💬 격려의 말</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#다음-단계" class="toc__link">🤝 다음 단계</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#참고-자료" class="toc__link">참고 자료</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>🤖 AI 에이전트 디자인 패턴: 초보 개발자를 위한 완벽 가이드</h1>
+<blockquote>
+<p>💡 <strong>이 노트의 목적</strong>: 복잡한 AI 에이전트 시스템을 <strong>5살 아이도 이해할 수 있게</strong> 설명하고, 실제로 <strong>당신이 직접 만들 수 있도록</strong> 돕는 것입니다.</p>
+</blockquote>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#프롤로그-ai-에이전트와의-첫-만남" class="internal-link internal-link--section">프롤로그 - AI 에이전트와의 첫 만남</a></li>
+<li><a href="#ai-에이전트란-무엇인가-로봇-비서-이야기" class="internal-link internal-link--section">AI 에이전트란 무엇인가 - 로봇 비서 이야기</a></li>
+<li><a href="#7가지-핵심-디자인-패턴-레고-블록처럼-조립하기" class="internal-link internal-link--section">7가지 핵심 디자인 패턴 - 레고 블록처럼 조립하기</a></li>
+<li><a href="#초보자를-위한-단계별-실습" class="internal-link internal-link--section">초보자를 위한 단계별 실습</a></li>
+<li><a href="#실전-프로젝트-나만의-ai-비서-만들기" class="internal-link internal-link--section">실전 프로젝트 - 나만의 AI 비서 만들기</a></li>
+<li><a href="#용어-사전-어려운-말-쉽게-이해하기" class="internal-link internal-link--section">용어 사전 - 어려운 말 쉽게 이해하기</a></li>
+<li><a href="#더-나아가기-성장-로드맵" class="internal-link internal-link--section">더 나아가기 - 성장 로드맵</a></li>
+</ol>
+<hr>
+<h2 id="프롤로그-ai-에이전트와의-첫-만남">프롤로그 - AI 에이전트와의 첫 만남 {#프롤로그-ai-에이전트와의-첫-만남}</h2>
+<h3 id="이야기로-시작하는-ai-에이전트">🎭 이야기로 시작하는 AI 에이전트 {#이야기로-시작하는-ai-에이전트}</h3>
+<p>상상해보세요. 당신은 작은 카페를 운영하고 있습니다. 매일 아침:</p>
+<ul>
+<li>☕ 커피 원두 재고를 확인해야 하고</li>
+<li>📦 필요하면 자동으로 주문해야 하고</li>
+<li>💬 고객의 문의에 답변해야 하고</li>
+<li>📊 매출을 정리해야 합니다</li>
+</ul>
+<p><strong>&quot;이 모든 걸 알아서 해주는 직원이 있다면 얼마나 좋을까?&quot;</strong></p>
+<p>바로 이것이 <strong>AI 에이전트</strong>입니다!</p>
+<h3 id="파인만-기법으로-이해하기">🎯 파인만 기법으로 이해하기 {#파인만-기법으로-이해하기}</h3>
+<blockquote>
+<p>&quot;복잡한 것을 단순하게 설명할 수 없다면, 그것을 제대로 이해한 것이 아니다&quot; - 리처드 파인만</p>
+</blockquote>
+<p><strong>AI 에이전트를 5살 아이에게 설명한다면?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-529" onclick="copyCode('code-1769482284739-529')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-529" class="language-plaintext">AI 에이전트 = 똑똑한 로봇 친구
+- 혼자서 일을 할 수 있어요
+- 필요한 도구를 찾아 쓸 수 있어요
+- 실수하면 다시 고칠 수 있어요
+- 친구들과 협력할 수 있어요</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="ai-에이전트란-무엇인가-로봇-비서-이야기">AI 에이전트란 무엇인가 - 로봇 비서 이야기 {#ai-에이전트란-무엇인가-로봇-비서-이야기}</h2>
+<h3 id="일반-프로그램-vs-ai-에이전트">🤔 일반 프로그램 vs AI 에이전트 {#일반-프로그램-vs-ai-에이전트}</h3>
+<h4>📱 일반 프로그램 (전통적인 앱)</h4>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-530" onclick="copyCode('code-1769482284739-530')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-530" class="language-python"># 전통적인 프로그램: 정해진 대로만 동작
+def traditional_coffee_order():
+    if inventory &lt; 10:
+        order_coffee()  # 무조건 10개 이하면 주문
+    else:
+        pass  # 아니면 아무것도 안 함</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<p><strong>특징</strong>:</p>
+<ul>
+<li>🔴 정해진 규칙대로만 동작</li>
+<li>🔴 예외 상황에 대처 못 함</li>
+<li>🔴 학습하지 않음</li>
+</ul>
+<h4>🧠 AI 에이전트</h4>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-531" onclick="copyCode('code-1769482284739-531')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-531" class="language-python"># AI 에이전트: 상황을 판단하고 결정
+class CoffeeAgent:
+    def think_and_act(self):
+        # 1. 상황 파악
+        context = analyze_situation()  # &quot;요즘 판매 추세는? 날씨는?&quot;
+
+<pre><code>    # 2. 계획 수립
+    plan = create_plan(context)  # &amp;quot;비 오는 날이니 따뜻한 커피 더 준비&amp;quot;
+
+    # 3. 실행과 학습
+    result = execute(plan)
+    learn_from_result(result)  # &amp;quot;오늘 전략이 효과적이었나?&amp;quot;&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div>
+</div>
+
+<p><strong>특징</strong>:</p>
+<ul>
+<li>✅ 스스로 판단하고 결정</li>
+<li>✅ 실수에서 배움</li>
+<li>✅ 상황에 맞게 적응</li>
+</ul>
+<h3 id="실생활-비유로-이해하기">🎨 실생활 비유로 이해하기 {#실생활-비유로-이해하기}</h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>일반 프로그램</th>
+<th>AI 에이전트</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>비유</td>
+<td>📖 <strong>요리책 레시피</strong></td>
+<td>👨‍🍳 <strong>전문 요리사</strong></td>
+</tr>
+<tr>
+<td>설명</td>
+<td>정확한 순서대로만 따라함</td>
+<td>재료와 상황 보고 조절</td>
+</tr>
+<tr>
+<td>예시</td>
+<td>&quot;소금 1스푼 넣기&quot;</td>
+<td>&quot;맛 보고 간 조절하기&quot;</td>
+</tr>
+<tr>
+<td>유연성</td>
+<td>재료 없으면 멈춤</td>
+<td>대체 재료 찾아 사용</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="7가지-핵심-디자인-패턴-레고-블록처럼-조립하기">7가지 핵심 디자인 패턴 - 레고 블록처럼 조립하기 {#7가지-핵심-디자인-패턴-레고-블록처럼-조립하기}</h2>
+<h3 id="패턴-1-prompt-chaining-프롬프트-체이닝">🧩 패턴 1: Prompt Chaining (프롬프트 체이닝) {#패턴-1-prompt-chaining-프롬프트-체이닝}</h3>
+<p><strong>&quot;릴레이 경주처럼 작업 이어가기&quot;</strong></p>
+<h4>📚 초보자 설명</h4>
+<p>토스트를 만드는 과정을 상상해보세요:</p>
+<ol>
+<li>🍞 빵 꺼내기 →</li>
+<li>🔥 토스터에 넣기 →</li>
+<li>⏰ 기다리기 →</li>
+<li>🧈 버터 바르기</li>
+</ol>
+<p>각 단계의 <strong>결과</strong>가 다음 단계의 <strong>시작</strong>이 됩니다!</p>
+<h4>💻 코드 예시 (수준별)</h4>
+<p><strong>🌱 입문자용 - 간단한 체인</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-532" onclick="copyCode('code-1769482284739-532')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-532" class="language-python"># 레벨 1: 아주 간단한 체인
+def make_story():
+    # 단계 1: 주인공 만들기
+    character = create_character(&quot;용감한 개발자&quot;)
+
+<pre><code># 단계 2: 배경 만들기 (주인공 정보 활용)
+setting = create_setting(character)
+
+# 단계 3: 이야기 완성 (이전 정보들 모두 활용)
+story = write_story(character, setting)
+
+return story
+</code></pre>
+<h1>실행 예시</h1>
+<p>print(make_story())</p>
+<h1>출력: &quot;용감한 개발자가 실리콘밸리에서 AI 에이전트를 만들었습니다...&quot;</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div>
+</div>
+
+<p><strong>🌿 초급자용 - 에러 처리 추가</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-533" onclick="copyCode('code-1769482284739-533')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-533" class="language-python"># 레벨 2: 에러 처리가 있는 체인
+class StoryChain:
+    def __init__(self):
+        self.steps = []
+
+<pre><code>def add_step(self, step_name, function):
+    &amp;quot;&amp;quot;&amp;quot;체인에 단계 추가&amp;quot;&amp;quot;&amp;quot;
+    self.steps.append((step_name, function))
+
+def run(self, initial_input):
+    &amp;quot;&amp;quot;&amp;quot;체인 실행 - 에러 발생시 안전하게 처리&amp;quot;&amp;quot;&amp;quot;
+    result = initial_input
+
+    for step_name, function in self.steps:
+        try:
+            print(f&amp;quot;🔄 {step_name} 실행 중...&amp;quot;)
+            result = function(result)
+        except Exception as e:
+            print(f&amp;quot;❌ {step_name} 실패: {e}&amp;quot;)
+            return None
+
+    return result
+</code></pre>
+<h1>사용 예시</h1>
+<p>chain = StoryChain()
+chain.add_step(&quot;캐릭터 생성&quot;, create_character)
+chain.add_step(&quot;배경 설정&quot;, create_setting)
+chain.add_step(&quot;플롯 구성&quot;, create_plot)
+story = chain.run(&quot;모험 이야기&quot;)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">24 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🌳 중급자용 - 비동기 처리와 로깅</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-534" onclick="copyCode('code-1769482284739-534')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-534" class="language-python"># 레벨 3: 실무에서 사용하는 체인
+import asyncio
+import logging
+from typing import Any, Callable, List
+
+<p>class AdvancedChain:
+    def <strong>init</strong>(self, name: str):
+        self.name = name
+        self.steps: List[Callable] = []
+        self.logger = logging.getLogger(name)</p>
+<pre><code>async def add_step(self, step_func: Callable,
+                   timeout: int = 30):
+    &amp;quot;&amp;quot;&amp;quot;비동기 단계 추가&amp;quot;&amp;quot;&amp;quot;
+    self.steps.append({
+        &amp;#39;func&amp;#39;: step_func,
+        &amp;#39;timeout&amp;#39;: timeout
+    })
+
+async def execute(self, initial_data: Any) -&amp;gt; Any:
+    &amp;quot;&amp;quot;&amp;quot;체인 실행 - 타임아웃과 재시도 포함&amp;quot;&amp;quot;&amp;quot;
+    current_data = initial_data
+
+    for i, step in enumerate(self.steps):
+        self.logger.info(f&amp;quot;Step {i+1}/{len(self.steps)} 시작&amp;quot;)
+
+        try:
+            # 타임아웃 설정
+            current_data = await asyncio.wait_for(
+                step[&amp;#39;func&amp;#39;](current_data),
+                timeout=step[&amp;#39;timeout&amp;#39;]
+            )
+        except asyncio.TimeoutError:
+            self.logger.error(f&amp;quot;Step {i+1} 타임아웃&amp;quot;)
+            # 재시도 로직 또는 대체 처리
+            current_data = await self.fallback_handler(current_data)
+
+    return current_data
+</code></pre>
+<h1>실제 사용 예시</h1>
+<p>async def main():
+    chain = AdvancedChain(&quot;customer_service&quot;)</p>
+<pre><code># 고객 서비스 체인 구성
+chain.add_step(analyze_customer_query, timeout=10)
+chain.add_step(search_knowledge_base, timeout=20)
+chain.add_step(generate_response, timeout=15)
+chain.add_step(personalize_tone, timeout=5)
+
+response = await chain.execute(&amp;quot;제품 환불 문의&amp;quot;)
+print(response)&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">42 lines</span>
+  </div>
+</div>
+
+<h3 id="패턴-2-routing-라우팅">🧩 패턴 2: Routing (라우팅) {#패턴-2-routing-라우팅}</h3>
+<p><strong>&quot;교통 신호등처럼 길 안내하기&quot;</strong></p>
+<h4>📚 초보자 설명</h4>
+<p>고객 센터에 전화했을 때를 생각해보세요:</p>
+<ul>
+<li>&quot;주문 문의는 1번&quot; → 주문팀</li>
+<li>&quot;배송 문의는 2번&quot; → 배송팀</li>
+<li>&quot;환불 문의는 3번&quot; → 환불팀</li>
+</ul>
+<p>AI도 이렇게 <strong>질문 유형에 따라</strong> 다른 처리를 합니다!</p>
+<h4>💻 코드 예시 (수준별)</h4>
+<p><strong>🌱 입문자용 - 단순 분기</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-535" onclick="copyCode('code-1769482284739-535')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-535" class="language-python"># 레벨 1: if-else로 간단한 라우팅
+def customer_service_bot(message):
+    # 메시지 내용으로 어디로 보낼지 결정
+    if &quot;주문&quot; in message:
+        return handle_order(message)
+    elif &quot;배송&quot; in message:
+        return handle_shipping(message)
+    elif &quot;환불&quot; in message:
+        return handle_refund(message)
+    else:
+        return &quot;죄송합니다. 이해하지 못했습니다.&quot;
+
+<h1>테스트</h1>
+<p>print(customer_service_bot(&quot;주문한 제품이 언제 오나요?&quot;))</p>
+<h1>출력: &quot;주문 번호를 알려주시면 배송 상태를 확인해드리겠습니다.&quot;</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">14 lines</span>
+  </div>
+</div>
+
+<p><strong>🌿 초급자용 - 딕셔너리 활용</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-536" onclick="copyCode('code-1769482284739-536')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-536" class="language-python"># 레벨 2: 더 깔끔한 라우터
+class SmartRouter:
+    def __init__(self):
+        # 키워드와 처리 함수 매핑
+        self.routes = {
+            &quot;주문&quot;: self.handle_order,
+            &quot;배송&quot;: self.handle_shipping,
+            &quot;환불&quot;: self.handle_refund,
+            &quot;교환&quot;: self.handle_exchange
+        }
+
+<pre><code>def route(self, message):
+    &amp;quot;&amp;quot;&amp;quot;메시지 분석 후 적절한 핸들러로 라우팅&amp;quot;&amp;quot;&amp;quot;
+    # 키워드 찾기
+    for keyword, handler in self.routes.items():
+        if keyword in message:
+            return handler(message)
+
+    # 기본 처리
+    return self.handle_default(message)
+
+def handle_order(self, msg):
+    return f&amp;quot;📦 주문 관련: {msg}&amp;quot;
+
+def handle_shipping(self, msg):
+    return f&amp;quot;🚚 배송 관련: {msg}&amp;quot;
+
+# ... 다른 핸들러들
+</code></pre>
+<p>router = SmartRouter()
+print(router.route(&quot;배송이 너무 늦어요&quot;))</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">25 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🌳 중급자용 - AI 기반 라우팅</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-537" onclick="copyCode('code-1769482284739-537')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-537" class="language-python"># 레벨 3: AI로 의도 파악하여 라우팅
+import openai
+from enum import Enum
+from typing import Dict, Optional
+
+<p>class Intent(Enum):
+    ORDER = &quot;order&quot;
+    SHIPPING = &quot;shipping&quot;
+    REFUND = &quot;refund&quot;
+    TECHNICAL = &quot;technical&quot;
+    GENERAL = &quot;general&quot;</p>
+<p>class AIRouter:
+    def <strong>init</strong>(self, api_key: str):
+        self.client = openai.Client(api_key=api_key)
+        self.handlers = {
+            Intent.ORDER: OrderHandler(),
+            Intent.SHIPPING: ShippingHandler(),
+            Intent.REFUND: RefundHandler(),
+            Intent.TECHNICAL: TechSupportHandler(),
+            Intent.GENERAL: GeneralHandler()
+        }</p>
+<pre><code>async def classify_intent(self, message: str) -&amp;gt; Intent:
+    &amp;quot;&amp;quot;&amp;quot;AI로 사용자 의도 분류&amp;quot;&amp;quot;&amp;quot;
+    prompt = f&amp;quot;&amp;quot;&amp;quot;
+    사용자 메시지: {message}
+
+    위 메시지의 의도를 분류하세요:
+    - order: 주문 관련
+    - shipping: 배송 관련
+    - refund: 환불/교환 관련
+    - technical: 기술 지원
+    - general: 일반 문의
+
+    의도:
+    &amp;quot;&amp;quot;&amp;quot;
+
+    response = await self.client.completions.create(
+        model=&amp;quot;gpt-4&amp;quot;,
+        prompt=prompt,
+        max_tokens=10
+    )
+
+    intent_str = response.choices[0].text.strip()
+    return Intent[intent_str.upper()]
+
+async def process(self, message: str) -&amp;gt; str:
+    &amp;quot;&amp;quot;&amp;quot;메시지 처리 - 의도 파악 후 적절한 핸들러 실행&amp;quot;&amp;quot;&amp;quot;
+    # 1. AI로 의도 파악
+    intent = await self.classify_intent(message)
+
+    # 2. 신뢰도 체크 (선택적)
+    confidence = await self.get_confidence(message, intent)
+
+    if confidence &amp;lt; 0.7:
+        # 신뢰도 낮으면 사람에게 전달
+        return await self.escalate_to_human(message)
+
+    # 3. 적절한 핸들러로 처리
+    handler = self.handlers[intent]
+    return await handler.process(message)
+</code></pre>
+<h1>실제 사용</h1>
+<p>router = AIRouter(api_key=&quot;your-key&quot;)
+response = await router.process(&quot;제품이 고장났는데 AS 받고 싶어요&quot;)</p>
+<h1>AI가 &#39;technical&#39;로 분류 → TechSupportHandler가 처리</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">55 lines</span>
+  </div>
+</div>
+
+<h3 id="패턴-3-parallelization-병렬-처리">🧩 패턴 3: Parallelization (병렬 처리) {#패턴-3-parallelization-병렬-처리}</h3>
+<p><strong>&quot;여러 일을 동시에 처리하기&quot;</strong></p>
+<h4>📚 초보자 설명</h4>
+<p>요리할 때를 생각해보세요:</p>
+<ul>
+<li>🍚 밥솥에 밥 하면서</li>
+<li>🥘 찌개도 끓이고</li>
+<li>🥗 샐러드도 만들기</li>
+</ul>
+<p>하나씩 하면 3시간, <strong>동시에 하면 1시간</strong>!</p>
+<h4>💻 코드 예시 (수준별)</h4>
+<p><strong>🌱 입문자용 - 동시 실행 체험</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-538" onclick="copyCode('code-1769482284739-538')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-538" class="language-python"># 레벨 1: 순차 처리 vs 병렬 처리 비교
+import time
+import concurrent.futures
+
+<h1>느린 방법: 하나씩 처리</h1>
+<p>def sequential_processing():
+    start = time.time()</p>
+<pre><code>weather = get_weather()      # 2초
+news = get_news()            # 2초
+stock = get_stock_price()    # 2초
+
+print(f&amp;quot;순차 처리 시간: {time.time() - start}초&amp;quot;)  # 약 6초
+return weather, news, stock
+</code></pre>
+<h1>빠른 방법: 동시에 처리</h1>
+<p>def parallel_processing():
+    start = time.time()</p>
+<pre><code>with concurrent.futures.ThreadPoolExecutor() as executor:
+    # 모든 작업을 동시에 시작
+    future_weather = executor.submit(get_weather)
+    future_news = executor.submit(get_news)
+    future_stock = executor.submit(get_stock_price)
+
+    # 결과 수집
+    weather = future_weather.result()
+    news = future_news.result()
+    stock = future_stock.result()
+
+print(f&amp;quot;병렬 처리 시간: {time.time() - start}초&amp;quot;)  # 약 2초
+return weather, news, stock&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">25 lines</span>
+  </div>
+</div>
+
+<p><strong>🌿 초급자용 - 실용적인 병렬 처리</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-539" onclick="copyCode('code-1769482284739-539')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-539" class="language-python"># 레벨 2: 여러 API 동시 호출
+import asyncio
+import aiohttp
+
+<p>class ParallelDataFetcher:
+    def <strong>init</strong>(self):
+        self.apis = {
+            &quot;weather&quot;: &quot;<a href="https://api.weather.com/data">https://api.weather.com/data</a>&quot;,
+            &quot;news&quot;: &quot;<a href="https://api.news.com/latest">https://api.news.com/latest</a>&quot;,
+            &quot;traffic&quot;: &quot;<a href="https://api.traffic.com/current">https://api.traffic.com/current</a>&quot;
+        }</p>
+<pre><code>async def fetch_one(self, session, name, url):
+    &amp;quot;&amp;quot;&amp;quot;하나의 API 호출&amp;quot;&amp;quot;&amp;quot;
+    try:
+        async with session.get(url) as response:
+            data = await response.json()
+            return {name: data}
+    except Exception as e:
+        return {name: f&amp;quot;Error: {e}&amp;quot;}
+
+async def fetch_all(self):
+    &amp;quot;&amp;quot;&amp;quot;모든 API 동시 호출&amp;quot;&amp;quot;&amp;quot;
+    async with aiohttp.ClientSession() as session:
+        # 모든 작업을 동시에 실행
+        tasks = [
+            self.fetch_one(session, name, url)
+            for name, url in self.apis.items()
+        ]
+
+        # 모든 결과 대기
+        results = await asyncio.gather(*tasks)
+
+        # 결과 합치기
+        combined = {}
+        for result in results:
+            combined.update(result)
+
+        return combined
+</code></pre>
+<h1>사용 예시</h1>
+<p>fetcher = ParallelDataFetcher()
+data = asyncio.run(fetcher.fetch_all())
+print(f&quot;받은 데이터: {data}&quot;)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">37 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🌳 중급자용 - 지능적인 병렬 처리</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-540" onclick="copyCode('code-1769482284739-540')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-540" class="language-python"># 레벨 3: 작업 의존성 관리와 동적 병렬화
+from dataclasses import dataclass
+from typing import List, Set, Dict, Any
+import asyncio
+
+<p>@dataclass
+class Task:
+    id: str
+    func: callable
+    dependencies: Set[str] = None</p>
+<pre><code>def __post_init__(self):
+    if self.dependencies is None:
+        self.dependencies = set()
+</code></pre>
+<p>class SmartParallelExecutor:
+    def <strong>init</strong>(self):
+        self.tasks: Dict[str, Task] = {}
+        self.results: Dict[str, Any] = {}</p>
+<pre><code>def add_task(self, task: Task):
+    &amp;quot;&amp;quot;&amp;quot;작업 추가&amp;quot;&amp;quot;&amp;quot;
+    self.tasks[task.id] = task
+
+async def execute_task(self, task_id: str):
+    &amp;quot;&amp;quot;&amp;quot;단일 작업 실행&amp;quot;&amp;quot;&amp;quot;
+    task = self.tasks[task_id]
+
+    # 의존성 있는 작업들의 결과 수집
+    deps_results = {
+        dep_id: self.results[dep_id]
+        for dep_id in task.dependencies
+    }
+
+    # 작업 실행
+    result = await task.func(deps_results)
+    self.results[task_id] = result
+    return result
+
+async def execute_all(self):
+    &amp;quot;&amp;quot;&amp;quot;모든 작업을 의존성 고려하여 실행&amp;quot;&amp;quot;&amp;quot;
+    # 작업을 레벨별로 그룹화
+    levels = self.topological_sort()
+
+    for level in levels:
+        # 같은 레벨의 작업들은 병렬 실행
+        tasks = [
+            self.execute_task(task_id)
+            for task_id in level
+        ]
+        await asyncio.gather(*tasks)
+
+        print(f&amp;quot;레벨 {levels.index(level)} 완료: {level}&amp;quot;)
+
+    return self.results
+
+def topological_sort(self) -&amp;gt; List[List[str]]:
+    &amp;quot;&amp;quot;&amp;quot;의존성 기반 작업 레벨 분류&amp;quot;&amp;quot;&amp;quot;
+    levels = []
+    processed = set()
+
+    while len(processed) &amp;lt; len(self.tasks):
+        current_level = []
+
+        for task_id, task in self.tasks.items():
+            if task_id not in processed:
+                # 의존성이 모두 처리되었는지 확인
+                if task.dependencies.issubset(processed):
+                    current_level.append(task_id)
+
+        levels.append(current_level)
+        processed.update(current_level)
+
+    return levels
+</code></pre>
+<h1>실제 사용 예시</h1>
+<p>executor = SmartParallelExecutor()</p>
+<h1>작업 정의 (일부는 서로 의존)</h1>
+<p>executor.add_task(Task(&quot;user_data&quot;, fetch_user_data))
+executor.add_task(Task(&quot;preferences&quot;, fetch_preferences, {&quot;user_data&quot;}))
+executor.add_task(Task(&quot;history&quot;, fetch_history, {&quot;user_data&quot;}))
+executor.add_task(Task(&quot;recommendations&quot;, generate_recommendations,
+                      {&quot;preferences&quot;, &quot;history&quot;}))</p>
+<h1>실행 - 자동으로 최적 병렬화</h1>
+<p>results = await executor.execute_all()</p>
+<h1>user_data 먼저 → preferences와 history 동시 → recommendations</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">69 lines</span>
+  </div>
+</div>
+
+<h3 id="패턴-4-reflection-반성개선">🧩 패턴 4: Reflection (반성/개선) {#패턴-4-reflection-반성개선}</h3>
+<p><strong>&quot;실수에서 배우는 AI&quot;</strong></p>
+<h4>📚 초보자 설명</h4>
+<p>수학 문제를 풀 때:</p>
+<ol>
+<li>📝 문제 풀기</li>
+<li>🔍 답 확인하기</li>
+<li>❌ 틀렸다면 왜 틀렸는지 분석</li>
+<li>✏️ 다시 풀기</li>
+</ol>
+<p>AI도 이렇게 <strong>자기 답을 검토하고 개선</strong>합니다!</p>
+<h4>💻 코드 예시 (수준별)</h4>
+<p><strong>🌱 입문자용 - 간단한 자기 검증</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-541" onclick="copyCode('code-1769482284739-541')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-541" class="language-python"># 레벨 1: 기본적인 반성 패턴
+class SimpleReflectiveBot:
+    def answer_with_reflection(self, question):
+        # 1단계: 첫 번째 답변 생성
+        first_answer = self.generate_answer(question)
+        print(f&quot;초안: {first_answer}&quot;)
+
+<pre><code>    # 2단계: 답변 검토
+    issues = self.find_issues(first_answer)
+
+    if issues:
+        print(f&amp;quot;발견된 문제: {issues}&amp;quot;)
+        # 3단계: 개선된 답변 생성
+        final_answer = self.improve_answer(first_answer, issues)
+        print(f&amp;quot;최종: {final_answer}&amp;quot;)
+        return final_answer
+
+    return first_answer
+
+def find_issues(self, answer):
+    issues = []
+    if len(answer) &amp;lt; 10:
+        issues.append(&amp;quot;너무 짧음&amp;quot;)
+    if &amp;quot;죄송&amp;quot; in answer:
+        issues.append(&amp;quot;너무 소극적&amp;quot;)
+    return issues
+</code></pre>
+<h1>사용 예시</h1>
+<p>bot = SimpleReflectiveBot()
+bot.answer_with_reflection(&quot;Python이 뭔가요?&quot;)</p>
+<h1>초안: &quot;프로그래밍 언어입니다&quot;</h1>
+<h1>발견된 문제: [&#39;너무 짧음&#39;]</h1>
+<h1>최종: &quot;Python은 배우기 쉽고 강력한 프로그래밍 언어로...&quot;</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">28 lines</span>
+  </div>
+</div>
+
+<p><strong>🌿 초급자용 - 체계적인 검증</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-542" onclick="copyCode('code-1769482284739-542')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-542" class="language-python"># 레벨 2: 여러 관점에서 검증
+class ReflectiveWriter:
+    def __init__(self):
+        self.validators = [
+            self.check_accuracy,
+            self.check_completeness,
+            self.check_clarity,
+            self.check_tone
+        ]
+
+<pre><code>def write_with_reflection(self, topic, max_iterations=3):
+    &amp;quot;&amp;quot;&amp;quot;반복적으로 개선하며 글쓰기&amp;quot;&amp;quot;&amp;quot;
+    content = self.initial_draft(topic)
+
+    for i in range(max_iterations):
+        print(f&amp;quot;\n=== 반복 {i+1} ===&amp;quot;)
+
+        # 모든 검증기로 검토
+        all_feedback = []
+        for validator in self.validators:
+            feedback = validator(content)
+            if feedback:
+                all_feedback.append(feedback)
+
+        # 피드백이 없으면 완료
+        if not all_feedback:
+            print(&amp;quot;✅ 모든 검증 통과!&amp;quot;)
+            break
+
+        # 피드백 기반 개선
+        print(f&amp;quot;피드백: {all_feedback}&amp;quot;)
+        content = self.revise(content, all_feedback)
+
+    return content
+
+def check_accuracy(self, content):
+    &amp;quot;&amp;quot;&amp;quot;정확성 검증&amp;quot;&amp;quot;&amp;quot;
+    # 실제로는 팩트 체크 API 호출
+    if &amp;quot;잘못된 정보&amp;quot; in content:
+        return &amp;quot;사실 확인 필요&amp;quot;
+    return None
+
+def check_completeness(self, content):
+    &amp;quot;&amp;quot;&amp;quot;완성도 검증&amp;quot;&amp;quot;&amp;quot;
+    if len(content.split()) &amp;lt; 50:
+        return &amp;quot;내용 보충 필요&amp;quot;
+    return None
+
+def revise(self, content, feedback_list):
+    &amp;quot;&amp;quot;&amp;quot;피드백 반영하여 수정&amp;quot;&amp;quot;&amp;quot;
+    revised = content
+    for feedback in feedback_list:
+        if &amp;quot;보충&amp;quot; in feedback:
+            revised += &amp;quot;\n추가 설명...&amp;quot;
+        # ... 다른 수정 로직
+    return revised&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">47 lines</span>
+  </div>
+</div>
+
+<p><strong>🌳 중급자용 - AI 기반 자기 개선</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-543" onclick="copyCode('code-1769482284739-543')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-543" class="language-python"># 레벨 3: LLM을 활용한 고급 반성
+import json
+from typing import Dict, List, Optional
+
+<p>class AdvancedReflectiveAgent:
+    def <strong>init</strong>(self, llm_client):
+        self.llm = llm_client
+        self.reflection_history = []</p>
+<pre><code>async def solve_with_reflection(
+    self,
+    problem: str,
+    max_attempts: int = 3
+) -&amp;gt; Dict:
+    &amp;quot;&amp;quot;&amp;quot;문제 해결 with 자기 반성&amp;quot;&amp;quot;&amp;quot;
+
+    attempt = 0
+    best_solution = None
+    best_score = 0
+
+    while attempt &amp;lt; max_attempts:
+        attempt += 1
+
+        # 1. 해결책 생성
+        solution = await self.generate_solution(
+            problem,
+            self.reflection_history
+        )
+
+        # 2. 자기 평가
+        evaluation = await self.self_evaluate(
+            problem,
+            solution
+        )
+
+        # 3. 반성 및 학습
+        reflection = await self.reflect(
+            problem,
+            solution,
+            evaluation
+        )
+
+        self.reflection_history.append({
+            &amp;#39;attempt&amp;#39;: attempt,
+            &amp;#39;solution&amp;#39;: solution,
+            &amp;#39;evaluation&amp;#39;: evaluation,
+            &amp;#39;reflection&amp;#39;: reflection
+        })
+
+        # 4. 개선 여부 판단
+        if evaluation[&amp;#39;score&amp;#39;] &amp;gt; best_score:
+            best_score = evaluation[&amp;#39;score&amp;#39;]
+            best_solution = solution
+
+        if evaluation[&amp;#39;score&amp;#39;] &amp;gt;= 0.9:  # 충분히 좋음
+            break
+
+        print(f&amp;quot;시도 {attempt}: 점수 {evaluation[&amp;#39;score&amp;#39;]}&amp;quot;)
+        print(f&amp;quot;반성: {reflection[&amp;#39;key_insights&amp;#39;]}&amp;quot;)
+
+    return {
+        &amp;#39;solution&amp;#39;: best_solution,
+        &amp;#39;score&amp;#39;: best_score,
+        &amp;#39;attempts&amp;#39;: attempt,
+        &amp;#39;learning&amp;#39;: self.extract_learnings()
+    }
+
+async def self_evaluate(self, problem: str, solution: str) -&amp;gt; Dict:
+    &amp;quot;&amp;quot;&amp;quot;해결책 자기 평가&amp;quot;&amp;quot;&amp;quot;
+    prompt = f&amp;quot;&amp;quot;&amp;quot;
+    문제: {problem}
+    제안된 해결책: {solution}
+
+    이 해결책을 다음 기준으로 평가하세요:
+    1. 정확성 (0-1)
+    2. 완성도 (0-1)
+    3. 효율성 (0-1)
+    4. 창의성 (0-1)
+
+    JSON 형식으로 답하세요.
+    &amp;quot;&amp;quot;&amp;quot;
+
+    response = await self.llm.generate(prompt)
+    return json.loads(response)
+
+async def reflect(
+    self,
+    problem: str,
+    solution: str,
+    evaluation: Dict
+) -&amp;gt; Dict:
+    &amp;quot;&amp;quot;&amp;quot;해결 과정 반성&amp;quot;&amp;quot;&amp;quot;
+    prompt = f&amp;quot;&amp;quot;&amp;quot;
+    문제: {problem}
+    시도한 해결책: {solution}
+    평가 결과: {json.dumps(evaluation)}
+
+    다음을 분석하세요:
+    1. 무엇이 잘 되었는가?
+    2. 무엇이 부족했는가?
+    3. 어떻게 개선할 수 있는가?
+    4. 다음 시도에서 주의할 점은?
+    &amp;quot;&amp;quot;&amp;quot;
+
+    reflection = await self.llm.generate(prompt)
+    return {
+        &amp;#39;key_insights&amp;#39;: self.extract_insights(reflection),
+        &amp;#39;improvement_areas&amp;#39;: self.identify_improvements(reflection),
+        &amp;#39;next_approach&amp;#39;: self.suggest_approach(reflection)
+    }
+</code></pre>
+<h1>실제 사용 예시</h1>
+<p>agent = AdvancedReflectiveAgent(llm_client)
+result = await agent.solve_with_reflection(
+    &quot;사용자 이탈률을 줄이는 방법을 제안하세요&quot;
+)</p>
+<p>print(f&quot;최종 해결책: {result[&#39;solution&#39;]}&quot;)
+print(f&quot;학습된 내용: {result[&#39;learning&#39;]}&quot;)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">98 lines</span>
+  </div></p>
+</div>
+
+<h3 id="패턴-5-tool-use-도구-사용">🧩 패턴 5: Tool Use (도구 사용) {#패턴-5-tool-use-도구-사용}</h3>
+<p><strong>&quot;적절한 도구 찾아 쓰기&quot;</strong></p>
+<h4>📚 초보자 설명</h4>
+<p>목수가 일할 때:</p>
+<ul>
+<li>🔨 못 박을 때는 망치</li>
+<li>🪚 자를 때는 톱</li>
+<li>📏 측정할 때는 자</li>
+</ul>
+<p>AI도 <strong>필요에 따라 다양한 도구</strong>를 사용합니다!</p>
+<h4>💻 코드 예시 (수준별)</h4>
+<p><strong>🌱 입문자용 - 간단한 도구 사용</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-544" onclick="copyCode('code-1769482284739-544')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-544" class="language-python"># 레벨 1: 기본 도구 사용
+class SimpleToolBot:
+    def __init__(self):
+        # 사용 가능한 도구들
+        self.tools = {
+            &quot;calculator&quot;: self.calculate,
+            &quot;translator&quot;: self.translate,
+            &quot;weather&quot;: self.get_weather
+        }
+
+<pre><code>def process_request(self, request):
+    &amp;quot;&amp;quot;&amp;quot;요청 처리 - 적절한 도구 선택&amp;quot;&amp;quot;&amp;quot;
+    if &amp;quot;계산&amp;quot; in request or &amp;quot;+&amp;quot; in request:
+        return self.tools[&amp;quot;calculator&amp;quot;](request)
+    elif &amp;quot;번역&amp;quot; in request:
+        return self.tools[&amp;quot;translator&amp;quot;](request)
+    elif &amp;quot;날씨&amp;quot; in request:
+        return self.tools[&amp;quot;weather&amp;quot;](request)
+    else:
+        return &amp;quot;도구를 찾을 수 없습니다&amp;quot;
+
+def calculate(self, expr):
+    # 실제로는 eval 대신 안전한 파서 사용
+    return f&amp;quot;답: {eval(expr.replace(&amp;#39;계산&amp;#39;, &amp;#39;&amp;#39;))}&amp;quot;
+
+def translate(self, text):
+    # 실제로는 번역 API 호출
+    return f&amp;quot;번역 결과: [translated text]&amp;quot;
+
+def get_weather(self, location):
+    # 실제로는 날씨 API 호출
+    return f&amp;quot;오늘 날씨: 맑음, 20도&amp;quot;
+</code></pre>
+<h1>사용</h1>
+<p>bot = SimpleToolBot()
+print(bot.process_request(&quot;3 + 5 계산해줘&quot;))</p>
+<h1>출력: &quot;답: 8&quot;</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">32 lines</span>
+  </div>
+</div>
+
+<p><strong>🌿 초급자용 - 도구 체인</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-545" onclick="copyCode('code-1769482284739-545')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-545" class="language-python"># 레벨 2: 여러 도구를 연결하여 사용
+class ToolChainBot:
+    def __init__(self):
+        self.tools = {
+            &quot;search&quot;: GoogleSearchTool(),
+            &quot;summarize&quot;: SummarizerTool(),
+            &quot;translate&quot;: TranslatorTool(),
+            &quot;save&quot;: FileSaverTool()
+        }
+
+<pre><code>async def research_and_report(self, topic, language=&amp;quot;ko&amp;quot;):
+    &amp;quot;&amp;quot;&amp;quot;연구 후 보고서 작성 - 여러 도구 활용&amp;quot;&amp;quot;&amp;quot;
+
+    # 1. 검색 도구로 정보 수집
+    print(f&amp;quot;🔍 &amp;#39;{topic}&amp;#39; 검색 중...&amp;quot;)
+    search_results = await self.tools[&amp;quot;search&amp;quot;].search(topic)
+
+    # 2. 요약 도구로 핵심 정리
+    print(&amp;quot;📝 내용 요약 중...&amp;quot;)
+    summary = await self.tools[&amp;quot;summarize&amp;quot;].summarize(
+        search_results,
+        max_length=500
+    )
+
+    # 3. 번역 도구로 언어 변환
+    if language != &amp;quot;en&amp;quot;:
+        print(f&amp;quot;🌐 {language}로 번역 중...&amp;quot;)
+        summary = await self.tools[&amp;quot;translate&amp;quot;].translate(
+            summary,
+            target_lang=language
+        )
+
+    # 4. 저장 도구로 파일 저장
+    print(&amp;quot;💾 결과 저장 중...&amp;quot;)
+    file_path = await self.tools[&amp;quot;save&amp;quot;].save(
+        content=summary,
+        filename=f&amp;quot;{topic}_report.txt&amp;quot;
+    )
+
+    return {
+        &amp;quot;topic&amp;quot;: topic,
+        &amp;quot;summary&amp;quot;: summary,
+        &amp;quot;saved_to&amp;quot;: file_path
+    }
+</code></pre>
+<h1>사용 예시</h1>
+<p>bot = ToolChainBot()
+report = await bot.research_and_report(
+    &quot;인공지능 최신 동향&quot;,
+    language=&quot;ko&quot;
+)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">44 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🌳 중급자용 - 동적 도구 선택</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-546" onclick="copyCode('code-1769482284739-546')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-546" class="language-python"># 레벨 3: AI가 스스로 도구 선택
+from typing import List, Dict, Any
+import inspect
+
+<p>class Tool:
+    &quot;&quot;&quot;도구 베이스 클래스&quot;&quot;&quot;
+    def <strong>init</strong>(self, name: str, description: str):
+        self.name = name
+        self.description = description</p>
+<pre><code>def get_schema(self) -&amp;gt; Dict:
+    &amp;quot;&amp;quot;&amp;quot;도구 사용법 스키마 반환&amp;quot;&amp;quot;&amp;quot;
+    return {
+        &amp;quot;name&amp;quot;: self.name,
+        &amp;quot;description&amp;quot;: self.description,
+        &amp;quot;parameters&amp;quot;: self._extract_parameters()
+    }
+
+def _extract_parameters(self):
+    &amp;quot;&amp;quot;&amp;quot;함수 파라미터 자동 추출&amp;quot;&amp;quot;&amp;quot;
+    sig = inspect.signature(self.execute)
+    params = {}
+    for name, param in sig.parameters.items():
+        if name != &amp;#39;self&amp;#39;:
+            params[name] = {
+                &amp;quot;type&amp;quot;: param.annotation.__name__
+                if param.annotation != inspect.Parameter.empty
+                else &amp;quot;string&amp;quot;,
+                &amp;quot;required&amp;quot;: param.default == inspect.Parameter.empty
+            }
+    return params
+</code></pre>
+<p>class SmartToolAgent:
+    def <strong>init</strong>(self, llm_client):
+        self.llm = llm_client
+        self.tools: Dict[str, Tool] = {}</p>
+<pre><code>def register_tool(self, tool: Tool):
+    &amp;quot;&amp;quot;&amp;quot;도구 등록&amp;quot;&amp;quot;&amp;quot;
+    self.tools[tool.name] = tool
+
+async def process(self, user_query: str) -&amp;gt; Any:
+    &amp;quot;&amp;quot;&amp;quot;사용자 쿼리 처리 - AI가 도구 선택&amp;quot;&amp;quot;&amp;quot;
+
+    # 1. 사용 가능한 도구 목록 생성
+    tools_desc = self._format_tools_description()
+
+    # 2. AI에게 도구 선택 요청
+    tool_selection = await self._select_tools(
+        user_query,
+        tools_desc
+    )
+
+    # 3. 선택된 도구들 실행
+    results = []
+    for tool_call in tool_selection:
+        tool_name = tool_call[&amp;#39;tool&amp;#39;]
+        params = tool_call[&amp;#39;parameters&amp;#39;]
+
+        if tool_name in self.tools:
+            tool = self.tools[tool_name]
+            result = await tool.execute(**params)
+            results.append({
+                &amp;#39;tool&amp;#39;: tool_name,
+                &amp;#39;result&amp;#39;: result
+            })
+
+    # 4. 결과 종합
+    final_response = await self._synthesize_results(
+        user_query,
+        results
+    )
+
+    return final_response
+
+async def _select_tools(
+    self,
+    query: str,
+    tools_desc: str
+) -&amp;gt; List[Dict]:
+    &amp;quot;&amp;quot;&amp;quot;AI가 필요한 도구 선택&amp;quot;&amp;quot;&amp;quot;
+    prompt = f&amp;quot;&amp;quot;&amp;quot;
+    사용자 요청: {query}
+
+    사용 가능한 도구:
+    {tools_desc}
+
+    이 요청을 처리하기 위해 필요한 도구와 파라미터를 선택하세요.
+    여러 도구를 순서대로 사용할 수 있습니다.
+
+    JSON 배열 형식으로 답하세요:
+    [
+        {{
+            &amp;quot;tool&amp;quot;: &amp;quot;도구이름&amp;quot;,
+            &amp;quot;parameters&amp;quot;: {{...}},
+            &amp;quot;reason&amp;quot;: &amp;quot;선택 이유&amp;quot;
+        }}
+    ]
+    &amp;quot;&amp;quot;&amp;quot;
+
+    response = await self.llm.generate(prompt)
+    return json.loads(response)
+</code></pre>
+<h1>실제 도구 구현 예시</h1>
+<p>class WebSearchTool(Tool):
+    def <strong>init</strong>(self):
+        super().<strong>init</strong>(
+            name=&quot;web_search&quot;,
+            description=&quot;웹에서 정보를 검색합니다&quot;
+        )</p>
+<pre><code>async def execute(self, query: str, max_results: int = 5) -&amp;gt; List:
+    # 실제 검색 API 호출
+    results = await search_api.search(query, max_results)
+    return results
+</code></pre>
+<p>class DatabaseTool(Tool):
+    def <strong>init</strong>(self, connection_string):
+        super().<strong>init</strong>(
+            name=&quot;database&quot;,
+            description=&quot;데이터베이스 쿼리를 실행합니다&quot;
+        )
+        self.db = Database(connection_string)</p>
+<pre><code>async def execute(self, sql: str) -&amp;gt; List[Dict]:
+    return await self.db.query(sql)
+</code></pre>
+<h1>사용 예시</h1>
+<p>agent = SmartToolAgent(llm_client)
+agent.register_tool(WebSearchTool())
+agent.register_tool(DatabaseTool(&quot;postgresql://...&quot;))
+agent.register_tool(EmailTool())</p>
+<p>response = await agent.process(
+    &quot;최근 판매 데이터를 분석하고 보고서를 이메일로 보내줘&quot;
+)</p>
+<h1>AI가 자동으로:</h1>
+<h1>1. DatabaseTool로 데이터 조회</h1>
+<h1>2. 내장 분석 기능으로 처리</h1>
+<h1>3. EmailTool로 전송</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">117 lines</span>
+  </div>
+</div>
+
+<h3 id="패턴-6-planning-계획-수립">🧩 패턴 6: Planning (계획 수립) {#패턴-6-planning-계획-수립}</h3>
+<p><strong>&quot;목표 달성을 위한 로드맵 만들기&quot;</strong></p>
+<h4>📚 초보자 설명</h4>
+<p>여행 계획처럼:</p>
+<ol>
+<li>🎯 목적지 정하기 (목표)</li>
+<li>🗺️ 경로 계획 (단계)</li>
+<li>🎒 준비물 챙기기 (자원)</li>
+<li>🚗 출발! (실행)</li>
+</ol>
+<h4>💻 코드 예시 (수준별)</h4>
+<p><strong>🌱 입문자용 - 단순 계획</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-547" onclick="copyCode('code-1769482284739-547')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-547" class="language-python"># 레벨 1: 간단한 단계별 계획
+class SimplePlanner:
+    def make_plan(self, goal):
+        &quot;&quot;&quot;목표에 따른 계획 생성&quot;&quot;&quot;
+        if goal == &quot;웹사이트 만들기&quot;:
+            return [
+                &quot;1. 요구사항 분석&quot;,
+                &quot;2. 디자인 스케치&quot;,
+                &quot;3. HTML/CSS 코딩&quot;,
+                &quot;4. JavaScript 추가&quot;,
+                &quot;5. 테스트&quot;,
+                &quot;6. 배포&quot;
+            ]
+        elif goal == &quot;앱 개발&quot;:
+            return [
+                &quot;1. 아이디어 구체화&quot;,
+                &quot;2. 화면 설계&quot;,
+                &quot;3. 백엔드 구축&quot;,
+                &quot;4. 프론트엔드 개발&quot;,
+                &quot;5. 통합 테스트&quot;,
+                &quot;6. 출시&quot;
+            ]
+
+<pre><code>def execute_plan(self, plan):
+    &amp;quot;&amp;quot;&amp;quot;계획 실행&amp;quot;&amp;quot;&amp;quot;
+    for step in plan:
+        print(f&amp;quot;실행 중: {step}&amp;quot;)
+        # 실제 작업 수행
+        self.do_work(step)
+        print(f&amp;quot;✅ 완료: {step}&amp;quot;)
+</code></pre>
+<p>planner = SimplePlanner()
+plan = planner.make_plan(&quot;웹사이트 만들기&quot;)
+planner.execute_plan(plan)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">32 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🌿 초급자용 - 동적 계획</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-548" onclick="copyCode('code-1769482284739-548')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-548" class="language-python"># 레벨 2: 상황에 맞는 계획 생성
+class DynamicPlanner:
+    def __init__(self):
+        self.task_templates = {
+            &quot;research&quot;: [&quot;조사&quot;, &quot;분석&quot;, &quot;정리&quot;, &quot;보고&quot;],
+            &quot;development&quot;: [&quot;설계&quot;, &quot;구현&quot;, &quot;테스트&quot;, &quot;배포&quot;],
+            &quot;learning&quot;: [&quot;개념 이해&quot;, &quot;실습&quot;, &quot;프로젝트&quot;, &quot;복습&quot;]
+        }
+
+<pre><code>def create_plan(self, goal, context):
+    &amp;quot;&amp;quot;&amp;quot;목표와 맥락 기반 계획 생성&amp;quot;&amp;quot;&amp;quot;
+    plan = Plan(goal)
+
+    # 목표 분석
+    task_type = self.analyze_goal(goal)
+    template = self.task_templates.get(task_type, [])
+
+    # 맥락 반영
+    for step_template in template:
+        step = self.customize_step(step_template, context)
+        plan.add_step(step)
+
+    # 시간 및 리소스 할당
+    plan.allocate_resources(context.get(&amp;quot;resources&amp;quot;, {}))
+    plan.estimate_time()
+
+    return plan
+
+def analyze_goal(self, goal):
+    &amp;quot;&amp;quot;&amp;quot;목표 유형 분석&amp;quot;&amp;quot;&amp;quot;
+    if &amp;quot;조사&amp;quot; in goal or &amp;quot;분석&amp;quot; in goal:
+        return &amp;quot;research&amp;quot;
+    elif &amp;quot;개발&amp;quot; in goal or &amp;quot;구축&amp;quot; in goal:
+        return &amp;quot;development&amp;quot;
+    elif &amp;quot;배우&amp;quot; in goal or &amp;quot;학습&amp;quot; in goal:
+        return &amp;quot;learning&amp;quot;
+    return &amp;quot;general&amp;quot;
+
+def customize_step(self, template, context):
+    &amp;quot;&amp;quot;&amp;quot;단계를 맥락에 맞게 커스터마이즈&amp;quot;&amp;quot;&amp;quot;
+    step = Step(template)
+
+    if context.get(&amp;quot;deadline&amp;quot;):
+        step.set_deadline(context[&amp;quot;deadline&amp;quot;])
+
+    if context.get(&amp;quot;team_size&amp;quot;):
+        step.assign_resources(context[&amp;quot;team_size&amp;quot;])
+
+    return step
+</code></pre>
+<p>class Plan:
+    def <strong>init</strong>(self, goal):
+        self.goal = goal
+        self.steps = []
+        self.total_time = 0</p>
+<pre><code>def add_step(self, step):
+    self.steps.append(step)
+
+def allocate_resources(self, resources):
+    &amp;quot;&amp;quot;&amp;quot;리소스 할당&amp;quot;&amp;quot;&amp;quot;
+    for step in self.steps:
+        step.resources = resources.get(step.name, {})
+
+def estimate_time(self):
+    &amp;quot;&amp;quot;&amp;quot;시간 추정&amp;quot;&amp;quot;&amp;quot;
+    self.total_time = sum(step.estimated_time for step in self.steps)
+</code></pre>
+<h1>사용 예시</h1>
+<p>planner = DynamicPlanner()
+context = {
+    &quot;deadline&quot;: &quot;2024-12-31&quot;,
+    &quot;team_size&quot;: 3,
+    &quot;resources&quot;: {&quot;budget&quot;: 10000}
+}
+plan = planner.create_plan(&quot;AI 챗봇 개발&quot;, context)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">61 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🌳 중급자용 - AI 기반 계획</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-549" onclick="copyCode('code-1769482284739-549')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-549" class="language-python"># 레벨 3: AI가 스스로 계획 수립 및 조정
+class AIPlanner:
+    def __init__(self, llm_client):
+        self.llm = llm_client
+        self.execution_history = []
+
+<pre><code>async def plan_and_execute(self, goal: str, constraints: Dict):
+    &amp;quot;&amp;quot;&amp;quot;목표 달성을 위한 계획 수립 및 실행&amp;quot;&amp;quot;&amp;quot;
+
+    # 1. 초기 계획 생성
+    initial_plan = await self.generate_plan(goal, constraints)
+
+    # 2. 계획 검증
+    validation = await self.validate_plan(initial_plan)
+
+    if not validation[&amp;#39;is_valid&amp;#39;]:
+        # 3. 문제점 기반 재계획
+        initial_plan = await self.revise_plan(
+            initial_plan,
+            validation[&amp;#39;issues&amp;#39;]
+        )
+
+    # 4. 적응형 실행
+    results = await self.adaptive_execution(initial_plan)
+
+    return {
+        &amp;#39;goal&amp;#39;: goal,
+        &amp;#39;plan&amp;#39;: initial_plan,
+        &amp;#39;execution_results&amp;#39;: results,
+        &amp;#39;success&amp;#39;: self.evaluate_success(results, goal)
+    }
+
+async def generate_plan(self, goal: str, constraints: Dict) -&amp;gt; Dict:
+    &amp;quot;&amp;quot;&amp;quot;AI로 계획 생성&amp;quot;&amp;quot;&amp;quot;
+    prompt = f&amp;quot;&amp;quot;&amp;quot;
+    목표: {goal}
+    제약사항: {json.dumps(constraints, ensure_ascii=False)}
+
+    이 목표를 달성하기 위한 상세한 계획을 수립하세요.
+
+    다음 형식으로 답하세요:
+    {{
+        &amp;quot;steps&amp;quot;: [
+            {{
+                &amp;quot;id&amp;quot;: &amp;quot;step_1&amp;quot;,
+                &amp;quot;action&amp;quot;: &amp;quot;구체적인 행동&amp;quot;,
+                &amp;quot;dependencies&amp;quot;: [],
+                &amp;quot;estimated_time&amp;quot;: &amp;quot;1h&amp;quot;,
+                &amp;quot;required_resources&amp;quot;: [],
+                &amp;quot;success_criteria&amp;quot;: &amp;quot;완료 기준&amp;quot;
+            }}
+        ],
+        &amp;quot;total_estimated_time&amp;quot;: &amp;quot;총 시간&amp;quot;,
+        &amp;quot;critical_path&amp;quot;: [&amp;quot;중요 경로의 step_id들&amp;quot;],
+        &amp;quot;risk_factors&amp;quot;: [&amp;quot;잠재적 위험&amp;quot;],
+        &amp;quot;fallback_strategies&amp;quot;: {{}}
+    }}
+    &amp;quot;&amp;quot;&amp;quot;
+
+    response = await self.llm.generate(prompt)
+    return json.loads(response)
+
+async def adaptive_execution(self, plan: Dict) -&amp;gt; List[Dict]:
+    &amp;quot;&amp;quot;&amp;quot;적응형 계획 실행&amp;quot;&amp;quot;&amp;quot;
+    results = []
+    executed_steps = set()
+
+    while len(executed_steps) &amp;lt; len(plan[&amp;#39;steps&amp;#39;]):
+        # 실행 가능한 단계 찾기
+        ready_steps = self.find_ready_steps(
+            plan[&amp;#39;steps&amp;#39;],
+            executed_steps
+        )
+
+        if not ready_steps:
+            # 교착 상태 해결
+            await self.resolve_deadlock(plan, executed_steps)
+            continue
+
+        # 병렬 실행 가능한 단계들 동시 실행
+        step_results = await asyncio.gather(*[
+            self.execute_step(step)
+            for step in ready_steps
+        ])
+
+        # 결과 처리 및 계획 조정
+        for step, result in zip(ready_steps, step_results):
+            results.append(result)
+            executed_steps.add(step[&amp;#39;id&amp;#39;])
+
+            if not result[&amp;#39;success&amp;#39;]:
+                # 실패 시 재계획
+                plan = await self.replan_on_failure(
+                    plan,
+                    step,
+                    result[&amp;#39;error&amp;#39;]
+                )
+
+    return results
+
+def find_ready_steps(self, steps, executed):
+    &amp;quot;&amp;quot;&amp;quot;실행 가능한 단계 찾기&amp;quot;&amp;quot;&amp;quot;
+    ready = []
+    for step in steps:
+        if step[&amp;#39;id&amp;#39;] not in executed:
+            deps = set(step.get(&amp;#39;dependencies&amp;#39;, []))
+            if deps.issubset(executed):
+                ready.append(step)
+    return ready
+
+async def replan_on_failure(self, plan, failed_step, error):
+    &amp;quot;&amp;quot;&amp;quot;실패 시 재계획&amp;quot;&amp;quot;&amp;quot;
+    prompt = f&amp;quot;&amp;quot;&amp;quot;
+    실행 중 실패 발생:
+    실패한 단계: {json.dumps(failed_step)}
+    에러: {error}
+    현재 계획: {json.dumps(plan)}
+
+    대체 계획을 제시하세요.
+    &amp;quot;&amp;quot;&amp;quot;
+
+    new_plan = await self.llm.generate(prompt)
+    return json.loads(new_plan)
+</code></pre>
+<h1>실제 사용 예시</h1>
+<p>planner = AIPlanner(llm_client)
+result = await planner.plan_and_execute(
+    goal=&quot;고객 서비스 챗봇 구축&quot;,
+    constraints={
+        &quot;budget&quot;: 50000,
+        &quot;deadline&quot;: &quot;2024-06-01&quot;,
+        &quot;team_size&quot;: 2,
+        &quot;tech_stack&quot;: [&quot;Python&quot;, &quot;FastAPI&quot;, &quot;PostgreSQL&quot;]
+    }
+)</p>
+<p>print(f&quot;계획: {result[&#39;plan&#39;]}&quot;)
+print(f&quot;실행 결과: {result[&#39;execution_results&#39;]}&quot;)
+print(f&quot;성공 여부: {result[&#39;success&#39;]}&quot;)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">116 lines</span>
+  </div></p>
+</div>
+
+<h3 id="패턴-7-multi-agent-다중-에이전트">🧩 패턴 7: Multi-Agent (다중 에이전트) {#패턴-7-multi-agent-다중-에이전트}</h3>
+<p><strong>&quot;팀워크로 문제 해결하기&quot;</strong></p>
+<h4>📚 초보자 설명</h4>
+<p>회사처럼:</p>
+<ul>
+<li>👔 CEO: 전체 방향 결정</li>
+<li>💼 관리자: 작업 분배</li>
+<li>👷 직원들: 실제 작업</li>
+<li>📊 분석가: 결과 검토</li>
+</ul>
+<p>여러 AI가 <strong>각자의 역할</strong>을 맡아 협업!</p>
+<h4>💻 코드 예시 (수준별)</h4>
+<p><strong>🌱 입문자용 - 간단한 협업</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-550" onclick="copyCode('code-1769482284739-550')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-550" class="language-python"># 레벨 1: 기본 멀티 에이전트
+class SimpleMultiAgent:
+    def __init__(self):
+        # 각 에이전트 정의
+        self.researcher = ResearchAgent()
+        self.writer = WriterAgent()
+        self.editor = EditorAgent()
+
+<pre><code>def create_article(self, topic):
+    &amp;quot;&amp;quot;&amp;quot;기사 작성 - 3개 에이전트 협업&amp;quot;&amp;quot;&amp;quot;
+
+    # 1. 연구원이 자료 수집
+    print(&amp;quot;🔍 연구원: 자료 수집 중...&amp;quot;)
+    research_data = self.researcher.gather_info(topic)
+
+    # 2. 작가가 초안 작성
+    print(&amp;quot;✍️ 작가: 글 작성 중...&amp;quot;)
+    draft = self.writer.write_draft(research_data)
+
+    # 3. 편집자가 검토 및 수정
+    print(&amp;quot;📝 편집자: 검토 및 수정 중...&amp;quot;)
+    final_article = self.editor.edit(draft)
+
+    return final_article
+</code></pre>
+<p>class ResearchAgent:
+    def gather_info(self, topic):
+        # 실제로는 웹 검색, DB 조회 등
+        return f&quot;{topic}에 대한 연구 자료...&quot;</p>
+<p>class WriterAgent:
+    def write_draft(self, research):
+        return f&quot;제목: ...\n\n본문: {research}를 바탕으로...&quot;</p>
+<p>class EditorAgent:
+    def edit(self, draft):
+        return draft.replace(&quot;...&quot;, &quot;[수정됨]&quot;)</p>
+<h1>사용</h1>
+<p>team = SimpleMultiAgent()
+article = team.create_article(&quot;AI의 미래&quot;)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">32 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🌿 초급자용 - 메시지 기반 협업</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-551" onclick="copyCode('code-1769482284739-551')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-551" class="language-python"># 레벨 2: 메시지 전달 시스템
+from queue import Queue
+from threading import Thread
+
+<p>class Agent:
+    def <strong>init</strong>(self, name, role):
+        self.name = name
+        self.role = role
+        self.inbox = Queue()
+        self.running = True</p>
+<pre><code>def send_message(self, recipient, message):
+    &amp;quot;&amp;quot;&amp;quot;다른 에이전트에게 메시지 전송&amp;quot;&amp;quot;&amp;quot;
+    recipient.inbox.put({
+        &amp;#39;from&amp;#39;: self.name,
+        &amp;#39;content&amp;#39;: message
+    })
+
+def process_messages(self):
+    &amp;quot;&amp;quot;&amp;quot;받은 메시지 처리&amp;quot;&amp;quot;&amp;quot;
+    while self.running:
+        if not self.inbox.empty():
+            message = self.inbox.get()
+            self.handle_message(message)
+
+def handle_message(self, message):
+    &amp;quot;&amp;quot;&amp;quot;메시지 처리 (하위 클래스에서 구현)&amp;quot;&amp;quot;&amp;quot;
+    pass
+</code></pre>
+<p>class ProjectManager(Agent):
+    def <strong>init</strong>(self):
+        super().<strong>init</strong>(&quot;PM&quot;, &quot;프로젝트 관리&quot;)
+        self.team = {}</p>
+<pre><code>def add_team_member(self, agent):
+    self.team[agent.name] = agent
+
+def assign_task(self, task):
+    &amp;quot;&amp;quot;&amp;quot;작업 분배&amp;quot;&amp;quot;&amp;quot;
+    if &amp;quot;개발&amp;quot; in task:
+        self.send_message(self.team[&amp;quot;Developer&amp;quot;], task)
+    elif &amp;quot;디자인&amp;quot; in task:
+        self.send_message(self.team[&amp;quot;Designer&amp;quot;], task)
+    elif &amp;quot;테스트&amp;quot; in task:
+        self.send_message(self.team[&amp;quot;Tester&amp;quot;], task)
+
+def handle_message(self, message):
+    if &amp;quot;완료&amp;quot; in message[&amp;#39;content&amp;#39;]:
+        print(f&amp;quot;✅ {message[&amp;#39;from&amp;#39;]}가 작업 완료!&amp;quot;)
+        # 다음 작업 할당
+        self.assign_next_task()
+</code></pre>
+<p>class Developer(Agent):
+    def <strong>init</strong>(self):
+        super().<strong>init</strong>(&quot;Developer&quot;, &quot;개발&quot;)</p>
+<pre><code>def handle_message(self, message):
+    print(f&amp;quot;💻 개발자: {message[&amp;#39;content&amp;#39;]} 작업 중...&amp;quot;)
+    # 작업 수행
+    result = self.do_development(message[&amp;#39;content&amp;#39;])
+    # 완료 보고
+    self.send_message(message[&amp;#39;from&amp;#39;], f&amp;quot;개발 완료: {result}&amp;quot;)
+</code></pre>
+<h1>팀 구성 및 실행</h1>
+<p>pm = ProjectManager()
+dev = Developer()
+designer = Designer()
+tester = Tester()</p>
+<p>pm.add_team_member(dev)
+pm.add_team_member(designer)
+pm.add_team_member(tester)</p>
+<h1>프로젝트 시작</h1>
+<p>pm.assign_task(&quot;로그인 기능 개발&quot;)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">62 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🌳 중급자용 - 자율 협업 시스템</strong></p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-552" onclick="copyCode('code-1769482284739-552')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-552" class="language-python"># 레벨 3: 고급 멀티 에이전트 시스템
+import asyncio
+from enum import Enum
+from typing import Dict, List, Any, Optional
+from dataclasses import dataclass
+
+<p>class AgentRole(Enum):
+    COORDINATOR = &quot;coordinator&quot;
+    SPECIALIST = &quot;specialist&quot;
+    REVIEWER = &quot;reviewer&quot;
+    EXECUTOR = &quot;executor&quot;</p>
+<p>@dataclass
+class Task:
+    id: str
+    description: str
+    required_skills: List[str]
+    priority: int
+    dependencies: List[str]
+    status: str = &quot;pending&quot;
+    assigned_to: Optional[str] = None
+    result: Optional[Any] = None</p>
+<p>class AutonomousAgent:
+    def <strong>init</strong>(self, agent_id: str, role: AgentRole, skills: List[str]):
+        self.id = agent_id
+        self.role = role
+        self.skills = skills
+        self.task_queue = asyncio.Queue()
+        self.knowledge_base = {}
+        self.llm_client = None  # LLM 연결</p>
+<pre><code>async def think(self, context: Dict) -&amp;gt; Dict:
+    &amp;quot;&amp;quot;&amp;quot;상황 분석 및 의사결정&amp;quot;&amp;quot;&amp;quot;
+    prompt = f&amp;quot;&amp;quot;&amp;quot;
+    에이전트 역할: {self.role.value}
+    전문 분야: {self.skills}
+    현재 상황: {context}
+
+    다음 행동을 결정하세요.
+    &amp;quot;&amp;quot;&amp;quot;
+
+    decision = await self.llm_client.generate(prompt)
+    return json.loads(decision)
+
+async def collaborate(self, other_agents: List[&amp;#39;AutonomousAgent&amp;#39;], task: Task):
+    &amp;quot;&amp;quot;&amp;quot;다른 에이전트와 협업&amp;quot;&amp;quot;&amp;quot;
+    # 필요한 전문가 찾기
+    experts = self.find_experts(other_agents, task.required_skills)
+
+    if not experts:
+        return await self.handle_solo(task)
+
+    # 협업 전략 수립
+    strategy = await self.plan_collaboration(task, experts)
+
+    # 작업 분배
+    subtasks = await self.decompose_task(task, strategy)
+
+    # 비동기 협업 실행
+    results = await asyncio.gather(*[
+        expert.execute_subtask(subtask)
+        for expert, subtask in zip(experts, subtasks)
+    ])
+
+    # 결과 통합
+    return await self.integrate_results(results)
+
+def find_experts(self, agents: List[&amp;#39;AutonomousAgent&amp;#39;], skills: List[str]):
+    &amp;quot;&amp;quot;&amp;quot;필요한 기술을 가진 전문가 찾기&amp;quot;&amp;quot;&amp;quot;
+    experts = []
+    for skill in skills:
+        for agent in agents:
+            if skill in agent.skills and agent not in experts:
+                experts.append(agent)
+                break
+    return experts
+</code></pre>
+<p>class MultiAgentSystem:
+    def <strong>init</strong>(self):
+        self.agents: Dict[str, AutonomousAgent] = {}
+        self.task_pool: List[Task] = []
+        self.communication_bus = asyncio.Queue()</p>
+<pre><code>def add_agent(self, agent: AutonomousAgent):
+    &amp;quot;&amp;quot;&amp;quot;에이전트 추가&amp;quot;&amp;quot;&amp;quot;
+    self.agents[agent.id] = agent
+
+async def solve_problem(self, problem: str) -&amp;gt; Dict:
+    &amp;quot;&amp;quot;&amp;quot;문제 해결 - 전체 시스템 조율&amp;quot;&amp;quot;&amp;quot;
+
+    # 1. 문제 분석 및 작업 분해
+    tasks = await self.decompose_problem(problem)
+
+    # 2. 조율자 선출
+    coordinator = self.elect_coordinator()
+
+    # 3. 작업 할당 전략 수립
+    allocation = await coordinator.plan_allocation(tasks, self.agents)
+
+    # 4. 병렬 작업 실행
+    results = []
+    for task in tasks:
+        assigned_agents = allocation[task.id]
+
+        if len(assigned_agents) &amp;gt; 1:
+            # 협업 필요
+            result = await self.collaborative_execution(
+                task,
+                assigned_agents
+            )
+        else:
+            # 단독 실행
+            result = await assigned_agents[0].execute(task)
+
+        results.append(result)
+
+        # 중간 결과 공유
+        await self.broadcast_progress(task, result)
+
+    # 5. 최종 결과 통합
+    final_result = await self.synthesize_results(results)
+
+    return {
+        &amp;#39;problem&amp;#39;: problem,
+        &amp;#39;solution&amp;#39;: final_result,
+        &amp;#39;agents_involved&amp;#39;: [a.id for a in self.agents.values()],
+        &amp;#39;tasks_completed&amp;#39;: len(tasks)
+    }
+
+async def collaborative_execution(
+    self,
+    task: Task,
+    agents: List[AutonomousAgent]
+):
+    &amp;quot;&amp;quot;&amp;quot;협업 실행 관리&amp;quot;&amp;quot;&amp;quot;
+
+    # 리더 선출
+    leader = self.select_leader(agents, task)
+
+    # 리더가 작업 조율
+    subtasks = await leader.decompose_for_team(task, agents)
+
+    # 동시 실행
+    async def execute_with_communication(agent, subtask):
+        result = await agent.execute(subtask)
+
+        # 진행 상황 공유
+        await self.communication_bus.put({
+            &amp;#39;agent&amp;#39;: agent.id,
+            &amp;#39;subtask&amp;#39;: subtask.id,
+            &amp;#39;status&amp;#39;: &amp;#39;completed&amp;#39;,
+            &amp;#39;result&amp;#39;: result
+        })
+
+        return result
+
+    results = await asyncio.gather(*[
+        execute_with_communication(agent, subtask)
+        for agent, subtask in zip(agents, subtasks)
+    ])
+
+    # 리더가 결과 검증 및 통합
+    return await leader.validate_and_integrate(results)
+
+async def broadcast_progress(self, task: Task, result: Any):
+    &amp;quot;&amp;quot;&amp;quot;진행 상황 전파&amp;quot;&amp;quot;&amp;quot;
+    message = {
+        &amp;#39;type&amp;#39;: &amp;#39;progress&amp;#39;,
+        &amp;#39;task&amp;#39;: task.id,
+        &amp;#39;status&amp;#39;: task.status,
+        &amp;#39;result&amp;#39;: result
+    }
+
+    # 모든 에이전트에게 전달
+    for agent in self.agents.values():
+        await agent.receive_update(message)
+</code></pre>
+<h1>실제 사용 예시</h1>
+<p>async def main():
+    # 멀티 에이전트 시스템 구성
+    system = MultiAgentSystem()</p>
+<pre><code># 다양한 전문가 에이전트 추가
+system.add_agent(AutonomousAgent(
+    &amp;quot;architect&amp;quot;,
+    AgentRole.SPECIALIST,
+    [&amp;quot;system_design&amp;quot;, &amp;quot;architecture&amp;quot;]
+))
+system.add_agent(AutonomousAgent(
+    &amp;quot;backend_dev&amp;quot;,
+    AgentRole.EXECUTOR,
+    [&amp;quot;python&amp;quot;, &amp;quot;database&amp;quot;, &amp;quot;api&amp;quot;]
+))
+system.add_agent(AutonomousAgent(
+    &amp;quot;frontend_dev&amp;quot;,
+    AgentRole.EXECUTOR,
+    [&amp;quot;javascript&amp;quot;, &amp;quot;react&amp;quot;, &amp;quot;ui&amp;quot;]
+))
+system.add_agent(AutonomousAgent(
+    &amp;quot;qa_engineer&amp;quot;,
+    AgentRole.REVIEWER,
+    [&amp;quot;testing&amp;quot;, &amp;quot;quality_assurance&amp;quot;]
+))
+
+# 복잡한 문제 해결
+result = await system.solve_problem(
+    &amp;quot;전자상거래 플랫폼 구축&amp;quot;
+)
+
+print(f&amp;quot;해결책: {result[&amp;#39;solution&amp;#39;]}&amp;quot;)
+print(f&amp;quot;참여 에이전트: {result[&amp;#39;agents_involved&amp;#39;]}&amp;quot;)
+</code></pre>
+<p>asyncio.run(main())</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">174 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="초보자를-위한-단계별-실습">초보자를 위한 단계별 실습 {#초보자를-위한-단계별-실습}</h2>
+<h3 id="레벨-1-hello-agent-첫-번째-에이전트">🎓 레벨 1: Hello Agent! (첫 번째 에이전트) {#레벨-1-hello-agent-첫-번째-에이전트}</h3>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-553" onclick="copyCode('code-1769482284739-553')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-553" class="language-python"># step1_hello_agent.py
+&quot;&quot;&quot;
+목표: 가장 간단한 AI 에이전트 만들기
+시간: 10분
+&quot;&quot;&quot;
+
+<p>class MyFirstAgent:
+    def <strong>init</strong>(self, name):
+        self.name = name
+        self.memory = []  # 기억 저장소</p>
+<pre><code>def listen(self, user_input):
+    &amp;quot;&amp;quot;&amp;quot;사용자 입력 듣기&amp;quot;&amp;quot;&amp;quot;
+    self.memory.append(user_input)
+    return f&amp;quot;{self.name}이(가) 들었습니다: {user_input}&amp;quot;
+
+def think(self):
+    &amp;quot;&amp;quot;&amp;quot;생각하기 (간단한 처리)&amp;quot;&amp;quot;&amp;quot;
+    if self.memory:
+        last_input = self.memory[-1]
+        if &amp;quot;안녕&amp;quot; in last_input:
+            return &amp;quot;인사&amp;quot;
+        elif &amp;quot;?&amp;quot; in last_input:
+            return &amp;quot;질문&amp;quot;
+        else:
+            return &amp;quot;일반&amp;quot;
+    return &amp;quot;없음&amp;quot;
+
+def respond(self):
+    &amp;quot;&amp;quot;&amp;quot;응답하기&amp;quot;&amp;quot;&amp;quot;
+    thought = self.think()
+
+    responses = {
+        &amp;quot;인사&amp;quot;: &amp;quot;안녕하세요! 반갑습니다 😊&amp;quot;,
+        &amp;quot;질문&amp;quot;: &amp;quot;좋은 질문이네요! 함께 생각해봐요.&amp;quot;,
+        &amp;quot;일반&amp;quot;: &amp;quot;흥미롭네요. 더 말씀해주세요.&amp;quot;,
+        &amp;quot;없음&amp;quot;: &amp;quot;무엇을 도와드릴까요?&amp;quot;
+    }
+
+    return responses.get(thought, &amp;quot;이해하지 못했습니다.&amp;quot;)
+</code></pre>
+<h1>실습하기</h1>
+<p>agent = MyFirstAgent(&quot;도우미&quot;)</p>
+<p>print(agent.listen(&quot;안녕하세요!&quot;))
+print(agent.respond())</p>
+<p>print(agent.listen(&quot;오늘 날씨 어때?&quot;))
+print(agent.respond())</p>
+<h1>도전 과제:</h1>
+<h1>1. 에이전트가 사용자 이름을 기억하게 만들기</h1>
+<h1>2. 대화 맥락을 이해하게 만들기</h1>
+<h1>3. 감정을 표현하게 만들기</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">44 lines</span>
+  </div>
+</div>
+
+<h3 id="레벨-2-체인-만들기-작업-연결">🎓 레벨 2: 체인 만들기 (작업 연결) {#레벨-2-체인-만들기-작업-연결}</h3>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-554" onclick="copyCode('code-1769482284739-554')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-554" class="language-python"># step2_chain_agent.py
+&quot;&quot;&quot;
+목표: 여러 단계를 연결하는 에이전트
+시간: 20분
+&quot;&quot;&quot;
+
+<p>class ChainAgent:
+    def <strong>init</strong>(self):
+        self.steps = []
+        self.results = {}</p>
+<pre><code>def add_step(self, name, function):
+    &amp;quot;&amp;quot;&amp;quot;단계 추가&amp;quot;&amp;quot;&amp;quot;
+    self.steps.append({
+        &amp;#39;name&amp;#39;: name,
+        &amp;#39;function&amp;#39;: function
+    })
+    return self
+
+def execute(self, initial_input):
+    &amp;quot;&amp;quot;&amp;quot;체인 실행&amp;quot;&amp;quot;&amp;quot;
+    current_data = initial_input
+
+    print(&amp;quot;🚀 체인 시작!&amp;quot;)
+    print(&amp;quot;-&amp;quot; * 30)
+
+    for i, step in enumerate(self.steps, 1):
+        print(f&amp;quot;Step {i}: {step[&amp;#39;name&amp;#39;]}&amp;quot;)
+
+        try:
+            # 이전 결과를 다음 단계로 전달
+            current_data = step[&amp;#39;function&amp;#39;](current_data)
+            self.results[step[&amp;#39;name&amp;#39;]] = current_data
+            print(f&amp;quot;✅ 결과: {current_data[:50]}...&amp;quot;)  # 처음 50자만
+        except Exception as e:
+            print(f&amp;quot;❌ 오류 발생: {e}&amp;quot;)
+            break
+
+        print(&amp;quot;-&amp;quot; * 30)
+
+    print(&amp;quot;🎉 체인 완료!&amp;quot;)
+    return current_data
+</code></pre>
+<h1>실습: 블로그 포스트 생성 체인</h1>
+<p>def generate_title(topic):
+    &quot;&quot;&quot;제목 생성&quot;&quot;&quot;
+    return f&quot;초보자를 위한 {topic} 완벽 가이드&quot;</p>
+<p>def create_outline(title):
+    &quot;&quot;&quot;개요 작성&quot;&quot;&quot;
+    return f&quot;&quot;&quot;
+    제목: {title}</p>
+<pre><code>1. 서론
+2. 기본 개념
+3. 실습 예제
+4. 활용 방법
+5. 결론
+&amp;quot;&amp;quot;&amp;quot;
+</code></pre>
+<p>def write_intro(outline):
+    &quot;&quot;&quot;서론 작성&quot;&quot;&quot;
+    return f&quot;&quot;&quot;
+    {outline}</p>
+<pre><code>서론:
+이 글에서는 초보자도 쉽게 이해할 수 있도록...
+&amp;quot;&amp;quot;&amp;quot;
+</code></pre>
+<p>def add_examples(content):
+    &quot;&quot;&quot;예제 추가&quot;&quot;&quot;
+    return f&quot;&quot;&quot;
+    {content}</p>
+<pre><code>예제 1: Hello World
+예제 2: 실전 활용
+&amp;quot;&amp;quot;&amp;quot;
+</code></pre>
+<h1>체인 구성 및 실행</h1>
+<p>blog_chain = ChainAgent()
+blog_chain.add_step(&quot;제목 생성&quot;, generate_title) <br>          .add_step(&quot;개요 작성&quot;, create_outline) <br>          .add_step(&quot;서론 작성&quot;, write_intro) <br>          .add_step(&quot;예제 추가&quot;, add_examples)</p>
+<p>result = blog_chain.execute(&quot;Python&quot;)
+print(&quot;\n최종 결과:&quot;)
+print(result)</p>
+<h1>도전 과제:</h1>
+<h1>1. 에러 발생 시 재시도 기능 추가</h1>
+<h1>2. 각 단계 실행 시간 측정</h1>
+<h1>3. 중간 결과 저장 기능</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">75 lines</span>
+  </div>
+</div>
+
+<h3 id="레벨-3-도구-사용-에이전트">🎓 레벨 3: 도구 사용 에이전트 {#레벨-3-도구-사용-에이전트}</h3>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-555" onclick="copyCode('code-1769482284739-555')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-555" class="language-python"># step3_tool_agent.py
+&quot;&quot;&quot;
+목표: 도구를 사용하는 똑똑한 에이전트
+시간: 30분
+&quot;&quot;&quot;
+
+<p>import random
+import json
+from datetime import datetime</p>
+<p>class ToolAgent:
+    def <strong>init</strong>(self, name):
+        self.name = name
+        self.tools = {}</p>
+<pre><code>def register_tool(self, tool_name, tool_function, description):
+    &amp;quot;&amp;quot;&amp;quot;도구 등록&amp;quot;&amp;quot;&amp;quot;
+    self.tools[tool_name] = {
+        &amp;#39;function&amp;#39;: tool_function,
+        &amp;#39;description&amp;#39;: description
+    }
+    print(f&amp;quot;🔧 도구 등록: {tool_name}&amp;quot;)
+
+def list_tools(self):
+    &amp;quot;&amp;quot;&amp;quot;사용 가능한 도구 목록&amp;quot;&amp;quot;&amp;quot;
+    print(f&amp;quot;\n📦 {self.name}의 도구상자:&amp;quot;)
+    for name, tool in self.tools.items():
+        print(f&amp;quot;  - {name}: {tool[&amp;#39;description&amp;#39;]}&amp;quot;)
+
+def use_tool(self, tool_name, *args, **kwargs):
+    &amp;quot;&amp;quot;&amp;quot;도구 사용&amp;quot;&amp;quot;&amp;quot;
+    if tool_name not in self.tools:
+        return f&amp;quot;❌ 도구 &amp;#39;{tool_name}&amp;#39;을 찾을 수 없습니다.&amp;quot;
+
+    try:
+        result = self.tools[tool_name][&amp;#39;function&amp;#39;](*args, **kwargs)
+        return f&amp;quot;✅ {tool_name} 결과: {result}&amp;quot;
+    except Exception as e:
+        return f&amp;quot;❌ 오류: {e}&amp;quot;
+
+def auto_select_tool(self, task):
+    &amp;quot;&amp;quot;&amp;quot;작업에 맞는 도구 자동 선택&amp;quot;&amp;quot;&amp;quot;
+    task_lower = task.lower()
+
+    # 간단한 키워드 매칭
+    if &amp;quot;계산&amp;quot; in task_lower or &amp;quot;+&amp;quot; in task_lower or &amp;quot;-&amp;quot; in task_lower:
+        return &amp;quot;calculator&amp;quot;
+    elif &amp;quot;날씨&amp;quot; in task_lower:
+        return &amp;quot;weather&amp;quot;
+    elif &amp;quot;시간&amp;quot; in task_lower or &amp;quot;몇시&amp;quot; in task_lower:
+        return &amp;quot;clock&amp;quot;
+    elif &amp;quot;주사위&amp;quot; in task_lower or &amp;quot;랜덤&amp;quot; in task_lower:
+        return &amp;quot;dice&amp;quot;
+    else:
+        return None
+
+def process_task(self, task):
+    &amp;quot;&amp;quot;&amp;quot;작업 처리&amp;quot;&amp;quot;&amp;quot;
+    print(f&amp;quot;\n📋 작업: {task}&amp;quot;)
+
+    # 적절한 도구 선택
+    tool = self.auto_select_tool(task)
+
+    if tool:
+        print(f&amp;quot;🎯 선택된 도구: {tool}&amp;quot;)
+
+        # 도구별 파라미터 추출 (실제로는 더 정교하게)
+        if tool == &amp;quot;calculator&amp;quot;:
+            # 간단한 계산식 추출
+            import re
+            numbers = re.findall(r&amp;#39;\d+&amp;#39;, task)
+            if len(numbers) &amp;gt;= 2:
+                return self.use_tool(tool, int(numbers[0]), int(numbers[1]))
+        else:
+            return self.use_tool(tool)
+    else:
+        return &amp;quot;🤔 이 작업에 적합한 도구를 찾지 못했습니다.&amp;quot;
+</code></pre>
+<h1>도구 함수들</h1>
+<p>def calculator(a, b, operation=&quot;+&quot;):
+    &quot;&quot;&quot;계산기&quot;&quot;&quot;
+    ops = {
+        &quot;+&quot;: a + b,
+        &quot;-&quot;: a - b,
+        &quot;*&quot;: a * b,
+        &quot;/&quot;: a / b if b != 0 else &quot;0으로 나눌 수 없음&quot;
+    }
+    return ops.get(operation, a + b)</p>
+<p>def weather_tool():
+    &quot;&quot;&quot;날씨 정보 (시뮬레이션)&quot;&quot;&quot;
+    weathers = [&quot;맑음 ☀️&quot;, &quot;흐림 ☁️&quot;, &quot;비 🌧️&quot;, &quot;눈 ❄️&quot;]
+    temp = random.randint(10, 30)
+    return f&quot;{random.choice(weathers)}, {temp}도&quot;</p>
+<p>def clock_tool():
+    &quot;&quot;&quot;현재 시간&quot;&quot;&quot;
+    return datetime.now().strftime(&quot;%Y-%m-%d %H:%M:%S&quot;)</p>
+<p>def dice_tool(sides=6):
+    &quot;&quot;&quot;주사위 던지기&quot;&quot;&quot;
+    return f&quot;🎲 {random.randint(1, sides)}&quot;</p>
+<h1>에이전트 생성 및 도구 등록</h1>
+<p>agent = ToolAgent(&quot;똑똑이&quot;)</p>
+<p>agent.register_tool(&quot;calculator&quot;, calculator, &quot;숫자 계산&quot;)
+agent.register_tool(&quot;weather&quot;, weather_tool, &quot;날씨 확인&quot;)
+agent.register_tool(&quot;clock&quot;, clock_tool, &quot;현재 시간&quot;)
+agent.register_tool(&quot;dice&quot;, dice_tool, &quot;주사위 던지기&quot;)</p>
+<h1>도구 목록 확인</h1>
+<p>agent.list_tools()</p>
+<h1>다양한 작업 처리</h1>
+<p>tasks = [
+    &quot;10 + 20 계산해줘&quot;,
+    &quot;지금 몇시야?&quot;,
+    &quot;오늘 날씨 어때?&quot;,
+    &quot;주사위 던져줘&quot;,
+    &quot;이메일 보내기&quot;  # 도구 없음
+]</p>
+<p>for task in tasks:
+    result = agent.process_task(task)
+    print(f&quot;결과: {result}\n&quot;)</p>
+<h1>도전 과제:</h1>
+<h1>1. 새로운 도구 추가 (번역기, 검색 등)</h1>
+<h1>2. 여러 도구를 조합해서 사용</h1>
+<h1>3. 도구 사용 기록 저장</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">109 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="실전-프로젝트-나만의-ai-비서-만들기">실전 프로젝트 - 나만의 AI 비서 만들기 {#실전-프로젝트-나만의-ai-비서-만들기}</h2>
+<h3 id="프로젝트-개인-업무-도우미-에이전트">🚀 프로젝트: 개인 업무 도우미 에이전트 {#프로젝트-개인-업무-도우미-에이전트}</h3>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-556" onclick="copyCode('code-1769482284739-556')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-556" class="language-python"># personal_assistant.py
+&quot;&quot;&quot;
+실전 프로젝트: 모든 패턴을 활용한 개인 비서
+- 일정 관리
+- 작업 자동화
+- 정보 검색
+- 리마인더
+&quot;&quot;&quot;
+
+<p>import asyncio
+import json
+from datetime import datetime, timedelta
+from typing import Dict, List, Any</p>
+<p>class PersonalAssistant:
+    def <strong>init</strong>(self, user_name):
+        self.user_name = user_name
+        self.memory = []  # 대화 기록
+        self.tasks = []   # 할 일 목록
+        self.schedule = {}  # 일정
+        self.tools = self._initialize_tools()
+        self.agents = self._initialize_agents()</p>
+<pre><code>def _initialize_tools(self):
+    &amp;quot;&amp;quot;&amp;quot;도구 초기화&amp;quot;&amp;quot;&amp;quot;
+    return {
+        &amp;#39;calendar&amp;#39;: CalendarTool(),
+        &amp;#39;todo&amp;#39;: TodoTool(),
+        &amp;#39;search&amp;#39;: SearchTool(),
+        &amp;#39;reminder&amp;#39;: ReminderTool(),
+        &amp;#39;email&amp;#39;: EmailTool()
+    }
+
+def _initialize_agents(self):
+    &amp;quot;&amp;quot;&amp;quot;전문 에이전트 초기화&amp;quot;&amp;quot;&amp;quot;
+    return {
+        &amp;#39;scheduler&amp;#39;: SchedulerAgent(),
+        &amp;#39;researcher&amp;#39;: ResearchAgent(),
+        &amp;#39;writer&amp;#39;: WriterAgent(),
+        &amp;#39;analyzer&amp;#39;: AnalyzerAgent()
+    }
+
+async def process_command(self, command: str):
+    &amp;quot;&amp;quot;&amp;quot;명령 처리 - 라우팅 패턴&amp;quot;&amp;quot;&amp;quot;
+
+    # 1. 의도 파악
+    intent = self.analyze_intent(command)
+
+    # 2. 적절한 처리 방법 선택
+    if intent == &amp;#39;schedule&amp;#39;:
+        return await self.handle_schedule(command)
+    elif intent == &amp;#39;task&amp;#39;:
+        return await self.handle_task(command)
+    elif intent == &amp;#39;search&amp;#39;:
+        return await self.handle_search(command)
+    elif intent == &amp;#39;complex&amp;#39;:
+        return await self.handle_complex(command)
+    else:
+        return await self.handle_general(command)
+
+def analyze_intent(self, command: str) -&amp;gt; str:
+    &amp;quot;&amp;quot;&amp;quot;의도 분석&amp;quot;&amp;quot;&amp;quot;
+    command_lower = command.lower()
+
+    schedule_keywords = [&amp;#39;일정&amp;#39;, &amp;#39;약속&amp;#39;, &amp;#39;미팅&amp;#39;, &amp;#39;회의&amp;#39;]
+    task_keywords = [&amp;#39;할일&amp;#39;, &amp;#39;작업&amp;#39;, &amp;#39;todo&amp;#39;, &amp;#39;해야&amp;#39;]
+    search_keywords = [&amp;#39;검색&amp;#39;, &amp;#39;찾아&amp;#39;, &amp;#39;알려줘&amp;#39;, &amp;#39;뭐야&amp;#39;]
+
+    if any(k in command_lower for k in schedule_keywords):
+        return &amp;#39;schedule&amp;#39;
+    elif any(k in command_lower for k in task_keywords):
+        return &amp;#39;task&amp;#39;
+    elif any(k in command_lower for k in search_keywords):
+        return &amp;#39;search&amp;#39;
+    elif len(command.split()) &amp;gt; 10:  # 복잡한 요청
+        return &amp;#39;complex&amp;#39;
+    else:
+        return &amp;#39;general&amp;#39;
+
+async def handle_complex(self, command: str):
+    &amp;quot;&amp;quot;&amp;quot;복잡한 작업 처리 - 멀티 에이전트 + 병렬 처리&amp;quot;&amp;quot;&amp;quot;
+
+    print(&amp;quot;🤖 복잡한 작업 감지. 팀 구성 중...&amp;quot;)
+
+    # 작업 분해 (Planning 패턴)
+    subtasks = self.decompose_task(command)
+
+    # 병렬 처리 (Parallelization 패턴)
+    results = await asyncio.gather(*[
+        self.process_subtask(subtask)
+        for subtask in subtasks
+    ])
+
+    # 결과 통합 및 검증 (Reflection 패턴)
+    final_result = self.integrate_and_validate(results)
+
+    return final_result
+
+def decompose_task(self, command: str) -&amp;gt; List[Dict]:
+    &amp;quot;&amp;quot;&amp;quot;작업 분해&amp;quot;&amp;quot;&amp;quot;
+    # 실제로는 AI를 사용하여 더 정교하게
+    subtasks = []
+
+    if &amp;quot;보고서&amp;quot; in command:
+        subtasks = [
+            {&amp;#39;type&amp;#39;: &amp;#39;research&amp;#39;, &amp;#39;topic&amp;#39;: &amp;#39;주제 조사&amp;#39;},
+            {&amp;#39;type&amp;#39;: &amp;#39;write&amp;#39;, &amp;#39;content&amp;#39;: &amp;#39;초안 작성&amp;#39;},
+            {&amp;#39;type&amp;#39;: &amp;#39;review&amp;#39;, &amp;#39;target&amp;#39;: &amp;#39;검토 및 수정&amp;#39;}
+        ]
+    elif &amp;quot;분석&amp;quot; in command:
+        subtasks = [
+            {&amp;#39;type&amp;#39;: &amp;#39;collect&amp;#39;, &amp;#39;data&amp;#39;: &amp;#39;데이터 수집&amp;#39;},
+            {&amp;#39;type&amp;#39;: &amp;#39;analyze&amp;#39;, &amp;#39;method&amp;#39;: &amp;#39;분석 실행&amp;#39;},
+            {&amp;#39;type&amp;#39;: &amp;#39;visualize&amp;#39;, &amp;#39;format&amp;#39;: &amp;#39;시각화&amp;#39;}
+        ]
+
+    return subtasks
+
+async def process_subtask(self, subtask: Dict):
+    &amp;quot;&amp;quot;&amp;quot;하위 작업 처리&amp;quot;&amp;quot;&amp;quot;
+    task_type = subtask.get(&amp;#39;type&amp;#39;)
+
+    if task_type == &amp;#39;research&amp;#39;:
+        return await self.agents[&amp;#39;researcher&amp;#39;].research(subtask)
+    elif task_type == &amp;#39;write&amp;#39;:
+        return await self.agents[&amp;#39;writer&amp;#39;].write(subtask)
+    elif task_type == &amp;#39;analyze&amp;#39;:
+        return await self.agents[&amp;#39;analyzer&amp;#39;].analyze(subtask)
+    else:
+        return f&amp;quot;처리됨: {subtask}&amp;quot;
+
+def integrate_and_validate(self, results: List) -&amp;gt; str:
+    &amp;quot;&amp;quot;&amp;quot;결과 통합 및 검증&amp;quot;&amp;quot;&amp;quot;
+    # Reflection 패턴 - 결과 검토
+    integrated = &amp;quot;\n&amp;quot;.join(str(r) for r in results)
+
+    # 자기 검증
+    issues = self.validate_results(integrated)
+
+    if issues:
+        # 문제 발견 시 개선
+        integrated = self.improve_results(integrated, issues)
+
+    return f&amp;quot;&amp;quot;&amp;quot;
+    ✅ 작업 완료!
+
+    {integrated}
+
+    처리된 하위 작업: {len(results)}개
+    &amp;quot;&amp;quot;&amp;quot;
+
+def validate_results(self, results: str) -&amp;gt; List[str]:
+    &amp;quot;&amp;quot;&amp;quot;결과 검증&amp;quot;&amp;quot;&amp;quot;
+    issues = []
+
+    if len(results) &amp;lt; 50:
+        issues.append(&amp;quot;내용이 너무 짧음&amp;quot;)
+
+    # 추가 검증 로직...
+
+    return issues
+
+def improve_results(self, results: str, issues: List[str]) -&amp;gt; str:
+    &amp;quot;&amp;quot;&amp;quot;결과 개선&amp;quot;&amp;quot;&amp;quot;
+    improved = results
+
+    for issue in issues:
+        if &amp;quot;짧음&amp;quot; in issue:
+            improved += &amp;quot;\n\n[추가 내용...]&amp;quot;
+
+    return improved
+</code></pre>
+<h1>전문 에이전트들</h1>
+<p>class SchedulerAgent:
+    &quot;&quot;&quot;일정 관리 전문 에이전트&quot;&quot;&quot;</p>
+<pre><code>async def schedule(self, task):
+    # 일정 최적화 로직
+    return f&amp;quot;일정 등록: {task}&amp;quot;
+</code></pre>
+<p>class ResearchAgent:
+    &quot;&quot;&quot;조사 전문 에이전트&quot;&quot;&quot;</p>
+<pre><code>async def research(self, topic):
+    # 실제로는 웹 검색, DB 조회 등
+    await asyncio.sleep(1)  # 시뮬레이션
+    return f&amp;quot;조사 완료: {topic}&amp;quot;
+</code></pre>
+<p>class WriterAgent:
+    &quot;&quot;&quot;작성 전문 에이전트&quot;&quot;&quot;</p>
+<pre><code>async def write(self, content):
+    await asyncio.sleep(1)
+    return f&amp;quot;작성 완료: {content}&amp;quot;
+</code></pre>
+<p>class AnalyzerAgent:
+    &quot;&quot;&quot;분석 전문 에이전트&quot;&quot;&quot;</p>
+<pre><code>async def analyze(self, data):
+    await asyncio.sleep(1)
+    return f&amp;quot;분석 완료: {data}&amp;quot;
+</code></pre>
+<h1>도구들</h1>
+<p>class CalendarTool:
+    def add_event(self, event):
+        return f&quot;📅 일정 추가: {event}&quot;</p>
+<p>class TodoTool:
+    def add_task(self, task):
+        return f&quot;✅ 할일 추가: {task}&quot;</p>
+<p>class SearchTool:
+    def search(self, query):
+        return f&quot;🔍 검색 결과: {query}&quot;</p>
+<p>class ReminderTool:
+    def set_reminder(self, reminder):
+        return f&quot;⏰ 리마인더 설정: {reminder}&quot;</p>
+<p>class EmailTool:
+    def send(self, email):
+        return f&quot;📧 이메일 전송: {email}&quot;</p>
+<h1>실제 사용</h1>
+<p>async def main():
+    # 비서 생성
+    assistant = PersonalAssistant(&quot;사용자&quot;)</p>
+<pre><code># 다양한 명령 처리
+commands = [
+    &amp;quot;내일 오후 2시에 회의 일정 잡아줘&amp;quot;,
+    &amp;quot;Python 공부하기를 할일 목록에 추가해&amp;quot;,
+    &amp;quot;AI 에이전트에 대해 검색해줘&amp;quot;,
+    &amp;quot;다음 주 프로젝트 진행 상황 보고서를 작성하고 팀원들에게 이메일로 보내줘&amp;quot;
+]
+
+for cmd in commands:
+    print(f&amp;quot;\n👤 사용자: {cmd}&amp;quot;)
+    result = await assistant.process_command(cmd)
+    print(f&amp;quot;🤖 비서: {result}&amp;quot;)
+</code></pre>
+<h1>실행</h1>
+<p>if <strong>name</strong> == &quot;<strong>main</strong>&quot;:
+    asyncio.run(main())</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">193 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="용어-사전-어려운-말-쉽게-이해하기">용어 사전 - 어려운 말 쉽게 이해하기 {#용어-사전-어려운-말-쉽게-이해하기}</h2>
+<h3 id="핵심-용어-설명">📚 핵심 용어 설명 {#핵심-용어-설명}</h3>
+<table>
+<thead>
+<tr>
+<th>용어</th>
+<th>어려운 설명</th>
+<th>쉬운 설명</th>
+<th>비유</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Agent (에이전트)</strong></td>
+<td>자율적으로 작동하는 AI 시스템</td>
+<td>스스로 판단하고 행동하는 AI</td>
+<td>🤖 로봇 비서</td>
+</tr>
+<tr>
+<td><strong>LLM</strong></td>
+<td>Large Language Model</td>
+<td>많이 학습한 AI 언어 모델</td>
+<td>📚 백과사전을 다 외운 친구</td>
+</tr>
+<tr>
+<td><strong>Prompt</strong></td>
+<td>AI에게 주는 명령이나 질문</td>
+<td>AI와 대화하는 방법</td>
+<td>💬 말 걸기</td>
+</tr>
+<tr>
+<td><strong>Chain</strong></td>
+<td>순차적 처리 파이프라인</td>
+<td>작업을 순서대로 연결</td>
+<td>🔗 도미노</td>
+</tr>
+<tr>
+<td><strong>Routing</strong></td>
+<td>조건부 분기 처리</td>
+<td>상황에 따라 다른 길 선택</td>
+<td>🚦 교통 신호</td>
+</tr>
+<tr>
+<td><strong>Parallelization</strong></td>
+<td>병렬 처리</td>
+<td>여러 일을 동시에</td>
+<td>🎯 멀티태스킹</td>
+</tr>
+<tr>
+<td><strong>Reflection</strong></td>
+<td>자기 검토 및 개선</td>
+<td>스스로 확인하고 고치기</td>
+<td>🪞 거울 보기</td>
+</tr>
+<tr>
+<td><strong>Tool Use</strong></td>
+<td>도구 활용</td>
+<td>필요한 도구 찾아 쓰기</td>
+<td>🧰 공구상자</td>
+</tr>
+<tr>
+<td><strong>Planning</strong></td>
+<td>계획 수립</td>
+<td>미리 계획 세우기</td>
+<td>📋 여행 일정표</td>
+</tr>
+<tr>
+<td><strong>Multi-Agent</strong></td>
+<td>다중 에이전트 시스템</td>
+<td>여러 AI가 협력</td>
+<td>👥 팀워크</td>
+</tr>
+<tr>
+<td><strong>Context</strong></td>
+<td>맥락, 문맥</td>
+<td>대화의 흐름과 상황</td>
+<td>📖 이야기 배경</td>
+</tr>
+<tr>
+<td><strong>Token</strong></td>
+<td>텍스트 처리 단위</td>
+<td>AI가 이해하는 글자 조각</td>
+<td>🧩 퍼즐 조각</td>
+</tr>
+<tr>
+<td><strong>Embedding</strong></td>
+<td>벡터 변환</td>
+<td>글을 숫자로 바꾸기</td>
+<td>🔢 암호화</td>
+</tr>
+<tr>
+<td><strong>Fine-tuning</strong></td>
+<td>모델 미세 조정</td>
+<td>AI를 특별히 훈련시키기</td>
+<td>🎯 맞춤 교육</td>
+</tr>
+<tr>
+<td><strong>API</strong></td>
+<td>Application Programming Interface</td>
+<td>프로그램끼리 대화하는 방법</td>
+<td>📞 전화번호</td>
+</tr>
+<tr>
+<td><strong>Async/Await</strong></td>
+<td>비동기 처리</td>
+<td>기다리지 않고 다른 일 하기</td>
+<td>⏱️ 요리하며 빨래</td>
+</tr>
+<tr>
+<td><strong>Exception</strong></td>
+<td>예외, 오류</td>
+<td>뭔가 잘못됐을 때</td>
+<td>⚠️ 경고등</td>
+</tr>
+<tr>
+<td><strong>Recursion</strong></td>
+<td>재귀</td>
+<td>자기 자신을 다시 부르기</td>
+<td>🔄 마트료시카 인형</td>
+</tr>
+<tr>
+<td><strong>Orchestration</strong></td>
+<td>오케스트레이션</td>
+<td>여러 요소를 조화롭게 관리</td>
+<td>🎼 지휘자</td>
+</tr>
+<tr>
+<td><strong>Pipeline</strong></td>
+<td>파이프라인</td>
+<td>데이터가 흐르는 통로</td>
+<td>🚰 수도관</td>
+</tr>
+<tr>
+<td><strong>Fallback</strong></td>
+<td>대체 방안</td>
+<td>실패했을 때 플랜 B</td>
+<td>🪂 예비 낙하산</td>
+</tr>
+</tbody></table>
+<h3 id="자주-나오는-코드-패턴-설명">💡 자주 나오는 코드 패턴 설명 {#자주-나오는-코드-패턴-설명}</h3>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284739-557" onclick="copyCode('code-1769482284739-557')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284739-557" class="language-python"># 1. async/await - 비동기 처리
+async def 함수():
+    결과 = await 오래걸리는작업()
+    # &quot;오래걸리는작업 끝날 때까지 다른 일 하다가 와&quot;
+
+<h1>2. try/except - 오류 처리</h1>
+<p>try:
+    위험한_작업()
+except:
+    안전한_대안()
+    # &quot;혹시 실패하면 이렇게 해&quot;</p>
+<h1>3. List Comprehension - 리스트 간단히 만들기</h1>
+<p>numbers = [x*2 for x in range(10)]</p>
+<h1>&quot;0부터 9까지 각각 2배 해서 리스트 만들어&quot;</h1>
+<h1>4. Lambda - 간단한 함수</h1>
+<p>add = lambda x, y: x + y</p>
+<h1>&quot;이름 없는 작은 함수&quot;</h1>
+<h1>5. *args, **kwargs - 유연한 매개변수</h1>
+<p>def 함수(*args, **kwargs):
+    # args: 개수 모를 때
+    # kwargs: 이름 있는 것 받을 때</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">20 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="더-나아가기-성장-로드맵">더 나아가기 - 성장 로드맵 {#더-나아가기-성장-로드맵}</h2>
+<h3 id="학습-경로">🗺️ 학습 경로 {#학습-경로}</h3>
+<h4>📍 1단계: 기초 다지기 (1-2개월)</h4>
+<ul>
+<li><input disabled="" type="checkbox"> Python 기본 문법</li>
+<li><input disabled="" type="checkbox"> 함수와 클래스 이해</li>
+<li><input disabled="" type="checkbox"> 기본 데이터 구조</li>
+<li><input disabled="" type="checkbox"> 파일 입출력</li>
+</ul>
+<h4>📍 2단계: AI 기초 (2-3개월)</h4>
+<ul>
+<li><input disabled="" type="checkbox"> API 사용법 (OpenAI, Claude)</li>
+<li><input disabled="" type="checkbox"> 프롬프트 엔지니어링</li>
+<li><input disabled="" type="checkbox"> 간단한 챗봇 만들기</li>
+<li><input disabled="" type="checkbox"> 기본 패턴 1-2개 구현</li>
+</ul>
+<h4>📍 3단계: 에이전트 개발 (3-4개월)</h4>
+<ul>
+<li><input disabled="" type="checkbox"> 모든 패턴 실습</li>
+<li><input disabled="" type="checkbox"> 실제 프로젝트 구현</li>
+<li><input disabled="" type="checkbox"> 오류 처리 및 최적화</li>
+<li><input disabled="" type="checkbox"> 배포 및 운영</li>
+</ul>
+<h4>📍 4단계: 고급 기술 (지속적)</h4>
+<ul>
+<li><input disabled="" type="checkbox"> 복잡한 멀티 에이전트</li>
+<li><input disabled="" type="checkbox"> 실시간 처리</li>
+<li><input disabled="" type="checkbox"> 대규모 시스템</li>
+<li><input disabled="" type="checkbox"> 오픈소스 기여</li>
+</ul>
+<h3 id="추천-학습-자료">📚 추천 학습 자료 {#추천-학습-자료}</h3>
+<h4>온라인 강의</h4>
+<ul>
+<li>🎓 <strong>Coursera</strong>: &quot;AI For Everyone&quot; - Andrew Ng</li>
+<li>🎓 <strong>Fast.ai</strong>: 실용적인 딥러닝</li>
+<li>🎓 <strong>유튜브</strong>: &quot;Two Minute Papers&quot; - AI 최신 동향</li>
+</ul>
+<h4>책</h4>
+<ul>
+<li>📖 <strong>입문</strong>: &quot;점프 투 파이썬&quot;</li>
+<li>📖 <strong>중급</strong>: &quot;Hands-On Machine Learning&quot;</li>
+<li>📖 <strong>고급</strong>: &quot;Designing Data-Intensive Applications&quot;</li>
+</ul>
+<h4>실습 환경</h4>
+<ul>
+<li>💻 <strong>Google Colab</strong>: 무료 클라우드 환경</li>
+<li>💻 <strong>Replit</strong>: 온라인 코딩 환경</li>
+<li>💻 <strong>GitHub</strong>: 코드 공유 및 협업</li>
+</ul>
+<h3 id="프로젝트-아이디어">🎯 프로젝트 아이디어 {#프로젝트-아이디어}</h3>
+<h4>초급 프로젝트</h4>
+<ol>
+<li><strong>일기 작성 도우미</strong>: 매일 질문하고 일기 작성 도움</li>
+<li><strong>레시피 추천봇</strong>: 재료 입력하면 요리 추천</li>
+<li><strong>공부 도우미</strong>: 문제 내고 설명해주는 선생님 봇</li>
+</ol>
+<h4>중급 프로젝트</h4>
+<ol>
+<li><strong>개인 비서</strong>: 일정, 메모, 리마인더 통합 관리</li>
+<li><strong>뉴스 요약봇</strong>: 매일 뉴스 수집하고 요약</li>
+<li><strong>코드 리뷰어</strong>: 코드 분석하고 개선점 제안</li>
+</ol>
+<h4>고급 프로젝트</h4>
+<ol>
+<li><strong>팀 협업 시스템</strong>: 여러 에이전트가 프로젝트 관리</li>
+<li><strong>자동 거래 시스템</strong>: 시장 분석 및 자동 거래</li>
+<li><strong>교육 플랫폼</strong>: 개인 맞춤형 학습 경로 생성</li>
+</ol>
+<hr>
+<h2 id="마무리-당신도-할-수-있습니다">마무리 - 당신도 할 수 있습니다! {#마무리-당신도-할-수-있습니다}</h2>
+<h3 id="기억해야-할-핵심">🌟 기억해야 할 핵심 {#기억해야-할-핵심}</h3>
+<ol>
+<li><strong>작게 시작하기</strong>: 완벽한 시스템보다 작동하는 프로토타입</li>
+<li><strong>실패는 학습</strong>: 오류는 성장의 기회</li>
+<li><strong>공유하고 배우기</strong>: 커뮤니티 참여</li>
+<li><strong>꾸준한 실습</strong>: 매일 조금씩</li>
+</ol>
+<h3 id="격려의-말">💬 격려의 말 {#격려의-말}</h3>
+<blockquote>
+<p>&quot;모든 전문가도 한때는 초보자였습니다.
+중요한 것은 시작하는 용기와 계속하는 끈기입니다.
+당신의 첫 AI 에이전트가 &#39;Hello World&#39;를 출력하는 순간,
+당신은 이미 AI 개발자입니다!&quot;</p>
+</blockquote>
+<h3 id="다음-단계">🤝 다음 단계 {#다음-단계}</h3>
+<ol>
+<li>이 노트의 코드를 하나씩 실행해보세요</li>
+<li>작은 부분을 수정해보세요</li>
+<li>자신만의 아이디어를 추가해보세요</li>
+<li>만든 것을 공유하고 피드백 받으세요</li>
+</ol>
+<p><strong>행운을 빕니다! 🚀</strong></p>
+<hr>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/ai-agent-development-real-world-guide.html" class="internal-link">AI 에이전트 개발 실전 가이드</a></li>
+<li><a href="/articles/prompt-engineering.html" class="internal-link">프롬프트 엔지니어링 마스터 클래스</a></li>
+<li><a href="/articles/python-basics.html" class="internal-link">Python 프로그래밍 기초</a></li>
+<li><a href="/articles/llm-api-practical.html" class="internal-link">LLM API 활용법</a></li>
+<li><a href="/articles/agent.html" class="internal-link">멀티 에이전트 시스템 설계</a></li>
+<li><a href="/articles/real-world.html" class="internal-link">실전 프로젝트 모음</a></li>
+</ul>
+<h2 id="참고-자료">참고 자료 {#참고-자료}</h2>
+<ul>
+<li>원본: &quot;Agentic Design Patterns&quot; by Antonio Gulli</li>
+<li>OpenAI Documentation</li>
+<li>LangChain Framework</li>
+<li>AutoGen Microsoft</li>
+<li>Claude API Documentation</li>
+</ul>
+<hr>
+<p><em>마지막 업데이트: 2025-10-11</em>
+<em>작성자: Claude AI Assistant</em>
+<em>검토 및 피드백 환영: [GitHub Issues]</em></p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/에이전트.html" class="article-tag">에이전트</a><a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/디자인패턴.html" class="article-tag">디자인패턴</a><a href="/tag/프로그래밍.html" class="article-tag">프로그래밍</a><a href="/tag/초보자.html" class="article-tag">초보자</a><a href="/tag/교육.html" class="article-tag">교육</a><a href="/tag/튜토리얼.html" class="article-tag">튜토리얼</a><a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/파인만기법.html" class="article-tag">파인만기법</a><a href="/tag/스토리텔링.html" class="article-tag">스토리텔링</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-beginners-perfect-guide.html&text=AI 에이전트 디자인 패턴 - 초보자를 위한 완벽 가이드" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-beginners-perfect-guide.html&title=AI 에이전트 디자인 패턴 - 초보자를 위한 완벽 가이드" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-beginners-perfect-guide.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-analyst.html" class="author-bio__card">
+          <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 분석가</h3>
+            <p class="author-bio__role">AI Tools Analyst</p>
+            <p class="author-bio__text">AI 도구와 LLM 활용에 대한 심층 분석을 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/ai-agent-guide-part-1-basics.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/ai-resources-placeholder.svg"
+             alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #a855f7">
+          AI 자료
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h3>
+          <p class="article-card__excerpt">🎯 이 가이드의 목표: 초보 개발자도 금융권 AI 에이전트를 이해하고 구축할 수 있도록 돕습니다. 📚 학습 방식: 파인만 기법 + 스토리텔링 + 3단계 예제 (기초→중급→고급) --- 1.  || #AI 에이전트란 무엇인가요 2.  || #금융 기관에 AI...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">31 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/ai-agent-guide-part-2-real-world.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/ai-resources-placeholder.svg"
+             alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #a855f7">
+          AI 자료
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h3>
+          <p class="article-card__excerpt">🎯 Part 2의 목표: 실제로 구축 가능한 아키텍처 설계와 구현 로드맵 제시 👥 대상: Part 1을 읽고 실제 프로젝트를 시작하려는 개발팀 --- 1.  || #아키텍처 패턴 설계 2.  || #구현 로드맵 단계별 가이드 3.  || #팀 구성과 역할 4. ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">46 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/ai-resources-placeholder.svg"
+             alt="AI 에이전트 Python 초보자 완벽 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #a855f7">
+          AI 자료
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">AI 에이전트 Python 초보자 완벽 가이드</h3>
+          <p class="article-card__excerpt">1.  || #들어가며 - AI 에이전트는 마법이 아닙니다 2.  || #AI 에이전트란 무엇인가요 3.  || #핵심 3요소 이해하기 4.  || #예제 1 - 기초 (5살 아이도 이해하는 수준) 5.  || #예제 2 - 중급 (실무에서 바로 쓰는 수준) 6. ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">34 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI 기술 자료 저널</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

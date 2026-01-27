@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code + Obsidian으로 노트 10배 활용하기 - McKay의 AI 에이전트 워크플로우 | AI &amp; Development Journal</title>
+  <meta name="description" content="1.  || #개요 2.  || #필수 준비사항 3.  || #10가지 핵심 워크플로우 4.  || #고급 활용 팁 5.  || #실전 적용 가이드 McKay Wrigley가 소개하는 Claude Code와 Obsidian을 결합한 AI 에이전트 워크플로우입니다....">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude Code + Obsidian으로 노트 10배 활용하기 - McKay의 AI 에이전트 워크플로우">
+  <meta property="og:description" content="1.  || #개요 2.  || #필수 준비사항 3.  || #10가지 핵심 워크플로우 4.  || #고급 활용 팁 5.  || #실전 적용 가이드 McKay Wrigley가 소개하는 Claude Code와 Obsidian을 결합한 AI 에이전트 워크플로우입니다....">
+  <meta property="og:image" content="/assets/images/claude-code-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-obsidian-note-10-practical-mckay-ai-agent-workflow-1.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Code + Obsidian으로 노트 10배 활용하기 - McKay의 AI 에이전트 워크플로우">
+  <meta name="twitter:description" content="1.  || #개요 2.  || #필수 준비사항 3.  || #10가지 핵심 워크플로우 4.  || #고급 활용 팁 5.  || #실전 적용 가이드 McKay Wrigley가 소개하는 Claude Code와 Obsidian을 결합한 AI 에이전트 워크플로우입니다....">
+  <meta name="twitter:image" content="/assets/images/claude-code-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-obsidian-note-10-practical-mckay-ai-agent-workflow-1.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/claude-code.html" class="article-category" style="background-color: #ff6b35">
+          Claude Code
+        </a>
+        <h1 class="article-title">Claude Code + Obsidian으로 노트 10배 활용하기 - McKay의 AI 에이전트 워크플로우</h1>
+        <div class="article-meta">
+          <a href="/journalist/claude-specialist.html" class="article-author">
+            <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">Claude 전문가</span>
+              <span class="article-author__role">Claude Code Specialist</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 1월 30일">2025년 1월 30일</time>
+            <span class="article-meta__separator">·</span>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-개념" class="toc__link">핵심 개념</a>
+    </li>
+    <li class="toc__item">
+      <a href="#필수-준비사항" class="toc__link">필수 준비사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-obsidian-설치" class="toc__link">1. Obsidian 설치</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-claude-code-설치" class="toc__link">2. Claude Code 설치</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-claude-구독" class="toc__link">3. Claude 구독</a>
+    </li>
+    <li class="toc__item">
+      <a href="#10가지-핵심-워크플로우" class="toc__link">10가지 핵심 워크플로우</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-1-claude-규칙-시스템-설정" class="toc__link">워크플로우 1: Claude 규칙 시스템 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-2-기본-채팅-기능" class="toc__link">워크플로우 2: 기본 채팅 기능</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-3-speech-to-text-도구-활용" class="toc__link">워크플로우 3: Speech-to-Text 도구 활용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-4-cursor-tab-통합-선택사항" class="toc__link">워크플로우 4: Cursor Tab 통합 (선택사항)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-5-plan-mode-활용" class="toc__link">워크플로우 5: Plan Mode 활용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-6-커스텀-명령어-생성" class="toc__link">워크플로우 6: 커스텀 명령어 생성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-7-자동-태그-및-링크-시스템" class="toc__link">워크플로우 7: 자동 태그 및 링크 시스템</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-8-서브-에이전트-활용" class="toc__link">워크플로우 8: 서브 에이전트 활용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-9-mcp-서버-통합" class="toc__link">워크플로우 9: MCP 서버 통합</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-10-github-actions-통합" class="toc__link">워크플로우 10: GitHub Actions 통합</a>
+    </li>
+    <li class="toc__item">
+      <a href="#고급-활용-팁" class="toc__link">고급 활용 팁</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#권한-관리" class="toc__link">권한 관리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#성능-최적화" class="toc__link">성능 최적화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#보안-고려사항" class="toc__link">보안 고려사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실전-적용-가이드" class="toc__link">실전 적용 가이드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초보자-추천-순서" class="toc__link">초보자 추천 순서</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-사용자-팁" class="toc__link">고급 사용자 팁</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#참고-자료" class="toc__link">참고 자료</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Claude Code + Obsidian으로 노트 10배 활용하기</h1>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#개요" class="internal-link internal-link--section">개요</a></li>
+<li><a href="#필수-준비사항" class="internal-link internal-link--section">필수 준비사항</a></li>
+<li><a href="#10가지-핵심-워크플로우" class="internal-link internal-link--section">10가지 핵심 워크플로우</a></li>
+<li><a href="#고급-활용-팁" class="internal-link internal-link--section">고급 활용 팁</a></li>
+<li><a href="#실전-적용-가이드" class="internal-link internal-link--section">실전 적용 가이드</a></li>
+</ol>
+<h2 id="개요">개요 {#개요}</h2>
+<p>McKay Wrigley가 소개하는 Claude Code와 Obsidian을 결합한 AI 에이전트 워크플로우입니다. Claude Code를 단순 코딩 도구가 아닌 &quot;Claude Agent&quot;로 활용하여 유연한 에이전틱 워크플로우를 구축하는 방법을 다룹니다.</p>
+<h3 id="핵심-개념">핵심 개념 {#핵심-개념}</h3>
+<ul>
+<li><strong>Claude Agent</strong>: Claude Code의 코딩 능력을 확장하여 다양한 일상 작업에 적용</li>
+<li><strong>에이전틱 워크플로우</strong>: AI가 자율적으로 도구를 선택하고 사용하는 시스템</li>
+<li><strong>통합 자동화</strong>: Obsidian + Claude Code + MCP + 외부 도구 연동</li>
+</ul>
+<h2 id="필수-준비사항">필수 준비사항 {#필수-준비사항}</h2>
+<h3 id="1-obsidian-설치">1. Obsidian 설치 {#1-obsidian-설치}</h3>
+<ul>
+<li>무료 다운로드: <a href="https://obsidian.md">obsidian.md</a></li>
+<li>데스크톱 버전 필수</li>
+</ul>
+<h3 id="2-claude-code-설치">2. Claude Code 설치 {#2-claude-code-설치}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054526-2746" onclick="copyCode('code-1769481054526-2746')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054526-2746" class="language-bash"># docs.anthropic.com에서 제공하는 설치 명령어
+# 터미널에서 실행</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h3 id="3-claude-구독">3. Claude 구독 {#3-claude-구독}</h3>
+<ul>
+<li>Anthropic Claude 플랜 ($20/월부터)</li>
+<li>또는 Claude API 키</li>
+</ul>
+<h2 id="10가지-핵심-워크플로우">10가지 핵심 워크플로우 {#10가지-핵심-워크플로우}</h2>
+<h3 id="워크플로우-1-claude-규칙-시스템-설정">워크플로우 1: Claude 규칙 시스템 설정 {#워크플로우-1-claude-규칙-시스템-설정}</h3>
+<p><strong>목적</strong>: 모든 요청에 적용되는 시스템 프롬프트 구성</p>
+<ol>
+<li>새 Vault에서 <code>/init</code> 명령 실행</li>
+<li><code>CLAUDE.md</code> 파일 자동 생성</li>
+<li>Vault 전체에 적용되는 최상위 규칙 정의</li>
+</ol>
+<p><strong>핵심 포인트</strong>:</p>
+<ul>
+<li>모든 세션에 자동으로 주입되는 규칙</li>
+<li>개인화된 노트 작성 스타일 정의 가능</li>
+<li>응답 품질에 큰 영향</li>
+</ul>
+<h3 id="워크플로우-2-기본-채팅-기능">워크플로우 2: 기본 채팅 기능 {#워크플로우-2-기본-채팅-기능}</h3>
+<p><strong>대화형 모드의 핵심 기능들</strong></p>
+<ul>
+<li><strong>파일 생성</strong>: 자연어로 노트 생성 요청</li>
+<li><strong>파일 편집</strong>: <code>@파일명</code>으로 특정 파일 태그</li>
+<li><strong>파일 삭제</strong>: 불필요한 파일 제거</li>
+<li><strong>폴더 관리</strong>: 자동으로 폴더 생성 및 파일 이동</li>
+<li><strong>세션 초기화</strong>: <code>/clear</code>로 메시지 기록 삭제</li>
+</ul>
+<h3 id="워크플로우-3-speech-to-text-도구-활용">워크플로우 3: Speech-to-Text 도구 활용 {#워크플로우-3-speech-to-text-도구-활용}</h3>
+<p><strong>생산성 4배 향상 도구</strong></p>
+<ul>
+<li>추천 도구: Whisper Flow (Flow)</li>
+<li>타이핑 대비 4배 빠른 입력 속도</li>
+<li>모바일 앱과 데스크톱 동기화</li>
+<li>긴 프롬프트나 복잡한 요청에 특히 유용</li>
+</ul>
+<h3 id="워크플로우-4-cursor-tab-통합-선택사항">워크플로우 4: Cursor Tab 통합 (선택사항) {#워크플로우-4-cursor-tab-통합-선택사항}</h3>
+<p><strong>코드 에디터를 노트 에디터로 활용</strong></p>
+<ul>
+<li>Cursor의 Tab 자동완성 기능 활용</li>
+<li>긴 노트 편집 시 효율적</li>
+<li>Markdown 파일의 실시간 동기화</li>
+<li>반복적인 편집 작업 자동화</li>
+</ul>
+<h3 id="워크플로우-5-plan-mode-활용">워크플로우 5: Plan Mode 활용 {#워크플로우-5-plan-mode-활용}</h3>
+<p><strong>복잡한 작업의 계획 수립</strong></p>
+<ul>
+<li><code>Shift+Tab</code> 두 번으로 Plan Mode 활성화</li>
+<li>실행 전 계획 검토 및 승인</li>
+<li>웹 검색 기능 통합</li>
+<li>다단계 작업의 체계적 관리</li>
+</ul>
+<p><strong>활용 예시</strong>:</p>
+<ul>
+<li>문서 조사 및 정리</li>
+<li>API 문서 분석</li>
+<li>복잡한 노트 재구성</li>
+</ul>
+<h3 id="워크플로우-6-커스텀-명령어-생성">워크플로우 6: 커스텀 명령어 생성 {#워크플로우-6-커스텀-명령어-생성}</h3>
+<p><strong>재사용 가능한 프롬프트 템플릿</strong></p>
+<ol>
+<li><code>.claude/commands/</code> 폴더에 마크다운 파일 생성</li>
+<li><code>$ARGUMENTS</code> 키워드로 동적 입력 처리</li>
+<li>세션 재시작 후 <code>/명령어</code>로 사용</li>
+</ol>
+<p><strong>예시</strong>: 일일 템플릿, Git 작업, 연구 작업 등</p>
+<h3 id="워크플로우-7-자동-태그-및-링크-시스템">워크플로우 7: 자동 태그 및 링크 시스템 {#워크플로우-7-자동-태그-및-링크-시스템}</h3>
+<p><strong>지식 관리 자동화</strong></p>
+<ol>
+<li><code>TAGS.md</code> 파일로 태그 체계 정의</li>
+<li><code>CLAUDE.md</code>에 태그 규칙 참조 추가</li>
+<li>Wiki 스타일 링크 자동 생성</li>
+<li>파일/폴더 자동 구성</li>
+</ol>
+<h3 id="워크플로우-8-서브-에이전트-활용">워크플로우 8: 서브 에이전트 활용 {#워크플로우-8-서브-에이전트-활용}</h3>
+<p><strong>병렬 작업 처리</strong></p>
+<ul>
+<li>여러 작업 동시 실행</li>
+<li>연구 작업에 특히 유용</li>
+<li>웹 검색과 결합하여 정보 수집</li>
+<li><code>deep thinking</code> 모드와 함께 사용 가능</li>
+</ul>
+<h3 id="워크플로우-9-mcp-서버-통합">워크플로우 9: MCP 서버 통합 {#워크플로우-9-mcp-서버-통합}</h3>
+<p><strong>외부 도구와의 연동</strong></p>
+<ul>
+<li>Context7: 최신 문서 정보 검색</li>
+<li>Google Drive: 파일 가져오기/내보내기</li>
+<li>Notion: 페이지 동기화</li>
+<li>Stripe: 비즈니스 데이터 조회</li>
+<li>커스텀 MCP 서버 구축 가능</li>
+</ul>
+<p><strong>설정 방법</strong>:</p>
+<ol>
+<li>MCP 서버 설치 명령 실행</li>
+<li><code>!</code>로 bash 모드 전환</li>
+<li><code>/mcp</code>로 연결된 서버 확인</li>
+</ol>
+<h3 id="워크플로우-10-github-actions-통합">워크플로우 10: GitHub Actions 통합 {#워크플로우-10-github-actions-통합}</h3>
+<p><strong>클라우드에서 자율 실행</strong></p>
+<ol>
+<li>Git 저장소 초기화</li>
+<li><code>/install-github-app</code> 실행</li>
+<li>모바일에서 Issue 생성으로 작업 트리거</li>
+<li>자동으로 노트 생성/수정</li>
+</ol>
+<p><strong>활용 시나리오</strong>:</p>
+<ul>
+<li>외출 중 연구 작업 요청</li>
+<li>버전 관리와 백업</li>
+<li>팀 협업 워크플로우</li>
+</ul>
+<h2 id="고급-활용-팁">고급 활용 팁 {#고급-활용-팁}</h2>
+<h3 id="권한-관리">권한 관리 {#권한-관리}</h3>
+<ul>
+<li>Auto-accept 모드: <code>Shift+Tab</code>으로 토글</li>
+<li>신중하게 사용 (특히 대규모 Vault)</li>
+<li>규칙 파일에서 기본 권한 설정</li>
+</ul>
+<h3 id="성능-최적화">성능 최적화 {#성능-최적화}</h3>
+<ul>
+<li>서브 에이전트로 병렬 처리</li>
+<li>MCP 서버로 외부 데이터 캐싱</li>
+<li>커스텀 명령어로 반복 작업 최소화</li>
+</ul>
+<h3 id="보안-고려사항">보안 고려사항 {#보안-고려사항}</h3>
+<ul>
+<li>Private 저장소 사용</li>
+<li>민감한 정보는 별도 Vault</li>
+<li>API 키 안전 관리</li>
+</ul>
+<h2 id="실전-적용-가이드">실전 적용 가이드 {#실전-적용-가이드}</h2>
+<h3 id="초보자-추천-순서">초보자 추천 순서 {#초보자-추천-순서}</h3>
+<ol>
+<li>기본 채팅 기능 익히기</li>
+<li>Speech-to-Text 도입</li>
+<li>태그 시스템 구축</li>
+<li>간단한 커스텀 명령어 생성</li>
+<li>MCP 서버 연동</li>
+</ol>
+<h3 id="고급-사용자-팁">고급 사용자 팁 {#고급-사용자-팁}</h3>
+<ul>
+<li>여러 Vault로 목적별 분리</li>
+<li>커스텀 MCP 서버 개발</li>
+<li>GitHub Actions로 완전 자동화</li>
+<li>팀 협업 워크플로우 구축</li>
+</ul>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/claudecodeperfectguide-note.html" class="internal-link">Claude_Code_완벽_가이드_-_실습형_노트</a></li>
+<li><a href="/articles/claude-code-practical-obsidian-vault-automation.html" class="internal-link">Claude Code를 활용한 Obsidian Vault 자동화 및 제어</a></li>
+<li><a href="/articles/mcp-practical.html" class="internal-link">인기있는 MCP 서버 및 활용사례</a></li>
+<li><a href="/articles/obsidiantemplateguide.html" class="internal-link">Obsidian_템플릿_고도화_설계_가이드</a></li>
+</ul>
+<h2 id="참고-자료">참고 자료 {#참고-자료}</h2>
+<ul>
+<li>원본 영상: <a href="https://youtu.be/d7Pb73dbcIM">YouTube - How To 10x Your Notes: Obsidian + Claude AI Agents</a></li>
+<li>McKay Wrigley의 블로그: Claude Agent 포스트</li>
+<li>Anthropic 공식 문서: <a href="https://docs.anthropic.com">docs.anthropic.com</a></li>
+<li>MCP 프로토콜 문서</li>
+</ul>
+<hr>
+<p><strong>💡 핵심 메시지</strong>: Claude Code는 단순한 코딩 도구가 아닌 다목적 AI 에이전트입니다. 유연하고 맞춤 설정이 가능하여 개인의 워크플로우에 완벽하게 통합될 수 있습니다.</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/Claude-Code.html" class="article-tag">Claude-Code</a><a href="/tag/Obsidian.html" class="article-tag">Obsidian</a><a href="/tag/AI-워크플로우.html" class="article-tag">AI-워크플로우</a><a href="/tag/노트테이킹.html" class="article-tag">노트테이킹</a><a href="/tag/MCP.html" class="article-tag">MCP</a><a href="/tag/자동화.html" class="article-tag">자동화</a><a href="/tag/에이전트.html" class="article-tag">에이전트</a><a href="/tag/생산성.html" class="article-tag">생산성</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-obsidian-note-10-practical-mckay-ai-agent-workflow-1.html&text=Claude Code + Obsidian으로 노트 10배 활용하기 - McKay의 AI 에이전트 워크플로우" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-obsidian-note-10-practical-mckay-ai-agent-workflow-1.html&title=Claude Code + Obsidian으로 노트 10배 활용하기 - McKay의 AI 에이전트 워크플로우" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-obsidian-note-10-practical-mckay-ai-agent-workflow-1.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/claude-specialist.html" class="author-bio__card">
+          <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">Claude 전문가</h3>
+            <p class="author-bio__role">Claude Code Specialist</p>
+            <p class="author-bio__text">Claude Code와 AI 코딩 도구 활용법을 연구합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-code-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Code 슬래시 명령어 완전 정복 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Code 슬래시 명령어 완전 정복 가이드</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 실전 중심 가이드 --- Claude에게 미리 정해둔 역할을 로 호출하는 기능입니다. 비유: 스마트폰 단축어처럼, 복잡한 지시를 한 단어로 실행 --- 슬래시 명령어는  파일로 구성되며, 크게 YAML 프론트매터와 본문으로 나뉩니다. --- 목적:...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills-beginners-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 만드는 법: 초보자 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 만드는 법: 초보자 완전 가이드</h3>
+          <p class="article-card__excerpt">이 가이드의 목표: Claude Code를 처음 배우는 초보 개발자도 실제로 작동하는 Claude Skill을 만들 수 있도록 단계별로 설명합니다. 복잡한 개념도 쉬운 말로 풀어 설명하고, 실전 예제로 바로 적용할 수 있게 구성했습니다. --- 1.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">25 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 마스터 학습 경로"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 마스터 학습 경로</h3>
+          <p class="article-card__excerpt">초보자에서 마스터까지: 이 경로를 따라가면 Claude Skill을 완벽하게 만들 수 있습니다. --- --- 읽을 문서: Claude Skills가 뭔가요 (5살 버전) || ClaudeSkills초보자가이드#Claude Skills가 뭔가요 (5살 버전) 배울...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

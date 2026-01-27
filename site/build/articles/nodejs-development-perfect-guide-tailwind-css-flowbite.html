@@ -1,0 +1,3250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Node.js 웹개발 완벽 가이드: Tailwind CSS + Flowbite + 세션/쿠키 | AI &amp; Development Journal</title>
+  <meta name="description" content="&quot;처음부터 끝까지! 예쁜 로그인 페이지 만들고 세션으로 로그인 구현하기&quot; | 순서 | 제목 | 주요 내용 | 난이도 | |------|------|-----------|--------| | 1️⃣ | Tailwind CSS + Flowbite 튜토리얼 | 웹페이지...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Node.js 웹개발 완벽 가이드: Tailwind CSS + Flowbite + 세션/쿠키">
+  <meta property="og:description" content="&quot;처음부터 끝까지! 예쁜 로그인 페이지 만들고 세션으로 로그인 구현하기&quot; | 순서 | 제목 | 주요 내용 | 난이도 | |------|------|-----------|--------| | 1️⃣ | Tailwind CSS + Flowbite 튜토리얼 | 웹페이지...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/nodejs-development-perfect-guide-tailwind-css-flowbite.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Node.js 웹개발 완벽 가이드: Tailwind CSS + Flowbite + 세션/쿠키">
+  <meta name="twitter:description" content="&quot;처음부터 끝까지! 예쁜 로그인 페이지 만들고 세션으로 로그인 구현하기&quot; | 순서 | 제목 | 주요 내용 | 난이도 | |------|------|-----------|--------| | 1️⃣ | Tailwind CSS + Flowbite 튜토리얼 | 웹페이지...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/nodejs-development-perfect-guide-tailwind-css-flowbite.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">Node.js 웹개발 완벽 가이드: Tailwind CSS + Flowbite + 세션/쿠키</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 10월 12일">2025년 10월 12일</time>
+            <span class="article-meta__separator">·</span>
+            <span>60 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#학습-영상-정보" class="toc__link">📺 학습 영상 정보</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#이-노트는-다음-3개의-튜토리얼을-통합한-종합-가이드입니다" class="toc__link">📖 이 노트는 다음 3개의 튜토리얼을 통합한 종합 가이드입니다</a>
+    </li>
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📑 목차</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#빠른-네비게이션" class="toc__link">🎯 빠른 네비게이션</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#학습-로드맵" class="toc__link">📊 학습 로드맵</a>
+    </li>
+    <li class="toc__item">
+      <a href="#들어가며-왜-이-기술들을-배워야-할까요" class="toc__link">🌟 들어가며: 왜 이 기술들을 배워야 할까요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#스토리-민준이의-웹개발-도전기" class="toc__link">📖 스토리: 민준이의 웹개발 도전기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#해결책-최강의-기술-조합" class="toc__link">✨ 해결책: 최강의 기술 조합!</a>
+    </li>
+    <li class="toc__item">
+      <a href="#파인만-기법으로-이해하는-핵심-개념" class="toc__link">🤔 파인만 기법으로 이해하는 핵심 개념</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#nodejs란-무엇인가" class="toc__link">Node.js란 무엇인가?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tailwind-css란-무엇인가" class="toc__link">Tailwind CSS란 무엇인가?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#flowbite란-무엇인가" class="toc__link">Flowbite란 무엇인가?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#세션과-쿠키란-무엇인가" class="toc__link">세션과 쿠키란 무엇인가?</a>
+    </li>
+    <li class="toc__item">
+      <a href="#1단계-개발-환경-설정하기" class="toc__link">⚙️ 1단계: 개발 환경 설정하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#필수-준비물-체크리스트" class="toc__link">필수 준비물 체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초급-예제-nodejs-프로젝트-생성" class="toc__link">🌱 초급 예제: Node.js 프로젝트 생성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#생각해보기" class="toc__link">🤔 생각해보기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#2단계-tailwind-css-설치-및-설정" class="toc__link">🎨 2단계: Tailwind CSS 설치 및 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tailwind-css-설치하기" class="toc__link">Tailwind CSS 설치하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급-예제-tailwind로-첫-페이지-만들기" class="toc__link">🌿 중급 예제: Tailwind로 첫 페이지 만들기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tailwind-css-클래스-해부하기" class="toc__link">🎨 Tailwind CSS 클래스 해부하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-예제-반응형-디자인" class="toc__link">🌳 고급 예제: 반응형 디자인</a>
+    </li>
+    <li class="toc__item">
+      <a href="#3단계-flowbite-컴포넌트-통합하기" class="toc__link">💎 3단계: Flowbite 컴포넌트 통합하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#flowbite-설치-및-설정" class="toc__link">Flowbite 설치 및 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초급-예제-flowbite-버튼-사용하기" class="toc__link">🌱 초급 예제: Flowbite 버튼 사용하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급-예제-flowbite-카드-컴포넌트" class="toc__link">🌿 중급 예제: Flowbite 카드 컴포넌트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-예제-flowbite-모달-팝업" class="toc__link">🌳 고급 예제: Flowbite 모달 (팝업)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#flowbite-주요-컴포넌트-카탈로그" class="toc__link">🎯 Flowbite 주요 컴포넌트 카탈로그</a>
+    </li>
+    <li class="toc__item">
+      <a href="#4단계-세션과-쿠키-완벽-이해하기" class="toc__link">🍪 4단계: 세션과 쿠키 완벽 이해하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#세션과-쿠키가-필요한-이유" class="toc__link">세션과 쿠키가 필요한 이유</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#express-session-설치-및-설정" class="toc__link">express-session 설치 및 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초급-예제-세션에-데이터-저장하기" class="toc__link">🌱 초급 예제: 세션에 데이터 저장하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급-예제-쿠키-직접-다루기" class="toc__link">🌿 중급 예제: 쿠키 직접 다루기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-예제-세션-vs-쿠키-비교-실습" class="toc__link">🌳 고급 예제: 세션 vs 쿠키 비교 실습</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#세션-vs-쿠키-완벽-비교표" class="toc__link">📊 세션 vs 쿠키 완벽 비교표</a>
+    </li>
+    <li class="toc__item">
+      <a href="#5단계-로그인-기능-구현하기" class="toc__link">🔑 5단계: 로그인 기능 구현하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#프로젝트-구조-설계" class="toc__link">프로젝트 구조 설계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초급-예제-간단한-로그인-시스템" class="toc__link">🌱 초급 예제: 간단한 로그인 시스템</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급-예제-로그인-보호-미들웨어" class="toc__link">🌿 중급 예제: 로그인 보호 미들웨어</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-예제-비밀번호-해싱-bcrypt" class="toc__link">🌳 고급 예제: 비밀번호 해싱 (bcrypt)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#비밀번호-보안-비교" class="toc__link">📊 비밀번호 보안 비교</a>
+    </li>
+    <li class="toc__item">
+      <a href="#6단계-로그인-화면-아름답게-디자인하기" class="toc__link">🎭 6단계: 로그인 화면 아름답게 디자인하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#flowbite를-활용한-전문가급-로그인-페이지" class="toc__link">Flowbite를 활용한 전문가급 로그인 페이지</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#디자인-포인트-설명" class="toc__link">🎨 디자인 포인트 설명</a>
+    </li>
+    <li class="toc__item">
+      <a href="#용어-사전" class="toc__link">📚 용어 사전</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#a-z" class="toc__link">A-Z</a>
+    </li>
+    <li class="toc__item">
+      <a href="#참고-자료-및-추가-학습" class="toc__link">🔗 참고 자료 및 추가 학습</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#공식-문서" class="toc__link">공식 문서</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#추천-학습-자료" class="toc__link">추천 학습 자료</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#유용한-도구" class="toc__link">유용한 도구</a>
+    </li>
+    <li class="toc__item">
+      <a href="#학습-체크리스트" class="toc__link">✅ 학습 체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기초-개념-이해" class="toc__link">기초 개념 이해</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#환경-설정" class="toc__link">환경 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#스타일링" class="toc__link">스타일링</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#로그인-시스템" class="toc__link">로그인 시스템</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실전-프로젝트" class="toc__link">실전 프로젝트</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>🚀 Node.js 웹개발 완벽 가이드</h1>
+<p><em>&quot;처음부터 끝까지! 예쁜 로그인 페이지 만들고 세션으로 로그인 구현하기&quot;</em></p>
+<h2 id="학습-영상-정보">📺 학습 영상 정보 {#학습-영상-정보}</h2>
+<h3 id="이-노트는-다음-3개의-튜토리얼을-통합한-종합-가이드입니다">📖 이 노트는 다음 3개의 튜토리얼을 통합한 종합 가이드입니다 {#이-노트는-다음-3개의-튜토리얼을-통합한-종합-가이드입니다}</h3>
+<table>
+<thead>
+<tr>
+<th>순서</th>
+<th>제목</th>
+<th>주요 내용</th>
+<th>난이도</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1️⃣</td>
+<td><strong>Tailwind CSS + Flowbite 튜토리얼</strong></td>
+<td>웹페이지 꾸미기 기초</td>
+<td>⭐⭐</td>
+</tr>
+<tr>
+<td>2️⃣</td>
+<td><strong>세션과 쿠키 완전정복</strong></td>
+<td>로그인 기능 구현</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>3️⃣</td>
+<td><strong>로그인 화면 Flowbite 꾸미기</strong></td>
+<td>실전 UI 디자인</td>
+<td>⭐⭐</td>
+</tr>
+</tbody></table>
+<p><strong>🎬 영상 링크</strong>:</p>
+<ul>
+<li><a href="https://youtu.be/u3_SopKPDxg">영상 1: Tailwind CSS + Flowbite 튜토리얼</a></li>
+<li><a href="https://youtu.be/9u-Gj_osZpQ">영상 2: 세션과 쿠키 완전정복</a></li>
+<li><a href="https://youtu.be/cr6NHp9x9Ho">영상 3: 로그인 화면 Flowbite 꾸미기</a></li>
+</ul>
+<hr>
+<h2 id="목차">📑 목차 {#목차}</h2>
+<h3 id="빠른-네비게이션">🎯 빠른 네비게이션 {#빠른-네비게이션}</h3>
+<h4>📚 Part 1: 기초 이해하기</h4>
+<ul>
+<li><a href="#%F0%9F%8C%9F-%EB%93%A4%EC%96%B4%EA%B0%80%EB%A9%B0-%EC%99%9C-%EC%9D%B4-%EA%B8%B0%EC%88%A0%EB%93%A4%EC%9D%84-%EB%B0%B0%EC%9B%8C%EC%95%BC-%ED%95%A0%EA%B9%8C%EC%9A%94">🌟 들어가며</a></li>
+<li><a href="#%F0%9F%A4%94-%ED%8C%8C%EC%9D%B8%EB%A7%8C-%EA%B8%B0%EB%B2%95%EC%9C%BC%EB%A1%9C-%EC%9D%B4%ED%95%B4%ED%95%98%EB%8A%94-%ED%95%B5%EC%8B%AC-%EA%B0%9C%EB%85%90">🤔 핵심 개념 이해</a><ul>
+<li><a href="#nodejs%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80">Node.js란?</a></li>
+<li><a href="#tailwind-css%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80">Tailwind CSS란?</a></li>
+<li><a href="#flowbite%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80">Flowbite란?</a></li>
+<li><a href="#%EC%84%B8%EC%85%98%EA%B3%BC-%EC%BF%A0%ED%82%A4%EB%9E%80-%EB%AC%B4%EC%97%87%EC%9D%B8%EA%B0%80">세션과 쿠키란?</a></li>
+</ul>
+</li>
+</ul>
+<h4>🛠️ Part 2: 프로젝트 시작하기</h4>
+<ul>
+<li><a href="#%E2%9A%99%EF%B8%8F-1%EB%8B%A8%EA%B3%84-%EA%B0%9C%EB%B0%9C-%ED%99%98%EA%B2%BD-%EC%84%A4%EC%A0%95%ED%95%98%EA%B8%B0">⚙️ 1단계: 개발 환경 설정</a></li>
+<li><a href="#%F0%9F%8E%A8-2%EB%8B%A8%EA%B3%84-tailwind-css-%EC%84%A4%EC%B9%98-%EB%B0%8F-%EC%84%A4%EC%A0%95">🎨 2단계: Tailwind CSS 설치</a></li>
+<li><a href="#%F0%9F%92%8E-3%EB%8B%A8%EA%B3%84-flowbite-%EC%BB%B4%ED%8F%AC%EB%84%8C%ED%8A%B8-%ED%86%B5%ED%95%A9%ED%95%98%EA%B8%B0">💎 3단계: Flowbite 통합</a></li>
+</ul>
+<h4>🔐 Part 3: 로그인 시스템 구축</h4>
+<ul>
+<li><a href="#%F0%9F%8D%AA-4%EB%8B%A8%EA%B3%84-%EC%84%B8%EC%85%98%EA%B3%BC-%EC%BF%A0%ED%82%A4-%EC%99%84%EB%B2%BD-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0">🍪 4단계: 세션과 쿠키 이해</a></li>
+<li><a href="#%F0%9F%94%91-5%EB%8B%A8%EA%B3%84-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0">🔑 5단계: 로그인 기능 구현</a></li>
+<li><a href="#%F0%9F%8E%AD-6%EB%8B%A8%EA%B3%84-%EB%A1%9C%EA%B7%B8%EC%9D%B8-%ED%99%94%EB%A9%B4-%EC%95%84%EB%A6%84%EB%8B%B5%EA%B2%8C-%EB%94%94%EC%9E%90%EC%9D%B8%ED%95%98%EA%B8%B0">🎭 6단계: 로그인 UI 디자인</a></li>
+</ul>
+<h4>🚀 Part 4: 실전 프로젝트</h4>
+<ul>
+<li><a href="#%F0%9F%92%BB-7%EB%8B%A8%EA%B3%84-%EC%A0%84%EC%B2%B4-%EC%8B%9C%EC%8A%A4%ED%85%9C-%ED%86%B5%ED%95%A9%ED%95%98%EA%B8%B0">💻 7단계: 전체 시스템 통합</a></li>
+<li><a href="#%F0%9F%90%9B-8%EB%8B%A8%EA%B3%84-%EC%9E%90%EC%A3%BC-%EB%B0%9C%EC%83%9D%ED%95%98%EB%8A%94-%EB%AC%B8%EC%A0%9C-%ED%95%B4%EA%B2%B0%ED%95%98%EA%B8%B0">🐛 8단계: 문제 해결</a></li>
+<li><a href="#%F0%9F%8C%88-9%EB%8B%A8%EA%B3%84-%EC%B6%94%EA%B0%80-%EA%B8%B0%EB%8A%A5-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0">🌈 9단계: 추가 기능</a></li>
+</ul>
+<h4>📖 부록</h4>
+<ul>
+<li><a href="#%F0%9F%93%9A-%EC%9A%A9%EC%96%B4-%EC%82%AC%EC%A0%84">📚 용어 사전</a></li>
+<li><a href="#%F0%9F%94%97-%EC%B0%B8%EA%B3%A0-%EC%9E%90%EB%A3%8C-%EB%B0%8F-%EC%B6%94%EA%B0%80-%ED%95%99%EC%8A%B5">🔗 참고 자료</a></li>
+<li><a href="#%E2%9C%85-%ED%95%99%EC%8A%B5-%EC%B2%B4%ED%81%AC%EB%A6%AC%EC%8A%A4%ED%8A%B8">✅ 체크리스트</a></li>
+</ul>
+<h3 id="학습-로드맵">📊 학습 로드맵 {#학습-로드맵}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6744" onclick="copyCode('code-1769481055247-6744')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6744" class="language-plaintext">┌─────────────────────────────────────────────────────────┐
+│  1일차: Node.js + Tailwind CSS 기초 (2시간)            │
+│  ├─ Node.js 프로젝트 생성                              │
+│  ├─ Tailwind CSS 설치 및 기본 스타일링                │
+│  └─ 간단한 페이지 만들기                               │
+├─────────────────────────────────────────────────────────┤
+│  2일차: Flowbite 컴포넌트 활용 (1.5시간)               │
+│  ├─ Flowbite 설치 및 설정                              │
+│  ├─ 버튼, 카드, 폼 컴포넌트 사용                       │
+│  └─ 반응형 레이아웃 만들기                             │
+├─────────────────────────────────────────────────────────┤
+│  3일차: 세션과 쿠키 이해 (2시간)                       │
+│  ├─ 세션/쿠키 개념 이해                                │
+│  ├─ express-session 설치                               │
+│  └─ 간단한 세션 테스트                                 │
+├─────────────────────────────────────────────────────────┤
+│  4일차: 로그인 시스템 구현 (2.5시간)                   │
+│  ├─ 사용자 인증 로직 구현                              │
+│  ├─ 세션 기반 로그인/로그아웃                          │
+│  └─ 보안 강화 (비밀번호 해싱)                          │
+├─────────────────────────────────────────────────────────┤
+│  5일차: UI 통합 및 완성 (2시간)                        │
+│  ├─ Flowbite로 로그인 페이지 디자인                    │
+│  ├─ 대시보드 페이지 구현                               │
+│  └─ 최종 테스트 및 디버깅                              │
+└─────────────────────────────────────────────────────────┘</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">26 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="들어가며-왜-이-기술들을-배워야-할까요">🌟 들어가며: 왜 이 기술들을 배워야 할까요? {#들어가며-왜-이-기술들을-배워야-할까요}</h2>
+<h3 id="스토리-민준이의-웹개발-도전기">📖 스토리: 민준이의 웹개발 도전기 {#스토리-민준이의-웹개발-도전기}</h3>
+<p>민준이는 처음으로 웹사이트를 만들기 시작했습니다. HTML과 CSS로 간단한 페이지를 만들 수 있었지만, 세 가지 큰 문제에 부딪혔습니다:</p>
+<p><strong>😰 민준이가 겪은 문제들</strong>:</p>
+<ol>
+<li><p><strong>스타일링이 너무 어려워요!</strong></p>
+<ul>
+<li>CSS 클래스 이름 짓기가 고통스러움</li>
+<li>반응형 디자인 구현이 복잡함</li>
+<li>일관된 디자인 유지가 어려움</li>
+</ul>
+</li>
+<li><p><strong>예쁜 컴포넌트를 어떻게 만들죠?</strong></p>
+<ul>
+<li>버튼, 카드, 모달 등을 처음부터 만들기 힘듦</li>
+<li>디자인 감각이 부족함</li>
+<li>시간이 너무 오래 걸림</li>
+</ul>
+</li>
+<li><p><strong>로그인 기능을 어떻게 구현하죠?</strong></p>
+<ul>
+<li>사용자를 어떻게 기억하지?</li>
+<li>로그인 상태를 어떻게 유지하지?</li>
+<li>보안은 어떻게 지키지?</li>
+</ul>
+</li>
+</ol>
+<h3 id="해결책-최강의-기술-조합">✨ 해결책: 최강의 기술 조합! {#해결책-최강의-기술-조합}</h3>
+<p>민준이는 다음 기술들을 배우고 나서 <strong>모든 문제를 해결</strong>했습니다:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6745" onclick="copyCode('code-1769481055247-6745')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6745" class="language-plaintext">🎨 Tailwind CSS
+   ↓ (스타일링 문제 해결!)
+
+<p>💎 Flowbite
+   ↓ (예쁜 컴포넌트 문제 해결!)</p>
+<p>🔐 세션 &amp; 쿠키
+   ↓ (로그인 기능 문제 해결!)</p>
+<p>🎉 완벽한 웹사이트 완성!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<p><strong>⏰ 결과</strong>:</p>
+<ul>
+<li>이전: 로그인 페이지 만드는데 <strong>3일</strong> 소요</li>
+<li>이후: 로그인 페이지 만드는데 <strong>2시간</strong> 소요</li>
+<li><strong>시간 절약: 92%</strong> 🚀</li>
+</ul>
+<hr>
+<h2 id="파인만-기법으로-이해하는-핵심-개념">🤔 파인만 기법으로 이해하는 핵심 개념 {#파인만-기법으로-이해하는-핵심-개념}</h2>
+<p><a href="#%F0%9F%93%91-%EB%AA%A9%EC%B0%A8">↑ 목차로 돌아가기</a></p>
+<h3 id="nodejs란-무엇인가">Node.js란 무엇인가? {#nodejs란-무엇인가}</h3>
+<h4>5세 아이에게 설명한다면...</h4>
+<p>**Node.js는 &quot;JavaScript를 브라우저 밖에서도 쓸 수 있게 해주는 마법&quot;**입니다!</p>
+<p>보통 JavaScript는 웹 브라우저 안에서만 작동합니다. 마치 놀이터 안에서만 놀 수 있는 것처럼요. 하지만 Node.js를 사용하면 JavaScript를 <strong>컴퓨터 어디에서나</strong> 사용할 수 있습니다. 서버도 만들고, 파일도 읽고, 데이터베이스와도 소통할 수 있죠!</p>
+<h4>🎭 비유: 레스토랑 주방</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6746" onclick="copyCode('code-1769481055247-6746')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6746" class="language-plaintext">🏠 브라우저 JavaScript = 식당 홀 (고객이 보는 곳)
+   - 메뉴판 보여주기
+   - 주문 받기
+   - 음식 서빙하기
+
+<p>🏢 Node.js = 주방 (고객이 못 보는 곳)</p>
+<ul>
+<li>음식 조리하기</li>
+<li>재료 관리하기</li>
+<li>주문 처리하기</code></pre>  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div></li>
+</ul>
+<hr>
+<h3 id="tailwind-css란-무엇인가">Tailwind CSS란 무엇인가? {#tailwind-css란-무엇인가}</h3>
+<h4>5세 아이에게 설명한다면...</h4>
+<p>**Tailwind CSS는 &quot;레고 블록처럼 조립하는 CSS&quot;**입니다!</p>
+<p>일반 CSS는 마치 그림을 처음부터 그리는 것과 같습니다. 하지만 Tailwind CSS는 이미 만들어진 작은 블록들을 조립하는 것처럼 쉽게 디자인할 수 있어요!</p>
+<h4>🎨 비교: 전통 CSS vs Tailwind CSS</h4>
+<p><strong>전통적인 CSS 방식</strong>:</p>
+<div class="code-block" data-language="html">
+  <div class="code-block__header" style="background-color: #e34c26; color: #fff">
+    <span class="code-block__language">HTML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6747" onclick="copyCode('code-1769481055247-6747')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6747" class="language-html">&lt;!-- HTML --&gt;
+&lt;button class=&quot;my-custom-button&quot;&gt;클릭하세요&lt;/button&gt;
+
+<p>&lt;!-- CSS 파일에서 --&gt;
+&lt;style&gt;
+.my-custom-button {
+  background-color: blue;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+&lt;/style&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<p><strong>Tailwind CSS 방식</strong>:</p>
+<div class="code-block" data-language="html">
+  <div class="code-block__header" style="background-color: #e34c26; color: #fff">
+    <span class="code-block__language">HTML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6748" onclick="copyCode('code-1769481055247-6748')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6748" class="language-html">&lt;!-- HTML만으로 완성! --&gt;
+&lt;button class=&quot;bg-blue-500 text-white px-5 py-2 rounded font-bold&quot;&gt;
+  클릭하세요
+&lt;/button&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>🎯 장점</strong>:</p>
+<ul>
+<li>✅ CSS 파일을 따로 안 만들어도 됨</li>
+<li>✅ 클래스 이름 고민 안 해도 됨</li>
+<li>✅ 빠르게 프로토타입 제작 가능</li>
+<li>✅ 일관된 디자인 자동 유지</li>
+</ul>
+<hr>
+<h3 id="flowbite란-무엇인가">Flowbite란 무엇인가? {#flowbite란-무엇인가}</h3>
+<h4>5세 아이에게 설명한다면...</h4>
+<p>**Flowbite는 &quot;Tailwind CSS로 만든 예쁜 부품 모음집&quot;**입니다!</p>
+<p>레고로 집을 지을 때, 문, 창문, 지붕 같은 큰 부품들이 있으면 편하죠? Flowbite는 바로 그런 **큰 부품(컴포넌트)**들을 미리 만들어 둔 것입니다!</p>
+<h4>💎 Flowbite가 제공하는 것들</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6749" onclick="copyCode('code-1769481055247-6749')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6749" class="language-plaintext">📦 Flowbite 컴포넌트 박스
+├─ 🎨 버튼 (Button)
+├─ 📝 입력 폼 (Forms)
+├─ 🃏 카드 (Cards)
+├─ 🔔 알림 (Alerts)
+├─ 📊 네비게이션 바 (Navbar)
+├─ 📑 모달 (Modal)
+├─ 📋 테이블 (Tables)
+└─ 더 많은 컴포넌트들...</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
+</div>
+
+<h4>🆚 비교표</h4>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>Tailwind CSS만 사용</th>
+<th>Tailwind + Flowbite</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>버튼 만들기</td>
+<td>모든 스타일 직접 작성 (10줄)</td>
+<td>컴포넌트 복사 (1줄)</td>
+</tr>
+<tr>
+<td>디자인 시간</td>
+<td>2시간</td>
+<td>20분</td>
+</tr>
+<tr>
+<td>코드 양</td>
+<td>많음 📚</td>
+<td>적음 📄</td>
+</tr>
+<tr>
+<td>난이도</td>
+<td>중급 ⭐⭐⭐</td>
+<td>초급 ⭐</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="세션과-쿠키란-무엇인가">세션과 쿠키란 무엇인가? {#세션과-쿠키란-무엇인가}</h3>
+<h4>5세 아이에게 설명한다면...</h4>
+<p>**세션과 쿠키는 &quot;웹사이트가 당신을 기억하는 방법&quot;**입니다!</p>
+<p>놀이공원에 갔을 때 <strong>입장권 팔찌</strong>를 차잖아요? 그 팔찌가 있으면 놀이기구를 탈 때마다 표를 다시 안 사도 되죠. 쿠키와 세션이 바로 그 <strong>입장권 팔찌</strong> 같은 역할을 합니다!</p>
+<h4>🍪 쿠키 vs 🎫 세션</h4>
+<p><strong>🍪 쿠키 (Cookie)</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6750" onclick="copyCode('code-1769481055247-6750')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6750" class="language-plaintext">마치... 당신의 주머니에 있는 회원카드! 📇
+
+<p>특징:</p>
+<ul>
+<li>당신(브라우저)이 직접 보관</li>
+<li>가볍고 작은 정보만 저장</li>
+<li>오래 보관 가능 (만료 날짜까지)</li>
+<li>다른 사람이 볼 수도 있음 (보안 주의!)</li>
+</ul>
+<p>예시:
+&quot;쇼핑몰 장바구니&quot;, &quot;언어 설정&quot;, &quot;테마 선택&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🎫 세션 (Session)</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6751" onclick="copyCode('code-1769481055247-6751')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6751" class="language-plaintext">마치... 은행 금고에 보관하는 중요한 서류! 🔐
+
+<p>특징:</p>
+<ul>
+<li>서버가 안전하게 보관</li>
+<li>많은 정보 저장 가능</li>
+<li>브라우저 닫으면 사라짐</li>
+<li>안전함 (다른 사람이 못 봄)</li>
+</ul>
+<p>예시:
+&quot;로그인 상태&quot;, &quot;사용자 권한&quot;, &quot;개인정보&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h4>📊 작동 원리: 레스토랑 비유</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6752" onclick="copyCode('code-1769481055247-6752')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6752" class="language-plaintext">🍽️ 레스토랑에 처음 방문 (첫 로그인)
+
+<ol>
+<li><p>고객: &quot;안녕하세요, 저 홍길동이에요&quot; (로그인)</p>
+</li>
+<li><p>직원: &quot;네, 확인했습니다!&quot;
+→ 서버에 &quot;홍길동 정보&quot; 저장 (세션)
+→ 고객에게 &quot;번호표 42&quot; 발급 (쿠키)</p>
+</li>
+<li><p>고객: 번호표 42를 계속 가지고 있음 (쿠키 보관)</p>
+</li>
+</ol>
+<p>🍽️ 다시 방문할 때 (페이지 이동)</p>
+<ol>
+<li><p>고객: &quot;번호표 42번이요!&quot; (쿠키 전송)</p>
+</li>
+<li><p>직원: &quot;아, 홍길동님이시군요!&quot;
+→ 번호표로 고객 정보 확인 (세션 조회)</p>
+</li>
+<li><p>고객: 다시 이름 말할 필요 없음! (자동 로그인 유지)</code></pre></p>
+  <div class="code-block__footer">
+ <span class="code-block__lines">11 lines</span>
+  </div>
+</div></li>
+</ol>
+<hr>
+<h2 id="1단계-개발-환경-설정하기">⚙️ 1단계: 개발 환경 설정하기 {#1단계-개발-환경-설정하기}</h2>
+<p><a href="#%F0%9F%93%91-%EB%AA%A9%EC%B0%A8">↑ 목차로 돌아가기</a></p>
+<h3 id="필수-준비물-체크리스트">필수 준비물 체크리스트 {#필수-준비물-체크리스트}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6753" onclick="copyCode('code-1769481055247-6753')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6753" class="language-plaintext">✅ Node.js 설치 (v16 이상)
+✅ 코드 에디터 (VS Code 추천)
+✅ 터미널 기본 사용법
+✅ 기본 HTML/CSS 지식</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3 id="초급-예제-nodejs-프로젝트-생성">🌱 초급 예제: Node.js 프로젝트 생성 {#초급-예제-nodejs-프로젝트-생성}</h3>
+<h4>Step 1: 프로젝트 폴더 만들기</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6754" onclick="copyCode('code-1769481055247-6754')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6754" class="language-bash"># 터미널에서 실행
+mkdir my-login-app
+cd my-login-app</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>💡 설명</strong>:</p>
+<ul>
+<li><code>mkdir</code>: &quot;make directory&quot;의 약자, 폴더 만들기</li>
+<li><code>cd</code>: &quot;change directory&quot;의 약자, 폴더로 이동</li>
+</ul>
+<h4>Step 2: Node.js 프로젝트 초기화</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6755" onclick="copyCode('code-1769481055247-6755')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6755" class="language-bash">npm init -y</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>💡 설명</strong>:</p>
+<ul>
+<li><code>npm init</code>: Node.js 프로젝트를 시작하는 명령어</li>
+<li><code>-y</code>: 모든 질문에 &quot;yes&quot;로 자동 답변 (빠르게 진행)</li>
+<li>결과: <code>package.json</code> 파일 생성됨 (프로젝트 설정 파일)</li>
+</ul>
+<h4>Step 3: Express.js 설치</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6756" onclick="copyCode('code-1769481055247-6756')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6756" class="language-bash">npm install express</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>💡 설명</strong>:</p>
+<ul>
+<li>Express.js: Node.js로 웹 서버를 쉽게 만들어주는 도구</li>
+<li><code>npm install</code>: 패키지(도구)를 설치하는 명령어</li>
+</ul>
+<h4>Step 4: 간단한 서버 만들기</h4>
+<p><strong>파일: <code>server.js</code></strong></p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6757" onclick="copyCode('code-1769481055247-6757')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6757" class="language-javascript">// Express 불러오기 (레스토랑 주방 도구 준비)
+const express = require(&#39;express&#39;);
+
+<p>// Express 앱 만들기 (레스토랑 오픈!)
+const app = express();</p>
+<p>// 포트 번호 설정 (레스토랑 주소)
+const PORT = 3000;</p>
+<p>// 메인 페이지 라우트 (손님이 &quot;/&quot; 주소로 오면)
+app.get(&#39;/&#39;, (req, res) =&gt; {
+  // &quot;안녕하세요!&quot; 응답 보내기
+  res.send(&#39;안녕하세요! Node.js 서버입니다! 🚀&#39;);
+});</p>
+<p>// 서버 시작 (레스토랑 영업 시작!)
+app.listen(PORT, () =&gt; {
+  console.log(<code>서버가 http://localhost:${PORT} 에서 실행 중입니다! 🎉</code>);
+});</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">15 lines</span>
+  </div></p>
+</div>
+
+<h4>Step 5: 서버 실행 및 테스트</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6758" onclick="copyCode('code-1769481055247-6758')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6758" class="language-bash"># 서버 실행
+node server.js
+
+<h1>브라우저에서 접속</h1>
+<h1><a href="http://localhost:3000">http://localhost:3000</a></code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>🎉 성공 확인</strong>:</p>
+<ul>
+<li>터미널에 &quot;서버가 <a href="http://localhost:3000">http://localhost:3000</a> 에서 실행 중입니다! 🎉&quot; 출력</li>
+<li>브라우저에서 &quot;안녕하세요! Node.js 서버입니다! 🚀&quot; 보임</li>
+</ul>
+<h3 id="생각해보기">🤔 생각해보기 {#생각해보기}</h3>
+<p><strong>Q1</strong>: <code>localhost:3000</code>에서 <code>3000</code>은 무엇을 의미하나요?</p>
+<details>
+<summary>정답 보기</summary>
+포트 번호입니다! 마치 아파트 동 번호처럼, 컴퓨터 안에서 서버를 구분하는 번호예요. 3000번 포트에서 우리 서버가 실행되고 있다는 뜻입니다.
+</details>
+
+<p><strong>Q2</strong>: <code>req</code>와 <code>res</code>는 무엇의 약자일까요?</p>
+<details>
+<summary>정답 보기</summary>
+- `req`: request (요청) - 손님이 주문하는 것
+- `res`: response (응답) - 식당이 음식을 내어주는 것
+</details>
+
+<hr>
+<h2 id="2단계-tailwind-css-설치-및-설정">🎨 2단계: Tailwind CSS 설치 및 설정 {#2단계-tailwind-css-설치-및-설정}</h2>
+<p><a href="#%F0%9F%93%91-%EB%AA%A9%EC%B0%A8">↑ 목차로 돌아가기</a></p>
+<h3 id="tailwind-css-설치하기">Tailwind CSS 설치하기 {#tailwind-css-설치하기}</h3>
+<h4>Step 1: Tailwind CSS 패키지 설치</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6759" onclick="copyCode('code-1769481055247-6759')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6759" class="language-bash">npm install -D tailwindcss
+npx tailwindcss init</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>💡 설명</strong>:</p>
+<ul>
+<li><code>-D</code>: 개발용 도구로 설치 (Development)</li>
+<li><code>npx tailwindcss init</code>: Tailwind 설정 파일 생성</li>
+</ul>
+<h4>Step 2: Tailwind 설정 파일 수정</h4>
+<p><strong>파일: <code>tailwind.config.js</code></strong></p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6760" onclick="copyCode('code-1769481055247-6760')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6760" class="language-javascript">/** @type {import(&#39;tailwindcss&#39;).Config} */
+module.exports = {
+  // 어떤 파일에서 Tailwind를 사용할지 알려주기
+  content: [
+    &quot;./views/**/*.{html,ejs}&quot;, // views 폴더의 모든 html, ejs 파일
+    &quot;./public/**/*.html&quot;        // public 폴더의 모든 html 파일
+  ],
+  theme: {
+    extend: {
+      // 여기서 커스텀 색상이나 폰트를 추가할 수 있어요!
+    },
+  },
+  plugins: [],
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">14 lines</span>
+  </div>
+</div>
+
+<h4>Step 3: CSS 파일 생성</h4>
+<p><strong>파일: <code>public/css/input.css</code></strong></p>
+<div class="code-block" data-language="css">
+  <div class="code-block__header" style="background-color: #264de4; color: #fff">
+    <span class="code-block__language">CSS</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6761" onclick="copyCode('code-1769481055247-6761')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6761" class="language-css">/* Tailwind의 기본 스타일들 가져오기 */
+@tailwind base;      /* 기본 리셋 스타일 */
+@tailwind components; /* 컴포넌트 스타일 */
+@tailwind utilities;  /* 유틸리티 클래스들 */</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h4>Step 4: Tailwind CSS 빌드하기</h4>
+<p><strong>파일: <code>package.json</code>에 스크립트 추가</strong></p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6762" onclick="copyCode('code-1769481055247-6762')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6762" class="language-json">{
+  &quot;scripts&quot;: {
+    &quot;build:css&quot;: &quot;tailwindcss -i ./public/css/input.css -o ./public/css/output.css --watch&quot;
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>터미널에서 실행</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6763" onclick="copyCode('code-1769481055247-6763')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6763" class="language-bash">npm run build:css</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>💡 설명</strong>:</p>
+<ul>
+<li><code>--watch</code>: 파일이 변경되면 자동으로 다시 빌드</li>
+<li><code>input.css</code> → <code>output.css</code>: Tailwind를 실제 CSS로 변환</li>
+</ul>
+<h3 id="중급-예제-tailwind로-첫-페이지-만들기">🌿 중급 예제: Tailwind로 첫 페이지 만들기 {#중급-예제-tailwind로-첫-페이지-만들기}</h3>
+<h4>HTML 템플릿 설정</h4>
+<p><strong>파일: <code>views/index.html</code></strong></p>
+<div class="code-block" data-language="html">
+  <div class="code-block__header" style="background-color: #e34c26; color: #fff">
+    <span class="code-block__language">HTML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6764" onclick="copyCode('code-1769481055247-6764')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6764" class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;Tailwind CSS 첫 페이지&lt;/title&gt;
+
+<p>  &lt;!-- Tailwind CSS 불러오기 --&gt;
+  &lt;link href=&quot;/css/output.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-gray-100&quot;&gt;
+  &lt;!-- 컨테이너: 중앙 정렬, 패딩 추가 --&gt;
+  &lt;div class=&quot;container mx-auto px-4 py-8&quot;&gt;</p>
+<pre><code>&amp;lt;!-- 헤더: 큰 제목, 파란색, 가운데 정렬 --&amp;gt;
+&amp;lt;h1 class=&amp;quot;text-4xl font-bold text-blue-600 text-center mb-8&amp;quot;&amp;gt;
+  🎨 Tailwind CSS로 만든 페이지
+&amp;lt;/h1&amp;gt;
+
+&amp;lt;!-- 카드 영역 --&amp;gt;
+&amp;lt;div class=&amp;quot;bg-white rounded-lg shadow-lg p-6 max-w-md mx-auto&amp;quot;&amp;gt;
+  &amp;lt;h2 class=&amp;quot;text-2xl font-semibold mb-4&amp;quot;&amp;gt;환영합니다! 👋&amp;lt;/h2&amp;gt;
+
+  &amp;lt;p class=&amp;quot;text-gray-600 mb-4&amp;quot;&amp;gt;
+    이 페이지는 Tailwind CSS로 스타일링되었습니다.
+    별도의 CSS 파일 없이 HTML 클래스만으로 만들어졌어요!
+  &amp;lt;/p&amp;gt;
+
+  &amp;lt;!-- 버튼 --&amp;gt;
+  &amp;lt;button class=&amp;quot;w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded transition duration-200&amp;quot;&amp;gt;
+    시작하기 🚀
+  &amp;lt;/button&amp;gt;
+&amp;lt;/div&amp;gt;
+</code></pre>
+<p>  &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">31 lines</span>
+  </div></p>
+</div>
+
+<h4>서버에서 HTML 제공하기</h4>
+<p><strong>파일: <code>server.js</code> 수정</strong></p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6765" onclick="copyCode('code-1769481055247-6765')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6765" class="language-javascript">const express = require(&#39;express&#39;);
+const path = require(&#39;path&#39;);
+const app = express();
+const PORT = 3000;
+
+<p>// 정적 파일 제공 (CSS, 이미지 등)
+app.use(express.static(&#39;public&#39;));</p>
+<p>// 메인 페이지
+app.get(&#39;/&#39;, (req, res) =&gt; {
+  res.sendFile(path.join(__dirname, &#39;views&#39;, &#39;index.html&#39;));
+});</p>
+<p>app.listen(PORT, () =&gt; {
+  console.log(<code>서버 실행 중: http://localhost:${PORT}</code>);
+});</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div></p>
+</div>
+
+<h3 id="tailwind-css-클래스-해부하기">🎨 Tailwind CSS 클래스 해부하기 {#tailwind-css-클래스-해부하기}</h3>
+<div class="code-block" data-language="html">
+  <div class="code-block__header" style="background-color: #e34c26; color: #fff">
+    <span class="code-block__language">HTML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6766" onclick="copyCode('code-1769481055247-6766')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6766" class="language-html">&lt;div class=&quot;bg-white rounded-lg shadow-lg p-6 max-w-md mx-auto&quot;&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>클래스별 설명</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6767" onclick="copyCode('code-1769481055247-6767')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6767" class="language-plaintext">bg-white       → background-color: white (흰색 배경)
+rounded-lg     → border-radius: 0.5rem (둥근 모서리, 큰 사이즈)
+shadow-lg      → box-shadow: ... (큰 그림자 효과)
+p-6            → padding: 1.5rem (안쪽 여백 6단위)
+max-w-md       → max-width: 28rem (최대 너비 중간 사이즈)
+mx-auto        → margin: 0 auto (좌우 가운데 정렬)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h3 id="고급-예제-반응형-디자인">🌳 고급 예제: 반응형 디자인 {#고급-예제-반응형-디자인}</h3>
+<div class="code-block" data-language="html">
+  <div class="code-block__header" style="background-color: #e34c26; color: #fff">
+    <span class="code-block__language">HTML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6768" onclick="copyCode('code-1769481055247-6768')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6768" class="language-html">&lt;!-- 모바일/태블릿/데스크탑에 따라 다른 스타일 --&gt;
+&lt;div class=&quot;
+  w-full          /* 모바일: 전체 너비 */
+  md:w-1/2        /* 태블릿: 절반 너비 */
+  lg:w-1/3        /* 데스크탑: 1/3 너비 */
+
+<p>  text-sm         /* 모바일: 작은 글씨 <em>/
+  md:text-base    /</em> 태블릿: 기본 글씨 <em>/
+  lg:text-lg      /</em> 데스크탑: 큰 글씨 */</p>
+<p>  p-4             /* 모바일: 패딩 4 <em>/
+  md:p-6          /</em> 태블릿: 패딩 6 <em>/
+  lg:p-8          /</em> 데스크탑: 패딩 8 */
+&quot;&gt;
+  반응형 콘텐츠
+&lt;/div&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">14 lines</span>
+  </div></p>
+</div>
+
+<p><strong>💡 브레이크포인트</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6769" onclick="copyCode('code-1769481055247-6769')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6769" class="language-plaintext">sm:  640px 이상  (작은 태블릿)
+md:  768px 이상  (태블릿)
+lg:  1024px 이상 (작은 노트북)
+xl:  1280px 이상 (데스크탑)
+2xl: 1536px 이상 (큰 모니터)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="3단계-flowbite-컴포넌트-통합하기">💎 3단계: Flowbite 컴포넌트 통합하기 {#3단계-flowbite-컴포넌트-통합하기}</h2>
+<p><a href="#%F0%9F%93%91-%EB%AA%A9%EC%B0%A8">↑ 목차로 돌아가기</a></p>
+<h3 id="flowbite-설치-및-설정">Flowbite 설치 및 설정 {#flowbite-설치-및-설정}</h3>
+<h4>Step 1: Flowbite 설치</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6770" onclick="copyCode('code-1769481055247-6770')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6770" class="language-bash">npm install flowbite</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>Step 2: Tailwind 설정에 Flowbite 추가</h4>
+<p><strong>파일: <code>tailwind.config.js</code></strong></p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6771" onclick="copyCode('code-1769481055247-6771')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6771" class="language-javascript">module.exports = {
+  content: [
+    &quot;./views/**/*.{html,ejs}&quot;,
+    &quot;./public/**/*.html&quot;,
+    // Flowbite 컴포넌트 경로 추가
+    &quot;./node_modules/flowbite/**/*.js&quot;
+  ],
+  theme: {
+    extend: {},
+  },
+  // Flowbite 플러그인 추가
+  plugins: [
+    require(&#39;flowbite/plugin&#39;)
+  ],
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">15 lines</span>
+  </div>
+</div>
+
+<h4>Step 3: HTML에 Flowbite JavaScript 추가</h4>
+<div class="code-block" data-language="html">
+  <div class="code-block__header" style="background-color: #e34c26; color: #fff">
+    <span class="code-block__language">HTML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6772" onclick="copyCode('code-1769481055247-6772')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6772" class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;!-- Tailwind CSS --&gt;
+  &lt;link href=&quot;/css/output.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- 페이지 내용 --&gt;
+
+<p>  &lt;!-- Flowbite JavaScript (body 끝에 추가) --&gt;
+  &lt;script src=&quot;<a href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js&quot;&gt;&lt;/script">https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js&quot;&gt;&lt;/script</a>&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<h3 id="초급-예제-flowbite-버튼-사용하기">🌱 초급 예제: Flowbite 버튼 사용하기 {#초급-예제-flowbite-버튼-사용하기}</h3>
+<div class="code-block" data-language="html">
+  <div class="code-block__header" style="background-color: #e34c26; color: #fff">
+    <span class="code-block__language">HTML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6773" onclick="copyCode('code-1769481055247-6773')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6773" class="language-html">&lt;!-- 기본 버튼 --&gt;
+&lt;button type=&quot;button&quot; class=&quot;text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5&quot;&gt;
+  기본 버튼
+&lt;/button&gt;
+
+<p>&lt;!-- 초록색 버튼 --&gt;
+&lt;button type=&quot;button&quot; class=&quot;text-white bg-green-700 hover:bg-green-800 focus:ring-4 focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5&quot;&gt;
+  성공 버튼
+&lt;/button&gt;</p>
+<p>&lt;!-- 빨간색 버튼 --&gt;
+&lt;button type=&quot;button&quot; class=&quot;text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5&quot;&gt;
+  삭제 버튼
+&lt;/button&gt;</p>
+<p>&lt;!-- 외곽선 버튼 --&gt;
+&lt;button type=&quot;button&quot; class=&quot;text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center&quot;&gt;
+  외곽선 버튼
+&lt;/button&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">16 lines</span>
+  </div></p>
+</div>
+
+<h3 id="중급-예제-flowbite-카드-컴포넌트">🌿 중급 예제: Flowbite 카드 컴포넌트 {#중급-예제-flowbite-카드-컴포넌트}</h3>
+<div class="code-block" data-language="html">
+  <div class="code-block__header" style="background-color: #e34c26; color: #fff">
+    <span class="code-block__language">HTML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6774" onclick="copyCode('code-1769481055247-6774')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6774" class="language-html">&lt;!-- 이미지가 있는 카드 --&gt;
+&lt;div class=&quot;max-w-sm bg-white border border-gray-200 rounded-lg shadow&quot;&gt;
+  &lt;!-- 카드 이미지 --&gt;
+  &lt;a href=&quot;#&quot;&gt;
+    &lt;img class=&quot;rounded-t-lg&quot; src=&quot;/images/sample.jpg&quot; alt=&quot;카드 이미지&quot; /&gt;
+  &lt;/a&gt;
+
+<p>  &lt;!-- 카드 내용 --&gt;
+  &lt;div class=&quot;p-5&quot;&gt;
+    &lt;!-- 제목 --&gt;
+    &lt;a href=&quot;#&quot;&gt;
+      &lt;h5 class=&quot;mb-2 text-2xl font-bold tracking-tight text-gray-900&quot;&gt;
+        멋진 카드 제목
+      &lt;/h5&gt;
+    &lt;/a&gt;</p>
+<pre><code>&amp;lt;!-- 설명 --&amp;gt;
+&amp;lt;p class=&amp;quot;mb-3 font-normal text-gray-700&amp;quot;&amp;gt;
+  이 카드는 Flowbite로 만든 예쁜 카드 컴포넌트입니다.
+  이미지, 제목, 설명, 버튼이 모두 포함되어 있어요!
+&amp;lt;/p&amp;gt;
+
+&amp;lt;!-- 버튼 --&amp;gt;
+&amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300&amp;quot;&amp;gt;
+  더 보기
+  &amp;lt;svg class=&amp;quot;rtl:rotate-180 w-3.5 h-3.5 ms-2&amp;quot; fill=&amp;quot;none&amp;quot; viewBox=&amp;quot;0 0 14 10&amp;quot;&amp;gt;
+    &amp;lt;path stroke=&amp;quot;currentColor&amp;quot; stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot; stroke-width=&amp;quot;2&amp;quot; d=&amp;quot;M1 5h12m0 0L9 1m4 4L9 9&amp;quot;/&amp;gt;
+  &amp;lt;/svg&amp;gt;
+&amp;lt;/a&amp;gt;
+</code></pre>
+<p>  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">28 lines</span>
+  </div></p>
+</div>
+
+<h3 id="고급-예제-flowbite-모달-팝업">🌳 고급 예제: Flowbite 모달 (팝업) {#고급-예제-flowbite-모달-팝업}</h3>
+<div class="code-block" data-language="html">
+  <div class="code-block__header" style="background-color: #e34c26; color: #fff">
+    <span class="code-block__language">HTML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6775" onclick="copyCode('code-1769481055247-6775')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6775" class="language-html">&lt;!-- 모달 열기 버튼 --&gt;
+&lt;button data-modal-target=&quot;default-modal&quot; data-modal-toggle=&quot;default-modal&quot; class=&quot;block text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center&quot; type=&quot;button&quot;&gt;
+  모달 열기
+&lt;/button&gt;
+
+<p>&lt;!-- 모달 컴포넌트 --&gt;
+&lt;div id=&quot;default-modal&quot; tabindex=&quot;-1&quot; aria-hidden=&quot;true&quot; class=&quot;hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full&quot;&gt;
+  &lt;div class=&quot;relative p-4 w-full max-w-2xl max-h-full&quot;&gt;
+    &lt;!-- 모달 내용 --&gt;
+    &lt;div class=&quot;relative bg-white rounded-lg shadow&quot;&gt;</p>
+<pre><code>  &amp;lt;!-- 모달 헤더 --&amp;gt;
+  &amp;lt;div class=&amp;quot;flex items-center justify-between p-4 md:p-5 border-b rounded-t&amp;quot;&amp;gt;
+    &amp;lt;h3 class=&amp;quot;text-xl font-semibold text-gray-900&amp;quot;&amp;gt;
+      모달 제목
+    &amp;lt;/h3&amp;gt;
+    &amp;lt;!-- 닫기 버튼 --&amp;gt;
+    &amp;lt;button type=&amp;quot;button&amp;quot; class=&amp;quot;text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center&amp;quot; data-modal-hide=&amp;quot;default-modal&amp;quot;&amp;gt;
+      &amp;lt;svg class=&amp;quot;w-3 h-3&amp;quot; fill=&amp;quot;none&amp;quot; viewBox=&amp;quot;0 0 14 14&amp;quot;&amp;gt;
+        &amp;lt;path stroke=&amp;quot;currentColor&amp;quot; stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot; stroke-width=&amp;quot;2&amp;quot; d=&amp;quot;m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6&amp;quot;/&amp;gt;
+      &amp;lt;/svg&amp;gt;
+    &amp;lt;/button&amp;gt;
+  &amp;lt;/div&amp;gt;
+
+  &amp;lt;!-- 모달 본문 --&amp;gt;
+  &amp;lt;div class=&amp;quot;p-4 md:p-5 space-y-4&amp;quot;&amp;gt;
+    &amp;lt;p class=&amp;quot;text-base leading-relaxed text-gray-500&amp;quot;&amp;gt;
+      이것은 Flowbite 모달입니다!
+      중요한 내용을 표시하거나 사용자 입력을 받을 때 사용해요.
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/div&amp;gt;
+
+  &amp;lt;!-- 모달 푸터 --&amp;gt;
+  &amp;lt;div class=&amp;quot;flex items-center p-4 md:p-5 border-t border-gray-200 rounded-b&amp;quot;&amp;gt;
+    &amp;lt;button data-modal-hide=&amp;quot;default-modal&amp;quot; type=&amp;quot;button&amp;quot; class=&amp;quot;text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center&amp;quot;&amp;gt;
+      확인
+    &amp;lt;/button&amp;gt;
+    &amp;lt;button data-modal-hide=&amp;quot;default-modal&amp;quot; type=&amp;quot;button&amp;quot; class=&amp;quot;py-2.5 px-5 ms-3 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100&amp;quot;&amp;gt;
+      취소
+    &amp;lt;/button&amp;gt;
+  &amp;lt;/div&amp;gt;
+
+&amp;lt;/div&amp;gt;
+</code></pre>
+<p>  &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">40 lines</span>
+  </div></p>
+</div>
+
+<p><strong>💡 모달 작동 원리</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6776" onclick="copyCode('code-1769481055247-6776')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6776" class="language-plaintext">1. 버튼 클릭 (data-modal-toggle=&quot;default-modal&quot;)
+   ↓
+2. Flowbite JavaScript가 감지
+   ↓
+3. id=&quot;default-modal&quot;인 요소를 찾음
+   ↓
+4. hidden 클래스 제거 → 모달 표시!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<h3 id="flowbite-주요-컴포넌트-카탈로그">🎯 Flowbite 주요 컴포넌트 카탈로그 {#flowbite-주요-컴포넌트-카탈로그}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6777" onclick="copyCode('code-1769481055247-6777')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6777" class="language-plaintext">📦 자주 사용하는 Flowbite 컴포넌트
+
+<p>├─ 🎨 버튼 (Buttons)
+│  ├─ 기본 버튼
+│  ├─ 외곽선 버튼
+│  ├─ 그라데이션 버튼
+│  └─ 아이콘 버튼
+│
+├─ 📝 폼 (Forms)
+│  ├─ 입력 필드 (Input)
+│  ├─ 텍스트 영역 (Textarea)
+│  ├─ 선택 박스 (Select)
+│  ├─ 체크박스
+│  └─ 라디오 버튼
+│
+├─ 🃏 카드 (Cards)
+│  ├─ 기본 카드
+│  ├─ 이미지 카드
+│  ├─ 리스트 카드
+│  └─ CTA 카드
+│
+├─ 📊 네비게이션
+│  ├─ 네비게이션 바
+│  ├─ 사이드바
+│  ├─ 브레드크럼
+│  └─ 탭
+│
+├─ 🔔 알림 (Alerts)
+│  ├─ 성공 알림
+│  ├─ 경고 알림
+│  ├─ 오류 알림
+│  └─ 정보 알림
+│
+├─ 📑 모달 (Modals)
+│  ├─ 기본 모달
+│  ├─ 확인 모달
+│  └─ 폼 모달
+│
+└─ 📋 기타
+   ├─ 드롭다운
+   ├─ 툴팁
+   ├─ 배지
+   ├─ 진행바
+   └─ 스피너</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">43 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="4단계-세션과-쿠키-완벽-이해하기">🍪 4단계: 세션과 쿠키 완벽 이해하기 {#4단계-세션과-쿠키-완벽-이해하기}</h2>
+<p><a href="#%F0%9F%93%91-%EB%AA%A9%EC%B0%A8">↑ 목차로 돌아가기</a></p>
+<h3 id="세션과-쿠키가-필요한-이유">세션과 쿠키가 필요한 이유 {#세션과-쿠키가-필요한-이유}</h3>
+<h4>🤔 문제 상황: HTTP의 무상태성</h4>
+<p>**HTTP는 &quot;건망증 프로토콜&quot;**입니다!</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6778" onclick="copyCode('code-1769481055247-6778')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6778" class="language-plaintext">상황 1: 로그인 시도
+고객: &quot;안녕하세요, 저 홍길동이에요. 로그인할게요!&quot;
+서버: &quot;네, 환영합니다! 로그인 완료!&quot; ✅
+
+<p>상황 2: 5초 후 다른 페이지 접속
+고객: &quot;제 프로필 보여주세요&quot;
+서버: &quot;당신이 누구신가요? 😕&quot; ❌</p>
+<p>문제: 서버가 방금 전 로그인한 사람을 기억 못함!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h4>✨ 해결책: 세션과 쿠키</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6779" onclick="copyCode('code-1769481055247-6779')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6779" class="language-plaintext">🔐 해결 방법
+
+<ol>
+<li><p>로그인 성공 시
+서버: &quot;세션 ID: ABC123&quot; 생성 → 서버에 저장
+서버: &quot;쿠키: ABC123&quot; 발급 → 브라우저에 저장</p>
+</li>
+<li><p>다음 요청 시
+브라우저: &quot;쿠키: ABC123 보내기&quot;
+서버: &quot;ABC123 확인... 아, 홍길동님!&quot; ✅</code></pre></p>
+  <div class="code-block__footer">
+ <span class="code-block__lines">7 lines</span>
+  </div>
+</div></li>
+</ol>
+<h3 id="express-session-설치-및-설정">express-session 설치 및 설정 {#express-session-설치-및-설정}</h3>
+<h4>Step 1: 필요한 패키지 설치</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6780" onclick="copyCode('code-1769481055247-6780')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6780" class="language-bash">npm install express-session
+npm install connect-mongo    # MongoDB에 세션 저장 (선택)
+npm install cookie-parser     # 쿠키 파싱</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h4>Step 2: 서버에 세션 미들웨어 추가</h4>
+<p><strong>파일: <code>server.js</code></strong></p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6781" onclick="copyCode('code-1769481055247-6781')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6781" class="language-javascript">const express = require(&#39;express&#39;);
+const session = require(&#39;express-session&#39;);
+const cookieParser = require(&#39;cookie-parser&#39;);
+
+<p>const app = express();
+const PORT = 3000;</p>
+<p>// 미들웨어 설정
+app.use(express.static(&#39;public&#39;));
+app.use(express.json());                    // JSON 데이터 파싱
+app.use(express.urlencoded({ extended: true })); // 폼 데이터 파싱
+app.use(cookieParser());                    // 쿠키 파싱</p>
+<p>// 세션 설정
+app.use(session({
+  secret: &#39;my-super-secret-key-12345&#39;,  // 세션 암호화 키 (꼭 바꾸세요!)
+  resave: false,                         // 세션이 수정되지 않아도 다시 저장할지
+  saveUninitialized: false,              // 초기화되지 않은 세션 저장할지
+  cookie: {
+    httpOnly: true,    // JavaScript로 쿠키 접근 방지 (보안)
+    secure: false,     // HTTPS에서만 쿠키 전송 (개발 중에는 false)
+    maxAge: 1000 * 60 * 60 * 24  // 쿠키 유효 기간 (24시간)
+  }
+}));</p>
+<p>// 라우트 정의...</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">22 lines</span>
+  </div></p>
+</div>
+
+<p><strong>💡 설정 설명</strong>:</p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6782" onclick="copyCode('code-1769481055247-6782')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6782" class="language-javascript">secret: &#39;my-super-secret-key&#39;
+// → 세션 데이터를 암호화하는 비밀 키
+// → 절대 공개하면 안 됨! (GitHub에 올릴 때 주의)
+
+<p>resave: false
+// → 세션이 변경되지 않았어도 다시 저장?
+// → false: 변경된 것만 저장 (효율적)</p>
+<p>saveUninitialized: false
+// → 초기화되지 않은(비어있는) 세션도 저장?
+// → false: 로그인 후에만 저장 (권장)</p>
+<p>cookie: { maxAge: 1000 * 60 * 60 * 24 }
+// → 1000밀리초 × 60초 × 60분 × 24시간 = 1일</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<h3 id="초급-예제-세션에-데이터-저장하기">🌱 초급 예제: 세션에 데이터 저장하기 {#초급-예제-세션에-데이터-저장하기}</h3>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6783" onclick="copyCode('code-1769481055247-6783')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6783" class="language-javascript">// 세션에 데이터 저장
+app.get(&#39;/set-session&#39;, (req, res) =&gt; {
+  // 세션에 사용자 이름 저장
+  req.session.username = &#39;홍길동&#39;;
+  req.session.visitCount = 1;
+
+<p>  res.send(&#39;세션에 데이터를 저장했습니다! 🎉&#39;);
+});</p>
+<p>// 세션에서 데이터 읽기
+app.get(&#39;/get-session&#39;, (req, res) =&gt; {
+  const username = req.session.username;
+  const visitCount = req.session.visitCount;</p>
+<p>  if (username) {
+    res.send(<code>환영합니다, ${username}님! (방문: ${visitCount}회)</code>);
+  } else {
+    res.send(&#39;세션에 데이터가 없습니다. 😢&#39;);
+  }
+});</p>
+<p>// 세션 삭제 (로그아웃)
+app.get(&#39;/destroy-session&#39;, (req, res) =&gt; {
+  req.session.destroy((err) =&gt; {
+    if (err) {
+      res.send(&#39;세션 삭제 실패 😢&#39;);
+    } else {
+      res.send(&#39;세션이 삭제되었습니다! (로그아웃) 👋&#39;);
+    }
+  });
+});</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">27 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🧪 테스트해보기</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6784" onclick="copyCode('code-1769481055247-6784')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6784" class="language-plaintext">1. http://localhost:3000/set-session 접속
+   → &quot;세션에 데이터를 저장했습니다!&quot;
+
+<ol start="2">
+<li><p><a href="http://localhost:3000/get-session">http://localhost:3000/get-session</a> 접속
+→ &quot;환영합니다, 홍길동님!&quot;</p>
+</li>
+<li><p>브라우저 개발자 도구 → Application → Cookies
+→ connect.sid 쿠키 확인!</p>
+</li>
+<li><p><a href="http://localhost:3000/destroy-session">http://localhost:3000/destroy-session</a> 접속
+→ &quot;세션이 삭제되었습니다!&quot;</p>
+</li>
+<li><p>다시 <a href="http://localhost:3000/get-session">http://localhost:3000/get-session</a> 접속
+→ &quot;세션에 데이터가 없습니다.&quot;</code></pre></p>
+  <div class="code-block__footer">
+ <span class="code-block__lines">10 lines</span>
+  </div>
+</div></li>
+</ol>
+<h3 id="중급-예제-쿠키-직접-다루기">🌿 중급 예제: 쿠키 직접 다루기 {#중급-예제-쿠키-직접-다루기}</h3>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6785" onclick="copyCode('code-1769481055247-6785')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6785" class="language-javascript">// 쿠키 설정
+app.get(&#39;/set-cookie&#39;, (req, res) =&gt; {
+  // 쿠키 설정: 이름=&#39;값&#39;, 옵션
+  res.cookie(&#39;theme&#39;, &#39;dark&#39;, {
+    maxAge: 1000 * 60 * 60 * 24 * 7,  // 7일
+    httpOnly: false,                   // JavaScript 접근 허용
+    path: &#39;/&#39;                          // 모든 경로에서 사용
+  });
+
+<p>  res.cookie(&#39;language&#39;, &#39;ko&#39;, {
+    maxAge: 1000 * 60 * 60 * 24 * 30  // 30일
+  });</p>
+<p>  res.send(&#39;쿠키가 설정되었습니다! 🍪&#39;);
+});</p>
+<p>// 쿠키 읽기
+app.get(&#39;/get-cookie&#39;, (req, res) =&gt; {
+  const theme = req.cookies.theme;
+  const language = req.cookies.language;</p>
+<p>  res.send(<code>    &amp;lt;h1&amp;gt;쿠키 정보&amp;lt;/h1&amp;gt;     &amp;lt;p&amp;gt;테마: ${theme || &amp;#39;설정 안 됨&amp;#39;}&amp;lt;/p&amp;gt;     &amp;lt;p&amp;gt;언어: ${language || &amp;#39;설정 안 됨&amp;#39;}&amp;lt;/p&amp;gt;  </code>);
+});</p>
+<p>// 쿠키 삭제
+app.get(&#39;/clear-cookie&#39;, (req, res) =&gt; {
+  res.clearCookie(&#39;theme&#39;);
+  res.clearCookie(&#39;language&#39;);
+  res.send(&#39;쿠키가 삭제되었습니다! 🗑️&#39;);
+});</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">29 lines</span>
+  </div></p>
+</div>
+
+<h3 id="고급-예제-세션-vs-쿠키-비교-실습">🌳 고급 예제: 세션 vs 쿠키 비교 실습 {#고급-예제-세션-vs-쿠키-비교-실습}</h3>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6786" onclick="copyCode('code-1769481055247-6786')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6786" class="language-javascript">// 세션과 쿠키를 함께 사용하는 실전 예제
+app.get(&#39;/demo&#39;, (req, res) =&gt; {
+  // 세션 카운터 (서버에 저장)
+  if (!req.session.visitCount) {
+    req.session.visitCount = 1;
+  } else {
+    req.session.visitCount++;
+  }
+
+<p>  // 쿠키 카운터 (브라우저에 저장)
+  let cookieCount = parseInt(req.cookies.cookieCount || &#39;0&#39;);
+  cookieCount++;
+  res.cookie(&#39;cookieCount&#39;, cookieCount.toString());</p>
+<p>  res.send(`
+    &lt;!DOCTYPE html&gt;
+    &lt;html&gt;
+    &lt;head&gt;
+      &lt;title&gt;세션 vs 쿠키&lt;/title&gt;
+      &lt;link href=&quot;/css/output.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;/head&gt;
+    &lt;body class=&quot;bg-gray-100 p-8&quot;&gt;
+      &lt;div class=&quot;max-w-2xl mx-auto bg-white rounded-lg shadow-lg p-6&quot;&gt;
+        &lt;h1 class=&quot;text-3xl font-bold mb-6&quot;&gt;세션 vs 쿠키 비교&lt;/h1&gt;</p>
+<pre><code>    &amp;lt;!-- 세션 카드 --&amp;gt;
+    &amp;lt;div class=&amp;quot;bg-blue-50 border-l-4 border-blue-500 p-4 mb-4&amp;quot;&amp;gt;
+      &amp;lt;h2 class=&amp;quot;text-xl font-semibold text-blue-700 mb-2&amp;quot;&amp;gt;
+        🔐 세션 카운터 (서버 저장)
+      &amp;lt;/h2&amp;gt;
+      &amp;lt;p class=&amp;quot;text-2xl font-bold text-blue-900&amp;quot;&amp;gt;
+        ${req.session.visitCount} 회 방문
+      &amp;lt;/p&amp;gt;
+      &amp;lt;p class=&amp;quot;text-sm text-gray-600 mt-2&amp;quot;&amp;gt;
+        브라우저를 닫으면 사라집니다
+      &amp;lt;/p&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;!-- 쿠키 카드 --&amp;gt;
+    &amp;lt;div class=&amp;quot;bg-green-50 border-l-4 border-green-500 p-4 mb-4&amp;quot;&amp;gt;
+      &amp;lt;h2 class=&amp;quot;text-xl font-semibold text-green-700 mb-2&amp;quot;&amp;gt;
+        🍪 쿠키 카운터 (브라우저 저장)
+      &amp;lt;/h2&amp;gt;
+      &amp;lt;p class=&amp;quot;text-2xl font-bold text-green-900&amp;quot;&amp;gt;
+        ${cookieCount} 회 방문
+      &amp;lt;/p&amp;gt;
+      &amp;lt;p class=&amp;quot;text-sm text-gray-600 mt-2&amp;quot;&amp;gt;
+        브라우저를 닫아도 남아있습니다
+      &amp;lt;/p&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;!-- 비교 테이블 --&amp;gt;
+    &amp;lt;div class=&amp;quot;mt-6&amp;quot;&amp;gt;
+      &amp;lt;h3 class=&amp;quot;text-lg font-semibold mb-3&amp;quot;&amp;gt;차이점 비교&amp;lt;/h3&amp;gt;
+      &amp;lt;table class=&amp;quot;w-full border&amp;quot;&amp;gt;
+        &amp;lt;thead class=&amp;quot;bg-gray-200&amp;quot;&amp;gt;
+          &amp;lt;tr&amp;gt;
+            &amp;lt;th class=&amp;quot;border p-2&amp;quot;&amp;gt;항목&amp;lt;/th&amp;gt;
+            &amp;lt;th class=&amp;quot;border p-2&amp;quot;&amp;gt;세션&amp;lt;/th&amp;gt;
+            &amp;lt;th class=&amp;quot;border p-2&amp;quot;&amp;gt;쿠키&amp;lt;/th&amp;gt;
+          &amp;lt;/tr&amp;gt;
+        &amp;lt;/thead&amp;gt;
+        &amp;lt;tbody&amp;gt;
+          &amp;lt;tr&amp;gt;
+            &amp;lt;td class=&amp;quot;border p-2&amp;quot;&amp;gt;저장 위치&amp;lt;/td&amp;gt;
+            &amp;lt;td class=&amp;quot;border p-2 bg-blue-50&amp;quot;&amp;gt;서버&amp;lt;/td&amp;gt;
+            &amp;lt;td class=&amp;quot;border p-2 bg-green-50&amp;quot;&amp;gt;브라우저&amp;lt;/td&amp;gt;
+          &amp;lt;/tr&amp;gt;
+          &amp;lt;tr&amp;gt;
+            &amp;lt;td class=&amp;quot;border p-2&amp;quot;&amp;gt;보안성&amp;lt;/td&amp;gt;
+            &amp;lt;td class=&amp;quot;border p-2 bg-blue-50&amp;quot;&amp;gt;높음 🔒&amp;lt;/td&amp;gt;
+            &amp;lt;td class=&amp;quot;border p-2 bg-green-50&amp;quot;&amp;gt;낮음 ⚠️&amp;lt;/td&amp;gt;
+          &amp;lt;/tr&amp;gt;
+          &amp;lt;tr&amp;gt;
+            &amp;lt;td class=&amp;quot;border p-2&amp;quot;&amp;gt;수명&amp;lt;/td&amp;gt;
+            &amp;lt;td class=&amp;quot;border p-2 bg-blue-50&amp;quot;&amp;gt;짧음 (브라우저 닫으면 삭제)&amp;lt;/td&amp;gt;
+            &amp;lt;td class=&amp;quot;border p-2 bg-green-50&amp;quot;&amp;gt;김 (설정한 기간까지)&amp;lt;/td&amp;gt;
+          &amp;lt;/tr&amp;gt;
+        &amp;lt;/tbody&amp;gt;
+      &amp;lt;/table&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;!-- 버튼 --&amp;gt;
+    &amp;lt;div class=&amp;quot;mt-6 flex gap-4&amp;quot;&amp;gt;
+      &amp;lt;a href=&amp;quot;/demo&amp;quot; class=&amp;quot;bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600&amp;quot;&amp;gt;
+        새로고침
+      &amp;lt;/a&amp;gt;
+      &amp;lt;a href=&amp;quot;/clear-all&amp;quot; class=&amp;quot;bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600&amp;quot;&amp;gt;
+        모두 초기화
+      &amp;lt;/a&amp;gt;
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+</code></pre>
+<p>  `);
+});</p>
+<p>// 모두 초기화
+app.get(&#39;/clear-all&#39;, (req, res) =&gt; {
+  req.session.destroy();
+  res.clearCookie(&#39;cookieCount&#39;);
+  res.redirect(&#39;/demo&#39;);
+});</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">96 lines</span>
+  </div></p>
+</div>
+
+<h3 id="세션-vs-쿠키-완벽-비교표">📊 세션 vs 쿠키 완벽 비교표 {#세션-vs-쿠키-완벽-비교표}</h3>
+<table>
+<thead>
+<tr>
+<th>특성</th>
+<th>🔐 세션 (Session)</th>
+<th>🍪 쿠키 (Cookie)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>저장 위치</strong></td>
+<td>서버 메모리/DB</td>
+<td>브라우저 (클라이언트)</td>
+</tr>
+<tr>
+<td><strong>보안성</strong></td>
+<td>⭐⭐⭐⭐⭐ 높음</td>
+<td>⭐⭐ 낮음</td>
+</tr>
+<tr>
+<td><strong>저장 용량</strong></td>
+<td>제한 없음 (서버 용량)</td>
+<td>4KB 제한</td>
+</tr>
+<tr>
+<td><strong>수명</strong></td>
+<td>브라우저 닫으면 삭제</td>
+<td>설정한 기간까지 유지</td>
+</tr>
+<tr>
+<td><strong>속도</strong></td>
+<td>느림 (서버 조회 필요)</td>
+<td>빠름 (로컬 저장)</td>
+</tr>
+<tr>
+<td><strong>용도</strong></td>
+<td>로그인 정보, 민감 데이터</td>
+<td>설정값, 비민감 데이터</td>
+</tr>
+<tr>
+<td><strong>접근성</strong></td>
+<td>서버만 접근 가능</td>
+<td>JavaScript로 접근 가능</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="5단계-로그인-기능-구현하기">🔑 5단계: 로그인 기능 구현하기 {#5단계-로그인-기능-구현하기}</h2>
+<p><a href="#%F0%9F%93%91-%EB%AA%A9%EC%B0%A8">↑ 목차로 돌아가기</a></p>
+<h3 id="프로젝트-구조-설계">프로젝트 구조 설계 {#프로젝트-구조-설계}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6787" onclick="copyCode('code-1769481055247-6787')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6787" class="language-plaintext">my-login-app/
+├── server.js           # 메인 서버 파일
+├── views/              # HTML 템플릿
+│   ├── login.html      # 로그인 페이지
+│   ├── dashboard.html  # 대시보드 (로그인 후)
+│   └── register.html   # 회원가입 페이지
+├── public/             # 정적 파일
+│   ├── css/
+│   │   └── output.css  # Tailwind CSS
+│   └── js/
+│       └── main.js     # 클라이언트 JavaScript
+├── utils/              # 유틸리티 함수
+│   └── auth.js         # 인증 관련 함수
+└── package.json        # 프로젝트 설정</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">14 lines</span>
+  </div>
+</div>
+
+<h3 id="초급-예제-간단한-로그인-시스템">🌱 초급 예제: 간단한 로그인 시스템 {#초급-예제-간단한-로그인-시스템}</h3>
+<h4>Step 1: 사용자 데이터 (임시)</h4>
+<p><strong>파일: <code>utils/users.js</code></strong></p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6788" onclick="copyCode('code-1769481055247-6788')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6788" class="language-javascript">// 실제 프로젝트에서는 데이터베이스를 사용하세요!
+// 이것은 학습용 임시 데이터입니다
+
+<p>const users = [
+  {
+    id: 1,
+    username: &#39;admin&#39;,
+    password: &#39;password123&#39;,  // ⚠️ 실제로는 해시된 비밀번호 사용!
+    email: &#39;<a href="mailto:admin@example.com">admin@example.com</a>&#39;,
+    name: &#39;관리자&#39;
+  },
+  {
+    id: 2,
+    username: &#39;user&#39;,
+    password: &#39;user123&#39;,
+    email: &#39;<a href="mailto:user@example.com">user@example.com</a>&#39;,
+    name: &#39;일반사용자&#39;
+  }
+];</p>
+<p>// 사용자 찾기 함수
+function findUser(username, password) {
+  return users.find(user =&gt;
+    user.username === username &amp;&amp; user.password === password
+  );
+}</p>
+<p>// 사용자 ID로 찾기
+function findUserById(id) {
+  return users.find(user =&gt; user.id === id);
+}</p>
+<p>module.exports = { findUser, findUserById, users };</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">29 lines</span>
+  </div></p>
+</div>
+
+<h4>Step 2: 로그인 라우트 구현</h4>
+<p><strong>파일: <code>server.js</code>에 추가</strong></p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6789" onclick="copyCode('code-1769481055247-6789')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6789" class="language-javascript">const { findUser, findUserById } = require(&#39;./utils/users&#39;);
+
+<p>// 로그인 페이지 표시
+app.get(&#39;/login&#39;, (req, res) =&gt; {
+  // 이미 로그인되어 있으면 대시보드로 리다이렉트
+  if (req.session.userId) {
+    return res.redirect(&#39;/dashboard&#39;);
+  }
+  res.sendFile(__dirname + &#39;/views/login.html&#39;);
+});</p>
+<p>// 로그인 처리
+app.post(&#39;/login&#39;, (req, res) =&gt; {
+  const { username, password } = req.body;</p>
+<p>  // 사용자 확인
+  const user = findUser(username, password);</p>
+<p>  if (user) {
+    // 로그인 성공! 세션에 사용자 정보 저장
+    req.session.userId = user.id;
+    req.session.username = user.username;
+    req.session.name = user.name;</p>
+<pre><code>console.log(&amp;#39;✅ 로그인 성공:&amp;#39;, user.name);
+
+res.json({
+  success: true,
+  message: &amp;#39;로그인 성공!&amp;#39;,
+  user: {
+    id: user.id,
+    username: user.username,
+    name: user.name
+  }
+});
+</code></pre>
+<p>  } else {
+    // 로그인 실패
+    console.log(&#39;❌ 로그인 실패:&#39;, username);</p>
+<pre><code>res.status(401).json({
+  success: false,
+  message: &amp;#39;아이디 또는 비밀번호가 잘못되었습니다.&amp;#39;
+});
+</code></pre>
+<p>  }
+});</p>
+<p>// 로그아웃
+app.post(&#39;/logout&#39;, (req, res) =&gt; {
+  const username = req.session.username;</p>
+<p>  req.session.destroy((err) =&gt; {
+    if (err) {
+      console.log(&#39;❌ 로그아웃 실패:&#39;, err);
+      res.status(500).json({
+        success: false,
+        message: &#39;로그아웃 실패&#39;
+      });
+    } else {
+      console.log(&#39;👋 로그아웃:&#39;, username);
+      res.json({
+        success: true,
+        message: &#39;로그아웃되었습니다.&#39;
+      });
+    }
+  });
+});</p>
+<p>// 대시보드 (로그인 필요)
+app.get(&#39;/dashboard&#39;, (req, res) =&gt; {
+  // 로그인 확인
+  if (!req.session.userId) {
+    return res.redirect(&#39;/login&#39;);
+  }</p>
+<p>  // 사용자 정보 가져오기
+  const user = findUserById(req.session.userId);</p>
+<p>  res.send(`
+    &lt;!DOCTYPE html&gt;
+    &lt;html lang=&quot;ko&quot;&gt;
+    &lt;head&gt;
+      &lt;title&gt;대시보드&lt;/title&gt;
+      &lt;link href=&quot;/css/output.css&quot; rel=&quot;stylesheet&quot;&gt;
+    &lt;/head&gt;
+    &lt;body class=&quot;bg-gray-100&quot;&gt;
+      &lt;div class=&quot;container mx-auto p-8&quot;&gt;
+        &lt;div class=&quot;max-w-md mx-auto bg-white rounded-lg shadow-lg p-6&quot;&gt;
+          &lt;h1 class=&quot;text-2xl font-bold mb-4&quot;&gt;
+            환영합니다, ${user.name}님! 🎉
+          &lt;/h1&gt;
+          &lt;p class=&quot;text-gray-600 mb-4&quot;&gt;
+            아이디: ${user.username}&lt;br&gt;
+            이메일: ${user.email}
+          &lt;/p&gt;
+          &lt;button onclick=&quot;logout()&quot; class=&quot;w-full bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded&quot;&gt;
+            로그아웃
+          &lt;/button&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;</p>
+<pre><code>  &amp;lt;script&amp;gt;
+    async function logout() {
+      const response = await fetch(&amp;#39;/logout&amp;#39;, {
+        method: &amp;#39;POST&amp;#39;
+      });
+
+      if (response.ok) {
+        alert(&amp;#39;로그아웃되었습니다.&amp;#39;);
+        window.location.href = &amp;#39;/login&amp;#39;;
+      }
+    }
+  &amp;lt;/script&amp;gt;
+&amp;lt;/body&amp;gt;
+&amp;lt;/html&amp;gt;
+</code></pre>
+<p>  `);
+});</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">102 lines</span>
+  </div></p>
+</div>
+
+<h4>Step 3: 로그인 페이지 HTML</h4>
+<p><strong>파일: <code>views/login.html</code></strong></p>
+<div class="code-block" data-language="html">
+  <div class="code-block__header" style="background-color: #e34c26; color: #fff">
+    <span class="code-block__language">HTML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055247-6790" onclick="copyCode('code-1769481055247-6790')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055247-6790" class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;로그인&lt;/title&gt;
+  &lt;link href=&quot;/css/output.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-gray-100&quot;&gt;
+  &lt;div class=&quot;min-h-screen flex items-center justify-center p-4&quot;&gt;
+    &lt;div class=&quot;max-w-md w-full bg-white rounded-lg shadow-lg p-8&quot;&gt;
+
+<pre><code>  &amp;lt;!-- 로고/제목 --&amp;gt;
+  &amp;lt;h1 class=&amp;quot;text-3xl font-bold text-center text-blue-600 mb-8&amp;quot;&amp;gt;
+    🔐 로그인
+  &amp;lt;/h1&amp;gt;
+
+  &amp;lt;!-- 로그인 폼 --&amp;gt;
+  &amp;lt;form id=&amp;quot;loginForm&amp;quot; class=&amp;quot;space-y-4&amp;quot;&amp;gt;
+
+    &amp;lt;!-- 아이디 입력 --&amp;gt;
+    &amp;lt;div&amp;gt;
+      &amp;lt;label class=&amp;quot;block text-sm font-medium text-gray-700 mb-2&amp;quot;&amp;gt;
+        아이디
+      &amp;lt;/label&amp;gt;
+      &amp;lt;input
+        type=&amp;quot;text&amp;quot;
+        id=&amp;quot;username&amp;quot;
+        name=&amp;quot;username&amp;quot;
+        required
+        class=&amp;quot;w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500&amp;quot;
+        placeholder=&amp;quot;아이디를 입력하세요&amp;quot;
+      &amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;!-- 비밀번호 입력 --&amp;gt;
+    &amp;lt;div&amp;gt;
+      &amp;lt;label class=&amp;quot;block text-sm font-medium text-gray-700 mb-2&amp;quot;&amp;gt;
+        비밀번호
+      &amp;lt;/label&amp;gt;
+      &amp;lt;input
+        type=&amp;quot;password&amp;quot;
+        id=&amp;quot;password&amp;quot;
+        name=&amp;quot;password&amp;quot;
+        required
+        class=&amp;quot;w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500&amp;quot;
+        placeholder=&amp;quot;비밀번호를 입력하세요&amp;quot;
+      &amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;!-- 에러 메시지 --&amp;gt;
+    &amp;lt;div id=&amp;quot;errorMessage&amp;quot; class=&amp;quot;hidden bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded&amp;quot;&amp;gt;
+    &amp;lt;/div&amp;gt;
+
+    &amp;lt;!-- 로그인 버튼 --&amp;gt;
+    &amp;lt;button
+      type=&amp;quot;submit&amp;quot;
+      class=&amp;quot;w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-lg transition duration-200&amp;quot;
+    &amp;gt;
+      로그인 🚀
+    &amp;lt;/button&amp;gt;
+  &amp;lt;/form&amp;gt;
+
+  &amp;lt;!-- 테스트 계정 안내 --&amp;gt;
+  &amp;lt;div class=&amp;quot;mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg&amp;quot;&amp;gt;
+    &amp;lt;p class=&amp;quot;text-sm text-gray-700 font-semibold mb-2&amp;quot;&amp;gt;
+      🧪 테스트 계정:
+    &amp;lt;/p&amp;gt;
+    &amp;lt;p class=&amp;quot;text-sm text-gray-600&amp;quot;&amp;gt;
+      아이디: &amp;lt;code class=&amp;quot;bg-gray-200 px-2 py-1 rounded&amp;quot;&amp;gt;admin&amp;lt;/code&amp;gt;&amp;lt;br&amp;gt;
+      비밀번호: &amp;lt;code class=&amp;quot;bg-gray-200 px-2 py-1 rounded&amp;quot;&amp;gt;password123&amp;lt;/code&amp;gt;
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+</code></pre>
+<p>  &lt;/div&gt;</p>
+<p>  &lt;script&gt;
+    // 로그인 폼 제출 처리
+    document.getElementById(&#39;loginForm&#39;).addEventListener(&#39;submit&#39;, async (e) =&gt; {
+      e.preventDefault(); // 기본 폼 제출 방지</p>
+<pre><code>  // 입력값 가져오기
+  const username = document.getElementById(&amp;#39;username&amp;#39;).value;
+  const password = document.getElementById(&amp;#39;password&amp;#39;).value;
+  const errorDiv = document.getElementById(&amp;#39;errorMessage&amp;#39;);
+
+  try {
+    // 서버에 로그인 요청
+    const response = await fetch(&amp;#39;/login&amp;#39;, {
+      method: &amp;#39;POST&amp;#39;,
+      headers: {
+        &amp;#39;Content-Type&amp;#39;: &amp;#39;application/json&amp;#39;
+      },
+      body: JSON.stringify({ username, password })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      // 로그인 성공
+      alert(&amp;#39;로그인 성공! 🎉&amp;#39;);
+      window.location.href = &amp;#39;/dashboard&amp;#39;;
+    } else {
+      // 로그인 실패
+      errorDiv.textContent = data.message;
+      errorDiv.classList.remove(&amp;#39;hidden&amp;#39;);
+    }
+  } catch (error) {
+    console.error(&amp;#39;로그인 에러:&amp;#39;, error);
+    errorDiv.textContent = &amp;#39;로그인 중 오류가 발생했습니다.&amp;#39;;
+    errorDiv.classList.remove(&amp;#39;hidden&amp;#39;);
+  }
+});
+</code></pre>
+<p>  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">104 lines</span>
+  </div></p>
+</div>
+
+<h3 id="중급-예제-로그인-보호-미들웨어">🌿 중급 예제: 로그인 보호 미들웨어 {#중급-예제-로그인-보호-미들웨어}</h3>
+<h4>인증 미들웨어 생성</h4>
+<p><strong>파일: <code>utils/auth.js</code></strong></p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055248-6791" onclick="copyCode('code-1769481055248-6791')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055248-6791" class="language-javascript">// 로그인 필수 미들웨어
+function requireAuth(req, res, next) {
+  // 세션에 userId가 있는지 확인
+  if (req.session &amp;&amp; req.session.userId) {
+    // 로그인되어 있음 → 다음 단계로 진행
+    next();
+  } else {
+    // 로그인 안 되어 있음 → 로그인 페이지로 리다이렉트
+    res.redirect(&#39;/login&#39;);
+  }
+}
+
+<p>// 현재 사용자 정보 가져오기
+function getCurrentUser(req) {
+  if (req.session &amp;&amp; req.session.userId) {
+    return {
+      id: req.session.userId,
+      username: req.session.username,
+      name: req.session.name
+    };
+  }
+  return null;
+}</p>
+<p>// 관리자 권한 확인
+function requireAdmin(req, res, next) {
+  if (req.session &amp;&amp; req.session.userId === 1) {
+    // 관리자임 (id가 1인 경우)
+    next();
+  } else {
+    res.status(403).send(&#39;관리자 권한이 필요합니다.&#39;);
+  }
+}</p>
+<p>module.exports = {
+  requireAuth,
+  getCurrentUser,
+  requireAdmin
+};</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">36 lines</span>
+  </div></p>
+</div>
+
+<h4>미들웨어 사용하기</h4>
+<p><strong>파일: <code>server.js</code>에 추가</strong></p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055248-6792" onclick="copyCode('code-1769481055248-6792')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055248-6792" class="language-javascript">const { requireAuth, getCurrentUser, requireAdmin } = require(&#39;./utils/auth&#39;);
+
+<p>// 대시보드 (로그인 필수)
+app.get(&#39;/dashboard&#39;, requireAuth, (req, res) =&gt; {
+  const user = getCurrentUser(req);
+  res.send(<code>환영합니다, ${user.name}님!</code>);
+});</p>
+<p>// 관리자 페이지 (관리자 권한 필수)
+app.get(&#39;/admin&#39;, requireAuth, requireAdmin, (req, res) =&gt; {
+  res.send(&#39;관리자 페이지입니다! 👑&#39;);
+});</p>
+<p>// 프로필 페이지 (로그인 필수)
+app.get(&#39;/profile&#39;, requireAuth, (req, res) =&gt; {
+  const user = getCurrentUser(req);
+  res.send(<code>    &amp;lt;h1&amp;gt;프로필&amp;lt;/h1&amp;gt;     &amp;lt;p&amp;gt;이름: ${user.name}&amp;lt;/p&amp;gt;     &amp;lt;p&amp;gt;아이디: ${user.username}&amp;lt;/p&amp;gt;  </code>);
+});</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">19 lines</span>
+  </div></p>
+</div>
+
+<h3 id="고급-예제-비밀번호-해싱-bcrypt">🌳 고급 예제: 비밀번호 해싱 (bcrypt) {#고급-예제-비밀번호-해싱-bcrypt}</h3>
+<h4>Step 1: bcrypt 설치</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055248-6793" onclick="copyCode('code-1769481055248-6793')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055248-6793" class="language-bash">npm install bcrypt</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>Step 2: 비밀번호 해싱 함수</h4>
+<p><strong>파일: <code>utils/password.js</code></strong></p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055248-6794" onclick="copyCode('code-1769481055248-6794')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055248-6794" class="language-javascript">const bcrypt = require(&#39;bcrypt&#39;);
+
+<p>// 솔트 라운드 (높을수록 안전하지만 느림)
+const SALT_ROUNDS = 10;</p>
+<p>// 비밀번호 해싱
+async function hashPassword(plainPassword) {
+  try {
+    const hash = await bcrypt.hash(plainPassword, SALT_ROUNDS);
+    return hash;
+  } catch (error) {
+    console.error(&#39;해싱 에러:&#39;, error);
+    throw error;
+  }
+}</p>
+<p>// 비밀번호 검증
+async function comparePassword(plainPassword, hashedPassword) {
+  try {
+    const isMatch = await bcrypt.compare(plainPassword, hashedPassword);
+    return isMatch;
+  } catch (error) {
+    console.error(&#39;비밀번호 비교 에러:&#39;, error);
+    throw error;
+  }
+}</p>
+<p>module.exports = {
+  hashPassword,
+  comparePassword
+};</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">27 lines</span>
+  </div></p>
+</div>
+
+<h4>Step 3: 해싱된 비밀번호로 사용자 데이터 업데이트</h4>
+<p><strong>파일: <code>utils/users.js</code> 수정</strong></p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055248-6795" onclick="copyCode('code-1769481055248-6795')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055248-6795" class="language-javascript">const { comparePassword } = require(&#39;./password&#39;);
+
+<p>// 해싱된 비밀번호를 가진 사용자 데이터
+// ⚠️ 실제 앱에서는 회원가입 시 자동으로 해싱!
+const users = [
+  {
+    id: 1,
+    username: &#39;admin&#39;,
+    // 원래 비밀번호: &#39;password123&#39;
+    password: &#39;$2b$10$abcdefghijklmnopqrstuvwxyz1234567890ABCDEFG&#39;,
+    email: &#39;<a href="mailto:admin@example.com">admin@example.com</a>&#39;,
+    name: &#39;관리자&#39;
+  }
+];</p>
+<p>// 사용자 찾기 (비밀번호 해싱 버전)
+async function findUser(username, plainPassword) {
+  const user = users.find(u =&gt; u.username === username);</p>
+<p>  if (!user) {
+    return null; // 사용자 없음
+  }</p>
+<p>  // 비밀번호 검증
+  const isPasswordValid = await comparePassword(plainPassword, user.password);</p>
+<p>  if (isPasswordValid) {
+    return user; // 로그인 성공
+  } else {
+    return null; // 비밀번호 틀림
+  }
+}</p>
+<p>module.exports = { findUser, findUserById };</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">28 lines</span>
+  </div></p>
+</div>
+
+<h4>Step 4: 로그인 라우트 수정 (async/await)</h4>
+<p><strong>파일: <code>server.js</code> 수정</strong></p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055248-6796" onclick="copyCode('code-1769481055248-6796')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055248-6796" class="language-javascript">// 로그인 처리 (비밀번호 해싱 버전)
+app.post(&#39;/login&#39;, async (req, res) =&gt; {
+  const { username, password } = req.body;
+
+<p>  try {
+    // 사용자 확인 (비동기 처리)
+    const user = await findUser(username, password);</p>
+<pre><code>if (user) {
+  // 로그인 성공
+  req.session.userId = user.id;
+  req.session.username = user.username;
+  req.session.name = user.name;
+
+  console.log(&amp;#39;✅ 로그인 성공:&amp;#39;, user.name);
+
+  res.json({
+    success: true,
+    message: &amp;#39;로그인 성공!&amp;#39;,
+    user: {
+      id: user.id,
+      username: user.username,
+      name: user.name
+    }
+  });
+} else {
+  // 로그인 실패
+  console.log(&amp;#39;❌ 로그인 실패:&amp;#39;, username);
+
+  res.status(401).json({
+    success: false,
+    message: &amp;#39;아이디 또는 비밀번호가 잘못되었습니다.&amp;#39;
+  });
+}
+</code></pre>
+<p>  } catch (error) {
+    console.error(&#39;로그인 에러:&#39;, error);
+    res.status(500).json({
+      success: false,
+      message: &#39;로그인 처리 중 오류가 발생했습니다.&#39;
+    });
+  }
+});</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">37 lines</span>
+  </div></p>
+</div>
+
+<h3 id="비밀번호-보안-비교">📊 비밀번호 보안 비교 {#비밀번호-보안-비교}</h3>
+<table>
+<thead>
+<tr>
+<th>방식</th>
+<th>보안 수준</th>
+<th>사용 예</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>평문 저장</strong></td>
+<td>❌ 매우 위험</td>
+<td><code>password: &quot;123456&quot;</code></td>
+</tr>
+<tr>
+<td><strong>인코딩 (Base64)</strong></td>
+<td>❌ 위험</td>
+<td><code>password: &quot;MTIzNDU2&quot;</code></td>
+</tr>
+<tr>
+<td><strong>암호화 (AES)</strong></td>
+<td>⚠️ 주의</td>
+<td>복호화 가능</td>
+</tr>
+<tr>
+<td><strong>해싱 (SHA-256)</strong></td>
+<td>⚠️ 보통</td>
+<td>레인보우 테이블 공격 취약</td>
+</tr>
+<tr>
+<td><strong>솔트 해싱 (bcrypt)</strong></td>
+<td>✅ 안전</td>
+<td><code>$2b$10$abcd...</code></td>
+</tr>
+<tr>
+<td><strong>Argon2</strong></td>
+<td>✅ 매우 안전</td>
+<td>최신 알고리즘</td>
+</tr>
+</tbody></table>
+<p><strong>💡 bcrypt의 장점</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055248-6797" onclick="copyCode('code-1769481055248-6797')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055248-6797" class="language-plaintext">1. 솔트 자동 생성 및 포함
+2. 느린 해싱 (무차별 대입 공격 방지)
+3. 라운드 수 조절 가능
+4. 업계 표준</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="6단계-로그인-화면-아름답게-디자인하기">🎭 6단계: 로그인 화면 아름답게 디자인하기 {#6단계-로그인-화면-아름답게-디자인하기}</h2>
+<p><a href="#%F0%9F%93%91-%EB%AA%A9%EC%B0%A8">↑ 목차로 돌아가기</a></p>
+<h3 id="flowbite를-활용한-전문가급-로그인-페이지">Flowbite를 활용한 전문가급 로그인 페이지 {#flowbite를-활용한-전문가급-로그인-페이지}</h3>
+<p><strong>파일: <code>views/login-flowbite.html</code></strong></p>
+<div class="code-block" data-language="html">
+  <div class="code-block__header" style="background-color: #e34c26; color: #fff">
+    <span class="code-block__language">HTML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055248-6798" onclick="copyCode('code-1769481055248-6798')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055248-6798" class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;ko&quot;&gt;
+&lt;head&gt;
+  &lt;meta charset=&quot;UTF-8&quot;&gt;
+  &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+  &lt;title&gt;로그인 - Flowbite Design&lt;/title&gt;
+  &lt;link href=&quot;/css/output.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;/head&gt;
+&lt;body class=&quot;bg-gradient-to-br from-blue-50 to-indigo-100&quot;&gt;
+
+<p>  &lt;div class=&quot;min-h-screen flex items-center justify-center p-4&quot;&gt;
+    &lt;!-- 로그인 카드 --&gt;
+    &lt;div class=&quot;w-full max-w-md&quot;&gt;</p>
+<pre><code>  &amp;lt;!-- 로고 섹션 --&amp;gt;
+  &amp;lt;div class=&amp;quot;text-center mb-8&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4&amp;quot;&amp;gt;
+      &amp;lt;svg class=&amp;quot;w-8 h-8 text-white&amp;quot; fill=&amp;quot;none&amp;quot; stroke=&amp;quot;currentColor&amp;quot; viewBox=&amp;quot;0 0 24 24&amp;quot;&amp;gt;
+        &amp;lt;path stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot; stroke-width=&amp;quot;2&amp;quot; d=&amp;quot;M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z&amp;quot;&amp;gt;&amp;lt;/path&amp;gt;
+      &amp;lt;/svg&amp;gt;
+    &amp;lt;/div&amp;gt;
+    &amp;lt;h1 class=&amp;quot;text-3xl font-bold text-gray-900&amp;quot;&amp;gt;
+      로그인하세요
+    &amp;lt;/h1&amp;gt;
+    &amp;lt;p class=&amp;quot;text-gray-600 mt-2&amp;quot;&amp;gt;
+      계정에 액세스하려면 로그인이 필요합니다
+    &amp;lt;/p&amp;gt;
+  &amp;lt;/div&amp;gt;
+
+  &amp;lt;!-- 로그인 폼 카드 --&amp;gt;
+  &amp;lt;div class=&amp;quot;bg-white rounded-2xl shadow-xl p-8&amp;quot;&amp;gt;
+
+    &amp;lt;form id=&amp;quot;loginForm&amp;quot; class=&amp;quot;space-y-6&amp;quot;&amp;gt;
+
+      &amp;lt;!-- 아이디 입력 --&amp;gt;
+      &amp;lt;div&amp;gt;
+        &amp;lt;label for=&amp;quot;username&amp;quot; class=&amp;quot;block mb-2 text-sm font-medium text-gray-900&amp;quot;&amp;gt;
+          아이디
+        &amp;lt;/label&amp;gt;
+        &amp;lt;div class=&amp;quot;relative&amp;quot;&amp;gt;
+          &amp;lt;!-- 아이콘 --&amp;gt;
+          &amp;lt;div class=&amp;quot;absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none&amp;quot;&amp;gt;
+            &amp;lt;svg class=&amp;quot;w-5 h-5 text-gray-500&amp;quot; fill=&amp;quot;none&amp;quot; stroke=&amp;quot;currentColor&amp;quot; viewBox=&amp;quot;0 0 24 24&amp;quot;&amp;gt;
+              &amp;lt;path stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot; stroke-width=&amp;quot;2&amp;quot; d=&amp;quot;M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z&amp;quot;&amp;gt;&amp;lt;/path&amp;gt;
+            &amp;lt;/svg&amp;gt;
+          &amp;lt;/div&amp;gt;
+          &amp;lt;!-- 입력 필드 --&amp;gt;
+          &amp;lt;input
+            type=&amp;quot;text&amp;quot;
+            id=&amp;quot;username&amp;quot;
+            name=&amp;quot;username&amp;quot;
+            class=&amp;quot;bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5&amp;quot;
+            placeholder=&amp;quot;아이디를 입력하세요&amp;quot;
+            required
+          &amp;gt;
+        &amp;lt;/div&amp;gt;
+      &amp;lt;/div&amp;gt;
+
+      &amp;lt;!-- 비밀번호 입력 --&amp;gt;
+      &amp;lt;div&amp;gt;
+        &amp;lt;label for=&amp;quot;password&amp;quot; class=&amp;quot;block mb-2 text-sm font-medium text-gray-900&amp;quot;&amp;gt;
+          비밀번호
+        &amp;lt;/label&amp;gt;
+        &amp;lt;div class=&amp;quot;relative&amp;quot;&amp;gt;
+          &amp;lt;!-- 아이콘 --&amp;gt;
+          &amp;lt;div class=&amp;quot;absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none&amp;quot;&amp;gt;
+            &amp;lt;svg class=&amp;quot;w-5 h-5 text-gray-500&amp;quot; fill=&amp;quot;none&amp;quot; stroke=&amp;quot;currentColor&amp;quot; viewBox=&amp;quot;0 0 24 24&amp;quot;&amp;gt;
+              &amp;lt;path stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot; stroke-width=&amp;quot;2&amp;quot; d=&amp;quot;M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z&amp;quot;&amp;gt;&amp;lt;/path&amp;gt;
+            &amp;lt;/svg&amp;gt;
+          &amp;lt;/div&amp;gt;
+          &amp;lt;!-- 입력 필드 --&amp;gt;
+          &amp;lt;input
+            type=&amp;quot;password&amp;quot;
+            id=&amp;quot;password&amp;quot;
+            name=&amp;quot;password&amp;quot;
+            class=&amp;quot;bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5&amp;quot;
+            placeholder=&amp;quot;••••••••&amp;quot;
+            required
+          &amp;gt;
+        &amp;lt;/div&amp;gt;
+      &amp;lt;/div&amp;gt;
+
+      &amp;lt;!-- 로그인 유지 &amp;amp; 비밀번호 찾기 --&amp;gt;
+      &amp;lt;div class=&amp;quot;flex items-center justify-between&amp;quot;&amp;gt;
+        &amp;lt;div class=&amp;quot;flex items-center&amp;quot;&amp;gt;
+          &amp;lt;input
+            id=&amp;quot;remember&amp;quot;
+            type=&amp;quot;checkbox&amp;quot;
+            class=&amp;quot;w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2&amp;quot;
+          &amp;gt;
+          &amp;lt;label for=&amp;quot;remember&amp;quot; class=&amp;quot;ml-2 text-sm font-medium text-gray-900&amp;quot;&amp;gt;
+            로그인 상태 유지
+          &amp;lt;/label&amp;gt;
+        &amp;lt;/div&amp;gt;
+        &amp;lt;a href=&amp;quot;#&amp;quot; class=&amp;quot;text-sm text-blue-600 hover:underline&amp;quot;&amp;gt;
+          비밀번호 찾기
+        &amp;lt;/a&amp;gt;
+      &amp;lt;/div&amp;gt;
+
+      &amp;lt;!-- 에러 메시지 --&amp;gt;
+      &amp;lt;div id=&amp;quot;errorAlert&amp;quot; class=&amp;quot;hidden p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50&amp;quot; role=&amp;quot;alert&amp;quot;&amp;gt;
+        &amp;lt;span class=&amp;quot;font-medium&amp;quot;&amp;gt;오류!&amp;lt;/span&amp;gt; &amp;lt;span id=&amp;quot;errorMessage&amp;quot;&amp;gt;&amp;lt;/span&amp;gt;
+      &amp;lt;/div&amp;gt;
+
+      &amp;lt;!-- 로그인 버튼 --&amp;gt;
+      &amp;lt;button
+        type=&amp;quot;submit&amp;quot;
+        class=&amp;quot;w-full text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-3 text-center inline-flex items-center justify-center&amp;quot;
+      &amp;gt;
+        &amp;lt;svg class=&amp;quot;w-5 h-5 mr-2&amp;quot; fill=&amp;quot;none&amp;quot; stroke=&amp;quot;currentColor&amp;quot; viewBox=&amp;quot;0 0 24 24&amp;quot;&amp;gt;
+          &amp;lt;path stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot; stroke-width=&amp;quot;2&amp;quot; d=&amp;quot;M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1&amp;quot;&amp;gt;&amp;lt;/path&amp;gt;
+        &amp;lt;/svg&amp;gt;
+        로그인
+      &amp;lt;/button&amp;gt;
+
+      &amp;lt;!-- 소셜 로그인 구분선 --&amp;gt;
+      &amp;lt;div class=&amp;quot;relative my-6&amp;quot;&amp;gt;
+        &amp;lt;div class=&amp;quot;absolute inset-0 flex items-center&amp;quot;&amp;gt;
+          &amp;lt;div class=&amp;quot;w-full border-t border-gray-300&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+        &amp;lt;/div&amp;gt;
+        &amp;lt;div class=&amp;quot;relative flex justify-center text-sm&amp;quot;&amp;gt;
+          &amp;lt;span class=&amp;quot;px-2 bg-white text-gray-500&amp;quot;&amp;gt;또는&amp;lt;/span&amp;gt;
+        &amp;lt;/div&amp;gt;
+      &amp;lt;/div&amp;gt;
+
+      &amp;lt;!-- 소셜 로그인 버튼들 --&amp;gt;
+      &amp;lt;div class=&amp;quot;grid grid-cols-2 gap-3&amp;quot;&amp;gt;
+        &amp;lt;!-- Google 로그인 --&amp;gt;
+        &amp;lt;button type=&amp;quot;button&amp;quot; class=&amp;quot;text-gray-900 bg-white hover:bg-gray-100 border border-gray-300 focus:ring-4 focus:outline-none focus:ring-gray-100 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-center&amp;quot;&amp;gt;
+          &amp;lt;svg class=&amp;quot;w-4 h-4 mr-2&amp;quot; viewBox=&amp;quot;0 0 48 48&amp;quot;&amp;gt;
+            &amp;lt;path fill=&amp;quot;#FFC107&amp;quot; d=&amp;quot;M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z&amp;quot;/&amp;gt;
+            &amp;lt;path fill=&amp;quot;#FF3D00&amp;quot; d=&amp;quot;M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z&amp;quot;/&amp;gt;
+            &amp;lt;path fill=&amp;quot;#4CAF50&amp;quot; d=&amp;quot;M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z&amp;quot;/&amp;gt;
+            &amp;lt;path fill=&amp;quot;#1976D2&amp;quot; d=&amp;quot;M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z&amp;quot;/&amp;gt;
+          &amp;lt;/svg&amp;gt;
+          Google
+        &amp;lt;/button&amp;gt;
+
+        &amp;lt;!-- GitHub 로그인 --&amp;gt;
+        &amp;lt;button type=&amp;quot;button&amp;quot; class=&amp;quot;text-white bg-[#24292F] hover:bg-[#24292F]/90 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-center&amp;quot;&amp;gt;
+          &amp;lt;svg class=&amp;quot;w-4 h-4 mr-2&amp;quot; viewBox=&amp;quot;0 0 20 20&amp;quot; fill=&amp;quot;currentColor&amp;quot;&amp;gt;
+            &amp;lt;path fill-rule=&amp;quot;evenodd&amp;quot; d=&amp;quot;M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z&amp;quot;/&amp;gt;
+          &amp;lt;/svg&amp;gt;
+          GitHub
+        &amp;lt;/button&amp;gt;
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/form&amp;gt;
+
+    &amp;lt;!-- 회원가입 링크 --&amp;gt;
+    &amp;lt;div class=&amp;quot;mt-6 text-center&amp;quot;&amp;gt;
+      &amp;lt;p class=&amp;quot;text-sm text-gray-600&amp;quot;&amp;gt;
+        계정이 없으신가요?
+        &amp;lt;a href=&amp;quot;/register&amp;quot; class=&amp;quot;text-blue-600 hover:underline font-medium&amp;quot;&amp;gt;
+          회원가입
+        &amp;lt;/a&amp;gt;
+      &amp;lt;/p&amp;gt;
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+
+  &amp;lt;!-- 테스트 계정 안내 --&amp;gt;
+  &amp;lt;div class=&amp;quot;mt-6 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded&amp;quot;&amp;gt;
+    &amp;lt;div class=&amp;quot;flex&amp;quot;&amp;gt;
+      &amp;lt;div class=&amp;quot;flex-shrink-0&amp;quot;&amp;gt;
+        &amp;lt;svg class=&amp;quot;h-5 w-5 text-yellow-400&amp;quot; viewBox=&amp;quot;0 0 20 20&amp;quot; fill=&amp;quot;currentColor&amp;quot;&amp;gt;
+          &amp;lt;path fill-rule=&amp;quot;evenodd&amp;quot; d=&amp;quot;M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z&amp;quot; clip-rule=&amp;quot;evenodd&amp;quot;/&amp;gt;
+        &amp;lt;/svg&amp;gt;
+      &amp;lt;/div&amp;gt;
+      &amp;lt;div class=&amp;quot;ml-3&amp;quot;&amp;gt;
+        &amp;lt;p class=&amp;quot;text-sm text-yellow-700&amp;quot;&amp;gt;
+          &amp;lt;span class=&amp;quot;font-medium&amp;quot;&amp;gt;테스트 계정:&amp;lt;/span&amp;gt;
+          아이디 &amp;lt;code class=&amp;quot;bg-yellow-100 px-2 py-1 rounded&amp;quot;&amp;gt;admin&amp;lt;/code&amp;gt; /
+          비밀번호 &amp;lt;code class=&amp;quot;bg-yellow-100 px-2 py-1 rounded&amp;quot;&amp;gt;password123&amp;lt;/code&amp;gt;
+        &amp;lt;/p&amp;gt;
+      &amp;lt;/div&amp;gt;
+    &amp;lt;/div&amp;gt;
+  &amp;lt;/div&amp;gt;
+
+&amp;lt;/div&amp;gt;
+</code></pre>
+<p>  &lt;/div&gt;</p>
+<p>  &lt;!-- JavaScript --&gt;
+  &lt;script&gt;
+    document.getElementById(&#39;loginForm&#39;).addEventListener(&#39;submit&#39;, async (e) =&gt; {
+      e.preventDefault();</p>
+<pre><code>  const username = document.getElementById(&amp;#39;username&amp;#39;).value;
+  const password = document.getElementById(&amp;#39;password&amp;#39;).value;
+  const errorAlert = document.getElementById(&amp;#39;errorAlert&amp;#39;);
+  const errorMessage = document.getElementById(&amp;#39;errorMessage&amp;#39;);
+
+  // 에러 메시지 숨기기
+  errorAlert.classList.add(&amp;#39;hidden&amp;#39;);
+
+  try {
+    const response = await fetch(&amp;#39;/login&amp;#39;, {
+      method: &amp;#39;POST&amp;#39;,
+      headers: {
+        &amp;#39;Content-Type&amp;#39;: &amp;#39;application/json&amp;#39;
+      },
+      body: JSON.stringify({ username, password })
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      // 성공 알림 (Flowbite Toast도 가능)
+      alert(&amp;#39;로그인 성공! 🎉&amp;#39;);
+      window.location.href = &amp;#39;/dashboard&amp;#39;;
+    } else {
+      // 에러 메시지 표시
+      errorMessage.textContent = data.message;
+      errorAlert.classList.remove(&amp;#39;hidden&amp;#39;);
+    }
+  } catch (error) {
+    console.error(&amp;#39;로그인 에러:&amp;#39;, error);
+    errorMessage.textContent = &amp;#39;로그인 처리 중 오류가 발생했습니다.&amp;#39;;
+    errorAlert.classList.remove(&amp;#39;hidden&amp;#39;);
+  }
+});
+</code></pre>
+<p>  &lt;/script&gt;</p>
+<p>  &lt;!-- Flowbite JavaScript --&gt;
+  &lt;script src=&quot;<a href="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js&quot;&gt;&lt;/script">https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js&quot;&gt;&lt;/script</a>&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">203 lines</span>
+  </div></p>
+</div>
+
+<h3 id="디자인-포인트-설명">🎨 디자인 포인트 설명 {#디자인-포인트-설명}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055248-6799" onclick="copyCode('code-1769481055248-6799')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055248-6799" class="language-plaintext">🎨 전문가급 디자인 요소들:
+
+<ol>
+<li><p>그라데이션 배경
+bg-gradient-to-br from-blue-50 to-indigo-100</p>
+</li>
+<li><p>큰 그림자 효과
+shadow-xl (카드에 깊이감)</p>
+</li>
+<li><p>둥근 모서리
+rounded-2xl (현대적인 느낌)</p>
+</li>
+<li><p>아이콘이 있는 입력 필드
+absolute positioning + pl-10</p>
+</li>
+<li><p>호버 효과
+hover:bg-blue-700 (인터랙티브)</p>
+</li>
+<li><p>포커스 링
+focus:ring-4 focus:ring-blue-300</p>
+</li>
+<li><p>반응형 레이아웃
+w-full max-w-md (모바일 친화적)</code></pre></p>
+  <div class="code-block__footer">
+ <span class="code-block__lines">15 lines</span>
+  </div>
+</div></li>
+</ol>
+<hr>
+<p><em>(계속 작성 중... 아래 섹션들이 이어집니다)</em></p>
+<h2 id="용어-사전">📚 용어 사전 {#용어-사전}</h2>
+<p><a href="#%F0%9F%93%91-%EB%AA%A9%EC%B0%A8">↑ 목차로 돌아가기</a></p>
+<h3 id="a-z">A-Z {#a-z}</h3>
+<p><strong>API (Application Programming Interface)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 프로그램끼리 대화하는 방법</li>
+<li><strong>비유</strong>: 레스토랑의 메뉴판 (주문할 수 있는 것들의 목록)</li>
+<li><strong>예시</strong>: <code>app.get(&#39;/api/users&#39;)</code> - 사용자 목록을 가져오는 API</li>
+</ul>
+<p><strong>Async/Await</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 시간이 걸리는 작업을 기다리는 방법</li>
+<li><strong>비유</strong>: 배달 음식을 주문하고 기다리기</li>
+<li><strong>예시</strong>: <code>await fetch(&#39;/api/data&#39;)</code> - 데이터를 가져올 때까지 기다림</li>
+</ul>
+<p><strong>bcrypt</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 비밀번호를 안전하게 암호화하는 도구</li>
+<li><strong>비유</strong>: 금고에 넣고 잠그기</li>
+<li><strong>예시</strong>: &#39;password123&#39; → &#39;$2b$10$abcd...&#39; (해시)</li>
+</ul>
+<p><strong>Cookie</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 브라우저에 저장되는 작은 정보 조각</li>
+<li><strong>비유</strong>: 영화관 입장권 스티커</li>
+<li><strong>예시</strong>: &#39;theme=dark&#39;, &#39;language=ko&#39;</li>
+</ul>
+<p><strong>Express.js</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: Node.js로 웹 서버를 쉽게 만들어주는 프레임워크</li>
+<li><strong>비유</strong>: 레스토랑 운영 매뉴얼</li>
+<li><strong>예시</strong>: <code>const app = express()</code></li>
+</ul>
+<p><strong>Flowbite</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: Tailwind CSS로 만든 예쁜 UI 컴포넌트 모음</li>
+<li><strong>비유</strong>: 레고 테마 세트 (우주선, 성 등)</li>
+<li><strong>예시</strong>: 버튼, 카드, 모달 등</li>
+</ul>
+<p><strong>Frontend / Backend</strong></p>
+<ul>
+<li><strong>Frontend</strong>: 사용자가 보는 화면 (레스토랑 홀)</li>
+<li><strong>Backend</strong>: 서버, 데이터베이스 (레스토랑 주방)</li>
+</ul>
+<p><strong>Middleware</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 요청과 응답 사이에서 실행되는 함수</li>
+<li><strong>비유</strong>: 레스토랑 웨이터 (주문을 받아 주방에 전달)</li>
+<li><strong>예시</strong>: <code>app.use(express.json())</code></li>
+</ul>
+<p><strong>Node.js</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: JavaScript를 브라우저 밖에서 실행할 수 있게 해주는 환경</li>
+<li><strong>비유</strong>: JavaScript의 놀이터를 확장</li>
+<li><strong>예시</strong>: 서버 만들기, 파일 읽기, 데이터베이스 연결</li>
+</ul>
+<p><strong>npm (Node Package Manager)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: Node.js 패키지를 설치하고 관리하는 도구</li>
+<li><strong>비유</strong>: 앱 스토어</li>
+<li><strong>예시</strong>: <code>npm install express</code></li>
+</ul>
+<p><strong>Session</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 서버에 저장되는 사용자 정보</li>
+<li><strong>비유</strong>: 은행 금고</li>
+<li><strong>예시</strong>: 로그인 정보, 장바구니 내용</li>
+</ul>
+<p><strong>Tailwind CSS</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 미리 만들어진 CSS 클래스를 조합하는 방식</li>
+<li><strong>비유</strong>: 레고 블록</li>
+<li><strong>예시</strong>: <code>bg-blue-500 text-white p-4 rounded</code></li>
+</ul>
+<hr>
+<h2 id="참고-자료-및-추가-학습">🔗 참고 자료 및 추가 학습 {#참고-자료-및-추가-학습}</h2>
+<p><a href="#%F0%9F%93%91-%EB%AA%A9%EC%B0%A8">↑ 목차로 돌아가기</a></p>
+<h3 id="공식-문서">공식 문서 {#공식-문서}</h3>
+<ul>
+<li><a href="https://nodejs.org/docs/">Node.js 공식 문서</a></li>
+<li><a href="https://expressjs.com/">Express.js 가이드</a></li>
+<li><a href="https://tailwindcss.com/docs">Tailwind CSS 문서</a></li>
+<li><a href="https://flowbite.com/docs/components/">Flowbite 컴포넌트</a></li>
+</ul>
+<h3 id="추천-학습-자료">추천 학습 자료 {#추천-학습-자료}</h3>
+<ul>
+<li><a href="https://developer.mozilla.org/">MDN Web Docs</a> - 웹 개발 기초</li>
+<li><a href="https://www.freecodecamp.org/">freeCodeCamp</a> - 무료 코딩 강의</li>
+<li><a href="https://www.codecademy.com/">Codecademy</a> - 인터랙티브 학습</li>
+</ul>
+<h3 id="유용한-도구">유용한 도구 {#유용한-도구}</h3>
+<ul>
+<li><a href="https://code.visualstudio.com/">VS Code</a> - 코드 에디터</li>
+<li><a href="https://www.postman.com/">Postman</a> - API 테스트</li>
+<li><a href="https://git-scm.com/">Git</a> - 버전 관리</li>
+</ul>
+<hr>
+<h2 id="학습-체크리스트">✅ 학습 체크리스트 {#학습-체크리스트}</h2>
+<p><a href="#%F0%9F%93%91-%EB%AA%A9%EC%B0%A8">↑ 목차로 돌아가기</a></p>
+<h3 id="기초-개념-이해">기초 개념 이해 {#기초-개념-이해}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Node.js가 무엇인지 설명할 수 있다</li>
+<li><input disabled="" type="checkbox"> 세션과 쿠키의 차이를 안다</li>
+<li><input disabled="" type="checkbox"> Tailwind CSS의 장점을 안다</li>
+<li><input disabled="" type="checkbox"> Flowbite가 무엇인지 안다</li>
+</ul>
+<h3 id="환경-설정">환경 설정 {#환경-설정}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Node.js를 설치했다</li>
+<li><input disabled="" type="checkbox"> npm 프로젝트를 생성할 수 있다</li>
+<li><input disabled="" type="checkbox"> Express.js 서버를 만들 수 있다</li>
+<li><input disabled="" type="checkbox"> Tailwind CSS를 설정했다</li>
+</ul>
+<h3 id="스타일링">스타일링 {#스타일링}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Tailwind CSS 클래스를 사용할 수 있다</li>
+<li><input disabled="" type="checkbox"> Flowbite 컴포넌트를 복사해서 쓸 수 있다</li>
+<li><input disabled="" type="checkbox"> 반응형 디자인을 만들 수 있다</li>
+</ul>
+<h3 id="로그인-시스템">로그인 시스템 {#로그인-시스템}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 세션을 설정할 수 있다</li>
+<li><input disabled="" type="checkbox"> 로그인 라우트를 만들 수 있다</li>
+<li><input disabled="" type="checkbox"> 비밀번호를 해싱할 수 있다</li>
+<li><input disabled="" type="checkbox"> 로그인 미들웨어를 사용할 수 있다</li>
+</ul>
+<h3 id="실전-프로젝트">실전 프로젝트 {#실전-프로젝트}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 완전한 로그인 시스템을 구현했다</li>
+<li><input disabled="" type="checkbox"> Flowbite로 UI를 디자인했다</li>
+<li><input disabled="" type="checkbox"> 세션으로 로그인 상태를 유지했다</li>
+<li><input disabled="" type="checkbox"> 보안을 고려했다 (비밀번호 해싱, HTTPS 등)</li>
+</ul>
+<hr>
+<p><strong>파일 생성 완료! 🎉</strong></p>
+<p>이 노트가 여러분의 Node.js 웹개발 여정에 큰 도움이 되기를 바랍니다!
+궁금한 점이 있으면 언제든 물어보세요. 😊</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/웹개발.html" class="article-tag">웹개발</a><a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/Node.js.html" class="article-tag">Node.js</a><a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/Tailwind-CSS.html" class="article-tag">Tailwind-CSS</a><a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/Flowbite.html" class="article-tag">Flowbite</a><a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/세션.html" class="article-tag">세션</a><a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/쿠키.html" class="article-tag">쿠키</a><a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/로그인.html" class="article-tag">로그인</a><a href="/tag/학습.html" class="article-tag">학습</a><a href="/tag/초보자.html" class="article-tag">초보자</a><a href="/tag/유형.html" class="article-tag">유형</a><a href="/tag/튜토리얼.html" class="article-tag">튜토리얼</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/nodejs-development-perfect-guide-tailwind-css-flowbite.html&text=Node.js 웹개발 완벽 가이드: Tailwind CSS + Flowbite + 세션/쿠키" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/nodejs-development-perfect-guide-tailwind-css-flowbite.html&title=Node.js 웹개발 완벽 가이드: Tailwind CSS + Flowbite + 세션/쿠키" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/nodejs-development-perfect-guide-tailwind-css-flowbite.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

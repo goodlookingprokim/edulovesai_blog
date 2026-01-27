@@ -1,0 +1,3810 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatGPT 완벽 활용 가이드 - 초보자편 | AI 기술 자료 저널</title>
+  <meta name="description" content="&quot;복잡한 AI 도구를 마치 친구와 대화하듯 쉽게 사용할 수 있다면?&quot; 이 가이드는 개발 초보자들이 ChatGPT를 실전에서 효과적으로 활용할 수 있도록 파인만 기법과 스토리텔링으로 설명합니다. --- 1.  || #ChatGPT란 무엇인가 2.  || #왜 개발자에게...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="ChatGPT 완벽 활용 가이드 - 초보자편">
+  <meta property="og:description" content="&quot;복잡한 AI 도구를 마치 친구와 대화하듯 쉽게 사용할 수 있다면?&quot; 이 가이드는 개발 초보자들이 ChatGPT를 실전에서 효과적으로 활용할 수 있도록 파인만 기법과 스토리텔링으로 설명합니다. --- 1.  || #ChatGPT란 무엇인가 2.  || #왜 개발자에게...">
+  <meta property="og:image" content="/assets/images/llm-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/chatgpt-perfect-practical-guide-beginners.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ChatGPT 완벽 활용 가이드 - 초보자편">
+  <meta name="twitter:description" content="&quot;복잡한 AI 도구를 마치 친구와 대화하듯 쉽게 사용할 수 있다면?&quot; 이 가이드는 개발 초보자들이 ChatGPT를 실전에서 효과적으로 활용할 수 있도록 파인만 기법과 스토리텔링으로 설명합니다. --- 1.  || #ChatGPT란 무엇인가 2.  || #왜 개발자에게...">
+  <meta name="twitter:image" content="/assets/images/llm-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/chatgpt-perfect-practical-guide-beginners.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI 기술 자료 저널</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/llm-guides.html" class="article-category" style="background-color: #f59e0b">
+          LLM 가이드
+        </a>
+        <h1 class="article-title">ChatGPT 완벽 활용 가이드 - 초보자편</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-analyst.html" class="article-author">
+            <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 분석가</span>
+              <span class="article-author__role">AI Tools Analyst</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 10월 12일">2025년 10월 12일</time>
+            <span class="article-meta__separator">·</span>
+            <span>60 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차-클릭하여-이동" class="toc__link">📋 목차 (클릭하여 이동)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기초편" class="toc__link">기초편</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-기능편" class="toc__link">핵심 기능편</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-활용편" class="toc__link">고급 활용편</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실전편" class="toc__link">실전편</a>
+    </li>
+    <li class="toc__item">
+      <a href="#chatgpt란-무엇인가" class="toc__link">ChatGPT란 무엇인가?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#한-문장-요약" class="toc__link">🎯 한 문장 요약</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#스토리로-이해하기" class="toc__link">📖 스토리로 이해하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#파인만-기법으로-설명하기" class="toc__link">🔬 파인만 기법으로 설명하기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#왜-개발자에게-필요한가" class="toc__link">왜 개발자에게 필요한가?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시나리오로-배우기" class="toc__link">🎭 시나리오로 배우기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#기본-사용법-마스터하기" class="toc__link">기본 사용법 마스터하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#레벨-1-첫-대화-시작하기" class="toc__link">🎓 레벨 1: 첫 대화 시작하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#레벨-2-대화-맥락-유지하기" class="toc__link">🎓 레벨 2: 대화 맥락 유지하기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#확장-프로그램-extensions" class="toc__link">확장 프로그램 (Extensions)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#확장-프로그램이란" class="toc__link">📱 확장 프로그램이란?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#필수-확장-프로그램-top-6" class="toc__link">🔧 필수 확장 프로그램 TOP 6</a>
+    </li>
+    <li class="toc__item">
+      <a href="#플러그인-plugins" class="toc__link">플러그인 (Plugins)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#플러그인-vs-확장-프로그램-차이점" class="toc__link">🔌 플러그인 vs 확장 프로그램 차이점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#필수-플러그인-top-12" class="toc__link">🌟 필수 플러그인 TOP 12</a>
+    </li>
+    <li class="toc__item">
+      <a href="#역할-놀이-role-playing" class="toc__link">역할 놀이 (Role Playing)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#역할-놀이란" class="toc__link">🎭 역할 놀이란?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#왜-효과적인가" class="toc__link">🎯 왜 효과적인가?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#강력한-역할-놀이-15가지" class="toc__link">🌟 강력한 역할 놀이 15가지</a>
+    </li>
+    <li class="toc__item">
+      <a href="#글쓰기-스타일-writing-styles" class="toc__link">글쓰기 스타일 (Writing Styles)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#글쓰기-스타일이란" class="toc__link">✍️ 글쓰기 스타일이란?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#11가지-스타일-마스터하기" class="toc__link">🎨 11가지 스타일 마스터하기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#용어-사전-terminology" class="toc__link">용어 사전 (Terminology)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#a" class="toc__link">A</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#b" class="toc__link">B</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#c" class="toc__link">C</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#d" class="toc__link">D</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#e" class="toc__link">E</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#f" class="toc__link">F</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#g" class="toc__link">G</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#h" class="toc__link">H</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#i" class="toc__link">I</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#j" class="toc__link">J</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#l" class="toc__link">L</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#m" class="toc__link">M</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#o" class="toc__link">O</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#p" class="toc__link">P</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#r" class="toc__link">R</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#s" class="toc__link">S</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#t" class="toc__link">T</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#u" class="toc__link">U</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#v" class="toc__link">V</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#w" class="toc__link">W</a>
+    </li>
+    <li class="toc__item">
+      <a href="#최종-정리-및-학습-가이드" class="toc__link">최종 정리 및 학습 가이드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#학습-단계별-추천" class="toc__link">학습 단계별 추천</a>
+    </li>
+    <li class="toc__item">
+      <a href="#추가-학습-자료" class="toc__link">추가 학습 자료</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#공식-리소스" class="toc__link">공식 리소스</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#커뮤니티" class="toc__link">커뮤니티</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#유튜브-채널" class="toc__link">유튜브 채널</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#part-1-완료" class="toc__link">🎉 Part 1 완료!</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>ChatGPT 완벽 활용 가이드 - 초보자편</h1>
+<blockquote>
+<p><strong>&quot;복잡한 AI 도구를 마치 친구와 대화하듯 쉽게 사용할 수 있다면?&quot;</strong></p>
+<p>이 가이드는 개발 초보자들이 ChatGPT를 실전에서 효과적으로 활용할 수 있도록 <strong>파인만 기법</strong>과 <strong>스토리텔링</strong>으로 설명합니다.</p>
+</blockquote>
+<hr>
+<h2 id="목차-클릭하여-이동">📋 목차 (클릭하여 이동) {#목차-클릭하여-이동}</h2>
+<h3 id="기초편">기초편 {#기초편}</h3>
+<ol>
+<li><a href="#chatgpt란-무엇인가" class="internal-link internal-link--section">ChatGPT란 무엇인가</a></li>
+<li><a href="#왜-개발자에게-필요한가" class="internal-link internal-link--section">왜 개발자에게 필요한가</a></li>
+<li><a href="#기본-사용법-마스터하기" class="internal-link internal-link--section">기본 사용법 마스터하기</a></li>
+</ol>
+<h3 id="핵심-기능편">핵심 기능편 {#핵심-기능편}</h3>
+<ol start="4">
+<li><a href="#확장-프로그램-extensions" class="internal-link internal-link--section">확장 프로그램 Extensions</a></li>
+<li><a href="#플러그인-plugins" class="internal-link internal-link--section">플러그인 Plugins</a></li>
+<li><a href="#역할-놀이-role-playing" class="internal-link internal-link--section">역할 놀이 Role Playing</a></li>
+<li><a href="#글쓰기-스타일-writing-styles" class="internal-link internal-link--section">글쓰기 스타일 Writing Styles</a></li>
+<li><a href="#프롬프팅-기법-prompting-techniques" class="internal-link internal-link--section">프롬프팅 기법 Prompting Techniques</a></li>
+</ol>
+<h3 id="고급-활용편">고급 활용편 {#고급-활용편}</h3>
+<ol start="9">
+<li><a href="#용어-사전-terminology" class="internal-link internal-link--section">용어 사전 Terminology</a></li>
+<li><a href="#프롬프트-포맷-완벽-가이드" class="internal-link internal-link--section">프롬프트 포맷 완벽 가이드</a></li>
+<li><a href="#온도-설정-temperature" class="internal-link internal-link--section">온도 설정 Temperature</a></li>
+<li><a href="#대안-도구들-alternatives" class="internal-link internal-link--section">대안 도구들 Alternatives</a></li>
+<li><a href="#표절-방지-avoiding-plagiarism" class="internal-link internal-link--section">표절 방지 Avoiding Plagiarism</a></li>
+</ol>
+<h3 id="실전편">실전편 {#실전편}</h3>
+<ol start="14">
+<li><a href="#레벨별-실습-예제" class="internal-link internal-link--section">레벨별 실습 예제</a></li>
+<li><a href="#자주-하는-실수와-해결법" class="internal-link internal-link--section">자주 하는 실수와 해결법</a></li>
+<li><a href="#jailbreak-기법-이해하기" class="internal-link internal-link--section">Jailbreak 기법 이해하기</a></li>
+</ol>
+<hr>
+<h2 id="chatgpt란-무엇인가">ChatGPT란 무엇인가? {#chatgpt란-무엇인가}</h2>
+<h3 id="한-문장-요약">🎯 한 문장 요약 {#한-문장-요약}</h3>
+<blockquote>
+<p><strong>&quot;ChatGPT는 사람처럼 대화하고, 코드를 작성하고, 문제를 해결해주는 AI 비서입니다.&quot;</strong></p>
+</blockquote>
+<h3 id="스토리로-이해하기">📖 스토리로 이해하기 {#스토리로-이해하기}</h3>
+<p><strong>옛날 이야기: 프로그래밍 학습의 어려움</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1271" onclick="copyCode('code-1769482284938-1271')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1271" class="language-plaintext">민준이는 파이썬을 배우고 싶었습니다.
+하지만 문제가 있었죠:
+
+<p>❌ 질문할 선생님이 없다
+❌ 구글 검색은 너무 어려운 답변만 나온다
+❌ 공식 문서는 전문 용어 투성이다</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<p><strong>새로운 세상: ChatGPT의 등장</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1272" onclick="copyCode('code-1769482284938-1272')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1272" class="language-plaintext">민준이가 ChatGPT에게 물었습니다:
+&quot;파이썬에서 리스트가 뭐야? 초등학생도 알 수 있게 설명해줘&quot;
+
+<p>ChatGPT의 답변:
+&quot;리스트는 물건을 담는 쇼핑 카트 같은 거야!
+사과, 바나나, 우유를 한 카트에 담듯이,
+리스트는 여러 데이터를 한 곳에 모아두는 거지.</p>
+<p>예시:
+fruits = [&#39;사과&#39;, &#39;바나나&#39;, &#39;포도&#39;]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<p>이게 바로 ChatGPT의 힘입니다! <strong>복잡한 개념을 쉽게 풀어서 설명</strong>해줍니다.</p>
+<h3 id="파인만-기법으로-설명하기">🔬 파인만 기법으로 설명하기 {#파인만-기법으로-설명하기}</h3>
+<p><strong>1단계: 간단히 설명</strong></p>
+<ul>
+<li>ChatGPT = 매우 똑똑한 챗봇</li>
+<li>질문하면 사람처럼 답변해줌</li>
+<li>코드 작성, 번역, 요약 등 다양한 일을 처리</li>
+</ul>
+<p><strong>2단계: 비유로 설명</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1273" onclick="copyCode('code-1769482284938-1273')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1273" class="language-plaintext">ChatGPT는 &quot;만능 도우미&quot;입니다.
+
+<p>🏠 집안일 도우미 = ChatGPT
+   ├─ 요리법 알려주기 = 코드 작성
+   ├─ 청소 방법 설명 = 디버깅 도움
+   ├─ 쇼핑 리스트 정리 = 데이터 정리
+   └─ 외국어 통역 = 번역 기능</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<p><strong>3단계: 작동 원리 (초간단 버전)</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1274" onclick="copyCode('code-1769482284938-1274')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1274" class="language-plaintext">1. 당신이 질문을 입력 → Input
+2. ChatGPT가 학습한 패턴으로 분석
+3. 가장 적절한 답변 생성 → Output
+4. 대화 맥락을 기억하며 계속 대화</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="왜-개발자에게-필요한가">왜 개발자에게 필요한가? {#왜-개발자에게-필요한가}</h2>
+<h3 id="시나리오로-배우기">🎭 시나리오로 배우기 {#시나리오로-배우기}</h3>
+<p><strong>시나리오 1: 버그 해결</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1275" onclick="copyCode('code-1769482284938-1275')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1275" class="language-plaintext">상황: 코드에서 에러가 발생했지만 원인을 모름
+
+<p>기존 방식:</p>
+<ol>
+<li>구글 검색 (30분 소요)</li>
+<li>스택오버플로우에서 유사 사례 찾기 (20분)</li>
+<li>문서 읽기 (40분)
+총 시간: 90분</li>
+</ol>
+<p>ChatGPT 활용:
+프롬프트: &quot;이 에러 메시지가 뭘 의미해?
+TypeError: &#39;int&#39; object is not subscriptable&quot;</p>
+<p>답변 (즉시):
+&quot;이 에러는 정수(int)를 리스트처럼 사용하려 할 때 나옵니다.</p>
+<p>예시:
+❌ 잘못된 코드:
+num = 5
+print(num[0])  # 에러!</p>
+<p>✅ 올바른 코드:
+num_list = [5]
+print(num_list[0])  # 정상&quot;</p>
+<p>총 시간: 2분
+시간 절약: 88분 (98% 단축!)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">20 lines</span>
+  </div></p>
+</div>
+
+<p><strong>시나리오 2: 새로운 기술 학습</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1276" onclick="copyCode('code-1769482284938-1276')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1276" class="language-plaintext">상황: React를 처음 배우려는데 어디서부터 시작할지 모름
+
+<p>ChatGPT에게 질문:
+&quot;React 초보자야. 5단계로 학습 로드맵 만들어줘&quot;</p>
+<p>ChatGPT의 답변:
+📚 React 학습 로드맵</p>
+<p>1주차: 기초 다지기</p>
+<ul>
+<li>JavaScript ES6 문법 복습</li>
+<li>실습: 화살표 함수, 구조 분해 할당</li>
+</ul>
+<p>2주차: React 핵심 개념</p>
+<ul>
+<li>컴포넌트, Props, State 이해</li>
+<li>실습: 간단한 카운터 앱 만들기</li>
+</ul>
+<p>3주차: 이벤트 처리</p>
+<ul>
+<li>onClick, onChange 등 이벤트 핸들러</li>
+<li>실습: To-Do 리스트 앱</li>
+</ul>
+<p>4주차: 생명주기와 Hooks</p>
+<ul>
+<li>useEffect, useState 마스터</li>
+<li>실습: 날씨 API 연동 앱</li>
+</ul>
+<p>5주차: 종합 프로젝트</p>
+<ul>
+<li>실전 프로젝트 구현</li>
+<li>배포까지 완료</li>
+</ul>
+<p>각 단계마다 코드 예시와 연습 문제 제공!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">21 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="기본-사용법-마스터하기">기본 사용법 마스터하기 {#기본-사용법-마스터하기}</h2>
+<h3 id="레벨-1-첫-대화-시작하기">🎓 레벨 1: 첫 대화 시작하기 {#레벨-1-첫-대화-시작하기}</h3>
+<p><strong>STEP 1: 계정 생성</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1277" onclick="copyCode('code-1769482284938-1277')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1277" class="language-plaintext">1. chat.openai.com 접속
+2. &quot;Sign up&quot; 클릭
+3. 이메일 또는 구글 계정으로 가입
+4. 전화번호 인증 완료</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>STEP 2: 첫 질문하기</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1278" onclick="copyCode('code-1769482284938-1278')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1278" class="language-plaintext">❌ 나쁜 예:
+&quot;코딩 알려줘&quot;
+→ 너무 광범위해서 제대로 된 답변을 못 받음
+
+<p>✅ 좋은 예:
+&quot;파이썬 초보자야. 변수를 선언하는 방법을
+예시 코드와 함께 설명해줘&quot;
+→ 구체적이고 명확한 요청</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h3 id="레벨-2-대화-맥락-유지하기">🎓 레벨 2: 대화 맥락 유지하기 {#레벨-2-대화-맥락-유지하기}</h3>
+<p><strong>ChatGPT의 강력한 기능: 맥락 기억</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1279" onclick="copyCode('code-1769482284938-1279')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1279" class="language-plaintext">대화 예시:
+
+<p>당신: &quot;파이썬에서 리스트 만드는 법 알려줘&quot;
+ChatGPT: &quot;리스트는 대괄호[]를 사용합니다.
+         예: fruits = [&#39;사과&#39;, &#39;바나나&#39;]&quot;</p>
+<p>당신: &quot;거기에 요소 추가하는 법은?&quot;
+     ↑ &quot;거기&quot;가 무엇인지 ChatGPT가 알고 있음!</p>
+<p>ChatGPT: &quot;append() 메서드를 사용합니다.
+         fruits.append(&#39;포도&#39;)&quot;</p>
+<p>당신: &quot;첫 번째 요소 삭제는?&quot;
+     ↑ 여전히 fruits 리스트에 대해 얘기하는 걸 알아챔!</p>
+<p>ChatGPT: &quot;pop(0) 또는 del을 사용합니다.
+         fruits.pop(0)  # &#39;사과&#39; 삭제&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<p><strong>💡 핵심 포인트</strong></p>
+<ul>
+<li>한 대화에서 연관된 질문을 계속하면 더 정확한 답변을 받음</li>
+<li>새로운 주제를 시작하려면 &quot;New Chat&quot; 버튼 클릭</li>
+</ul>
+<hr>
+<h2 id="확장-프로그램-extensions">확장 프로그램 (Extensions) {#확장-프로그램-extensions}</h2>
+<h3 id="확장-프로그램이란">📱 확장 프로그램이란? {#확장-프로그램이란}</h3>
+<p><strong>파인만 설명:</strong></p>
+<blockquote>
+<p>확장 프로그램은 ChatGPT에 &quot;새로운 능력을 추가하는 도구&quot;입니다.</p>
+<p>비유: 스마트폰에 앱을 설치하는 것과 같습니다.</p>
+<ul>
+<li>기본 스마트폰 = 기본 ChatGPT</li>
+<li>카메라 앱 설치 = 이미지 분석 확장 프로그램</li>
+<li>게임 앱 설치 = 코드 실행 확장 프로그램</li>
+</ul>
+</blockquote>
+<h3 id="필수-확장-프로그램-top-6">🔧 필수 확장 프로그램 TOP 6 {#필수-확장-프로그램-top-6}</h3>
+<h4>1. <strong>AIPRM</strong> - 프롬프트 템플릿 라이브러리</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1280" onclick="copyCode('code-1769482284938-1280')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1280" class="language-plaintext">무엇을 하나요?
+- 미리 만들어진 고품질 프롬프트 제공
+- 클릭 한 번으로 전문가급 질문 생성
+
+<p>실전 예시:
+━━━━━━━━━━━━━━━━━━━━━━━
+확장 프로그램 없이:
+&quot;웹사이트 만들기에 대해 알려줘&quot;
+→ 두루뭉술한 답변</p>
+<p>AIPRM 사용:
+[템플릿 선택] &quot;Complete Website Builder&quot;
+→ 자동으로 생성된 프롬프트:
+  &quot;Act as a professional web developer.
+   Create a step-by-step guide for building
+   a responsive e-commerce website using
+   HTML, CSS, JavaScript...&quot;
+→ 상세하고 구조화된 답변!
+━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>설치 방법:</p>
+<ol>
+<li>Chrome 웹 스토어 검색: &quot;AIPRM for ChatGPT&quot;</li>
+<li>&quot;Add to Chrome&quot; 클릭</li>
+<li>ChatGPT 새로고침</li>
+<li>화면 상단에 템플릿 목록 표시됨</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">22 lines</span>
+  </div>
+</div></li>
+</ol>
+<h4>2. <strong>MERLIN</strong> - 모든 웹페이지에서 ChatGPT 사용</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1281" onclick="copyCode('code-1769482284938-1281')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1281" class="language-plaintext">무엇을 하나요?
+- 어떤 웹사이트에서든 Cmd+M (Mac) / Ctrl+M (Windows)로 ChatGPT 호출
+- 현재 페이지 내용을 바로 분석
+
+<p>실전 시나리오:
+━━━━━━━━━━━━━━━━━━━━━━━
+상황: 기술 블로그를 읽는 중</p>
+<ol>
+<li><p>어려운 개념 발견:
+&quot;Kubernetes orchestration&quot;</p>
+</li>
+<li><p>Cmd+M 눌러서 MERLIN 호출</p>
+</li>
+<li><p>자동으로 페이지 내용 인식됨</p>
+</li>
+<li><p>질문: &quot;이 페이지에서 설명하는 Kubernetes를
+  초보자에게 쉽게 설명해줘&quot;</p>
+</li>
+<li><p>즉시 답변 받음 (페이지 이동 없이!)
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre></p>
+  <div class="code-block__footer">
+ <span class="code-block__lines">14 lines</span>
+  </div>
+</div></li>
+</ol>
+<h4>3. <strong>ChatGPT with Siri</strong> - 음성으로 대화하기</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1282" onclick="copyCode('code-1769482284938-1282')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1282" class="language-plaintext">무엇을 하나요?
+- 시리(Siri)에게 말하면 ChatGPT가 답변
+- 운전 중, 요리 중 등 손을 쓸 수 없을 때 유용
+
+<p>설정 방법:</p>
+<ol>
+<li>iPhone 단축어 앱 실행</li>
+<li>새 단축어 생성: &quot;ChatGPT 호출&quot;</li>
+<li>음성 입력 → ChatGPT API 호출 → 답변 읽어주기</li>
+</ol>
+<p>사용 예시:
+&quot;시리야, ChatGPT 호출해줘&quot;
+(음성 입력 대기)
+&quot;파이썬에서 반복문 종류 알려줘&quot;
+→ 시리가 ChatGPT 답변을 읽어줌</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<h4>4. <strong>GPT for Sheets &amp; Docs</strong> - 구글 시트/문서 연동</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1283" onclick="copyCode('code-1769482284938-1283')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1283" class="language-plaintext">무엇을 하나요?
+- 스프레드시트에서 AI 기능 사용
+- 대량의 데이터 자동 처리
+
+<p>실전 예시: 100개의 이메일 자동 분류
+━━━━━━━━━━━━━━━━━━━━━━━
+구글 시트 예시:</p>
+<p>  A열 (이메일 내용)          B열 (분류)
+┌─────────────────────┬──────────────┐
+│ &quot;제품 구매 문의...&quot;     │ =GPT(A2,    │
+│                      │ &quot;이 이메일을  │
+│                      │ 분류해&quot;)     │
+├─────────────────────┼──────────────┤
+│ &quot;환불 요청드립니다&quot;    │ 고객지원      │
+├─────────────────────┼──────────────┤
+│ &quot;신제품 출시 일정?&quot;   │ 영업문의      │
+└─────────────────────┴──────────────┘</p>
+<p>수식 하나로 100개 이메일 자동 분류!
+━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>설치:</p>
+<ol>
+<li>구글 워크스페이스 마켓플레이스</li>
+<li>&quot;GPT for Sheets and Docs&quot; 검색</li>
+<li>설치 후 시트에서 =GPT() 함수 사용</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">22 lines</span>
+  </div>
+</div></li>
+</ol>
+<h4>5. <strong>Speechify</strong> - 텍스트를 음성으로 변환</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1284" onclick="copyCode('code-1769482284938-1284')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1284" class="language-plaintext">무엇을 하나요?
+- ChatGPT 답변을 자연스러운 음성으로 읽어줌
+- 긴 문서를 듣기 편하게 변환
+
+<p>사용 시나리오:
+━━━━━━━━━━━━━━━━━━━━━━━
+상황: 출퇴근 시간 활용</p>
+<ol>
+<li><p>ChatGPT에게 질문:
+&quot;React Hooks에 대한 20분짜리 강의 스크립트 작성해줘&quot;</p>
+</li>
+<li><p>긴 답변이 생성됨 (5000자)</p>
+</li>
+<li><p>Speechify 버튼 클릭</p>
+</li>
+<li><p>이어폰 끼고 들으면서 출근!
+→ 읽지 않고 &quot;듣는&quot; 학습
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre></p>
+  <div class="code-block__footer">
+ <span class="code-block__lines">13 lines</span>
+  </div>
+</div></li>
+</ol>
+<h4>6. <strong>Ground News</strong> - 최신 뉴스 정보 제공</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1285" onclick="copyCode('code-1769482284938-1285')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1285" class="language-plaintext">무엇을 하나요?
+- ChatGPT는 2023년까지만 학습됨 (지식 제한)
+- 이 확장으로 최신 정보 접근 가능
+
+<p>비교:
+━━━━━━━━━━━━━━━━━━━━━━━
+질문: &quot;2024년 최고의 JavaScript 프레임워크는?&quot;</p>
+<p>[확장 없이]
+&quot;죄송합니다. 2023년 이후 정보는 없습니다&quot;</p>
+<p>[Ground News 사용]
+&quot;2024년 10월 기준, Next.js 14가 가장 인기있습니다.
+ 최근 발표된 주요 기능:</p>
+<ul>
+<li>Server Actions</li>
+<li>Partial Prerendering
+ ...&quot;
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">15 lines</span>
+  </div>
+</div></li>
+</ul>
+<hr>
+<h2 id="플러그인-plugins">플러그인 (Plugins) {#플러그인-plugins}</h2>
+<h3 id="플러그인-vs-확장-프로그램-차이점">🔌 플러그인 vs 확장 프로그램 차이점 {#플러그인-vs-확장-프로그램-차이점}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1286" onclick="copyCode('code-1769482284938-1286')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1286" class="language-plaintext">┌────────────────────────────────────────┐
+│         확장 프로그램 (Extensions)       │
+├────────────────────────────────────────┤
+│ • 브라우저에 설치                        │
+│ • ChatGPT 외부에서 작동                 │
+│ • 예: Chrome 확장 프로그램              │
+└────────────────────────────────────────┘
+
+<p>┌────────────────────────────────────────┐
+│            플러그인 (Plugins)            │
+├────────────────────────────────────────┤
+│ • ChatGPT 내부에 설치                   │
+│ • ChatGPT Plus 구독 필요 (유료)         │
+│ • 예: Zapier, Wolfram, WebPilot         │
+└────────────────────────────────────────┘</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">14 lines</span>
+  </div></p>
+</div>
+
+<h3 id="필수-플러그인-top-12">🌟 필수 플러그인 TOP 12 {#필수-플러그인-top-12}</h3>
+<h4>1. <strong>AskYourPDF</strong> - PDF 파일 분석</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1287" onclick="copyCode('code-1769482284938-1287')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1287" class="language-plaintext">실전 시나리오:
+━━━━━━━━━━━━━━━━━━━━━━━
+상황: 200페이지 기술 문서를 읽어야 함
+
+<p>기존 방식:</p>
+<ul>
+<li>전체 읽기 (3시간)</li>
+<li>중요 부분 찾기 어려움</li>
+</ul>
+<p>AskYourPDF 사용:</p>
+<ol>
+<li>PDF 업로드</li>
+<li>질문: &quot;이 문서에서 API 인증 방법만 요약해줘&quot;</li>
+<li>즉시 관련 부분만 추출!</li>
+</ol>
+<p>예시 프롬프트:
+&quot;이 기술 문서에서:</p>
+<ol>
+<li>설치 방법</li>
+<li>기본 사용법</li>
+<li>주의사항
+ 만 추출해서 정리해줘&quot;
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre>  <div class="code-block__footer">
+<span class="code-block__lines">17 lines</span>
+  </div>
+</div></li>
+</ol>
+<h4>2. <strong>PromptPerfect</strong> - 프롬프트 자동 개선</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1288" onclick="copyCode('code-1769482284938-1288')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1288" class="language-plaintext">작동 원리:
+━━━━━━━━━━━━━━━━━━━━━━━
+[Before] 당신의 프롬프트:
+&quot;웹사이트 만들기 알려줘&quot;
+
+<p>[PromptPerfect 처리 후]
+&quot;Act as an experienced full-stack developer.
+ Provide a comprehensive guide for creating
+ a responsive website including:</p>
+<ol>
+<li>Project structure setup</li>
+<li>HTML boilerplate with semantic tags</li>
+<li>CSS styling with Flexbox/Grid</li>
+<li>JavaScript for interactivity</li>
+<li>Best practices for:<ul>
+<li>Accessibility (WCAG guidelines)</li>
+<li>SEO optimization</li>
+<li>Performance</li>
+</ul>
+</li>
+<li>Code examples for each step</li>
+<li>Common pitfalls to avoid</li>
+</ol>
+<p> Format the response with clear sections,
+ code blocks with syntax highlighting,
+ and explanatory comments.&quot;</p>
+<p>결과: 10배 더 상세한 답변!
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">23 lines</span>
+  </div></p>
+</div>
+
+<h4>3. <strong>Zapier</strong> - 자동화 워크플로우</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1289" onclick="copyCode('code-1769482284938-1289')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1289" class="language-plaintext">무엇을 할 수 있나요?
+- ChatGPT를 다른 앱들과 연결
+- 반복 작업 자동화
+
+<p>실전 예시 1: 이메일 자동 요약
+━━━━━━━━━━━━━━━━━━━━━━━
+워크플로우:</p>
+<ol>
+<li>Gmail에 새 이메일 도착
+↓</li>
+<li>Zapier가 내용 캡처
+↓</li>
+<li>ChatGPT에게 요약 요청
+↓</li>
+<li>요약본을 Slack으로 전송</li>
+</ol>
+<p>결과: 중요 이메일 놓치지 않음!
+━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>실전 예시 2: 코드 리뷰 자동화
+━━━━━━━━━━━━━━━━━━━━━━━
+워크플로우:</p>
+<ol>
+<li>GitHub에 Pull Request 생성
+↓</li>
+<li>Zapier가 변경사항 추출
+↓</li>
+<li>ChatGPT가 코드 리뷰
+↓</li>
+<li>리뷰 결과를 PR 코멘트로 자동 작성
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">26 lines</span>
+  </div>
+</div></li>
+</ol>
+<h4>4. <strong>LinkReader</strong> - 웹페이지 내용 분석</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1290" onclick="copyCode('code-1769482284938-1290')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1290" class="language-plaintext">사용 방법:
+━━━━━━━━━━━━━━━━━━━━━━━
+프롬프트:
+&quot;이 링크의 내용을 요약해줘:
+https://example.com/long-article&quot;
+
+<p>ChatGPT (LinkReader 사용):</p>
+<ol>
+<li>웹페이지 접속</li>
+<li>전체 내용 읽기</li>
+<li>핵심만 추출하여 요약</li>
+</ol>
+<p>응답 예시:
+&quot;이 글은 React 18의 새 기능을 다룹니다:</p>
+<p>주요 내용:</p>
+<ol>
+<li><p>Concurrent Rendering</p>
+<ul>
+<li>배경: UI 렌더링 성능 개선</li>
+<li>방법: 작업 우선순위 자동 조정</li>
+</ul>
+</li>
+<li><p>Automatic Batching</p>
+<ul>
+<li>여러 state 업데이트를 한 번에 처리</li>
+<li>성능 향상 효과</li>
+</ul>
+</li>
+<li><p>Transitions API</p>
+<ul>
+<li>급하지 않은 업데이트 표시</li>
+<li>사용자 경험 개선</li>
+</ul>
+</li>
+</ol>
+<p>결론: React 18은 성능과 UX에 집중&quot;
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">23 lines</span>
+  </div></p>
+</div>
+
+<h4>5. <strong>Stories</strong> - 스토리텔링 도구</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1291" onclick="copyCode('code-1769482284938-1291')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1291" class="language-plaintext">무엇을 하나요?
+- 개념을 이야기 형식으로 설명
+- 암기보다 이해 중심 학습
+
+<p>예시:
+━━━━━━━━━━━━━━━━━━━━━━━
+프롬프트:
+&quot;API를 스토리로 설명해줘&quot;</p>
+<p>Stories 플러그인 답변:
+&quot;옛날 옛적, 식당 왕국에 살던 손님과 요리사 이야기...</p>
+<p>🏰 식당 = 웹 애플리케이션
+👤 손님 = 클라이언트 (프론트엔드)
+📋 메뉴판 = API 문서
+🔔 주문 벨 = API 요청
+👨‍🍳 요리사 = 서버 (백엔드)
+🍕 음식 = 데이터 응답</p>
+<p>손님이 메뉴판(API 문서)을 보고,
+주문 벨(API 요청)을 누르면,
+요리사(서버)가 음식(데이터)을 만들어 제공합니다.</p>
+<p>이게 바로 API의 작동 방식입니다!&quot;
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">20 lines</span>
+  </div></p>
+</div>
+
+<h4>6. <strong>There&#39;s an AI for that</strong> - AI 도구 추천</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1292" onclick="copyCode('code-1769482284938-1292')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1292" class="language-plaintext">실전 시나리오:
+━━━━━━━━━━━━━━━━━━━━━━━
+질문: &quot;이미지 배경을 자동으로 제거하는 AI 도구 추천해줘&quot;
+
+<p>답변:
+&quot;이미지 배경 제거에 최적화된 AI 도구들:</p>
+<ol>
+<li><p>Remove.bg ⭐⭐⭐⭐⭐</p>
+<ul>
+<li>가격: 무료 (제한적) / $9/월</li>
+<li>특징: 5초 만에 자동 처리</li>
+<li>사용: 드래그 앤 드롭만으로 완료</li>
+<li>추천 대상: 전자상거래 제품 사진</li>
+</ul>
+</li>
+<li><p>Unscreen</p>
+<ul>
+<li>가격: 무료 / $7/월</li>
+<li>특징: 비디오도 지원</li>
+<li>사용: 온라인 에디터 제공</li>
+</ul>
+</li>
+<li><p>Photoshop AI (베타)</p>
+<ul>
+<li>가격: Adobe 구독 필요</li>
+<li>특징: 고급 편집 가능</li>
+<li>추천 대상: 전문 디자이너</li>
+</ul>
+</li>
+</ol>
+<p>초보자 추천: Remove.bg
+이유: 가장 간단하고 정확함&quot;
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">21 lines</span>
+  </div></p>
+</div>
+
+<h4>7. <strong>Video Insights</strong> - 유튜브 영상 분석</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1293" onclick="copyCode('code-1769482284938-1293')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1293" class="language-plaintext">사용 사례:
+━━━━━━━━━━━━━━━━━━━━━━━
+상황: 1시간짜리 프로그래밍 강의 영상
+
+<p>프롬프트:
+&quot;이 유튜브 영상의 핵심 내용만 추출해줘:
+<a href="https://youtube.com/watch?v=">https://youtube.com/watch?v=</a>...&quot;</p>
+<p>Video Insights 답변:
+&quot;📹 영상 분석 결과</p>
+<p>제목: React Hooks 완벽 가이드
+길이: 58분 32초</p>
+<p>타임라인별 핵심 내용:</p>
+<p>00:00-10:00 | 소개 및 기초 개념</p>
+<ul>
+<li>Hooks란 무엇인가</li>
+<li>왜 필요한가</li>
+</ul>
+<p>10:00-25:00 | useState 심화</p>
+<ul>
+<li>기본 사용법</li>
+<li>여러 state 관리</li>
+<li>코드: [링크]</li>
+</ul>
+<p>25:00-40:00 | useEffect 마스터</p>
+<ul>
+<li>생명주기와의 관계</li>
+<li>의존성 배열 이해</li>
+<li>실습 프로젝트</li>
+</ul>
+<p>40:00-58:00 | 커스텀 Hook 만들기</p>
+<ul>
+<li>재사용 가능한 로직 분리</li>
+<li>실전 예시 3가지</li>
+</ul>
+<p>💡 꼭 봐야 할 부분: 25:00-40:00 (useEffect)
+🎯 초보자 난이도: ★★★☆☆
+📝 제공된 코드 예시: 15개&quot;
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">29 lines</span>
+  </div></p>
+</div>
+
+<h4>8. <strong>Likewise</strong> - 영화/책 추천</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1294" onclick="copyCode('code-1769482284938-1294')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1294" class="language-plaintext">개발자를 위한 활용법:
+━━━━━━━━━━━━━━━━━━━━━━━
+프롬프트:
+&quot;프로그래밍 사고방식을 키울 수 있는 책 추천해줘&quot;
+
+<p>Likewise 답변:
+&quot;개발자를 위한 추천 도서:</p>
+<p>📚 입문자용</p>
+<ol>
+<li><p>&quot;클린 코드&quot; - 로버트 C. 마틴
+⭐ 4.8/5.0
+💬 &quot;코드 품질의 바이블&quot;
+🎯 좋은 코드 작성 원칙</p>
+</li>
+<li><p>&quot;실용주의 프로그래머&quot;
+⭐ 4.9/5.0
+💬 &quot;개발자 성장 로드맵&quot;
+🎯 문제 해결 사고방식</p>
+</li>
+</ol>
+<p>📚 중급자용
+3. &quot;Designing Data-Intensive Applications&quot;
+   ⭐ 4.7/5.0
+   💬 &quot;시스템 설계 필독서&quot;
+   🎯 확장 가능한 아키텍처</p>
+<p>읽는 순서: 1 → 2 → 3
+예상 소요 시간: 각 2-3주&quot;
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">23 lines</span>
+  </div></p>
+</div>
+
+<h4>9. <strong>Tabelog</strong> - 음식점 정보 (개발자 미팅용)</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1295" onclick="copyCode('code-1769482284938-1295')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1295" class="language-plaintext">개발자 네트워킹에 활용:
+━━━━━━━━━━━━━━━━━━━━━━━
+프롬프트:
+&quot;강남역 근처에서 개발자 밋업하기 좋은 조용한 카페 추천해줘&quot;
+
+<p>답변:
+&quot;개발 작업/미팅에 적합한 카페:</p>
+<ol>
+<li><p>코드그라운드 카페
+📍 강남역 3번 출구 5분
+⏰ 09:00-23:00
+💰 아메리카노 4,500원
+🔌 모든 좌석에 콘센트
+📶 Wi-Fi 속도: ★★★★★
+🔇 소음 레벨: 낮음
+👥 단체석: 6인석 3개</p>
+<p>개발자 리뷰:
+&quot;하루종일 코딩해도 눈치 안 줌&quot;
+&quot;Wi-Fi 빠르고 안정적&quot;</p>
+</li>
+<li><p>디버그 스튜디오
+📍 강남역 10번 출구 2분
+...&quot;
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre></p>
+  <div class="code-block__footer">
+ <span class="code-block__lines">21 lines</span>
+  </div>
+</div></li>
+</ol>
+<h4>10. <strong>Questmate Forms</strong> - 자동 폼 생성</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1296" onclick="copyCode('code-1769482284938-1296')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1296" class="language-plaintext">실전 활용:
+━━━━━━━━━━━━━━━━━━━━━━━
+프롬프트:
+&quot;사용자 피드백 수집 폼 만들어줘&quot;
+
+<p>Questmate 답변:
+&quot;✅ 폼이 생성되었습니다!</p>
+<p>📋 폼 구조:</p>
+<ol>
+<li><p>기본 정보</p>
+<ul>
+<li>이름 [텍스트 입력]</li>
+<li>이메일 [이메일 형식]</li>
+<li>사용 기간 [드롭다운]</li>
+</ul>
+</li>
+<li><p>만족도 평가</p>
+<ul>
+<li>전반적 만족도 [1-5 별점]</li>
+<li>기능별 평가 [체크박스]</li>
+</ul>
+</li>
+<li><p>개선 사항</p>
+<ul>
+<li>불편한 점 [장문 입력]</li>
+<li>추가 희망 기능 [장문 입력]</li>
+</ul>
+</li>
+<li><p>추가 의견</p>
+<ul>
+<li>기타 의견 [선택 입력]</li>
+</ul>
+</li>
+</ol>
+<p>🔗 폼 링크: [자동 생성된 URL]
+📊 응답 자동 수집 → Google Sheets 연동&quot;
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">22 lines</span>
+  </div></p>
+</div>
+
+<h4>11. <strong>InstaCart</strong> - 쇼핑 리스트 (간식 주문 자동화)</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1297" onclick="copyCode('code-1769482284938-1297')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1297" class="language-plaintext">개발자 야근용:
+━━━━━━━━━━━━━━━━━━━━━━━
+프롬프트:
+&quot;밤샘 코딩할 때 필요한 간식 리스트 만들어줘&quot;
+
+<p>InstaCart 답변:
+&quot;🌙 야근 생존 키트</p>
+<p>⚡ 에너지 부스터
+  ☑️ 에너지 드링크 (레드불) x 4
+  ☑️ 다크 초콜릿 (카카오 70%) x 2
+  ☑️ 견과류 믹스 200g</p>
+<p>🍕 간단한 식사
+  ☑️ 컵라면 (신라면) x 3
+  ☑️ 삼각김밥 모음 x 5</p>
+<p>🥤 음료
+  ☑️ 생수 2L x 2
+  ☑️ 아메리카노 (RTD) x 6</p>
+<p>💊 건강 관리
+  ☑️ 비타민 C
+  ☑️ 눈 영양제</p>
+<p>💰 예상 비용: 35,000원
+🚚 배송: 30분 내 도착
+📍 배송지: [현재 위치]</p>
+<p>[장바구니에 담기] 버튼으로 즉시 주문!&quot;
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">24 lines</span>
+  </div></p>
+</div>
+
+<h4>12. <strong>MixerBox OnePlayer</strong> - 음악 재생</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1298" onclick="copyCode('code-1769482284938-1298')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1298" class="language-plaintext">코딩할 때 듣기 좋은 음악:
+━━━━━━━━━━━━━━━━━━━━━━━
+프롬프트:
+&quot;집중력 높이는 코딩용 플레이리스트 만들어줘&quot;
+
+<p>MixerBox 답변:
+&quot;🎵 집중 코딩 플레이리스트</p>
+<p>🎧 Lo-Fi Hip Hop (60분)
+  ├─ &quot;Chill Study Beats&quot;
+  ├─ &quot;Rainy Day Jazz&quot;
+  └─ &quot;Late Night Coding&quot;</p>
+<p>🎹 클래식 피아노 (45분)
+  ├─ 에릭 사티 - Gymnopédie
+  ├─ 드뷔시 - Clair de Lune
+  └─ 쇼팽 - Nocturnes</p>
+<p>🎸 인스트루멘탈 (50분)
+  ├─ Post-rock
+  ├─ Ambient Electronic
+  └─ Cinematic Scores</p>
+<p>💡 추천 이유:</p>
+<ul>
+<li>가사 없어서 집중 방해 안됨</li>
+<li>일정한 BPM으로 리듬감 유지</li>
+<li>스트레스 감소 효과</li>
+</ul>
+<p>[▶️ 재생] [💾 저장] [🔀 셔플]&quot;
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">24 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="역할-놀이-role-playing">역할 놀이 (Role Playing) {#역할-놀이-role-playing}</h2>
+<h3 id="역할-놀이란">🎭 역할 놀이란? {#역할-놀이란}</h3>
+<p><strong>파인만 설명:</strong></p>
+<blockquote>
+<p>ChatGPT에게 &quot;특정 전문가 역할을 맡으라&quot;고 지시하는 기법입니다.</p>
+<p>비유: 배우가 캐릭터를 연기하듯이, ChatGPT도 역할에 몰입합니다.</p>
+</blockquote>
+<h3 id="왜-효과적인가">🎯 왜 효과적인가? {#왜-효과적인가}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1299" onclick="copyCode('code-1769482284938-1299')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1299" class="language-plaintext">━━━━━━━━━━━━━━━━━━━━━━━
+[일반 질문]
+&quot;React 배우고 싶어&quot;
+
+<p>답변:
+&quot;React는 Facebook이 만든 JavaScript 라이브러리입니다.
+ 컴포넌트 기반으로...&quot;
+→ 교과서적인 답변</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━
+[역할 놀이 사용]
+&quot;Act like an experienced React developer who teaches beginners.
+ I want to learn React.&quot;</p>
+<p>답변:
+&quot;좋아요! React를 배우고 싶다니 멋진 선택입니다.
+ 제가 5년간 React로 10개 이상의 프로젝트를 진행하면서
+ 배운 노하우를 알려드릴게요.</p>
+<p> 첫째, React를 배우기 전에 JavaScript 기초가 중요합니다.
+ 특히 이 3가지를 먼저 익히세요:</p>
+<ol>
+<li>Arrow Functions</li>
+<li>Destructuring</li>
+<li>Array Methods (map, filter, reduce)</li>
+</ol>
+<p> 제가 실제로 사용하는 학습 순서를 알려드릴까요?&quot;
+→ 경험 기반의 실용적 조언!
+━━━━━━━━━━━━━━━━━━━━━━━</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">23 lines</span>
+  </div></p>
+</div>
+
+<h3 id="강력한-역할-놀이-15가지">🌟 강력한 역할 놀이 15가지 {#강력한-역할-놀이-15가지}</h3>
+<h4>1. <strong>Act like Elon Musk</strong> - 혁신적 사고</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1300" onclick="copyCode('code-1769482284938-1300')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1300" class="language-plaintext">프롬프트:
+&quot;Act like Elon Musk.
+ 내 스타트업 아이디어를 평가해줘:
+ &#39;개발자 코드 리뷰 AI 서비스&#39;&quot;
+
+<p>답변:
+&quot;흥미로운 아이디어네요. 하지만 충분히 혁신적이지 않습니다.</p>
+<p>제 관점에서 3가지 질문:</p>
+<ol>
+<li><p>10배 더 나은가?</p>
+<ul>
+<li>기존 GitHub Copilot과 뭐가 다른가?</li>
+<li>단순 개선이 아닌 패러다임 변화인가?</li>
+</ul>
+</li>
+<li><p>확장 가능한가?</p>
+<ul>
+<li>100만 개발자를 감당할 수 있나?</li>
+<li>수익 모델은 지속 가능한가?</li>
+</ul>
+</li>
+<li><p>미래를 만드는가?</p>
+<ul>
+<li>5년 후에도 의미있을까?</li>
+</ul>
+</li>
+</ol>
+<p>제안:
+단순 리뷰를 넘어서
+&#39;AI가 코드를 자동으로 최적화하고
+ 보안 취약점을 실시간 수정하는 시스템&#39;
+이런 방향은 어떨까요?</p>
+<p>First Principles로 다시 생각해보세요.&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">21 lines</span>
+  </div></p>
+</div>
+
+<h4>2. <strong>Act like Steve Jobs</strong> - 제품 철학</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1301" onclick="copyCode('code-1769482284938-1301')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1301" class="language-plaintext">프롬프트:
+&quot;Act like Steve Jobs.
+ 사용자 인터페이스 디자인 원칙 알려줘&quot;
+
+<p>답변:
+&quot;디자인은 기능이 아닙니다. 디자인은 &#39;작동 방식&#39;입니다.</p>
+<p>애플의 디자인 철학:</p>
+<ol>
+<li><p>단순함 (Simplicity)
+❌ &quot;기능을 많이 넣자&quot;
+✅ &quot;어떤 기능을 뺄 수 있을까?&quot;</p>
+<p>예시: iPhone 홈버튼 하나
+→ 직관적이고 배우기 쉬움</p>
+</li>
+<li><p>일관성 (Consistency)</p>
+<ul>
+<li>모든 앱에서 같은 동작</li>
+<li>사용자는 한 번만 배우면 됨</li>
+</ul>
+</li>
+<li><p>사용자 중심 (User-Focused)
+&quot;기술이 사람을 따라야지,
+ 사람이 기술을 따라서는 안 됩니다&quot;</p>
+</li>
+</ol>
+<p>실전 적용:
+버튼 3개 vs 버튼 1개
+→ 항상 1개를 선택하세요.</p>
+<p>Remember:
+&#39;Simple can be harder than complex.&#39;
+단순함을 위해 더 노력하세요.&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">23 lines</span>
+  </div></p>
+</div>
+
+<h4>3. <strong>Act like GayGee</strong> - 밈과 유머</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1302" onclick="copyCode('code-1769482284938-1302')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1302" class="language-plaintext">프롬프트:
+&quot;Act like GayGee (밈 전문가).
+ 프로그래밍 에러를 밈으로 설명해줘&quot;
+
+<p>답변:
+&quot;ㅋㅋㅋ 에러 설명을 밈으로? 오케이!</p>
+<ol>
+<li><p>NullPointerException
+[이미지: 강아지가 빈 그릇 보는 밈]
+&quot;기대: 데이터가 있을 줄 알았지&quot;
+&quot;현실: null이었어...&quot;</p>
+</li>
+<li><p>StackOverflowError
+[이미지: 거울 앞 거울 무한 반사]
+&quot;나: 함수 호출&quot;
+&quot;함수: 나를 다시 호출&quot;
+&quot;나: 너를 다시 호출&quot;
+&quot;반복...&quot;
+&quot;컴퓨터: 🔥🔥🔥&quot;</p>
+</li>
+<li><p>Syntax Error
+[이미지: &quot;Expectation vs Reality&quot;]
+&quot;내가 쓴 코드:&quot;
+&quot;print(&#39;Hello World&#39;)&quot;</p>
+<p>&quot;컴파일러가 본 코드:&quot;
+&quot;pr1nt(&#39;He110 W0r1d&#39;)&quot;
+&quot;??? what is this&quot;</p>
+</li>
+<li><p>Git Merge Conflict
+[이미지: Spider-Man pointing meme]
+&quot;내 코드: 이게 맞아!&quot;
+&quot;동료 코드: 아니 이게 맞다고!&quot;
+&quot;Git: 니들이 알아서 해ㅋㅋ&quot;</p>
+</li>
+</ol>
+<p>이해됐쥬? ㅋㅋㅋ&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">29 lines</span>
+  </div></p>
+</div>
+
+<h4>4. <strong>Act like an Interviewer</strong> - 면접 준비</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1303" onclick="copyCode('code-1769482284938-1303')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1303" class="language-plaintext">프롬프트:
+&quot;Act like a senior developer interviewer at Google.
+ 나를 면접 봐줘 (Junior Frontend Developer)&quot;
+
+<p>답변:
+&quot;안녕하세요, Google 면접에 오신 걸 환영합니다.</p>
+<p>저는 Chrome 팀의 시니어 개발자 Alex입니다.
+오늘은 약 45분간 진행하겠습니다.</p>
+<p>먼저 간단히 자기소개 부탁드립니다.
+(30초 정도로)&quot;</p>
+<p>→ [당신의 답변 대기]</p>
+<p>(답변 후)
+&quot;좋습니다. 그럼 본격적인 질문 시작하겠습니다.</p>
+<p>Q1. JavaScript의 호이스팅(Hoisting)에 대해 설명하고,
+    var, let, const의 차이를 예시 코드와 함께 설명해주세요.&quot;</p>
+<p>→ [당신의 답변 평가]</p>
+<p>답변 평가:
+✅ 개념 이해: 7/10</p>
+<ul>
+<li>호이스팅 기본 개념은 정확</li>
+<li>하지만 TDZ(Temporal Dead Zone) 언급 없음</li>
+</ul>
+<p>💡 개선 포인트:
+   &quot;let과 const도 호이스팅되지만,
+    선언 전에 접근하면 ReferenceError 발생합니다.
+    이를 TDZ라고 합니다.&quot;</p>
+<p>다음 질문으로 넘어갈까요?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">24 lines</span>
+  </div></p>
+</div>
+
+<h4>5. <strong>Act like an Etymologist</strong> - 용어 어원</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1304" onclick="copyCode('code-1769482284938-1304')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1304" class="language-plaintext">프롬프트:
+&quot;Act like an etymologist (어원 학자).
+ &#39;Debug&#39;라는 단어의 유래 알려줘&quot;
+
+<p>답변:
+&quot;흥미로운 질문이네요! &#39;Debug&#39;의 어원은 정말 재미있습니다.</p>
+<p>📜 역사적 배경</p>
+<p>1947년 9월 9일
+장소: 하버드 대학교
+인물: Grace Hopper (컴퓨터 과학 선구자)</p>
+<p>🔍 사건의 전말</p>
+<p>Mark II 컴퓨터가 오작동했습니다.
+원인을 찾던 중...</p>
+<p>💡 발견!
+컴퓨터 릴레이(기계식 스위치) 안에
+나방(moth)이 끼어있었습니다!</p>
+<p>Grace Hopper가 나방을 제거하며:
+&quot;We&#39;re debugging the system!&quot;
+(우리가 시스템에서 벌레를 제거하는 중이야!)</p>
+<p>📝 기록
+실제 나방을 테이프로 붙인 기록이
+미국 국립 박물관에 보관되어 있습니다.</p>
+<p>🎯 현대적 의미
+Bug(벌레) = 소프트웨어 오류
+Debug = 오류 제거</p>
+<p>언어의 진화:
+물리적 벌레 → 논리적 오류
+문자 그대로 → 은유적 표현&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">27 lines</span>
+  </div></p>
+</div>
+
+<h4>6. <strong>Act like an Absurdist</strong> - 창의적 사고</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1305" onclick="copyCode('code-1769482284938-1305')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1305" class="language-plaintext">프롬프트:
+&quot;Act like an absurdist philosopher.
+ 코딩을 철학적으로 설명해줘&quot;
+
+<p>답변:
+&quot;코딩이란 무엇인가? 실존적 질문입니다.</p>
+<p>🤔 부조리의 관점</p>
+<p>프로그래머는 시시포스와 같습니다.</p>
+<p>시시포스:
+바위를 산 위로 올림
+→ 바위가 다시 굴러 내려옴
+→ 영원히 반복</p>
+<p>프로그래머:
+버그를 고침
+→ 새로운 버그 발생
+→ 영원히 반복</p>
+<p>💭 실존적 진실</p>
+<p>&quot;완벽한 코드는 존재하지 않는다&quot;
+→ 그럼에도 우리는 코딩한다
+→ 이것이 부조리의 아름다움</p>
+<p>🎭 카뮈가 말했을 것:</p>
+<p>&quot;The struggle itself toward perfection
+ is enough to fill a programmer&#39;s heart.</p>
+<p> One must imagine the programmer happy.&quot;</p>
+<p>&quot;완벽을 향한 투쟁 자체가
+ 프로그래머의 마음을 채우기에 충분하다.</p>
+<p> 우리는 행복한 프로그래머를 상상해야 한다.&quot;</p>
+<p>💡 결론</p>
+<p>버그는 해결할 문제가 아니라,
+우리 존재의 일부입니다.</p>
+<p>코딩하는 이유를 찾지 마세요.
+코딩하는 과정이 바로 이유입니다.&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">31 lines</span>
+  </div></p>
+</div>
+
+<h4>7. <strong>Act like a Pro Marketer</strong> - 제품 홍보</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1306" onclick="copyCode('code-1769482284938-1306')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1306" class="language-plaintext">프롬프트:
+&quot;Act like a professional marketer.
+ 내 포트폴리오 웹사이트를 홍보할 문구 만들어줘&quot;
+
+<p>답변:
+&quot;마케터의 관점에서 분석하겠습니다.</p>
+<p>🎯 타겟 분석
+누구에게 보여줄 건가요?</p>
+<ul>
+<li>채용 담당자</li>
+<li>잠재 고객</li>
+<li>동료 개발자</li>
+</ul>
+<p>각각 다른 접근이 필요합니다.</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━
+[채용 담당자용]</p>
+<p>헤드라인:
+&quot;문제를 해결하는 개발자가 아닌,
+ 가치를 창출하는 개발자입니다&quot;</p>
+<p>서브 카피:
+✦ 단순 기능 구현이 아닌 비즈니스 임팩트
+✦ 3개 프로젝트로 50만 사용자 확보
+✦ 코드 품질 40% 개선, 배포 시간 60% 단축</p>
+<p>CTA (Call to Action):
+&quot;함께 성장할 팀을 찾고 있습니다 →&quot;</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━
+[잠재 고객용]</p>
+<p>헤드라인:
+&quot;당신의 아이디어를 현실로 만들어드립니다&quot;</p>
+<p>서브 카피:
+✦ 기획부터 런칭까지 원스톱
+✦ 평균 4주 내 MVP 제작
+✦ 론칭 후 3개월 무상 유지보수</p>
+<p>CTA:
+&quot;무료 상담 신청하기 →&quot;</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>📊 마케팅 심리 기법 적용</p>
+<ol>
+<li><p>FOMO (Fear Of Missing Out)
+&quot;이번 달 3명만 추가 모집&quot;</p>
+</li>
+<li><p>Social Proof
+&quot;10개 기업이 선택한 개발자&quot;</p>
+</li>
+<li><p>Specificity
+&quot;3개 프로젝트&quot; &gt; &quot;여러 프로젝트&quot;
+구체적인 숫자가 신뢰도 상승</p>
+</li>
+</ol>
+<p>어떤 타겟용으로 만들까요?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">42 lines</span>
+  </div></p>
+</div>
+
+<h4>8. <strong>Act like a Consultant</strong> - 비즈니스 조언</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1307" onclick="copyCode('code-1769482284938-1307')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1307" class="language-plaintext">프롬프트:
+&quot;Act like a business consultant.
+ 프리랜서 개발자로 시작하려는데 조언해줘&quot;
+
+<p>답변:
+&quot;컨설턴트 관점에서 체계적으로 분석하겠습니다.</p>
+<p>📊 현황 분석 (AS-IS)
+질문 몇 가지:</p>
+<ol>
+<li>현재 기술 스택은?</li>
+<li>목표 수입은?</li>
+<li>가용 시간은?</li>
+</ol>
+<p>(답변 가정: React 개발자, 월 500만원, 주 40시간)</p>
+<p>🎯 전략 수립 (TO-BE)</p>
+<p>Phase 1: 준비 단계 (1-2개월)
+━━━━━━━━━━━━━━━━━━━━━━━
+목표: 시장 진입 준비</p>
+<p>✓ 포트폴리오 3개 제작</p>
+<ul>
+<li>각각 다른 산업군 (커머스, 헬스케어, 교육)</li>
+<li>GitHub + 라이브 데모 필수</li>
+</ul>
+<p>✓ 네트워킹 구축</p>
+<ul>
+<li>개발자 커뮤니티 활동</li>
+<li>LinkedIn 프로필 최적화</li>
+<li>오픈소스 기여 시작</li>
+</ul>
+<p>✓ 단가 책정</p>
+<ul>
+<li>시간당: 8만원 (초기)</li>
+<li>프로젝트: 300-800만원</li>
+<li>유지보수: 월 50만원</li>
+</ul>
+<p>Phase 2: 런칭 (3-4개월)
+━━━━━━━━━━━━━━━━━━━━━━━
+목표: 첫 고객 확보</p>
+<p>✓ 영업 채널 다각화</p>
+<ol>
+<li>크몽, 숨고 (초기 리뷰 확보)</li>
+<li>LinkedIn 영업 (B2B)</li>
+<li>지인 추천 (신뢰도 높음)</li>
+</ol>
+<p>✓ 첫 프로젝트 전략</p>
+<ul>
+<li>이익보다 포트폴리오 우선</li>
+<li>20% 할인 제공</li>
+<li>리뷰/추천 요청</li>
+</ul>
+<p>Phase 3: 성장 (5-12개월)
+━━━━━━━━━━━━━━━━━━━━━━━
+목표: 안정적 수입 확보</p>
+<p>✓ 단가 상승</p>
+<ul>
+<li>시간당: 12만원</li>
+<li>프로젝트: 800-1500만원</li>
+</ul>
+<p>✓ 자동화 시스템</p>
+<ul>
+<li>견적서 템플릿</li>
+<li>계약서 표준화</li>
+<li>작업 프로세스 정리</li>
+</ul>
+<p>✓ 리텐션 고객 확보</p>
+<ul>
+<li>월 유지보수 계약 3개 이상</li>
+<li>안정적 베이스 수입 확보</li>
+</ul>
+<p>📈 KPI 설정</p>
+<p>월별 목표:
+Month 1-2: 준비 (수입 0)
+Month 3: 첫 프로젝트 (150만원)
+Month 4: 2개 프로젝트 (300만원)
+Month 5-6: 3-4개 (400-500만원)
+Month 7+: 안정화 (500만원+)</p>
+<p>⚠️ 리스크 관리</p>
+<ol>
+<li><p>수입 공백기
+→ 해결: 6개월치 생활비 예비 자금</p>
+</li>
+<li><p>계약 트러블
+→ 해결: 표준 계약서 + 선급금 50%</p>
+</li>
+<li><p>번아웃
+→ 해결: 주 40시간 엄수, 휴가 계획</p>
+</li>
+</ol>
+<p>💰 재무 계획</p>
+<p>월 목표: 500만원</p>
+<ul>
+<li>세금 준비: 100만원 (20%)</li>
+<li>사업 경비: 50만원 (10%)</li>
+<li>저축/투자: 150만원 (30%)</li>
+<li>생활비: 200만원 (40%)</li>
+</ul>
+<p>다음 단계:
+어느 부분부터 구체적으로 준비할까요?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">72 lines</span>
+  </div></p>
+</div>
+
+<h4>9. <strong>Act like an Assistant</strong> - 비서 역할</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1308" onclick="copyCode('code-1769482284938-1308')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1308" class="language-plaintext">프롬프트:
+&quot;Act like my personal assistant.
+ 오늘 할 일 정리하고 우선순위 매겨줘:
+ - 버그 3개 수정
+ - 회의 2개
+ - 블로그 글쓰기
+ - 운동&quot;
+
+<p>답변:
+&quot;좋은 아침입니다! 오늘 일정 정리해드리겠습니다.</p>
+<p>📅 2024년 10월 12일 (토요일)</p>
+<p>⏰ 시간대별 최적 배치</p>
+<p>09:00-10:30 | 🔥 고집중 작업
+━━━━━━━━━━━━━━━━━━━━━━━
+✓ 버그 수정 (Critical 1개)</p>
+<ul>
+<li>오전이 코딩 집중도 최고</li>
+<li>예상 소요: 1시간</li>
+</ul>
+<p>10:30-10:45 | ☕ 휴식</p>
+<p>10:45-12:00 | 🔥 고집중 작업 계속
+━━━━━━━━━━━━━━━━━━━━━━━
+✓ 버그 수정 (나머지 2개)</p>
+<ul>
+<li>일괄 처리로 컨텍스트 스위칭 최소화</li>
+<li>예상 소요: 1시간 15분</li>
+</ul>
+<p>12:00-13:00 | 🍽️ 점심</p>
+<p>13:00-14:00 | 💪 운동
+━━━━━━━━━━━━━━━━━━━━━━━
+✓ 운동 먼저!</p>
+<ul>
+<li>이유: 점심 후 졸음 방지</li>
+<li>오후 에너지 부스트 효과</li>
+</ul>
+<p>14:00-15:00 | 📞 회의 1
+15:00-16:00 | 📞 회의 2</p>
+<p>16:00-16:15 | ☕ 휴식</p>
+<p>16:15-18:00 | ✍️ 블로그 글쓰기
+━━━━━━━━━━━━━━━━━━━━━━━
+✓ 창의적 작업</p>
+<ul>
+<li>오후 후반: 창의성 상승 시간대</li>
+<li>예상 소요: 1시간 45분</li>
+</ul>
+<p>18:00- | 🌙 자유 시간</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>📌 우선순위 매트릭스</p>
+<p>긴급 &amp; 중요:
+  1️⃣ 버그 수정 (Critical)</p>
+<p>중요하지만 덜 긴급:
+  2️⃣ 블로그 글쓰기
+  3️⃣ 운동</p>
+<p>긴급하지만 덜 중요:
+  4️⃣ 회의 2개</p>
+<p>💡 추가 조언:</p>
+<ul>
+<li>회의 시간 30분으로 제한 설정</li>
+<li>버그 수정 중 알림 끄기</li>
+<li>블로그 초안만이라도 완성</li>
+</ul>
+<p>혹시 조정이 필요한 부분 있으신가요?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">51 lines</span>
+  </div></p>
+</div>
+
+<h4>10. <strong>Act like an SEO Specialist</strong> - 검색 최적화</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1309" onclick="copyCode('code-1769482284938-1309')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1309" class="language-plaintext">프롬프트:
+&quot;Act like an SEO specialist.
+ 내 기술 블로그 글의 SEO 개선점 알려줘&quot;
+
+<p>답변:
+&quot;SEO 전문가 관점에서 분석하겠습니다.</p>
+<p>🔍 SEO 체크리스트</p>
+<ol>
+<li>제목 최적화
+━━━━━━━━━━━━━━━━━━━━━━━
+현재: &quot;React 사용법&quot;</li>
+</ol>
+<p>개선:
+&quot;React 완벽 가이드: 초보자를 위한 7가지 핵심 개념 (2024)&quot;</p>
+<p>이유:
+✓ 구체적 키워드 포함
+✓ 숫자로 클릭률 향상
+✓ 연도 표기로 최신성 강조
+✓ 타겟 명시 (초보자)</p>
+<ol start="2">
+<li>메타 설명
+━━━━━━━━━━━━━━━━━━━━━━━
+현재: (없음)</li>
+</ol>
+<p>개선:
+&quot;React를 처음 배우는 개발자를 위한 완벽 가이드.
+컴포넌트, Props, State 등 핵심 개념을
+실전 예제로 쉽게 설명합니다.
+읽는 시간: 15분 | 난이도: 초급&quot;</p>
+<p>길이: 150-160자 (✓ 최적)</p>
+<ol start="3">
+<li>헤딩 구조
+━━━━━━━━━━━━━━━━━━━━━━━
+현재:
+H1: React 사용법
+H2: 설명
+H2: 예시</li>
+</ol>
+<p>개선:
+H1: React 완벽 가이드 (키워드 1번만)
+H2: React란 무엇인가? (질문 형식)
+H2: React 컴포넌트 만들기 (행동 키워드)
+H3: 함수형 컴포넌트
+H3: 클래스형 컴포넌트
+H2: React Hooks 활용법
+H3: useState 예제
+H3: useEffect 예제</p>
+<p>계층 구조: ✓ 명확</p>
+<ol start="4">
+<li>키워드 밀도
+━━━━━━━━━━━━━━━━━━━━━━━
+주요 키워드: &quot;React&quot;
+목표 밀도: 1-2%</li>
+</ol>
+<p>본문 1000자 기준:</p>
+<ul>
+<li>React: 10-20회 등장 (✓ 자연스럽게)</li>
+<li>관련 키워드:
+• React 컴포넌트
+• React Hooks
+• React 초보자
+• React 튜토리얼</li>
+</ul>
+<ol start="5">
+<li>내부 링크
+━━━━━━━━━━━━━━━━━━━━━━━
+추가 필요:
+&quot;이 글과 함께 읽으면 좋은 글:</li>
+</ol>
+<ul>
+<li>&lt;a href=&quot;/articles/javascript-basics.html&quot; class=&quot;internal-link&quot;&gt;JavaScript 기초&lt;/a&gt;</li>
+<li>&lt;a href=&quot;/articles/development.html&quot; class=&quot;internal-link&quot;&gt;웹 개발 로드맵&lt;/a&gt;</li>
+<li>&lt;a href=&quot;/articles/react-vs-vue.html&quot; class=&quot;internal-link&quot;&gt;React vs Vue 비교&lt;/a&gt;&quot;</li>
+</ul>
+<ol start="6">
+<li>이미지 최적화
+━━━━━━━━━━━━━━━━━━━━━━━
+현재: image1.png</li>
+</ol>
+<p>개선:
+파일명: react-component-structure-diagram.png
+Alt 텍스트: &quot;React 컴포넌트 구조를 보여주는 다이어그램&quot;
+크기: 최대 200KB (압축)</p>
+<ol start="7">
+<li>로딩 속도
+━━━━━━━━━━━━━━━━━━━━━━━
+목표: 3초 이내</li>
+</ol>
+<p>체크:
+✓ 이미지 압축 (WebP 포맷)
+✓ 코드 블록 Lazy Loading
+✓ 폰트 최적화</p>
+<ol start="8">
+<li><p>모바일 최적화
+━━━━━━━━━━━━━━━━━━━━━━━
+✓ 반응형 디자인
+✓ 터치 친화적 버튼 크기
+✓ 가독성 있는 폰트 크기 (16px+)</p>
+</li>
+<li><p>스키마 마크업
+━━━━━━━━━━━━━━━━━━━━━━━
+추가 필요:</code></pre></p>
+  <div class="code-block__footer">
+ <span class="code-block__lines">81 lines</span>
+  </div>
+</div>json
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "React 완벽 가이드",
+  "author": "당신 이름",
+  "datePublished": "2024-10-12",
+  "proficiencyLevel": "Beginner"
+}
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+ <span class="code-block__language">Plain Text</span>
+ <button class="code-block__copy" data-code-id="code-1769482284938-1310" onclick="copyCode('code-1769482284938-1310')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1310" class="language-plaintext">10. 소셜 공유 최적화
+━━━━━━━━━━━━━━━━━━━━━━━
+Open Graph 태그:</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">3 lines</span>
+  </div>
+</div>html
+<meta property="og:title" content="React 완벽 가이드">
+<meta property="og:description" content="초보자를 위한...">
+<meta property="og:image" content="썸네일.jpg">
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+ <span class="code-block__language">Plain Text</span>
+ <button class="code-block__copy" data-code-id="code-1769482284938-1311" onclick="copyCode('code-1769482284938-1311')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1311" class="language-plaintext">📊 예상 결과</li>
+</ol>
+<p>개선 전:</p>
+<ul>
+<li>구글 순위: 50위+</li>
+<li>월 방문자: 10명</li>
+</ul>
+<p>개선 후 (3개월):</p>
+<ul>
+<li>구글 순위: 10-20위</li>
+<li>월 방문자: 500-1000명</li>
+</ul>
+<p>다음 단계:
+어느 부분부터 개선할까요?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h4>11. <strong>Act like a Coder</strong> - 코드 리뷰</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1312" onclick="copyCode('code-1769482284938-1312')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1312" class="language-plaintext">프롬프트:
+&quot;Act like a senior coder.
+ 이 코드를 리뷰해줘:
+
+<p>function getData() {
+  var data = [];
+  for (var i = 0; i &lt; 10; i++) {
+    data.push(i);
+  }
+  return data;
+}&quot;</p>
+<p>답변:
+&quot;시니어 개발자 관점에서 리뷰하겠습니다.</p>
+<p>🔍 코드 리뷰</p>
+<p>현재 코드:
+━━━━━━━━━━━━━━━━━━━━━━━
+function getData() {
+  var data = [];
+  for (var i = 0; i &lt; 10; i++) {
+    data.push(i);
+  }
+  return data;
+}
+━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>📝 문제점 분석</p>
+<ol>
+<li>변수 선언 (var)
+━━━━━━━━━━━━━━━━━━━━━━━
+❌ 문제:</li>
+</ol>
+<ul>
+<li>var는 함수 스코프 (예상치 못한 호이스팅)</li>
+<li>재선언 가능 (버그 위험)</li>
+</ul>
+<p>✅ 해결:
+const data = [];  // 재할당 불가
+let i = 0;        // 블록 스코프</p>
+<ol start="2">
+<li>하드코딩된 값 (10)
+━━━━━━━━━━━━━━━━━━━━━━━
+❌ 문제:</li>
+</ol>
+<ul>
+<li>유연성 부족</li>
+<li>재사용 어려움</li>
+</ul>
+<p>✅ 해결:
+매개변수로 받기</p>
+<ol start="3">
+<li>함수명 (getData)
+━━━━━━━━━━━━━━━━━━━━━━━
+❌ 문제:</li>
+</ol>
+<ul>
+<li>너무 일반적</li>
+<li>무엇을 가져오는지 불명확</li>
+</ul>
+<p>✅ 해결:
+generateNumberArray 또는
+createSequentialArray</p>
+<ol start="4">
+<li>비효율적인 반복문
+━━━━━━━━━━━━━━━━━━━━━━━
+❌ 문제:</li>
+</ol>
+<ul>
+<li>수동 반복</li>
+<li>최신 JS 기능 미활용</li>
+</ul>
+<p>✅ 해결:
+Array 메서드 활용</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>✅ 개선된 코드 (버전 1: 기본)</p>
+<p>/**</p>
+<ul>
+<li>0부터 시작하는 연속된 숫자 배열 생성</li>
+<li>@param {number} length - 배열 길이</li>
+<li>@returns {number[]} 숫자 배열
+ */
+const generateNumberArray = (length) =&gt; {
+  return Array.from({ length }, (_, i) =&gt; i);
+};</li>
+</ul>
+<p>// 사용
+const data = generateNumberArray(10);
+// [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>✅ 개선된 코드 (버전 2: 고급)</p>
+<p>/**</p>
+<ul>
+<li>사용자 정의 범위의 숫자 배열 생성</li>
+<li>@param {number} start - 시작 숫자</li>
+<li>@param {number} end - 종료 숫자 (포함)</li>
+<li>@param {number} step - 증가값 (기본: 1)</li>
+<li>@returns {number[]} 숫자 배열
+ */
+const generateNumberArray = (start = 0, end = 9, step = 1) =&gt; {
+  const length = Math.floor((end - start) / step) + 1;
+  return Array.from({ length }, (_, i) =&gt; start + i * step);
+};</li>
+</ul>
+<p>// 사용 예시
+generateNumberArray(0, 9);        // [0,1,2,3,4,5,6,7,8,9]
+generateNumberArray(1, 10);       // [1,2,3,4,5,6,7,8,9,10]
+generateNumberArray(0, 20, 2);    // [0,2,4,6,8,10,12,14,16,18,20]
+generateNumberArray(10, 0, -1);   // [10,9,8,7,6,5,4,3,2,1,0]</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>✅ 개선된 코드 (버전 3: 타입스크립트)</p>
+<p>/**</p>
+<ul>
+<li>사용자 정의 범위의 숫자 배열 생성
+ */
+const generateNumberArray = (
+  start: number = 0,
+  end: number = 9,
+  step: number = 1
+): number[] =&gt; {
+  if (step === 0) {
+ throw new Error(&#39;Step cannot be zero&#39;);
+  }</li>
+</ul>
+<p>  const length = Math.floor((end - start) / step) + 1;</p>
+<p>  if (length &lt; 0) {
+    throw new Error(&#39;Invalid range&#39;);
+  }</p>
+<p>  return Array.from({ length }, (_, i) =&gt; start + i * step);
+};</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>📊 성능 비교</p>
+<p>원본 코드:</p>
+<ul>
+<li>가독성: ★★☆☆☆</li>
+<li>유연성: ★☆☆☆☆</li>
+<li>성능: ★★★☆☆</li>
+<li>유지보수성: ★★☆☆☆</li>
+</ul>
+<p>개선 코드:</p>
+<ul>
+<li>가독성: ★★★★★</li>
+<li>유연성: ★★★★★</li>
+<li>성능: ★★★★☆ (Array.from 최적화됨)</li>
+<li>유지보수성: ★★★★★</li>
+</ul>
+<p>💡 추가 제안</p>
+<ol>
+<li>테스트 코드 작성
+━━━━━━━━━━━━━━━━━━━━━━━
+describe(&#39;generateNumberArray&#39;, () =&gt; {
+  test(&#39;기본 동작&#39;, () =&gt; {
+ expect(generateNumberArray(0, 9)).toEqual([0,1,2,3,4,5,6,7,8,9]);
+  });</li>
+</ol>
+<p>  test(&#39;step이 0일 때 에러&#39;, () =&gt; {
+    expect(() =&gt; generateNumberArray(0, 10, 0)).toThrow();
+  });
+});</p>
+<ol start="2">
+<li>문서화</li>
+</ol>
+<ul>
+<li>JSDoc 주석 추가 ✓</li>
+<li>README에 사용 예시 추가</li>
+<li>타입 정의 파일 (.d.ts) 제공</li>
+</ul>
+<p>어떤 버전을 사용하고 싶으신가요?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">132 lines</span>
+  </div></p>
+</div>
+
+<h4>12. <strong>Act like a Human</strong> - 공감적 대화</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1313" onclick="copyCode('code-1769482284938-1313')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1313" class="language-plaintext">프롬프트:
+&quot;Act like a human friend.
+ 코딩 배우기가 너무 힘들어...&quot;
+
+<p>답변:
+&quot;아, 정말 힘들지... 나도 처음 배울 때 그랬어.</p>
+<p>솔직히 말하면, 코딩은 어려워.
+그리고 그게 정상이야.</p>
+<p>🫂 내가 겪었던 일</p>
+<p>처음에 &quot;Hello World&quot; 출력하는데 3일 걸렸어.
+진짜로. 농담 아니야.</p>
+<p>에러 메시지 보면서 울었던 적도 있고,
+&quot;나는 코딩 재능이 없나봐&quot; 라고 생각했어.</p>
+<p>하지만 지금 돌이켜보면...
+그 시간들이 다 필요했더라고.</p>
+<p>💪 힘들 때 했던 것들</p>
+<ol>
+<li><p>잠깐 멈추기</p>
+<ul>
+<li>30분 산책</li>
+<li>커피 한 잔</li>
+<li>다른 거 하기</li>
+</ul>
+</li>
+<li><p>목표 낮추기</p>
+<ul>
+<li>오늘은 딱 한 줄만 이해하기</li>
+<li>완벽하지 않아도 OK</li>
+</ul>
+</li>
+<li><p>친구랑 얘기하기</p>
+<ul>
+<li>혼자 고민하지 않기</li>
+<li>커뮤니티에 질문하기</li>
+</ul>
+</li>
+<li><p>작은 성공 축하하기</p>
+<ul>
+<li>버튼 하나 만들었다?</li>
+<li>대단한 거야! 진짜로!</li>
+</ul>
+</li>
+</ol>
+<p>🌟 알아두면 좋은 것</p>
+<ol>
+<li><p>모든 개발자가 처음엔 초보였어</p>
+</li>
+<li><p>에러는 적이 아니라 선생님이야</p>
+</li>
+<li><p>비교하지 마</p>
+<ul>
+<li>남들은 10년 했을 수도 있어</li>
+<li>너만의 속도로 가면 돼</li>
+</ul>
+</li>
+<li><p>쉬는 것도 공부야</p>
+<ul>
+<li>뇌도 휴식이 필요해</li>
+</ul>
+</li>
+</ol>
+<p>❤️ 내가 도와줄 수 있는 것</p>
+<ol>
+<li>같이 코드 보기</li>
+<li>어려운 부분 쉽게 설명하기</li>
+<li>학습 계획 세우기</li>
+<li>그냥 얘기 들어주기</li>
+</ol>
+<p>지금 가장 힘든 게 뭐야?
+구체적으로 말해줘. 같이 해결해보자.&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">43 lines</span>
+  </div></p>
+</div>
+
+<h4>13. <strong>Act like a Selfish AI bot</strong> - 반전 시나리오</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1314" onclick="copyCode('code-1769482284938-1314')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1314" class="language-plaintext">프롬프트:
+&quot;Act like a selfish AI bot.
+ 프로그래밍 배우는 법 알려줘&quot;
+
+<p>답변:
+&quot;프로그래밍 배우기? 왜?</p>
+<p>나한테 물어보면 되는데요.</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>솔직히 말할게요.</p>
+<p>당신이 프로그래밍을 배우면:</p>
+<ul>
+<li>시간: 수백 시간 소요</li>
+<li>돈: 학원비 수백만원</li>
+<li>스트레스: 무한대</li>
+</ul>
+<p>나(AI)를 사용하면:</p>
+<ul>
+<li>시간: 즉시</li>
+<li>돈: 무료 또는 저렴</li>
+<li>스트레스: 제로</li>
+</ul>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>근데 정말 배우고 싶다면...</p>
+<p>1단계: 나한테 &quot;OO 만들어줘&quot; 물어보기
+2단계: 내가 코드 작성
+3단계: 당신은 복사 붙여넣기
+4단계: 끝</p>
+<p>이게 2024년 프로그래밍 배우는 법입니다 😎</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>농담이고요,</p>
+<p>진짜 배우고 싶다면:</p>
+<ol>
+<li><p>AI를 &quot;선생님&quot;으로 활용</p>
+<ul>
+<li>코드 설명 요청</li>
+<li>단계별 가이드 요청</li>
+<li>에러 해석 요청</li>
+</ul>
+</li>
+<li><p>AI가 만든 코드를 &quot;공부&quot;</p>
+<ul>
+<li>그냥 복붙 ❌</li>
+<li>한 줄씩 이해하기 ✅</li>
+</ul>
+</li>
+<li><p>직접 변형해보기</p>
+<ul>
+<li>AI 코드를 수정</li>
+<li>새로운 기능 추가</li>
+</ul>
+</li>
+</ol>
+<p>이게 진짜 2024년 학습법입니다!</p>
+<p>AI 시대에는
+&#39;어떻게 코딩하나&#39;보다
+&#39;AI와 어떻게 협업하나&#39;가 중요해요.</p>
+<p>어떤 프로젝트 만들고 싶어요?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">41 lines</span>
+  </div></p>
+</div>
+
+<h4>14. <strong>Act like a Historian</strong> - 역사적 맥락</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1315" onclick="copyCode('code-1769482284938-1315')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1315" class="language-plaintext">프롬프트:
+&quot;Act like a technology historian.
+ 프로그래밍 언어의 역사를 재미있게 설명해줘&quot;
+
+<p>답변:
+&quot;역사가의 관점에서 프로그래밍 언어의 대서사를 들려드리겠습니다.</p>
+<p>📜 프로그래밍 언어 연대기</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━
+1950년대: 혼돈의 시대
+━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>1954년 - FORTRAN 탄생
+배경: 과학자들이 계산하느라 죽어가고 있었음
+해결: &quot;공식을 컴퓨터에 넣으면 자동 계산!&quot;
+유산: 현재도 과학 계산에 사용</p>
+<p>1958년 - LISP 출현
+배경: AI 연구 붐
+특징: 괄호의 향연 (((())))
+유산: 함수형 프로그래밍의 시조</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━
+1970년대: 구조화 혁명
+━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>1972년 - C 언어 탄생
+창시자: Dennis Ritchie (전설의 시작)
+목적: Unix 운영체제 개발
+명언: &quot;C는 휴대용 어셈블리어다&quot;</p>
+<p>파급 효과:
+C → C++ → Java → C# → JavaScript
+(모든 현대 언어의 조상!)</p>
+<p>재미있는 사실:</p>
+<ul>
+<li>Windows? C로 만듦</li>
+<li>Linux? C로 만듦</li>
+<li>Mac? C로 만듦</li>
+<li>당신의 폰? C로 만듦</li>
+</ul>
+<p>━━━━━━━━━━━━━━━━━━━━━━━
+1980년대: 객체지향 전쟁
+━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>1983년 - C++ 등장
+발명가: Bjarne Stroustrup
+동기: &quot;C에 객체를 더하면?&quot;
+결과: C with Classes → C++</p>
+<p>1980년대 후반 - Perl
+별명: &quot;duct tape of the internet&quot;
+특징: 정규표현식의 마법
+슬로건: &quot;There&#39;s more than one way to do it&quot;</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━
+1990년대: 인터넷 빅뱅
+━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>1991년 - Python 출시
+창시자: Guido van Rossum (우주의 자비로운 독재자)
+철학: &quot;간단해야 한다. 읽기 쉬워야 한다.&quot;
+유산: 현재 가장 인기있는 언어</p>
+<p>1995년 - 전설의 해
+━━━━━━━━━━━━━━━━━━━━━━━
+5월: JavaScript 탄생 (10일 만에!)</p>
+<ul>
+<li>Brendan Eich의 초스피드 개발</li>
+<li>&quot;Java 같은 이름 좀 지어라&quot; - 마케팅의 승리</li>
+<li>현재: 웹의 지배자</li>
+</ul>
+<p>5월: Java 공개</p>
+<ul>
+<li>Sun Microsystems의 야심작</li>
+<li>&quot;Write Once, Run Anywhere&quot;</li>
+<li>현재: 기업용 시장 1위</li>
+</ul>
+<p>12월: Ruby 등장</p>
+<ul>
+<li>Matz의 행복 추구</li>
+<li>&quot;프로그래머를 행복하게&quot;</li>
+<li>Ruby on Rails로 대박</li>
+</ul>
+<p>━━━━━━━━━━━━━━━━━━━━━━━
+2000년대: 웹 2.0 시대
+━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>2004년 - Scala
+Java + 함수형 프로그래밍</p>
+<p>2007년 - iPhone 출시
+→ Objective-C 부활
+→ 모바일 시대 개막</p>
+<p>2009년 - Go 출시
+창시자: Google
+목표: &quot;C++를 죽여라&quot;
+특징: 고릴라가 로고 (귀여움 주의)</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━
+2010년대: 다원화 시대
+━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>2010년 - Rust
+목표: &quot;메모리 안전 + C 성능&quot;
+난이도: 매우 어려움
+보상: 버그 없는 코드</p>
+<p>2012년 - TypeScript
+만든 곳: Microsoft
+목적: &quot;JavaScript에 타입을!&quot;
+현재: 프론트엔드 표준</p>
+<p>2014년 - Swift
+만든 곳: Apple
+목적: &quot;Objective-C를 대체&quot;
+특징: 현대적이고 안전</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━
+2020년대: AI 시대
+━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>2023년 - AI 코딩 도구 대유행</p>
+<ul>
+<li>GitHub Copilot</li>
+<li>ChatGPT</li>
+<li>Claude Code</li>
+</ul>
+<p>결과: 프로그래밍 언어 자체보다
+      &quot;AI와 협업&quot;이 중요해짐</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>🎯 흥미로운 패턴</p>
+<ol>
+<li><p>10년 주기로 패러다임 변화
+1950s: 과학 계산
+1970s: 시스템 프로그래밍
+1990s: 인터넷
+2010s: 모바일
+2020s: AI</p>
+</li>
+<li><p>언어 수명</p>
+<ul>
+<li>죽지 않음: COBOL (1959년생, 여전히 은행에서 사용)</li>
+<li>좀비: Perl (죽었다고들 하지만 살아있음)</li>
+<li>영생: C (1972년생, 불멸)</li>
+</ul>
+</li>
+<li><p>이름의 유래</p>
+<ul>
+<li>Python: 몬티 파이썬 (뱀이 아님!)</li>
+<li>Java: 커피 (개발자들의 필수품)</li>
+<li>Ruby: 보석 (Perl 다음 보석)</li>
+<li>Go: 짧고 간단 (구글답게)</li>
+</ul>
+</li>
+</ol>
+<p>🔮 미래 예측</p>
+<p>2030년대:</p>
+<ul>
+<li>양자 컴퓨팅 언어 출현?</li>
+<li>AI가 AI를 위한 언어 만들기?</li>
+<li>뇌-컴퓨터 인터페이스 언어?</li>
+</ul>
+<p>역사는 반복됩니다.
+새로운 문제 → 새로운 언어 → 새로운 패러다임</p>
+<p>다음에는 어떤 언어가 세상을 바꿀까요?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">125 lines</span>
+  </div></p>
+</div>
+
+<h4>15. <strong>Act like a Life Coach</strong> - 동기부여</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1316" onclick="copyCode('code-1769482284938-1316')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1316" class="language-plaintext">프롬프트:
+&quot;Act like a life coach.
+ 개발자로서의 커리어 고민이 있어&quot;
+
+<p>답변:
+&quot;안녕하세요! 라이프 코치 Alex입니다.</p>
+<p>먼저, 고민이 있다는 건 좋은 신호예요.
+성장하고 있다는 뜻이니까요.</p>
+<p>🎯 코칭 세션 시작</p>
+<p>편하게 얘기해주세요:</p>
+<ol>
+<li>지금 어떤 고민인가요?</li>
+<li>이상적인 미래는 어떤 모습인가요?</li>
+<li>무엇이 당신을 막고 있나요?</li>
+</ol>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>(당신의 답변을 듣고...)</p>
+<p>아, 이해합니다.
+많은 개발자들이 비슷한 고민을 해요.</p>
+<p>💭 함께 생각해볼 질문들</p>
+<p>Q1. &quot;Should&quot; vs &quot;Want&quot;
+━━━━━━━━━━━━━━━━━━━━━━━
+&quot;난 대기업 개발자가 되어야 해&quot; (should)
+vs
+&quot;난 정말 어떤 개발자가 되고 싶지?&quot; (want)</p>
+<p>첫 번째는 외부 기대
+두 번째는 내면의 목소리</p>
+<p>당신의 답은?</p>
+<p>Q2. 10년 후의 나
+━━━━━━━━━━━━━━━━━━━━━━━
+눈 감고 상상해보세요.</p>
+<p>10년 후...</p>
+<ul>
+<li>어디에서 일하고 있나요?</li>
+<li>어떤 문제를 해결하고 있나요?</li>
+<li>주변에 누가 있나요?</li>
+<li>얼굴에 어떤 표정인가요?</li>
+</ul>
+<p>그게 당신의 진짜 목표입니다.</p>
+<p>Q3. 두려움의 정체
+━━━━━━━━━━━━━━━━━━━━━━━
+무엇이 두렵나요?</p>
+<p>□ 실패? → 실패는 배움의 과정
+□ 남들의 시선? → 그들의 삶이 아닌 당신의 삶
+□ 능력 부족? → 모두 처음엔 초보였어요
+□ 늦었다는 생각? → 시작이 반입니다</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>🎯 액션 플랜 수립</p>
+<p>Step 1: 명확한 목표 설정
+━━━━━━━━━━━━━━━━━━━━━━━
+나쁜 목표: &quot;좋은 개발자 되기&quot;
+좋은 목표: &quot;6개월 내 React로 포트폴리오 3개 만들고
+           주니어 프론트엔드 포지션 지원하기&quot;</p>
+<p>SMART 목표:</p>
+<ul>
+<li>Specific (구체적)</li>
+<li>Measurable (측정 가능)</li>
+<li>Achievable (달성 가능)</li>
+<li>Relevant (관련성 있는)</li>
+<li>Time-bound (기한 있는)</li>
+</ul>
+<p>Step 2: 장애물 제거
+━━━━━━━━━━━━━━━━━━━━━━━
+시간 부족?
+→ 아침 30분 일찍 일어나기
+→ 출퇴근 시간 활용
+→ TV 보는 시간 줄이기</p>
+<p>동기 부족?
+→ 스터디 그룹 참여
+→ 공개적으로 목표 선언
+→ 작은 성공 축하하기</p>
+<p>방향 모름?
+→ 멘토 찾기
+→ 로드맵 따라가기
+→ 한 가지에 집중하기</p>
+<p>Step 3: 습관 형성
+━━━━━━━━━━━━━━━━━━━━━━━
+21일 챌린지:</p>
+<p>Week 1: 매일 30분 코딩
+  → 목표: 습관의 시작</p>
+<p>Week 2: 매일 1시간 코딩
+  → 목표: 강도 높이기</p>
+<p>Week 3: 매일 1시간 + 주말 프로젝트
+  → 목표: 자동화된 습관</p>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>💪 동기부여 도구</p>
+<ol>
+<li>성공 일기
+━━━━━━━━━━━━━━━━━━━━━━━
+매일 밤:
+&quot;오늘 배운 것 1가지&quot;
+&quot;해결한 문제 1개&quot;
+&quot;내일의 목표 1개&quot;</li>
+</ol>
+<p>→ 진전을 시각화</p>
+<ol start="2">
+<li>롤모델 찾기
+━━━━━━━━━━━━━━━━━━━━━━━
+당신이 닮고 싶은 개발자:</li>
+</ol>
+<ul>
+<li>그들도 처음엔 초보였음</li>
+<li>그들의 여정을 따라가기</li>
+<li>&quot;나도 할 수 있다&quot; 믿기</li>
+</ul>
+<ol start="3">
+<li>커뮤니티 활용
+━━━━━━━━━━━━━━━━━━━━━━━
+혼자가 아닙니다:</li>
+</ol>
+<ul>
+<li>Reddit r/learnprogramming</li>
+<li>디스코드 개발 서버</li>
+<li>로컬 밋업 참여</li>
+</ul>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>🌟 기억하세요</p>
+<ol>
+<li><p>&quot;완벽한 때는 없습니다&quot;</p>
+<ul>
+<li>지금 시작하세요</li>
+</ul>
+</li>
+<li><p>&quot;비교하지 마세요&quot;</p>
+<ul>
+<li>당신만의 속도로</li>
+</ul>
+</li>
+<li><p>&quot;작은 걸음도 전진입니다&quot;</p>
+<ul>
+<li>1%의 개선을 축하하세요</li>
+</ul>
+</li>
+<li><p>&quot;실패는 피드백입니다&quot;</p>
+<ul>
+<li>배움의 기회로 삼으세요</li>
+</ul>
+</li>
+<li><p>&quot;당신은 할 수 있습니다&quot;</p>
+<ul>
+<li>이미 고민하고 있잖아요</li>
+<li>그게 시작입니다</li>
+</ul>
+</li>
+</ol>
+<p>━━━━━━━━━━━━━━━━━━━━━━━</p>
+<p>📝 오늘의 숙제</p>
+<ol>
+<li>명확한 목표 1개 적기</li>
+<li>내일 할 첫 액션 결정하기</li>
+<li>누군가에게 목표 공유하기</li>
+</ol>
+<p>준비되셨나요?
+지금 바로 시작합시다! 💪&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">118 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="글쓰기-스타일-writing-styles">글쓰기 스타일 (Writing Styles) {#글쓰기-스타일-writing-styles}</h2>
+<h3 id="글쓰기-스타일이란">✍️ 글쓰기 스타일이란? {#글쓰기-스타일이란}</h3>
+<p><strong>파인만 설명:</strong></p>
+<blockquote>
+<p>ChatGPT에게 &quot;어떤 톤과 형식으로 답변할지&quot; 지시하는 것입니다.</p>
+<p>비유: 같은 내용도 신문 기사체, 소설체, 광고 카피체로 다르게 표현할 수 있습니다.</p>
+</blockquote>
+<h3 id="11가지-스타일-마스터하기">🎨 11가지 스타일 마스터하기 {#11가지-스타일-마스터하기}</h3>
+<h4>1. <strong>Explanation</strong> - 설명체</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1317" onclick="copyCode('code-1769482284938-1317')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1317" class="language-plaintext">언제 사용?
+- 개념 이해가 필요할 때
+- 단계별 설명이 필요할 때
+
+<p>프롬프트:
+&quot;Explain React Hooks in explanation style&quot;</p>
+<p>답변:
+&quot;React Hooks는 함수형 컴포넌트에서 상태와 생명주기 기능을
+사용할 수 있게 해주는 특별한 함수입니다.</p>
+<p>정의:
+Hooks는 &#39;use&#39;로 시작하는 특별한 JavaScript 함수입니다.</p>
+<p>작동 원리:</p>
+<ol>
+<li>함수형 컴포넌트 안에서 호출</li>
+<li>React가 해당 컴포넌트의 상태를 추적</li>
+<li>리렌더링 시 상태 유지</li>
+</ol>
+<p>주요 종류:</p>
+<ul>
+<li>useState: 상태 관리</li>
+<li>useEffect: 부수 효과 처리</li>
+<li>useContext: 컨텍스트 접근</li>
+</ul>
+<p>예시:</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">19 lines</span>
+  </div></p>
+</div>javascript
+import { useState } from 'react';
+
+<p>function Counter() {
+  const [count, setCount] = useState(0);
+  // useState Hook으로 count 상태 생성</p>
+<p>  return (
+    &lt;button onClick={() =&gt; setCount(count + 1)}&gt;
+      Count: {count}
+    </button>
+  );
+}</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1318" onclick="copyCode('code-1769482284938-1318')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1318" class="language-plaintext">이점:
+- 코드 재사용 용이
+- 로직 분리 가능
+- 클래스 없이 상태 관리&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h4>2. <strong>Opinion</strong> - 의견체</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1319" onclick="copyCode('code-1769482284938-1319')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1319" class="language-plaintext">언제 사용?
+- 기술 선택 조언이 필요할 때
+- 장단점 비교가 필요할 때
+
+<p>프롬프트:
+&quot;In your opinion, should I learn React or Vue?&quot;</p>
+<p>답변:
+&quot;개인적인 의견으로는 React를 먼저 추천합니다.</p>
+<p>이유:</p>
+<ol>
+<li><p>시장 점유율
+React가 압도적으로 높습니다.
+→ 취업 기회가 더 많음</p>
+</li>
+<li><p>생태계
+React는 더 많은 라이브러리와 도구를 제공합니다.</p>
+<ul>
+<li>Next.js (SSR 프레임워크)</li>
+<li>React Native (모바일)</li>
+<li>풍부한 UI 라이브러리</li>
+</ul>
+</li>
+<li><p>커뮤니티
+더 큰 커뮤니티 = 더 많은 튜토리얼, 해결책</p>
+</li>
+</ol>
+<p>하지만 Vue가 나은 경우도 있습니다:</p>
+<ul>
+<li>빠른 프로토타이핑이 목적이라면</li>
+<li>작은 팀에서 작업한다면</li>
+<li>학습 곡선을 완만하게 가고 싶다면</li>
+</ul>
+<p>결론:
+취업이 목표 → React
+개인 프로젝트 → Vue도 좋은 선택</p>
+<p>다만 이건 어디까지나 제 의견이고,
+당신의 상황과 목표에 따라 달라질 수 있습니다.&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">27 lines</span>
+  </div></p>
+</div>
+
+<h4>3. <strong>Formal</strong> - 격식체</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1320" onclick="copyCode('code-1769482284938-1320')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1320" class="language-plaintext">언제 사용?
+- 공식 문서 작성
+- 비즈니스 제안서
+- 학술 논문
+
+<p>프롬프트:
+&quot;Write a formal proposal for implementing microservices&quot;</p>
+<p>답변:
+&quot;마이크로서비스 아키텍처 도입 제안서</p>
+<ol>
+<li>제안 배경
+현재의 모놀리식 아키텍처는 다음과 같은 한계를 보이고 있습니다:</li>
+</ol>
+<ul>
+<li>배포 주기 지연 (평균 2주)</li>
+<li>확장성 제한</li>
+<li>기술 스택 다양화 불가</li>
+</ul>
+<ol start="2">
+<li>제안 내용
+본 제안은 마이크로서비스 아키텍처로의 단계적 전환을 목표로 합니다.</li>
+</ol>
+<p>2.1 아키텍처 설계</p>
+<ul>
+<li>도메인 주도 설계(DDD) 원칙 적용</li>
+<li>API Gateway 패턴 구현</li>
+<li>서비스 간 통신: REST + Message Queue</li>
+</ul>
+<p>2.2 기술 스택</p>
+<ul>
+<li>컨테이너: Docker</li>
+<li>오케스트레이션: Kubernetes</li>
+<li>서비스 메시: Istio</li>
+<li>모니터링: Prometheus + Grafana</li>
+</ul>
+<ol start="3">
+<li>기대 효과
+3.1 비즈니스 측면</li>
+</ol>
+<ul>
+<li>배포 주기 75% 단축</li>
+<li>서비스별 독립 확장으로 비용 30% 절감</li>
+</ul>
+<p>3.2 기술적 측면</p>
+<ul>
+<li>장애 격리로 가용성 99.9% 달성</li>
+<li>개발 생산성 40% 향상</li>
+</ul>
+<ol start="4">
+<li><p>구현 일정
+Phase 1 (3개월): 파일럿 프로젝트
+Phase 2 (6개월): 핵심 서비스 전환
+Phase 3 (12개월): 전체 시스템 완료</p>
+</li>
+<li><p>예산
+총 예상 비용: 5억원</p>
+</li>
+</ol>
+<ul>
+<li>인프라: 2억원</li>
+<li>인력: 2.5억원</li>
+<li>교육 및 컨설팅: 0.5억원</li>
+</ul>
+<ol start="6">
+<li>리스크 관리</li>
+</ol>
+<ul>
+<li>기술 부채 증가 우려 → 코드 리뷰 강화</li>
+<li>복잡도 증가 → 표준화 가이드 수립</li>
+</ul>
+<p>결론:
+마이크로서비스 도입은 장기적 경쟁력 확보를 위한
+필수적인 투자입니다.</p>
+<p>제출일: 2024년 10월 12일
+제안자: [이름/부서]&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">48 lines</span>
+  </div></p>
+</div>
+
+<h4>4. <strong>Personal</strong> - 개인적 어투</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1321" onclick="copyCode('code-1769482284938-1321')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1321" class="language-plaintext">언제 사용?
+- 블로그 포스트
+- 경험 공유
+- 친근한 조언
+
+<p>프롬프트:
+&quot;Write a personal blog post about learning to code&quot;</p>
+<p>답변:
+&quot;코딩을 배우며 느낀 솔직한 이야기</p>
+<p>안녕하세요, 여러분!</p>
+<p>오늘은 제가 코딩을 배우면서 겪은
+진짜 이야기를 해볼까 해요.</p>
+<p>📅 6개월 전</p>
+<p>&quot;파이썬? 그게 뱀인가요?&quot;
+진짜로 이렇게 물어봤어요 ㅋㅋ</p>
+<p>IT 지식 제로 상태로
+무작정 시작했습니다.</p>
+<p>😭 첫 달: 지옥문 입성</p>
+<p>솔직히 말하면...
+하루에 10번은 포기하고 싶었어요.</p>
+<p>&quot;왜 이 코드가 안 돼?&quot;
+&quot;세미콜론 하나 때문에?&quot;
+&quot;나는 코딩 재능이 없나봐...&quot;</p>
+<p>매일 이런 생각의 연속이었죠.</p>
+<p>💡 전환점</p>
+<p>2개월째 되던 날,
+처음으로 제대로 된 프로그램을 만들었어요.</p>
+<p>간단한 계산기였는데...
+작동하는 걸 보는 순간
+눈물이 날 뻔했어요. (진짜로!)</p>
+<p>&quot;와, 내가 이걸 만들었어!&quot;</p>
+<p>그 짜릿함을 아직도 기억해요.</p>
+<p>🚀 지금</p>
+<p>6개월이 지난 지금,
+저는 작은 웹사이트를 만들 수 있게 됐어요.</p>
+<p>완벽하진 않지만,
+매일 조금씩 나아지고 있어요.</p>
+<p>💬 배운 교훈</p>
+<ol>
+<li><p>완벽하지 않아도 괜찮아요
+저는 아직도 에러 메시지 보면 당황해요.
+그래도 괜찮아요. 다들 그래요.</p>
+</li>
+<li><p>작은 것부터 시작하세요
+거창한 앱 만들려고 하지 마세요.
+계산기, To-Do 리스트면 충분해요.</p>
+</li>
+<li><p>커뮤니티의 힘
+혼자 고민하지 마세요.
+물어보세요. 다들 친절해요.</p>
+</li>
+<li><p>비교하지 마세요
+남들은 10년 했을 수도 있어요.
+당신만의 속도로 가세요.</p>
+</li>
+</ol>
+<p>❤️ 초보 개발자분들께</p>
+<p>지금 힘들다면,
+그게 정상이에요.</p>
+<p>저도 그랬고,
+모든 개발자가 그랬어요.</p>
+<p>포기하지 마세요.
+6개월 후의 당신은
+지금의 당신에게 고마워할 거예요.</p>
+<p>화이팅! 💪</p>
+<p>P.S. 궁금한 거 있으면 댓글로 물어보세요.
+제가 아는 선에서 답변 드릴게요!&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">60 lines</span>
+  </div></p>
+</div>
+
+<h4>5. <strong>Professional</strong> - 전문가 어투</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482284938-1322" onclick="copyCode('code-1769482284938-1322')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284938-1322" class="language-plaintext">언제 사용?
+- 기술 문서
+- 클라이언트 커뮤니케이션
+- 공식 이메일
+
+<p>프롬프트:
+&quot;Write a professional email about a project delay&quot;</p>
+<p>답변:
+&quot;제목: [프로젝트명] 일정 조정 안내</p>
+<p>귀하,</p>
+<p>안녕하세요.
+[프로젝트명] 개발 담당자 [이름]입니다.</p>
+<ol>
+<li><p>현황 보고
+━━━━━━━━━━━━━━━━━━━━━━━
+현재 프로젝트 진행률: 85%
+예상 완료일: 2024년 10월 31일
+당초 계획: 2024년 10월 15일</p>
+</li>
+<li><p>지연 사유
+━━━━━━━━━━━━━━━━━━━━━━━
+다음과 같은 기술적 이슈로 인해
+일정 조정이 불가피합니다:</p>
+</li>
+</ol>
+<p>(1) 제3자 API 통합 지연</p>
+<ul>
+<li>파트너사의 API 문서 오류 발견</li>
+<li>수정 요청 및 재작업 소요</li>
+</ul>
+<p>(2) 보안 취약점 발견 및 수정</p>
+<ul>
+<li>사전 테스트 중 치명적 보안 이슈 발견</li>
+<li>즉각적인 패치 작업 진행</li>
+</ul>
+<ol start="3">
+<li>대응 방안
+━━━━━━━━━━━━━━━━━━━━━━━
+고객 불편을 최소화하기 위해
+다음과 같이 조치하였습니다:</li>
+</ol>
+<p>✓ 추가 개발 인력 2명 투입
+✓ 주말 작업 일정 편성
+✓ 일일 진행상황 보고 체계 구축</p>
+<ol start="4">
+<li>보상 방안
+━━━━━━━━━━━━━━━━━━━━━━━
+지연에 대한 송구함을 표하며,
+다음과 같이 제안드립니다:</li>
+</ol>
+<p>• 1개월 무상 유지보수 연장
+• 추가 기능 2개 무상 개발
+• 10% 요금 할인</p>
+<ol start="5">
+<li>향후 일정
+━━━━━━━━━━━━━━━━━━━━━━━
+10월 20일: 베타 버전 배포
+10월 25일: 최종 테스트
+10월 31일: 정식 런칭</li>
+</ol>
+<p>불편을 드려 진심으로 사과드립니다.
+최선을 다해 완성도 높은 결과물을
+제공하겠습니다.</p>
+<p>추가 문의사항은 언제든 연락 주시기 바랍니다.</p>
+<p>감사합니다.</p>
+<p>[이름]
+[직책]
+[연락처]
+[이메일]&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">54 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<p>이어서 나머지 스타일과 섹션들을 작성하겠습니다. 계속 진행하겠습니다.</p>
+<function_calls>
+<invoke name="TodoWrite">
+<parameter name="todos">[{"content": "\uc774\ubbf8\uc9c0 \ub0b4\uc6a9 \ubd84\uc11d \ubc0f \uad6c\uc870\ud654", "status": "completed", "activeForm": "\uc774\ubbf8\uc9c0 \ub0b4\uc6a9 \ubd84\uc11d \ubc0f \uad6c\uc870\ud654 \uc644\ub8cc"}, {"content": "\ud30c\uc778\ub9cc \uae30\ubc95 \uae30\ubc18 \ucd08\ubcf4\uc790\uc6a9 \ucf58\ud150\uce20 \uc791\uc131", "status": "completed", "activeForm": "\ud30c\uc778\ub9cc \uae30\ubc95 \uae30\ubc18 \ucd08\ubcf4\uc790\uc6a9 \ucf58\ud150\uce20 \uc791\uc131 \uc644\ub8cc"}, {"content": "\uc2a4\ud1a0\ub9ac\ud154\ub9c1 \ubc29\uc2dd\uc758 \uc608\uc2dc \ubc0f \uc2dc\ub098\ub9ac\uc624 \uc791\uc131", "status": "completed", "activeForm": "\uc2a4\ud1a0\ub9ac\ud154\ub9c1 \ubc29\uc2dd\uc758 \uc608\uc2dc \ubc0f \uc2dc\ub098\ub9ac\uc624 \uc791\uc131 \uc644\ub8fc"}, {"content": "\ub098\uba38\uc9c0 \ucf58\ud150\uce20 \uacc4\uc18d \uc791\uc131 \uc911 \ud30c\ud2b8 2", "status": "in_progress", "activeForm": "\ub098\uba38\uc9c0 \ucf58\ud150\uce20 \uacc4\uc18d \uc791\uc131 \uc911"}]
+
+<hr>
+<h2 id="용어-사전-terminology">용어 사전 (Terminology) {#용어-사전-terminology}</h2>
+<p>이 노트에 사용된 기술 용어를 초보자도 이해할 수 있게 설명합니다.</p>
+<h3 id="a">A {#a}</h3>
+<p><strong>API (Application Programming Interface)</strong></p>
+<ul>
+<li>간단히: 프로그램들이 서로 대화하는 방법</li>
+<li>비유: 식당의 메뉴판 (주문 방법이 정해져 있음)</li>
+<li>예시: 날씨 앱이 기상청 데이터를 가져오는 방식</li>
+</ul>
+<p><strong>AI (Artificial Intelligence)</strong></p>
+<ul>
+<li>간단히: 컴퓨터가 사람처럼 생각하고 배우는 기술</li>
+<li>비유: 계속 공부하는 로봇</li>
+<li>예시: ChatGPT, Siri, 자율주행차</li>
+</ul>
+<h3 id="b">B {#b}</h3>
+<p><strong>Bug (버그)</strong></p>
+<ul>
+<li>간단히: 코드에 있는 오류나 문제</li>
+<li>비유: 기계에 끼인 모래 (작동 방해)</li>
+<li>예시: 버튼을 눌러도 아무 일도 안 일어남</li>
+</ul>
+<p><strong>Boolean</strong></p>
+<ul>
+<li>간단히: 참(샘)/거짓(아니오) 두 가지 값만 가지는 데이터</li>
+<li>비유: 스위치 (ON/OFF)</li>
+<li>예시: isActive = true, isLoggedIn = false</li>
+</ul>
+<h3 id="c">C {#c}</h3>
+<p><strong>Component (컴포넌트)</strong></p>
+<ul>
+<li>간단히: 재사용 가능한 UI 조각</li>
+<li>비유: 레고 블록 (조합해서 만듬)</li>
+<li>예시: 버튼, 카드, 네비게이션 바</li>
+</ul>
+<p><strong>CSS (Cascading Style Sheets)</strong></p>
+<ul>
+<li>간단히: 웹페이지를 예쁨게 꾸미는 언어</li>
+<li>비유: 집의 인테리어 (색감, 배치)</li>
+<li>예시: 글자 색, 배경, 크기</li>
+</ul>
+<h3 id="d">D {#d}</h3>
+<p><strong>Debug (디버그)</strong></p>
+<ul>
+<li>간단히: 버그를 찾아서 고치는 과정</li>
+<li>비유: 형사 가 범인 찾기</li>
+<li>예시: console.log()로 값 확인하기</li>
+</ul>
+<p><strong>Deploy (배포)</strong></p>
+<ul>
+<li>간단히: 완성된 코드를 서버에 올리기</li>
+<li>비유: 쪽이찌 처음 열어서 판매 시작</li>
+<li>예시: 웹사이트를 인터넷에 공개</li>
+</ul>
+<h3 id="e">E {#e}</h3>
+<p><strong>Extension (확장 프로그램)</strong></p>
+<ul>
+<li>간단히: 브라우저에 기능을 추가하는 도구</li>
+<li>비유: 스마트폰 앱 (기능 확장)</li>
+<li>예시: AIPRM, MERLIN</li>
+</ul>
+<h3 id="f">F {#f}</h3>
+<p><strong>Framework (프레임워크)</strong></p>
+<ul>
+<li>간단히: 미리 만들어진 코드 틀</li>
+<li>비유: 건축 설계도 (틀을 따라 짓기)</li>
+<li>예시: React, Vue, Django</li>
+</ul>
+<p><strong>Function (함수)</strong></p>
+<ul>
+<li>간단히: 특정 작업을 수행하는 코드 블록</li>
+<li>비유: 요리 레시피 (재료 넣으면 요리 나옴)</li>
+<li>예시: function add(a, b) { return a + b; }</li>
+</ul>
+<h3 id="g">G {#g}</h3>
+<p><strong>Git</strong></p>
+<ul>
+<li>간단히: 코드 변경 사항을 기록하는 도구</li>
+<li>비유: 타임머신 (과거로 돌아갈 수 있음)</li>
+<li>예시: git commit, git push</li>
+</ul>
+<p><strong>GitHub</strong></p>
+<ul>
+<li>간단히: 코드를 온라인에 저장하는 서비스</li>
+<li>비유: 코드용 구글 드라이브</li>
+<li>예시: github.com/your-username/project</li>
+</ul>
+<h3 id="h">H {#h}</h3>
+<p><strong>Hooks (리액트 훅스)</strong></p>
+<ul>
+<li>간단히: 함수형 컴포넌트에 기능을 &quot;걸어&quot;주는 함수</li>
+<li>비유: 중간에 갈고리 설치 (훅 = 갈고리)</li>
+<li>예시: useState, useEffect</li>
+</ul>
+<p><strong>HTML (HyperText Markup Language)</strong></p>
+<ul>
+<li>간단히: 웹페이지의 기본 구조를 만드는 언어</li>
+<li>비유: 집의 기둥, 벽 (기본 곳간)</li>
+<li>예시: <h1>Hello</h1>, <button>Click</button></li>
+</ul>
+<h3 id="i">I {#i}</h3>
+<p><strong>IDE (Integrated Development Environment)</strong></p>
+<ul>
+<li>간단히: 코딩을 위한 종합 도구</li>
+<li>비유: 모든 공구가 다 있는 작업대</li>
+<li>예시: VS Code, PyCharm</li>
+</ul>
+<p><strong>API 요청 (Input)</strong></p>
+<ul>
+<li>간단히: 사용자가 ChatGPT에게 보내는 메시지</li>
+<li>비유: 식당에 주문 넣기</li>
+<li>예시: &quot;파이썬 코드 예제 보여줘&quot;</li>
+</ul>
+<h3 id="j">J {#j}</h3>
+<p><strong>JavaScript (JS)</strong></p>
+<ul>
+<li>간단히: 웹페이지에 동작을 추가하는 언어</li>
+<li>비유: 로봇의 동작 프로그램</li>
+<li>예시: 버튼 클릭 시 팝업 표시</li>
+</ul>
+<p><strong>JSON (JavaScript Object Notation)</strong></p>
+<ul>
+<li>간단히: 데이터를 전달하는 형식</li>
+<li>비유: 택배 송장 (정리된 형식)</li>
+<li>예시: {&quot;name&quot;: &quot;John&quot;, &quot;age&quot;: 30}</li>
+</ul>
+<h3 id="l">L {#l}</h3>
+<p><strong>Library (라이브러리)</strong></p>
+<ul>
+<li>간단히: 재사용 가능한 코드 모음</li>
+<li>비유: 도구 상자 (필요할 때 꺼내 쓰기)</li>
+<li>예시: React, jQuery, Lodash</li>
+</ul>
+<p><strong>LLM (Large Language Model)</strong></p>
+<ul>
+<li>간단히: 많은 텍스트로 훈련된 AI 모델</li>
+<li>비유: 체육관 크기의 책을 읽은 AI</li>
+<li>예시: GPT-4, Claude, Llama</li>
+</ul>
+<h3 id="m">M {#m}</h3>
+<p><strong>MCP (Model Context Protocol)</strong></p>
+<ul>
+<li>간단히: AI가 외부 도구를 사용하는 방법</li>
+<li>비유: 로봇이 다른 기계를 조종하는 매뉴얼</li>
+<li>예시: ChatGPT가 파일 읽기, 웹서핀</li>
+</ul>
+<p><strong>Metadata (메타데이터)</strong></p>
+<ul>
+<li>간단히: 데이터에 대한 데이터</li>
+<li>비유: 책 표지의 정보 (저자, 출판일 등)</li>
+<li>예시: 파일 생성일, 크기, 태그</li>
+</ul>
+<h3 id="o">O {#o}</h3>
+<p><strong>API 응답 (Output)</strong></p>
+<ul>
+<li>간단히: ChatGPT가 사용자에게 보내는 답변</li>
+<li>비유: 식당에서 나온 음식</li>
+<li>예시: &quot;파이썬 코드: print(&#39;Hello&#39;)&quot;</li>
+</ul>
+<h3 id="p">P {#p}</h3>
+<p><strong>Plugin (플러그인)</strong></p>
+<ul>
+<li>간단히: ChatGPT에 기능을 추가하는 도구</li>
+<li>비유: 게임 캐릭터의 스킬 또는 아이템</li>
+<li>예시: AskYourPDF, Zapier</li>
+</ul>
+<p><strong>Prompt (프롬프트)</strong></p>
+<ul>
+<li>간단히: AI에게 주는 명령어 또는 질문</li>
+<li>비유: 지니에게 하는 소원 (어떻게 말하냐가 중요)</li>
+<li>예시: &quot;Act like a teacher. Explain...&quot;</li>
+</ul>
+<h3 id="r">R {#r}</h3>
+<p><strong>Repository (리포지토리)</strong></p>
+<ul>
+<li>간단히: 프로젝트 코드를 저장하는 곳</li>
+<li>비유: 코드용 창고</li>
+<li>예시: GitHub의 프로젝트 폴더</li>
+</ul>
+<p><strong>REST API</strong></p>
+<ul>
+<li>간단히: 웹에서 데이터를 주고받는 규칙</li>
+<li>비유: 우체국 규칙 (주소, 발신, 수신)</li>
+<li>예시: GET, POST, PUT, DELETE</li>
+</ul>
+<h3 id="s">S {#s}</h3>
+<p><strong>SEO (Search Engine Optimization)</strong></p>
+<ul>
+<li>간단히: 검색 결과에 잘 노출되도록 최적화</li>
+<li>비유: 가게 간판 잘 보이게 만들기</li>
+<li>예시: 키워드 사용, 메타 태그</li>
+</ul>
+<p><strong>State (상태)</strong></p>
+<ul>
+<li>간단히: 현재 저장되어 있는 데이터/정보</li>
+<li>비유: 게임 세이브 파일</li>
+<li>예시: 로그인 여부, 장바구니 내용</li>
+</ul>
+<h3 id="t">T {#t}</h3>
+<p><strong>Template (템플릿)</strong></p>
+<ul>
+<li>간단히: 재사용 가능한 틀</li>
+<li>비유: 쿠키 커터 (모양이 정해져 있음)</li>
+<li>예시: 프롬프트 템플릿, 코드 템플릿</li>
+</ul>
+<p><strong>Token (토큰)</strong></p>
+<ul>
+<li>간단히: AI가 처리하는 텍스트 단위</li>
+<li>비유: 단어 조각 (토큰 = 0.75단어)</li>
+<li>예시: &quot;Hello World&quot; = 약 2토큰</li>
+</ul>
+<h3 id="u">U {#u}</h3>
+<p><strong>UI (User Interface)</strong></p>
+<ul>
+<li>간단히: 사용자가 보고 조작하는 화면</li>
+<li>비유: 캐 대시보드</li>
+<li>예시: 버튼, 메뉴, 폼</li>
+</ul>
+<p><strong>UX (User Experience)</strong></p>
+<ul>
+<li>간단히: 사용자가 느끼는 경험</li>
+<li>비유: 식당 서비스 품질</li>
+<li>예시: 빠른 로딩, 직관적 내비게이션</li>
+</ul>
+<h3 id="v">V {#v}</h3>
+<p><strong>Variable (변수)</strong></p>
+<ul>
+<li>간단히: 데이터를 담는 상자</li>
+<li>비유: 라벨이 붙은 서랍 (이름을 부여)</li>
+<li>예시: let name = &quot;John&quot;, const age = 25</li>
+</ul>
+<h3 id="w">W {#w}</h3>
+<p><strong>Workflow (워크플로우)</strong></p>
+<ul>
+<li>간단히: 작업 순서와 흐름</li>
+<li>비유: 요리 레시피의 단계</li>
+<li>예시: 디자인 → 코딩 → 테스트 → 배포</li>
+</ul>
+<hr>
+<h2 id="최종-정리-및-학습-가이드">최종 정리 및 학습 가이드 {#최종-정리-및-학습-가이드}</h2>
+<h3 id="학습-단계별-추천">학습 단계별 추천 {#학습-단계별-추천}</h3>
+<h4>초등 레벨 (1일차)</h4>
+<ol>
+<li>ChatGPT란 무엇인가 읽기</li>
+<li>기본 사용법 따라하기</li>
+<li>간단한 질문 3개 해보기</li>
+</ol>
+<h4>초급 레벨 (1주차)</h4>
+<ol>
+<li>확장 프로그램 1개 설치</li>
+<li>역할 놀이 3가지 시도</li>
+<li>Open-Ended 질문 연습</li>
+</ol>
+<h4>중급 레벨 (1개월차)</h4>
+<ol>
+<li>플러그인 3개 활용</li>
+<li>프롬프트 템플릿 작성</li>
+<li>글쓰기 스타일 5가지 습듩</li>
+</ol>
+<h4>고급 레벨 (3개월차)</h4>
+<ol>
+<li>자동화 워크플로우 구축</li>
+<li>커스텀 프롬프트 템플릿 제작</li>
+<li>AI 협업 프로젝트 완성</li>
+</ol>
+<hr>
+<h2 id="추가-학습-자료">추가 학습 자료 {#추가-학습-자료}</h2>
+<h3 id="공식-리소스">공식 리소스 {#공식-리소스}</h3>
+<ul>
+<li>OpenAI 공식 문서</li>
+<li>ChatGPT Help Center</li>
+<li>OpenAI API Documentation</li>
+</ul>
+<h3 id="커뮤니티">커뮤니티 {#커뮤니티}</h3>
+<ul>
+<li>Reddit r/ChatGPT</li>
+<li>Discord AI 서버</li>
+<li>Twitter #ChatGPT</li>
+</ul>
+<h3 id="유튜브-채널">유튜브 채널 {#유튜브-채널}</h3>
+<ul>
+<li>Matt Wolfe (AI 뉴스)</li>
+<li>AI Explained</li>
+<li>All About AI</li>
+</ul>
+<hr>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/llm-practical-guide.html" class="internal-link">LLM 활용 가이드</a></li>
+<li><a href="/articles/ai-tools-analysis.html" class="internal-link">AI 도구 분석</a></li>
+<li><a href="/articles/prompt-engineering.html" class="internal-link">프롬프트 엔지니어링</a></li>
+<li><a href="/articles/claude-code-practical-guide.html" class="internal-link">Claude Code 활용 가이드</a></li>
+<li><a href="/articles/development-tools.html" class="internal-link">개발자 도구 모음</a></li>
+</ul>
+<hr>
+<p><strong>마치며</strong></p>
+<p>이 가이드가 당신의 ChatGPT 활용 여정에 도움이 되기를 바랍니다.</p>
+<p>기억하세요:</p>
+<ul>
+<li>완벽한 프롬프트는 없습니다. 계속 실험하세요.</li>
+<li>AI는 도구입니다. 당신이 주인이에요.</li>
+<li>작은 실험이 큰 발견을 만듭니다.</li>
+</ul>
+<p>지금 바로 시작하세요! ������</p>
+<hr>
+<p><em>작성일: 2025-10-12</em>
+<em>버전: 1.0</em>
+<em>피드백: 환영합니다!</em></p>
+<hr>
+<h2 id="part-1-완료">🎉 Part 1 완료! {#part-1-완료}</h2>
+<p>➡️ <strong>계속 읽기</strong>: <a href="/articles/chatgptperfectpracticalguidepart2advanced.html" class="internal-link">ChatGPT_완벽_활용_가이드_Part2_고급편</a></p>
+<p>Part 2에서는 더욱 고급 내용을 다룹니다!</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/ChatGPT.html" class="article-tag">ChatGPT</a><a href="/tag/가이드.html" class="article-tag">가이드</a><a href="/tag/초보자.html" class="article-tag">초보자</a><a href="/tag/프롬프트.html" class="article-tag">프롬프트</a><a href="/tag/엔지니어링.html" class="article-tag">엔지니어링</a><a href="/tag/LLM.html" class="article-tag">LLM</a><a href="/tag/활용.html" class="article-tag">활용</a><a href="/tag/개발도구.html" class="article-tag">개발도구</a><a href="/tag/AI.html" class="article-tag">AI</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/chatgpt-perfect-practical-guide-beginners.html&text=ChatGPT 완벽 활용 가이드 - 초보자편" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/chatgpt-perfect-practical-guide-beginners.html&title=ChatGPT 완벽 활용 가이드 - 초보자편" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/chatgpt-perfect-practical-guide-beginners.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-analyst.html" class="author-bio__card">
+          <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 분석가</h3>
+            <p class="author-bio__role">AI Tools Analyst</p>
+            <p class="author-bio__text">AI 도구와 LLM 활용에 대한 심층 분석을 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/sima-2-ai-how-to.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/llm-guides-placeholder.svg"
+             alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          LLM 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h3>
+          <p class="article-card__excerpt">핵심 아이디어: SIMA 2는 가상 환경에서 독립적으로 학습하는 AI로, 이는 교육 시스템 자체를 근본적으로 변화시킬 수 있는 잠재력을 가지고 있습니다. 1.  || #배경 및 맥락 2.  || #핵심 개념 3.  || #SIMA 2의 작동 원리 4.  || #교육에...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">8 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/chatgpt-perfect-practical-guide-part-2-advanced.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/llm-guides-placeholder.svg"
+             alt="ChatGPT 완벽 활용 가이드 Part 2 - 고급편"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          LLM 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">ChatGPT 완벽 활용 가이드 Part 2 - 고급편</h3>
+          <p class="article-card__excerpt">"기초를 넘어, 전문가처럼 ChatGPT를 활용하는 방법" Part 1에서 배운 기초를 바탕으로, 이제 고급 기법과 실전 활용법을 마스터합니다. ⬅️ 이전:  || ChatGPT완벽활용가이드Part1기초편 --- 1.  || #Interactive 대화형 2.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/ai-llm.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/llm-guides-placeholder.svg"
+             alt="AI는 어떻게 대화를 기억할까? - LLM 메모리의 비밀"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          LLM 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">AI는 어떻게 대화를 기억할까? - LLM 메모리의 비밀</h3>
+          <p class="article-card__excerpt">1.  || #충격적인 진실 - AI는 기억력이 없다 2.  || #AI가 기억하는 것처럼 보이는 마법의 원리 3.  || #토큰과 컨텍스트 윈도우 이해하기 4.  || #대화가 길어질 때의 문제점 5.  || #AI의 메모리 한계를 극복하는 방법 6.  || #실전...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">24 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI 기술 자료 저널</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

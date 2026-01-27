@@ -1,8 +1,8 @@
 # Dependencies
 node_modules/
 
-# Build output
-site/build/
+# Build output (tracked for deployment - Vercel can't access local Obsidian)
+# site/build/
 
 # OS files
 .DS_Store

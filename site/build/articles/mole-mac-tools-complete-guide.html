@@ -1,0 +1,2100 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mole - Mac 청소 도구 완전 정복 가이드 | AI &amp; Development Journal</title>
+  <meta name="description" content="1.  || #Mole이 뭔가요 두더지가 Mac을 파헤친다 2.  || #왜 Mac은 느려질까 숨겨진 쓰레기들 3.  || #Mole의 3대 핵심 기능 4.  || #설치부터 첫 사용까지 5.  || #실전 활용 예제 6.  || #내부 작동 원리 이해하기 7. ...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Mole - Mac 청소 도구 완전 정복 가이드">
+  <meta property="og:description" content="1.  || #Mole이 뭔가요 두더지가 Mac을 파헤친다 2.  || #왜 Mac은 느려질까 숨겨진 쓰레기들 3.  || #Mole의 3대 핵심 기능 4.  || #설치부터 첫 사용까지 5.  || #실전 활용 예제 6.  || #내부 작동 원리 이해하기 7. ...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/mole-mac-tools-complete-guide.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Mole - Mac 청소 도구 완전 정복 가이드">
+  <meta name="twitter:description" content="1.  || #Mole이 뭔가요 두더지가 Mac을 파헤친다 2.  || #왜 Mac은 느려질까 숨겨진 쓰레기들 3.  || #Mole의 3대 핵심 기능 4.  || #설치부터 첫 사용까지 5.  || #실전 활용 예제 6.  || #내부 작동 원리 이해하기 7. ...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/mole-mac-tools-complete-guide.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">Mole - Mac 청소 도구 완전 정복 가이드</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 10월 6일">2025년 10월 6일</time>
+            <span class="article-meta__separator">·</span>
+            <span>29 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#mole이-뭔가요-두더지가-mac을-파헤친다" class="toc__link">Mole이 뭔가요? 두더지가 Mac을 파헤친다!</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실생활-이야기로-시작하기" class="toc__link">🐹 실생활 이야기로 시작하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#5살-아이에게-설명한다면" class="toc__link">📖 5살 아이에게 설명한다면</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-개념-why-what-how" class="toc__link">🎯 핵심 개념 (WHY → WHAT → HOW)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#왜-mac은-느려질까-숨겨진-쓰레기들" class="toc__link">왜 Mac은 느려질까? 숨겨진 쓰레기들</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#보이지-않는-쓰레기의-정체" class="toc__link">🕵️ 보이지 않는 쓰레기의 정체</a>
+    </li>
+    <li class="toc__item">
+      <a href="#mole의-3대-핵심-기능" class="toc__link">Mole의 3대 핵심 기능</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기능-1-시스템-청소-mo-clean" class="toc__link">🧹 기능 1: 시스템 청소 (mo clean)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급-예제-화이트리스트로-중요-캐시-보호" class="toc__link">🌿 중급 예제: 화이트리스트로 중요 캐시 보호</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기능-2-앱-완전-삭제-mo-uninstall" class="toc__link">🗑️ 기능 2: 앱 완전 삭제 (mo uninstall)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기능-3-디스크-분석-mo-analyze" class="toc__link">📊 기능 3: 디스크 분석 (mo analyze)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-예제-배치-스크립트로-자동화" class="toc__link">🌳 고급 예제: 배치 스크립트로 자동화</a>
+    </li>
+    <li class="toc__item">
+      <a href="#내부-작동-원리-이해하기" class="toc__link">내부 작동 원리 이해하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#mole의-아키텍처" class="toc__link">🔬 Mole의 아키텍처</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-코드-분석" class="toc__link">📝 핵심 코드 분석</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실전-활용-예제" class="toc__link">실전 활용 예제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#팁-1-개발-환경-최적화" class="toc__link">💡 팁 1: 개발 환경 최적화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#팁-2-프로젝트별-청소-전략" class="toc__link">💡 팁 2: 프로젝트별 청소 전략</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#팁-3-공간-확보-우선순위-전략" class="toc__link">💡 팁 3: 공간 확보 우선순위 전략</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결-가이드" class="toc__link">문제 해결 가이드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#문제-1-permission-denied-오류" class="toc__link">⚠️ 문제 1: &quot;Permission denied&quot; 오류</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#문제-2-앱-삭제-후-작동-안-함" class="toc__link">⚠️ 문제 2: 앱 삭제 후 작동 안 함</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#문제-3-청소-후-앱이-느려짐" class="toc__link">⚠️ 문제 3: 청소 후 앱이 느려짐</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#문제-4-homebrew-캐시-삭제-후-문제" class="toc__link">⚠️ 문제 4: Homebrew 캐시 삭제 후 문제</a>
+    </li>
+    <li class="toc__item">
+      <a href="#핵심-정리" class="toc__link">핵심 정리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#꼭-기억할-7가지" class="toc__link">✅ 꼭 기억할 7가지</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#청소-효과-통계" class="toc__link">📊 청소 효과 통계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#청소-체크리스트" class="toc__link">🎯 청소 체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-팁" class="toc__link">🔧 고급 팁</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#참고-자료" class="toc__link">참고 자료</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Mole - Mac 청소 도구 완전 정복 가이드</h1>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#mole이-뭔가요-두더지가-mac을-파헤친다" class="internal-link internal-link--section">Mole이 뭔가요 두더지가 Mac을 파헤친다</a></li>
+<li><a href="#왜-mac은-느려질까-숨겨진-쓰레기들" class="internal-link internal-link--section">왜 Mac은 느려질까 숨겨진 쓰레기들</a></li>
+<li><a href="#mole의-3대-핵심-기능" class="internal-link internal-link--section">Mole의 3대 핵심 기능</a></li>
+<li><a href="#설치부터-첫-사용까지" class="internal-link internal-link--section">설치부터 첫 사용까지</a></li>
+<li><a href="#실전-활용-예제" class="internal-link internal-link--section">실전 활용 예제</a></li>
+<li><a href="#내부-작동-원리-이해하기" class="internal-link internal-link--section">내부 작동 원리 이해하기</a></li>
+<li><a href="#문제-해결-가이드" class="internal-link internal-link--section">문제 해결 가이드</a></li>
+<li><a href="#핵심-정리" class="internal-link internal-link--section">핵심 정리</a></li>
+</ol>
+<hr>
+<h2 id="mole이-뭔가요-두더지가-mac을-파헤친다">Mole이 뭔가요? 두더지가 Mac을 파헤친다! {#mole이-뭔가요-두더지가-mac을-파헤친다}</h2>
+<h3 id="실생활-이야기로-시작하기">🐹 실생활 이야기로 시작하기 {#실생활-이야기로-시작하기}</h3>
+<blockquote>
+<p>여러분의 Mac을 <strong>거대한 집</strong>이라고 상상해보세요. 매일 살다 보면 먼지가 쌓이고, 안 쓰는 물건들이 쌓이고, 곳곳에 숨겨진 쓰레기들이 생기죠. 하지만 벽 뒤, 천장 위, 바닥 밑에 숨어있는 쓰레기는 보이지 않습니다!</p>
+</blockquote>
+<p><strong>Mole은 바로 이런 숨겨진 쓰레기를 찾아내는 &quot;두더지&quot;입니다!</strong> 🐹</p>
+<h3 id="5살-아이에게-설명한다면">📖 5살 아이에게 설명한다면 {#5살-아이에게-설명한다면}</h3>
+<p>&quot;Mole은 Mac 컴퓨터 안에 숨어있는 쓰레기를 찾아서 깨끗이 치워주는 청소 로봇이에요.
+마치 두더지가 땅속을 파고 들어가듯이, Mole도 컴퓨터 깊숙한 곳까지 들어가서
+안 보이는 쓰레기를 찾아낸답니다!&quot;</p>
+<h3 id="핵심-개념-why-what-how">🎯 핵심 개념 (WHY → WHAT → HOW) {#핵심-개념-why-what-how}</h3>
+<h4>WHY (왜 필요한가요?)</h4>
+<p><strong>문제 상황</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6465" onclick="copyCode('code-1769481055184-6465')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6465" class="language-plaintext">새로 산 Mac: 250GB 여유 공간
+6개월 후: 50GB만 남음 (200GB가 어디로?!)
+1년 후: 10GB 경고! (앱도 별로 안 깔았는데...)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>범인들</strong>:</p>
+<ul>
+<li>앱 캐시 파일 (보이지 않는 임시 저장 공간)</li>
+<li>로그 파일 (앱들이 남긴 일기장들)</li>
+<li>휴지통에서 완전히 삭제 안 된 파일들</li>
+<li>앱 삭제 후 남은 찌꺼기들</li>
+</ul>
+<h4>WHAT (무엇을 하나요?)</h4>
+<p>Mole의 3가지 마법:</p>
+<ol>
+<li><p><strong>🧹 깊은 청소 (Deep Clean)</strong></p>
+<ul>
+<li>22개 이상의 숨겨진 장소를 탐색</li>
+<li>일반 청소 도구는 1곳, Mole은 22곳!</li>
+</ul>
+</li>
+<li><p><strong>🗑️ 완전 삭제 (Thorough Uninstall)</strong></p>
+<ul>
+<li>앱을 휴지통에 버리면 → 30% 만 삭제</li>
+<li>Mole로 삭제하면 → 100% 완전 제거!</li>
+</ul>
+</li>
+<li><p><strong>📊 공간 분석 (Disk Analyzer)</strong></p>
+<ul>
+<li>어떤 폴더가 큰지 한눈에 파악</li>
+<li>큰 파일 즉시 발견하고 삭제</li>
+</ul>
+</li>
+</ol>
+<h4>HOW (어떻게 작동하나요?)</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6466" onclick="copyCode('code-1769481055184-6466')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6466" class="language-plaintext">사용자가 명령어 입력
+    ↓
+Mole이 Mac 구석구석 탐색
+    ↓
+숨겨진 쓰레기 발견
+    ↓
+안전하게 삭제 (중요한 건 건드리지 않음)
+    ↓
+공간 확보 완료! ✨</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="왜-mac은-느려질까-숨겨진-쓰레기들">왜 Mac은 느려질까? 숨겨진 쓰레기들 {#왜-mac은-느려질까-숨겨진-쓰레기들}</h2>
+<h3 id="보이지-않는-쓰레기의-정체">🕵️ 보이지 않는 쓰레기의 정체 {#보이지-않는-쓰레기의-정체}</h3>
+<h4>1. 캐시 파일 (Cache Files)</h4>
+<p><strong>실생활 비유</strong>: 식당의 재료 창고</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6467" onclick="copyCode('code-1769481055184-6467')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6467" class="language-plaintext">식당 (앱)
+├─ 주방 (프로그램 파일) ← 실제 요리하는 곳
+└─ 재료 창고 (캐시) ← 자주 쓰는 재료 보관
+
+<p>캐시의 역할:</p>
+<ul>
+<li>빠른 접근을 위해 임시 저장</li>
+<li>자주 쓰는 데이터를 가까이 둠</li>
+<li>시간이 지나면 상한 재료처럼 쓸모없어짐</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">7 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>캐시 파일 위치</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6468" onclick="copyCode('code-1769481055184-6468')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6468" class="language-plaintext">~/Library/Caches/              ← 앱 캐시
+~/Library/Logs/                ← 앱 로그
+/System/Library/Caches/        ← 시스템 캐시
+/Library/Caches/               ← 전체 시스템 캐시</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>실제 크기 예시</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6469" onclick="copyCode('code-1769481055184-6469')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6469" class="language-plaintext">Chrome 캐시: 8.4GB    (웹페이지 임시 저장)
+Xcode 캐시: 9.1GB     (개발 도구 임시 파일)
+Spotify 캐시: 3.1GB   (음악 임시 다운로드)
+Node.js 캐시: 14.2GB  (프로그래밍 패키지)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h4>2. 로그 파일 (Log Files)</h4>
+<p><strong>실생활 비유</strong>: 앱들이 쓰는 일기장</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6470" onclick="copyCode('code-1769481055184-6470')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6470" class="language-plaintext">앱 A의 일기:
+&quot;2025-01-01: 정상 시작&quot;
+&quot;2025-01-02: 사용자가 버튼 클릭&quot;
+&quot;2025-01-03: 오류 발생!&quot;
+...
+[365일 * 수십 개 앱 = 수 GB]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<p><strong>문제점</strong>:</p>
+<ul>
+<li>계속 쌓임 (자동 삭제 안 됨)</li>
+<li>대부분 다시 안 봄</li>
+<li>공간만 차지</li>
+</ul>
+<h4>3. 앱 삭제 후 잔해물</h4>
+<p><strong>일반 삭제 (휴지통)</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6471" onclick="copyCode('code-1769481055184-6471')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6471" class="language-plaintext">/Applications/Photoshop.app 삭제
+                           ↓
+           30%만 삭제됨! ❌
+
+<p>남아있는 70%:
+~/Library/Preferences/com.adobe.Photoshop.plist
+~/Library/Application Support/Adobe/Photoshop/
+~/Library/Caches/Adobe Photoshop/
+~/Library/Logs/Adobe/
+~/Library/Cookies/com.adobe.Photoshop.binarycookies
+... (52개 파일, 12개 위치)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<p><strong>Mole 삭제</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6472" onclick="copyCode('code-1769481055184-6472')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6472" class="language-plaintext">mo uninstall → Photoshop 선택
+                      ↓
+              100% 완전 삭제! ✅
+
+<p>22개 위치 모두 검사:
+✓ Applications
+✓ Library/Preferences
+✓ Library/Application Support
+✓ Library/Caches
+✓ Library/Logs
+✓ Library/Cookies
+... (22개 위치 전부!)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="mole의-3대-핵심-기능">Mole의 3대 핵심 기능 {#mole의-3대-핵심-기능}</h2>
+<h3 id="기능-1-시스템-청소-mo-clean">🧹 기능 1: 시스템 청소 (mo clean) {#기능-1-시스템-청소-mo-clean}</h3>
+<h4>청소 대상 목록</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6473" onclick="copyCode('code-1769481055184-6473')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6473" class="language-plaintext">┌─────────────────────────────────────┐
+│ 🎯 시스템 필수 청소                   │
+├─────────────────────────────────────┤
+│ ✓ 사용자 앱 캐시 (45.2GB)            │
+│ ✓ 사용자 앱 로그 (2.1GB)             │
+│ ✓ 휴지통 (12.3GB)                    │
+└─────────────────────────────────────┘
+
+<p>┌─────────────────────────────────────┐
+│ 🌐 브라우저 청소                      │
+├─────────────────────────────────────┤
+│ ✓ Chrome 캐시 (8.4GB)                │
+│ ✓ Safari 캐시 (2.1GB)                │
+│ ✓ Firefox 캐시 (1.8GB)               │
+└─────────────────────────────────────┘</p>
+<p>┌─────────────────────────────────────┐
+│ 💻 개발자 도구                        │
+├─────────────────────────────────────┤
+│ ✓ Xcode Derived Data (9.1GB)        │
+│ ✓ Node.js npm 캐시 (14.2GB)          │
+│ ✓ Python pip 캐시 (3.5GB)            │
+│ ✓ Homebrew 캐시 (5.6GB)              │
+└─────────────────────────────────────┘</p>
+<p>총 회수 가능: 95.50GB!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">23 lines</span>
+  </div></p>
+</div>
+
+<h4>🌱 기초 예제: 첫 번째 청소</h4>
+<p><strong>Step 1: 안전 모드로 미리보기</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6474" onclick="copyCode('code-1769481055184-6474')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6474" class="language-bash"># --dry-run: 삭제하지 않고 미리보기만
+mo clean --dry-run</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>결과</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6475" onclick="copyCode('code-1769481055184-6475')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6475" class="language-plaintext">🔍 Scanning system...
+
+<p>▶ System essentials</p>
+<ul>
+<li>User app cache: 45.2GB → Will be cleaned</li>
+<li>User app logs: 2.1GB → Will be cleaned</li>
+<li>Trash: 12.3GB → Will be emptied</li>
+</ul>
+<p>▶ Browser cleanup</p>
+<ul>
+<li>Chrome cache: 8.4GB → Will be cleaned</li>
+<li>Safari cache: 2.1GB → Will be cleaned</li>
+</ul>
+<h1>====================================================================
+💾 PREVIEW ONLY (--dry-run mode)
+📊 Potential space to free: 71.1GB</h1>
+<p>To actually clean, run: mo clean</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🤔 생각해보기</strong>: --dry-run은 왜 중요할까요?</p>
+<details>
+<summary>답변 보기</summary>
+
+<p>마치 수술 전에 CT 찍는 것과 같아요!</p>
+<ul>
+<li>어떤 파일이 삭제될지 미리 확인</li>
+<li>중요한 파일 있으면 보호 조치</li>
+<li>안전하게 청소 계획 수립</li>
+<li>실수로 중요한 것 삭제 방지</li>
+</ul>
+<p><strong>항상 첫 실행은 --dry-run으로!</strong></p>
+</details>
+
+<p><strong>Step 2: 실제 청소 실행</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6476" onclick="copyCode('code-1769481055184-6476')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6476" class="language-bash">mo clean</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>진행 과정</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6477" onclick="copyCode('code-1769481055184-6477')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6477" class="language-plaintext">🧹 Starting deep clean...
+
+<p>▶ System essentials
+  ✓ Cleaning user app cache... (45.2GB freed)
+    [████████████████████] 100%
+  ✓ Cleaning user app logs... (2.1GB freed)
+    [████████████████████] 100%
+  ✓ Emptying trash... (12.3GB freed)
+    [████████████████████] 100%</p>
+<p>▶ Browser cleanup
+  ✓ Chrome cache... (8.4GB freed)
+  ✓ Safari cache... (2.1GB freed)</p>
+<p>⏱️  Time elapsed: 45 seconds</p>
+<p>====================================================================
+🎉 CLEANUP COMPLETE!
+💾 Space freed: 71.1GB
+💾 Free space now: 223.5GB (was 152.4GB)
+====================================================================</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">17 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3 id="중급-예제-화이트리스트로-중요-캐시-보호">🌿 중급 예제: 화이트리스트로 중요 캐시 보호 {#중급-예제-화이트리스트로-중요-캐시-보호}</h3>
+<p><strong>시나리오</strong>: 개발자가 자주 쓰는 캐시는 남기고 싶다!</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6478" onclick="copyCode('code-1769481055184-6478')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6478" class="language-bash">mo clean --whitelist</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>인터랙티브 메뉴</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6479" onclick="copyCode('code-1769481055184-6479')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6479" class="language-plaintext">🛡️  Select Caches to PROTECT (won&#39;t be deleted)
+════════════════════════════════════════════════
+
+<p>  ☑ Homebrew cache (5.6GB) ← 보호
+  ☑ Node.js packages (14.2GB) ← 보호
+  ☐ Chrome cache (8.4GB) ← 삭제
+  ☐ Safari cache (2.1GB) ← 삭제
+  ☑ Xcode derived data (9.1GB) ← 보호</p>
+<p>Use arrow keys to navigate, SPACE to toggle, ENTER to confirm</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<p><strong>보호 이유 예시</strong>:</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6480" onclick="copyCode('code-1769481055184-6480')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6480" class="language-yaml">Homebrew cache:
+  이유: 재다운로드하면 시간 오래 걸림
+  크기: 5.6GB
+  보호: ✅
+
+<p>Node.js packages:
+  이유: 프로젝트마다 다시 설치 귀찮음
+  크기: 14.2GB
+  보호: ✅</p>
+<p>Chrome cache:
+  이유: 웹서핑 속도 약간 느려질 뿐
+  크기: 8.4GB
+  보호: ❌ (삭제해도 큰 문제 없음)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<p><strong>설정 저장</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6481" onclick="copyCode('code-1769481055184-6481')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6481" class="language-bash"># 설정이 저장되는 위치
+~/.config/mole/whitelist.conf
+
+<p>[protected_caches]
+homebrew=true
+nodejs=true
+xcode=true
+chrome=false
+safari=false</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<p>다음부터는 <code>mo clean</code>만 해도 자동으로 보호!</p>
+<hr>
+<h3 id="기능-2-앱-완전-삭제-mo-uninstall">🗑️ 기능 2: 앱 완전 삭제 (mo uninstall) {#기능-2-앱-완전-삭제-mo-uninstall}</h3>
+<h4>일반 삭제 vs Mole 삭제 비교</h4>
+<p><strong>일반 방법 (휴지통으로 드래그)</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6482" onclick="copyCode('code-1769481055184-6482')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6482" class="language-plaintext">1. /Applications/Adobe Creative Cloud.app 삭제
+   → 단 1곳만 삭제!
+
+<ol start="2">
+<li>남은 찌꺼기 (70%):
+❌ ~/Library/Preferences/com.adobe.*
+❌ ~/Library/Application Support/Adobe/
+❌ ~/Library/Caches/Adobe/
+❌ ~/Library/Logs/Adobe/
+❌ ~/Library/Cookies/com.adobe.*
+❌ ... (52개 파일)</li>
+</ol>
+<p>결과: 12.4GB 중 3.7GB만 삭제 (30%)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<p><strong>Mole 방법</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6483" onclick="copyCode('code-1769481055184-6483')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6483" class="language-plaintext">1. mo uninstall 실행
+
+<ol start="2">
+<li><p>앱 선택:
+☑ Adobe Creative Cloud (12.4GB) | Old
+☐ WeChat (2.1GB) | Recent
+☐ Final Cut Pro (3.8GB) | Recent</p>
+</li>
+<li><p>Mole이 22개 위치 검사:
+✓ /Applications/
+✓ ~/Library/Preferences/
+✓ ~/Library/Application Support/
+✓ ~/Library/Caches/
+✓ ~/Library/Logs/
+✓ ~/Library/Cookies/
+✓ ~/Library/WebKit/
+✓ ~/Library/Saved Application State/
+✓ ~/Library/LaunchAgents/
+✓ ~/Library/LaunchDaemons/
+... (총 22개 위치)</p>
+</li>
+</ol>
+<p>결과: 12.8GB 완전 삭제 (100%)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">18 lines</span>
+  </div></p>
+</div>
+
+<h4>🌱 기초 예제: 첫 앱 삭제</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6484" onclick="copyCode('code-1769481055184-6484')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6484" class="language-bash">mo uninstall</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>화면 표시</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6485" onclick="copyCode('code-1769481055184-6485')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6485" class="language-plaintext">🗑️  Select Apps to Remove
+═══════════════════════════════════════════════
+
+<p>Apps sorted by: Installation date (oldest first)</p>
+<p>  ☐ Adobe Creative Cloud    (12.4G) | Old      ← 오래된 앱
+  ☐ Slack                    (156M) | Old
+  ☐ Discord                  (284M) | Recent
+  ☐ WeChat                   (2.1G) | Recent   ← 최근 앱
+  ☐ Final Cut Pro            (3.8G) | Recent</p>
+<p>Total if all selected: 18.9GB</p>
+<p>────────────────────────────────────────────────
+↑/↓: Navigate | SPACE: Toggle | ENTER: Confirm
+Q/ESC: Cancel</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<p><strong>Adobe Creative Cloud 선택 후</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6486" onclick="copyCode('code-1769481055184-6486')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6486" class="language-plaintext">🗑️  Uninstalling: Adobe Creative Cloud
+════════════════════════════════════════════════
+
+<p>[1/3] Scanning related files...
+  Found 52 files across 12 locations</p>
+<p>[2/3] Removing application...
+  ✓ /Applications/Adobe Creative Cloud.app
+    [████████████████████] 100%</p>
+<p>[3/3] Cleaning related files...
+  ✓ Preferences (12 files)
+  ✓ Application Support (18 files)
+  ✓ Caches (8 files)
+  ✓ Logs (6 files)
+  ✓ Cookies (3 files)
+  ✓ WebKit storage (2 files)
+  ✓ Launch agents (2 files)
+  ✓ System files (1 file, requires sudo)</p>
+<p>====================================================================
+🎉 UNINSTALLATION COMPLETE!
+💾 Space freed: 12.8GB
+📊 Files removed: 53
+📁 Locations cleaned: 12
+====================================================================</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">22 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3 id="기능-3-디스크-분석-mo-analyze">📊 기능 3: 디스크 분석 (mo analyze) {#기능-3-디스크-분석-mo-analyze}</h3>
+<h4>🌿 중급 예제: 큰 파일 찾아서 삭제하기</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6487" onclick="copyCode('code-1769481055184-6487')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6487" class="language-bash">mo analyze</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>인터랙티브 탐색기</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6488" onclick="copyCode('code-1769481055184-6488')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6488" class="language-plaintext">📊 Disk Space Analyzer
+═══════════════════════════════════════════════
+Current: /Users/YourName
+Total: 156.8GB
+
+<p>├─ 📁 Library                         45.2GB  ← 가장 큰 폴더
+│  ├─ 📁 Caches                       28.4GB
+│  └─ 📁 Application Support          16.8GB
+├─ 📁 Downloads                       32.6GB
+│  ├─ 📄 Xcode-14.3.1.dmg            12.3GB  ← 큰 파일!
+│  ├─ 📄 backup_2023.zip              8.6GB  ← 오래된 백업
+│  └─ 📦 old_projects.tar.gz          5.2GB
+├─ 📁 Movies                          28.9GB
+│  ├─ 📄 vacation_2023.mov           15.4GB  ← 동영상
+│  └─ 📄 screencast_raw.mp4           8.8GB
+├─ 📁 Documents                       18.4GB
+└─ 📁 Desktop                         12.7GB</p>
+<p>────────────────────────────────────────────────
+↑/↓: Navigate | ENTER: Open | ←: Back | DEL: Delete
+Q: Quit | /: Search</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">19 lines</span>
+  </div></p>
+</div>
+
+<p><strong>큰 파일 삭제하기</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6489" onclick="copyCode('code-1769481055184-6489')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6489" class="language-plaintext">1. Downloads 폴더 선택 (ENTER)
+   ↓
+2. Xcode-14.3.1.dmg 선택
+   ↓
+3. DELETE 키 누르기
+   ↓
+4. 확인 메시지:
+
+<p>   ⚠️  Delete File?
+   ─────────────────────────────
+   Xcode-14.3.1.dmg (12.3GB)</p>
+<p>   This action cannot be undone!</p>
+<p>   [Y] Yes, delete  [N] Cancel</p>
+<ol start="5">
+<li>Y 입력
+↓</li>
+<li>삭제 완료:
+✓ Deleted: Xcode-14.3.1.dmg (12.3GB freed)</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">16 lines</span>
+  </div>
+</div></li>
+</ol>
+<p><strong>검색 기능</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6490" onclick="copyCode('code-1769481055184-6490')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6490" class="language-plaintext">/ 키를 누르면 검색 모드
+
+<p>Search: mp4</p>
+<p>Results:
+  📄 screencast_raw.mp4 (8.8GB)
+  📄 tutorial_final.mp4 (2.3GB)
+  📄 demo_video.mp4 (1.1GB)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3 id="고급-예제-배치-스크립트로-자동화">🌳 고급 예제: 배치 스크립트로 자동화 {#고급-예제-배치-스크립트로-자동화}</h3>
+<h4>시나리오: 매월 자동 청소 스크립트</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6491" onclick="copyCode('code-1769481055184-6491')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6491" class="language-bash">#!/bin/bash
+# monthly_clean.sh - 매월 자동 Mac 청소
+
+<p>echo &quot;🐹 Monthly Mac Cleanup Started&quot;
+echo &quot;Date: $(date)&quot;
+echo &quot;&quot;</p>
+<h1>1. 현재 상태 기록</h1>
+<p>echo &quot;📊 Before cleanup:&quot;
+df -h / | tail -1 | awk &#39;{print &quot;Free space: &quot; $4}&#39;
+echo &quot;&quot;</p>
+<h1>2. 미리보기 실행 (선택사항)</h1>
+<p>echo &quot;🔍 Preview mode...&quot;
+mo clean --dry-run
+echo &quot;&quot;</p>
+<h1>3. 사용자 확인</h1>
+<p>read -p &quot;Proceed with cleanup? (y/n): &quot; -n 1 -r
+echo &quot;&quot;
+if [[ ! $REPLY =~ ^[Yy]$ ]]; then
+    echo &quot;Cancelled.&quot;
+    exit 0
+fi</p>
+<h1>4. 실제 청소</h1>
+<p>echo &quot;🧹 Cleaning...&quot;
+mo clean</p>
+<h1>5. 결과 기록</h1>
+<p>echo &quot;&quot;
+echo &quot;📊 After cleanup:&quot;
+df -h / | tail -1 | awk &#39;{print &quot;Free space: &quot; $4}&#39;</p>
+<h1>6. 로그 저장</h1>
+<p>echo &quot;Cleanup completed at $(date)&quot; &gt;&gt; ~/cleanup_log.txt</p>
+<p>echo &quot;&quot;
+echo &quot;✨ Done! Log saved to ~/cleanup_log.txt&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">31 lines</span>
+  </div></p>
+</div>
+
+<p><strong>Cron으로 자동 실행 설정</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6492" onclick="copyCode('code-1769481055184-6492')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6492" class="language-bash"># Crontab 편집
+crontab -e
+
+<h1>매월 1일 오전 2시에 실행</h1>
+<p>0 2 1 * * /path/to/monthly_clean.sh</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<p><strong>알림 추가 (선택)</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6493" onclick="copyCode('code-1769481055184-6493')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6493" class="language-bash"># macOS 알림 보내기
+osascript -e &#39;display notification &quot;Mac cleanup completed!&quot; with title &quot;Mole&quot;&#39;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="내부-작동-원리-이해하기">내부 작동 원리 이해하기 {#내부-작동-원리-이해하기}</h2>
+<h3 id="mole의-아키텍처">🔬 Mole의 아키텍처 {#mole의-아키텍처}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6494" onclick="copyCode('code-1769481055184-6494')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6494" class="language-plaintext">mole (메인 스크립트)
+│
+├─ lib/
+│  ├─ common.sh        ← 공통 함수들
+│  ├─ colors.sh        ← 컬러 출력
+│  └─ utils.sh         ← 유틸리티
+│
+├─ bin/
+│  ├─ clean.sh         ← 청소 로직
+│  ├─ uninstall.sh     ← 삭제 로직
+│  └─ analyze.sh       ← 분석 로직
+│
+└─ install.sh          ← 설치 스크립트</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div>
+</div>
+
+<h3 id="핵심-코드-분석">📝 핵심 코드 분석 {#핵심-코드-분석}</h3>
+<h4>clean.sh의 작동 원리</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6495" onclick="copyCode('code-1769481055184-6495')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6495" class="language-bash"># 1. 청소 대상 정의
+CACHE_DIRS=(
+    &quot;$HOME/Library/Caches&quot;
+    &quot;$HOME/Library/Logs&quot;
+    &quot;/Library/Caches&quot;
+    &quot;/System/Library/Caches&quot;
+)
+
+<h1>2. 각 디렉토리 순회</h1>
+<p>for dir in &quot;${CACHE_DIRS[@]}&quot;; do
+    if &lt;a href=&quot;/articles/d-dir.html&quot; class=&quot;internal-link&quot;&gt;-d &quot;$dir&quot;&lt;/a&gt;; then
+        # 크기 계산
+        size=$(du -sh &quot;$dir&quot; | cut -f1)</p>
+<pre><code>    # 삭제 (dry-run 모드 체크)
+    if &amp;lt;a href=&amp;quot;/articles/dryrun-true.html&amp;quot; class=&amp;quot;internal-link&amp;quot;&amp;gt;&amp;quot;$DRY_RUN&amp;quot; == &amp;quot;true&amp;quot;&amp;lt;/a&amp;gt;; then
+        echo &amp;quot;Would delete: $dir ($size)&amp;quot;
+    else
+        rm -rf &amp;quot;$dir&amp;quot;/*
+        echo &amp;quot;✓ Deleted: $dir ($size)&amp;quot;
+    fi
+fi
+</code></pre>
+<p>done</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">21 lines</span>
+  </div></p>
+</div>
+
+<p><strong>안전 장치</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6496" onclick="copyCode('code-1769481055184-6496')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6496" class="language-bash"># 중요 파일 보호
+PROTECTED_FILES=(
+    &quot;*.plist&quot;              # 설정 파일
+    &quot;Application Support&quot;  # 앱 데이터
+    &quot;*.db&quot;                # 데이터베이스
+    &quot;*.sqlite&quot;            # SQLite DB
+)
+
+<h1>삭제 전 체크</h1>
+<p>for file in *; do
+    for pattern in &quot;${PROTECTED_FILES[@]}&quot;; do
+        if &lt;a href=&quot;/articles/file-pattern.html&quot; class=&quot;internal-link&quot;&gt;&quot;$file&quot; == $pattern&lt;/a&gt;; then
+            echo &quot;⚠️  Skipping protected file: $file&quot;
+            continue 2  # 외부 루프로 건너뛰기
+        fi
+    done</p>
+<pre><code># 안전한 파일만 삭제
+rm -rf &amp;quot;$file&amp;quot;
+</code></pre>
+<p>done</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">18 lines</span>
+  </div></p>
+</div>
+
+<h4>uninstall.sh의 검색 로직</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6497" onclick="copyCode('code-1769481055184-6497')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6497" class="language-bash"># 앱 관련 파일 찾기
+find_app_files() {
+    local app_name=&quot;$1&quot;
+    local bundle_id=&quot;$2&quot;  # com.adobe.Photoshop
+
+<pre><code>local search_locations=(
+    &amp;quot;$HOME/Library/Preferences&amp;quot;
+    &amp;quot;$HOME/Library/Application Support&amp;quot;
+    &amp;quot;$HOME/Library/Caches&amp;quot;
+    &amp;quot;$HOME/Library/Logs&amp;quot;
+    &amp;quot;$HOME/Library/Cookies&amp;quot;
+    &amp;quot;$HOME/Library/WebKit&amp;quot;
+    &amp;quot;$HOME/Library/Saved Application State&amp;quot;
+    &amp;quot;$HOME/Library/LaunchAgents&amp;quot;
+    &amp;quot;/Library/LaunchDaemons&amp;quot;
+    &amp;quot;/Library/Application Support&amp;quot;
+    &amp;quot;/Library/Preferences&amp;quot;
+    &amp;quot;/Library/Logs&amp;quot;
+)
+
+local found_files=()
+
+for location in &amp;quot;${search_locations[@]}&amp;quot;; do
+    if &amp;lt;a href=&amp;quot;/articles/d-location.html&amp;quot; class=&amp;quot;internal-link&amp;quot;&amp;gt;-d &amp;quot;$location&amp;quot;&amp;lt;/a&amp;gt;; then
+        # Bundle ID로 검색
+        while IFS= read -r -d &amp;#39;&amp;#39; file; do
+            found_files+=(&amp;quot;$file&amp;quot;)
+        done &amp;lt; &amp;lt;(find &amp;quot;$location&amp;quot; -name &amp;quot;*$bundle_id*&amp;quot; -print0 2&amp;gt;/dev/null)
+
+        # 앱 이름으로 검색
+        while IFS= read -r -d &amp;#39;&amp;#39; file; do
+            found_files+=(&amp;quot;$file&amp;quot;)
+        done &amp;lt; &amp;lt;(find &amp;quot;$location&amp;quot; -name &amp;quot;*$app_name*&amp;quot; -print0 2&amp;gt;/dev/null)
+    fi
+done
+
+# 중복 제거
+printf &amp;#39;%s\n&amp;#39; &amp;quot;${found_files[@]}&amp;quot; | sort -u
+</code></pre>
+<p>}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">34 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="실전-활용-예제">실전 활용 예제 {#실전-활용-예제}</h2>
+<h3 id="팁-1-개발-환경-최적화">💡 팁 1: 개발 환경 최적화 {#팁-1-개발-환경-최적화}</h3>
+<p><strong>상황</strong>: Node.js 프로젝트가 많아서 npm 캐시가 너무 큼</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6498" onclick="copyCode('code-1769481055184-6498')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6498" class="language-bash"># 1. npm 캐시만 선택적으로 청소
+npm cache clean --force
+
+<h1>2. Mole로 전체 청소 (npm 제외)</h1>
+<p>mo clean --whitelist</p>
+<h1>→ Node.js packages 체크하여 보호</h1>
+<h1>3. 오래된 node_modules 찾기</h1>
+<p>find ~ -name &quot;node_modules&quot; -type d -prune -print | <br>    xargs du -sh | sort -rh | head -10</p>
+<h1>4. 안 쓰는 프로젝트의 node_modules 삭제</h1>
+<h1>각 프로젝트 폴더에서:</h1>
+<p>rm -rf node_modules</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<p><strong>자동화 스크립트</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6499" onclick="copyCode('code-1769481055184-6499')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6499" class="language-bash">#!/bin/bash
+# clean_old_node_modules.sh
+
+<h1>1년 이상 수정 안 된 node_modules 찾기</h1>
+<p>find ~ -name &quot;node_modules&quot; -type d -mtime +365 -print | while read dir; do
+    size=$(du -sh &quot;$dir&quot; | cut -f1)
+    echo &quot;Found: $dir ($size)&quot;</p>
+<pre><code># 삭제 여부 확인
+read -p &amp;quot;Delete? (y/n): &amp;quot; -n 1 -r
+echo &amp;quot;&amp;quot;
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    rm -rf &amp;quot;$dir&amp;quot;
+    echo &amp;quot;✓ Deleted!&amp;quot;
+fi
+</code></pre>
+<p>done</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">14 lines</span>
+  </div></p>
+</div>
+
+<h3 id="팁-2-프로젝트별-청소-전략">💡 팁 2: 프로젝트별 청소 전략 {#팁-2-프로젝트별-청소-전략}</h3>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6500" onclick="copyCode('code-1769481055184-6500')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6500" class="language-yaml">웹 개발자:
+  청소 주기: 주 1회
+  보호 대상:
+    - Node.js packages
+    - npm cache
+  삭제 대상:
+    - 브라우저 캐시
+    - 임시 빌드 파일
+
+<p>iOS 개발자:
+  청소 주기: 주 2회
+  보호 대상:
+    - Xcode derived data (현재 프로젝트)
+    - CocoaPods 캐시
+  삭제 대상:
+    - 오래된 빌드
+    - 시뮬레이터 로그</p>
+<p>일반 사용자:
+  청소 주기: 월 1회
+  보호 대상:
+    - 없음 (전부 삭제 OK)
+  삭제 대상:
+    - 모든 캐시
+    - 모든 로그</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">23 lines</span>
+  </div></p>
+</div>
+
+<h3 id="팁-3-공간-확보-우선순위-전략">💡 팁 3: 공간 확보 우선순위 전략 {#팁-3-공간-확보-우선순위-전략}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6501" onclick="copyCode('code-1769481055184-6501')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6501" class="language-plaintext">1단계: 빠른 승리 (Quick Wins)
+  → mo clean
+  예상 효과: 20-50GB
+
+<p>2단계: 큰 파일 정리
+  → mo analyze
+  → Downloads, Movies 폴더 정리
+  예상 효과: 30-100GB</p>
+<p>3단계: 앱 정리
+  → mo uninstall
+  → 안 쓰는 앱 삭제
+  예상 효과: 10-50GB</p>
+<p>4단계: 수동 정리
+  → 프로젝트 폴더
+  → 백업 파일
+  예상 효과: 변동 큼</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">15 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="문제-해결-가이드">문제 해결 가이드 {#문제-해결-가이드}</h2>
+<h3>⚠️ 문제 1: &quot;Permission denied&quot; 오류 {#문제-1-permission-denied-오류}</h3>
+<p><strong>증상</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6502" onclick="copyCode('code-1769481055184-6502')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6502" class="language-bash">$ mo clean
+Error: Permission denied
+Cannot delete /Library/Caches/</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>원인</strong>: 시스템 폴더는 관리자 권한 필요</p>
+<p><strong>해결책</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6503" onclick="copyCode('code-1769481055184-6503')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6503" class="language-bash"># 방법 1: sudo로 실행
+sudo mo clean
+
+<h1>방법 2: 사용자 폴더만 청소 (권한 불필요)</h1>
+<p>mo clean --user-only  # (이 옵션은 가정)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h3 id="문제-2-앱-삭제-후-작동-안-함">⚠️ 문제 2: 앱 삭제 후 작동 안 함 {#문제-2-앱-삭제-후-작동-안-함}</h3>
+<p><strong>증상</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6504" onclick="copyCode('code-1769481055184-6504')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6504" class="language-plaintext">앱을 Mole로 삭제했는데
+다시 설치해도 실행이 안 됨</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>원인</strong>: Launch Agent가 충돌</p>
+<p><strong>해결책</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6505" onclick="copyCode('code-1769481055184-6505')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6505" class="language-bash"># 1. Launch Agent 확인
+ls ~/Library/LaunchAgents/
+
+<h1>2. 관련 파일 수동 삭제</h1>
+<p>rm ~/Library/LaunchAgents/com.app-name.*</p>
+<h1>3. Mac 재시작</h1>
+<p>sudo shutdown -r now</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h3 id="문제-3-청소-후-앱이-느려짐">⚠️ 문제 3: 청소 후 앱이 느려짐 {#문제-3-청소-후-앱이-느려짐}</h3>
+<p><strong>증상</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6506" onclick="copyCode('code-1769481055184-6506')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6506" class="language-plaintext">Chrome이 청소 후 느려졌어요!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>원인</strong>: 캐시가 전부 삭제되어 처음부터 다시 생성 중</p>
+<p><strong>해결책</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6507" onclick="copyCode('code-1769481055184-6507')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6507" class="language-plaintext">이건 정상입니다!
+
+<p>첫 실행: 느림 (캐시 재생성 중)
+        ↓
+두 번째부터: 정상 속도</p>
+<p>▶ 대기 시간:</p>
+<ul>
+<li>Chrome: 10-30초</li>
+<li>일반 앱: 5-10초</li>
+<li>개발 도구: 1-5분</code></pre>  <div class="code-block__footer">
+<span class="code-block__lines">8 lines</span>
+  </div>
+</div></li>
+</ul>
+<h3 id="문제-4-homebrew-캐시-삭제-후-문제">⚠️ 문제 4: Homebrew 캐시 삭제 후 문제 {#문제-4-homebrew-캐시-삭제-후-문제}</h3>
+<p><strong>증상</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6508" onclick="copyCode('code-1769481055184-6508')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6508" class="language-bash">$ brew install new-package
+Error: Could not download...
+매우 느림</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>원인</strong>: Homebrew 캐시가 삭제됨</p>
+<p><strong>복구</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6509" onclick="copyCode('code-1769481055184-6509')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6509" class="language-bash"># 1. Homebrew 업데이트
+brew update
+
+<h1>2. 캐시 다시 생성</h1>
+<p>brew cleanup</p>
+<h1>3. 다음부터는 보호</h1>
+<p>mo clean --whitelist</p>
+<h1>→ Homebrew 체크!</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="핵심-정리">핵심 정리 {#핵심-정리}</h2>
+<h3 id="꼭-기억할-7가지">✅ 꼭 기억할 7가지 {#꼭-기억할-7가지}</h3>
+<ol>
+<li><p><strong>항상 --dry-run으로 먼저 확인</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481055184-6510" onclick="copyCode('code-1769481055184-6510')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6510" class="language-bash">mo clean --dry-run</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+- 안전 제일!
+- 삭제될 파일 미리 보기
+</li>
+<li><p><strong>화이트리스트로 중요 캐시 보호</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481055184-6511" onclick="copyCode('code-1769481055184-6511')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6511" class="language-bash">mo clean --whitelist</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+- 개발 도구 캐시 보호
+- 재다운로드 시간 절약
+</li>
+<li><p><strong>정기적 청소 (월 1회 권장)</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+ <span class="code-block__language">Plain Text</span>
+ <button class="code-block__copy" data-code-id="code-1769481055184-6512" onclick="copyCode('code-1769481055184-6512')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6512" class="language-plaintext">✅ 적절: 월 1회, 공간 부족 시
+❌ 과도: 매일, 매주</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+</li>
+<li><p><strong>앱 삭제는 Mole로</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+ <span class="code-block__language">Plain Text</span>
+ <button class="code-block__copy" data-code-id="code-1769481055184-6513" onclick="copyCode('code-1769481055184-6513')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6513" class="language-plaintext">휴지통: 30% 삭제
+Mole: 100% 완전 제거</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+</li>
+<li><p><strong>큰 파일부터 정리</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481055184-6514" onclick="copyCode('code-1769481055184-6514')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6514" class="language-bash">mo analyze</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+- 큰 파일 우선 삭제
+- 효과 즉시 체감
+</li>
+<li><p><strong>안전한 파일만 삭제됨</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+ <span class="code-block__language">Plain Text</span>
+ <button class="code-block__copy" data-code-id="code-1769481055184-6515" onclick="copyCode('code-1769481055184-6515')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6515" class="language-plaintext">✅ 삭제: 캐시, 로그, 임시 파일
+❌ 보호: 설정, 데이터, 문서</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+</li>
+<li><p><strong>백업은 별도로</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+ <span class="code-block__language">Plain Text</span>
+ <button class="code-block__copy" data-code-id="code-1769481055184-6516" onclick="copyCode('code-1769481055184-6516')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6516" class="language-plaintext">Mole ≠ 백업 도구
+중요 파일은 Time Machine으로!</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">3 lines</span>
+  </div>
+</div></li>
+</ol>
+<hr>
+<h3 id="청소-효과-통계">📊 청소 효과 통계 {#청소-효과-통계}</h3>
+<table>
+<thead>
+<tr>
+<th>사용자 유형</th>
+<th>평균 회수 공간</th>
+<th>권장 주기</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>일반 사용자</td>
+<td>20-30GB</td>
+<td>월 1회</td>
+</tr>
+<tr>
+<td>개발자</td>
+<td>50-80GB</td>
+<td>주 1회</td>
+</tr>
+<tr>
+<td>디자이너</td>
+<td>30-50GB</td>
+<td>격주 1회</td>
+</tr>
+<tr>
+<td>파워 유저</td>
+<td>80-150GB</td>
+<td>주 2회</td>
+</tr>
+</tbody></table>
+<hr>
+<h3 id="청소-체크리스트">🎯 청소 체크리스트 {#청소-체크리스트}</h3>
+<p>매번 청소할 때:</p>
+<ul>
+<li><input disabled="" type="checkbox"> <strong>백업 확인</strong> - Time Machine 최신인가?</li>
+<li><input disabled="" type="checkbox"> <strong>미리보기</strong> - <code>mo clean --dry-run</code> 실행</li>
+<li><input disabled="" type="checkbox"> <strong>화이트리스트</strong> - 중요 캐시 보호 설정</li>
+<li><input disabled="" type="checkbox"> <strong>실행</strong> - <code>mo clean</code> 실행</li>
+<li><input disabled="" type="checkbox"> <strong>확인</strong> - 공간 확보량 체크</li>
+<li><input disabled="" type="checkbox"> <strong>앱 테스트</strong> - 주요 앱 정상 작동 확인</li>
+<li><input disabled="" type="checkbox"> <strong>불필요 앱 삭제</strong> - <code>mo uninstall</code>로 청소</li>
+<li><input disabled="" type="checkbox"> <strong>큰 파일 정리</strong> - <code>mo analyze</code>로 탐색</li>
+</ul>
+<hr>
+<h3 id="고급-팁">🔧 고급 팁 {#고급-팁}</h3>
+<h4>Tip 1: 특정 앱 캐시만 삭제</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6517" onclick="copyCode('code-1769481055184-6517')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6517" class="language-bash"># Chrome 캐시만 삭제
+rm -rf ~/Library/Caches/Google/Chrome/
+
+<h1>Safari 캐시만 삭제</h1>
+<p>rm -rf ~/Library/Caches/com.apple.Safari/</p>
+<h1>Xcode 캐시만 삭제</h1>
+<p>rm -rf ~/Library/Developer/Xcode/DerivedData/</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h4>Tip 2: 시스템 상태 모니터링</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6518" onclick="copyCode('code-1769481055184-6518')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6518" class="language-bash"># 현재 디스크 사용량
+df -h
+
+<h1>가장 큰 폴더 Top 10</h1>
+<p>du -sh ~/* | sort -rh | head -10</p>
+<h1>캐시 크기 확인</h1>
+<p>du -sh ~/Library/Caches</p>
+<h1>로그 크기 확인</h1>
+<p>du -sh ~/Library/Logs</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h4>Tip 3: 청소 전후 비교</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055184-6519" onclick="copyCode('code-1769481055184-6519')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055184-6519" class="language-bash">#!/bin/bash
+# compare_cleanup.sh
+
+<h1>청소 전</h1>
+<p>echo &quot;Before cleanup:&quot;
+df -h / | tail -1
+du -sh ~/Library/Caches ~/Library/Logs</p>
+<h1>청소</h1>
+<p>mo clean</p>
+<h1>청소 후</h1>
+<p>echo &quot;After cleanup:&quot;
+df -h / | tail -1
+du -sh ~/Library/Caches ~/Library/Logs</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/mac-management-guide.html" class="internal-link">Mac 시스템 관리 가이드</a></li>
+<li><a href="/articles/bash-script-basics.html" class="internal-link">Bash 스크립트 기초</a></li>
+<li><a href="/articles/cli-tools.html" class="internal-link">CLI 도구 모음</a></li>
+<li><a href="/articles/article.html" class="internal-link">시스템 최적화 전략</a></li>
+<li><a href="/articles/development-setup.html" class="internal-link">개발 환경 설정</a></li>
+<li><a href="/articles/homebrew-complete.html" class="internal-link">Homebrew 완전 정복</a></li>
+</ul>
+<hr>
+<h2 id="참고-자료">참고 자료 {#참고-자료}</h2>
+<ul>
+<li><strong>공식 GitHub</strong>: <a href="https://github.com/tw93/Mole">https://github.com/tw93/Mole</a></li>
+<li><strong>사용 가이드 (중문)</strong>: <a href="https://github.com/tw93/Mole/blob/main/GUIDE.md">https://github.com/tw93/Mole/blob/main/GUIDE.md</a></li>
+<li><strong>Issue 트래커</strong>: <a href="https://github.com/tw93/Mole/issues">https://github.com/tw93/Mole/issues</a></li>
+<li><strong>Mac 시스템 관리</strong>: <a href="https://support.apple.com/">https://support.apple.com/</a></li>
+</ul>
+<hr>
+<p><strong>💬 마지막 조언</strong></p>
+<blockquote>
+<p>&quot;Mole은 강력한 도구지만, 모든 도구가 그렇듯 올바르게 사용해야 합니다. 첫 실행은 항상 <code>--dry-run</code>으로, 중요한 데이터는 Time Machine으로 백업하세요. 그리고 한 달에 한 번 정도 청소하는 것만으로도 Mac을 쾌적하게 유지할 수 있습니다!&quot;</p>
+</blockquote>
+<p><strong>Happy cleaning! 🐹✨</strong></p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/Mac.html" class="article-tag">Mac</a><a href="/tag/시스템관리.html" class="article-tag">시스템관리</a><a href="/tag/개발도구.html" class="article-tag">개발도구</a><a href="/tag/CLI.html" class="article-tag">CLI</a><a href="/tag/시스템.html" class="article-tag">시스템</a><a href="/tag/최적화.html" class="article-tag">최적화</a><a href="/tag/튜토리얼.html" class="article-tag">튜토리얼</a><a href="/tag/초보자.html" class="article-tag">초보자</a><a href="/tag/Bash.html" class="article-tag">Bash</a><a href="/tag/스크립트.html" class="article-tag">스크립트</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/mole-mac-tools-complete-guide.html&text=Mole - Mac 청소 도구 완전 정복 가이드" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/mole-mac-tools-complete-guide.html&title=Mole - Mac 청소 도구 완전 정복 가이드" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/mole-mac-tools-complete-guide.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

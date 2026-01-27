@@ -1,0 +1,1503 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code Usage Monitor 완벽 가이드 | AI &amp; Development Journal</title>
+  <meta name="description" content="- 핵심 주제: Claude AI 토큰 사용량을 실시간으로 모니터링하는 아름다운 터미널 도구 - 목적: Claude Code 사용자가 토큰 소비량, 소진율, 예측 분석을 통해 효율적인 API 사용을 실현 - 범위: 설치부터 고급 활용법, 최적화 전략까지 전체...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude Code Usage Monitor 완벽 가이드">
+  <meta property="og:description" content="- 핵심 주제: Claude AI 토큰 사용량을 실시간으로 모니터링하는 아름다운 터미널 도구 - 목적: Claude Code 사용자가 토큰 소비량, 소진율, 예측 분석을 통해 효율적인 API 사용을 실현 - 범위: 설치부터 고급 활용법, 최적화 전략까지 전체...">
+  <meta property="og:image" content="/assets/images/claude-code-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-usage-monitor-perfect-guide.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Code Usage Monitor 완벽 가이드">
+  <meta name="twitter:description" content="- 핵심 주제: Claude AI 토큰 사용량을 실시간으로 모니터링하는 아름다운 터미널 도구 - 목적: Claude Code 사용자가 토큰 소비량, 소진율, 예측 분석을 통해 효율적인 API 사용을 실현 - 범위: 설치부터 고급 활용법, 최적화 전략까지 전체...">
+  <meta name="twitter:image" content="/assets/images/claude-code-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-usage-monitor-perfect-guide.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/claude-code.html" class="article-category" style="background-color: #ff6b35">
+          Claude Code
+        </a>
+        <h1 class="article-title">Claude Code Usage Monitor 완벽 가이드</h1>
+        <div class="article-meta">
+          <a href="/journalist/claude-specialist.html" class="article-author">
+            <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">Claude 전문가</span>
+              <span class="article-author__role">Claude Code Specialist</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 6월 22일">2025년 6월 22일</time>
+            <span class="article-meta__separator">·</span>
+            <span>18 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#claude-code-usage-monitor-소개" class="toc__link">Claude Code Usage Monitor 소개</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#도구-개요" class="toc__link">도구 개요</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-가치-제안" class="toc__link">핵심 가치 제안</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기술-스택-및-의존성" class="toc__link">기술 스택 및 의존성</a>
+    </li>
+    <li class="toc__item">
+      <a href="#핵심-기능-및-특징" class="toc__link">핵심 기능 및 특징</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-실시간-모니터링-시스템" class="toc__link">1. 실시간 모니터링 시스템</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-시각적-진행-막대-시스템" class="toc__link">2. 시각적 진행 막대 시스템</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-스마트-예측-엔진" class="toc__link">3. 스마트 예측 엔진</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-플랜-자동-감지-시스템" class="toc__link">4. 플랜 자동 감지 시스템</a>
+    </li>
+    <li class="toc__item">
+      <a href="#설치-및-설정" class="toc__link">설치 및 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-시스템-요구사항" class="toc__link">1. 시스템 요구사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-프로덕션-설치-권장" class="toc__link">2. 프로덕션 설치 (권장)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-편의성-설정" class="toc__link">3. 편의성 설정</a>
+    </li>
+    <li class="toc__item">
+      <a href="#기본-사용법" class="toc__link">기본 사용법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-명령어-옵션" class="toc__link">1. 명령어 옵션</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-화면-구성-요소-해석" class="toc__link">2. 화면 구성 요소 해석</a>
+    </li>
+    <li class="toc__item">
+      <a href="#고급-활용-전략" class="toc__link">고급 활용 전략</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-워크플로우별-최적-설정" class="toc__link">1. 워크플로우별 최적 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-고급-모니터링-기법" class="toc__link">2. 고급 모니터링 기법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-비용-최적화-전략" class="toc__link">3. 비용 최적화 전략</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실전-워크플로우" class="toc__link">실전 워크플로우</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-대규모-프로젝트-개발" class="toc__link">1. 대규모 프로젝트 개발</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-학습-및-실험-워크플로우" class="toc__link">2. 학습 및 실험 워크플로우</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-팀-협업-워크플로우" class="toc__link">3. 팀 협업 워크플로우</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결-및-최적화" class="toc__link">문제 해결 및 최적화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-일반적인-문제-해결" class="toc__link">1. 일반적인 문제 해결</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-성능-최적화" class="toc__link">2. 성능 최적화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-고급-커스터마이징" class="toc__link">3. 고급 커스터마이징</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-통합-개발-환경-설정" class="toc__link">4. 통합 개발 환경 설정</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-체크리스트" class="toc__link">구현 체크리스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Claude Code Usage Monitor 완벽 가이드</h1>
+<h2 id="개요">개요 {#개요}</h2>
+<ul>
+<li><strong>핵심 주제</strong>: Claude AI 토큰 사용량을 실시간으로 모니터링하는 아름다운 터미널 도구</li>
+<li><strong>목적</strong>: Claude Code 사용자가 토큰 소비량, 소진율, 예측 분석을 통해 효율적인 API 사용을 실현</li>
+<li><strong>범위</strong>: 설치부터 고급 활용법, 최적화 전략까지 전체 워크플로우</li>
+</ul>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#claude-code-usage-monitor-소개" class="internal-link internal-link--section">Claude Code Usage Monitor 소개</a></li>
+<li><a href="#핵심-기능-및-특징" class="internal-link internal-link--section">핵심 기능 및 특징</a></li>
+<li><a href="#설치-및-설정" class="internal-link internal-link--section">설치 및 설정</a></li>
+<li><a href="#기본-사용법" class="internal-link internal-link--section">기본 사용법</a></li>
+<li><a href="#고급-활용-전략" class="internal-link internal-link--section">고급 활용 전략</a></li>
+<li><a href="#실전-워크플로우" class="internal-link internal-link--section">실전 워크플로우</a></li>
+<li><a href="#문제-해결-및-최적화" class="internal-link internal-link--section">문제 해결 및 최적화</a></li>
+</ol>
+<h2 id="claude-code-usage-monitor-소개">Claude Code Usage Monitor 소개 {#claude-code-usage-monitor-소개}</h2>
+<h3 id="도구-개요">도구 개요 {#도구-개요}</h3>
+<p>Claude Code Usage Monitor는 <strong>실시간 터미널 모니터링 도구</strong>로, Claude AI의 토큰 사용량을 시각적으로 추적하고 분석하는 Python 애플리케이션입니다.</p>
+<h3 id="핵심-가치-제안">핵심 가치 제안 {#핵심-가치-제안}</h3>
+<ul>
+<li><strong>실시간 모니터링</strong>: 3초마다 부드러운 업데이트로 현재 상태 추적</li>
+<li><strong>예측 분석</strong>: 현재 소진율 기반으로 토큰 고갈 시점 예측</li>
+<li><strong>시각적 인터페이스</strong>: 컬러 코딩된 진행 막대와 이모지로 직관적 표시</li>
+<li><strong>자동 감지</strong>: Pro 한계 초과 시 자동으로 custom_max 모드로 전환</li>
+</ul>
+<h3 id="기술-스택-및-의존성">기술 스택 및 의존성 {#기술-스택-및-의존성}</h3>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2821" onclick="copyCode('code-1769481054542-2821')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2821" class="language-yaml">언어: Python 3.6+
+핵심 의존성:
+  - pytz: 타임존 처리
+  - ccusage: Claude API 사용량 CLI 도구
+기반 도구: 
+  - ccusage by @ryoppippi
+플랫폼: 
+  - macOS, Linux, Windows (터미널 환경)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div>
+
+<h2 id="핵심-기능-및-특징">핵심 기능 및 특징 {#핵심-기능-및-특징}</h2>
+<h3 id="1-실시간-모니터링-시스템">1. 실시간 모니터링 시스템 {#1-실시간-모니터링-시스템}</h3>
+<h4>자동 업데이트 메커니즘</h4>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2822" onclick="copyCode('code-1769481054542-2822')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2822" class="language-python"># 3초마다 자동 새로고침
+time.sleep(3)
+# 화면 깜빡임 없는 스마트 업데이트
+print(&#39;\033[H&#39;, end=&#39;&#39;, flush=True)  # 커서를 상단으로 이동</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h4>다중 세션 추적</h4>
+<ul>
+<li><strong>5시간 롤링 윈도우</strong>: Claude Code의 세션 시스템 완벽 지원</li>
+<li><strong>동시 세션 모니터링</strong>: 여러 활성 세션의 토큰 사용량 통합 추적</li>
+<li><strong>세션 히스토리 분석</strong>: 지난 1시간 데이터 기반 소진율 계산</li>
+</ul>
+<h3 id="2-시각적-진행-막대-시스템">2. 시각적 진행 막대 시스템 {#2-시각적-진행-막대-시스템}</h3>
+<h4>토큰 사용량 진행 막대</h4>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2823" onclick="copyCode('code-1769481054542-2823')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2823" class="language-python">def create_token_progress_bar(percentage, width=50):
+    green_bar = &#39;█&#39; * filled
+    red_bar = &#39;░&#39; * (width - filled)
+    return f&quot;🟢 [{green}{green_bar}{red}{red_bar}{reset}] {percentage:.1f}%&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>컬러 코딩 시스템</strong>:</p>
+<ul>
+<li>🟢 <strong>녹색</strong>: 안전한 사용량 (0-70%)</li>
+<li>🟡 <strong>노란색</strong>: 주의 구간 (70-90%)</li>
+<li>🔴 <strong>빨간색</strong>: 위험 구간 (90-100%)</li>
+</ul>
+<h4>시간 진행 막대</h4>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2824" onclick="copyCode('code-1769481054542-2824')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2824" class="language-python">def create_time_progress_bar(elapsed_minutes, total_minutes, width=50):
+    # 세션 만료까지 남은 시간 시각화
+    remaining_time = format_time(max(0, total_minutes - elapsed_minutes))
+    return f&quot;⏰ [{blue}{blue_bar}{red}{red_bar}{reset}] {remaining_time}&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3 id="3-스마트-예측-엔진">3. 스마트 예측 엔진 {#3-스마트-예측-엔진}</h3>
+<h4>소진율 계산 알고리즘</h4>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2825" onclick="copyCode('code-1769481054542-2825')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2825" class="language-python">def calculate_hourly_burn_rate(blocks, current_time):
+    &quot;&quot;&quot;지난 1시간 동안의 모든 세션 데이터 기반 소진율 계산&quot;&quot;&quot;
+    one_hour_ago = current_time - timedelta(hours=1)
+    total_tokens = 0
+    
+<pre><code>for block in blocks:
+    # 세션 겹침 분석
+    # 시간 가중 토큰 사용량 계산
+    # 분당 토큰 소진율 반환
+
+return total_tokens / 60  # 분당 토큰&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div>
+</div>
+
+<h4>예측 분석 기능</h4>
+<ul>
+<li><strong>토큰 고갈 시점</strong>: 현재 소진율 기반 정확한 시간 예측</li>
+<li><strong>위험 알림</strong>: 세션 리셋 전 토큰 고갈 가능성 경고</li>
+<li><strong>소진 속도 표시</strong>: 🐌(느림) → ➡️(보통) → 🚀(빠름) → ⚡(매우빠름)</li>
+</ul>
+<h3 id="4-플랜-자동-감지-시스템">4. 플랜 자동 감지 시스템 {#4-플랜-자동-감지-시스템}</h3>
+<h4>지원 플랜 유형</h4>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2826" onclick="copyCode('code-1769481054542-2826')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2826" class="language-yaml">Plans:
+  Pro: &quot;~7,000 토큰&quot;      # 기본 플랜
+  Max5: &quot;~35,000 토큰&quot;    # 정기 개발용
+  Max20: &quot;~140,000 토큰&quot;  # 대용량 프로젝트
+  Custom_Max: &quot;자동감지&quot;   # 이전 세션 최대값 사용</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>자동 전환 로직</h4>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2827" onclick="copyCode('code-1769481054542-2827')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2827" class="language-python"># Pro 한계 초과 시 자동 전환
+if tokens_used &gt; token_limit and args.plan == &#39;pro&#39;:
+    new_limit = get_token_limit(&#39;custom_max&#39;, data[&#39;blocks&#39;])
+    if new_limit &gt; token_limit:
+        token_limit = new_limit
+        # 사용자에게 전환 알림 표시</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h2 id="설치-및-설정">설치 및 설정 {#설치-및-설정}</h2>
+<h3 id="1-시스템-요구사항">1. 시스템 요구사항 {#1-시스템-요구사항}</h3>
+<h4>필수 요구사항</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2828" onclick="copyCode('code-1769481054542-2828')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2828" class="language-bash"># Python 버전 확인
+python3 --version  # 3.6+ 필요
+
+<h1>Node.js 확인 (ccusage 설치용)</h1>
+<p>node --version     # 최신 LTS 권장</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>의존성 도구 설치</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2829" onclick="copyCode('code-1769481054542-2829')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2829" class="language-bash"># ccusage CLI 도구 전역 설치
+npm install -g ccusage
+
+<h1>Python 타임존 라이브러리 설치</h1>
+<p>pip install pytz</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h3 id="2-프로덕션-설치-권장">2. 프로덕션 설치 (권장) {#2-프로덕션-설치-권장}</h3>
+<h4>가상환경 설정의 중요성</h4>
+<p><strong>왜 가상환경을 사용해야 하는가?</strong></p>
+<ul>
+<li>🛡️ <strong>격리</strong>: 시스템 Python 환경 보호</li>
+<li>📦 <strong>이식성</strong>: 다른 머신에서 동일한 환경 재현</li>
+<li>🔄 <strong>버전 고정</strong>: 의존성 버전 충돌 방지</li>
+<li>🧹 <strong>깔끔한 제거</strong>: 폴더 삭제만으로 완전 제거</li>
+</ul>
+<h4>단계별 설치 과정</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2830" onclick="copyCode('code-1769481054542-2830')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2830" class="language-bash"># 1. 저장소 클론
+git clone https://github.com/Maciek-roboblog/Claude-Code-Usage-Monitor.git
+cd Claude-Code-Usage-Monitor
+
+<h1>2. 가상환경 생성</h1>
+<p>python3 -m venv venv</p>
+<h1>3. 가상환경 활성화</h1>
+<h1>macOS/Linux:</h1>
+<p>source venv/bin/activate</p>
+<h1>Windows:</h1>
+<h1>venv\Scripts\activate</h1>
+<h1>4. 의존성 설치</h1>
+<p>pip install pytz</p>
+<h1>5. 실행 권한 부여 (macOS/Linux)</h1>
+<p>chmod +x ccusage_monitor.py</p>
+<h1>6. 실행 테스트</h1>
+<p>python ccusage_monitor.py</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">16 lines</span>
+  </div></p>
+</div>
+
+<h3 id="3-편의성-설정">3. 편의성 설정 {#3-편의성-설정}</h3>
+<h4>Shell Alias 생성</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2831" onclick="copyCode('code-1769481054542-2831')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2831" class="language-bash"># ~/.bashrc 또는 ~/.zshrc에 추가
+alias claude-monitor=&#39;cd ~/Claude-Code-Usage-Monitor &amp;&amp; source venv/bin/activate &amp;&amp; ./ccusage_monitor.py&#39;
+
+<h1>사용법</h1>
+<p>claude-monitor  # 간단한 명령으로 실행</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>Tmux 세션 설정</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2832" onclick="copyCode('code-1769481054542-2832')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2832" class="language-bash"># 백그라운드 모니터링 세션 생성
+tmux new-session -d -s claude-monitor &#39;./ccusage_monitor.py&#39;
+
+<h1>언제든지 세션 확인</h1>
+<p>tmux attach -t claude-monitor</p>
+<h1>세션 종료</h1>
+<p>tmux kill-session -t claude-monitor</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h2 id="기본-사용법">기본 사용법 {#기본-사용법}</h2>
+<h3 id="1-명령어-옵션">1. 명령어 옵션 {#1-명령어-옵션}</h3>
+<h4>플랜 선택</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2833" onclick="copyCode('code-1769481054542-2833')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2833" class="language-bash"># Pro 플랜 (기본값)
+./ccusage_monitor.py --plan pro
+
+<h1>Max5 플랜</h1>
+<p>./ccusage_monitor.py --plan max5</p>
+<h1>Max20 플랜</h1>
+<p>./ccusage_monitor.py --plan max20</p>
+<h1>자동 감지 (이전 세션 최대값 사용)</h1>
+<p>./ccusage_monitor.py --plan custom_max</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h4>리셋 시간 커스터마이징</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2834" onclick="copyCode('code-1769481054542-2834')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2834" class="language-bash"># 오전 9시에 리셋
+./ccusage_monitor.py --reset-hour 9
+
+<h1>자정에 리셋</h1>
+<p>./ccusage_monitor.py --reset-hour 0</p>
+<h1>오후 6시에 리셋</h1>
+<p>./ccusage_monitor.py --reset-hour 18</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h4>타임존 설정</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2835" onclick="copyCode('code-1769481054542-2835')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2835" class="language-bash"># 미국 동부 시간
+./ccusage_monitor.py --timezone US/Eastern
+
+<h1>도쿄 시간</h1>
+<p>./ccusage_monitor.py --timezone Asia/Tokyo</p>
+<h1>런던 시간</h1>
+<p>./ccusage_monitor.py --timezone Europe/London</p>
+<h1>UTC 시간</h1>
+<p>./ccusage_monitor.py --timezone UTC</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h3 id="2-화면-구성-요소-해석">2. 화면 구성 요소 해석 {#2-화면-구성-요소-해석}</h3>
+<h4>기본 디스플레이 구조</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2836" onclick="copyCode('code-1769481054542-2836')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2836" class="language-plaintext">✦ ✧ ✦ ✧ CLAUDE TOKEN MONITOR ✦ ✧ ✦ ✧
+============================================================
+
+<p>📊 Token Usage:    🟢 [████████████░░░░] 75.2%</p>
+<p>⏳ Time to Reset:  ⏰ [██████░░░░░░░░░░] 2h 15m</p>
+<p>🎯 Tokens:         5,265 / ~7,000 (1,735 left)
+🔥 Burn Rate:      127.3 tokens/min</p>
+<p>🏁 Predicted End: 16:42
+🔄 Token Reset:   18:00</p>
+<p>⏰ 14:27:33 📝 Smooth sailing... | Ctrl+C to exit 🟨</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h4>정보 해석 가이드</h4>
+<ul>
+<li><strong>Token Usage</strong>: 현재 사용률과 시각적 진행 상태</li>
+<li><strong>Time to Reset</strong>: 다음 토큰 리셋까지 남은 시간</li>
+<li><strong>Tokens</strong>: 사용량/한계치 (남은 토큰)</li>
+<li><strong>Burn Rate</strong>: 분당 토큰 소진율</li>
+<li><strong>Predicted End</strong>: 현재 속도로 토큰 고갈 예상 시간</li>
+<li><strong>Token Reset</strong>: 다음 리셋 예정 시간</li>
+</ul>
+<h2 id="고급-활용-전략">고급 활용 전략 {#고급-활용-전략}</h2>
+<h3 id="1-워크플로우별-최적-설정">1. 워크플로우별 최적 설정 {#1-워크플로우별-최적-설정}</h3>
+<h4>모닝 개발자 워크플로우</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2837" onclick="copyCode('code-1769481054542-2837')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2837" class="language-bash"># 오전 9시 시작, 동부 시간
+./ccusage_monitor.py --reset-hour 9 --timezone US/Eastern --plan max5
+
+<h1>일일 루틴:</h1>
+<h1>09:00 - 새로운 토큰으로 주요 기능 개발</h1>
+<h1>11:00 - 소진율 확인, 강도 조절</h1>
+<h1>13:00 - 오후 세션 계획</h1>
+<h1>14:00 - 새 세션 윈도우 활용</h1>
+<h1>16:00 - 가벼운 작업으로 전환</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div>
+
+<h4>야간 개발자 워크플로우</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2838" onclick="copyCode('code-1769481054542-2838')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2838" class="language-bash"># 자정 리셋, 유연한 스케줄
+./ccusage_monitor.py --reset-hour 0 --plan max20
+
+<h1>전략:</h1>
+<h1>- 자정 전후 최대 용량 활용</h1>
+<h1>- 심야 시간대 집중 개발</h1>
+<h1>- 소진율 모니터링으로 지속 가능한 속도 유지</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h4>국제 팀 협업</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2839" onclick="copyCode('code-1769481054542-2839')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2839" class="language-bash"># UTC 기준으로 일관된 관리
+./ccusage_monitor.py --timezone UTC --reset-hour 12 --plan max5
+
+<h1>장점:</h1>
+<h1>- 전 세계 팀원과 동일한 기준시</h1>
+<h1>- 예측 가능한 리셋 스케줄</h1>
+<h1>- 글로벌 프로젝트 일정 조율</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h3 id="2-고급-모니터링-기법">2. 고급 모니터링 기법 {#2-고급-모니터링-기법}</h3>
+<h4>소진율 패턴 분석</h4>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2840" onclick="copyCode('code-1769481054542-2840')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2840" class="language-python"># 소진 속도별 작업 강도 조절
+🐌 (&lt; 50 tokens/min):  &quot;안전 구간 - 복잡한 리팩토링 가능&quot;
+➡️ (50-150 tokens/min): &quot;보통 구간 - 일반적인 개발 작업&quot;
+🚀 (150-300 tokens/min): &quot;주의 구간 - 작업 강도 점검 필요&quot;
+⚡ (&gt; 300 tokens/min):  &quot;위험 구간 - 즉시 작업 강도 낮춤&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>예측 정확도 향상 팁</h4>
+<ol>
+<li><strong>모니터링 조기 시작</strong>: 세션 시작과 함께 모니터링 개시</li>
+<li><strong>지속적 관찰</strong>: 최소 1시간 데이터 축적 후 예측 신뢰</li>
+<li><strong>패턴 인식</strong>: 개인의 코딩 스타일에 따른 소진 패턴 학습</li>
+</ol>
+<h3 id="3-비용-최적화-전략">3. 비용 최적화 전략 {#3-비용-최적화-전략}</h3>
+<h4>플랜별 최적화 접근법</h4>
+<p><strong>Pro 플랜 (~7,000 토큰)</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2841" onclick="copyCode('code-1769481054542-2841')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2841" class="language-bash"># 보수적 접근
+./ccusage_monitor.py --plan pro
+
+<p>전략:</p>
+<ul>
+<li>간단한 작업 위주 (코드 리뷰, 간단한 버그 수정)</li>
+<li>토큰 효율성 높은 명령어 사용</li>
+<li>50% 도달 시 작업 강도 조절</li>
+<li>복잡한 리팩토링은 새 세션에서 시작</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">7 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>Max5 플랜 (~35,000 토큰)</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2842" onclick="copyCode('code-1769481054542-2842')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2842" class="language-bash"># 균형잡힌 접근
+./ccusage_monitor.py --plan max5
+
+<p>전략:</p>
+<ul>
+<li>일반적인 개발 작업 수행</li>
+<li>70% 도달 시 모니터링 강화</li>
+<li>중간 규모 프로젝트 적합</li>
+<li>예측 분석 적극 활용</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">7 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>Max20 플랜 (~140,000 토큰)</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2843" onclick="copyCode('code-1769481054542-2843')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2843" class="language-bash"># 적극적 활용
+./ccusage_monitor.py --plan max20
+
+<p>전략:</p>
+<ul>
+<li>대규모 리팩토링 가능</li>
+<li>AI 페어 프로그래밍 적극 활용</li>
+<li>복잡한 아키텍처 설계</li>
+<li>85% 도달 시에야 제한 고려</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">7 lines</span>
+</div>
+</div></li>
+</ul>
+<h2 id="실전-워크플로우">실전 워크플로우 {#실전-워크플로우}</h2>
+<h3 id="1-대규모-프로젝트-개발">1. 대규모 프로젝트 개발 {#1-대규모-프로젝트-개발}</h3>
+<h4>프로젝트 시작 단계</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2844" onclick="copyCode('code-1769481054542-2844')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2844" class="language-bash"># 고용량 플랜으로 설정
+./ccusage_monitor.py --plan max20 --reset-hour 8 --timezone America/New_York
+
+<h1>일일 개발 사이클:</h1>
+<h1>08:00 - 새 토큰으로 주요 아키텍처 작업</h1>
+<h1>10:00 - 소진율 체크, 필요시 강도 조절</h1>
+<h1>12:00 - 오후 계획 수립</h1>
+<h1>14:00 - 새 세션 활용 시작</h1>
+<h1>16:00 - 복잡한 문제 해결</h1>
+<h1>18:00 - 문서화 및 테스트</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
+</div>
+
+<h4>모니터링 체크포인트</h4>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2845" onclick="copyCode('code-1769481054542-2845')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2845" class="language-yaml">25% (35,000 토큰): &quot;순조로운 진행 - 계속 진행&quot;
+50% (70,000 토큰): &quot;중간점 도달 - 소진율 점검&quot;
+75% (105,000 토큰): &quot;주의 단계 - 작업 우선순위 재조정&quot;
+90% (126,000 토큰): &quot;마무리 단계 - 핵심 작업만 진행&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3 id="2-학습-및-실험-워크플로우">2. 학습 및 실험 워크플로우 {#2-학습-및-실험-워크플로우}</h3>
+<h4>효율적 학습 전략</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2846" onclick="copyCode('code-1769481054542-2846')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2846" class="language-bash"># 학습용 유연한 설정
+./ccusage_monitor.py --plan pro
+
+<h1>학습 최적화:</h1>
+<h1>- 작은 코드 블록으로 나누어 질문</h1>
+<h1>- 단계별 설명 요청으로 토큰 절약</h1>
+<h1>- 핵심 개념 위주 질문</h1>
+<h1>- 실습 예제는 간결하게 요청</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<h4>실험 프로젝트 관리</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2847" onclick="copyCode('code-1769481054542-2847')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2847" class="language-bash"># 자동 감지로 유연한 한계 설정
+./ccusage_monitor.py --plan custom_max --reset-hour 6
+
+<h1>실험 전략:</h1>
+<h1>- 작은 POC(Proof of Concept)부터 시작</h1>
+<h1>- 토큰 사용량 패턴 학습</h1>
+<h1>- 성공적인 실험은 별도 세션에서 확장</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h3 id="3-팀-협업-워크플로우">3. 팀 협업 워크플로우 {#3-팀-협업-워크플로우}</h3>
+<h4>팀 표준 설정</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2848" onclick="copyCode('code-1769481054542-2848')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2848" class="language-bash"># 팀 공통 설정 예시
+./ccusage_monitor.py --plan max5 --timezone UTC --reset-hour 9
+
+<h1>팀 규칙:</h1>
+<h1>- 모든 팀원 동일한 타임존 사용</h1>
+<h1>- 소진율 70% 도달 시 팀 채널에 공유</h1>
+<h1>- 주요 작업 전 토큰 상태 확인</h1>
+<h1>- 세션 리셋 시간에 맞춘 회의 스케줄</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<h4>리소스 공유 전략</h4>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2849" onclick="copyCode('code-1769481054542-2849')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2849" class="language-yaml">토큰 사용 우선순위:
+  High: &quot;긴급 버그 수정, 핵심 기능 개발&quot;
+  Medium: &quot;코드 리뷰, 문서화&quot;
+  Low: &quot;실험적 기능, 학습용 질문&quot;
+
+<p>협업 규칙:</p>
+<ul>
+<li>대용량 작업 전 팀 공지</li>
+<li>토큰 절약 팁 공유</li>
+<li>효율적 프롬프트 패턴 표준화</code></pre>  <div class="code-block__footer">
+<span class="code-block__lines">8 lines</span>
+  </div>
+</div></li>
+</ul>
+<h2 id="문제-해결-및-최적화">문제 해결 및 최적화 {#문제-해결-및-최적화}</h2>
+<h3 id="1-일반적인-문제-해결">1. 일반적인 문제 해결 {#1-일반적인-문제-해결}</h3>
+<h4>&quot;No active session found&quot; 오류</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2850" onclick="copyCode('code-1769481054542-2850')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2850" class="language-bash"># 해결 방법 1: Claude Code에서 메시지 2개 이상 전송
+claude &quot;Hello&quot;  # 첫 번째 메시지
+claude &quot;Can you help me?&quot;  # 두 번째 메시지
+
+<h1>해결 방법 2: 설정 경로 지정</h1>
+<p>CLAUDE_CONFIG_DIR=~/.config/claude ./ccusage_monitor.py</p>
+<h1>해결 방법 3: Claude Code 재시작</h1>
+<p>pkill claude  # Claude 프로세스 종료
+claude &quot;New session&quot;  # 새 세션 시작</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h4>토큰 사용량 불일치</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2851" onclick="copyCode('code-1769481054542-2851')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2851" class="language-bash"># ccusage 도구 직접 확인
+ccusage blocks --json
+
+<h1>캐시 정리</h1>
+<p>rm -rf ~/.config/claude/cache</p>
+<h1>설정 재설정</h1>
+<p>claude --reset</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h4>모니터링 화면 깨짐</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2852" onclick="copyCode('code-1769481054542-2852')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2852" class="language-bash"># 터미널 크기 조정 (최소 80자 너비 권장)
+resize
+
+<h1>터미널 초기화</h1>
+<p>reset</p>
+<h1>컬러 지원 확인</h1>
+<p>echo $TERM  # xterm-256color 등이 나와야 함</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h3 id="2-성능-최적화">2. 성능 최적화 {#2-성능-최적화}</h3>
+<h4>터미널 환경 최적화</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2853" onclick="copyCode('code-1769481054542-2853')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2853" class="language-bash"># 터미널 설정 확인
+echo $TERM          # 컬러 지원 확인
+tput cols          # 터미널 너비 확인 (80+ 권장)
+tput colors        # 컬러 수 확인 (256+ 권장)
+
+<h1>폰트 설정</h1>
+<h1>- 고정폭 폰트 사용</h1>
+<h1>- 이모지 지원 폰트 권장</h1>
+<h1>- 적절한 크기 설정 (12-14pt)</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div>
+
+<h4>시스템 리소스 최적화</h4>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2854" onclick="copyCode('code-1769481054542-2854')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2854" class="language-python"># 메모리 사용량 모니터링
+import psutil
+process = psutil.Process()
+print(f&quot;Memory usage: {process.memory_info().rss / 1024 / 1024:.1f} MB&quot;)
+
+<h1>CPU 사용률 확인</h1>
+<p>cpu_percent = psutil.cpu_percent(interval=1)
+print(f&quot;CPU usage: {cpu_percent}%&quot;)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h3 id="3-고급-커스터마이징">3. 고급 커스터마이징 {#3-고급-커스터마이징}</h3>
+<h4>설정 파일 생성</h4>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2855" onclick="copyCode('code-1769481054542-2855')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2855" class="language-python"># config.py 생성
+CONFIG = {
+    &#39;default_plan&#39;: &#39;max5&#39;,
+    &#39;default_timezone&#39;: &#39;Asia/Seoul&#39;,
+    &#39;default_reset_hour&#39;: 9,
+    &#39;update_interval&#39;: 3,  # 초
+    &#39;progress_bar_width&#39;: 50,
+    &#39;warning_threshold&#39;: 0.85  # 85%
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
+</div>
+
+<h4>커스텀 알림 시스템</h4>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2856" onclick="copyCode('code-1769481054542-2856')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2856" class="language-python"># notify.py 추가
+import subprocess
+
+<p>def send_notification(title, message):
+    # macOS
+    subprocess.run([&#39;osascript&#39;, &#39;-e&#39;, f&#39;display notification &quot;{message}&quot; with title &quot;{title}&quot;&#39;])</p>
+<pre><code># Linux (notify-send 필요)
+subprocess.run([&amp;#39;notify-send&amp;#39;, title, message])
+
+# Windows (plyer 라이브러리 사용)
+# pip install plyer
+from plyer import notification
+notification.notify(title=title, message=message, timeout=10)&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div>
+</div>
+
+<h3 id="4-통합-개발-환경-설정">4. 통합 개발 환경 설정 {#4-통합-개발-환경-설정}</h3>
+<h4>VSCode 통합</h4>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2857" onclick="copyCode('code-1769481054542-2857')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2857" class="language-json">// .vscode/tasks.json
+{
+    &quot;version&quot;: &quot;2.0.0&quot;,
+    &quot;tasks&quot;: [
+        {
+            &quot;label&quot;: &quot;Start Claude Monitor&quot;,
+            &quot;type&quot;: &quot;shell&quot;,
+            &quot;command&quot;: &quot;cd ~/Claude-Code-Usage-Monitor &amp;&amp; source venv/bin/activate &amp;&amp; ./ccusage_monitor.py&quot;,
+            &quot;group&quot;: &quot;build&quot;,
+            &quot;presentation&quot;: {
+                &quot;echo&quot;: true,
+                &quot;reveal&quot;: &quot;always&quot;,
+                &quot;focus&quot;: false,
+                &quot;panel&quot;: &quot;new&quot;
+            },
+            &quot;runOptions&quot;: {
+                &quot;runOn&quot;: &quot;folderOpen&quot;
+            }
+        }
+    ]
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">21 lines</span>
+  </div>
+</div>
+
+<h4>iTerm2/Terminal 프로필 설정</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054542-2858" onclick="copyCode('code-1769481054542-2858')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054542-2858" class="language-bash"># 전용 프로필 생성
+# - 이름: Claude Monitor
+# - 시작 명령: ~/Claude-Code-Usage-Monitor/run_monitor.sh
+# - 색상: 어두운 배경
+# - 폰트: Source Code Pro 또는 Fira Code
+# - 크기: 100x30 이상</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h2 id="구현-체크리스트">구현 체크리스트 {#구현-체크리스트}</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Python 3.6+ 환경 확인</li>
+<li><input checked="" disabled="" type="checkbox"> ccusage CLI 도구 설치</li>
+<li><input checked="" disabled="" type="checkbox"> 가상환경 설정 및 의존성 설치</li>
+<li><input checked="" disabled="" type="checkbox"> 기본 실행 및 동작 확인</li>
+<li><input disabled="" type="checkbox"> 개인 작업 패턴에 맞는 설정 최적화</li>
+<li><input disabled="" type="checkbox"> Shell alias 설정으로 편의성 개선</li>
+<li><input disabled="" type="checkbox"> 팀 설정 표준화 및 공유</li>
+<li><input disabled="" type="checkbox"> 모니터링 데이터 기반 개발 워크플로우 개선</li>
+</ul>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><strong>상위 개념</strong>: <a href="/articles/claude-code-perfect-guide-note.html" class="internal-link">Claude Code 완벽 가이드 - 실습형 노트</a></li>
+<li><strong>하위 세부사항</strong>: <a href="/articles/claude-api.html" class="internal-link">Claude API 비용 최적화 전략</a></li>
+<li><strong>병렬 주제</strong>: <a href="/articles/claudiainstallusageperfectguide.html" class="internal-link">Claudia_설치_및_사용법_완벽_가이드</a></li>
+<li><strong>실전 활용</strong>: <a href="/articles/claude-code-workflow.html" class="internal-link">Claude Code 팀 협업 워크플로우</a></li>
+<li><strong>관련 도구</strong>: <a href="/articles/ccusage-cli-tools-deep-dive-guide.html" class="internal-link">ccusage CLI 도구 심화 가이드</a></li>
+<li><strong>최적화 전략</strong>: <a href="/articles/ai-development-tools-management.html" class="internal-link">AI 개발 도구 비용 관리 전략</a></li>
+</ul>
+<hr>
+<p><strong>💡 Pro Tips</strong>: </p>
+<ol>
+<li><strong>조기 모니터링</strong>: 세션 시작과 함께 모니터링을 시작하여 정확한 예측 확보</li>
+<li><strong>패턴 학습</strong>: 개인의 토큰 사용 패턴을 파악하여 더 효율적인 개발 계획 수립</li>
+<li><strong>팀 표준화</strong>: 팀 전체가 동일한 모니터링 설정을 사용하여 일관된 리소스 관리</li>
+<li><strong>예측 활용</strong>: 소진율 예측을 적극 활용하여 작업 우선순위 조정</li>
+<li><strong>자동화 통합</strong>: Shell alias와 IDE 통합으로 개발 워크플로우에 자연스럽게 통합</li>
+</ol>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/Claude-Code.html" class="article-tag">Claude-Code</a><a href="/tag/토큰모니터링.html" class="article-tag">토큰모니터링</a><a href="/tag/Python.html" class="article-tag">Python</a><a href="/tag/개발도구.html" class="article-tag">개발도구</a><a href="/tag/API사용량.html" class="article-tag">API사용량</a><a href="/tag/실시간모니터링.html" class="article-tag">실시간모니터링</a><a href="/tag/비용관리.html" class="article-tag">비용관리</a><a href="/tag/터미널도구.html" class="article-tag">터미널도구</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-usage-monitor-perfect-guide.html&text=Claude Code Usage Monitor 완벽 가이드" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-usage-monitor-perfect-guide.html&title=Claude Code Usage Monitor 완벽 가이드" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-usage-monitor-perfect-guide.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/claude-specialist.html" class="author-bio__card">
+          <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">Claude 전문가</h3>
+            <p class="author-bio__role">Claude Code Specialist</p>
+            <p class="author-bio__text">Claude Code와 AI 코딩 도구 활용법을 연구합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-code-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Code 슬래시 명령어 완전 정복 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Code 슬래시 명령어 완전 정복 가이드</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 실전 중심 가이드 --- Claude에게 미리 정해둔 역할을 로 호출하는 기능입니다. 비유: 스마트폰 단축어처럼, 복잡한 지시를 한 단어로 실행 --- 슬래시 명령어는  파일로 구성되며, 크게 YAML 프론트매터와 본문으로 나뉩니다. --- 목적:...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills-beginners-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 만드는 법: 초보자 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 만드는 법: 초보자 완전 가이드</h3>
+          <p class="article-card__excerpt">이 가이드의 목표: Claude Code를 처음 배우는 초보 개발자도 실제로 작동하는 Claude Skill을 만들 수 있도록 단계별로 설명합니다. 복잡한 개념도 쉬운 말로 풀어 설명하고, 실전 예제로 바로 적용할 수 있게 구성했습니다. --- 1.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">25 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 마스터 학습 경로"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 마스터 학습 경로</h3>
+          <p class="article-card__excerpt">초보자에서 마스터까지: 이 경로를 따라가면 Claude Skill을 완벽하게 만들 수 있습니다. --- --- 읽을 문서: Claude Skills가 뭔가요 (5살 버전) || ClaudeSkills초보자가이드#Claude Skills가 뭔가요 (5살 버전) 배울...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

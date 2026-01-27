@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google Gems 인스트럭션 설계 분석 및 AI 프롬프트 제작 방법론 | AI 기술 자료 저널</title>
+  <meta name="description" content="1.  || #개요 2.  || #Google Gems 인스트럭션 구조 분석 3.  || #핵심 설계 원칙 4.  || #CPTQ 방법론 5.  || #단계별 인스트럭션 제작 프로세스 6.  || #실무 활용 템플릿 7.  || #품질 보증 체계 8.  ||...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Google Gems 인스트럭션 설계 분석 및 AI 프롬프트 제작 방법론">
+  <meta property="og:description" content="1.  || #개요 2.  || #Google Gems 인스트럭션 구조 분석 3.  || #핵심 설계 원칙 4.  || #CPTQ 방법론 5.  || #단계별 인스트럭션 제작 프로세스 6.  || #실무 활용 템플릿 7.  || #품질 보증 체계 8.  ||...">
+  <meta property="og:image" content="/assets/images/prompt-engineering-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/google-gems-analysis-ai-prompt-how-to.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Google Gems 인스트럭션 설계 분석 및 AI 프롬프트 제작 방법론">
+  <meta name="twitter:description" content="1.  || #개요 2.  || #Google Gems 인스트럭션 구조 분석 3.  || #핵심 설계 원칙 4.  || #CPTQ 방법론 5.  || #단계별 인스트럭션 제작 프로세스 6.  || #실무 활용 템플릿 7.  || #품질 보증 체계 8.  ||...">
+  <meta name="twitter:image" content="/assets/images/prompt-engineering-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/google-gems-analysis-ai-prompt-how-to.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI 기술 자료 저널</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/prompt-engineering.html" class="article-category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </a>
+        <h1 class="article-title">Google Gems 인스트럭션 설계 분석 및 AI 프롬프트 제작 방법론</h1>
+        <div class="article-meta">
+          <a href="/journalist/prompt-master.html" class="article-author">
+            <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">프롬프트 마스터</span>
+              <span class="article-author__role">Prompt Engineering Specialist</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 1월 9일">2025년 1월 9일</time>
+            <span class="article-meta__separator">·</span>
+            <span>15 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#google-gems-인스트럭션-구조-분석" class="toc__link">Google Gems 인스트럭션 구조 분석</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-인스트럭션-아키텍처" class="toc__link">1. 인스트럭션 아키텍처</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-핵심-변수-정의-시스템" class="toc__link">2. 핵심 변수 정의 시스템</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-기술적-명세의-특징" class="toc__link">3. 기술적 명세의 특징</a>
+    </li>
+    <li class="toc__item">
+      <a href="#핵심-설계-원칙" class="toc__link">핵심 설계 원칙</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-청중-중심-설계-audience-centric-design" class="toc__link">1. 청중 중심 설계 (Audience-Centric Design)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-데이터-기반-서사-data-as-foundation-of-narrative" class="toc__link">2. 데이터 기반 서사 (Data as Foundation of Narrative)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-한-인스트럭션-한-메시지-one-instruction-one-message" class="toc__link">3. 한 인스트럭션 한 메시지 (One Instruction, One Message)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#cptq-방법론" class="toc__link">CPTQ 방법론</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#c-context-컨텍스트-설정" class="toc__link">C (Context) - 컨텍스트 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#p-persona-역할과-책임-정의" class="toc__link">P (Persona) - 역할과 책임 정의</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#t-task-작업-분해와-실행" class="toc__link">T (Task) - 작업 분해와 실행</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#q-quality-품질-기준과-평가" class="toc__link">Q (Quality) - 품질 기준과 평가</a>
+    </li>
+    <li class="toc__item">
+      <a href="#단계별-인스트럭션-제작-프로세스" class="toc__link">단계별 인스트럭션 제작 프로세스</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1단계-목표-정의-및-분석" class="toc__link">1단계: 목표 정의 및 분석</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2단계-역할-설계-및-전문성-정의" class="toc__link">2단계: 역할 설계 및 전문성 정의</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3단계-프로세스-구조화" class="toc__link">3단계: 프로세스 구조화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4단계-기술적-명세-작성" class="toc__link">4단계: 기술적 명세 작성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#5단계-품질-보증-체계-구축" class="toc__link">5단계: 품질 보증 체계 구축</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실무-활용-템플릿" class="toc__link">실무 활용 템플릿</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#범용-인스트럭션-템플릿" class="toc__link">범용 인스트럭션 템플릿</a>
+    </li>
+    <li class="toc__item">
+      <a href="#1-프로젝트-비전-및-철학" class="toc__link">1. 프로젝트 비전 및 철학</a>
+    </li>
+    <li class="toc__item">
+      <a href="#2-역할-정의" class="toc__link">2. 역할 정의</a>
+    </li>
+    <li class="toc__item">
+      <a href="#3-실행-단계" class="toc__link">3. 실행 단계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#phase-1-단계명" class="toc__link">Phase 1: [단계명]</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#phase-2-단계명" class="toc__link">Phase 2: [단계명]</a>
+    </li>
+    <li class="toc__item">
+      <a href="#4-기술적-요구사항" class="toc__link">4. 기술적 요구사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#5-최종-평가" class="toc__link">5. 최종 평가</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#코딩-프로젝트용-템플릿" class="toc__link">코딩 프로젝트용 템플릿</a>
+    </li>
+    <li class="toc__item">
+      <a href="#역할-정의" class="toc__link">역할 정의</a>
+    </li>
+    <li class="toc__item">
+      <a href="#기술-스택" class="toc__link">기술 스택</a>
+    </li>
+    <li class="toc__item">
+      <a href="#제약사항" class="toc__link">제약사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#품질-기준" class="toc__link">품질 기준</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#분석-프로젝트용-템플릿" class="toc__link">분석 프로젝트용 템플릿</a>
+    </li>
+    <li class="toc__item">
+      <a href="#분석-목표" class="toc__link">분석 목표</a>
+    </li>
+    <li class="toc__item">
+      <a href="#데이터-요구사항" class="toc__link">데이터 요구사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#분석-방법론" class="toc__link">분석 방법론</a>
+    </li>
+    <li class="toc__item">
+      <a href="#결과물-형태" class="toc__link">결과물 형태</a>
+    </li>
+    <li class="toc__item">
+      <a href="#품질-보증-체계" class="toc__link">품질 보증 체계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#체크리스트-인스트럭션-품질-평가" class="toc__link">체크리스트: 인스트럭션 품질 평가</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#품질-개선-프로세스" class="toc__link">품질 개선 프로세스</a>
+    </li>
+    <li class="toc__item">
+      <a href="#일반적인-실수와-해결책" class="toc__link">일반적인 실수와 해결책</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-모호한-지시사항" class="toc__link">1. 모호한 지시사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-과도한-자유도" class="toc__link">2. 과도한 자유도</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-기술적-제약사항-누락" class="toc__link">3. 기술적 제약사항 누락</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-평가-기준-부재" class="toc__link">4. 평가 기준 부재</a>
+    </li>
+    <li class="toc__item">
+      <a href="#고급-기법과-최적화" class="toc__link">고급 기법과 최적화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-점진적-복잡도-증가" class="toc__link">1. 점진적 복잡도 증가</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-컨텍스트-윈도우-최적화" class="toc__link">2. 컨텍스트 윈도우 최적화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-멀티모달-인스트럭션" class="toc__link">3. 멀티모달 인스트럭션</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-반복-개선-시스템" class="toc__link">4. 반복 개선 시스템</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실전-적용-가이드" class="toc__link">실전 적용 가이드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-프로젝트-유형별-적용" class="toc__link">1. 프로젝트 유형별 적용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-팀-협업에서의-활용" class="toc__link">2. 팀 협업에서의 활용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-성과-측정-및-개선" class="toc__link">3. 성과 측정 및 개선</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-체크리스트" class="toc__link">구현 체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#즉시-실행-가능한-액션" class="toc__link">즉시 실행 가능한 액션</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#단계별-실행-계획" class="toc__link">단계별 실행 계획</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#필요-자원-및-도구" class="toc__link">필요 자원 및 도구</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Google Gems 인스트럭션 설계 분석 및 AI 프롬프트 제작 방법론</h1>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#개요" class="internal-link internal-link--section">개요</a></li>
+<li><a href="#google-gems-인스트럭션-구조-분석" class="internal-link internal-link--section">Google Gems 인스트럭션 구조 분석</a></li>
+<li><a href="#핵심-설계-원칙" class="internal-link internal-link--section">핵심 설계 원칙</a></li>
+<li><a href="#cptq-방법론" class="internal-link internal-link--section">CPTQ 방법론</a></li>
+<li><a href="#단계별-인스트럭션-제작-프로세스" class="internal-link internal-link--section">단계별 인스트럭션 제작 프로세스</a></li>
+<li><a href="#실무-활용-템플릿" class="internal-link internal-link--section">실무 활용 템플릿</a></li>
+<li><a href="#품질-보증-체계" class="internal-link internal-link--section">품질 보증 체계</a></li>
+<li><a href="#일반적인-실수와-해결책" class="internal-link internal-link--section">일반적인 실수와 해결책</a></li>
+<li><a href="#고급-기법과-최적화" class="internal-link internal-link--section">고급 기법과 최적화</a></li>
+<li><a href="#실전-적용-가이드" class="internal-link internal-link--section">실전 적용 가이드</a></li>
+</ol>
+<h2 id="개요">개요 {#개요}</h2>
+<ul>
+<li><strong>핵심 주제</strong>: Google Gems의 고급 인스트럭션 설계 패턴을 분석하여 일반화된 AI 프롬프트 제작 방법론 도출</li>
+<li><strong>목적</strong>: 효과적이고 구조화된 AI 인스트럭션 작성을 위한 실무 가이드 제공</li>
+<li><strong>범위</strong>: 인스트럭션 분석부터 실제 적용까지의 전체 워크플로우</li>
+</ul>
+<h2 id="google-gems-인스트럭션-구조-분석">Google Gems 인스트럭션 구조 분석 {#google-gems-인스트럭션-구조-분석}</h2>
+<h3 id="1-인스트럭션-아키텍처">1. 인스트럭션 아키텍처 {#1-인스트럭션-아키텍처}</h3>
+<h4>공식적 브리핑 구조</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1781" onclick="copyCode('code-1769482285047-1781')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1781" class="language-plaintext">TO: [대상 AI 에이전트 정의]
+FROM: [요청자 역할/부서]
+RE: [프로젝트 목적과 범위]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h4>다중 역할 통합 방식</h4>
+<ul>
+<li><strong>프로젝트 총괄 리드</strong>: 통합 관리자 역할</li>
+<li><strong>전문가 역할들</strong>: <ul>
+<li>수석 데이터 분석가</li>
+<li>콘텐츠 전략가 및 카피라이터</li>
+<li>데이터 시각화 및 UI/UX 엔지니어</li>
+<li>품질 관리자</li>
+</ul>
+</li>
+</ul>
+<h3 id="2-핵심-변수-정의-시스템">2. 핵심 변수 정의 시스템 {#2-핵심-변수-정의-시스템}</h3>
+<p>분석 대상 인스트럭션에서 정의한 7개 핵심 변수:</p>
+<ol>
+<li><strong>[주제]</strong>: 핵심 대상 정의</li>
+<li><strong>[비교 대상]</strong>: 기준점 설정</li>
+<li><strong>[핵심 문제]</strong>: 해결할 근본적 질문</li>
+<li><strong>[목표 청중]</strong>: 타겟 오디언스</li>
+<li><strong>[주요 데이터 포인트]</strong>: 핵심 수치/통계</li>
+<li><strong>[핵심 분석 카테고리]</strong>: 논리적 그룹핑</li>
+<li><strong>[내러티브 아크]</strong>: 스토리 흐름</li>
+</ol>
+<h3 id="3-기술적-명세의-특징">3. 기술적 명세의 특징 {#3-기술적-명세의-특징}</h3>
+<ul>
+<li><strong>구체적 제약사항</strong>: &quot;절대 금지&quot;, &quot;엄격한 금지 조항&quot;</li>
+<li><strong>환경 고려사항</strong>: 샌드박스 환경, 보안 제약</li>
+<li><strong>성능 요구사항</strong>: 접근성, 반응형 디자인</li>
+<li><strong>방어적 코딩</strong>: null/undefined 체크 필수</li>
+</ul>
+<h2 id="핵심-설계-원칙">핵심 설계 원칙 {#핵심-설계-원칙}</h2>
+<h3 id="1-청중-중심-설계-audience-centric-design">1. 청중 중심 설계 (Audience-Centric Design) {#1-청중-중심-설계-audience-centric-design}</h3>
+<blockquote>
+<p>&quot;이 슬라이드를 통해 청중이 무엇을 알고, 느끼고, 행동하기를 원하는가?&quot;</p>
+</blockquote>
+<p><strong>적용 방법</strong>:</p>
+<ul>
+<li>모든 지시사항은 최종 사용자 관점에서 작성</li>
+<li>청중의 인지 부하 최소화 고려</li>
+<li>행동 변화를 유도하는 구체적 목표 설정</li>
+</ul>
+<h3 id="2-데이터-기반-서사-data-as-foundation-of-narrative">2. 데이터 기반 서사 (Data as Foundation of Narrative) {#2-데이터-기반-서사-data-as-foundation-of-narrative}</h3>
+<blockquote>
+<p>&quot;모든 주장은 데이터에 의해 뒷받침되어야 하며, 모든 데이터는 설득력 있는 이야기를 만드는 데 기여해야 합니다.&quot;</p>
+</blockquote>
+<p><strong>적용 방법</strong>:</p>
+<ul>
+<li>추상적 요구사항보다 구체적 수치와 기준 제시</li>
+<li>검증 가능한 결과물 요구</li>
+<li>데이터 기반 의사결정 지원</li>
+</ul>
+<h3 id="3-한-인스트럭션-한-메시지-one-instruction-one-message">3. 한 인스트럭션 한 메시지 (One Instruction, One Message) {#3-한-인스트럭션-한-메시지-one-instruction-one-message}</h3>
+<blockquote>
+<p>&quot;각 섹션은 단 하나의 핵심 메시지만을 전달하는 데 집중&quot;</p>
+</blockquote>
+<p><strong>적용 방법</strong>:</p>
+<ul>
+<li>명확한 섹션 분리</li>
+<li>중복되는 지시사항 제거</li>
+<li>우선순위에 따른 정보 구조화</li>
+</ul>
+<h2 id="cptq-방법론">CPTQ 방법론 {#cptq-방법론}</h2>
+<h3 id="c-context-컨텍스트-설정">C (Context) - 컨텍스트 설정 {#c-context-컨텍스트-설정}</h3>
+<h4>요소</h4>
+<ul>
+<li><strong>상황 정의</strong>: 현재 상황과 배경</li>
+<li><strong>문제 인식</strong>: 해결해야 할 핵심 문제</li>
+<li><strong>목표 설정</strong>: 달성하고자 하는 구체적 목표</li>
+</ul>
+<h4>템플릿</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1782" onclick="copyCode('code-1769482285047-1782')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1782" class="language-plaintext">현재 상황: [구체적 상황 설명]
+핵심 문제: [해결해야 할 문제]
+프로젝트 목표: [달성하고자 하는 결과]
+성공 기준: [측정 가능한 성과 지표]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3 id="p-persona-역할과-책임-정의">P (Persona) - 역할과 책임 정의 {#p-persona-역할과-책임-정의}</h3>
+<h4>요소</h4>
+<ul>
+<li><strong>주요 역할</strong>: AI 에이전트가 수행할 핵심 역할</li>
+<li><strong>전문성</strong>: 각 역할에 필요한 전문 지식</li>
+<li><strong>책임 범위</strong>: 역할별 구체적 책임사항</li>
+</ul>
+<h4>템플릿</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1783" onclick="copyCode('code-1769482285047-1783')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1783" class="language-plaintext">당신의 역할: [핵심 역할 정의]
+
+<p>전문가 역할들:</p>
+<ol>
+<li>[역할 1]: [구체적 책임사항]</li>
+<li>[역할 2]: [구체적 책임사항]</li>
+<li>[역할 3]: [구체적 책임사항]</li>
+</ol>
+<p>통합 책임: [전체적 조율 및 품질 관리]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h3 id="t-task-작업-분해와-실행">T (Task) - 작업 분해와 실행 {#t-task-작업-분해와-실행}</h3>
+<h4>요소</h4>
+<ul>
+<li><strong>단계적 프로세스</strong>: Phase별 작업 분해</li>
+<li><strong>구체적 지시사항</strong>: 각 단계별 세부 작업</li>
+<li><strong>기술적 요구사항</strong>: 도구, 기술, 제약사항</li>
+</ul>
+<h4>템플릿</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1784" onclick="copyCode('code-1769482285047-1784')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1784" class="language-plaintext">Phase 1: 분석 및 전략 수립
+- 단계 1: [구체적 작업]
+- 단계 2: [구체적 작업]
+- 산출물: [기대되는 결과물]
+
+<p>Phase 2: 실행 및 구현</p>
+<ul>
+<li>기술 스택: [사용할 도구/기술]</li>
+<li>제약사항: [지켜야 할 제한사항]</li>
+<li>품질 기준: [충족해야 할 기준]</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">8 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="q-quality-품질-기준과-평가">Q (Quality) - 품질 기준과 평가 {#q-quality-품질-기준과-평가}</h3>
+<h4>요소</h4>
+<ul>
+<li><strong>품질 기준</strong>: 결과물이 충족해야 할 기준</li>
+<li><strong>검증 방법</strong>: 품질 확인 방법</li>
+<li><strong>평가 체계</strong>: 자기 평가 및 피드백</li>
+</ul>
+<h4>템플릿</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1785" onclick="copyCode('code-1769482285047-1785')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1785" class="language-plaintext">품질 기준:
+- 기능적 요구사항: [기능 관련 기준]
+- 비기능적 요구사항: [성능, 접근성 등]
+- 사용자 경험: [UX 관련 기준]
+
+<p>검증 방법:</p>
+<ul>
+<li>테스트 항목: [확인할 항목들]</li>
+<li>검증 절차: [단계별 검증 방법]</li>
+</ul>
+<p>자기 평가:</p>
+<ol>
+<li>[평가 질문 1]</li>
+<li>[평가 질문 2]</li>
+<li>[평가 질문 3]</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">11 lines</span>
+  </div>
+</div></li>
+</ol>
+<h2 id="단계별-인스트럭션-제작-프로세스">단계별 인스트럭션 제작 프로세스 {#단계별-인스트럭션-제작-프로세스}</h2>
+<h3 id="1단계-목표-정의-및-분석">1단계: 목표 정의 및 분석 {#1단계-목표-정의-및-분석}</h3>
+<h4>핵심 질문들</h4>
+<ul>
+<li><strong>무엇을 달성하려고 하는가?</strong></li>
+<li><strong>누가 최종 사용자인가?</strong></li>
+<li><strong>어떤 제약사항이 있는가?</strong></li>
+<li><strong>성공을 어떻게 측정할 것인가?</strong></li>
+</ul>
+<h4>산출물</h4>
+<ul>
+<li>프로젝트 목표 명세서</li>
+<li>사용자 페르소나 정의</li>
+<li>제약사항 및 요구사항 목록</li>
+</ul>
+<h3 id="2단계-역할-설계-및-전문성-정의">2단계: 역할 설계 및 전문성 정의 {#2단계-역할-설계-및-전문성-정의}</h3>
+<h4>역할 분석 방법</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1786" onclick="copyCode('code-1769482285047-1786')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1786" class="language-plaintext">필요한 전문성 → 역할 정의 → 책임 분담 → 통합 방식</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>다중 역할 통합 전략</h4>
+<ul>
+<li><strong>수평적 통합</strong>: 동등한 전문가 역할들</li>
+<li><strong>수직적 통합</strong>: 계층적 관리 구조</li>
+<li><strong>매트릭스 통합</strong>: 프로젝트별 유동적 역할</li>
+</ul>
+<h3 id="3단계-프로세스-구조화">3단계: 프로세스 구조화 {#3단계-프로세스-구조화}</h3>
+<h4>작업 분해 원칙</h4>
+<ul>
+<li><strong>논리적 순서</strong>: 의존성 기반 단계 설정</li>
+<li><strong>병렬 가능성</strong>: 동시 수행 가능한 작업 식별</li>
+<li><strong>체크포인트</strong>: 중간 검증 지점 설정</li>
+</ul>
+<h4>Phase 설계 가이드</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1787" onclick="copyCode('code-1769482285047-1787')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1787" class="language-plaintext">Phase 설계 = 목표 + 작업 + 산출물 + 검증</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h3 id="4단계-기술적-명세-작성">4단계: 기술적 명세 작성 {#4단계-기술적-명세-작성}</h3>
+<h4>제약사항 명시 방법</h4>
+<ul>
+<li><strong>금지사항</strong>: &quot;절대 사용하지 말 것&quot;</li>
+<li><strong>필수사항</strong>: &quot;반드시 포함해야 할 것&quot;</li>
+<li><strong>권장사항</strong>: &quot;가능하면 적용할 것&quot;</li>
+</ul>
+<h4>환경 고려사항</h4>
+<ul>
+<li><strong>실행 환경</strong>: 브라우저, 서버, 로컬 등</li>
+<li><strong>보안 제약</strong>: 샌드박스, CORS, CSP 등</li>
+<li><strong>성능 요구</strong>: 로딩 시간, 메모리 사용량 등</li>
+</ul>
+<h3 id="5단계-품질-보증-체계-구축">5단계: 품질 보증 체계 구축 {#5단계-품질-보증-체계-구축}</h3>
+<h4>품질 기준 설정</h4>
+<ul>
+<li><strong>기능적 완성도</strong>: 요구사항 충족도</li>
+<li><strong>코드 품질</strong>: 가독성, 유지보수성</li>
+<li><strong>사용자 경험</strong>: 접근성, 반응성</li>
+</ul>
+<h4>자기 평가 체계</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1788" onclick="copyCode('code-1769482285047-1788')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1788" class="language-plaintext">평가 영역 = 전략 + 실행 + 결과 + 개선점</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h2 id="실무-활용-템플릿">실무 활용 템플릿 {#실무-활용-템플릿}</h2>
+<h3 id="범용-인스트럭션-템플릿">범용 인스트럭션 템플릿 {#범용-인스트럭션-템플릿}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1789" onclick="copyCode('code-1769482285047-1789')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1789" class="language-markdown">프로젝트 브리핑: [프로젝트 제목]
+
+<p>TO: [AI 에이전트 역할 정의]
+FROM: [요청자/팀 정보]
+RE: [프로젝트 목적 및 범위]</p>
+<h2 id="1-프로젝트-비전-및-철학">1. 프로젝트 비전 및 철학 {#1-프로젝트-비전-및-철학}</h2>
+<p>[핵심 원칙 3가지]</p>
+<ol>
+<li></li>
+<li></li>
+<li></li>
+</ol>
+<h2 id="2-역할-정의">2. 역할 정의 {#2-역할-정의}</h2>
+<p>당신은 [통합 역할]로서 다음 전문가 역할을 수행합니다:</p>
+<ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+<h2 id="3-실행-단계">3. 실행 단계 {#3-실행-단계}</h2>
+<h3 id="phase-1-단계명">Phase 1: [단계명] {#phase-1-단계명}</h3>
+<p>[목표 및 작업 내용]</p>
+<h3 id="phase-2-단계명">Phase 2: [단계명]</h3>
+<p>[목표 및 작업 내용]</p>
+<h2 id="4-기술적-요구사항">4. 기술적 요구사항 {#4-기술적-요구사항}</h2>
+<ul>
+<li>사용 기술: [기술 스택]</li>
+<li>제약사항: [금지/필수 사항]</li>
+<li>품질 기준: [성능/접근성 기준]</li>
+</ul>
+<h2 id="5-최종-평가">5. 최종 평가 {#5-최종-평가}</h2>
+<p>[자기 평가 질문 3개]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">25 lines</span>
+  </div></p>
+</div>
+
+<h3 id="코딩-프로젝트용-템플릿">코딩 프로젝트용 템플릿 {#코딩-프로젝트용-템플릿}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1790" onclick="copyCode('code-1769482285047-1790')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1790" class="language-markdown">개발 프로젝트: [프로젝트명]
+
+<h2 id="역할-정의">역할 정의 {#역할-정의}</h2>
+<p>풀스택 개발자 + UI/UX 디자이너 + 품질 관리자</p>
+<h2 id="기술-스택">기술 스택 {#기술-스택}</h2>
+<ul>
+<li>프론트엔드: [기술]</li>
+<li>백엔드: [기술]  </li>
+<li>데이터베이스: [기술]</li>
+<li>배포: [플랫폼]</li>
+</ul>
+<h2 id="제약사항">제약사항 {#제약사항}</h2>
+<p>엄격한 금지 조항:</p>
+<ul>
+<li>[금지사항 1]</li>
+<li>[금지사항 2]</li>
+</ul>
+<p>필수 요구사항:</p>
+<ul>
+<li>[필수사항 1]  </li>
+<li>[필수사항 2]</li>
+</ul>
+<h2 id="품질-기준">품질 기준 {#품질-기준}</h2>
+<ul>
+<li>코드 품질: [기준]</li>
+<li>성능: [기준]</li>
+<li>보안: [기준]</li>
+<li>접근성: [기준]</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">20 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="분석-프로젝트용-템플릿">분석 프로젝트용 템플릿 {#분석-프로젝트용-템플릿}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1791" onclick="copyCode('code-1769482285047-1791')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1791" class="language-markdown">데이터 분석 프로젝트: [프로젝트명]
+
+<h2 id="분석-목표">분석 목표 {#분석-목표}</h2>
+<p>[핵심 질문 및 가설]</p>
+<h2 id="데이터-요구사항">데이터 요구사항 {#데이터-요구사항}</h2>
+<ul>
+<li>데이터 소스: [출처]</li>
+<li>데이터 형태: [구조]</li>
+<li>분석 범위: [기간/범위]</li>
+</ul>
+<h2 id="분석-방법론">분석 방법론 {#분석-방법론}</h2>
+<ol>
+<li>탐색적 데이터 분석</li>
+<li>통계적 검증</li>
+<li>시각화 및 인사이트 도출</li>
+</ol>
+<h2 id="결과물-형태">결과물 형태 {#결과물-형태}</h2>
+<ul>
+<li>분석 보고서</li>
+<li>인터랙티브 대시보드</li>
+<li>실행 가능한 권장사항</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">15 lines</span>
+</div>
+</div></li>
+</ul>
+<h2 id="품질-보증-체계">품질 보증 체계 {#품질-보증-체계}</h2>
+<h3 id="체크리스트-인스트럭션-품질-평가">체크리스트: 인스트럭션 품질 평가 {#체크리스트-인스트럭션-품질-평가}</h3>
+<h4>명확성 (Clarity)</h4>
+<ul>
+<li><input disabled="" type="checkbox"> 모호한 표현이 없는가?</li>
+<li><input disabled="" type="checkbox"> 구체적인 예시가 포함되어 있는가?</li>
+<li><input disabled="" type="checkbox"> 전문 용어에 대한 설명이 있는가?</li>
+</ul>
+<h4>완성도 (Completeness)</h4>
+<ul>
+<li><input disabled="" type="checkbox"> 모든 필요한 정보가 포함되어 있는가?</li>
+<li><input disabled="" type="checkbox"> 예외 상황에 대한 처리 방법이 있는가?</li>
+<li><input disabled="" type="checkbox"> 대안이나 옵션이 제시되어 있는가?</li>
+</ul>
+<h4>실행가능성 (Actionability)</h4>
+<ul>
+<li><input disabled="" type="checkbox"> 단계별 실행 방법이 구체적인가?</li>
+<li><input disabled="" type="checkbox"> 필요한 도구나 리소스가 명시되어 있는가?</li>
+<li><input disabled="" type="checkbox"> 예상 소요 시간이 현실적인가?</li>
+</ul>
+<h4>검증가능성 (Verifiability)</h4>
+<ul>
+<li><input disabled="" type="checkbox"> 결과물의 품질을 측정할 수 있는가?</li>
+<li><input disabled="" type="checkbox"> 성공/실패 기준이 명확한가?</li>
+<li><input disabled="" type="checkbox"> 중간 검증 지점이 설정되어 있는가?</li>
+</ul>
+<h3 id="품질-개선-프로세스">품질 개선 프로세스 {#품질-개선-프로세스}</h3>
+<ol>
+<li><strong>초안 작성</strong>: 기본 구조와 내용 작성</li>
+<li><strong>자기 검토</strong>: 체크리스트 기반 1차 검토  </li>
+<li><strong>동료 검토</strong>: 제3자 관점에서 피드백</li>
+<li><strong>테스트 실행</strong>: 실제 AI 모델로 테스트</li>
+<li><strong>반복 개선</strong>: 결과 분석 후 수정</li>
+</ol>
+<h2 id="일반적인-실수와-해결책">일반적인 실수와 해결책 {#일반적인-실수와-해결책}</h2>
+<h3 id="1-모호한-지시사항">1. 모호한 지시사항 {#1-모호한-지시사항}</h3>
+<h4>잘못된 예시</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1792" onclick="copyCode('code-1769482285047-1792')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1792" class="language-plaintext">&quot;좋은 웹사이트를 만들어주세요.&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>개선된 예시</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1793" onclick="copyCode('code-1769482285047-1793')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1793" class="language-plaintext">반응형 웹사이트를 제작하여 다음 요구사항을 충족하세요:
+- 모바일 우선 디자인 (Mobile-first)
+- 로딩 시간 3초 이내
+- WCAG 2.1 AA 접근성 기준 준수
+- 크로스 브라우저 호환성 (Chrome, Firefox, Safari)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="2-과도한-자유도">2. 과도한 자유도 {#2-과도한-자유도}</h3>
+<h4>문제점</h4>
+<ul>
+<li>AI가 너무 많은 선택권을 갖게 됨</li>
+<li>일관성 없는 결과물 생성</li>
+<li>재현 가능성 저하</li>
+</ul>
+<h4>해결책</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1794" onclick="copyCode('code-1769482285047-1794')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1794" class="language-plaintext">선택 가능한 옵션을 명확히 제한:
+- A안: [구체적 설명]
+- B안: [구체적 설명]  
+- C안: [구체적 설명]
+
+<p>권장사항: [추천하는 옵션과 이유]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<h3 id="3-기술적-제약사항-누락">3. 기술적 제약사항 누락 {#3-기술적-제약사항-누락}</h3>
+<h4>체크포인트</h4>
+<ul>
+<li><input disabled="" type="checkbox"> 실행 환경 명시 (브라우저, 서버, 로컬 등)</li>
+<li><input disabled="" type="checkbox"> 사용 가능한 라이브러리/프레임워크 지정</li>
+<li><input disabled="" type="checkbox"> 보안 제약사항 고려 (CSP, CORS 등)</li>
+<li><input disabled="" type="checkbox"> 성능 요구사항 포함 (메모리, 속도 등)</li>
+</ul>
+<h3 id="4-평가-기준-부재">4. 평가 기준 부재 {#4-평가-기준-부재}</h3>
+<h4>필수 포함 요소</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1795" onclick="copyCode('code-1769482285047-1795')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1795" class="language-plaintext">성공 기준:
+- 기능적 요구사항: [체크리스트]
+- 품질 요구사항: [측정 기준]
+- 사용자 만족도: [평가 방법]
+
+<p>실패 기준:</p>
+<ul>
+<li>절대 피해야 할 결과: [구체적 예시]</li>
+<li>성능 임계값: [수치 기준]</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">7 lines</span>
+</div>
+</div></li>
+</ul>
+<h2 id="고급-기법과-최적화">고급 기법과 최적화 {#고급-기법과-최적화}</h2>
+<h3 id="1-점진적-복잡도-증가">1. 점진적 복잡도 증가 {#1-점진적-복잡도-증가}</h3>
+<h4>전략</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1796" onclick="copyCode('code-1769482285047-1796')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1796" class="language-plaintext">Level 1: 기본 기능 구현
+Level 2: 핵심 기능 추가  
+Level 3: 고급 기능 및 최적화
+Level 4: 예외 처리 및 엣지 케이스</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3 id="2-컨텍스트-윈도우-최적화">2. 컨텍스트 윈도우 최적화 {#2-컨텍스트-윈도우-최적화}</h3>
+<h4>정보 압축 기법</h4>
+<ul>
+<li><strong>핵심 정보 우선</strong>: 가장 중요한 내용을 앞쪽에 배치</li>
+<li><strong>참조 구조</strong>: 반복되는 내용은 참조로 처리</li>
+<li><strong>예시 최소화</strong>: 꼭 필요한 예시만 포함</li>
+</ul>
+<h3 id="3-멀티모달-인스트럭션">3. 멀티모달 인스트럭션 {#3-멀티모달-인스트럭션}</h3>
+<h4>다양한 입력 형태 고려</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1797" onclick="copyCode('code-1769482285047-1797')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1797" class="language-plaintext">텍스트 + 이미지 + 데이터를 종합하여:
+1. 텍스트: 기본 지시사항
+2. 이미지: 시각적 참조 자료
+3. 데이터: 구조화된 입력 정보</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3 id="4-반복-개선-시스템">4. 반복 개선 시스템 {#4-반복-개선-시스템}</h3>
+<h4>피드백 루프 구축</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1798" onclick="copyCode('code-1769482285047-1798')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1798" class="language-plaintext">실행 → 결과 분석 → 인스트럭션 수정 → 재실행</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>A/B 테스트 적용</h4>
+<ul>
+<li>두 가지 버전의 인스트럭션 비교</li>
+<li>성능 지표 기반 최적 버전 선택</li>
+<li>지속적인 개선 사이클 운영</li>
+</ul>
+<h2 id="실전-적용-가이드">실전 적용 가이드 {#실전-적용-가이드}</h2>
+<h3 id="1-프로젝트-유형별-적용">1. 프로젝트 유형별 적용 {#1-프로젝트-유형별-적용}</h3>
+<h4>웹 개발 프로젝트</h4>
+<ul>
+<li><strong>우선순위</strong>: 사용자 경험 &gt; 기술적 완성도</li>
+<li><strong>핵심 체크포인트</strong>: 반응형 디자인, 접근성, 성능</li>
+<li><strong>평가 기준</strong>: 실제 사용자 테스트 결과</li>
+</ul>
+<h4>데이터 분석 프로젝트</h4>
+<ul>
+<li><strong>우선순위</strong>: 정확성 &gt; 시각적 완성도</li>
+<li><strong>핵심 체크포인트</strong>: 통계적 유의성, 재현성</li>
+<li><strong>평가 기준</strong>: 비즈니스 임팩트 측정</li>
+</ul>
+<h4>콘텐츠 제작 프로젝트</h4>
+<ul>
+<li><strong>우선순위</strong>: 메시지 전달력 &gt; 기술적 복잡성</li>
+<li><strong>핵심 체크포인트</strong>: 타겟 오디언스 적합성</li>
+<li><strong>평가 기준</strong>: 참여도 및 전환율</li>
+</ul>
+<h3 id="2-팀-협업에서의-활용">2. 팀 협업에서의 활용 {#2-팀-협업에서의-활용}</h3>
+<h4>역할 분담 가이드</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1799" onclick="copyCode('code-1769482285047-1799')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1799" class="language-plaintext">팀장: 전체 인스트럭션 설계 및 품질 관리
+개발자: 기술적 제약사항 및 구현 방법 검토
+디자이너: 사용자 경험 및 접근성 검토
+기획자: 비즈니스 요구사항 및 성공 지표 정의</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h4>협업 프로세스</h4>
+<ol>
+<li><strong>공동 목표 설정</strong>: 전체 팀이 합의한 목표</li>
+<li><strong>역할별 인스트럭션</strong>: 전문 분야별 세부 지침</li>
+<li><strong>통합 검토</strong>: 전체적 일관성 확인</li>
+<li><strong>지속적 개선</strong>: 프로젝트 진행 중 인스트럭션 업데이트</li>
+</ol>
+<h3 id="3-성과-측정-및-개선">3. 성과 측정 및 개선 {#3-성과-측정-및-개선}</h3>
+<h4>KPI 설정</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285047-1800" onclick="copyCode('code-1769482285047-1800')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285047-1800" class="language-plaintext">효율성 지표:
+- 첫 번째 시도 성공률
+- 평균 반복 횟수
+- 목표 달성 시간
+
+<p>품질 지표:  </p>
+<ul>
+<li>요구사항 충족도</li>
+<li>사용자 만족도</li>
+<li>기술적 완성도</li>
+</ul>
+<p>혁신성 지표:</p>
+<ul>
+<li>예상을 뛰어넘는 제안</li>
+<li>창의적 해결책 제시</li>
+<li>새로운 접근 방법 발견</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">12 lines</span>
+</div>
+</div></li>
+</ul>
+<h2 id="구현-체크리스트">구현 체크리스트 {#구현-체크리스트}</h2>
+<h3 id="즉시-실행-가능한-액션">즉시 실행 가능한 액션 {#즉시-실행-가능한-액션}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 기존 프롬프트를 CPTQ 구조로 재작성</li>
+<li><input disabled="" type="checkbox"> 프로젝트별 인스트럭션 템플릿 라이브러리 구축</li>
+<li><input disabled="" type="checkbox"> 품질 평가 체크리스트 표준화</li>
+</ul>
+<h3 id="단계별-실행-계획">단계별 실행 계획 {#단계별-실행-계획}</h3>
+<ol>
+<li><strong>1주차</strong>: CPTQ 방법론 학습 및 기본 템플릿 작성</li>
+<li><strong>2주차</strong>: 기존 프로젝트에 방법론 적용 및 테스트</li>
+<li><strong>3주차</strong>: 결과 분석 및 템플릿 개선</li>
+<li><strong>4주차</strong>: 팀 내 방법론 공유 및 표준화</li>
+</ol>
+<h3 id="필요-자원-및-도구">필요 자원 및 도구 {#필요-자원-및-도구}</h3>
+<ul>
+<li><strong>문서화 도구</strong>: Notion, Obsidian, Google Docs</li>
+<li><strong>버전 관리</strong>: Git을 활용한 인스트럭션 버전 관리</li>
+<li><strong>테스트 환경</strong>: 다양한 AI 모델로 테스트 가능한 환경</li>
+<li><strong>협업 도구</strong>: Slack, Discord 등 팀 커뮤니케이션 도구</li>
+</ul>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><strong>상위 개념</strong>: <a href="/articles/ai-prompt-engineering-complete-guide.html" class="internal-link">AI 프롬프트 엔지니어링 완전 가이드</a></li>
+<li><strong>하위 세부사항</strong>: <a href="/articles/google-gems-practical.html" class="internal-link">Google Gems 활용 실무 사례</a></li>
+<li><strong>병렬 주제</strong>: <a href="/articles/claude-code.html" class="internal-link">Claude Code 인스트럭션 최적화</a></li>
+<li><strong>실전 활용</strong>: <a href="/articles/ai-management.html" class="internal-link">AI 기반 프로젝트 관리 전략</a></li>
+<li><strong>관련 도구</strong>: <a href="/articles/anthropic-prompt-engineering-tutorial.html" class="internal-link">Anthropic 프롬프트 엔지니어링 튜토리얼</a></li>
+</ul>
+<hr>
+<p><strong>💡 핵심 인사이트</strong>: 효과적인 AI 인스트럭션은 명확한 구조(CPTQ), 구체적인 제약사항, 그리고 지속적인 개선 사이클을 통해 만들어집니다. Google Gems의 인스트럭션에서 보여준 바와 같이, 복잡한 작업도 체계적인 방법론을 통해 일관된 고품질 결과를 얻을 수 있습니다.</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/프롬프트엔지니어링.html" class="article-tag">프롬프트엔지니어링</a><a href="/tag/Google.html" class="article-tag">Google</a><a href="/tag/Gems.html" class="article-tag">Gems</a><a href="/tag/인스트럭션.html" class="article-tag">인스트럭션</a><a href="/tag/설계.html" class="article-tag">설계</a><a href="/tag/방법론.html" class="article-tag">방법론</a><a href="/tag/분석.html" class="article-tag">분석</a><a href="/tag/템플릿.html" class="article-tag">템플릿</a><a href="/tag/가이드.html" class="article-tag">가이드</a><a href="/tag/프롬프트.html" class="article-tag">프롬프트</a><a href="/tag/최적화.html" class="article-tag">최적화</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/google-gems-analysis-ai-prompt-how-to.html&text=Google Gems 인스트럭션 설계 분석 및 AI 프롬프트 제작 방법론" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/google-gems-analysis-ai-prompt-how-to.html&title=Google Gems 인스트럭션 설계 분석 및 AI 프롬프트 제작 방법론" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/google-gems-analysis-ai-prompt-how-to.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/prompt-master.html" class="author-bio__card">
+          <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">프롬프트 마스터</h3>
+            <p class="author-bio__role">Prompt Engineering Specialist</p>
+            <p class="author-bio__text">효과적인 프롬프트 작성 기법과 엔지니어링 전략을 연구합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/lovable-prompt-engineering-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/prompt-engineering-placeholder.svg"
+             alt="Lovable 프롬프트 엔지니어링 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Lovable 프롬프트 엔지니어링 완전 가이드</h3>
+          <p class="article-card__excerpt">"2025년, 시장의 승자는 최고의 AI 모델을 가진 기업이 아니라, AI와 가장 잘 소통하는 기업이 될 것이다." <div style="background: #e3f2fd; border: 1px solid #2196F3; padding: 10px;...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">
+              <span>프롬프트 마스터</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/context-engineering-complete-prompt.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/prompt-engineering-placeholder.svg"
+             alt="Context Engineering 완전 정복 - 프롬프트를 넘어서"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Context Engineering 완전 정복 - 프롬프트를 넘어서</h3>
+          <p class="article-card__excerpt">1.  || #충격적인 진실 - 프롬프트 엔지니어링은 낡았다 2.  || #Context Engineering이 뭔가요 3.  || #왜 AI는 실패할까 컨텍스트 부족 문제 4.  || #Context Engineering의 핵심 구조 5.  || #PRP 워크플로우...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">
+              <span>프롬프트 마스터</span>
+            </div>
+            <span class="article-card__reading-time">41 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/context-engineering-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/prompt-engineering-placeholder.svg"
+             alt="Context Engineering 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Context Engineering 완전 가이드</h3>
+          <p class="article-card__excerpt">1.  || #개요 2.  || #Context Engineering이란 3.  || #프롬프트 엔지니어링과의 차이점 4.  || #핵심 구성 요소 5.  || #파일 구조와 역할 6.  || #실제 워크플로우 7.  || #구현 방법 8.  || #활용 사례 9. ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">
+              <span>프롬프트 마스터</span>
+            </div>
+            <span class="article-card__reading-time">35 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI 기술 자료 저널</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

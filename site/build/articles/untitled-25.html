@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untitled | AI 기술 자료 저널</title>
+  <meta name="description" content="엄청나게 유능하지만, 말귀를 곧이곧대로만 알아듣는 최고의 요리사(AI)가 우리 팀에 새로 왔다고 상상해 보세요. 이 요리사에게 어떻게 주문해야 우리가 원하는 완벽한 요리를 매번 만들어낼 수 있을까요? 여기서 요리사는 AI, 레시피는 프롬프트입니다. 나쁜 예시 👎:...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Untitled">
+  <meta property="og:description" content="엄청나게 유능하지만, 말귀를 곧이곧대로만 알아듣는 최고의 요리사(AI)가 우리 팀에 새로 왔다고 상상해 보세요. 이 요리사에게 어떻게 주문해야 우리가 원하는 완벽한 요리를 매번 만들어낼 수 있을까요? 여기서 요리사는 AI, 레시피는 프롬프트입니다. 나쁜 예시 👎:...">
+  <meta property="og:image" content="/assets/images/prompt-engineering-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-25.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Untitled">
+  <meta name="twitter:description" content="엄청나게 유능하지만, 말귀를 곧이곧대로만 알아듣는 최고의 요리사(AI)가 우리 팀에 새로 왔다고 상상해 보세요. 이 요리사에게 어떻게 주문해야 우리가 원하는 완벽한 요리를 매번 만들어낼 수 있을까요? 여기서 요리사는 AI, 레시피는 프롬프트입니다. 나쁜 예시 👎:...">
+  <meta name="twitter:image" content="/assets/images/prompt-engineering-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-25.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI 기술 자료 저널</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/prompt-engineering.html" class="article-category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </a>
+        <h1 class="article-title">Untitled</h1>
+        <div class="article-meta">
+          <a href="/journalist/prompt-master.html" class="article-author">
+            <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">프롬프트 마스터</span>
+              <span class="article-author__role">Prompt Engineering Specialist</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2026년 1월 27일">2026년 1월 27일</time>
+            <span class="article-meta__separator">·</span>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#1단계-대충-주문하기-vs-완벽한-레시피-주기" class="toc__link">1단계: 대충 주문하기 vs. 완벽한 레시피 주기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#2단계-머릿속으로-요리-시뮬레이션-돌려보기-프리모템" class="toc__link">2단계: 머릿속으로 요리 시뮬레이션 돌려보기 (프리모템)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#3단계-완성된-요리를-맛보고-레시피-수정하기-포스트모템" class="toc__link">3단계: 완성된 요리를 맛보고 레시피 수정하기 (포스트모템)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#아주-중요한-원칙-한-장짜리-완벽한-레시피를-지향하세요-싱글턴-프롬프트" class="toc__link">아주 중요한 원칙: &#39;한 장짜리 완벽한 레시피&#39;를 지향하세요 (싱글턴 프롬프트)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#보너스-팁-주방을-항상-깨끗하게-유지하세요-컨텍스트-관리" class="toc__link">보너스 팁: 주방을 항상 깨끗하게 유지하세요 (컨텍스트 관리)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#결론" class="toc__link">결론</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>AI에게 &#39;똑똑하게&#39; 일 시키는 법 (요리사 비유)</h1>
+<p>엄청나게 유능하지만, 말귀를 곧이곧대로만 알아듣는 최고의 요리사(AI)가 우리 팀에 새로 왔다고 상상해 보세요. 이 요리사에게 어떻게 주문해야 우리가 원하는 완벽한 요리를 매번 만들어낼 수 있을까요? 여기서 <strong>요리사는 AI, 레시피는 프롬프트</strong>입니다.</p>
+<h3 id="1단계-대충-주문하기-vs-완벽한-레시피-주기">1단계: 대충 주문하기 vs. 완벽한 레시피 주기 {#1단계-대충-주문하기-vs-완벽한-레시피-주기}</h3>
+<p><strong>나쁜 예시 👎: &quot;요리사님, 맛있는 파스타 하나 만들어주세요.&quot;</strong></p>
+<ul>
+<li><p>이렇게 말하면 요리사는 자기 마음대로 크림 파스타를 만들 수도, 토마토 파스타를 만들 수도 있습니다. 우리가 원하던 요리가 아닐 확률이 높죠.</p>
+</li>
+<li><p>개발로 치면, <strong>&quot;로그인 기능 만들어주세요.&quot;</strong> 라고 AI에게 막연하게 지시하는 것과 같습니다.</p>
+</li>
+</ul>
+<p><strong>좋은 예시 👍: 체계적인 &#39;레시피&#39;를 전달한다.</strong></p>
+<p>최고의 요리사에게는 아래 4가지 항목이 포함된 완벽한 레시피를 줘야 합니다.</p>
+<ol>
+<li><p><strong>요구사항 (Requirement):</strong> 손님의 관점에서 어떤 요리인지 설명합니다.</p>
+<ul>
+<li><p><strong>요리 예시:</strong> &quot;채식주의자 손님을 위한, 살짝 매콤한 토마토 파스타&quot;</p>
+</li>
+<li><p><strong>개발 예시:</strong> &quot;사용자는 아이디와 비밀번호로 로그인할 수 있다.&quot;</p>
+</li>
+</ul>
+</li>
+<li><p><strong>구현 상세 (Implementation Detail):</strong> 주방장(개발자)의 관점에서 구체적인 지시를 합니다.</p>
+<ul>
+<li><p><strong>요리 예시:</strong> &quot;파스타 면은 &#39;데체코&#39; 브랜드를 쓰고, 토마토는 &#39;산 마르지노&#39; 품종을 써. 마늘 먼저 볶다가 면을 넣어.&quot;</p>
+</li>
+<li><p><strong>개발 예시:</strong> &quot;로그인 로직은 <code>AuthController</code> 안에 <code>login</code> 메소드로 구현해. 데이터베이스 모델은 <code>User</code>를 사용하고, 비밀번호는 <code>bcrypt</code>로 암호화해.&quot;</p>
+</li>
+</ul>
+</li>
+<li><p><strong>제약 조건 (Constraint):</strong> 절대 하지 말아야 할 것을 명확히 알려줍니다.</p>
+<ul>
+<li><p><strong>요리 예시:</strong> &quot;치즈나 우유 같은 유제품은 <strong>절대</strong> 넣으면 안 돼.&quot;</p>
+</li>
+<li><p><strong>개발 예시:</strong> &quot;로그인 시 사용자의 비밀번호를 평문으로 로그에 남기면 <strong>절대</strong> 안 돼.&quot;</p>
+</li>
+</ul>
+</li>
+<li><p><strong>성공 조건 (Acceptance Tests):</strong> 어떤 상태가 되면 &#39;요리 성공&#39;인지 알려줍니다.</p>
+<ul>
+<li><p><strong>요리 예시:</strong> &quot;면은 알덴테로 익어야 하고, 소스는 따뜻해야 하며, 매콤한 맛이 나야 성공이야.&quot;</p>
+</li>
+<li><p><strong>개발 예시:</strong> &quot;테스트 계정으로 로그인이 성공해야 하고, 틀린 비밀번호를 입력하면 에러 메시지가 나와야 해.&quot;</p>
+</li>
+</ul>
+</li>
+</ol>
+<p>이렇게 구체적인 레시피(프롬프트)를 주면, 요리사(AI)는 우리가 원하는 결과물을 거의 완벽하게 만들어냅니다.</p>
+<h3 id="2단계-머릿속으로-요리-시뮬레이션-돌려보기-프리모템">2단계: 머릿속으로 요리 시뮬레이션 돌려보기 (프리모템) {#2단계-머릿속으로-요리-시뮬레이션-돌려보기-프리모템}</h3>
+<p>레시피를 요리사에게 주기 전에, 잠시 눈을 감고 상상해 보는 겁니다. &quot;이 레시피대로 요리했을 때, 혹시 실수가 나올 만한 부분이 있을까?&quot;</p>
+<ul>
+<li><p><strong>요리 예시:</strong> &quot;레시피에 &#39;소금을 적당히 넣으세요&#39;라고 썼네. 근데 이 요리사는 &#39;적당히&#39;를 잘 모르지. 짜게 만들 수도 있겠다. &#39;<strong>천일염 5g</strong>을 넣으세요&#39;라고 고쳐야겠다.&quot;</p>
+</li>
+<li><p><strong>개발 예시:</strong> 프롬프트에 &quot;미리 정의된 사용자 역할을 적용하세요&quot;라고 썼더니, AI가 이걸 어떻게 구현할지 헷갈릴 수 있겠네요. &quot;사용자 역할은 <strong>환경 변수</strong>에 설정된 값을 읽어서 적용하세요&quot;라고 명확하게 수정합니다.</p>
+</li>
+</ul>
+<p>이렇게 AI가 헷갈리거나 실수할 만한 부분을 미리 찾아내서 레시피를 더 명확하게 만드는 과정을 **프리모템(Pre-mortem)**이라고 합니다.</p>
+<h3 id="3단계-완성된-요리를-맛보고-레시피-수정하기-포스트모템">3단계: 완성된 요리를 맛보고 레시피 수정하기 (포스트모템) {#3단계-완성된-요리를-맛보고-레시피-수정하기-포스트모템}</h3>
+<p>요리사가 레시피대로 요리를 가져왔습니다. 거의 완벽한데, 바질 향이 조금 부족하네요. 이때 그냥 &quot;바질 좀 더 넣어주세요&quot;라고 말하고 끝내는 게 아닙니다.</p>
+<p>원래 전달했던 <strong>&#39;마스터 레시피&#39;에 빨간 펜으로 수정사항을 기록</strong>하는 겁니다.</p>
+<ul>
+<li><p><strong>(추가 요청)</strong> &quot;바질 잎 3장을 마지막에 찢어서 넣어주세요.&quot;</p>
+</li>
+<li><p><strong>(레시피 업데이트)</strong> 마스터 레시피의 마지막 단계에 해당 내용을 추가합니다.</p>
+</li>
+</ul>
+<p>이렇게 하면 나중에 다른 요리사가 이 레시피로 요리해도 똑같은 실수를 반복하지 않겠죠. 실제 AI와 작업하며 추가로 요청했던 내용을 원래 프롬프트에 다시 반영해서 개선하는 이 과정을 **포스트모템(Post-mortem)**이라고 합니다.</p>
+<h3>아주 중요한 원칙: &#39;한 장짜리 완벽한 레시피&#39;를 지향하세요 (싱글턴 프롬프트) {#아주-중요한-원칙-한-장짜리-완벽한-레시피를-지향하세요-싱글턴-프롬프트}</h3>
+<p>요리사 옆에 서서 &quot;자, 이제 양파를 썰고... 아니, 더 잘게 썰어요. 이제 마늘을 넣고... 아, 저쪽 팬 말고요.&quot; 와 같이 계속 말을 걸면서 요리를 시키면 요리사는 헷갈리고 결과물도 엉망이 됩니다.</p>
+<p>가장 좋은 방법은, <strong>수정과 보완이 끝난 완벽한 레시피 한 장을 딱 주고, 요리사가 그것만 보고 요리에 집중하게 하는 것</strong>입니다. AI에게 일을 시킬 때도 여러 번에 걸쳐 대화하기보다, 한 번의 지시(프롬프트)로 원하는 결과물을 얻는 &#39;싱글턴(Singleton)&#39; 방식을 지향해야 하는 이유입니다.</p>
+<h3 id="보너스-팁-주방을-항상-깨끗하게-유지하세요-컨텍스트-관리">보너스 팁: 주방을 항상 깨끗하게 유지하세요 (컨텍스트 관리) {#보너스-팁-주방을-항상-깨끗하게-유지하세요-컨텍스트-관리}</h3>
+<p>요리사가 일하는 주방(AI가 코드를 참고하는 범위)이 깨끗해야 좋은 요리가 나옵니다.</p>
+<ol>
+<li><p><strong>오래된 재료는 버리세요 (레거시 파일 지우기):</strong> 냉장고에 썩은 채소가 있으면 요리사가 실수로 쓸 수도 있습니다. 마찬가지로, 프로젝트에 지금은 안 쓰는 옛날 코드(레거시)가 남아있으면 AI가 그걸 참고해서 엉뚱한 코드를 만들 수 있습니다. 과감히 지우세요!</p>
+</li>
+<li><p><strong>재료 이름표를 정확히 붙이세요 (정확한 변수명/경로 쓰기):</strong> &#39;설탕&#39; 통에 소금이 들어있으면 요리가 망하겠죠? AI에게 지시할 때도 두루뭉술하게 &quot;인증 관련 파일에 추가해줘&quot;라고 하지 말고, &quot;<strong>AuthController.ts</strong> 파일에 <code>login</code> 메소드를 추가해줘&quot; 와 같이 실제 파일명, 클래스명, 메소드명을 정확히 언급해야 AI가 길을 잃지 않습니다.</p>
+</li>
+</ol>
+<h3 id="결론">결론 {#결론}</h3>
+<p>AI를 유능한 개발 동료로 만들기 위한 핵심은, AI와의 작업을 &#39;대화&#39;가 아닌 &#39;체계적인 개발 프로세스&#39;로 만드는 것입니다.</p>
+<p><strong>완벽한 레시피(프롬프트)를 작성하고, 동료와 함께 리뷰하고, 실패 경험을 통해 레시피를 계속 발전시켜 나가세요.</strong> 이렇게 팀의 노하우가 담긴 레시피들이 쌓이면, AI라는 최고의 요리사는 항상 우리 팀이 원하는 최고의 결과물을 만들어 줄 겁니다.</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-25.html&text=Untitled" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-25.html&title=Untitled" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-25.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/prompt-master.html" class="author-bio__card">
+          <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">프롬프트 마스터</h3>
+            <p class="author-bio__role">Prompt Engineering Specialist</p>
+            <p class="author-bio__text">효과적인 프롬프트 작성 기법과 엔지니어링 전략을 연구합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/lovable-prompt-engineering-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/prompt-engineering-placeholder.svg"
+             alt="Lovable 프롬프트 엔지니어링 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Lovable 프롬프트 엔지니어링 완전 가이드</h3>
+          <p class="article-card__excerpt">"2025년, 시장의 승자는 최고의 AI 모델을 가진 기업이 아니라, AI와 가장 잘 소통하는 기업이 될 것이다." <div style="background: #e3f2fd; border: 1px solid #2196F3; padding: 10px;...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">
+              <span>프롬프트 마스터</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/context-engineering-complete-prompt.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/prompt-engineering-placeholder.svg"
+             alt="Context Engineering 완전 정복 - 프롬프트를 넘어서"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Context Engineering 완전 정복 - 프롬프트를 넘어서</h3>
+          <p class="article-card__excerpt">1.  || #충격적인 진실 - 프롬프트 엔지니어링은 낡았다 2.  || #Context Engineering이 뭔가요 3.  || #왜 AI는 실패할까 컨텍스트 부족 문제 4.  || #Context Engineering의 핵심 구조 5.  || #PRP 워크플로우...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">
+              <span>프롬프트 마스터</span>
+            </div>
+            <span class="article-card__reading-time">41 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/context-engineering-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/prompt-engineering-placeholder.svg"
+             alt="Context Engineering 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Context Engineering 완전 가이드</h3>
+          <p class="article-card__excerpt">1.  || #개요 2.  || #Context Engineering이란 3.  || #프롬프트 엔지니어링과의 차이점 4.  || #핵심 구성 요소 5.  || #파일 구조와 역할 6.  || #실제 워크플로우 7.  || #구현 방법 8.  || #활용 사례 9. ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">
+              <span>프롬프트 마스터</span>
+            </div>
+            <span class="article-card__reading-time">35 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI 기술 자료 저널</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

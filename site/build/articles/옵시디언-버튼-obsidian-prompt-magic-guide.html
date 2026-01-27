@@ -1,0 +1,1362 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎭 파인만 교수와 함께하는 AI 프롬프트 마법 수업 | AI &amp; Development Journal</title>
+  <meta name="description" content="잠깐, 여기 앉아봐. 내가 정말 재미있는 이야기를 해줄게! 학생: 교수님, 버튼 만드는 게 제일 어려워요... 파인만: 걱정 마! 내가 단계별로 천천히 알려줄게. 버튼은 사실 3가지 재료만 있으면 돼! 파인만: 자, ...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="🎭 파인만 교수와 함께하는 AI 프롬프트 마법 수업">
+  <meta property="og:description" content="잠깐, 여기 앉아봐. 내가 정말 재미있는 이야기를 해줄게! 학생: 교수님, 버튼 만드는 게 제일 어려워요... 파인만: 걱정 마! 내가 단계별로 천천히 알려줄게. 버튼은 사실 3가지 재료만 있으면 돼! 파인만: 자, ...">
+  <meta property="og:image" content="/assets/images/obsidian-integration-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/옵시디언-버튼-obsidian-prompt-magic-guide.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="🎭 파인만 교수와 함께하는 AI 프롬프트 마법 수업">
+  <meta name="twitter:description" content="잠깐, 여기 앉아봐. 내가 정말 재미있는 이야기를 해줄게! 학생: 교수님, 버튼 만드는 게 제일 어려워요... 파인만: 걱정 마! 내가 단계별로 천천히 알려줄게. 버튼은 사실 3가지 재료만 있으면 돼! 파인만: 자, ...">
+  <meta name="twitter:image" content="/assets/images/obsidian-integration-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/옵시디언-버튼-obsidian-prompt-magic-guide.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/obsidian-integration.html" class="article-category" style="background-color: #8b5cf6">
+          Obsidian 통합
+        </a>
+        <h1 class="article-title">🎭 파인만 교수와 함께하는 AI 프롬프트 마법 수업</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-expert.html" class="article-author">
+            <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 전문가</span>
+              <span class="article-author__role">AI &amp; Development Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 10월 26일">2025년 10월 26일</time>
+            <span class="article-meta__separator">·</span>
+            <span>8 read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#학생-교수님-ai-프롬프트-관리가-너무-어려워요" class="toc__link">🤔 **학생**: &quot;교수님, AI 프롬프트 관리가 너무 어려워요!&quot;</a>
+    </li>
+    <li class="toc__item">
+      <a href="#buttons-플러그인-마법-버튼의-비밀" class="toc__link">🔧 **Buttons 플러그인: 마법 버튼의 비밀**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1단계-기본-버튼-만들기-아주아주-쉬운-것부터" class="toc__link">📝 **1단계: 기본 버튼 만들기 (아주아주 쉬운 것부터!)**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2단계-실제로-유용한-버튼들" class="toc__link">🎯 **2단계: 실제로 유용한 버튼들**</a>
+    </li>
+    <li class="toc__item">
+      <a href="#3단계-고급-버튼들-이제-좀-더-복잡해져" class="toc__link">🎨 **3단계: 고급 버튼들 - 이제 좀 더 복잡해져!**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#명령어-실행-버튼" class="toc__link">🎛️ **명령어 실행 버튼**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#예쁜-버튼-만들기" class="toc__link">🎨 **예쁜 버튼 만들기**</a>
+    </li>
+    <li class="toc__item">
+      <a href="#4단계-실전-예제-단계별-따라하기" class="toc__link">🧪 **4단계: 실전 예제 - 단계별 따라하기**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#완전한-버튼-세트" class="toc__link">📋 **완전한 버튼 세트**</a>
+    </li>
+    <li class="toc__item">
+      <a href="#1-프롬프트-준비-단계codepre" class="toc__link">1️⃣ 프롬프트 준비 단계&lt;/code&gt;&lt;/pre&gt;</a>
+    </li>
+    <li class="toc__item">
+      <a href="#5단계-고급-마법-조건부-버튼" class="toc__link">🎪 **5단계: 고급 마법 - 조건부 버튼**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#스마트-프롬프트-버튼" class="toc__link">🔀 **스마트 프롬프트 버튼**</a>
+    </li>
+    <li class="toc__item">
+      <a href="#6단계-버튼을-예쁘게-꾸미기" class="toc__link">🎨 **6단계: 버튼을 예쁘게 꾸미기**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#예쁜-버튼-스타일" class="toc__link">🌈 **예쁜 버튼 스타일**</a>
+    </li>
+    <li class="toc__item">
+      <a href="#7단계-완전-통합-워크플로우" class="toc__link">🎭 **7단계: 완전 통합 워크플로우**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#마스터-대시보드" class="toc__link">🏗️ **마스터 대시보드**</a>
+    </li>
+    <li class="toc__item">
+      <a href="#빠른-실행-패널codepre" class="toc__link">🚀 빠른 실행 패널&lt;/code&gt;&lt;/pre&gt;</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#컨텐츠-제작팀codepre" class="toc__link">📚 컨텐츠 제작팀&lt;/code&gt;&lt;/pre&gt;</a>
+    </li>
+    <li class="toc__item">
+      <a href="#마무리-파인만-교수의-마지막-조언" class="toc__link">🎊 **마무리: 파인만 교수의 마지막 조언**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실험적-개선-방법" class="toc__link">🧪 **실험적 개선 방법**</a>
+    </li>
+    <li class="toc__item">
+      <a href="#보너스-파인만의-버튼-치트시트" class="toc__link">🎁 **보너스: 파인만의 버튼 치트시트**</a>
+    </li>
+    <li class="toc__item">
+      <a href="#색깔-옵션" class="toc__link">🌈 색깔 옵션</a>
+    </li>
+    <li class="toc__item">
+      <a href="#꿀팁" class="toc__link">💡 꿀팁</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>🎭 파인만 교수와 함께하는 AI 프롬프트 마법 수업</h1>
+<p><em>&quot;잠깐, 여기 앉아봐. 내가 정말 재미있는 이야기를 해줄게!&quot;</em></p>
+<hr>
+<h2>🤔 <strong>학생</strong>: &quot;교수님, AI 프롬프트 관리가 너무 어려워요!&quot; {#학생-교수님-ai-프롬프트-관리가-너무-어려워요}</h2>
+<p><strong>파인만</strong>: &quot;아하! 좋은 질문이야! 자, 내가 5살 아이에게 설명하듯 말해줄게. </p>
+<p>프롬프트 관리를 요리에 비유해보자. 매번 요리할 때마다 레시피를 외워야 한다면? 너무 힘들겠지?&quot;</p>
+<p><strong>학생</strong>: &quot;네, 정말 그럴 것 같아요!&quot;</p>
+<p><strong>파인만</strong>: &quot;그래서 우리에게는 <strong>레시피북</strong>이 필요해! 옵시디언이 바로 그 마법의 레시피북이야. 그리고 세 가지 마법 도구가 있어:&quot;</p>
+<ol>
+<li><strong>Templater</strong> = 자동 레시피 생성기 🏗️</li>
+<li><strong>Open Gate</strong> = 요리할 화덕 문 🚪  </li>
+<li><strong>Buttons</strong> = 원터치 요리 버튼 🎛️</li>
+</ol>
+<hr>
+<h2>🔧 <strong>Buttons 플러그인: 마법 버튼의 비밀</strong> {#buttons-플러그인-마법-버튼의-비밀}</h2>
+<p><strong>학생</strong>: &quot;교수님, 버튼 만드는 게 제일 어려워요...&quot;</p>
+<p><strong>파인만</strong>: &quot;걱정 마! 내가 <strong>단계별로</strong> 천천히 알려줄게. 버튼은 사실 <strong>3가지 재료</strong>만 있으면 돼!&quot;</p>
+<h3>📝 <strong>1단계: 기본 버튼 만들기 (아주아주 쉬운 것부터!)</strong> {#1단계-기본-버튼-만들기-아주아주-쉬운-것부터}</h3>
+<p><strong>파인만</strong>: &quot;자, 가장 간단한 버튼부터 만들어보자. 마치 전등 스위치처럼!&quot;</p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7361" onclick="copyCode('code-1769481055541-7361')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7361" class="language-javascript"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name 안녕하세요
+type note
+action 새로운 노트가 생성되었습니다!
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7362" onclick="copyCode('code-1769481055541-7362')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7362" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>
+
+<p><strong>학생</strong>: &quot;이게 뭘 하는 건가요?&quot;</p>
+<p><strong>파인만</strong>: &quot;좋은 질문! 하나씩 뜯어보자:</p>
+<ul>
+<li><code>name</code>: 버튼에 써있을 글자 (전등 스위치의 &#39;켜기/끄기&#39; 라벨 같은 것)</li>
+<li><code>type</code>: 버튼이 할 일의 종류 (전등을 켜는지, 선풍기를 켜는지)</li>
+<li><code>action</code>: 구체적으로 뭘 할지 (몇 와트 전구를 켤지)&quot;</li>
+</ul>
+<h3>🎯 <strong>2단계: 실제로 유용한 버튼들</strong> {#2단계-실제로-유용한-버튼들}</h3>
+<p><strong>파인만</strong>: &quot;이제 진짜 요리하는 버튼들을 만들어보자!&quot;</p>
+<h4><strong>🤖 AI 채팅 열기 버튼</strong></h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7363" onclick="copyCode('code-1769481055541-7363')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7363" class="language-javascript"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name 🤖 ChatGPT 열기
+type link
+action https://chat.openai.com
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7364" onclick="copyCode('code-1769481055541-7364')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7364" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>
+
+<p><strong>학생</strong>: &quot;오! 이건 이해가 돼요!&quot;</p>
+<p><strong>파인만</strong>: &quot;그렇지! <code>type link</code>는 &#39;링크로 가라&#39;는 뜻이고, <code>action</code>에 주소를 적으면 그곳으로 이동해!&quot;</p>
+<h4><strong>📋 텍스트 복사 버튼</strong></h4>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7365" onclick="copyCode('code-1769481055541-7365')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7365" class="language-javascript"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name 📋 프롬프트 복사
+type copy
+action 당신은 전문 작가입니다. 다음 주제로 블로그를 작성해주세요: {{주제}}
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7366" onclick="copyCode('code-1769481055541-7366')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7366" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>
+
+<p><strong>파인만</strong>: &quot;이 버튼을 누르면 <code>action</code>에 있는 텍스트가 클립보드로 복사돼! 마치 복사기처럼!&quot;</p>
+<hr>
+<h2>🎨 <strong>3단계: 고급 버튼들 - 이제 좀 더 복잡해져!</strong> {#3단계-고급-버튼들-이제-좀-더-복잡해져}</h2>
+<p><strong>학생</strong>: &quot;교수님, 더 복잡한 것도 알고 싶어요!&quot;</p>
+<p><strong>파인만</strong>: &quot;훌륭해! 이제 <strong>조건부 버튼</strong>을 만들어보자. 마치 리모컨처럼 여러 기능이 있는!&quot;</p>
+<h3>🎛️ <strong>명령어 실행 버튼</strong> {#명령어-실행-버튼}</h3>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7367" onclick="copyCode('code-1769481055541-7367')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7367" class="language-javascript"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name 🏗️ 새 프롬프트 만들기
+type command
+action Templater: Open insert Template modal
+color blue
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7368" onclick="copyCode('code-1769481055541-7368')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7368" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>
+
+<p><strong>파인만</strong>: &quot;여기서 <code>type command</code>는 &#39;옵시디언 명령어를 실행하라&#39;는 뜻이야. 마치 리모컨의 &#39;채널 바꾸기&#39; 버튼처럼!&quot;</p>
+<p><strong>학생</strong>: &quot;command는 어떻게 찾나요?&quot;</p>
+<p><strong>파인만</strong>: &quot;아주 좋은 질문! <strong>Ctrl+Shift+P</strong> (맥은 Cmd+Shift+P)를 누르면 모든 명령어 목록이 나와. 거기서 원하는 걸 찾으면 돼!&quot;</p>
+<h3>🎨 <strong>예쁜 버튼 만들기</strong> {#예쁜-버튼-만들기}</h3>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7369" onclick="copyCode('code-1769481055541-7369')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7369" class="language-javascript"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name ✨ 마케팅 프롬프트 생성
+type template
+action Marketing_Prompt_Template
+color green
+id marketing-btn
+class fancy-button
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7370" onclick="copyCode('code-1769481055541-7370')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7370" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>
+
+<p><strong>파인만</strong>: &quot;색깔과 모양도 꾸밀 수 있어! </p>
+<ul>
+<li><code>color</code>: 버튼 색깔 (red, blue, green, purple, yellow, orange)</li>
+<li><code>id</code>: 버튼의 고유 이름 (CSS로 더 예쁘게 꾸밀 때 사용)</li>
+<li><code>class</code>: 스타일 그룹 (여러 버튼을 같은 스타일로)&quot;</li>
+</ul>
+<hr>
+<h2>🧪 <strong>4단계: 실전 예제 - 단계별 따라하기</strong> {#4단계-실전-예제-단계별-따라하기}</h2>
+<p><strong>학생</strong>: &quot;실제로 어떻게 쓰는지 보고 싶어요!&quot;</p>
+<p><strong>파인만</strong>: &quot;그럼 <strong>블로그 작성 워크플로우</strong>를 만들어보자! 마치 요리 순서처럼!&quot;</p>
+<h3>📋 <strong>완전한 버튼 세트</strong> {#완전한-버튼-세트}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7371" onclick="copyCode('code-1769481055541-7371')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7371" class="language-markdown"># 📝 나의 블로그 작성 도구
+
+<h2 id="1-프롬프트-준비-단계codepre">1️⃣ 프롬프트 준비 단계</code></pre> {#1-프롬프트-준비-단계codepre}</h2>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>button
+name 🎯 주제 선정 도우미
+type copy
+action 다음 중에서 오늘 쓸 블로그 주제를 추천해주세요:
+1. 최근 관심사와 트렌드
+2. 독자들이 자주 묻는 질문
+3. 계절/시기와 관련된 내용
+4. 개인 경험담
+5. 업계 뉴스 분석
+
+<p>각 주제별로 구체적인 아이디어 3개씩 제안해주세요.
+color blue</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7372" onclick="copyCode('code-1769481055541-7372')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7372" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name 📚 개요 작성 도우미
+type copy
+action 블로그 주제: [여기에 주제 입력]
+
+<p>다음 구조로 블로그 개요를 작성해주세요:</p>
+<ol>
+<li>제목 후보 5개 (SEO 최적화 고려)</li>
+<li>서론 (독자의 문제점/관심사 제시)</li>
+<li>본론 구조 (3-4개 섹션)</li>
+<li>각 섹션별 핵심 메시지</li>
+<li>결론 (실행 가능한 팁 제공)</li>
+<li>CTA (Call to Action) 제안</li>
+</ol>
+<p>톤: 친근하고 유익한, 독자와의 대화체
+길이: 1500-2000자 목표
+color green</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7373" onclick="copyCode('code-1769481055541-7373')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7373" class="language-plaintext">## 2️⃣ AI 실행 단계</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>button  
+name 🤖 ChatGPT에서 실행
+type link
+action https://chat.openai.com
+color purple
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7374" onclick="copyCode('code-1769481055541-7374')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7374" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name 🧠 Claude에서 실행  
+type link
+action https://claude.ai
+color orange
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7375" onclick="copyCode('code-1769481055541-7375')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7375" class="language-plaintext">## 3️⃣ 후처리 단계</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>button
+name 📊 SEO 최적화 검토
+type copy
+action 방금 작성한 블로그 글을 SEO 관점에서 검토해주세요:
+
+<ol>
+<li>제목에 타겟 키워드 포함 여부</li>
+<li>메타 디스크립션 제안 (150자 이내)  </li>
+<li>헤딩 구조 (H2, H3) 최적화</li>
+<li>내부 링크 가능한 지점 5곳</li>
+<li>이미지 alt 텍스트 제안</li>
+<li>관련 해시태그 10개</li>
+</ol>
+<p>추가로 가독성 향상을 위한 수정 제안도 해주세요.
+color red</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7376" onclick="copyCode('code-1769481055541-7376')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7376" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name 📈 성과 추적 템플릿
+type template  
+action Blog_Performance_Template
+color yellow
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7377" onclick="copyCode('code-1769481055541-7377')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7377" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2>🎪 <strong>5단계: 고급 마법 - 조건부 버튼</strong> {#5단계-고급-마법-조건부-버튼}</h2>
+<p><strong>학생</strong>: &quot;와! 이제 이해가 돼요. 그런데 더 똑똑한 버튼도 만들 수 있나요?&quot;</p>
+<p><strong>파인만</strong>: &quot;물론이지! 이제 <strong>조건에 따라 다르게 작동하는</strong> 버튼을 만들어보자!&quot;</p>
+<h3>🔀 <strong>스마트 프롬프트 버튼</strong> {#스마트-프롬프트-버튼}</h3>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7378" onclick="copyCode('code-1769481055541-7378')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7378" class="language-javascript"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name 🎯 맞춤형 프롬프트 생성
+type command
+action Templater: Open insert Template modal
+templater-inline <%* 
+const contentType = await tp.system.suggester(
+  ["블로그 포스트", "SNS 게시물", "유튜브 스크립트", "이메일 뉴스레터"], 
+  ["blog", "sns", "youtube", "email"]
+);
+
+<p>const audience = await tp.system.prompt(&quot;타겟 독자층을 입력하세요 (예: 20-30대 직장인)&quot;);</p>
+<p>const tone = await tp.system.suggester(
+  [&quot;친근한&quot;, &quot;전문적인&quot;, &quot;유머러스한&quot;, &quot;진지한&quot;],
+  [&quot;friendly&quot;, &quot;professional&quot;, &quot;humorous&quot;, &quot;serious&quot;]<br>);</p>
+<p>let prompt = &quot;&quot;;
+switch(contentType) {
+  case &quot;blog&quot;:
+    prompt = <code>전문 블로거로서 ${audience}을 대상으로 ${tone} 톤으로 블로그를 작성해주세요.</code>;
+    break;
+  case &quot;sns&quot;: 
+    prompt = <code>SNS 마케터로서 ${audience}의 참여를 유도하는 ${tone} 게시물을 작성해주세요.</code>;
+    break;
+  // ... 다른 경우들
+}</p>
+<p>tR += prompt;
+%&gt;
+color rainbow</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7379" onclick="copyCode('code-1769481055541-7379')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7379" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>
+
+<p><strong>파인만</strong>: &quot;이 버튼은 클릭하면 <strong>질문을 해서</strong> 맞춤형 프롬프트를 만들어줘! 마치 똑똑한 요리사가 &#39;어떤 요리 하고 싶어?&#39;라고 묻는 것처럼!&quot;</p>
+<hr>
+<h2>🎨 <strong>6단계: 버튼을 예쁘게 꾸미기</strong> {#6단계-버튼을-예쁘게-꾸미기}</h2>
+<p><strong>학생</strong>: &quot;버튼이 너무 밋밋해 보여요...&quot;</p>
+<p><strong>파인만</strong>: &quot;그럼 <strong>CSS 마법</strong>을 써보자! 옵시디언 설정에서 CSS 스니펫을 추가할 수 있어!&quot;</p>
+<h3>🌈 <strong>예쁜 버튼 스타일</strong> {#예쁜-버튼-스타일}</h3>
+<div class="code-block" data-language="css">
+  <div class="code-block__header" style="background-color: #264de4; color: #fff">
+    <span class="code-block__language">CSS</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7380" onclick="copyCode('code-1769481055541-7380')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7380" class="language-css">/* .obsidian/snippets/button-styles.css 파일에 저장 */
+
+<p>.fancy-button {
+    background: linear-gradient(45deg, #ff6b6b, #4ecdc4) !important;
+    border: none !important;
+    border-radius: 15px !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+    transform: scale(1.05) !important;
+    transition: all 0.3s ease !important;
+}</p>
+<p>.fancy-button:hover {
+    transform: scale(1.1) !important;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.3) !important;
+}</p>
+<p>.prompt-button {
+    background: #667eea !important;
+    color: white !important;
+    border-radius: 10px !important;
+    padding: 10px 20px !important;
+    font-weight: bold !important;
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">20 lines</span>
+  </div></p>
+</div>
+
+<p><strong>사용법:</strong></p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7381" onclick="copyCode('code-1769481055541-7381')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7381" class="language-javascript"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name ✨ 마법의 프롬프트
+type copy
+action 멋진 프롬프트 내용
+class fancy-button
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7382" onclick="copyCode('code-1769481055541-7382')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7382" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2>🎭 <strong>7단계: 완전 통합 워크플로우</strong> {#7단계-완전-통합-워크플로우}</h2>
+<p><strong>학생</strong>: &quot;모든 걸 합쳐서 실제로 쓸 수 있는 완전한 시스템을 만들고 싶어요!&quot;</p>
+<p><strong>파인만</strong>: &quot;훌륭한 아이디어야! <strong>실전 프로젝트</strong>를 만들어보자!&quot;</p>
+<h3>🏗️ <strong>마스터 대시보드</strong> {#마스터-대시보드}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7383" onclick="copyCode('code-1769481055541-7383')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7383" class="language-markdown"># 🎯 AI 프롬프트 마스터 대시보드
+
+<h2 id="빠른-실행-패널codepre">🚀 빠른 실행 패널</code></pre> {#빠른-실행-패널codepre}</h2>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>button
+name 🔥 긴급 프롬프트
+type copy
+action 당신은 전문가입니다. 다음 문제를 해결해주세요: [문제 입력]
+- 단계별 해결 방안
+- 구체적인 실행 방법  
+- 예상 결과와 주의사항
+class urgent-button
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7384" onclick="copyCode('code-1769481055541-7384')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7384" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name 📝 일반 글쓰기
+type command
+action Templater: Open insert Template modal
+template Writing_Assistant
+class writing-button
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7385" onclick="copyCode('code-1769481055541-7385')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7385" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button  
+name 🧠 창의적 아이디어
+type copy
+action 창의적 사고를 위한 프롬프트:
+
+<ol>
+<li>브레인스토밍: [주제]에 대한 혁신적 아이디어 10개</li>
+<li>다른 관점: 반대 입장에서 생각해보기</li>
+<li>연결법: 전혀 다른 분야와 연결해보기</li>
+<li>미래 예측: 10년 후 어떻게 변할까?</li>
+<li>문제 재정의: 진짜 문제는 무엇인가?</li>
+</ol>
+<p>각 방법으로 아이디어를 제시해주세요.
+class creative-button  </p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7386" onclick="copyCode('code-1769481055541-7386')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7386" class="language-plaintext">## 🎨 프로젝트별 전용 버튼
+
+<h3 id="컨텐츠-제작팀codepre">📚 컨텐츠 제작팀</code></pre> {#컨텐츠-제작팀codepre}</h3>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>button
+name 📖 블로그 시리즈 기획
+type template
+action Blog_Series_Planner
+color blue
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7387" onclick="copyCode('code-1769481055541-7387')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7387" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name 🎬 유튜브 콘텐츠 기획  
+type template
+action YouTube_Content_Planner
+color red
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7388" onclick="copyCode('code-1769481055541-7388')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7388" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name 📱 SNS 캠페인 기획
+type template  
+action SNS_Campaign_Planner
+color purple
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7389" onclick="copyCode('code-1769481055541-7389')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7389" class="language-plaintext">### 💼 비즈니스팀</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>button
+name 📊 시장 분석 프롬프트
+type copy
+action 다음 시장/제품에 대한 종합적인 분석을 해주세요:
+
+<p>대상: [시장/제품명]</p>
+<p>분석 영역:</p>
+<ol>
+<li>시장 규모 및 성장률</li>
+<li>주요 경쟁사 3-5개 분석</li>
+<li>타겟 고객 세그먼트</li>
+<li>트렌드 및 기회 요소</li>
+<li>위험 요소 및 진입 장벽</li>
+<li>마케팅 전략 제안</li>
+<li>수익 모델 아이디어</li>
+</ol>
+<p>각 영역별로 구체적인 데이터와 실행 가능한 인사이트를 제공해주세요.
+color green</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7390" onclick="copyCode('code-1769481055541-7390')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7390" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name 💡 아이디어 검증 프롬프트
+type copy  
+action 사업 아이디어 검증 프레임워크:
+
+<p>아이디어: [구체적으로 입력]</p>
+<p>검증 질문들:</p>
+<ol>
+<li>문제 검증: 정말 존재하는 문제인가?</li>
+<li>시장 검증: 충분한 수요가 있는가? </li>
+<li>솔루션 검증: 우리 해결책이 최선인가?</li>
+<li>비즈니스 모델: 어떻게 수익을 낼 것인가?</li>
+<li>경쟁 우위: 남들과 뭐가 다른가?</li>
+<li>실행 가능성: 우리가 할 수 있는가?</li>
+<li>확장 가능성: 크게 키울 수 있는가?</li>
+</ol>
+<p>각 질문에 대해 데이터 기반으로 분석하고, 추가 검증이 필요한 부분을 알려주세요.
+color orange</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7391" onclick="copyCode('code-1769481055541-7391')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7391" class="language-plaintext">## 🔧 시스템 관리</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>button
+name ⚙️ 프롬프트 성능 분석
+type create
+action Prompt_Performance_Report.md
+template Performance_Analysis
+color gray
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7392" onclick="copyCode('code-1769481055541-7392')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7392" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name 🗂️ 카테고리 정리
+type command
+action File explorer: New folder
+color yellow
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7393" onclick="copyCode('code-1769481055541-7393')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7393" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>button
+name 🔄 백업 및 동기화
+type command  
+action Obsidian Git: Commit all changes
+color green
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7394" onclick="copyCode('code-1769481055541-7394')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7394" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">0 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2>🎊 <strong>마무리: 파인만 교수의 마지막 조언</strong> {#마무리-파인만-교수의-마지막-조언}</h2>
+<p><strong>파인만</strong>: &quot;자, 이제 정말 마지막 비밀을 알려줄게!&quot;</p>
+<p><strong>학생</strong>: &quot;비밀이요?!&quot;</p>
+<p><strong>파인만</strong>: &quot;응! 버튼은 사실 <strong>실험</strong>이야. 처음엔 완벽하지 않을 거야. 하지만 계속 사용하면서 개선해나가는 거지!&quot;</p>
+<h3>🧪 <strong>실험적 개선 방법</strong> {#실험적-개선-방법}</h3>
+<ol>
+<li><p><strong>📊 사용 통계 추적</strong></p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+ <span class="code-block__language">JavaScript</span>
+ <button class="code-block__copy" data-code-id="code-1769481055541-7395" onclick="copyCode('code-1769481055541-7395')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7395" class="language-javascript"></code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">1 line</span>
+  </div>
+</div>button
+name 📈 버튼 사용 로그
+type append  
+action Daily_Log.md
+template {{date:YYYY-MM-DD HH:mm}} - {{title}} 버튼 사용
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+ <span class="code-block__language">Plain Text</span>
+ <button class="code-block__copy" data-code-id="code-1769481055541-7396" onclick="copyCode('code-1769481055541-7396')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7396" class="language-plaintext"></code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+</li>
+<li><p><strong>🔄 A/B 테스트</strong></p>
+<ul>
+<li>같은 기능의 버튼을 다르게 만들어보기</li>
+<li>일주일 씩 써보고 어느 게 더 효율적인지 확인</li>
+</ul>
+</li>
+<li><p><strong>👥 팀과 공유</strong></p>
+<ul>
+<li>잘 만든 버튼은 팀원들과 공유</li>
+<li>피드백 받아서 계속 개선</li>
+</ul>
+</li>
+</ol>
+<p><strong>파인만</strong>: &quot;기억해! 최고의 도구는 <strong>당신이 직접 만든 도구</strong>야. 남이 만든 앱을 쓰는 것보다 자신만의 워크플로우를 만드는 게 훨씬 강력해!&quot;</p>
+<p><strong>학생</strong>: &quot;와! 이제 정말 자신감이 생겨요!&quot;</p>
+<p><strong>파인만</strong>: &quot;<em>웃으며</em> 그럼 이제 가서 실험해봐! 실패해도 괜찮아. 실패가야말로 가장 좋은 선생님이거든!&quot;</p>
+<hr>
+<h2>🎁 <strong>보너스: 파인만의 버튼 치트시트</strong> {#보너스-파인만의-버튼-치트시트}</h2>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481055541-7397" onclick="copyCode('code-1769481055541-7397')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055541-7397" class="language-markdown">## 🎯 자주 쓰는 버튼 타입들
+
+<table>
+<thead>
+<tr>
+<th>타입</th>
+<th>설명</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>copy</code></td>
+<td>텍스트 복사</td>
+<td>프롬프트 클립보드에 복사</td>
+</tr>
+<tr>
+<td><code>link</code></td>
+<td>URL 이동</td>
+<td>ChatGPT, Claude 사이트 열기</td>
+</tr>
+<tr>
+<td><code>command</code></td>
+<td>옵시디언 명령 실행</td>
+<td>템플릿 삽입, 플러그인 실행</td>
+</tr>
+<tr>
+<td><code>template</code></td>
+<td>템플릿 삽입</td>
+<td>새 노트에 템플릿 적용</td>
+</tr>
+<tr>
+<td><code>create</code></td>
+<td>새 파일 생성</td>
+<td>날짜별 로그 파일 생성</td>
+</tr>
+<tr>
+<td><code>append</code></td>
+<td>기존 파일에 추가</td>
+<td>일일 로그에 내용 추가</td>
+</tr>
+</tbody></table>
+<h2 id="색깔-옵션">🌈 색깔 옵션 {#색깔-옵션}</h2>
+<p><code>red</code>, <code>blue</code>, <code>green</code>, <code>purple</code>, <code>yellow</code>, <code>orange</code>, <code>pink</code>, <code>gray</code></p>
+<h2 id="꿀팁">💡 꿀팁 {#꿀팁}</h2>
+<ul>
+<li>버튼 이름에 이모지 사용하면 더 직관적!</li>
+<li><code>class</code>로 여러 버튼을 같은 스타일로 만들기</li>
+<li>긴 action은 여러 줄로 나누어 쓰기 가능</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">15 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>파인만</strong>: &quot;이제 진짜 마법사가 될 준비가 됐군! 🎭✨&quot;</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/obsidian.html" class="article-tag">obsidian</a><a href="/tag/knowledge-management.html" class="article-tag">knowledge-management</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/옵시디언-버튼-obsidian-prompt-magic-guide.html&text=🎭 파인만 교수와 함께하는 AI 프롬프트 마법 수업" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/옵시디언-버튼-obsidian-prompt-magic-guide.html&title=🎭 파인만 교수와 함께하는 AI 프롬프트 마법 수업" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/옵시디언-버튼-obsidian-prompt-magic-guide.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-expert.html" class="author-bio__card">
+          <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 전문가</h3>
+            <p class="author-bio__role">AI &amp; Development Writer</p>
+            <p class="author-bio__text">AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/obsidian-gemini-cli-integration-real-world-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/obsidian-integration-placeholder.svg"
+             alt="Obsidian + Gemini CLI 통합 실전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #8b5cf6">
+          Obsidian 통합
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Obsidian + Gemini CLI 통합 실전 가이드</h3>
+          <p class="article-card__excerpt">- 핵심 주제: Obsidian 노트 앱에서 Gemini CLI를 활용한 AI 지원 글쓰기 환경 구축 - 목적: 노트 작성과 지식 관리에 AI를 통합하여 생산성 극대화 - 범위: macOS 기준 설치부터 고급 활용까지 완전 가이드 - 대상 플랫폼: macOS...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/obsidian-claude-code-setup-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/obsidian-integration-placeholder.svg"
+             alt="Obsidian과 Claude Code 협업 설정 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #8b5cf6">
+          Obsidian 통합
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Obsidian과 Claude Code 협업 설정 가이드</h3>
+          <p class="article-card__excerpt">1.  || #개요 2.  || #Obsidian 기본 설정 3.  || #커뮤니티 플러그인 설치 4.  || #Share Note 플러그인 설정 5.  || #README.md 파일 관리 6.  || #Claude Code 연동 설정 7.  || #일상 워크플로우...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">8 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-code-perfect-guide-note-2025-latest.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/obsidian-integration-placeholder.svg"
+             alt="Claude Code 완벽 가이드 - 실습형 노트 (2025 최신판)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #8b5cf6">
+          Obsidian 통합
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Code 완벽 가이드 - 실습형 노트 (2025 최신판)</h3>
+          <p class="article-card__excerpt">🎯 목표: Claude Code를 설치부터 고급 활용까지 단계별로 마스터하여 개발 생산성을 극대화하기 📅 최종 업데이트: 2025년 6월 15일 (공식 문서 및 커뮤니티 베스트 프랙티스 반영) ⚡ 주요 업데이트: IDE 통합 확장, Claude Code SDK...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">33 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

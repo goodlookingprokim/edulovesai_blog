@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Obsidian과 Claude Code 협업 설정 가이드 | AI &amp; Development Journal</title>
+  <meta name="description" content="1.  || #개요 2.  || #Obsidian 기본 설정 3.  || #커뮤니티 플러그인 설치 4.  || #Share Note 플러그인 설정 5.  || #README.md 파일 관리 6.  || #Claude Code 연동 설정 7.  || #일상 워크플로우...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Obsidian과 Claude Code 협업 설정 가이드">
+  <meta property="og:description" content="1.  || #개요 2.  || #Obsidian 기본 설정 3.  || #커뮤니티 플러그인 설치 4.  || #Share Note 플러그인 설정 5.  || #README.md 파일 관리 6.  || #Claude Code 연동 설정 7.  || #일상 워크플로우...">
+  <meta property="og:image" content="/assets/images/claude-code-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-claude-code-setup-guide-1.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Obsidian과 Claude Code 협업 설정 가이드">
+  <meta name="twitter:description" content="1.  || #개요 2.  || #Obsidian 기본 설정 3.  || #커뮤니티 플러그인 설치 4.  || #Share Note 플러그인 설정 5.  || #README.md 파일 관리 6.  || #Claude Code 연동 설정 7.  || #일상 워크플로우...">
+  <meta name="twitter:image" content="/assets/images/claude-code-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-claude-code-setup-guide-1.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/claude-code.html" class="article-category" style="background-color: #ff6b35">
+          Claude Code
+        </a>
+        <h1 class="article-title">Obsidian과 Claude Code 협업 설정 가이드</h1>
+        <div class="article-meta">
+          <a href="/journalist/claude-specialist.html" class="article-author">
+            <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">Claude 전문가</span>
+              <span class="article-author__role">Claude Code Specialist</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 6월 12일">2025년 6월 12일</time>
+            <span class="article-meta__separator">·</span>
+            <span>8 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차-내부-링크-활용" class="toc__link">📋 목차 (내부 링크 활용)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#obsidian-기본-설정" class="toc__link">Obsidian 기본 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1단계-obsidian-업데이트" class="toc__link">1단계: Obsidian 업데이트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2단계-테마-설정" class="toc__link">2단계: 테마 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3단계-핫키-설정" class="toc__link">3단계: 핫키 설정</a>
+    </li>
+    <li class="toc__item">
+      <a href="#커뮤니티-플러그인-설치" class="toc__link">커뮤니티 플러그인 설치</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#필수-플러그인-목록" class="toc__link">필수 플러그인 목록</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#플러그인-설치-절차" class="toc__link">플러그인 설치 절차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#share-note-플러그인-설정" class="toc__link">Share Note 플러그인 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#api-키-설정-과정" class="toc__link">API 키 설정 과정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#공유-링크-테스트" class="toc__link">공유 링크 테스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#readmemd-파일-관리" class="toc__link">README.md 파일 관리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#지속적-업데이트-전략" class="toc__link">지속적 업데이트 전략</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#버전-관리" class="toc__link">버전 관리</a>
+    </li>
+    <li class="toc__item">
+      <a href="#claude-code-연동-설정" class="toc__link">Claude Code 연동 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초기-설정-한-번만-실행" class="toc__link">초기 설정 (한 번만 실행)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#경로-정보-관리" class="toc__link">경로 정보 관리</a>
+    </li>
+    <li class="toc__item">
+      <a href="#일상-워크플로우" class="toc__link">일상 워크플로우</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#빠른-노트-접근-방법" class="toc__link">빠른 노트 접근 방법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#노트-생성-워크플로우" class="toc__link">노트 생성 워크플로우</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#효율성-팁" class="toc__link">효율성 팁</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결-가이드" class="toc__link">문제 해결 가이드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#자주-발생하는-문제와-해결책" class="toc__link">자주 발생하는 문제와 해결책</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-문제-해결" class="toc__link">고급 문제 해결</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-체크리스트" class="toc__link">구현 체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초기-설정-완료-확인" class="toc__link">초기 설정 완료 확인</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#일상-사용-체크포인트" class="toc__link">일상 사용 체크포인트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#참고-자료" class="toc__link">참고 자료</a>
+    </li>
+    <li class="toc__item">
+      <a href="#변경-이력" class="toc__link">변경 이력</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Obsidian과 Claude Code 협업 설정 가이드</h1>
+<h2 id="목차-내부-링크-활용">📋 목차 (내부 링크 활용) {#목차-내부-링크-활용}</h2>
+<ol>
+<li><a href="#개요" class="internal-link internal-link--section">개요</a></li>
+<li><a href="#obsidian-기본-설정" class="internal-link internal-link--section">Obsidian 기본 설정</a></li>
+<li><a href="#커뮤니티-플러그인-설치" class="internal-link internal-link--section">커뮤니티 플러그인 설치</a></li>
+<li><a href="#share-note-플러그인-설정" class="internal-link internal-link--section">Share Note 플러그인 설정</a></li>
+<li><a href="#readmemd-파일-관리" class="internal-link internal-link--section">README.md 파일 관리</a></li>
+<li><a href="#claude-code-연동-설정" class="internal-link internal-link--section">Claude Code 연동 설정</a></li>
+<li><a href="#일상-워크플로우" class="internal-link internal-link--section">일상 워크플로우</a></li>
+<li><a href="#문제-해결-가이드" class="internal-link internal-link--section">문제 해결 가이드</a></li>
+</ol>
+<h2 id="개요">개요 {#개요}</h2>
+<ul>
+<li><strong>핵심 주제</strong>: Obsidian 볼트와 Claude Code CLI의 효율적 연동을 위한 환경 설정</li>
+<li><strong>목적</strong>: 노트 생성, 공유, 관리 과정을 자동화하여 생산성 극대화</li>
+<li><strong>범위</strong>: 초기 설정부터 일상 사용까지의 완전한 워크플로우 구축</li>
+</ul>
+<h2 id="obsidian-기본-설정">Obsidian 기본 설정 {#obsidian-기본-설정}</h2>
+<h3 id="1단계-obsidian-업데이트">1단계: Obsidian 업데이트 {#1단계-obsidian-업데이트}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054582-3048" onclick="copyCode('code-1769481054582-3048')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054582-3048" class="language-plaintext">⚙️ Settings → General → Check for updates</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+- 톱니바퀴 아이콘 클릭
+- General 탭 선택
+- "Check for updates" 버튼 클릭
+- 최신 버전으로 업데이트 진행
+- **중요**: 항상 최신 버전 사용으로 호환성 및 기능 개선 효과
+
+<h3 id="2단계-테마-설정">2단계: 테마 설정 {#2단계-테마-설정}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054582-3049" onclick="copyCode('code-1769481054582-3049')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054582-3049" class="language-plaintext">⚙️ Settings → Appearance → Themes → Things</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+- Appearance 탭 이동
+- Themes 섹션에서 "Things" 테마 선택
+- **추천 이유**: 
+  - 깔끔하고 읽기 편한 디자인
+  - Claude Code와의 호환성 우수
+  - 마크다운 렌더링 최적화
+
+<h3 id="3단계-핫키-설정">3단계: 핫키 설정 {#3단계-핫키-설정}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054582-3050" onclick="copyCode('code-1769481054582-3050')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054582-3050" class="language-plaintext">⚙️ Settings → Hotkeys → &quot;Share Note Link&quot; 검색</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+- Hotkeys 탭 이동
+- 검색창에 "Share Note Link" 입력
+- 원하는 단축키 조합 설정 (예: `Cmd + Shift + S`)
+- **효과**: 빠른 공유 링크 생성으로 협업 효율성 향상
+
+<h2 id="커뮤니티-플러그인-설치">커뮤니티 플러그인 설치 {#커뮤니티-플러그인-설치}</h2>
+<h3 id="필수-플러그인-목록">필수 플러그인 목록 {#필수-플러그인-목록}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054582-3051" onclick="copyCode('code-1769481054582-3051')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054582-3051" class="language-plaintext">⚙️ Settings → Community plugins → Browse</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>1. Share Note 플러그인</h4>
+<ul>
+<li><strong>기능</strong>: 노트를 외부에 쉽게 공유</li>
+<li><strong>용도</strong>: Claude Code와 노트 내용 공유</li>
+<li><strong>설치 방법</strong>: &quot;Share Note&quot; 검색 → Install → Enable</li>
+</ul>
+<h4>2. Templater 플러그인</h4>
+<ul>
+<li><strong>기능</strong>: 동적 템플릿 생성 및 자동화</li>
+<li><strong>용도</strong>: 표준화된 노트 구조 자동 생성</li>
+<li><strong>설치 방법</strong>: &quot;Templater&quot; 검색 → Install → Enable</li>
+</ul>
+<h3 id="플러그인-설치-절차">플러그인 설치 절차 {#플러그인-설치-절차}</h3>
+<ol>
+<li>Settings (⚙️) 클릭</li>
+<li>Community plugins 탭 선택</li>
+<li>&quot;Turn on community plugins&quot; 활성화 (처음 설치 시)</li>
+<li>Browse 버튼 클릭</li>
+<li>플러그인 이름 검색</li>
+<li>Install 버튼 클릭</li>
+<li>Enable 버튼으로 활성화</li>
+</ol>
+<h2 id="share-note-플러그인-설정">Share Note 플러그인 설정 {#share-note-플러그인-설정}</h2>
+<h3 id="api-키-설정-과정">API 키 설정 과정 {#api-키-설정-과정}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054582-3052" onclick="copyCode('code-1769481054582-3052')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054582-3052" class="language-plaintext">⚙️ Settings → Share Note → Connect plugin</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>상세 설정 단계</h4>
+<ol>
+<li><p><strong>플러그인 설정 접근</strong></p>
+<ul>
+<li>Settings → Share Note 섹션 이동</li>
+<li>API Key 입력 필드 확인</li>
+</ul>
+</li>
+<li><p><strong>API 키 획득</strong></p>
+<ul>
+<li>&quot;Connect plugin&quot; 버튼 클릭</li>
+<li>새 브라우저 탭에서 웹페이지 열림</li>
+<li>웹페이지의 안내에 따라 확인 작업 완료</li>
+<li>생성된 API Key 복사</li>
+</ul>
+</li>
+<li><p><strong>API 키 적용</strong></p>
+<ul>
+<li>복사한 API Key를 Obsidian 설정에 붙여넣기</li>
+<li>Save 또는 Apply 버튼 클릭</li>
+<li>연결 상태 확인</li>
+</ul>
+</li>
+</ol>
+<h3 id="공유-링크-테스트">공유 링크 테스트 {#공유-링크-테스트}</h3>
+<ul>
+<li>임의의 노트에서 Share Note 기능 실행</li>
+<li>생성된 공유 링크 작동 여부 확인</li>
+<li>Claude Code에서 링크 접근 가능 여부 테스트</li>
+</ul>
+<h2 id="readmemd-파일-관리">README.md 파일 관리 {#readmemd-파일-관리}</h2>
+<h3 id="지속적-업데이트-전략">지속적 업데이트 전략 {#지속적-업데이트-전략}</h3>
+<p>README.md 파일은 Obsidian 볼트의 핵심 가이드라인이므로 지속적인 고도화가 필요합니다.</p>
+<h4>업데이트 주기 및 내용</h4>
+<table>
+<thead>
+<tr>
+<th>주기</th>
+<th>업데이트 내용</th>
+<th>담당자</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>주간</strong></td>
+<td>새로운 노트 패턴 및 태그 추가</td>
+<td>사용자</td>
+</tr>
+<tr>
+<td><strong>월간</strong></td>
+<td>템플릿 구조 개선 및 워크플로우 최적화</td>
+<td>사용자</td>
+</tr>
+<tr>
+<td><strong>분기</strong></td>
+<td>전체 구조 재검토 및 대규모 개선</td>
+<td>사용자 + Claude</td>
+</tr>
+</tbody></table>
+<h4>문서 고도화 체크리스트</h4>
+<ul>
+<li><input disabled="" type="checkbox"> 새로운 노트 유형에 대한 가이드라인 추가</li>
+<li><input disabled="" type="checkbox"> 태그 체계 정리 및 일관성 검토</li>
+<li><input disabled="" type="checkbox"> 템플릿 개선 및 신규 템플릿 추가</li>
+<li><input disabled="" type="checkbox"> 연결된 노트 패턴 최적화</li>
+<li><input disabled="" type="checkbox"> 검색 및 탐색 효율성 개선</li>
+<li><input disabled="" type="checkbox"> Claude Code 연동 가이드라인 업데이트</li>
+</ul>
+<h3 id="버전-관리">버전 관리 {#버전-관리}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769481054582-3053" onclick="copyCode('code-1769481054582-3053')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054582-3053" class="language-markdown">## 변경 이력
+- 2025-06-12: 초기 설정 완료
+- 2025-06-XX: [구체적 변경사항]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h2 id="claude-code-연동-설정">Claude Code 연동 설정 {#claude-code-연동-설정}</h2>
+<h3 id="초기-설정-한-번만-실행">초기 설정 (한 번만 실행) {#초기-설정-한-번만-실행}</h3>
+<h4>1단계: 볼트 경로 확인</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054582-3054" onclick="copyCode('code-1769481054582-3054')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054582-3054" class="language-bash"># 터미널에서 실행
+pwd  # 현재 디렉토리 확인
+ls -la &quot;Documents/Obsidian Vault&quot;  # 볼트 존재 확인</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h4>2단계: README.md 파일 위치 확인</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054582-3055" onclick="copyCode('code-1769481054582-3055')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054582-3055" class="language-bash"># README.md 파일 확인
+cat &quot;/Users/jmacpro/Documents/Obsidian Vault/README.md&quot; | head -10</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>3단계: Claude Code 컨텍스트 설정</h4>
+<p>Claude Code 실행 시 다음 템플릿을 사용:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054582-3056" onclick="copyCode('code-1769481054582-3056')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054582-3056" class="language-plaintext">the vault &#39;/Users/jmacpro/Documents/Obsidian Vault&#39;.
+Please refer to the file &#39;/Users/jmacpro/Documents/Obsidian Vault/README.md&#39; for information on creating notes.</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h3 id="경로-정보-관리">경로 정보 관리 {#경로-정보-관리}</h3>
+<p><strong>중요</strong>: 위의 컨텍스트 설정은 <strong>한 번만</strong> 수행하면 됩니다.</p>
+<ul>
+<li>볼트 경로: <code>/Users/jmacpro/Documents/Obsidian Vault</code></li>
+<li>README 경로: <code>/Users/jmacpro/Documents/Obsidian Vault/README.md</code></li>
+</ul>
+<h2 id="일상-워크플로우">일상 워크플로우 {#일상-워크플로우}</h2>
+<h3 id="빠른-노트-접근-방법">빠른 노트 접근 방법 {#빠른-노트-접근-방법}</h3>
+<h4>Mac 기준 단축키</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054582-3057" onclick="copyCode('code-1769481054582-3057')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054582-3057" class="language-plaintext">Command + O → 최근 문서 확인 → Enter</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+1. `Cmd + O` 키 조합 실행
+2. Quick Switcher에서 최근 문서 목록 확인
+3. 원하는 문서에서 Enter 키
+4. **효과**: 마우스 없이 빠른 문서 전환 가능
+
+<h3 id="노트-생성-워크플로우">노트 생성 워크플로우 {#노트-생성-워크플로우}</h3>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481054582-3058" onclick="copyCode('code-1769481054582-3058')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054582-3058" class="language-mermaid">graph TD
+    A[정보 수집] --&gt; B[Claude Code 실행]
+    B --&gt; C[컨텍스트 설정]
+    C --&gt; D[내용 붙여넣기]
+    D --&gt; E[노트 생성 요청]
+    E --&gt; F[Obsidian에서 확인]
+    F --&gt; G[Share Note로 공유]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<h4>단계별 실행 방법</h4>
+<ol>
+<li><strong>정보 수집</strong>: 기록할 내용 준비</li>
+<li><strong>Claude Code 실행</strong>: 터미널에서 <code>claude</code> 명령어</li>
+<li><strong>컨텍스트 설정</strong>: 볼트 경로 정보 제공 (최초 1회만)</li>
+<li><strong>내용 요청</strong>: &quot;다음 내용으로 옵시디언 노트를 생성해 주세요&quot;</li>
+<li><strong>노트 확인</strong>: Obsidian에서 생성된 노트 검토</li>
+<li><strong>공유 준비</strong>: 필요 시 Share Note 기능 활용</li>
+</ol>
+<h3 id="효율성-팁">효율성 팁 {#효율성-팁}</h3>
+<ul>
+<li><strong>템플릿 활용</strong>: Templater를 통한 일관된 노트 구조</li>
+<li><strong>태그 일관성</strong>: README.md의 태그 가이드라인 준수</li>
+<li><strong>연결 강화</strong>: 관련 노트 간 링크 적극 활용</li>
+<li><strong>정기 정리</strong>: 주간 볼트 정리 및 구조 최적화</li>
+</ul>
+<h2 id="문제-해결-가이드">문제 해결 가이드 {#문제-해결-가이드}</h2>
+<h3 id="자주-발생하는-문제와-해결책">자주 발생하는 문제와 해결책 {#자주-발생하는-문제와-해결책}</h3>
+<h4>1. Share Note 플러그인 오류</h4>
+<p><strong>증상</strong>: API 키 오류 또는 공유 링크 생성 실패
+<strong>해결책</strong>:</p>
+<ul>
+<li>API 키 재생성 및 재설정</li>
+<li>플러그인 비활성화 후 재활성화</li>
+<li>Obsidian 재시작</li>
+</ul>
+<h4>2. Claude Code 연동 문제</h4>
+<p><strong>증상</strong>: 볼트 경로 인식 실패 또는 README.md 접근 불가
+<strong>해결책</strong>:</p>
+<ul>
+<li>경로 정보 재확인 및 수정</li>
+<li>파일 권한 설정 확인</li>
+<li>Claude Code 재시작</li>
+</ul>
+<h4>3. 템플릿 적용 오류</h4>
+<p><strong>증상</strong>: Templater 플러그인 작동 안 함
+<strong>해결책</strong>:</p>
+<ul>
+<li>템플릿 폴더 경로 재설정</li>
+<li>템플릿 파일 문법 검토</li>
+<li>플러그인 설정 초기화</li>
+</ul>
+<h4>4. 노트 동기화 문제</h4>
+<p><strong>증상</strong>: 생성된 노트가 Obsidian에서 보이지 않음
+<strong>해결책</strong>:</p>
+<ul>
+<li>Vault 새로고침 (Ctrl+R 또는 Cmd+R)</li>
+<li>파일 시스템 권한 확인</li>
+<li>볼트 위치 재확인</li>
+</ul>
+<h3 id="고급-문제-해결">고급 문제 해결 {#고급-문제-해결}</h3>
+<h4>로그 파일 확인</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054582-3059" onclick="copyCode('code-1769481054582-3059')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054582-3059" class="language-bash"># Obsidian 로그 위치 (Mac)
+~/Library/Application Support/obsidian/</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>설정 백업</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054582-3060" onclick="copyCode('code-1769481054582-3060')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054582-3060" class="language-bash"># .obsidian 폴더 백업
+cp -r &quot;/Users/jmacpro/Documents/Obsidian Vault/.obsidian&quot; ~/Desktop/obsidian-backup</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h2 id="구현-체크리스트">구현 체크리스트 {#구현-체크리스트}</h2>
+<h3 id="초기-설정-완료-확인">초기 설정 완료 확인 {#초기-설정-완료-확인}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Obsidian 최신 버전 업데이트 완료</li>
+<li><input disabled="" type="checkbox"> Things 테마 적용 완료</li>
+<li><input disabled="" type="checkbox"> Share Note Link 핫키 설정 완료</li>
+<li><input disabled="" type="checkbox"> Share Note 플러그인 설치 및 설정 완료</li>
+<li><input disabled="" type="checkbox"> Templater 플러그인 설치 완료</li>
+<li><input disabled="" type="checkbox"> API 키 연동 테스트 완료</li>
+<li><input disabled="" type="checkbox"> Claude Code 컨텍스트 설정 완료</li>
+<li><input disabled="" type="checkbox"> 노트 생성 테스트 완료</li>
+</ul>
+<h3 id="일상-사용-체크포인트">일상 사용 체크포인트 {#일상-사용-체크포인트}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 빠른 노트 접근 (Cmd+O) 숙지</li>
+<li><input disabled="" type="checkbox"> Share Note 기능 활용 가능</li>
+<li><input disabled="" type="checkbox"> README.md 가이드라인 준수</li>
+<li><input disabled="" type="checkbox"> 태그 시스템 일관성 유지</li>
+<li><input disabled="" type="checkbox"> 정기적 볼트 정리 실행</li>
+</ul>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><strong>상위 개념</strong>: <a href="/articles/obsidian-setup-guide.html" class="internal-link">Obsidian 설정 가이드</a>, <a href="/articles/claude-code-practical.html" class="internal-link">Claude Code 활용법</a>, <a href="/articles/knowledge-management.html" class="internal-link">개인 지식 관리</a></li>
+<li><strong>하위 세부사항</strong>: <a href="/articles/share-note-plugin.html" class="internal-link">Share Note 플러그인 상세</a>, <a href="/articles/templater-advanced-practical.html" class="internal-link">Templater 고급 활용</a>, <a href="/articles/tips.html" class="internal-link">볼트 최적화 팁</a></li>
+<li><strong>병렬 주제</strong>: <a href="/articles/article.html" class="internal-link">마크다운 작성법</a>, <a href="/articles/note.html" class="internal-link">노트 연결 전략</a>, <a href="/articles/knowledge.html" class="internal-link">지식 네트워크 구축</a></li>
+<li><strong>실전 활용</strong>: <a href="/articles/note-workflow.html" class="internal-link">일일 노트 워크플로우</a>, <a href="/articles/management.html" class="internal-link">프로젝트 관리 시스템</a>, <a href="/articles/note.html" class="internal-link">학습 노트 체계</a></li>
+</ul>
+<h2 id="참고-자료">참고 자료 {#참고-자료}</h2>
+<ul>
+<li>Obsidian 공식 문서: <a href="https://help.obsidian.md">https://help.obsidian.md</a></li>
+<li>Share Note 플러그인 가이드</li>
+<li>Templater 플러그인 문서</li>
+<li>Claude Code 공식 가이드</li>
+<li>마크다운 문법 레퍼런스</li>
+</ul>
+<hr>
+<h2 id="변경-이력">변경 이력 {#변경-이력}</h2>
+<ul>
+<li>2025-06-12: 초안 작성 - Obsidian과 Claude Code 협업 설정 가이드</li>
+</ul>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/시스템.html" class="article-tag">시스템</a><a href="/tag/설정.html" class="article-tag">설정</a><a href="/tag/Obsidian.html" class="article-tag">Obsidian</a><a href="/tag/설정.html" class="article-tag">설정</a><a href="/tag/Claude-Code.html" class="article-tag">Claude-Code</a><a href="/tag/워크플로우.html" class="article-tag">워크플로우</a><a href="/tag/협업도구.html" class="article-tag">협업도구</a><a href="/tag/가이드.html" class="article-tag">가이드</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-claude-code-setup-guide-1.html&text=Obsidian과 Claude Code 협업 설정 가이드" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-claude-code-setup-guide-1.html&title=Obsidian과 Claude Code 협업 설정 가이드" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/obsidian-claude-code-setup-guide-1.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/claude-specialist.html" class="author-bio__card">
+          <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">Claude 전문가</h3>
+            <p class="author-bio__role">Claude Code Specialist</p>
+            <p class="author-bio__text">Claude Code와 AI 코딩 도구 활용법을 연구합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-code-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Code 슬래시 명령어 완전 정복 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Code 슬래시 명령어 완전 정복 가이드</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 실전 중심 가이드 --- Claude에게 미리 정해둔 역할을 로 호출하는 기능입니다. 비유: 스마트폰 단축어처럼, 복잡한 지시를 한 단어로 실행 --- 슬래시 명령어는  파일로 구성되며, 크게 YAML 프론트매터와 본문으로 나뉩니다. --- 목적:...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills-beginners-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 만드는 법: 초보자 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 만드는 법: 초보자 완전 가이드</h3>
+          <p class="article-card__excerpt">이 가이드의 목표: Claude Code를 처음 배우는 초보 개발자도 실제로 작동하는 Claude Skill을 만들 수 있도록 단계별로 설명합니다. 복잡한 개념도 쉬운 말로 풀어 설명하고, 실전 예제로 바로 적용할 수 있게 구성했습니다. --- 1.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">25 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 마스터 학습 경로"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 마스터 학습 경로</h3>
+          <p class="article-card__excerpt">초보자에서 마스터까지: 이 경로를 따라가면 Claude Skill을 완벽하게 만들 수 있습니다. --- --- 읽을 문서: Claude Skills가 뭔가요 (5살 버전) || ClaudeSkills초보자가이드#Claude Skills가 뭔가요 (5살 버전) 배울...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LangCode 입문 완전 가이드 - 생성 완료 보고서 | AI &amp; Development Journal</title>
+  <meta name="description" content="LangCode 입문 완전 가이드 5개 문서 생성 완료 보고서">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="LangCode 입문 완전 가이드 - 생성 완료 보고서">
+  <meta property="og:description" content="LangCode 입문 완전 가이드 5개 문서 생성 완료 보고서">
+  <meta property="og:image" content="/assets/images/tutorials-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/langcode-가이드-생성-완료-안내.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="LangCode 입문 완전 가이드 - 생성 완료 보고서">
+  <meta name="twitter:description" content="LangCode 입문 완전 가이드 5개 문서 생성 완료 보고서">
+  <meta name="twitter:image" content="/assets/images/tutorials-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/langcode-가이드-생성-완료-안내.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/tutorials.html" class="article-category" style="background-color: #14b8a6">
+          튜토리얼
+        </a>
+        <h1 class="article-title">LangCode 입문 완전 가이드 - 생성 완료 보고서</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-expert.html" class="article-author">
+            <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 전문가</span>
+              <span class="article-author__role">AI &amp; Development Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 11월 16일">2025년 11월 16일</time>
+            <span class="article-meta__separator">·</span>
+            <span>6 read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#작업-완료-요약" class="toc__link">✅ 작업 완료 요약</a>
+    </li>
+    <li class="toc__item">
+      <a href="#생성된-5개-문서" class="toc__link">📚 생성된 5개 문서</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-langcode_입문_완전_가이드_part_1md" class="toc__link">1️⃣ **LangCode_입문_완전_가이드_Part_1.md**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-langcode_입문_완전_가이드_part_2md" class="toc__link">2️⃣ **LangCode_입문_완전_가이드_Part_2.md**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-langcode_입문_완전_가이드_part_3md" class="toc__link">3️⃣ **LangCode_입문_완전_가이드_Part_3.md**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-langcode_입문_완전_가이드_part_4md" class="toc__link">4️⃣ **LangCode_입문_완전_가이드_Part_4.md**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#5-langcode_빠른참고서md" class="toc__link">5️⃣ **LangCode_빠른참고서.md**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#langcode_완전_가이드_목차md" class="toc__link">🎯 **LangCode_완전_가이드_목차.md**</a>
+    </li>
+    <li class="toc__item">
+      <a href="#가이드-통계" class="toc__link">📊 가이드 통계</a>
+    </li>
+    <li class="toc__item">
+      <a href="#특징" class="toc__link">🎨 특징</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-feynman-technique-적용" class="toc__link">1. **Feynman Technique 적용**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-계층적-학습-구조" class="toc__link">2. **계층적 학습 구조**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-풍부한-예제" class="toc__link">3. **풍부한 예제**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-즉시-실행-가능" class="toc__link">4. **즉시 실행 가능**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#5-한국어-완전-지원" class="toc__link">5. **한국어 완전 지원**</a>
+    </li>
+    <li class="toc__item">
+      <a href="#파일-위치" class="toc__link">🗂️ 파일 위치</a>
+    </li>
+    <li class="toc__item">
+      <a href="#추천-사용-방법" class="toc__link">🚀 추천 사용 방법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-완전-초보자라면" class="toc__link">1️⃣ **완전 초보자라면**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-빠르게-시작하고-싶다면" class="toc__link">2️⃣ **빠르게 시작하고 싶다면**</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-특정-주제만-보고-싶다면" class="toc__link">3️⃣ **특정 주제만 보고 싶다면**</a>
+    </li>
+    <li class="toc__item">
+      <a href="#obsidian-통합-정보" class="toc__link">📋 Obsidian 통합 정보</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#메타데이터" class="toc__link">메타데이터</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#내부-링크-구조" class="toc__link">내부 링크 구조</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#obsidian-플러그인-최적화" class="toc__link">Obsidian 플러그인 최적화</a>
+    </li>
+    <li class="toc__item">
+      <a href="#특별-기능" class="toc__link">✨ 특별 기능</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-결정-트리-decision-tree" class="toc__link">1. 결정 트리 (Decision Tree)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-비교-테이블" class="toc__link">2. 비교 테이블</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-실전-워크플로우" class="toc__link">3. 실전 워크플로우</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-트러블-슈팅-가이드" class="toc__link">4. 트러블 슈팅 가이드</a>
+    </li>
+    <li class="toc__item">
+      <a href="#학습-평가-기준" class="toc__link">🎓 학습 평가 기준</a>
+    </li>
+    <li class="toc__item">
+      <a href="#추가-정보" class="toc__link">💡 추가 정보</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#각-part의-학습-시간" class="toc__link">각 Part의 학습 시간</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#추가-시간-선택" class="toc__link">추가 시간 (선택)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#보너스" class="toc__link">🎁 보너스</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#포함된-템플릿" class="toc__link">포함된 템플릿</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#포함된-체크리스트" class="toc__link">포함된 체크리스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#다음-단계" class="toc__link">📞 다음 단계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#즉시할-수-있는-것" class="toc__link">즉시할 수 있는 것</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1주일-후" class="toc__link">1주일 후</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2주일-후" class="toc__link">2주일 후</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3주일-후" class="toc__link">3주일 후</a>
+    </li>
+    <li class="toc__item">
+      <a href="#마지막으로" class="toc__link">🙌 마지막으로</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>LangCode 입문 완전 가이드 - 생성 완료 보고서</h1>
+<h2 id="작업-완료-요약">✅ 작업 완료 요약 {#작업-완료-요약}</h2>
+<p><strong>생성 날짜:</strong> 2025-11-16
+<strong>위치:</strong> <code>/Users/jmacpro/Documents/Obsidian Vault/R - Resources/AI 및 개발/개발 도구 가이드/</code></p>
+<hr>
+<h2 id="생성된-5개-문서">📚 생성된 5개 문서 {#생성된-5개-문서}</h2>
+<h3>1️⃣ <strong>LangCode_입문_완전_가이드_Part_1.md</strong> {#1-langcode_입문_완전_가이드_part_1md}</h3>
+<ul>
+<li><strong>크기:</strong> 11KB / 409줄</li>
+<li><strong>주제:</strong> 기초 개념 및 설치</li>
+<li><strong>대상:</strong> 완전 초보자</li>
+<li><strong>학습 시간:</strong> ~1시간</li>
+<li><strong>핵심 내용:</strong><ul>
+<li>LangCode란 무엇인가 (쉬운말로)</li>
+<li>설치 및 환경 설정</li>
+<li>첫 실행 방법</li>
+<li>용어 사전 (30개 용어 설명)</li>
+</ul>
+</li>
+</ul>
+<h3>2️⃣ <strong>LangCode_입문_완전_가이드_Part_2.md</strong> {#2-langcode_입문_완전_가이드_part_2md}</h3>
+<ul>
+<li><strong>크기:</strong> 13KB / 611줄</li>
+<li><strong>주제:</strong> 핵심 명령어 마스터</li>
+<li><strong>대상:</strong> 설치 완료한 사람</li>
+<li><strong>학습 시간:</strong> ~2시간</li>
+<li><strong>핵심 내용:</strong><ul>
+<li>Chat 명령어 완전 가이드 (5개 예제)</li>
+<li>Feature 명령어 완전 가이드 (3개 예제)</li>
+<li>Fix 명령어 완전 가이드 (3개 예제)</li>
+<li>명령어 선택 결정 트리</li>
+<li>실전 연습 문제 4개</li>
+</ul>
+</li>
+</ul>
+<h3>3️⃣ <strong>LangCode_입문_완전_가이드_Part_3.md</strong> {#3-langcode_입문_완전_가이드_part_3md}</h3>
+<ul>
+<li><strong>크기:</strong> 16KB / 841줄</li>
+<li><strong>주제:</strong> 고급 기능과 최적화</li>
+<li><strong>대상:</strong> Part 2 완료한 사람</li>
+<li><strong>학습 시간:</strong> ~1.5시간</li>
+<li><strong>핵심 내용:</strong><ul>
+<li>Router 완벽 이해 (3개 예제)</li>
+<li>Deep Mode vs ReAct Mode (비교표)</li>
+<li>Priority 전략 (4가지 옵션)</li>
+<li>Interactive Launcher 마스터</li>
+<li>성능/비용/품질 최적화 팁</li>
+</ul>
+</li>
+</ul>
+<h3>4️⃣ <strong>LangCode_입문_완전_가이드_Part_4.md</strong> {#4-langcode_입문_완전_가이드_part_4md}</h3>
+<ul>
+<li><strong>크기:</strong> 14KB / 772줄</li>
+<li><strong>주제:</strong> 실제 프로젝트 적용</li>
+<li><strong>대상:</strong> Part 3 완료한 사람</li>
+<li><strong>학습 시간:</strong> ~2시간</li>
+<li><strong>핵심 내용:</strong><ul>
+<li>프로젝트별 최적 설정 (3가지)</li>
+<li>3가지 실제 사례 연구:<ul>
+<li>웹 애플리케이션 (투두 리스트)</li>
+<li>데이터 과학 (주택 가격 예측)</li>
+<li>모바일 앱 (운동 기록 앱)</li>
+</ul>
+</li>
+<li>팀 협업 가이드</li>
+<li>트러블 슈팅 (4가지 문제)</li>
+<li>체크리스트</li>
+</ul>
+</li>
+</ul>
+<h3>5️⃣ <strong>LangCode_빠른참고서.md</strong> {#5-langcode_빠른참고서md}</h3>
+<ul>
+<li><strong>크기:</strong> 8.6KB / 471줄</li>
+<li><strong>주제:</strong> 치트시트</li>
+<li><strong>대상:</strong> 모든 사용자 (언제든 참고)</li>
+<li><strong>사용 시간:</strong> 2-5분 (필요할 때)</li>
+<li><strong>핵심 내용:</strong><ul>
+<li>즉시 사용 가능한 명령어</li>
+<li>상황별 최적 명령어</li>
+<li>AI 선택 가이드</li>
+<li>Mode/Priority 빠른 선택</li>
+<li>프로젝트 설정 템플릿</li>
+<li>자주 하는 실수</li>
+<li>30초 튜토리얼</li>
+</ul>
+</li>
+</ul>
+<h3>🎯 <strong>LangCode_완전_가이드_목차.md</strong> {#langcode_완전_가이드_목차md}</h3>
+<ul>
+<li><strong>크기:</strong> 12KB / 445줄</li>
+<li><strong>주제:</strong> 통합 목차 및 학습 경로</li>
+<li><strong>대상:</strong> 모든 사용자</li>
+<li><strong>기능:</strong><ul>
+<li>학습 구조 안내</li>
+<li>3가지 추천 학습 경로</li>
+<li>로드맵 및 시간 예상</li>
+<li>주제별 빠른 찾기</li>
+<li>FAQ 및 학습 팁</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="가이드-통계">📊 가이드 통계 {#가이드-통계}</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>수치</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>총 문서 수</strong></td>
+<td>5개</td>
+</tr>
+<tr>
+<td><strong>총 줄 수</strong></td>
+<td>3,549줄</td>
+</tr>
+<tr>
+<td><strong>총 용량</strong></td>
+<td>~92KB</td>
+</tr>
+<tr>
+<td><strong>총 학습 시간</strong></td>
+<td>약 10-15시간 (완전 초보 → 전문가)</td>
+</tr>
+<tr>
+<td><strong>포함된 예제</strong></td>
+<td>20개+</td>
+</tr>
+<tr>
+<td><strong>포함된 표</strong></td>
+<td>30개+</td>
+</tr>
+<tr>
+<td><strong>포함된 코드 스니펫</strong></td>
+<td>50개+</td>
+</tr>
+<tr>
+<td><strong>용어 설명</strong></td>
+<td>30개+</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="특징">🎨 특징 {#특징}</h2>
+<h3>1. <strong>Feynman Technique 적용</strong> {#1-feynman-technique-적용}</h3>
+<ul>
+<li>복잡한 개념을 단순하게 설명</li>
+<li>일상의 비유와 예시로 이해하기 쉽게</li>
+<li>&quot;나도 설명할 수 있나?&quot;로 자기 평가</li>
+</ul>
+<h3>2. <strong>계층적 학습 구조</strong> {#2-계층적-학습-구조}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055602-7548" onclick="copyCode('code-1769481055602-7548')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055602-7548" class="language-plaintext">초급(Part 1) → 초급-중급(Part 2) → 중급(Part 3) → 중급-고급(Part 4) → 참고서</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h3>3. <strong>풍부한 예제</strong> {#3-풍부한-예제}</h3>
+<ul>
+<li>초급 예제 (문법적 이해)</li>
+<li>중급 예제 (실전 응용)</li>
+<li>고급 예제 (복합 기능)</li>
+</ul>
+<h3>4. <strong>즉시 실행 가능</strong> {#4-즉시-실행-가능}</h3>
+<ul>
+<li>복사-붙여넣기 가능한 명령어</li>
+<li>실제 프로젝트 설정 파일</li>
+<li>체크리스트로 진행 확인</li>
+</ul>
+<h3>5. <strong>한국어 완전 지원</strong> {#5-한국어-완전-지원}</h3>
+<ul>
+<li>모든 내용이 한국어</li>
+<li>용어를 한국어와 영어로 설명</li>
+<li>한국 개발자 입장에서 작성</li>
+</ul>
+<hr>
+<h2 id="파일-위치">🗂️ 파일 위치 {#파일-위치}</h2>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055602-7549" onclick="copyCode('code-1769481055602-7549')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055602-7549" class="language-plaintext">/Users/jmacpro/Documents/Obsidian Vault/
+└── R - Resources/
+    └── AI 및 개발/
+        └── 개발 도구 가이드/
+            ├── LangCode_입문_완전_가이드_Part_1.md
+            ├── LangCode_입문_완전_가이드_Part_2.md
+            ├── LangCode_입문_완전_가이드_Part_3.md
+            ├── LangCode_입문_완전_가이드_Part_4.md
+            ├── LangCode_빠른참고서.md
+            └── LangCode_완전_가이드_목차.md (시작점)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="추천-사용-방법">🚀 추천 사용 방법 {#추천-사용-방법}</h2>
+<h3>1️⃣ <strong>완전 초보자라면</strong> {#1-완전-초보자라면}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055602-7550" onclick="copyCode('code-1769481055602-7550')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055602-7550" class="language-plaintext">Step 1: LangCode_완전_가이드_목차.md 읽기 (5분)
+Step 2: LangCode_입문_완전_가이드_Part_1.md 읽기 (1시간)
+Step 3: 설치 및 첫 실행 (30분)
+Step 4: Part 2로 진행</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3>2️⃣ <strong>빠르게 시작하고 싶다면</strong> {#2-빠르게-시작하고-싶다면}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055602-7551" onclick="copyCode('code-1769481055602-7551')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055602-7551" class="language-plaintext">Step 1: LangCode_빠른참고서.md 북마크
+Step 2: Part 1에서 설치 부분만 읽기
+Step 3: 참고서의 명령어로 바로 시작
+Step 4: 필요할 때 Part 2-4 참고</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3>3️⃣ <strong>특정 주제만 보고 싶다면</strong> {#3-특정-주제만-보고-싶다면}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055602-7552" onclick="copyCode('code-1769481055602-7552')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055602-7552" class="language-plaintext">목차의 &quot;주제별 빠른 찾기&quot; 활용
+원하는 주제의 섹션으로 바로 이동
+해당 예제로 즉시 실습</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="obsidian-통합-정보">📋 Obsidian 통합 정보 {#obsidian-통합-정보}</h2>
+<h3 id="메타데이터">메타데이터 {#메타데이터}</h3>
+<ul>
+<li><strong>생성 날짜:</strong> 2025-11-16 (모든 파일)</li>
+<li><strong>상태:</strong> 진행중</li>
+<li><strong>우선순위:</strong> high</li>
+<li><strong>타입:</strong> 입문가이드, 참고자료</li>
+<li><strong>태그:</strong> LangCode, 입문, 초급자, 교육</li>
+</ul>
+<h3 id="내부-링크-구조">내부 링크 구조 {#내부-링크-구조}</h3>
+<ul>
+<li>모든 Part가 서로 연결됨</li>
+<li>목차에서 모든 섹션으로 이동 가능</li>
+<li>참고서에서 상세 내용으로 이동 가능</li>
+</ul>
+<h3 id="obsidian-플러그인-최적화">Obsidian 플러그인 최적화 {#obsidian-플러그인-최적화}</h3>
+<ul>
+<li>Dataview 쿼리로 쉽게 검색 가능</li>
+<li>Graph View에서 관계도 확인 가능</li>
+<li>Backlink로 다른 노트와 연결 가능</li>
+</ul>
+<hr>
+<h2 id="특별-기능">✨ 특별 기능 {#특별-기능}</h2>
+<h3 id="1-결정-트리-decision-tree">1. 결정 트리 (Decision Tree) {#1-결정-트리-decision-tree}</h3>
+<ul>
+<li>어떤 명령어를 쓸지 시각화</li>
+<li>플로우차트로 직관적 이해</li>
+</ul>
+<h3 id="2-비교-테이블">2. 비교 테이블 {#2-비교-테이블}</h3>
+<ul>
+<li>Claude vs Gemini vs Ollama</li>
+<li>ReAct vs Deep</li>
+<li>Priority별 특징</li>
+</ul>
+<h3 id="3-실전-워크플로우">3. 실전 워크플로우 {#3-실전-워크플로우}</h3>
+<ul>
+<li>웹 개발 6단계</li>
+<li>데이터 과학 6단계</li>
+<li>모바일 개발 6단계</li>
+</ul>
+<h3 id="4-트러블-슈팅-가이드">4. 트러블 슈팅 가이드 {#4-트러블-슈팅-가이드}</h3>
+<ul>
+<li>4가지 일반적인 문제</li>
+<li>각 문제별 해결책 3-4개</li>
+<li>예방 팁 포함</li>
+</ul>
+<hr>
+<h2 id="학습-평가-기준">🎓 학습 평가 기준 {#학습-평가-기준}</h2>
+<p>각 Part 마다 다음을 확인할 수 있습니다:</p>
+<p><strong>Part 1 마무리:</strong></p>
+<ul>
+<li>✅ LangCode 설치 완료</li>
+<li>✅ 기본 개념 이해</li>
+<li>✅ 첫 명령어 실행 가능</li>
+</ul>
+<p><strong>Part 2 마무리:</strong></p>
+<ul>
+<li>✅ 3가지 명령어 완벽 이해</li>
+<li>✅ 기본 작업 자동화 가능</li>
+<li>✅ 실전 준비 완료</li>
+</ul>
+<p><strong>Part 3 마무리:</strong></p>
+<ul>
+<li>✅ Router 활용 가능</li>
+<li>✅ Mode/Priority 선택 능력</li>
+<li>✅ 비용/속도/품질 최적화 가능</li>
+</ul>
+<p><strong>Part 4 마무리:</strong></p>
+<ul>
+<li>✅ 실제 프로젝트에 적용 가능</li>
+<li>✅ 팀과 협업 가능</li>
+<li>✅ 문제 해결 능력 완비</li>
+</ul>
+<hr>
+<h2 id="추가-정보">💡 추가 정보 {#추가-정보}</h2>
+<h3 id="각-part의-학습-시간">각 Part의 학습 시간 {#각-part의-학습-시간}</h3>
+<ul>
+<li>Part 1: ~1시간 (읽기 + 설치)</li>
+<li>Part 2: ~2시간 (읽기 + 실습)</li>
+<li>Part 3: ~1.5시간 (읽기 + 학습)</li>
+<li>Part 4: ~2시간 (읽기 + 사례 분석)</li>
+<li><strong>총합:</strong> ~6.5시간 (기본 마스터)</li>
+</ul>
+<h3 id="추가-시간-선택">추가 시간 (선택) {#추가-시간-선택}</h3>
+<ul>
+<li>참고서 숙달: ~1시간</li>
+<li>프로젝트 적용: 상황에 따라</li>
+<li>고급 기능 심화: 선택사항</li>
+</ul>
+<hr>
+<h2 id="보너스">🎁 보너스 {#보너스}</h2>
+<h3 id="포함된-템플릿">포함된 템플릿 {#포함된-템플릿}</h3>
+<ol>
+<li>Python 데이터 과학 <code>.langcode/langcode.md</code></li>
+<li>Node.js 웹 애플리케이션 설정</li>
+<li>Flutter 모바일 앱 설정</li>
+<li>팀 협업 설정</li>
+</ol>
+<h3 id="포함된-체크리스트">포함된 체크리스트 {#포함된-체크리스트}</h3>
+<ol>
+<li>프로젝트 시작 전 체크리스트</li>
+<li>기능 구현 중 체크리스트</li>
+<li>배포 전 최종 체크리스트</li>
+</ol>
+<hr>
+<h2 id="다음-단계">📞 다음 단계 {#다음-단계}</h2>
+<h3 id="즉시할-수-있는-것">즉시할 수 있는 것 {#즉시할-수-있는-것}</h3>
+<ol>
+<li>Obsidian 볼트에서 &quot;LangCode_완전_가이드_목차.md&quot; 열기</li>
+<li>Part 1부터 시작하기</li>
+<li>설치 완료하고 첫 명령어 실행</li>
+</ol>
+<h3 id="1주일-후">1주일 후 {#1주일-후}</h3>
+<ul>
+<li>Part 1-2 완료</li>
+<li>자신의 프로젝트에서 chat/feature 사용</li>
+<li>참고서 북마크</li>
+</ul>
+<h3 id="2주일-후">2주일 후 {#2주일-후}</h3>
+<ul>
+<li>Part 3 학습</li>
+<li>Router와 Priority 활용</li>
+<li>최적화 시작</li>
+</ul>
+<h3 id="3주일-후">3주일 후 {#3주일-후}</h3>
+<ul>
+<li>Part 4 학습</li>
+<li>실제 프로젝트 구조 적용</li>
+<li>팀과 협업 시작</li>
+</ul>
+<hr>
+<h2 id="마지막으로">🙌 마지막으로 {#마지막으로}</h2>
+<p>이 가이드는 <strong>초급자도 전문가가 될 수 있도록</strong> 설계되었습니다.</p>
+<p><strong>핵심 원칙:</strong></p>
+<ul>
+<li>✅ 어려운 개념도 쉽게 설명</li>
+<li>✅ 모든 예제는 직접 실행 가능</li>
+<li>✅ 단계적 학습으로 진행</li>
+<li>✅ 언제든 참고 가능</li>
+</ul>
+<p><strong>성공의 비결:</strong></p>
+<blockquote>
+<p><strong>&quot;꾸준히, 그리고 실전으로 배우기&quot;</strong></p>
+</blockquote>
+<p>각 Part를 읽은 후 반드시 실습하세요. 그것이 최고의 학습입니다! 🚀</p>
+<hr>
+<p><strong>Happy Learning! 🎓</strong></p>
+<p><em>마지막 수정: 2025-11-16</em></p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/tutorial.html" class="article-tag">tutorial</a><a href="/tag/guide.html" class="article-tag">guide</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/langcode-가이드-생성-완료-안내.html&text=LangCode 입문 완전 가이드 - 생성 완료 보고서" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/langcode-가이드-생성-완료-안내.html&title=LangCode 입문 완전 가이드 - 생성 완료 보고서" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/langcode-가이드-생성-완료-안내.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-expert.html" class="author-bio__card">
+          <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 전문가</h3>
+            <p class="author-bio__role">AI &amp; Development Writer</p>
+            <p class="author-bio__text">AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/readme.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/demo.gif"
+             alt="README"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">README</h3>
+          <p class="article-card__excerpt">README</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">10</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/lovable-prompting-bible.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/tutorials-placeholder.svg"
+             alt="{{task_type}} Prompt"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">{{task_type}} Prompt</h3>
+          <p class="article-card__excerpt">The Lovable Prompting Bible: Complete Guide to AI Prompting in Lovable (2025)   ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">90</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/plasmo-framework-초보자-가이드.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/tutorials-placeholder.svg"
+             alt="Plasmo_Framework_초보자_가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Plasmo_Framework_초보자_가이드</h3>
+          <p class="article-card__excerpt">PlasmoFramework초보자가이드</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">83</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

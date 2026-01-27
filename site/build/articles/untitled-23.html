@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untitled | AI 기술 자료 저널</title>
+  <meta name="description" content="--- title: &quot;Lovable AI 프롬프트 바이블 - 초보 개발자용 한국어 가이드&quot; created: &#39;2025-11-11&#39; lastmodified: &#39;2025-11-11&#39; tags:   - AI/프롬프트   - 개발/초보자   - Lovable   -...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Untitled">
+  <meta property="og:description" content="--- title: &quot;Lovable AI 프롬프트 바이블 - 초보 개발자용 한국어 가이드&quot; created: &#39;2025-11-11&#39; lastmodified: &#39;2025-11-11&#39; tags:   - AI/프롬프트   - 개발/초보자   - Lovable   -...">
+  <meta property="og:image" content="/assets/images/ai-resources-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-23.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Untitled">
+  <meta name="twitter:description" content="--- title: &quot;Lovable AI 프롬프트 바이블 - 초보 개발자용 한국어 가이드&quot; created: &#39;2025-11-11&#39; lastmodified: &#39;2025-11-11&#39; tags:   - AI/프롬프트   - 개발/초보자   - Lovable   -...">
+  <meta name="twitter:image" content="/assets/images/ai-resources-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-23.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI 기술 자료 저널</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/ai-resources.html" class="article-category" style="background-color: #a855f7">
+          AI 자료
+        </a>
+        <h1 class="article-title">Untitled</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-analyst.html" class="article-author">
+            <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 분석가</span>
+              <span class="article-author__role">AI Tools Analyst</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2026년 1월 27일">2026년 1월 27일</time>
+            <span class="article-meta__separator">·</span>
+            <span>9 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개요와-배경" class="toc__link">개요와 배경</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#왜-이-가이드가-필요한가" class="toc__link">왜 이 가이드가 필요한가?</a>
+    </li>
+    <li class="toc__item">
+      <a href="#프롬프트가-무엇일까-스토리텔링으로-이해하기" class="toc__link">프롬프트가 무엇일까? 스토리텔링으로 이해하기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#페이만-기법으로-기본-배우기-훈련-바퀴-프롬프트" class="toc__link">페이만 기법으로 기본 배우기: 훈련 바퀴 프롬프트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#중급-훈련-바퀴-없이-자유롭게-프롬프트-작성" class="toc__link">중급: 훈련 바퀴 없이 자유롭게 프롬프트 작성</a>
+    </li>
+    <li class="toc__item">
+      <a href="#고급-메타-프롬프트와-역메타-프롬프트" class="toc__link">고급: 메타 프롬프트와 역메타 프롬프트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#프롬프트-라이브러리-활용-재사용의-힘" class="toc__link">프롬프트 라이브러리 활용: 재사용의 힘</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실전-사례-초보자부터-고급까지-예시" class="toc__link">실전 사례: 초보자부터 고급까지 예시</a>
+    </li>
+    <li class="toc__item">
+      <a href="#용어-사전-glossary" class="toc__link">용어 사전 (Glossary)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트와-다음-단계" class="toc__link">연결된 노트와 다음 단계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#구현-체크리스트" class="toc__link">구현 체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#connected-insights" class="toc__link">🧠 Connected Insights</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#related-notes" class="toc__link">🔗 Related Notes</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#knowledge-gaps" class="toc__link">📚 Knowledge Gaps</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#ai-insights" class="toc__link">💡 AI Insights</a>
+    </li>
+  </ol>
+</nav>
+
+            <hr>
+<h2>title: &quot;Lovable AI 프롬프트 바이블 - 초보 개발자용 한국어 가이드&quot;
+created: &#39;2025-11-11&#39;
+last_modified: &#39;2025-11-11&#39;
+tags:
+  - AI/프롬프트
+  - 개발/초보자
+  - Lovable
+  - Feynman
+status: active
+type: guide
+priority: high</h2>
+<h1>Lovable AI 프롬프트 바이블 - 초보 개발자용 한국어 가이드</h1>
+<p>이 노트는 Lovable AI 플랫폼의 프롬프트 엔지니어링을 초보 개발자를 위해 설명합니다. 페이만 기법(간단히 설명하듯이)을 사용해 복잡한 개념을 쉽게 풀고, 스토리텔링으로 재미있게 전달합니다. 각 수준(초보, 중급, 고급)에 맞는 예시를 포함하며, 용어 사전과 목차로 탐색을 쉽게 했습니다.</p>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#개요와-배경" class="internal-link internal-link--section">개요와 배경</a></li>
+<li><a href="#프롬프트가-무엇일까-스토리텔링으로-이해하기" class="internal-link internal-link--section">프롬프트가 무엇일까? 스토리텔링으로 이해하기</a></li>
+<li><a href="#페이만-기법으로-기본-배우기-훈련-바퀴-프롬프트" class="internal-link internal-link--section">페이만 기법으로 기본 배우기: 훈련 바퀴 프롬프트</a></li>
+<li><a href="#중급-훈련-바퀴-없이-자유롭게-프롬프트-작성" class="internal-link internal-link--section">중급: 훈련 바퀴 없이 자유롭게 프롬프트 작성</a></li>
+<li><a href="#고급-메타-프롬프트와-역메타-프롬프트" class="internal-link internal-link--section">고급: 메타 프롬프트와 역메타 프롬프트</a></li>
+<li><a href="#프롬프트-라이브러리-활용-재사용의-힘" class="internal-link internal-link--section">프롬프트 라이브러리 활용: 재사용의 힘</a></li>
+<li><a href="#실전-사례-초보자부터-고급까지-예시" class="internal-link internal-link--section">실전 사례: 초보자부터 고급까지 예시</a></li>
+<li><a href="#용어-사전-glossary" class="internal-link internal-link--section">용어 사전 (Glossary)</a></li>
+<li><a href="#연결된-노트와-다음-단계" class="internal-link internal-link--section">연결된 노트와 다음 단계</a></li>
+</ol>
+<h2 id="개요와-배경">개요와 배경 {#개요와-배경}</h2>
+<h3 id="왜-이-가이드가-필요한가">왜 이 가이드가 필요한가? {#왜-이-가이드가-필요한가}</h3>
+<p>상상해 보세요. 당신은 프로그래밍을 막 시작한 초보 개발자입니다. AI가 마법처럼 코드를 작성해주지만, 어떻게 지시해야 할지 모르겠어요. 마치 아이가 장난감을 가지고 놀 때 &quot;이렇게 해!&quot;라고 말해야 장난감이 제대로 움직이듯이, AI에게는 &#39;프롬프트&#39;라는 지시가 필요합니다.</p>
+<p>페이만 기법처럼, 이 가이드는 복잡한 AI 개념을 마치 10살 아이에게 설명하듯 간단히 풀어갑니다. 스토리: &quot;옛날에 한 마을에 AI 마법사가 살았어요. 마법사는 주인의 말만 잘 들으면 황금 알을 낳았지만, 말투가 엉망이면 엉뚱한 걸 만들었죠. 당신이 그 마법사의 주인이 되는 이야기예요!&quot;</p>
+<p>Lovable은 코드 없이 AI 앱을 만드는 플랫폼입니다. 이 가이드에서 4단계 프롬프트를 배우며, 초보에서 고급까지 성장하세요.</p>
+<h2 id="프롬프트가-무엇일까-스토리텔링으로-이해하기">프롬프트가 무엇일까? 스토리텔링으로 이해하기 {#프롬프트가-무엇일까-스토리텔링으로-이해하기}</h2>
+<p>프롬프트는 AI에게 주는 &#39;명령어&#39;예요. 하지만 단순한 명령이 아니라, 대화처럼요. 스토리: &quot;AI는 똑똑한 요리사예요. &#39;밥 해라&#39;라고 하면 밥만 나오지만, &#39;맛있는 비빔밥을 매운 맛으로, 채소 듬뿍 넣어 만들어줘&#39;라고 하면 완벽한 요리가 나와요.&quot;</p>
+<p>초보 수준 예시: &quot;안녕, AI야. &#39;hello world&#39;를 출력하는 Python 코드를 써줘.&quot; → AI가 간단한 코드를 줍니다.</p>
+<p>중급: &quot;초보자를 위한 &#39;hello world&#39; 설명과 함께 코드를 작성해. 왜 이 코드가 중요한지 설명해.&quot;</p>
+<p>고급: &quot;Python 초보자를 가르치는 튜토리얼 형식으로 &#39;hello world&#39; 코드를 작성해. 단계별로 설명하고, 흔한 실수를 피하는 팁 추가.&quot;</p>
+<h2 id="페이만-기법으로-기본-배우기-훈련-바퀴-프롬프트">페이만 기법으로 기본 배우기: 훈련 바퀴 프롬프트 {#페이만-기법으로-기본-배우기-훈련-바퀴-프롬프트}</h2>
+<p>페이만 기법: &quot;아이에게 설명할 수 있으면 진짜 이해한 거야.&quot; 훈련 바퀴 프롬프트는 템플릿처럼 AI가 어떻게 답할지 미리 보여주는 거예요. 자전거에 보조 바퀴를 달아 안 넘어지게 하듯이.</p>
+<p>스토리: &quot;첫 자전거를 타는 아이가 템플릿(지도) 없이 길을 잃지 않게 도와줘요.&quot;</p>
+<p>초보 예시: 입력: &quot;다음 문장을 요약해.&quot; 출력 예시: &quot;이 문장은 ...에 관한 거야.&quot; Lovable에서 온보딩 봇 만들기.</p>
+<p>상세 설명: 템플릿 사용으로 예측 가능. 예: 이메일 생성기 - &quot;친구에게 생일 축하 이메일을 써. 형식: 인사 + 축하 + 마무리.&quot;</p>
+<h2 id="중급-훈련-바퀴-없이-자유롭게-프롬프트-작성">중급: 훈련 바퀴 없이 자유롭게 프롬프트 작성 {#중급-훈련-바퀴-없이-자유롭게-프롬프트-작성}</h2>
+<p>이제 보조 바퀴를 떼고 직접 타보세요. AI에게 역할 부여하고, 자유롭게 지시.</p>
+<p>스토리: &quot;자전거를 자유롭게 타며 모험하는 이야기. 하지만 길을 잃지 않게 지도(명확한 지시) 필요.&quot;</p>
+<p>중급 예시: &quot;너는 전문 작가야. 이 문단을 설득력 있게 다시 써.&quot; 형식 지정: &quot;불릿 포인트로.&quot;</p>
+<p>고급 예시: API 호출과 결합 - &quot;최신 날씨 데이터를 가져와 여행 계획을 세워줘.&quot;</p>
+<h2 id="고급-메타-프롬프트와-역메타-프롬프트">고급: 메타 프롬프트와 역메타 프롬프트 {#고급-메타-프롬프트와-역메타-프롬프트}</h2>
+<p>메타: AI에게 프롬프트를 개선하게 함. 스토리: &quot;마법사가 주인의 주문을 더 좋게 만들어주는 거예요.&quot;</p>
+<p>예시 (초보): &quot;이 프롬프트를 더 좋게 만들어: &#39;계약 요약해&#39;.&quot;
+AI: &quot;구체적으로: &#39;법적 계약을 정중한 톤으로 요약해. 주요 조항 3가지 나열.&#39;&quot;</p>
+<p>역메타: AI가 프롬프트를 비판. 고급 예시: &quot;이 프롬프트의 문제점 분석해.&quot;</p>
+<h2 id="프롬프트-라이브러리-활용-재사용의-힘">프롬프트 라이브러리 활용: 재사용의 힘 {#프롬프트-라이브러리-활용-재사용의-힘}</h2>
+<p>라이브러리는 저장된 프롬프트 모음. 스토리: &quot;요리 레시피북처럼, 한 번 만들면 여러 번 써요.&quot;</p>
+<p>예시: &quot;너는 {{역할}}이야. {{주제}}에 대해 {{톤}}으로 작성해.&quot; 변수로 재사용.</p>
+<p>초보: 간단 Q&amp;A 라이브러리.
+중급: 팀 공유 템플릿.</p>
+<h2 id="실전-사례-초보자부터-고급까지-예시">실전 사례: 초보자부터 고급까지 예시 {#실전-사례-초보자부터-고급까지-예시}</h2>
+<p>초보 사례: 간단 요약 봇 - &quot;문단 요약해.&quot; (훈련 바퀴 사용)</p>
+<p>중급: 고객 지원 - &quot;고객 메시지 분석하고 답변 작성. 공감적으로.&quot;</p>
+<p>고급: CI/CD 모니터링 봇 - API 로그 분석, Slack 알림.</p>
+<p>페이만 적용: 각 사례를 &quot;왜 이게 중요한지&quot; 아이에게 설명하듯.</p>
+<h2 id="용어-사전-glossary">용어 사전 (Glossary) {#용어-사전-glossary}</h2>
+<ul>
+<li><strong>프롬프트 (Prompt)</strong>: AI에게 주는 지시어. 마치 레시피처럼 구체적일수록 좋음.</li>
+<li><strong>Lovable</strong>: 코드 없이 AI 앱 만드는 플랫폼. 블록 쌓듯이 프롬프트 연결.</li>
+<li><strong>페이만 기법 (Feynman Technique)</strong>: 복잡한 걸 단순히 설명하며 이해 확인.</li>
+<li><strong>메타 프롬프트 (Meta Prompting)</strong>: AI에게 프롬프트를 고치게 함. 자기 개선.</li>
+<li><strong>체이닝 (Chaining)</strong>: 프롬프트 여러 개 연결. 단계별 작업.</li>
+<li><strong>환각 (Hallucination)</strong>: AI가 거짓 정보 만듦. 구체적 프롬프트로 방지.</li>
+<li><strong>토큰 (Token)</strong>: AI가 처리하는 단위. 비용과 속도 영향.</li>
+</ul>
+<p>쉬운 언어로: 환각은 AI가 &quot;꿈꾸는&quot; 거예요. 깨우려면 사실만 물어보세요!</p>
+<h2 id="연결된-노트와-다음-단계">연결된 노트와 다음 단계 {#연결된-노트와-다음-단계}</h2>
+<h3 id="구현-체크리스트">구현 체크리스트 {#구현-체크리스트}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Lovable 계정 만들기</li>
+<li><input disabled="" type="checkbox"> 기본 프롬프트 3개 테스트</li>
+<li><input disabled="" type="checkbox"> 라이브러리에 저장</li>
+<li><input disabled="" type="checkbox"> 간단 앱 하나 만들기</li>
+</ul>
+<h3 id="연결된-노트">연결된 노트 {#연결된-노트}</h3>
+<ul>
+<li><a href="/articles/prompt-engineering.html" class="internal-link">프롬프트 엔지니어링</a></li>
+<li><a href="/articles/lovable-intro.html" class="internal-link">Lovable 소개</a></li>
+<li><a href="/articles/ai-beginners-guide.html" class="internal-link">AI 초보 가이드</a></li>
+<li><a href="/articles/obsidian-ai-integration.html" class="internal-link">Obsidian AI 통합</a></li>
+</ul>
+<p>다음: 실습하며 프롬프트 10개 만들어 보세요. 질문 있으면 연결 노트 참조!</p>
+<h2 id="connected-insights">🧠 Connected Insights {#connected-insights}</h2>
+<blockquote>
+<p>📅 Last analyzed: 2025. 12. 20. 오후 11:40:30
+💰 Analysis cost: $0.0245</p>
+</blockquote>
+<h3 id="related-notes">🔗 Related Notes {#related-notes}</h3>
+<ul>
+<li><p>🔼 <a href="/articles/r-resourcesai-developmentai-tech-resourcesprompt-engineeringlovablepromptbeginnersguidepart1md.html" class="internal-link">R - Resources/AI 및 개발/AI 기술 자료/프롬프트 엔지니어링/Lovable_프롬프트_바이블_초보자_가이드_Part1.md</a></p>
+<ul>
+<li>extends: 분석 노트는 Part1의 내용을 기반으로 전체 가이드를 확장하며, 동일한 구조(목차, 페이만 기법, 스토리텔링, 초보/중급 예시)를 공유하고 용어 사전과 실전 사례를 추가로 포함. 개념적 연관성과 논리적 확장이 강함.</li>
+<li>Confidence: █████ (95%)</li>
+</ul>
+</li>
+<li><p>✅ <a href="/articles/r-resourcesai-developmentai-tech-resourcesprompt-engineeringbeginnersdevelopmentpromptguidepart1md.html" class="internal-link">R - Resources/AI 및 개발/AI 기술 자료/프롬프트 엔지니어링/초보자_개발자를_위한_러버블_프롬프트_바이블_한국어_가이드_Part1.md</a></p>
+<ul>
+<li>supports: 한국어 초보자 가이드 Part1로서 배경, 페이만 기법, 스토리텔링(요리 비유)을 공유하며 분석 노트의 기본 개념을 지지. 목차와 예시가 유사해 논리적 지지 관계.</li>
+<li>Confidence: █████ (92%)</li>
+</ul>
+</li>
+<li><p>🔗 <a href="/articles/r-resourcesai-developmentai-tech-resourcesprompt-engineeringlovable-ai-prompt-beginners-guide-part-1md.html" class="internal-link">R - Resources/AI 및 개발/AI 기술 자료/프롬프트 엔지니어링/Lovable AI 프롬프트 초보자 가이드 - Part 1.md</a></p>
+<ul>
+<li>related: 동일한 Lovable 초보자 가이드 Part1로, Feynman 기법, 스토리텔링, 레벨별 프롬프팅(훈련 바퀴 등)을 공유. 개념적 연관성이 높으나 목차가 약간 다름.</li>
+<li>Confidence: █████ (91%)</li>
+</ul>
+</li>
+<li><p>🔼 <a href="/articles/r-resourcesai-developmentprompt-engineeringlovable-ai-prompt-beginners-development-guide-part-2md.html" class="internal-link">R - Resources/AI 및 개발/프롬프트 엔지니어링/Lovable AI 프롬프트 바이블 - 초보 개발자 한국어 가이드 (Part 2).md</a></p>
+<ul>
+<li>extends: 분석 노트의 고급 섹션(메타/역메타 프롬프트, 라이브러리, 사례)을 Part2에서 상세히 확장. 스토리 연속성(자전거 비유)과 목차 연결로 논리적 확장 관계.</li>
+<li>Confidence: █████ (90%)</li>
+</ul>
+</li>
+<li><p>🔗 <a href="/articles/r-resourcesai-tools-guideprompt-engineeringgpt-5-codex-perfect-guide-part-1md.html" class="internal-link">R - Resources/AI 도구 가이드/프롬프트 엔지니어링/GPT-5-Codex 프롬프팅 완벽 가이드 (Part 1).md</a></p>
+<ul>
+<li>related: 프롬프트 엔지니어링 초보 가이드로서 스토리텔링(주문 비유)과 레벨별 예시를 공유하나, 플랫폼이 다름(GPT-5-Codex vs Lovable). 일반 프롬프팅 원칙 지지.</li>
+<li>Confidence: ████░ (80%)</li>
+</ul>
+</li>
+</ul>
+<h3 id="knowledge-gaps">📚 Knowledge Gaps {#knowledge-gaps}</h3>
+<ul>
+<li><p>🔴 <strong>Lovable 플랫폼 실제 온보딩 및 앱 빌드 튜토리얼</strong></p>
+<ul>
+<li>체크리스트(계정 만들기, 기본 프롬프트 테스트)와 연결 노트(<a href="/articles/lovable-intro.html" class="internal-link">Lovable 소개</a>)가 언급되지만, 단계별 스크린샷이나 실시간 데모가 없어 초보자가 즉시 적용하기 어려움. 실전 실행성을 높이기 위해 필요.</li>
+<li>Suggested resources: Lovable 공식 문서 (lovable.dev/docs), YouTube Lovable 초보 튜토리얼</li>
+</ul>
+</li>
+<li><p>🔴 <strong>고급 사례 연구 및 문제 해결 (e.g., CI/CD 모니터링 봇)</strong></p>
+<ul>
+<li>고급 사례(고객 지원, CI/CD)가 간략히 언급되지만, 구체적 프롬프트 코드, API 통합 예시, 디버깅 팁이 부족. Part2 연결되나 독립적 깊이 부족으로 지식 갭 발생.</li>
+<li>Suggested resources: Lovable AI 사례 연구 블로그, <a href="/articles/lovable-ai-prompt-beginners-development-guide-part-2.html" class="internal-link">Lovable AI 프롬프트 바이블 - 초보 개발자 한국어 가이드 (Part 2)</a> 확장</li>
+</ul>
+</li>
+<li><p>🟡 <strong>플랫폼 간 비교 (Lovable vs GPT-5-Codex 등)</strong></p>
+<ul>
+<li>Lovable 중심이지만 다른 AI 도구와의 차이점(노코드 vs 코드 생성)이 다뤄지지 않아, 초보자가 왜 Lovable을 선택할지 맥락 부족.</li>
+<li>Suggested resources: OpenAI Cookbook 프롬프트 가이드, No-code AI 플랫폼 비교 리뷰 (e.g., Bubble vs Lovable)</li>
+</ul>
+</li>
+<li><p>🟡 <strong>환각 방지 및 토큰 최적화 실전 팁</strong></p>
+<ul>
+<li>용어 사전에서 환각/토큰 언급되지만, Lovable 특화 예시(체이닝 활용)가 없어 고급 적용 시 지식 갭.</li>
+<li>Suggested resources: Anthropic 프롬프트 베스트 프랙티스, Lovable 토큰 관리 문서</li>
+</ul>
+</li>
+</ul>
+<h3 id="ai-insights">💡 AI Insights {#ai-insights}</h3>
+<p>이 노트는 Lovable AI 프롬프트 초보 가이드의 포괄적 통합본으로, 여러 Part1/Part2 변형 노트와 중복/확장 관계를 형성하며 페이만 기법과 스토리텔링으로 초보자 접근성을 강조. 그러나 노트 간 중복이 높아 합치기 필요하며, 실전 튜토리얼과 고급 사례 깊이가 부족해 지식 네트워크를 강화할 기회.</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-23.html&text=Untitled" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-23.html&title=Untitled" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-23.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-analyst.html" class="author-bio__card">
+          <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 분석가</h3>
+            <p class="author-bio__role">AI Tools Analyst</p>
+            <p class="author-bio__text">AI 도구와 LLM 활용에 대한 심층 분석을 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/ai-agent-guide-part-1-basics.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/ai-resources-placeholder.svg"
+             alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #a855f7">
+          AI 자료
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h3>
+          <p class="article-card__excerpt">🎯 이 가이드의 목표: 초보 개발자도 금융권 AI 에이전트를 이해하고 구축할 수 있도록 돕습니다. 📚 학습 방식: 파인만 기법 + 스토리텔링 + 3단계 예제 (기초→중급→고급) --- 1.  || #AI 에이전트란 무엇인가요 2.  || #금융 기관에 AI...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">31 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/ai-agent-guide-part-2-real-world.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/ai-resources-placeholder.svg"
+             alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #a855f7">
+          AI 자료
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h3>
+          <p class="article-card__excerpt">🎯 Part 2의 목표: 실제로 구축 가능한 아키텍처 설계와 구현 로드맵 제시 👥 대상: Part 1을 읽고 실제 프로젝트를 시작하려는 개발팀 --- 1.  || #아키텍처 패턴 설계 2.  || #구현 로드맵 단계별 가이드 3.  || #팀 구성과 역할 4. ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">46 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/ai-resources-placeholder.svg"
+             alt="AI 에이전트 Python 초보자 완벽 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #a855f7">
+          AI 자료
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">AI 에이전트 Python 초보자 완벽 가이드</h3>
+          <p class="article-card__excerpt">1.  || #들어가며 - AI 에이전트는 마법이 아닙니다 2.  || #AI 에이전트란 무엇인가요 3.  || #핵심 3요소 이해하기 4.  || #예제 1 - 기초 (5살 아이도 이해하는 수준) 5.  || #예제 2 - 중급 (실무에서 바로 쓰는 수준) 6. ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">34 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI 기술 자료 저널</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

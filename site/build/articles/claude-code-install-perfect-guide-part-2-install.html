@@ -1,0 +1,2387 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claude Code 네이티브 설치 완벽 가이드 Part 2 - 설치 과정과 사후 검증 | AI &amp; Development Journal</title>
+  <meta name="description" content="🎯 이 문서의 목표: 실제 설치 과정을 단계별로 따라하고, 성공적으로 설치되었는지 검증합니다! --- 1.  || #설치 과정 - 운영체제별 2.  || #설치 후 확인 및 검증 3.  || #이전 Node 버전과의 차이점 실전 비교 4.  || #Native...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claude Code 네이티브 설치 완벽 가이드 Part 2 - 설치 과정과 사후 검증">
+  <meta property="og:description" content="🎯 이 문서의 목표: 실제 설치 과정을 단계별로 따라하고, 성공적으로 설치되었는지 검증합니다! --- 1.  || #설치 과정 - 운영체제별 2.  || #설치 후 확인 및 검증 3.  || #이전 Node 버전과의 차이점 실전 비교 4.  || #Native...">
+  <meta property="og:image" content="/assets/images/claude-code-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-install-perfect-guide-part-2-install.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claude Code 네이티브 설치 완벽 가이드 Part 2 - 설치 과정과 사후 검증">
+  <meta name="twitter:description" content="🎯 이 문서의 목표: 실제 설치 과정을 단계별로 따라하고, 성공적으로 설치되었는지 검증합니다! --- 1.  || #설치 과정 - 운영체제별 2.  || #설치 후 확인 및 검증 3.  || #이전 Node 버전과의 차이점 실전 비교 4.  || #Native...">
+  <meta name="twitter:image" content="/assets/images/claude-code-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-install-perfect-guide-part-2-install.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/claude-code.html" class="article-category" style="background-color: #ff6b35">
+          Claude Code
+        </a>
+        <h1 class="article-title">Claude Code 네이티브 설치 완벽 가이드 Part 2 - 설치 과정과 사후 검증</h1>
+        <div class="article-meta">
+          <a href="/journalist/claude-specialist.html" class="article-author">
+            <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">Claude 전문가</span>
+              <span class="article-author__role">Claude Code Specialist</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 11월 9일">2025년 11월 9일</time>
+            <span class="article-meta__separator">·</span>
+            <span>29 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#part-2-현재-문서" class="toc__link">Part 2 (현재 문서)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#설치-과정-운영체제별" class="toc__link">설치 과정 - 운영체제별</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초급-macos-설치-가장-쉬운-방법" class="toc__link">🌱 초급: macOS 설치 (가장 쉬운 방법)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급-windows-설치" class="toc__link">🌿 중급: Windows 설치</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-linux-설치-ubuntudebian" class="toc__link">🌳 고급: Linux 설치 (Ubuntu/Debian)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#설치-후-확인-및-검증" class="toc__link">설치 후 확인 및 검증</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초급-제대로-설치되었나요" class="toc__link">🌱 초급: 제대로 설치되었나요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급-상세-검증" class="toc__link">🌿 중급: 상세 검증</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-성능-벤치마크" class="toc__link">🌳 고급: 성능 벤치마크</a>
+    </li>
+    <li class="toc__item">
+      <a href="#이전-node-버전과의-차이점-실전-비교" class="toc__link">이전 Node 버전과의 차이점 실전 비교</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초급-눈으로-보는-차이" class="toc__link">🌱 초급: 눈으로 보는 차이</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급-실제-사용-시나리오" class="toc__link">🌿 중급: 실제 사용 시나리오</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-내부-동작-비교" class="toc__link">🌳 고급: 내부 동작 비교</a>
+    </li>
+    <li class="toc__item">
+      <a href="#native-버전의-더-나은-점" class="toc__link">Native 버전의 더 나은 점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초급-일상적인-이점" class="toc__link">🌱 초급: 일상적인 이점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급-기술적-이점" class="toc__link">🌿 중급: 기술적 이점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-엔터프라이즈-관점" class="toc__link">🌳 고급: 엔터프라이즈 관점</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결-가이드" class="toc__link">문제 해결 가이드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초급-일반적인-문제" class="toc__link">🌱 초급: 일반적인 문제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급-설정-관련-문제" class="toc__link">🌿 중급: 설정 관련 문제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-디버깅" class="toc__link">🌳 고급: 디버깅</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실전-활용-시작하기" class="toc__link">실전 활용 시작하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초급-첫-번째-대화" class="toc__link">🌱 초급: 첫 번째 대화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급-실용적인-작업" class="toc__link">🌿 중급: 실용적인 작업</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-복잡한-워크플로우" class="toc__link">🌳 고급: 복잡한 워크플로우</a>
+    </li>
+    <li class="toc__item">
+      <a href="#추가-용어-사전" class="toc__link">추가 용어 사전</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#설치-관련-용어" class="toc__link">설치 관련 용어</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#성능-관련-용어" class="toc__link">성능 관련 용어</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#보안-관련-용어" class="toc__link">보안 관련 용어</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실습-문제" class="toc__link">🤔 실습 문제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초급-문제" class="toc__link">초급 문제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급-문제" class="toc__link">중급 문제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-문제" class="toc__link">고급 문제</a>
+    </li>
+    <li class="toc__item">
+      <a href="#성능-비교-요약" class="toc__link">📊 성능 비교 요약</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실제-측정-결과-macos-m1-기준" class="toc__link">실제 측정 결과 (macOS M1 기준)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#일일-사용-기준-절약-시간" class="toc__link">일일 사용 기준 절약 시간</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">📚 연결된 노트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#다음-단계" class="toc__link">다음 단계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#추천-학습-경로" class="toc__link">추천 학습 경로</a>
+    </li>
+    <li class="toc__item">
+      <a href="#pro-tips" class="toc__link">💡 Pro Tips</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tip-1-빠른-시작-alias-만들기" class="toc__link">Tip 1: 빠른 시작 alias 만들기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tip-2-프로젝트별-설정" class="toc__link">Tip 2: 프로젝트별 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#tip-3-자주-사용하는-명령어-저장" class="toc__link">Tip 3: 자주 사용하는 명령어 저장</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Claude Code 네이티브 설치 완벽 가이드 Part 2</h1>
+<blockquote>
+<p>🎯 <strong>이 문서의 목표</strong>: 실제 설치 과정을 단계별로 따라하고, 성공적으로 설치되었는지 검증합니다!</p>
+</blockquote>
+<hr>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<h3 id="part-2-현재-문서">Part 2 (현재 문서) {#part-2-현재-문서}</h3>
+<ol>
+<li><a href="#설치-과정-운영체제별" class="internal-link internal-link--section">설치 과정 - 운영체제별</a></li>
+<li><a href="#설치-후-확인-및-검증" class="internal-link internal-link--section">설치 후 확인 및 검증</a></li>
+<li><a href="#이전-node-버전과의-차이점-실전-비교" class="internal-link internal-link--section">이전 Node 버전과의 차이점 실전 비교</a></li>
+<li><a href="#native-버전의-더-나은-점" class="internal-link internal-link--section">Native 버전의 더 나은 점</a></li>
+<li><a href="#문제-해결-가이드" class="internal-link internal-link--section">문제 해결 가이드</a></li>
+<li><a href="#실전-활용-시작하기" class="internal-link internal-link--section">실전 활용 시작하기</a></li>
+<li><a href="#추가-용어-사전" class="internal-link internal-link--section">추가 용어 사전</a></li>
+</ol>
+<hr>
+<h2 id="설치-과정-운영체제별">설치 과정 - 운영체제별 {#설치-과정-운영체제별}</h2>
+<h3 id="초급-macos-설치-가장-쉬운-방법">🌱 초급: macOS 설치 (가장 쉬운 방법) {#초급-macos-설치-가장-쉬운-방법}</h3>
+<p><strong>스토리로 이해하기</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2602" onclick="copyCode('code-1769481054505-2602')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2602" class="language-plaintext">상황: 새로운 앱을 설치하는 것과 같아요!
+
+<ol>
+<li>인터넷에서 설치 파일 다운로드</li>
+<li>자동으로 설치 진행</li>
+<li>터미널 재시작</li>
+<li>바로 사용!</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">5 lines</span>
+  </div>
+</div></li>
+</ol>
+<h4>방법 1: 자동 설치 스크립트 (권장) ✨</h4>
+<p><strong>단계별 설명</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2603" onclick="copyCode('code-1769481054505-2603')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2603" class="language-bash"># 1. 터미널 열기
+# Mac에서: ⌘(Command) + Space → &quot;터미널&quot; 입력
+
+<h1>2. 설치 명령어 복사 &amp; 붙여넣기</h1>
+<p>curl -fsSL <a href="https://claude.ai/install.sh">https://claude.ai/install.sh</a> | bash</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<p><strong>각 부분 설명</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2604" onclick="copyCode('code-1769481054505-2604')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2604" class="language-bash">curl              # 인터넷에서 파일 다운로드하는 도구
+-fsSL             # 조용히(-s) 안전하게(-f) 다운로드
+https://claude.ai/install.sh  # 설치 스크립트 주소
+|                 # 다운로드한 내용을 다음 명령어로 전달
+bash              # 스크립트 실행</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>실제 화면에서 보이는 것</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2605" onclick="copyCode('code-1769481054505-2605')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2605" class="language-bash">$ curl -fsSL https://claude.ai/install.sh | bash
+
+<p>🔄 Claude Code 설치 중...
+✓ 시스템 확인 완료
+✓ 최신 버전 다운로드 중... (2.0.36)
+✓ 설치 위치: /Users/jmacpro/.local/bin/claude
+✓ PATH 설정 완료</p>
+<p>🎉 설치 성공!</p>
+<p>다음 명령어로 확인하세요:
+  claude --version</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h4>방법 2: Homebrew로 설치 (Mac 고급 사용자)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2606" onclick="copyCode('code-1769481054505-2606')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2606" class="language-bash"># 1. Homebrew 설치 확인
+brew --version
+
+<h1>없다면 Homebrew 먼저 설치:</h1>
+<p>/bin/bash -c &quot;$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh">https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh</a>)&quot;</p>
+<h1>2. Claude Code 설치</h1>
+<p>brew install --cask claude-code</p>
+<h1>3. 설치 확인</h1>
+<p>claude --version</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<p><strong>Homebrew의 장점</strong>:</p>
+<ul>
+<li>다른 개발 도구와 함께 관리</li>
+<li><code>brew upgrade</code> 명령어로 모든 도구 한 번에 업데이트</li>
+<li>삭제도 쉬움: <code>brew uninstall claude-code</code></li>
+</ul>
+<h3 id="중급-windows-설치">🌿 중급: Windows 설치 {#중급-windows-설치}</h3>
+<p><strong>PowerShell 사용 (권장)</strong>:</p>
+<div class="code-block" data-language="powershell">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2607" onclick="copyCode('code-1769481054505-2607')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2607" class="language-powershell"># 1. PowerShell을 관리자 권한으로 실행
+# 시작 메뉴 → PowerShell 우클릭 → &quot;관리자 권한으로 실행&quot;
+
+<h1>2. 실행 정책 확인</h1>
+<p>Get-ExecutionPolicy</p>
+<h1>3. 필요시 정책 변경</h1>
+<p>Set-ExecutionPolicy RemoteSigned -Scope CurrentUser</p>
+<h1>4. 설치 명령어</h1>
+<p>irm <a href="https://claude.ai/install.ps1">https://claude.ai/install.ps1</a> | iex</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<p><strong>각 부분 설명</strong>:</p>
+<div class="code-block" data-language="powershell">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2608" onclick="copyCode('code-1769481054505-2608')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2608" class="language-powershell">irm               # Invoke-RestMethod (웹에서 내용 가져오기)
+https://claude.ai/install.ps1  # 설치 스크립트
+|                 # 파이프 (결과를 다음으로 전달)
+iex               # Invoke-Expression (스크립트 실행)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>실제 화면</strong>:</p>
+<div class="code-block" data-language="powershell">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2609" onclick="copyCode('code-1769481054505-2609')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2609" class="language-powershell">PS C:\Users\YourName&gt; irm https://claude.ai/install.ps1 | iex
+
+<h1>Claude Code 설치 마법사</h1>
+<p>✓ Windows 10 감지
+✓ PowerShell 5.1 확인
+✓ 다운로드 중... claude-2.0.36-win64.exe
+✓ 설치 위치: C:\Users\YourName.local\bin\claude.exe
+✓ 환경변수 업데이트 완료</p>
+<p>🎉 설치 완료!</p>
+<p>새 PowerShell 창을 열고 테스트하세요:
+  claude --version</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<p><strong>중요한 주의사항</strong> ⚠️:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2610" onclick="copyCode('code-1769481054505-2610')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2610" class="language-plaintext">설치 후 반드시 PowerShell을 재시작하세요!
+→ 환경변수 변경사항이 적용되려면 필요합니다</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h3 id="고급-linux-설치-ubuntudebian">🌳 고급: Linux 설치 (Ubuntu/Debian) {#고급-linux-설치-ubuntudebian}</h3>
+<p><strong>표준 설치 방법</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2611" onclick="copyCode('code-1769481054505-2611')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2611" class="language-bash"># 1. 필수 도구 설치
+sudo apt-get update
+sudo apt-get install -y curl
+
+<h1>2. Claude Code 설치</h1>
+<p>curl -fsSL <a href="https://claude.ai/install.sh">https://claude.ai/install.sh</a> | bash</p>
+<h1>3. PATH 추가 (필요시)</h1>
+<p>echo &#39;export PATH=&quot;$HOME/.local/bin:$PATH&quot;&#39; &gt;&gt; ~/.bashrc
+source ~/.bashrc</p>
+<h1>4. 확인</h1>
+<p>claude --version</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<p><strong>수동 설치 (고급 제어)</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2612" onclick="copyCode('code-1769481054505-2612')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2612" class="language-bash"># 1. 다운로드 디렉토리 생성
+mkdir -p ~/.local/bin
+
+<h1>2. 직접 다운로드</h1>
+<p>CLAUDE_VERSION=&quot;2.0.36&quot;
+curl -L &quot;<a href="https://github.com/anthropics/claude-code/releases/download/v$%7BCLAUDE_VERSION%7D/claude-linux-x64">https://github.com/anthropics/claude-code/releases/download/v${CLAUDE_VERSION}/claude-linux-x64</a>&quot; <br>  -o ~/.local/bin/claude</p>
+<h1>3. 실행 권한 부여</h1>
+<p>chmod +x ~/.local/bin/claude</p>
+<h1>4. PATH 확인</h1>
+<p>which claude</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<p><strong>셸별 PATH 설정</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2613" onclick="copyCode('code-1769481054505-2613')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2613" class="language-bash"># Bash
+echo &#39;export PATH=&quot;$HOME/.local/bin:$PATH&quot;&#39; &gt;&gt; ~/.bashrc
+
+<h1>Zsh</h1>
+<p>echo &#39;export PATH=&quot;$HOME/.local/bin:$PATH&quot;&#39; &gt;&gt; ~/.zshrc</p>
+<h1>Fish</h1>
+<p>fish_add_path ~/.local/bin</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="설치-후-확인-및-검증">설치 후 확인 및 검증 {#설치-후-확인-및-검증}</h2>
+<h3 id="초급-제대로-설치되었나요">🌱 초급: 제대로 설치되었나요? {#초급-제대로-설치되었나요}</h3>
+<p><strong>3단계 확인 방법</strong>:</p>
+<p><strong>1단계: 버전 확인</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2614" onclick="copyCode('code-1769481054505-2614')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2614" class="language-bash">claude --version</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>예상 출력</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2615" onclick="copyCode('code-1769481054505-2615')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2615" class="language-plaintext">2.0.36 (Claude Code)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>만약 에러가 나온다면?</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2616" onclick="copyCode('code-1769481054505-2616')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2616" class="language-bash"># 에러: &quot;claude: command not found&quot;
+→ 터미널을 재시작해보세요
+→ 여전히 안 되면 아래 &quot;문제 해결&quot; 섹션 참고</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>2단계: 도움말 확인</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2617" onclick="copyCode('code-1769481054505-2617')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2617" class="language-bash">claude --help</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>예상 출력</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2618" onclick="copyCode('code-1769481054505-2618')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2618" class="language-plaintext">Usage: claude [options] [command] [prompt]
+
+<p>Claude Code - AI-powered coding assistant</p>
+<p>Options:
+  -v, --version        버전 정보
+  -p, --print          대화형 모드 대신 한 번에 실행
+  --model &lt;model&gt;      사용할 모델 선택
+  ...</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<p><strong>3단계: 진단 도구 실행</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2619" onclick="copyCode('code-1769481054505-2619')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2619" class="language-bash">claude doctor</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>예상 출력</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2620" onclick="copyCode('code-1769481054505-2620')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2620" class="language-plaintext">🔍 Claude Code 진단 중...
+
+<p>✓ 버전: 2.0.36
+✓ 설치 타입: native
+✓ 설치 위치: /Users/jmacpro/.local/bin/claude
+✓ 파일 타입: Mach-O 64-bit executable
+✓ 실행 권한: 755
+✓ 인터넷 연결: OK
+✓ API 접근: OK</p>
+<p>모든 검사 통과! 🎉</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h3 id="중급-상세-검증">🌿 중급: 상세 검증 {#중급-상세-검증}</h3>
+<p><strong>설치 파일 확인</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2621" onclick="copyCode('code-1769481054505-2621')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2621" class="language-bash"># 1. 실행 파일 위치 찾기
+which claude
+# 출력: /Users/jmacpro/.local/bin/claude
+
+<h1>2. 파일 타입 확인 (Native인지 확인)</h1>
+<p>file $(which claude)</p>
+<h1>예상 출력: Mach-O 64-bit executable x86_64</h1>
+<h1>3. 파일 크기 확인</h1>
+<p>ls -lh $(which claude)</p>
+<h1>예상: 약 150~200MB (Native 버전)</h1>
+<h1>4. 실행 권한 확인</h1>
+<p>ls -l $(which claude) | cut -d&#39; &#39; -f1</p>
+<h1>예상: -rwxr-xr-x (실행 가능)</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div>
+</div>
+
+<p><strong>PATH 우선순위 확인</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2622" onclick="copyCode('code-1769481054505-2622')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2622" class="language-bash"># 모든 claude 실행 파일 찾기
+which -a claude
+
+<h1>예상 출력 (Native가 먼저 나와야 함):</h1>
+<h1>/Users/jmacpro/.local/bin/claude        ← 이게 먼저!</h1>
+<h1>/Users/jmacpro/.nvm/.../claude          ← Node 버전 (있다면)</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>환경 정보 확인</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2623" onclick="copyCode('code-1769481054505-2623')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2623" class="language-bash"># Claude Code 환경 정보
+claude env
+
+<h1>예상 출력:</h1>
+<h1>CLAUDE_VERSION=2.0.36</h1>
+<h1>CLAUDE_INSTALL_TYPE=native</h1>
+<h1>CLAUDE_CONFIG_DIR=/Users/jmacpro/.claude</h1>
+<h1>CLAUDE_BIN_PATH=/Users/jmacpro/.local/bin/claude</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<h3 id="고급-성능-벤치마크">🌳 고급: 성능 벤치마크 {#고급-성능-벤치마크}</h3>
+<p><strong>실행 속도 측정</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2624" onclick="copyCode('code-1769481054505-2624')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2624" class="language-bash"># 1. 명령어 실행 시간 측정
+time claude --version
+
+<h1>Native 버전 예상 출력:</h1>
+<h1>real    0m0.492s  ← 0.5초 이하!</h1>
+<h1>user    0m0.201s</h1>
+<h1>sys     0m0.089s</h1>
+<h1>2. 여러 번 실행하여 평균 계산</h1>
+<p>for i in {1..5}; do
+  time claude --version 2&gt;&amp;1 | grep real
+done</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<p><strong>메모리 사용량 측정</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2625" onclick="copyCode('code-1769481054505-2625')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2625" class="language-bash"># macOS
+ps aux | grep claude | grep -v grep
+
+<h1>예상 출력:</h1>
+<h1>USER   PID  %CPU %MEM    VSZ   RSS</h1>
+<h1>user  1234  0.0  0.4  5123456  67890  ← RSS가 실제 메모리 (약 66MB)</h1>
+<h1>Linux</h1>
+<p>ps -p $(pgrep claude) -o pid,vsz,rss,cmd</p>
+<h1>Windows PowerShell</h1>
+<p>Get-Process claude | Select-Object CPU, WorkingSet, ProcessName</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<p><strong>시작 시간 비교 (Node vs Native)</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2626" onclick="copyCode('code-1769481054505-2626')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2626" class="language-bash"># Node 버전 (만약 남아있다면)
+time /usr/local/bin/claude --version
+# → 약 1.5~2초
+
+<h1>Native 버전</h1>
+<p>time ~/.local/bin/claude --version</p>
+<h1>→ 약 0.4~0.6초</h1>
+<h1>속도 향상: 3~4배!</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="이전-node-버전과의-차이점-실전-비교">이전 Node 버전과의 차이점 실전 비교 {#이전-node-버전과의-차이점-실전-비교}</h2>
+<h3 id="초급-눈으로-보는-차이">🌱 초급: 눈으로 보는 차이 {#초급-눈으로-보는-차이}</h3>
+<p><strong>설치 전후 비교표</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>Node 버전 (이전)</th>
+<th>Native 버전 (현재)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>설치 방법</strong></td>
+<td><code>npm install -g</code></td>
+<td><code>curl ... | bash</code></td>
+</tr>
+<tr>
+<td><strong>설치 시간</strong></td>
+<td>약 2분</td>
+<td>약 30초</td>
+</tr>
+<tr>
+<td><strong>파일 크기</strong></td>
+<td>50MB</td>
+<td>200MB</td>
+</tr>
+<tr>
+<td><strong>시작 시간</strong></td>
+<td>2초</td>
+<td>0.5초</td>
+</tr>
+<tr>
+<td><strong>메모리</strong></td>
+<td>150MB</td>
+<td>80MB</td>
+</tr>
+<tr>
+<td><strong>업데이트</strong></td>
+<td>수동</td>
+<td>자동</td>
+</tr>
+<tr>
+<td><strong>Node.js 필요?</strong></td>
+<td>✅ 필요</td>
+<td>❌ 불필요</td>
+</tr>
+</tbody></table>
+<h3 id="중급-실제-사용-시나리오">🌿 중급: 실제 사용 시나리오 {#중급-실제-사용-시나리오}</h3>
+<p><strong>시나리오 1: 프로젝트 시작</strong></p>
+<p><strong>Node 버전</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2627" onclick="copyCode('code-1769481054505-2627')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2627" class="language-bash">$ time claude
+
+<h1>1. Node.js 런타임 시작 (1초)</h1>
+<h1>2. JavaScript 파일 로드 (0.5초)</h1>
+<h1>3. 의존성 확인 (0.3초)</h1>
+<h1>4. Claude AI 연결 (0.2초)</h1>
+<h1>총: 2초</h1>
+<p>Claude Code v2.0.30
+&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<p><strong>Native 버전</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2628" onclick="copyCode('code-1769481054505-2628')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2628" class="language-bash">$ time claude
+
+<h1>1. 바이너리 실행 (0.1초)</h1>
+<h1>2. Claude AI 연결 (0.2초)</h1>
+<h1>총: 0.3초</h1>
+<p>Claude Code v2.0.36
+&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<p><strong>차이</strong>: 약 1.7초 단축! (일일 100회 사용 시 약 3분 절약)</p>
+<p><strong>시나리오 2: 파일 읽기</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2629" onclick="copyCode('code-1769481054505-2629')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2629" class="language-bash"># 테스트: 큰 파일 읽기 (1MB)
+echo &quot;큰 프로젝트의 main.js 파일 내용을 요약해줘&quot; | claude -p
+
+<h1>Node 버전: 총 3.5초</h1>
+<h1>- 시작: 2초</h1>
+<h1>- 실행: 1.5초</h1>
+<h1>Native 버전: 총 2초</h1>
+<h1>- 시작: 0.5초</h1>
+<h1>- 실행: 1.5초</h1>
+<h1>차이: 1.5초 단축</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
+</div>
+
+<h3 id="고급-내부-동작-비교">🌳 고급: 내부 동작 비교 {#고급-내부-동작-비교}</h3>
+<p><strong>메모리 프로파일링</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2630" onclick="copyCode('code-1769481054505-2630')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2630" class="language-bash"># Node 버전 메모리 맵
+# [Node.js Runtime: 80MB]
+#   └─ [V8 Engine: 40MB]
+#   └─ [libuv: 10MB]
+# [Claude Code JS: 30MB]
+# [npm packages: 40MB]
+# 총: 150MB
+
+<h1>Native 버전 메모리 맵</h1>
+<h1>[Claude Code Binary: 50MB]</h1>
+<h1>[System Libraries: 20MB]</h1>
+<h1>[Runtime Data: 10MB]</h1>
+<h1>총: 80MB</h1>
+<h1>절약: 70MB (47% 감소)</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div>
+</div>
+
+<p><strong>CPU 사용 패턴</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2631" onclick="copyCode('code-1769481054505-2631')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2631" class="language-bash"># Node 버전
+# ┌─────────────────────────────┐
+# │ JIT 컴파일: ████████ (40%)  │
+# │ 실행: ███████████ (55%)     │
+# │ GC: ██ (5%)                 │
+# └─────────────────────────────┘
+
+<h1>Native 버전</h1>
+<h1>┌─────────────────────────────┐</h1>
+<h1>│ 실행: ████████████████ (95%)│</h1>
+<h1>│ 기타: █ (5%)                │</h1>
+<h1>└─────────────────────────────┘</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div>
+</div>
+
+<p><strong>디스크 I/O 비교</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2632" onclick="copyCode('code-1769481054505-2632')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2632" class="language-bash"># Node 버전 시작 시
+# 1. node 바이너리 읽기: 50MB
+# 2. JavaScript 파일 읽기: 20MB
+# 3. node_modules 로드: 100MB
+# 총 읽기: 170MB
+
+<h1>Native 버전 시작 시</h1>
+<h1>1. claude 바이너리 읽기: 200MB (한 번에)</h1>
+<h1>총 읽기: 200MB (하지만 연속적이라 더 빠름)</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="native-버전의-더-나은-점">Native 버전의 더 나은 점 {#native-버전의-더-나은-점}</h2>
+<h3 id="초급-일상적인-이점">🌱 초급: 일상적인 이점 {#초급-일상적인-이점}</h3>
+<p><strong>1. 설치가 더 쉬워요</strong></p>
+<p><strong>Node 버전 설치 과정</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2633" onclick="copyCode('code-1769481054505-2633')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2633" class="language-plaintext">1. Node.js 설치 확인
+   → 없으면 Node.js부터 설치 (5분)
+2. npm으로 Claude Code 설치 (2분)
+3. PATH 설정 확인
+4. 권한 문제 해결 (가끔)
+총 시간: 5~10분</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<p><strong>Native 버전 설치 과정</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2634" onclick="copyCode('code-1769481054505-2634')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2634" class="language-plaintext">1. 한 줄 명령어 실행
+2. 자동 설치 완료
+총 시간: 30초~1분</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>2. 업데이트가 자동이에요</strong></p>
+<p><strong>Node 버전</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2635" onclick="copyCode('code-1769481054505-2635')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2635" class="language-bash"># 수동으로 확인
+npm outdated -g @anthropic-ai/claude-code
+
+<h1>수동으로 업데이트</h1>
+<p>npm update -g @anthropic-ai/claude-code</p>
+<h1>권한 문제로 실패하면</h1>
+<p>sudo npm update -g @anthropic-ai/claude-code</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<p><strong>Native 버전</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2636" onclick="copyCode('code-1769481054505-2636')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2636" class="language-plaintext">✨ 자동으로 백그라운드에서 업데이트!
+
+<p>새 버전 발견 시:
+→ 자동 다운로드
+→ 다음 실행 시 자동 적용
+→ 아무것도 안 해도 최신 버전 유지</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<p><strong>3. 에러가 적어요</strong></p>
+<p><strong>Node 버전 일반적 에러</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2637" onclick="copyCode('code-1769481054505-2637')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2637" class="language-plaintext">❌ &quot;Cannot find module &#39;some-package&#39;&quot;
+❌ &quot;Node version mismatch&quot;
+❌ &quot;EACCES: permission denied&quot;
+❌ &quot;gyp ERR! build error&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>Native 버전</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2638" onclick="copyCode('code-1769481054505-2638')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2638" class="language-plaintext">✅ 의존성 문제 없음
+✅ 버전 충돌 없음
+✅ 권한 문제 거의 없음
+✅ 빌드 에러 없음</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3 id="중급-기술적-이점">🌿 중급: 기술적 이점 {#중급-기술적-이점}</h3>
+<p><strong>1. 더 나은 보안</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2639" onclick="copyCode('code-1769481054505-2639')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2639" class="language-bash"># Node 버전의 보안 체인
+User → npm → Node.js → JavaScript → AI API
+      ↑
+     많은 중간 단계 = 더 많은 취약점 가능성
+
+<h1>Native 버전의 보안 체인</h1>
+<p>User → Native Binary → AI API
+      ↑
+     단순한 구조 = 적은 공격 표면</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<p><strong>2. 예측 가능한 성능</strong></p>
+<p><strong>Node 버전의 성능 변동</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2640" onclick="copyCode('code-1769481054505-2640')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2640" class="language-plaintext">첫 실행: 2.5초 (Cold start)
+두 번째: 1.8초 (Warm start)
+100번째: 2.1초 (GC 발생)
+→ 성능이 일정하지 않음</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>Native 버전의 성능</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2641" onclick="copyCode('code-1769481054505-2641')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2641" class="language-plaintext">첫 실행: 0.5초
+두 번째: 0.5초
+100번째: 0.5초
+→ 항상 일정한 성능</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>3. 시스템 리소스 효율</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2642" onclick="copyCode('code-1769481054505-2642')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2642" class="language-bash"># 동시에 10개의 Claude 인스턴스 실행
+
+<h1>Node 버전</h1>
+<p>10 × 150MB = 1,500MB (1.5GB)
+CPU 사용률: 15~20%</p>
+<h1>Native 버전</h1>
+<p>10 × 80MB = 800MB (0.8GB)
+CPU 사용률: 5~8%</p>
+<h1>절약: 700MB 메모리, CPU 10% 감소</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div>
+
+<h3 id="고급-엔터프라이즈-관점">🌳 고급: 엔터프라이즈 관점 {#고급-엔터프라이즈-관점}</h3>
+<p><strong>1. 배포 및 관리</strong></p>
+<p><strong>CI/CD 파이프라인에서</strong>:</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2643" onclick="copyCode('code-1769481054505-2643')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2643" class="language-yaml"># Node 버전 (복잡)
+steps:
+  - name: Install Node.js
+    uses: actions/setup-node@v3
+    with:
+      node-version: &#39;18&#39;
+
+<ul>
+<li><p>name: Install Claude Code
+run: npm install -g @anthropic-ai/claude-code</p>
+</li>
+<li><p>name: Verify installation
+run: claude --version</p>
+</li>
+<li><p>name: Run tests
+run: claude -p &quot;test command&quot;</p>
+</li>
+</ul>
+<h1>Native 버전 (간단)</h1>
+<p>steps:</p>
+<ul>
+<li><p>name: Install Claude Code
+run: curl -fsSL <a href="https://claude.ai/install.sh">https://claude.ai/install.sh</a> | bash</p>
+</li>
+<li><p>name: Run tests
+run: claude -p &quot;test command&quot;</code></pre></p>
+  <div class="code-block__footer">
+<span class="code-block__lines">18 lines</span>
+  </div>
+</div></li>
+</ul>
+<p><strong>2. 도커 이미지 크기</strong></p>
+<div class="code-block" data-language="dockerfile">
+  <div class="code-block__header" style="background-color: #384d54; color: #fff">
+    <span class="code-block__language">Dockerfile</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2644" onclick="copyCode('code-1769481054505-2644')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2644" class="language-dockerfile"># Node 버전 Dockerfile
+FROM node:18-alpine
+RUN npm install -g @anthropic-ai/claude-code
+# 이미지 크기: 180MB (베이스) + 70MB (Claude) = 250MB
+
+<h1>Native 버전 Dockerfile</h1>
+<p>FROM alpine:latest
+RUN curl -fsSL <a href="https://claude.ai/install.sh">https://claude.ai/install.sh</a> | bash</p>
+<h1>이미지 크기: 5MB (베이스) + 200MB (Claude) = 205MB</h1>
+<h1>절약: 45MB (18%)</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
+</div>
+
+<p><strong>3. 라이선스 및 규정 준수</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2645" onclick="copyCode('code-1769481054505-2645')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2645" class="language-plaintext">Node 버전 의존성 트리:
+claude-code
+├── node (MIT)
+├── npm (Artistic-2.0)
+├── package-a (MIT)
+├── package-b (Apache-2.0)
+├── package-c (ISC)
+└── ... (50+ 패키지)
+→ 모든 라이선스 검토 필요
+
+<p>Native 버전:
+claude-code (단일 라이선스)
+→ 간단한 라이선스 관리</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="문제-해결-가이드">문제 해결 가이드 {#문제-해결-가이드}</h2>
+<h3 id="초급-일반적인-문제">🌱 초급: 일반적인 문제 {#초급-일반적인-문제}</h3>
+<p><strong>문제 1: &quot;claude: command not found&quot;</strong></p>
+<p><strong>원인</strong>: PATH에 설치 경로가 없음</p>
+<p><strong>해결 방법</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2646" onclick="copyCode('code-1769481054505-2646')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2646" class="language-bash"># 1. 설치 위치 확인
+ls -la ~/.local/bin/claude
+
+<h1>파일이 있다면 PATH 추가:</h1>
+<h1>Bash</h1>
+<p>echo &#39;export PATH=&quot;$HOME/.local/bin:$PATH&quot;&#39; &gt;&gt; ~/.bashrc
+source ~/.bashrc</p>
+<h1>Zsh</h1>
+<p>echo &#39;export PATH=&quot;$HOME/.local/bin:$PATH&quot;&#39; &gt;&gt; ~/.zshrc
+source ~/.zshrc</p>
+<h1>2. 터미널 재시작 후 확인</h1>
+<p>claude --version</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<p><strong>문제 2: &quot;Permission denied&quot;</strong></p>
+<p><strong>원인</strong>: 실행 권한이 없음</p>
+<p><strong>해결 방법</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2647" onclick="copyCode('code-1769481054505-2647')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2647" class="language-bash"># 실행 권한 부여
+chmod +x ~/.local/bin/claude
+
+<h1>확인</h1>
+<p>ls -l ~/.local/bin/claude</p>
+<h1>-rwxr-xr-x 로 시작해야 함</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>문제 3: macOS &quot;Cannot be opened because the developer cannot be verified&quot;</strong></p>
+<p><strong>원인</strong>: macOS Gatekeeper 보안 정책</p>
+<p><strong>해결 방법</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2648" onclick="copyCode('code-1769481054505-2648')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2648" class="language-bash"># 1. 보안 예외 추가
+xattr -d com.apple.quarantine ~/.local/bin/claude
+
+<h1>2. 시스템 환경설정에서 허용</h1>
+<h1>System Settings → Privacy &amp; Security →</h1>
+<h1>&quot;Open Anyway&quot; 버튼 클릭</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="중급-설정-관련-문제">🌿 중급: 설정 관련 문제 {#중급-설정-관련-문제}</h3>
+<p><strong>문제 4: 이전 설정이 작동하지 않음</strong></p>
+<p><strong>원인</strong>: 설정 파일 버전 불일치</p>
+<p><strong>해결 방법</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2649" onclick="copyCode('code-1769481054505-2649')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2649" class="language-bash"># 1. 현재 설정 백업
+cp ~/.claude/settings.json ~/.claude/settings.json.backup
+
+<h1>2. 설정 검증</h1>
+<p>claude config validate</p>
+<h1>3. 문제가 있다면 기본값으로 재설정</h1>
+<p>claude config reset</p>
+<h1>4. 필요한 설정만 다시 추가</h1>
+<p>claude config set mcpServers.youtube.type stdio</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<p><strong>문제 5: MCP 서버 연결 실패</strong></p>
+<p><strong>원인</strong>: MCP 서버 경로나 설정 오류</p>
+<p><strong>해결 방법</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2650" onclick="copyCode('code-1769481054505-2650')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2650" class="language-bash"># 1. MCP 서버 목록 확인
+cat ~/.claude/settings.json | grep -A 10 mcpServers
+
+<h1>2. 각 MCP 서버 테스트</h1>
+<p>claude mcp test youtube</p>
+<h1>3. 로그 확인</h1>
+<p>tail -f ~/.claude/logs/mcp.log</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h3 id="고급-디버깅">🌳 고급: 디버깅 {#고급-디버깅}</h3>
+<p><strong>문제 6: 성능 저하</strong></p>
+<p><strong>진단 방법</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2651" onclick="copyCode('code-1769481054505-2651')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2651" class="language-bash"># 1. 상세 로깅 활성화
+export CLAUDE_DEBUG=1
+claude --version
+
+<h1>2. 프로파일링</h1>
+<p>time -v claude -p &quot;simple test&quot;</p>
+<h1>3. 시스템 리소스 모니터링</h1>
+<h1>macOS</h1>
+<p>top -pid $(pgrep claude)</p>
+<h1>Linux</h1>
+<p>htop -p $(pgrep claude)</p>
+<h1>4. 디스크 I/O 확인</h1>
+<p>sudo iotop -p $(pgrep claude)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<p><strong>문제 7: 네트워크 연결 문제</strong></p>
+<p><strong>진단 및 해결</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2652" onclick="copyCode('code-1769481054505-2652')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2652" class="language-bash"># 1. API 연결 테스트
+curl -I https://api.anthropic.com
+
+<h1>2. 프록시 설정 확인</h1>
+<p>echo $HTTP_PROXY
+echo $HTTPS_PROXY</p>
+<h1>3. 프록시 설정 (필요시)</h1>
+<p>export HTTPS_PROXY=<a href="http://proxy.company.com:8080">http://proxy.company.com:8080</a>
+export NO_PROXY=localhost,127.0.0.1</p>
+<h1>4. Claude 환경변수 설정</h1>
+<p>export ANTHROPIC_API_URL=<a href="https://api.anthropic.com">https://api.anthropic.com</a></code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="실전-활용-시작하기">실전 활용 시작하기 {#실전-활용-시작하기}</h2>
+<h3 id="초급-첫-번째-대화">🌱 초급: 첫 번째 대화 {#초급-첫-번째-대화}</h3>
+<p><strong>1단계: Claude Code 시작</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2653" onclick="copyCode('code-1769481054505-2653')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2653" class="language-bash"># 프로젝트 폴더로 이동
+cd ~/my-project
+
+<h1>Claude Code 시작</h1>
+<p>claude</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<p><strong>화면에 나타나는 것</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2654" onclick="copyCode('code-1769481054505-2654')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2654" class="language-plaintext">Claude Code v2.0.36
+
+<p>작업 디렉토리: /Users/jmacpro/my-project
+모델: Claude 3.5 Sonnet</p>
+<p>무엇을 도와드릴까요?
+&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<p><strong>2단계: 간단한 요청</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2655" onclick="copyCode('code-1769481054505-2655')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2655" class="language-bash">&gt; 이 폴더에 있는 파일 목록을 보여줘</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>Claude의 응답</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2656" onclick="copyCode('code-1769481054505-2656')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2656" class="language-plaintext">현재 디렉토리의 파일을 확인하겠습니다.
+
+<p>📁 my-project/
+├── README.md
+├── package.json
+├── src/
+│   ├── index.js
+│   └── utils.js
+└── tests/
+    └── test.js</p>
+<p>총 5개 파일을 찾았습니다.</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<h3 id="중급-실용적인-작업">🌿 중급: 실용적인 작업 {#중급-실용적인-작업}</h3>
+<p><strong>프로젝트 분석</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2657" onclick="copyCode('code-1769481054505-2657')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2657" class="language-bash">&gt; package.json 파일을 읽고 프로젝트 구조를 설명해줘</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>코드 리뷰</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2658" onclick="copyCode('code-1769481054505-2658')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2658" class="language-bash">&gt; src/index.js 파일의 코드를 리뷰하고 개선점을 제안해줘</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>버그 찾기</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2659" onclick="copyCode('code-1769481054505-2659')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2659" class="language-bash">&gt; 프로젝트에서 사용하지 않는 변수나 함수를 찾아줘</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>테스트 작성</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2660" onclick="copyCode('code-1769481054505-2660')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2660" class="language-bash">&gt; src/utils.js 파일에 대한 유닛 테스트를 작성해줘</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h3 id="고급-복잡한-워크플로우">🌳 고급: 복잡한 워크플로우 {#고급-복잡한-워크플로우}</h3>
+<p><strong>전체 프로젝트 리팩토링</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2661" onclick="copyCode('code-1769481054505-2661')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2661" class="language-bash">&gt; 다음 작업을 순서대로 실행해줘:
+&gt; 1. 모든 console.log를 적절한 로깅 라이브러리로 교체
+&gt; 2. ESLint 규칙을 적용하여 코드 스타일 통일
+&gt; 3. 중복 코드를 찾아 함수로 추출
+&gt; 4. 변경사항을 커밋</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>CI/CD 파이프라인 설정</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2662" onclick="copyCode('code-1769481054505-2662')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2662" class="language-bash">&gt; GitHub Actions 워크플로우를 생성해줘:
+&gt; - Node.js 18에서 테스트
+&gt; - 린트 검사
+&gt; - 빌드
+&gt; - main 브랜치에 자동 배포</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="추가-용어-사전">추가 용어 사전 {#추가-용어-사전}</h2>
+<h3 id="설치-관련-용어">설치 관련 용어 {#설치-관련-용어}</h3>
+<p><strong>셸 스크립트 (Shell Script)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 터미널에서 실행할 명령어들을 모아놓은 파일</li>
+<li><strong>비유</strong>: 요리 레시피처럼 단계별 지시사항이 적힌 문서</li>
+<li><strong>확장자</strong>: <code>.sh</code> (예: <code>install.sh</code>)</li>
+<li><strong>실행 방법</strong>: <code>bash script.sh</code></li>
+</ul>
+<p><strong>Gatekeeper</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: macOS에서 안전하지 않은 앱 실행을 막는 보안 기능</li>
+<li><strong>비유</strong>: 아파트 경비실 같은 보안 검문소</li>
+<li><strong>우회 방법</strong>: <code>xattr -d com.apple.quarantine</code> 명령어</li>
+</ul>
+<p><strong>환경변수 (Environment Variable)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 프로그램이 참고하는 시스템 전역 설정값</li>
+<li><strong>비유</strong>: 메모장에 적어둔 중요한 전화번호나 주소</li>
+<li><strong>확인</strong>: <code>echo $변수이름</code></li>
+<li><strong>설정</strong>: <code>export 변수이름=값</code></li>
+</ul>
+<p><strong>심볼릭 링크 (Symbolic Link)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 다른 파일이나 폴더를 가리키는 바로가기</li>
+<li><strong>비유</strong>: Windows의 바로가기 아이콘</li>
+<li><strong>생성</strong>: <code>ln -s 원본 링크이름</code></li>
+<li><strong>예시</strong>: <code>/usr/local/bin/claude → ~/.local/bin/claude</code></li>
+</ul>
+<h3 id="성능-관련-용어">성능 관련 용어 {#성능-관련-용어}</h3>
+<p><strong>JIT 컴파일 (Just-In-Time Compilation)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 프로그램을 실행하는 순간에 기계어로 번역</li>
+<li><strong>비유</strong>: 동시통역 (말하는 즉시 번역)</li>
+<li><strong>장점</strong>: 유연함</li>
+<li><strong>단점</strong>: 처음에 느림</li>
+<li><strong>사용처</strong>: Node.js, Java</li>
+</ul>
+<p><strong>AOT 컴파일 (Ahead-Of-Time Compilation)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 미리 기계어로 번역해둠</li>
+<li><strong>비유</strong>: 사전 번역된 책</li>
+<li><strong>장점</strong>: 실행이 빠름</li>
+<li><strong>단점</strong>: 파일 크기가 큼</li>
+<li><strong>사용처</strong>: Native 앱, C/C++</li>
+</ul>
+<p><strong>GC (Garbage Collection)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 사용하지 않는 메모리를 자동으로 정리</li>
+<li><strong>비유</strong>: 자동 청소 로봇</li>
+<li><strong>문제점</strong>: 정리하는 동안 프로그램이 잠시 멈춤</li>
+<li><strong>Node.js</strong>: GC 있음</li>
+<li><strong>Native (Rust)</strong>: 메모리 수동 관리 (GC 없음)</li>
+</ul>
+<p><strong>런타임 (Runtime)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 프로그램이 실행되는 환경</li>
+<li><strong>비유</strong>: 물고기가 살려면 물이 필요하듯, 프로그램이 실행되려면 런타임 필요</li>
+<li><strong>예시</strong>:<ul>
+<li>Java → JVM</li>
+<li>Python → Python interpreter</li>
+<li>Node.js → Node.js runtime</li>
+<li>Native → OS 자체</li>
+</ul>
+</li>
+</ul>
+<h3 id="보안-관련-용어">보안 관련 용어 {#보안-관련-용어}</h3>
+<p><strong>코드 서명 (Code Signing)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 개발자가 자신의 프로그램에 디지털 서명</li>
+<li><strong>비유</strong>: 작가가 책에 사인하는 것</li>
+<li><strong>목적</strong>: 프로그램이 변조되지 않았음을 증명</li>
+<li><strong>확인</strong>: <code>codesign -dv 파일경로</code></li>
+</ul>
+<p><strong>샌드박스 (Sandbox)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 프로그램이 시스템 전체에 영향을 주지 못하도록 격리된 환경</li>
+<li><strong>비유</strong>: 어린이 놀이터의 모래 구역 (안전하게 제한된 공간)</li>
+<li><strong>예시</strong>:<ul>
+<li>브라우저 탭마다 샌드박스</li>
+<li>macOS 앱 샌드박스</li>
+</ul>
+</li>
+</ul>
+<p><strong>권한 (Permission)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 파일이나 폴더에 접근할 수 있는 권한</li>
+<li><strong>표시 방법</strong>: <code>rwxr-xr-x</code><ul>
+<li><code>r</code>: 읽기 (read)</li>
+<li><code>w</code>: 쓰기 (write)</li>
+<li><code>x</code>: 실행 (execute)</li>
+</ul>
+</li>
+<li><strong>예시</strong>: <code>chmod 755 파일</code> (소유자는 모든 권한, 다른 사람은 읽기+실행)</li>
+</ul>
+<hr>
+<h2 id="실습-문제">🤔 실습 문제 {#실습-문제}</h2>
+<h3 id="초급-문제">초급 문제 {#초급-문제}</h3>
+<p><strong>Q1</strong>: Claude Code를 설치하고 버전을 확인하세요.</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2663" onclick="copyCode('code-1769481054505-2663')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2663" class="language-bash"># 여기에 명령어 작성</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>Q2</strong>: <code>claude doctor</code> 명령어로 진단하고 결과를 캡처하세요.</p>
+<p><strong>Q3</strong>: 간단한 프로젝트 폴더를 만들고 Claude와 대화를 시작하세요.</p>
+<h3 id="중급-문제">중급 문제 {#중급-문제}</h3>
+<p><strong>Q4</strong>: Node 버전과 Native 버전의 실행 시간을 측정하고 비교하세요.</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2664" onclick="copyCode('code-1769481054505-2664')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2664" class="language-bash"># 힌트: time 명령어 사용</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>Q5</strong>: 설정 파일 백업 스크립트를 작성하세요.</p>
+<p><strong>Q6</strong>: MCP 서버를 하나 설정하고 테스트하세요.</p>
+<h3 id="고급-문제">고급 문제 {#고급-문제}</h3>
+<p><strong>Q7</strong>: 설치 과정 전체를 자동화하는 스크립트를 작성하세요.</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2665" onclick="copyCode('code-1769481054505-2665')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2665" class="language-bash"># - 시스템 요구사항 확인
+# - Claude Code 설치
+# - 검증
+# - 설정 백업</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>Q8</strong>: Docker 이미지를 만들어 Claude Code가 포함된 개발 환경을 구성하세요.</p>
+<hr>
+<h2 id="성능-비교-요약">📊 성능 비교 요약 {#성능-비교-요약}</h2>
+<h3 id="실제-측정-결과-macos-m1-기준">실제 측정 결과 (macOS M1 기준) {#실제-측정-결과-macos-m1-기준}</h3>
+<table>
+<thead>
+<tr>
+<th>테스트</th>
+<th>Node 버전</th>
+<th>Native 버전</th>
+<th>개선</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>첫 실행</td>
+<td>2.1초</td>
+<td>0.5초</td>
+<td><strong>4.2배</strong> ⚡</td>
+</tr>
+<tr>
+<td>두 번째 실행</td>
+<td>1.8초</td>
+<td>0.5초</td>
+<td><strong>3.6배</strong> ⚡</td>
+</tr>
+<tr>
+<td>파일 읽기</td>
+<td>2.3초</td>
+<td>0.7초</td>
+<td><strong>3.3배</strong> ⚡</td>
+</tr>
+<tr>
+<td>메모리 사용</td>
+<td>147MB</td>
+<td>82MB</td>
+<td><strong>44% 감소</strong> 💾</td>
+</tr>
+<tr>
+<td>디스크 사용</td>
+<td>65MB</td>
+<td>198MB</td>
+<td>3배 증가</td>
+</tr>
+<tr>
+<td>업데이트 시간</td>
+<td>45초 (수동)</td>
+<td>10초 (자동)</td>
+<td><strong>4.5배</strong> ⚡</td>
+</tr>
+</tbody></table>
+<h3 id="일일-사용-기준-절약-시간">일일 사용 기준 절약 시간 {#일일-사용-기준-절약-시간}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2666" onclick="copyCode('code-1769481054505-2666')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2666" class="language-plaintext">가정: 하루 50회 Claude Code 실행
+
+<p>Node 버전: 50 × 2초 = 100초 (1분 40초)
+Native 버전: 50 × 0.5초 = 25초</p>
+<p>일일 절약: 75초 (1분 15초)
+월간 절약: 37.5분
+연간 절약: 7.5시간! 🎉</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="연결된-노트">📚 연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/claude-code-install-perfect-guide-part-1.html" class="internal-link">Claude Code 네이티브 설치 완벽 가이드 Part 1</a> - 설치 전 준비</li>
+<li><a href="/articles/claude-code-complete-guide.html" class="internal-link">Claude Code 완전 가이드</a> - 전체 사용법</li>
+<li><a href="/articles/mcp-setup-guide.html" class="internal-link">MCP 서버 설정 가이드</a> - MCP 확장 기능</li>
+<li><a href="/articles/advanced-usage.html" class="internal-link">터미널 고급 사용법</a> - 셸 스크립팅</li>
+<li><a href="/articles/docker-development.html" class="internal-link">Docker로 개발 환경 구축</a> - 컨테이너화</li>
+<li><a href="/articles/github-actions-cicd-setup.html" class="internal-link">GitHub Actions CI/CD 설정</a> - 자동화</li>
+</ul>
+<hr>
+<h2 id="다음-단계">다음 단계 {#다음-단계}</h2>
+<p>✅ Part 2 완료: 설치 및 검증 완료!
+🎯 이제 본격적으로 Claude Code를 활용해보세요!</p>
+<h3 id="추천-학습-경로">추천 학습 경로 {#추천-학습-경로}</h3>
+<ol>
+<li><strong>초급</strong>: <a href="/articles/claude-code-basic-usage.html" class="internal-link">Claude Code 기본 사용법</a></li>
+<li><strong>중급</strong>: <a href="/articles/claude-code-advanced.html" class="internal-link">Claude Code 고급 기능</a></li>
+<li><strong>고급</strong>: <a href="/articles/claude-code-workflow-automation.html" class="internal-link">Claude Code 워크플로우 자동화</a></li>
+</ol>
+<hr>
+<h2 id="pro-tips">💡 Pro Tips {#pro-tips}</h2>
+<h3 id="tip-1-빠른-시작-alias-만들기">Tip 1: 빠른 시작 alias 만들기 {#tip-1-빠른-시작-alias-만들기}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2667" onclick="copyCode('code-1769481054505-2667')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2667" class="language-bash"># ~/.bashrc 또는 ~/.zshrc에 추가
+alias c=&#39;claude&#39;
+alias cp=&#39;claude -p&#39;
+
+<h1>이제 이렇게 사용 가능:</h1>
+<p>c  # 대화형 모드
+cp &quot;파일 목록 보여줘&quot;  # 프린트 모드</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h3 id="tip-2-프로젝트별-설정">Tip 2: 프로젝트별 설정 {#tip-2-프로젝트별-설정}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2668" onclick="copyCode('code-1769481054505-2668')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2668" class="language-bash"># 프로젝트 루트에 .claude.json 생성
+{
+  &quot;model&quot;: &quot;claude-3-5-sonnet-20241022&quot;,
+  &quot;temperature&quot;: 0.7,
+  &quot;maxTokens&quot;: 4096
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h3 id="tip-3-자주-사용하는-명령어-저장">Tip 3: 자주 사용하는 명령어 저장 {#tip-3-자주-사용하는-명령어-저장}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054505-2669" onclick="copyCode('code-1769481054505-2669')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054505-2669" class="language-bash"># ~/.claude/commands/ 폴더에 커스텀 명령어 저장
+mkdir -p ~/.claude/commands
+echo &quot;프로젝트의 모든 TODO 주석을 찾아 정리해줘&quot; &gt; ~/.claude/commands/todo.md
+
+<h1>사용: /todo 명령어로 실행</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<hr>
+<p><strong>작성일</strong>: 2025-11-09
+<strong>마지막 수정</strong>: 2025-11-09
+<strong>난이도</strong>: ⭐ 초급~고급 (단계별 제공)
+<strong>소요 시간</strong>: 약 30분
+<strong>실습 포함</strong>: ✅</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/Claude-Code.html" class="article-tag">Claude-Code</a><a href="/tag/개발도구.html" class="article-tag">개발도구</a><a href="/tag/설치가이드.html" class="article-tag">설치가이드</a><a href="/tag/네이티브.html" class="article-tag">네이티브</a><a href="/tag/초보자용.html" class="article-tag">초보자용</a><a href="/tag/type.html" class="article-tag">type</a><a href="/tag/가이드.html" class="article-tag">가이드</a><a href="/tag/status.html" class="article-tag">status</a><a href="/tag/완료.html" class="article-tag">완료</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-install-perfect-guide-part-2-install.html&text=Claude Code 네이티브 설치 완벽 가이드 Part 2 - 설치 과정과 사후 검증" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-install-perfect-guide-part-2-install.html&title=Claude Code 네이티브 설치 완벽 가이드 Part 2 - 설치 과정과 사후 검증" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-install-perfect-guide-part-2-install.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/claude-specialist.html" class="author-bio__card">
+          <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">Claude 전문가</h3>
+            <p class="author-bio__role">Claude Code Specialist</p>
+            <p class="author-bio__text">Claude Code와 AI 코딩 도구 활용법을 연구합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-code-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Code 슬래시 명령어 완전 정복 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Code 슬래시 명령어 완전 정복 가이드</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 실전 중심 가이드 --- Claude에게 미리 정해둔 역할을 로 호출하는 기능입니다. 비유: 스마트폰 단축어처럼, 복잡한 지시를 한 단어로 실행 --- 슬래시 명령어는  파일로 구성되며, 크게 YAML 프론트매터와 본문으로 나뉩니다. --- 목적:...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills-beginners-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 만드는 법: 초보자 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 만드는 법: 초보자 완전 가이드</h3>
+          <p class="article-card__excerpt">이 가이드의 목표: Claude Code를 처음 배우는 초보 개발자도 실제로 작동하는 Claude Skill을 만들 수 있도록 단계별로 설명합니다. 복잡한 개념도 쉬운 말로 풀어 설명하고, 실전 예제로 바로 적용할 수 있게 구성했습니다. --- 1.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">25 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/claude-skills.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/claude-code-placeholder.svg"
+             alt="Claude Skills 마스터 학습 경로"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ff6b35">
+          Claude Code
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Claude Skills 마스터 학습 경로</h3>
+          <p class="article-card__excerpt">초보자에서 마스터까지: 이 경로를 따라가면 Claude Skill을 완벽하게 만들 수 있습니다. --- --- 읽을 문서: Claude Skills가 뭔가요 (5살 버전) || ClaudeSkills초보자가이드#Claude Skills가 뭔가요 (5살 버전) 배울...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/claude-specialist.svg" alt="Claude 전문가" class="article-card__avatar">
+              <span>Claude 전문가</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

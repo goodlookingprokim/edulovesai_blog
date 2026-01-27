@@ -1,0 +1,1064 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Claudia 설치 및 사용법 완벽 가이드 | AI &amp; Development Journal</title>
+  <meta name="description" content="- 핵심 주제: Claude Code의 강력한 GUI 래퍼인 Claudia의 설치부터 활용까지 전체 과정 - 목적: Claude Code 사용자가 Claudia를 통해 더 효율적인 AI 개발 환경을 구축하도록 지원 - 범위: 사전 요구사항, 소스 빌드, 기본 사용법,...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Claudia 설치 및 사용법 완벽 가이드">
+  <meta property="og:description" content="- 핵심 주제: Claude Code의 강력한 GUI 래퍼인 Claudia의 설치부터 활용까지 전체 과정 - 목적: Claude Code 사용자가 Claudia를 통해 더 효율적인 AI 개발 환경을 구축하도록 지원 - 범위: 사전 요구사항, 소스 빌드, 기본 사용법,...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/claudia-install-usage-perfect-guide.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Claudia 설치 및 사용법 완벽 가이드">
+  <meta name="twitter:description" content="- 핵심 주제: Claude Code의 강력한 GUI 래퍼인 Claudia의 설치부터 활용까지 전체 과정 - 목적: Claude Code 사용자가 Claudia를 통해 더 효율적인 AI 개발 환경을 구축하도록 지원 - 범위: 사전 요구사항, 소스 빌드, 기본 사용법,...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/claudia-install-usage-perfect-guide.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">Claudia 설치 및 사용법 완벽 가이드</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 6월 22일">2025년 6월 22일</time>
+            <span class="article-meta__separator">·</span>
+            <span>10 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#claudia-소개" class="toc__link">Claudia 소개</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#claudia란" class="toc__link">Claudia란?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-가치" class="toc__link">핵심 가치</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기술-스택" class="toc__link">기술 스택</a>
+    </li>
+    <li class="toc__item">
+      <a href="#사전-요구사항" class="toc__link">사전 요구사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#필수-요구사항" class="toc__link">필수 요구사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#빌드-도구-설치" class="toc__link">빌드 도구 설치</a>
+    </li>
+    <li class="toc__item">
+      <a href="#설치-과정" class="toc__link">설치 과정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-저장소-클론" class="toc__link">1. 저장소 클론</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-의존성-설치" class="toc__link">2. 의존성 설치</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-애플리케이션-빌드" class="toc__link">3. 애플리케이션 빌드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-자동-실행-스크립트-생성" class="toc__link">4. 자동 실행 스크립트 생성</a>
+    </li>
+    <li class="toc__item">
+      <a href="#첫-실행-및-초기-설정" class="toc__link">첫 실행 및 초기 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-claudia-실행" class="toc__link">1. Claudia 실행</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-초기-설정" class="toc__link">2. 초기 설정</a>
+    </li>
+    <li class="toc__item">
+      <a href="#주요-기능-사용법" class="toc__link">주요 기능 사용법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-프로젝트-세션-관리" class="toc__link">1. 프로젝트 &amp; 세션 관리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-커스텀-ai-에이전트-생성" class="toc__link">2. 커스텀 AI 에이전트 생성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-사용량-분석-대시보드" class="toc__link">3. 사용량 분석 대시보드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-mcp-서버-관리" class="toc__link">4. MCP 서버 관리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#5-타임라인-체크포인트" class="toc__link">5. 타임라인 &amp; 체크포인트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#6-claudemd-편집" class="toc__link">6. CLAUDE.md 편집</a>
+    </li>
+    <li class="toc__item">
+      <a href="#고급-활용-팁" class="toc__link">고급 활용 팁</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-키보드-단축키" class="toc__link">1. 키보드 단축키</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-에이전트-템플릿-활용" class="toc__link">2. 에이전트 템플릿 활용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-비용-최적화-전략" class="toc__link">3. 비용 최적화 전략</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-보안-샌드박스-프로필" class="toc__link">4. 보안 샌드박스 프로필</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결" class="toc__link">문제 해결</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#자주-발생하는-문제" class="toc__link">자주 발생하는 문제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#디버깅-팁" class="toc__link">디버깅 팁</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-체크리스트" class="toc__link">구현 체크리스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Claudia 설치 및 사용법 완벽 가이드</h1>
+<h2 id="개요">개요 {#개요}</h2>
+<ul>
+<li><strong>핵심 주제</strong>: Claude Code의 강력한 GUI 래퍼인 Claudia의 설치부터 활용까지 전체 과정</li>
+<li><strong>목적</strong>: Claude Code 사용자가 Claudia를 통해 더 효율적인 AI 개발 환경을 구축하도록 지원</li>
+<li><strong>범위</strong>: 사전 요구사항, 소스 빌드, 기본 사용법, 고급 기능 활용</li>
+</ul>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#claudia-소개" class="internal-link internal-link--section">Claudia 소개</a></li>
+<li><a href="#사전-요구사항" class="internal-link internal-link--section">사전 요구사항</a></li>
+<li><a href="#설치-과정" class="internal-link internal-link--section">설치 과정</a></li>
+<li><a href="#첫-실행-및-초기-설정" class="internal-link internal-link--section">첫 실행 및 초기 설정</a></li>
+<li><a href="#주요-기능-사용법" class="internal-link internal-link--section">주요 기능 사용법</a></li>
+<li><a href="#고급-활용-팁" class="internal-link internal-link--section">고급 활용 팁</a></li>
+<li><a href="#문제-해결" class="internal-link internal-link--section">문제 해결</a></li>
+</ol>
+<h2 id="claudia-소개">Claudia 소개 {#claudia-소개}</h2>
+<h3 id="claudia란">Claudia란? {#claudia란}</h3>
+<p>Claudia는 Claude Code CLI를 위한 <strong>고급 데스크톱 GUI 애플리케이션</strong>입니다. Tauri 2와 React로 구축되어 Claude Code의 모든 기능을 시각적으로 관리할 수 있게 해줍니다.</p>
+<h3 id="핵심-가치">핵심 가치 {#핵심-가치}</h3>
+<ul>
+<li><strong>시각적 프로젝트 관리</strong>: CLI 명령어 없이 모든 프로젝트와 세션을 GUI로 관리</li>
+<li><strong>커스텀 AI 에이전트</strong>: 특화된 작업을 위한 맞춤형 에이전트 생성</li>
+<li><strong>보안 샌드박싱</strong>: OS 수준의 보안 격리 환경에서 안전한 실행</li>
+<li><strong>사용량 추적</strong>: API 사용량과 비용을 실시간으로 모니터링</li>
+</ul>
+<h3 id="기술-스택">기술 스택 {#기술-스택}</h3>
+<ul>
+<li><strong>Frontend</strong>: React 18 + TypeScript + Tailwind CSS v4</li>
+<li><strong>Backend</strong>: Rust with Tauri 2</li>
+<li><strong>Database</strong>: SQLite</li>
+<li><strong>Package Manager</strong>: Bun</li>
+</ul>
+<h2 id="사전-요구사항">사전 요구사항 {#사전-요구사항}</h2>
+<h3 id="필수-요구사항">필수 요구사항 {#필수-요구사항}</h3>
+<ol>
+<li><strong>Claude Code CLI</strong>: <a href="https://claude.ai/code">공식 사이트</a>에서 설치</li>
+<li><strong>운영 체제</strong>: macOS 11+, Windows 10/11, Ubuntu 20.04+</li>
+<li><strong>메모리</strong>: 최소 4GB (8GB 권장)</li>
+<li><strong>저장 공간</strong>: 1GB 이상의 여유 공간</li>
+</ol>
+<h3 id="빌드-도구-설치">빌드 도구 설치 {#빌드-도구-설치}</h3>
+<h4>1. Rust 설치</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6209" onclick="copyCode('code-1769481055129-6209')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6209" class="language-bash"># Rust 설치 (rustup 사용)
+curl --proto &#39;=https&#39; --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+<h1>환경 변수 적용</h1>
+<p>source &quot;$HOME/.cargo/env&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>2. Bun 설치</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6210" onclick="copyCode('code-1769481055129-6210')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6210" class="language-bash"># Bun 패키지 매니저 설치
+curl -fsSL https://bun.sh/install | bash
+
+<h1>PATH 추가</h1>
+<p>export PATH=&quot;$HOME/.bun/bin:$PATH&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>3. 플랫폼별 추가 의존성</h4>
+<p><strong>macOS</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6211" onclick="copyCode('code-1769481055129-6211')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6211" class="language-bash"># Xcode Command Line Tools 설치
+xcode-select --install</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>Linux (Ubuntu/Debian)</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6212" onclick="copyCode('code-1769481055129-6212')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6212" class="language-bash">sudo apt update
+sudo apt install -y \
+  libwebkit2gtk-4.1-dev \
+  libgtk-3-dev \
+  libayatana-appindicator3-dev \
+  librsvg2-dev \
+  build-essential</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<h2 id="설치-과정">설치 과정 {#설치-과정}</h2>
+<h3 id="1-저장소-클론">1. 저장소 클론 {#1-저장소-클론}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6213" onclick="copyCode('code-1769481055129-6213')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6213" class="language-bash"># Claudia 저장소 클론
+git clone https://github.com/getAsterisk/claudia.git
+cd claudia</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h3 id="2-의존성-설치">2. 의존성 설치 {#2-의존성-설치}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6214" onclick="copyCode('code-1769481055129-6214')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6214" class="language-bash"># Frontend 의존성 설치
+bun install</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h3 id="3-애플리케이션-빌드">3. 애플리케이션 빌드 {#3-애플리케이션-빌드}</h3>
+<h4>개발 모드 (빠른 실행)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6215" onclick="copyCode('code-1769481055129-6215')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6215" class="language-bash">bun run tauri dev</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>프로덕션 빌드</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6216" onclick="copyCode('code-1769481055129-6216')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6216" class="language-bash"># 최적화된 프로덕션 빌드
+bun run tauri build
+
+<h1>빌드 결과물 위치:</h1>
+<h1>- macOS: src-tauri/target/release/bundle/dmg/</h1>
+<h1>- Windows: src-tauri/target/release/bundle/msi/</h1>
+<h1>- Linux: src-tauri/target/release/bundle/deb/</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h3 id="4-자동-실행-스크립트-생성">4. 자동 실행 스크립트 생성 {#4-자동-실행-스크립트-생성}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6217" onclick="copyCode('code-1769481055129-6217')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6217" class="language-bash">#!/bin/bash
+# ~/run_claudia.sh
+
+<p>source ~/.cargo/env
+export PATH=&quot;$HOME/.bun/bin:$PATH&quot;
+cd ~/github/claudia
+bun run tauri dev</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h2 id="첫-실행-및-초기-설정">첫 실행 및 초기 설정 {#첫-실행-및-초기-설정}</h2>
+<h3 id="1-claudia-실행">1. Claudia 실행 {#1-claudia-실행}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6218" onclick="copyCode('code-1769481055129-6218')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6218" class="language-bash"># 개발 모드로 실행
+./run_claudia.sh
+
+<h1>또는 빌드된 앱 실행 (macOS)</h1>
+<p>open src-tauri/target/release/bundle/macos/Claudia.app</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h3 id="2-초기-설정">2. 초기 설정 {#2-초기-설정}</h3>
+<ol>
+<li><strong>환영 화면</strong>: CC Projects 또는 CC Agents 선택</li>
+<li><strong>Claude 경로 확인</strong>: 자동으로 <code>~/.claude</code> 디렉토리 감지</li>
+<li><strong>API 키 설정</strong>: Claude API 키 입력 (선택사항)</li>
+</ol>
+<h2 id="주요-기능-사용법">주요 기능 사용법 {#주요-기능-사용법}</h2>
+<h3>1. 프로젝트 &amp; 세션 관리 {#1-프로젝트-세션-관리}</h3>
+<h4>프로젝트 탐색</h4>
+<ol>
+<li><strong>CC Projects</strong> 클릭</li>
+<li><code>~/.claude/projects/</code> 내 모든 프로젝트 자동 표시</li>
+<li>프로젝트 클릭하여 세션 히스토리 확인</li>
+</ol>
+<h4>세션 관리</h4>
+<ul>
+<li><strong>세션 재개</strong>: 이전 대화 컨텍스트 유지하며 계속</li>
+<li><strong>새 세션</strong>: 프로젝트 컨텍스트만 유지하고 새로 시작</li>
+<li><strong>세션 정보</strong>: 첫 메시지, 타임스탬프, 메타데이터 표시</li>
+</ul>
+<h3 id="2-커스텀-ai-에이전트-생성">2. 커스텀 AI 에이전트 생성 {#2-커스텀-ai-에이전트-생성}</h3>
+<h4>에이전트 설정 예시</h4>
+<p><strong>코드 리뷰어 에이전트</strong>:</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6219" onclick="copyCode('code-1769481055129-6219')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6219" class="language-yaml">이름: Code Reviewer
+아이콘: 🔍
+시스템 프롬프트: |
+  당신은 코드 리뷰 전문가입니다. 
+  다음 사항에 집중하세요:
+  - 보안 취약점 검토
+  - 성능 최적화 제안
+  - 코드 스타일 일관성
+  - 테스트 커버리지 확인
+모델: Claude 3 Sonnet
+샌드박스: 읽기 전용</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div>
+</div>
+
+<p><strong>문서 작성 에이전트</strong>:</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6220" onclick="copyCode('code-1769481055129-6220')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6220" class="language-yaml">이름: Doc Writer
+아이콘: 📝
+시스템 프롬프트: |
+  기술 문서 작성 전문가로서:
+  - 명확하고 구조화된 문서 작성
+  - 코드 예제 포함
+  - API 문서 형식 준수
+모델: Claude 3 Haiku
+샌드박스: 파일 쓰기 허용</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
+</div>
+
+<h3 id="3-사용량-분석-대시보드">3. 사용량 분석 대시보드 {#3-사용량-분석-대시보드}</h3>
+<h4>접근 방법</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6221" onclick="copyCode('code-1769481055129-6221')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6221" class="language-plaintext">메뉴 → Usage Dashboard</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>제공 정보</h4>
+<ul>
+<li><strong>모델별 토큰 사용량</strong>: Opus, Sonnet, Haiku 별 분석</li>
+<li><strong>프로젝트별 비용</strong>: 각 프로젝트의 API 비용 추적</li>
+<li><strong>시간대별 트렌드</strong>: 일별/주별/월별 사용 패턴</li>
+<li><strong>데이터 내보내기</strong>: CSV/JSON 형식으로 export</li>
+</ul>
+<h3 id="4-mcp-서버-관리">4. MCP 서버 관리 {#4-mcp-서버-관리}</h3>
+<h4>서버 추가</h4>
+<ol>
+<li><strong>메뉴 → MCP Manager</strong></li>
+<li><strong>Add Server</strong> 클릭</li>
+<li>서버 정보 입력:<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+ <span class="code-block__language">JSON</span>
+ <button class="code-block__copy" data-code-id="code-1769481055129-6222" onclick="copyCode('code-1769481055129-6222')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6222" class="language-json">{
+  &quot;name&quot;: &quot;notion-mcp&quot;,
+  &quot;command&quot;: &quot;npx&quot;,
+  &quot;args&quot;: [&quot;notion-mcp&quot;],
+  &quot;env&quot;: {
+    &quot;NOTION_API_KEY&quot;: &quot;your-key&quot;
+  }
+}</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">9 lines</span>
+  </div>
+</div></li>
+<li><strong>Test Connection</strong> → <strong>Save</strong></li>
+</ol>
+<h4>Claude Desktop 설정 가져오기</h4>
+<ul>
+<li><strong>Import from Claude Desktop</strong> 클릭</li>
+<li>자동으로 기존 MCP 설정 불러오기</li>
+</ul>
+<h3>5. 타임라인 &amp; 체크포인트 {#5-타임라인-체크포인트}</h3>
+<h4>체크포인트 생성</h4>
+<ol>
+<li>세션 진행 중 <strong>Create Checkpoint</strong> 클릭</li>
+<li>설명 추가 (예: &quot;리팩토링 전 백업&quot;)</li>
+<li>작업 계속 진행</li>
+</ol>
+<h4>체크포인트 복원</h4>
+<ol>
+<li><strong>Timeline</strong> 아이콘 클릭</li>
+<li>체크포인트 목록에서 선택</li>
+<li><strong>Preview Diff</strong>로 변경사항 확인</li>
+<li><strong>Restore</strong> 또는 <strong>Fork</strong> 선택</li>
+</ol>
+<h3 id="6-claudemd-편집">6. CLAUDE.md 편집 {#6-claudemd-편집}</h3>
+<h4>프로젝트 지침 관리</h4>
+<ol>
+<li>프로젝트 선택 → <strong>Edit CLAUDE.md</strong></li>
+<li>내장 마크다운 편집기 사용</li>
+<li>실시간 프리뷰로 확인</li>
+<li>저장하여 프로젝트 컨텍스트 업데이트</li>
+</ol>
+<h2 id="고급-활용-팁">고급 활용 팁 {#고급-활용-팁}</h2>
+<h3 id="1-키보드-단축키">1. 키보드 단축키 {#1-키보드-단축키}</h3>
+<ul>
+<li><code>Cmd/Ctrl + N</code>: 새 세션</li>
+<li><code>Cmd/Ctrl + S</code>: 체크포인트 저장</li>
+<li><code>Cmd/Ctrl + ,</code>: 설정 열기</li>
+<li><code>Cmd/Ctrl + D</code>: 사용량 대시보드</li>
+</ul>
+<h3 id="2-에이전트-템플릿-활용">2. 에이전트 템플릿 활용 {#2-에이전트-템플릿-활용}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6223" onclick="copyCode('code-1769481055129-6223')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6223" class="language-bash"># 에이전트 프로필 내보내기
+설정 → Agents → Export Profile
+
+<h1>팀원과 공유</h1>
+<p>agents/code-reviewer.json
+agents/doc-writer.json
+agents/test-generator.json</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h3 id="3-비용-최적화-전략">3. 비용 최적화 전략 {#3-비용-최적화-전략}</h3>
+<ul>
+<li><strong>작업별 모델 선택</strong>: <ul>
+<li>간단한 작업 → Haiku</li>
+<li>일반 코딩 → Sonnet</li>
+<li>복잡한 분석 → Opus</li>
+</ul>
+</li>
+<li><strong>토큰 제한 설정</strong>: 에이전트별 최대 토큰 설정</li>
+<li><strong>정기 모니터링</strong>: 주간 사용량 리뷰</li>
+</ul>
+<h3 id="4-보안-샌드박스-프로필">4. 보안 샌드박스 프로필 {#4-보안-샌드박스-프로필}</h3>
+<p><strong>읽기 전용 프로필</strong>:</p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6224" onclick="copyCode('code-1769481055129-6224')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6224" class="language-json">{
+  &quot;name&quot;: &quot;read-only&quot;,
+  &quot;filesystem&quot;: {
+    &quot;read&quot;: [&quot;~/projects&quot;],
+    &quot;write&quot;: []
+  },
+  &quot;network&quot;: false,
+  &quot;process&quot;: false
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
+</div>
+
+<p><strong>제한된 쓰기 프로필</strong>:</p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6225" onclick="copyCode('code-1769481055129-6225')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6225" class="language-json">{
+  &quot;name&quot;: &quot;limited-write&quot;,
+  &quot;filesystem&quot;: {
+    &quot;read&quot;: [&quot;~/projects&quot;],
+    &quot;write&quot;: [&quot;~/projects/output&quot;]
+  },
+  &quot;network&quot;: [&quot;localhost&quot;],
+  &quot;process&quot;: [&quot;node&quot;, &quot;python&quot;]
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
+</div>
+
+<h2 id="문제-해결">문제 해결 {#문제-해결}</h2>
+<h3 id="자주-발생하는-문제">자주 발생하는 문제 {#자주-발생하는-문제}</h3>
+<h4>1. Claudia가 시작되지 않음</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6226" onclick="copyCode('code-1769481055129-6226')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6226" class="language-bash"># Rust/Bun 설치 확인
+rustc --version
+bun --version
+
+<h1>Claude CLI 확인</h1>
+<p>claude --version</p>
+<h1>개발 모드로 재시도</h1>
+<p>bun run tauri dev</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h4>2. 프로젝트가 표시되지 않음</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6227" onclick="copyCode('code-1769481055129-6227')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6227" class="language-bash"># Claude 프로젝트 디렉토리 확인
+ls ~/.claude/projects/
+
+<h1>권한 확인</h1>
+<p>ls -la ~/.claude/</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>3. 에이전트 실행 실패</h4>
+<ul>
+<li>Claude CLI 경로 확인: 설정 → General → Claude Path</li>
+<li>샌드박스 권한 검토</li>
+<li>실행 로그 확인: View → Developer → Console</li>
+</ul>
+<h4>4. MCP 서버 연결 오류</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055129-6228" onclick="copyCode('code-1769481055129-6228')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055129-6228" class="language-bash"># MCP 서버 수동 테스트
+npx [mcp-server-name] --test
+
+<h1>환경 변수 확인</h1>
+<p>echo $MCP_ENV_VAR</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h3 id="디버깅-팁">디버깅 팁 {#디버깅-팁}</h3>
+<ol>
+<li><strong>개발자 도구</strong>: <code>Cmd/Ctrl + Shift + I</code></li>
+<li><strong>로그 위치</strong>: <ul>
+<li>macOS: <code>~/Library/Logs/Claudia/</code></li>
+<li>Linux: <code>~/.config/claudia/logs/</code></li>
+<li>Windows: <code>%APPDATA%\Claudia\logs\</code></li>
+</ul>
+</li>
+<li><strong>캐시 정리</strong>: 설정 → Advanced → Clear Cache</li>
+</ol>
+<h2 id="구현-체크리스트">구현 체크리스트 {#구현-체크리스트}</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Rust와 Bun 설치</li>
+<li><input checked="" disabled="" type="checkbox"> Claudia 소스 코드 클론</li>
+<li><input checked="" disabled="" type="checkbox"> 의존성 설치 및 빌드</li>
+<li><input checked="" disabled="" type="checkbox"> 첫 실행 및 기본 설정</li>
+<li><input disabled="" type="checkbox"> 첫 번째 커스텀 에이전트 생성</li>
+<li><input disabled="" type="checkbox"> MCP 서버 연동</li>
+<li><input disabled="" type="checkbox"> 체크포인트 기능 활용</li>
+<li><input disabled="" type="checkbox"> 팀 설정 공유</li>
+</ul>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><strong>상위 개념</strong>: <a href="/articles/claude-code-perfect-guide-note.html" class="internal-link">Claude Code 완벽 가이드 - 실습형 노트</a></li>
+<li><strong>하위 세부사항</strong>: <a href="/articles/claudia-advanced-setup-guide.html" class="internal-link">Claudia 고급 설정 가이드</a></li>
+<li><strong>병렬 주제</strong>: <a href="/articles/claudecodeclipracticalguide.html" class="internal-link">Claude_Code_CLI_활용_가이드</a></li>
+<li><strong>실전 활용</strong>: <a href="/articles/claudia-practical-workflow.html" class="internal-link">Claudia를 활용한 팀 협업 워크플로우</a></li>
+<li><strong>관련 도구</strong>: <a href="/articles/mcp-guide.html" class="internal-link">MCP 서버 구축 가이드</a></li>
+<li><strong>보안 설정</strong>: <a href="/articles/claudia-setup.html" class="internal-link">Claudia 샌드박스 보안 설정</a></li>
+</ul>
+<hr>
+<p><strong>💡 Pro Tips</strong>: </p>
+<ol>
+<li>Claudia는 Claude Code의 모든 기능을 포함하며 GUI로 더 쉽게 접근할 수 있게 합니다</li>
+<li>정기적으로 GitHub에서 업데이트를 확인하고 새 기능을 활용하세요</li>
+<li>에이전트 프로필을 팀과 공유하여 일관된 개발 환경을 구축하세요</li>
+<li>사용량 대시보드를 주기적으로 확인하여 비용을 최적화하세요</li>
+</ol>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/Claudia.html" class="article-tag">Claudia</a><a href="/tag/Claude-Code.html" class="article-tag">Claude-Code</a><a href="/tag/GUI.html" class="article-tag">GUI</a><a href="/tag/Tauri.html" class="article-tag">Tauri</a><a href="/tag/개발도구.html" class="article-tag">개발도구</a><a href="/tag/AI코딩.html" class="article-tag">AI코딩</a><a href="/tag/MCP.html" class="article-tag">MCP</a><a href="/tag/자동화.html" class="article-tag">자동화</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/claudia-install-usage-perfect-guide.html&text=Claudia 설치 및 사용법 완벽 가이드" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/claudia-install-usage-perfect-guide.html&title=Claudia 설치 및 사용법 완벽 가이드" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/claudia-install-usage-perfect-guide.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

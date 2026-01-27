@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K-pop 퀴즈 앱 AI 코딩 개발기 | AI 기술 자료 저널</title>
+  <meta name="description" content="1.  || #배경 및 맥락 2.  || #핵심 개념 기능 3.  || #구현 방법 활용법 4.  || #사례 및 예시 5.  || #장단점 분석 6.  || #향후 전망 발전 방향 7.  || #실무 적용점 - 영감 출처: Netflix 드라마 &quot;K-pop...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="K-pop 퀴즈 앱 AI 코딩 개발기">
+  <meta property="og:description" content="1.  || #배경 및 맥락 2.  || #핵심 개념 기능 3.  || #구현 방법 활용법 4.  || #사례 및 예시 5.  || #장단점 분석 6.  || #향후 전망 발전 방향 7.  || #실무 적용점 - 영감 출처: Netflix 드라마 &quot;K-pop...">
+  <meta property="og:image" content="/assets/images/ai-tools-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/k-pop-ai-development.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="K-pop 퀴즈 앱 AI 코딩 개발기">
+  <meta name="twitter:description" content="1.  || #배경 및 맥락 2.  || #핵심 개념 기능 3.  || #구현 방법 활용법 4.  || #사례 및 예시 5.  || #장단점 분석 6.  || #향후 전망 발전 방향 7.  || #실무 적용점 - 영감 출처: Netflix 드라마 &quot;K-pop...">
+  <meta name="twitter:image" content="/assets/images/ai-tools-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/k-pop-ai-development.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI 기술 자료 저널</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/ai-tools.html" class="article-category" style="background-color: #10b981">
+          AI 도구
+        </a>
+        <h1 class="article-title">K-pop 퀴즈 앱 AI 코딩 개발기</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-analyst.html" class="article-author">
+            <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 분석가</span>
+              <span class="article-author__role">AI Tools Analyst</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 1월 13일">2025년 1월 13일</time>
+            <span class="article-meta__separator">·</span>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#배경-및-맥락" class="toc__link">배경 및 맥락</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#프로젝트-발단" class="toc__link">프로젝트 발단</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#개발자-배경" class="toc__link">개발자 배경</a>
+    </li>
+    <li class="toc__item">
+      <a href="#핵심-개념-기능" class="toc__link">핵심 개념 기능</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#앱-컨셉" class="toc__link">앱 컨셉</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#주요-기능-요소" class="toc__link">주요 기능 요소</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-방법-활용법" class="toc__link">구현 방법 활용법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#ai-도구-활용-전략" class="toc__link">AI 도구 활용 전략</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기술-스택" class="toc__link">기술 스택</a>
+    </li>
+    <li class="toc__item">
+      <a href="#사례-및-예시" class="toc__link">사례 및 예시</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실제-퀴즈-문제-검증" class="toc__link">실제 퀴즈 문제 검증</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#개발-과정-실제-화면" class="toc__link">개발 과정 실제 화면</a>
+    </li>
+    <li class="toc__item">
+      <a href="#장단점-분석" class="toc__link">장단점 분석</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#장점" class="toc__link">장점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#단점-및-한계" class="toc__link">단점 및 한계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#리스크-요소" class="toc__link">리스크 요소</a>
+    </li>
+    <li class="toc__item">
+      <a href="#향후-전망-발전-방향" class="toc__link">향후 전망 발전 방향</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시장-기회" class="toc__link">시장 기회</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기술적-발전-방향" class="toc__link">기술적 발전 방향</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#수익화-방안" class="toc__link">수익화 방안</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실무-적용점" class="toc__link">실무 적용점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#ai-코딩-도구-활용-전략" class="toc__link">AI 코딩 도구 활용 전략</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#개발-프로세스-최적화" class="toc__link">개발 프로세스 최적화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#비즈니스-관점" class="toc__link">비즈니스 관점</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-체크리스트" class="toc__link">구현 체크리스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>K-pop 퀴즈 앱 AI 코딩 개발기</h1>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#배경-및-맥락" class="internal-link internal-link--section">배경 및 맥락</a></li>
+<li><a href="#핵심-개념-기능" class="internal-link internal-link--section">핵심 개념 기능</a></li>
+<li><a href="#구현-방법-활용법" class="internal-link internal-link--section">구현 방법 활용법</a></li>
+<li><a href="#사례-및-예시" class="internal-link internal-link--section">사례 및 예시</a></li>
+<li><a href="#장단점-분석" class="internal-link internal-link--section">장단점 분석</a></li>
+<li><a href="#향후-전망-발전-방향" class="internal-link internal-link--section">향후 전망 발전 방향</a></li>
+<li><a href="#실무-적용점" class="internal-link internal-link--section">실무 적용점</a></li>
+</ol>
+<h2 id="배경-및-맥락">배경 및 맥락 {#배경-및-맥락}</h2>
+<h3 id="프로젝트-발단">프로젝트 발단 {#프로젝트-발단}</h3>
+<ul>
+<li><strong>영감 출처</strong>: Netflix 드라마 &quot;K-pop Demon Hunters&quot; 시청 후 아이디어 착안</li>
+<li><strong>시장 분석</strong>: K-pop 글로벌 인기 상승, 한국 관광객 증가 트렌드 파악</li>
+<li><strong>기회 포착</strong>: &quot;Global honey traffic&quot; - K-pop 관련 콘텐츠에 대한 글로벌 수요 급증</li>
+</ul>
+<h3 id="개발자-배경">개발자 배경 {#개발자-배경}</h3>
+<ul>
+<li><strong>개발 스타일</strong>: &quot;lazy coding&quot; - 효율성을 추구하는 개발 접근법</li>
+<li><strong>선호 도구</strong>: AI 코딩 도구를 적극 활용하여 개발 시간 단축</li>
+<li><strong>목표</strong>: 최소한의 노력으로 최대 효과를 내는 앱 개발</li>
+</ul>
+<h2 id="핵심-개념-기능">핵심 개념 기능 {#핵심-개념-기능}</h2>
+<h3 id="앱-컨셉">앱 컨셉 {#앱-컨셉}</h3>
+<ul>
+<li><strong>명칭</strong>: K-pop OX 퀴즈 앱</li>
+<li><strong>형태</strong>: 5지 선다형 퀴즈 (O/X 형식)</li>
+<li><strong>범위</strong>: 100개 문제로 구성된 종합 K-pop 지식 테스트</li>
+<li><strong>타겟</strong>: K-pop에 관심 있는 글로벌 사용자</li>
+</ul>
+<h3 id="주요-기능-요소">주요 기능 요소 {#주요-기능-요소}</h3>
+<ul>
+<li><strong>퀴즈 데이터</strong>: JSON 형식으로 구조화된 100개 문항</li>
+<li><strong>문제 유형</strong>: BTS 데뷔년도, Super Junior 멤버 수 등 K-pop 관련 사실</li>
+<li><strong>플랫폼</strong>: React Native/Expo를 활용한 크로스 플랫폼 모바일 앱</li>
+</ul>
+<h2 id="구현-방법-활용법">구현 방법 활용법 {#구현-방법-활용법}</h2>
+<h3 id="ai-도구-활용-전략">AI 도구 활용 전략 {#ai-도구-활용-전략}</h3>
+<h4>1단계: GPT를 활용한 콘텐츠 생성</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769482284705-291" onclick="copyCode('code-1769482284705-291')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284705-291" class="language-bash">프롬프트 예시:
+&quot;K-pop에 대한 퀴즈를 만들어줘. 
+1번부터 100번까지 문제를 JSON 형태로 만들어줘. 
+JavaScript에서 그대로 사용할 수 있도록 TypeScript 형식으로 제공해줘. 
+5지 선다형 OX 퀴즈 형태로 답을 제공해줘.&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>결과</strong>: </p>
+<ul>
+<li>체계적인 JSON 데이터 자동 생성</li>
+<li>실제 K-pop 지식 기반의 정확한 문제 생성</li>
+<li>즉시 사용 가능한 형태로 출력</li>
+</ul>
+<h4>2단계: Cursor를 활용한 앱 개발</h4>
+<ul>
+<li><strong>프로젝트 초기화</strong>: <code>npx create-expo-app KpopQuiz --template blank-typescript</code></li>
+<li><strong>개발 환경</strong>: Cursor IDE를 활용한 &quot;vibe coding&quot;</li>
+<li><strong>실시간 미리보기</strong>: iOS 시뮬레이터를 통한 즉시 확인</li>
+</ul>
+<h3 id="기술-스택">기술 스택 {#기술-스택}</h3>
+<ul>
+<li><strong>Frontend</strong>: React Native + Expo</li>
+<li><strong>언어</strong>: TypeScript</li>
+<li><strong>개발툴</strong>: Cursor IDE, GPT</li>
+<li><strong>테스트</strong>: iOS Simulator</li>
+<li><strong>데이터</strong>: JSON 형식의 정적 데이터</li>
+</ul>
+<h2 id="사례-및-예시">사례 및 예시 {#사례-및-예시}</h2>
+<h3 id="실제-퀴즈-문제-검증">실제 퀴즈 문제 검증 {#실제-퀴즈-문제-검증}</h3>
+<p><strong>예시 문항</strong>: &quot;Super Junior는 원래 12명으로 계획되었다&quot;</p>
+<ul>
+<li><strong>GPT 답안</strong>: O (정답)</li>
+<li><strong>실제 검증</strong>: Google 검색을 통해 사실 확인</li>
+<li><strong>결과</strong>: AI가 생성한 문제의 정확성 입증</li>
+</ul>
+<h3 id="개발-과정-실제-화면">개발 과정 실제 화면 {#개발-과정-실제-화면}</h3>
+<ol>
+<li><strong>터미널에서 프로젝트 생성</strong></li>
+<li><strong>Cursor에서 코드 편집</strong></li>
+<li><strong>iOS 시뮬레이터에서 실시간 미리보기</strong></li>
+<li><strong>앱 타이틀 변경</strong>: &quot;Open up App.tsx to start working on your app&quot; → &quot;K-pop Kids&quot;</li>
+</ol>
+<h2 id="장단점-분석">장단점 분석 {#장단점-분석}</h2>
+<h3 id="장점">장점 {#장점}</h3>
+<ul>
+<li><strong>개발 속도</strong>: 기존 수작업 대비 압도적인 시간 단축</li>
+<li><strong>정확성</strong>: AI가 생성한 K-pop 지식의 높은 정확도</li>
+<li><strong>확장성</strong>: 100개 문항을 쉽게 생성, 추후 확장 가능</li>
+<li><strong>접근성</strong>: 비전문가도 쉽게 앱 개발 가능</li>
+</ul>
+<h3 id="단점-및-한계">단점 및 한계 {#단점-및-한계}</h3>
+<ul>
+<li><strong>검증 필요성</strong>: AI 생성 콘텐츠의 사실 확인 과정 필수</li>
+<li><strong>창작자 지식 의존</strong>: 개발자의 K-pop 지식 부족으로 인한 검증 어려움</li>
+<li><strong>단순성</strong>: 기본적인 퀴즈 앱 수준, 고급 기능 부재</li>
+</ul>
+<h3 id="리스크-요소">리스크 요소 {#리스크-요소}</h3>
+<ul>
+<li><strong>저작권</strong>: K-pop 관련 콘텐츠 사용 시 저작권 이슈 가능성</li>
+<li><strong>정확성</strong>: 잘못된 정보 포함 가능성</li>
+<li><strong>차별화</strong>: 유사한 퀴즈 앱들과의 경쟁</li>
+</ul>
+<h2 id="향후-전망-발전-방향">향후 전망 발전 방향 {#향후-전망-발전-방향}</h2>
+<h3 id="시장-기회">시장 기회 {#시장-기회}</h3>
+<ul>
+<li><strong>K-pop 글로벌화</strong>: 지속적인 성장세</li>
+<li><strong>한류 관광</strong>: 한국 방문 관광객 증가 추세</li>
+<li><strong>교육적 활용</strong>: K-pop을 통한 한국 문화 학습 도구</li>
+</ul>
+<h3 id="기술적-발전-방향">기술적 발전 방향 {#기술적-발전-방향}</h3>
+<ul>
+<li><strong>AI 통합</strong>: 더 정교한 AI 기반 콘텐츠 생성</li>
+<li><strong>개인화</strong>: 사용자 수준별 맞춤형 문제 제공</li>
+<li><strong>멀티미디어</strong>: 음악, 영상 클립 연동 퀴즈</li>
+<li><strong>소셜 기능</strong>: 친구들과 점수 경쟁, 랭킹 시스템</li>
+</ul>
+<h3 id="수익화-방안">수익화 방안 {#수익화-방안}</h3>
+<ul>
+<li><strong>광고 모델</strong>: 무료 앱 + 광고 수익</li>
+<li><strong>프리미엄</strong>: 추가 문제팩, 고급 기능 유료 제공</li>
+<li><strong>교육 시장</strong>: 한국어/문화 교육 기관 대상 B2B</li>
+</ul>
+<h2 id="실무-적용점">실무 적용점 {#실무-적용점}</h2>
+<h3 id="ai-코딩-도구-활용-전략">AI 코딩 도구 활용 전략 {#ai-코딩-도구-활용-전략}</h3>
+<ol>
+<li><strong>명확한 프롬프트</strong>: 구체적이고 상세한 요구사항 제시</li>
+<li><strong>단계별 접근</strong>: 큰 작업을 작은 단위로 분할</li>
+<li><strong>검증 과정</strong>: AI 결과물의 품질 검증 필수</li>
+<li><strong>도구 조합</strong>: 여러 AI 도구의 장점 활용 (GPT + Cursor)</li>
+</ol>
+<h3 id="개발-프로세스-최적화">개발 프로세스 최적화 {#개발-프로세스-최적화}</h3>
+<ul>
+<li><strong>아이디어 → 프로토타입</strong>: 수시간 내 가능</li>
+<li><strong>시장 검증</strong>: 빠른 MVP 개발로 시장 반응 테스트</li>
+<li><strong>반복 개선</strong>: AI 도구를 활용한 신속한 업데이트</li>
+</ul>
+<h3 id="비즈니스-관점">비즈니스 관점 {#비즈니스-관점}</h3>
+<ul>
+<li><strong>진입 장벽 하락</strong>: 개발 전문성 없이도 앱 개발 가능</li>
+<li><strong>실험 비용 최소화</strong>: 아이디어 검증을 위한 저비용 접근</li>
+<li><strong>시장 기회 포착</strong>: 트렌드를 빠르게 앱으로 구현</li>
+</ul>
+<h2 id="구현-체크리스트">구현 체크리스트 {#구현-체크리스트}</h2>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> GPT를 활용한 퀴즈 데이터 생성</li>
+<li><input checked="" disabled="" type="checkbox"> React Native/Expo 프로젝트 초기화</li>
+<li><input checked="" disabled="" type="checkbox"> Cursor IDE 환경 설정</li>
+<li><input checked="" disabled="" type="checkbox"> iOS 시뮬레이터 연동</li>
+<li><input checked="" disabled="" type="checkbox"> 기본 앱 구조 생성</li>
+<li><input disabled="" type="checkbox"> 퀴즈 UI/UX 디자인 완료</li>
+<li><input disabled="" type="checkbox"> 문제 검증 및 품질 관리</li>
+<li><input disabled="" type="checkbox"> 앱스토어 배포 준비</li>
+<li><input disabled="" type="checkbox"> 마케팅 전략 수립</li>
+<li><input disabled="" type="checkbox"> 수익화 모델 구현</li>
+</ul>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><strong>상위 개념</strong>: <a href="/articles/ai-tools-analysis.html" class="internal-link">AI 코딩 도구 비교 분석</a></li>
+<li><strong>관련 기술</strong>: <a href="/articles/react-native-development-guide.html" class="internal-link">React Native 개발 가이드</a>, <a href="/articles/cursor-ide-practical.html" class="internal-link">Cursor IDE 활용법</a></li>
+<li><strong>시장 분석</strong>: <a href="/articles/k-pop-analysis.html" class="internal-link">K-pop 글로벌 트렌드 분석</a>, <a href="/articles/article.html" class="internal-link">모바일 앱 시장 현황</a></li>
+<li><strong>개발 방법론</strong>: <a href="/articles/ai.html" class="internal-link">AI 기반 프로토타이핑</a>, <a href="/articles/mvp-development.html" class="internal-link">MVP 개발 전략</a></li>
+<li><strong>도구별 가이드</strong>: <a href="/articles/gpt-prompt-engineering.html" class="internal-link">GPT 프롬프트 엔지니어링</a>, <a href="/articles/expo-development.html" class="internal-link">Expo 개발 환경 구축</a></li>
+</ul>
+<hr>
+<p><strong>💡 핵심 인사이트</strong>: AI 코딩 도구의 발전으로 아이디어에서 실제 앱까지의 개발 시간이 드라마틱하게 단축되었다. 특히 컨텐츠 생성(GPT)과 코딩(Cursor)의 조합은 비개발자도 충분히 활용 가능한 수준의 접근성을 제공한다.</p>
+<p><strong>🎯 실무 적용 키포인트</strong>: </p>
+<ol>
+<li>명확하고 구체적인 프롬프트 작성의 중요성</li>
+<li>AI 결과물에 대한 검증 과정의 필수성  </li>
+<li>시장 트렌드와 기술적 가능성의 적절한 조합</li>
+<li>빠른 프로토타이핑을 통한 아이디어 검증의 효과성</li>
+</ol>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/코딩도구.html" class="article-tag">코딩도구</a><a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/모바일앱.html" class="article-tag">모바일앱</a><a href="/tag/K-pop.html" class="article-tag">K-pop</a><a href="/tag/엔터테인먼트.html" class="article-tag">엔터테인먼트</a><a href="/tag/GPT.html" class="article-tag">GPT</a><a href="/tag/활용사례.html" class="article-tag">활용사례</a><a href="/tag/Cursor.html" class="article-tag">Cursor</a><a href="/tag/IDE.html" class="article-tag">IDE</a><a href="/tag/React-Native.html" class="article-tag">React-Native</a><a href="/tag/Expo.html" class="article-tag">Expo</a><a href="/tag/프로젝트.html" class="article-tag">프로젝트</a><a href="/tag/사례연구.html" class="article-tag">사례연구</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/k-pop-ai-development.html&text=K-pop 퀴즈 앱 AI 코딩 개발기" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/k-pop-ai-development.html&title=K-pop 퀴즈 앱 AI 코딩 개발기" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/k-pop-ai-development.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-analyst.html" class="author-bio__card">
+          <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 분석가</h3>
+            <p class="author-bio__role">AI Tools Analyst</p>
+            <p class="author-bio__text">AI 도구와 LLM 활용에 대한 심층 분석을 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/ampcode-perfect-guide-beginners.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/ai-tools-placeholder.svg"
+             alt="AmpCode 완벽 가이드 - 초보자를 위한 친절한 설명서"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #10b981">
+          AI 도구
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">AmpCode 완벽 가이드 - 초보자를 위한 친절한 설명서</h3>
+          <p class="article-card__excerpt">이 가이드는 누구를 위한 것인가요? - 프로그래밍을 이제 막 시작한 초보 개발자 - AI 코딩 도구에 관심 있는 분 - GitHub Copilot, Cursor를 써봤지만 더 강력한 도구를 찾는 분 - "AI 에이전트"가 뭔지 궁금한 분 - 코딩 실력을 빠르게...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/docling-ai-tools-perfect-guide-part-1-basics.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/image_1.png"
+             alt="Docling - 문서 처리 AI 도구 완벽 가이드 (Part 1: 기초편)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #10b981">
+          AI 도구
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Docling - 문서 처리 AI 도구 완벽 가이드 (Part 1: 기초편)</h3>
+          <p class="article-card__excerpt">한 줄 요약: Docling은 PDF, DOCX, PPTX 등 다양한 문서를 AI로 읽고 분석하여 Markdown, HTML 등으로 변환해주는 Python 라이브러리입니다. --- 1.  || #Docling이란 무엇인가 2.  || #왜 Docling이 필요한가...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">27 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/docling-ai-tools-perfect-guide-part-2-real-world.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/chart_1.png"
+             alt="Docling - 문서 처리 AI 도구 완벽 가이드 (Part 2: 실전편)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #10b981">
+          AI 도구
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Docling - 문서 처리 AI 도구 완벽 가이드 (Part 2: 실전편)</h3>
+          <p class="article-card__excerpt">Part 2 요약: Docling의 고급 기능, AI 연동, 실무 활용 사례를 상세히 다룹니다. --- 1.  || #고급 변환 옵션과 설정 2.  || #다양한 문서 형식 처리 3.  || #OCR과 스캔 문서 처리 4.  || #AI 프레임워크 연동 5.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI 기술 자료 저널</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

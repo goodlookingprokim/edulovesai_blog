@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untitled | AI 기술 자료 저널</title>
+  <meta name="description" content="Effective memory management is crucial for intelligent agents to maintain information. Like humans, agents require different types of memory to...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Untitled">
+  <meta property="og:description" content="Effective memory management is crucial for intelligent agents to maintain information. Like humans, agents require different types of memory to...">
+  <meta property="og:image" content="/assets/images/agent-patterns-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-9.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Untitled">
+  <meta name="twitter:description" content="Effective memory management is crucial for intelligent agents to maintain information. Like humans, agents require different types of memory to...">
+  <meta name="twitter:image" content="/assets/images/agent-patterns-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-9.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI 기술 자료 저널</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/agent-patterns.html" class="article-category" style="background-color: #6366f1">
+          Agent 패턴
+        </a>
+        <h1 class="article-title">Untitled</h1>
+        <div class="article-meta">
+          <a href="/journalist/agent-architect.html" class="article-author">
+            <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">에이전트 아키텍트</span>
+              <span class="article-author__role">AI Agent Systems Designer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2026년 1월 27일">2026년 1월 27일</time>
+            <span class="article-meta__separator">·</span>
+            <span>33 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#패턴-개요-pattern-overview" class="toc__link">패턴 개요 (Pattern Overview)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#메모리의-정의" class="toc__link">메모리의 정의</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#메모리-유형" class="toc__link">메모리 유형</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실용적-응용-및-사용-사례-practical-applications-use-cases" class="toc__link">실용적 응용 및 사용 사례 (Practical Applications &amp; Use Cases)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-챗봇-및-대화형-ai" class="toc__link">1. 챗봇 및 대화형 AI</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-작업-지향-에이전트" class="toc__link">2. 작업 지향 에이전트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-개인화된-경험" class="toc__link">3. 개인화된 경험</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-학습-및-개선" class="toc__link">4. 학습 및 개선</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#5-정보-검색-rag" class="toc__link">5. 정보 검색 (RAG)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#6-자율-시스템" class="toc__link">6. 자율 시스템</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실습-코드-예제-hands-on-code-example" class="toc__link">실습 코드 예제 (Hands-On Code Example)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#google-agent-developer-kit-adk" class="toc__link">Google Agent Developer Kit (ADK)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#langchain-및-langgraph" class="toc__link">LangChain 및 LangGraph</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#vertex-memory-bank" class="toc__link">Vertex Memory Bank</a>
+    </li>
+    <li class="toc__item">
+      <a href="#한눈에-보기-at-a-glance" class="toc__link">한눈에 보기 (At a Glance)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#무엇-what" class="toc__link">무엇 (What)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#왜-why" class="toc__link">왜 (Why)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#경험-법칙-rule-of-thumb" class="toc__link">경험 법칙 (Rule of Thumb)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시각적-요약" class="toc__link">시각적 요약</a>
+    </li>
+    <li class="toc__item">
+      <a href="#핵심-요약-key-takeaways" class="toc__link">핵심 요약 (Key Takeaways)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#결론" class="toc__link">결론</a>
+    </li>
+    <li class="toc__item">
+      <a href="#이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati" class="toc__link">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#인지-심리학-작업-기억-모델" class="toc__link">인지 심리학: 작업 기억 모델</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#장기-기억-이론" class="toc__link">장기 기억 이론</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#망각-이론-forgetting-theory" class="toc__link">망각 이론 (Forgetting Theory)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#정보-검색-이론" class="toc__link">정보 검색 이론</a>
+    </li>
+    <li class="toc__item">
+      <a href="#성능-최적화-기법-performance-optimization-techniques" class="toc__link">성능 최적화 기법 (Performance Optimization Techniques)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-메모리-압축-및-요약" class="toc__link">1. 메모리 압축 및 요약</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-적응형-메모리-검색" class="toc__link">2. 적응형 메모리 검색</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-메모리-우선순위-관리" class="toc__link">3. 메모리 우선순위 관리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-메모리-인덱싱-최적화" class="toc__link">4. 메모리 인덱싱 최적화</a>
+    </li>
+    <li class="toc__item">
+      <a href="#트레이드오프-및-한계점-trade-offs-and-limitations" class="toc__link">트레이드오프 및 한계점 (Trade-offs and Limitations)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#메모리-관리의-장점" class="toc__link">메모리 관리의 장점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#메모리-관리의-한계" class="toc__link">메모리 관리의 한계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#완화-전략" class="toc__link">완화 전략</a>
+    </li>
+    <li class="toc__item">
+      <a href="#관련-패턴과의-비교-comparison-with-related-patterns" class="toc__link">관련 패턴과의 비교 (Comparison with Related Patterns)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#memory-management-vs-stateless-systems" class="toc__link">Memory Management vs. Stateless Systems</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#short-term-vs-long-term-memory" class="toc__link">Short-term vs. Long-term Memory</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실무-적용-사례-확장-extended-practical-applications" class="toc__link">실무 적용 사례 확장 (Extended Practical Applications)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-개인화된-학습-시스템" class="toc__link">1. 개인화된 학습 시스템</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-지능형-고객-관계-관리" class="toc__link">2. 지능형 고객 관계 관리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-지속적-대화-시스템" class="toc__link">3. 지속적 대화 시스템</a>
+    </li>
+    <li class="toc__item">
+      <a href="#참고-자료-references" class="toc__link">참고 자료 (References)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#학술-논문" class="toc__link">학술 논문</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#프레임워크-및-도구-문서" class="toc__link">프레임워크 및 도구 문서</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#추가-학습-자료" class="toc__link">추가 학습 자료</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Chapter 8: Memory Management</h1>
+<h2 id="개요">개요 {#개요}</h2>
+<p>Effective memory management is crucial for intelligent agents to maintain information. Like humans, agents require different types of memory to function efficiently. This chapter addresses memory management, specifically covering an agent&#39;s immediate (short-term) and persistent (long-term) memory requirements.</p>
+<p>효과적인 메모리 관리는 지능형 에이전트가 정보를 유지하는 데 중요합니다. 에이전트는 인간과 마찬가지로 효율적으로 작동하기 위해 다양한 유형의 메모리가 필요합니다. 이 챕터는 메모리 관리에 대해 다루며, 특히 에이전트의 즉각적(단기) 및 지속적(장기) 메모리 요구사항을 다룹니다.</p>
+<h2 id="패턴-개요-pattern-overview">패턴 개요 (Pattern Overview) {#패턴-개요-pattern-overview}</h2>
+<h3 id="메모리의-정의">메모리의 정의 {#메모리의-정의}</h3>
+<p>In agent systems, memory refers to an agent&#39;s ability to retain and utilize information from past interactions, observations, and learning experiences. This capability allows agents to make informed decisions, maintain conversational context, and improve over time.</p>
+<p>에이전트 시스템에서 메모리는 에이전트가 과거 상호작용, 관찰 및 학습 경험에서 정보를 유지하고 활용하는 능력을 의미합니다. 이 능력은 에이전트가 정보에 입각한 결정을 내리고, 대화 컨텍스트를 유지하며, 시간이 지남에 따라 개선할 수 있게 합니다.</p>
+<p>Agent memory is generally categorized into two main types:</p>
+<p>에이전트 메모리는 일반적으로 두 가지 주요 유형으로 분류됩니다.</p>
+<h3 id="메모리-유형">메모리 유형 {#메모리-유형}</h3>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-704" onclick="copyCode('code-1769482284808-704')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-704" class="language-mermaid">graph TB
+    A[Agent Memory&lt;br/&gt;에이전트 메모리] --&gt; B[Short-Term Memory&lt;br/&gt;단기 메모리]
+    A --&gt; C[Long-Term Memory&lt;br/&gt;장기 메모리]
+    
+<pre><code>B --&amp;gt; B1[Contextual Memory&amp;lt;br/&amp;gt;컨텍스트 메모리]
+B --&amp;gt; B2[Context Window&amp;lt;br/&amp;gt;컨텍스트 창]
+B --&amp;gt; B3[Recent Messages&amp;lt;br/&amp;gt;최근 메시지]
+B --&amp;gt; B4[Tool Usage Results&amp;lt;br/&amp;gt;도구 사용 결과]
+B --&amp;gt; B5[Agent Reflections&amp;lt;br/&amp;gt;에이전트 반성]
+
+C --&amp;gt; C1[Persistent Storage&amp;lt;br/&amp;gt;지속적 저장소]
+C --&amp;gt; C2[Vector Databases&amp;lt;br/&amp;gt;벡터 데이터베이스]
+C --&amp;gt; C3[Semantic Search&amp;lt;br/&amp;gt;의미적 검색]
+C --&amp;gt; C4[Knowledge Bases&amp;lt;br/&amp;gt;지식 기반]
+
+style B fill:#ffcc99
+style C fill:#99ccff&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">17 lines</span>
+  </div>
+</div>
+
+<h4>1. 단기 메모리 (Short-Term Memory / Contextual Memory)</h4>
+<p><strong>Short-Term Memory (Contextual Memory)</strong>: Similar to working memory, this holds information currently being processed or recently accessed. For agents using large language models (LLMs), short-term memory primarily exists within the context window. This window contains recent messages, agent replies, tool usage results, and agent reflections from the current interaction, all of which inform the LLM&#39;s subsequent responses and actions. The context window has a limited capacity, restricting the amount of recent information an agent can directly access.</p>
+<p><strong>단기 메모리 (컨텍스트 메모리)</strong>: 작업 메모리와 유사하게, 현재 처리 중이거나 최근에 접근한 정보를 보유합니다. 대형 언어 모델(LLMs)을 사용하는 에이전트의 경우, 단기 메모리는 주로 컨텍스트 창 내에 존재합니다. 이 창에는 최근 메시지, 에이전트 응답, 도구 사용 결과, 현재 상호작용의 에이전트 반성이 포함되어 LLM의 후속 응답과 행동을 알립니다. 컨텍스트 창은 제한된 용량을 가지며, 에이전트가 직접 접근할 수 있는 최근 정보의 양을 제한합니다.</p>
+<p>Efficient short-term memory management involves keeping the most relevant information within this limited space, possibly through techniques like summarizing older conversation segments or emphasizing key details. The advent of models with &#39;long context&#39; windows simply expands the size of this short-term memory, allowing more information to be held within a single interaction. However, this context is still ephemeral and is lost once the session concludes, and it can be costly and inefficient to process every time. Consequently, agents require separate memory types to achieve true persistence, recall information from past interactions, and build a lasting knowledge base.</p>
+<p>효율적인 단기 메모리 관리에는 제한된 공간 내에서 가장 관련성 있는 정보를 유지하는 것이 포함되며, 오래된 대화 세그먼트를 요약하거나 주요 세부 사항을 강조하는 기술을 통해 달성할 수 있습니다. &#39;긴 컨텍스트&#39; 창을 가진 모델의 출현은 단순히 이 단기 메모리의 크기를 확장하여 단일 상호작용 내에서 더 많은 정보를 보유할 수 있게 합니다. 그러나 이 컨텍스트는 여전히 일시적이며 세션이 종료되면 손실되고, 매번 처리하는 것은 비용이 많이 들고 비효율적일 수 있습니다. 결과적으로, 에이전트는 진정한 지속성을 달성하고, 과거 상호작용에서 정보를 회상하며, 지속적인 지식 기반을 구축하기 위해 별도의 메모리 유형이 필요합니다.</p>
+<p><strong>특징</strong>:</p>
+<ul>
+<li>대형 언어 모델(LLMs)을 사용하는 에이전트의 경우, 단기 메모리는 주로 컨텍스트 창 내에 존재</li>
+<li>이 창에는 최근 메시지, 에이전트 응답, 도구 사용 결과, 현재 상호작용의 에이전트 반성이 포함되어 LLM의 후속 응답과 행동을 알림</li>
+<li>컨텍스트 창은 제한된 용량을 가지며, 에이전트가 직접 접근할 수 있는 최근 정보의 양을 제한</li>
+</ul>
+<p><strong>효율적인 단기 메모리 관리</strong>:</p>
+<ul>
+<li>제한된 공간 내에서 가장 관련성 있는 정보를 유지</li>
+<li>오래된 대화 세그먼트를 요약하거나 주요 세부 사항을 강조하는 기술을 통해 달성 가능</li>
+</ul>
+<p><strong>장문 컨텍스트 모델</strong>:</p>
+<ul>
+<li>&#39;장문 컨텍스트&#39; 창을 가진 모델의 출현은 단기 메모리의 크기를 단순히 확장</li>
+<li>단일 상호작용 내에서 더 많은 정보를 보유할 수 있게 하지만, 이 컨텍스트는 여전히 일시적이며 세션이 종료되면 손실됨</li>
+<li>매번 처리하는 것은 비용이 많이 들고 비효율적일 수 있음</li>
+</ul>
+<h4>2. 장기 메모리 (Long-Term Memory / Persistent Memory)</h4>
+<p><strong>Long-Term Memory (Persistent Memory)</strong>: This acts as a repository for information agents need to retain across various interactions, tasks, or extended periods, akin to long-term knowledge bases. Data is typically stored outside the agent&#39;s immediate processing environment, often in databases, knowledge graphs, or vector databases. In vector databases, information is converted into numerical vectors and stored, enabling agents to retrieve data based on semantic similarity rather than exact keyword matches, a process known as semantic search. When an agent needs information from long-term memory, it queries the external storage, retrieves relevant data, and integrates it into the short-term context for immediate use, thus combining prior knowledge with the current interaction.</p>
+<p><strong>장기 메모리 (지속적 메모리)</strong>: 이것은 다양한 상호작용, 작업 또는 장기간에 걸쳐 에이전트가 유지해야 하는 정보를 위한 저장소 역할을 하며, 장기 지식 기반과 유사합니다. 데이터는 일반적으로 에이전트의 즉각적인 처리 환경 외부에 저장되며, 종종 데이터베이스, 지식 그래프 또는 벡터 데이터베이스에 저장됩니다. 벡터 데이터베이스에서 정보는 수치 벡터로 변환되어 저장되며, 에이전트가 정확한 키워드 일치가 아닌 의미적 유사성을 기반으로 데이터를 검색할 수 있게 하며, 이는 의미적 검색으로 알려진 프로세스입니다. 에이전트가 장기 메모리에서 정보가 필요할 때, 외부 저장소를 쿼리하고 관련 데이터를 검색하여 즉시 사용을 위해 단기 컨텍스트에 통합함으로써 이전 지식을 현재 상호작용과 결합합니다.</p>
+<p>에이전트가 다양한 상호작용, 작업 또는 장기간에 걸쳐 유지해야 하는 정보를 위한 저장소 역할을 합니다.</p>
+<p><strong>특징</strong>:</p>
+<ul>
+<li>장기 지식 기반과 유사</li>
+<li>데이터는 일반적으로 에이전트의 즉각적인 처리 환경 외부에 저장되며, 종종 데이터베이스, 지식 그래프 또는 벡터 데이터베이스에 저장됨</li>
+</ul>
+<p><strong>벡터 데이터베이스</strong>:</p>
+<ul>
+<li>벡터 데이터베이스에서 정보는 수치 벡터로 변환되어 저장됨</li>
+<li>에이전트가 정확한 키워드 일치가 아닌 의미적 유사성을 기반으로 데이터를 검색할 수 있게 함</li>
+<li>이 프로세스는 의미적 검색(semantic search)으로 알려져 있음</li>
+</ul>
+<p><strong>검색 프로세스</strong>:</p>
+<ul>
+<li>에이전트가 장기 메모리에서 정보가 필요할 때, 외부 저장소를 쿼리하고 관련 데이터를 검색한 다음 즉시 사용을 위해 단기 컨텍스트에 통합</li>
+<li>이를 통해 이전 지식과 현재 상호작용을 결합</li>
+</ul>
+<h2>실용적 응용 및 사용 사례 (Practical Applications &amp; Use Cases) {#실용적-응용-및-사용-사례-practical-applications-use-cases}</h2>
+<p>Memory management is vital for agents to track information and perform intelligently over time. This is essential for agents to surpass basic question-answering capabilities.</p>
+<p>메모리 관리는 에이전트가 정보를 추적하고 시간이 지남에 따라 지능적으로 수행하는 데 필수적입니다. 이는 기본 질문 답변 능력을 넘어서는 에이전트에게 필수적입니다.</p>
+<p>Applications include:</p>
+<p>응용 분야는 다음과 같습니다.</p>
+<h3 id="1-챗봇-및-대화형-ai">1. 챗봇 및 대화형 AI {#1-챗봇-및-대화형-ai}</h3>
+<p><strong>Chatbots and Conversational AI</strong>: Maintaining conversation flow relies on short-term memory. Chatbots require remembering prior user inputs to provide coherent responses. Long-term memory enables chatbots to recall user preferences, past issues, or prior discussions, offering personalized and continuous interactions.</p>
+<p><strong>챗봇 및 대화형 AI</strong>: 대화 흐름 유지는 단기 메모리에 의존합니다. 챗봇은 일관된 응답을 제공하기 위해 이전 사용자 입력을 기억해야 합니다. 장기 메모리는 챗봇이 사용자 선호도, 과거 문제 또는 이전 토론을 회상하여 개인화되고 지속적인 상호작용을 제공할 수 있게 합니다.</p>
+<p>대화 흐름 유지는 단기 메모리에 의존합니다.</p>
+<p><strong>단기 메모리</strong>:</p>
+<ul>
+<li>챗봇은 일관된 응답을 제공하기 위해 이전 사용자 입력을 기억해야 함</li>
+</ul>
+<p><strong>장기 메모리</strong>:</p>
+<ul>
+<li>사용자 선호도, 과거 문제 또는 이전 토론을 기억할 수 있게 함</li>
+<li>개인화되고 지속적인 상호작용 제공</li>
+</ul>
+<h3 id="2-작업-지향-에이전트">2. 작업 지향 에이전트 {#2-작업-지향-에이전트}</h3>
+<p><strong>Task-Oriented Agents</strong>: Agents managing multi-step tasks need short-term memory to track previous steps, current progress, and overall goals. This information might reside in the task&#39;s context or temporary storage. Long-term memory is crucial for accessing specific user-related data not in the immediate context.</p>
+<p><strong>작업 지향 에이전트</strong>: 다단계 작업을 관리하는 에이전트는 이전 단계, 현재 진행 상황 및 전체 목표를 추적하기 위해 단기 메모리가 필요합니다. 이 정보는 작업의 컨텍스트나 임시 저장소에 있을 수 있습니다. 장기 메모리는 즉각적인 컨텍스트에 없는 특정 사용자 관련 데이터에 접근하는 데 중요합니다.</p>
+<p>다단계 작업을 관리하는 에이전트는 단기 메모리가 필요합니다.</p>
+<p><strong>단기 메모리</strong>:</p>
+<ul>
+<li>이전 단계, 현재 진행 상황 및 전체 목표를 추적</li>
+<li>이 정보는 작업의 컨텍스트나 임시 저장소에 있을 수 있음</li>
+</ul>
+<p><strong>장기 메모리</strong>:</p>
+<ul>
+<li>즉각적인 컨텍스트에 없는 특정 사용자 관련 데이터에 접근하는 데 중요</li>
+</ul>
+<h3 id="3-개인화된-경험">3. 개인화된 경험 {#3-개인화된-경험}</h3>
+<p><strong>Personalized Experiences</strong>: Agents offering tailored interactions utilize long-term memory to store and retrieve user preferences, past behaviors, and personal information. This allows agents to adapt their responses and suggestions.</p>
+<p><strong>개인화된 경험</strong>: 맞춤형 상호작용을 제공하는 에이전트는 장기 메모리를 활용하여 사용자 선호도, 과거 행동 및 개인 정보를 저장하고 검색합니다. 이를 통해 에이전트가 응답과 제안을 조정할 수 있습니다.</p>
+<p>맞춤형 상호작용을 제공하는 에이전트는 장기 메모리를 활용합니다.</p>
+<p><strong>장기 메모리</strong>:</p>
+<ul>
+<li>사용자 선호도, 과거 행동 및 개인 정보를 저장하고 검색</li>
+<li>에이전트가 응답과 제안을 적응시킬 수 있게 함</li>
+</ul>
+<h3 id="4-학습-및-개선">4. 학습 및 개선 {#4-학습-및-개선}</h3>
+<p><strong>Learning and Improvement</strong>: Agents can refine their performance by learning from past interactions. Successful strategies, mistakes, and new information are stored in long-term memory, facilitating future adaptations. Reinforcement learning agents store learned strategies or knowledge in this way.</p>
+<p><strong>학습 및 개선</strong>: 에이전트는 과거 상호작용으로부터 학습하여 성능을 개선할 수 있습니다. 성공적인 전략, 실수 및 새로운 정보는 장기 메모리에 저장되어 향후 적응을 용이하게 합니다. 강화 학습 에이전트는 이 방식으로 학습된 전략이나 지식을 저장합니다.</p>
+<p>에이전트는 과거 상호작용으로부터 학습하여 성능을 개선할 수 있습니다.</p>
+<p><strong>장기 메모리</strong>:</p>
+<ul>
+<li>성공적인 전략, 실수 및 새로운 정보를 저장</li>
+<li>향후 적응을 용이하게 함</li>
+<li>강화 학습 에이전트는 이러한 방식으로 학습된 전략이나 지식을 저장</li>
+</ul>
+<h3 id="5-정보-검색-rag">5. 정보 검색 (RAG) {#5-정보-검색-rag}</h3>
+<p><strong>Information Retrieval (RAG)</strong>: Agents designed for answering questions access a knowledge base, their long-term memory, often implemented within Retrieval Augmented Generation (RAG). The agent retrieves relevant documents or data to inform its responses.</p>
+<p><strong>정보 검색 (RAG)</strong>: 질문에 답하도록 설계된 에이전트는 지식 기반인 장기 메모리에 접근하며, 이는 종종 Retrieval Augmented Generation (RAG) 내에서 구현됩니다. 에이전트는 관련 문서나 데이터를 검색하여 응답에 정보를 제공합니다.</p>
+<p>질문에 답하도록 설계된 에이전트는 지식 기반에 접근합니다.</p>
+<p><strong>장기 메모리</strong>:</p>
+<ul>
+<li>장기 메모리로 구현되며, 종종 Retrieval Augmented Generation (RAG) 내에서 구현됨</li>
+<li>에이전트가 관련 문서나 데이터를 검색하여 응답을 알림</li>
+</ul>
+<h3 id="6-자율-시스템">6. 자율 시스템 {#6-자율-시스템}</h3>
+<p>로봇이나 자율 주행 차량은 메모리가 필요합니다.</p>
+<p><strong>메모리 요구사항</strong>:</p>
+<ul>
+<li>지도, 경로, 객체 위치 및 학습된 행동을 위한 메모리</li>
+<li>즉각적인 주변 환경을 위한 단기 메모리와 일반적인 환경 지식을 위한 장기 메모리 포함</li>
+</ul>
+<h2 id="실습-코드-예제-hands-on-code-example">실습 코드 예제 (Hands-On Code Example) {#실습-코드-예제-hands-on-code-example}</h2>
+<h3 id="google-agent-developer-kit-adk">Google Agent Developer Kit (ADK) {#google-agent-developer-kit-adk}</h3>
+<p>Google Agent Developer Kit (ADK)는 컨텍스트와 메모리를 관리하기 위한 구조화된 방법을 제공하며, 실용적인 애플리케이션을 위한 구성 요소를 포함합니다.</p>
+<h4>핵심 개념</h4>
+<p>ADK는 세 가지 핵심 개념과 관련 서비스를 통해 컨텍스트 관리를 단순화합니다:</p>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-705" onclick="copyCode('code-1769482284808-705')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-705" class="language-mermaid">graph TD
+    A[ADK Memory Management&lt;br/&gt;ADK 메모리 관리] --&gt; B[Session&lt;br/&gt;세션]
+    A --&gt; C[State&lt;br/&gt;상태]
+    A --&gt; D[Memory&lt;br/&gt;메모리]
+    
+<pre><code>B --&amp;gt; B1[Individual Chat Thread&amp;lt;br/&amp;gt;개별 채팅 스레드]
+B --&amp;gt; B2[Messages &amp;amp; Actions&amp;lt;br/&amp;gt;메시지 및 행동]
+B --&amp;gt; B3[Temporary Data&amp;lt;br/&amp;gt;임시 데이터]
+
+C --&amp;gt; C1[Session-specific Data&amp;lt;br/&amp;gt;세션별 데이터]
+C --&amp;gt; C2[Active Chat Thread&amp;lt;br/&amp;gt;활성 채팅 스레드]
+
+D --&amp;gt; D1[Searchable Repository&amp;lt;br/&amp;gt;검색 가능한 저장소]
+D --&amp;gt; D2[Past Chats &amp;amp; External Sources&amp;lt;br/&amp;gt;과거 채팅 및 외부 소스]
+D --&amp;gt; D3[Data Retrieval&amp;lt;br/&amp;gt;데이터 검색]
+
+style B fill:#ffcc99
+style C fill:#ffcc99
+style D fill:#99ccff&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">19 lines</span>
+  </div>
+</div>
+
+<h4>1. Session (세션)</h4>
+<p>개별 채팅 스레드를 추적하고 관리하는 Session 객체입니다.</p>
+<p><strong>특징</strong>:</p>
+<ul>
+<li><code>google.adk.sessions.Session</code>으로 표현</li>
+<li>특정 대화 스레드와 관련된 모든 데이터를 캡슐화</li>
+<li>고유 식별자(id, app_name, user_id), Event 객체의 시간순 기록, 세션별 임시 데이터인 state, 마지막 업데이트 타임스탬프 포함</li>
+</ul>
+<p><strong>SessionService</strong>:</p>
+<ul>
+<li>세션의 생명주기를 관리하는 책임</li>
+<li>새 세션 시작, 이전 세션 재개, 세션 활동 기록(상태 업데이트 포함), 활성 세션 식별, 세션 데이터 제거 관리</li>
+</ul>
+<p><strong>구현 예제</strong>:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-706" onclick="copyCode('code-1769482284808-706')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-706" class="language-python">from google.adk.sessions import InMemorySessionService
+
+<h1>로컬 개발 및 테스트에 적합</h1>
+<h1>애플리케이션 재시작 시 데이터 지속성이 필요하지 않은 경우</h1>
+<p>session_service = InMemorySessionService()</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>2. State (상태)</h4>
+<p>세션 내에 저장된 데이터로, 해당 대화 스레드와 관련된 정보만 포함합니다.</p>
+<p><strong>특징</strong>:</p>
+<ul>
+<li><code>session.state</code>로 접근</li>
+<li>현재 활성 채팅 스레드에만 관련된 정보 포함</li>
+<li>세션별 임시 데이터 저장</li>
+</ul>
+<h4>3. Memory (메모리)</h4>
+<p>다양한 과거 채팅이나 외부 소스에서 나온 정보의 검색 가능한 저장소입니다.</p>
+<p><strong>특징</strong>:</p>
+<ul>
+<li>즉각적인 대화를 넘어서는 데이터 검색을 위한 리소스</li>
+<li>MemoryService를 통해 관리</li>
+<li>장기 지식 저장 및 검색</li>
+</ul>
+<h3 id="langchain-및-langgraph">LangChain 및 LangGraph {#langchain-및-langgraph}</h3>
+<p>LangChain과 LangGraph에서 메모리는 지능적이고 자연스러운 대화형 애플리케이션을 만드는 데 중요한 구성 요소입니다.</p>
+<h4>단기 메모리</h4>
+<p>스레드 범위로, 단일 세션이나 스레드 내에서 진행 중인 대화를 추적합니다.</p>
+<p><strong>특징</strong>:</p>
+<ul>
+<li>즉각적인 컨텍스트를 제공하지만, 전체 기록은 LLM의 컨텍스트 창에 도전할 수 있음</li>
+<li>오류나 성능 저하로 이어질 수 있음</li>
+<li>LangGraph는 에이전트 상태의 일부로 단기 메모리를 관리하며, 체크포인터를 통해 지속되어 스레드를 언제든지 재개할 수 있음</li>
+</ul>
+<h4>장기 메모리</h4>
+<p>세션 간에 사용자별 또는 애플리케이션 수준 데이터를 저장합니다.</p>
+<p><strong>특징</strong>:</p>
+<ul>
+<li>대화형 스레드 간에 공유됨</li>
+<li>커스텀 &quot;네임스페이스&quot;에 저장되며 언제든지 모든 스레드에서 회상 가능</li>
+<li>LangGraph는 저장소를 제공하여 장기 메모리를 저장하고 회상할 수 있게 하여 에이전트가 무기한으로 지식을 유지할 수 있게 함</li>
+</ul>
+<h4>메모리 관리 도구</h4>
+<p>LangChain은 수동 제어부터 체인 내 자동 통합까지 다양한 대화 기록 관리 도구를 제공합니다.</p>
+<h5>ChatMessageHistory: 수동 메모리 관리</h5>
+<p>공식 체인 외부에서 대화 기록을 직접 제어하려는 경우 ChatMessageHistory 클래스가 이상적입니다.</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-707" onclick="copyCode('code-1769482284808-707')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-707" class="language-python">from langchain.memory import ChatMessageHistory
+
+<h1>기록 객체 초기화</h1>
+<p>history = ChatMessageHistory()</p>
+<h1>사용자 및 AI 메시지 추가</h1>
+<p>history.add_user_message(&quot;I&#39;m heading to New York next week.&quot;)
+history.add_ai_message(&quot;Great! It&#39;s a fantastic city.&quot;)</p>
+<h1>메시지 목록 접근</h1>
+<p>print(history.messages)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h5>ConversationBufferMemory: 체인용 자동 메모리</h5>
+<p>체인에 메모리를 직접 통합하려는 경우 ConversationBufferMemory가 일반적인 선택입니다.</p>
+<p><strong>주요 매개변수</strong>:</p>
+<ul>
+<li><code>memory_key</code>: 프롬프트에서 채팅 기록을 보유할 변수 이름을 지정하는 문자열 (기본값: &quot;history&quot;)</li>
+<li><code>return_messages</code>: 기록 형식을 결정하는 부울<ul>
+<li><code>False</code> (기본값): 단일 포맷된 문자열 반환 (표준 LLM에 이상적)</li>
+<li><code>True</code>: 메시지 객체 목록 반환 (채팅 모델에 권장)</li>
+</ul>
+</li>
+</ul>
+<p><strong>예제</strong>:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-708" onclick="copyCode('code-1769482284808-708')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-708" class="language-python">from langchain.memory import ConversationBufferMemory
+
+<h1>메모리 초기화</h1>
+<p>memory = ConversationBufferMemory()</p>
+<h1>대화 턴 저장</h1>
+<p>memory.save_context({&quot;input&quot;: &quot;What&#39;s the weather like?&quot;}, {&quot;output&quot;: &quot;It&#39;s sunny today.&quot;})</p>
+<h1>메모리를 문자열로 로드</h1>
+<p>print(memory.load_memory_variables({}))</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<p><strong>LLMChain에 통합</strong>:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-709" onclick="copyCode('code-1769482284808-709')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-709" class="language-python">from langchain_openai import OpenAI
+from langchain.chains import LLMChain
+from langchain.prompts import PromptTemplate
+from langchain.memory import ConversationBufferMemory
+
+<h1>1. LLM 및 프롬프트 정의</h1>
+<p>llm = OpenAI(temperature=0)
+template = &quot;&quot;&quot;You are a helpful travel agent.
+Previous conversation:
+{history}
+New question: {question}
+Response:&quot;&quot;&quot;
+prompt = PromptTemplate.from_template(template)</p>
+<h1>2. 메모리 구성</h1>
+<h1>memory_key &quot;history&quot;는 프롬프트의 변수와 일치</h1>
+<p>memory = ConversationBufferMemory(memory_key=&quot;history&quot;)</p>
+<h1>3. 체인 구축</h1>
+<p>conversation = LLMChain(llm=llm, prompt=prompt, memory=memory)</p>
+<h1>4. 대화 실행</h1>
+<p>response = conversation.predict(question=&quot;I want to book a flight.&quot;)
+print(response)
+response = conversation.predict(question=&quot;My name is Sam, by the way.&quot;)
+print(response)
+response = conversation.predict(question=&quot;What was my name again?&quot;)
+print(response)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">24 lines</span>
+  </div></p>
+</div>
+
+<p><strong>채팅 모델용 구조화된 메시지</strong>:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-710" onclick="copyCode('code-1769482284808-710')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-710" class="language-python">from langchain_openai import ChatOpenAI
+from langchain.chains import LLMChain
+from langchain.memory import ConversationBufferMemory
+from langchain_core.prompts import (
+    ChatPromptTemplate,
+    MessagesPlaceholder,
+    SystemMessagePromptTemplate,
+    HumanMessagePromptTemplate,
+)
+
+<h1>1. 채팅 모델 및 프롬프트 정의</h1>
+<p>llm = ChatOpenAI()
+prompt = ChatPromptTemplate(
+    messages=[
+        SystemMessagePromptTemplate.from_template(&quot;You are a friendly assistant.&quot;),
+        MessagesPlaceholder(variable_name=&quot;chat_history&quot;),
+        HumanMessagePromptTemplate.from_template(&quot;{question}&quot;)
+    ]
+)</p>
+<h1>2. 메모리 구성</h1>
+<h1>return_messages=True는 채팅 모델에 필수</h1>
+<p>memory = ConversationBufferMemory(memory_key=&quot;chat_history&quot;, return_messages=True)</p>
+<h1>3. 체인 구축</h1>
+<p>conversation = LLMChain(llm=llm, prompt=prompt, memory=memory)</p>
+<h1>4. 대화 실행</h1>
+<p>response = conversation.predict(question=&quot;Hi, I&#39;m Jane.&quot;)
+print(response)
+response = conversation.predict(question=&quot;Do you remember my name?&quot;)
+print(response)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">28 lines</span>
+  </div></p>
+</div>
+
+<h4>장기 메모리 유형</h4>
+<p>장기 메모리는 다른 대화 간에 정보를 유지하여 더 깊은 수준의 컨텍스트와 개인화를 제공합니다. 인간의 메모리와 유사하게 세 가지 유형으로 나눌 수 있습니다:</p>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-711" onclick="copyCode('code-1769482284808-711')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-711" class="language-mermaid">graph TB
+    A[Long-Term Memory Types&lt;br/&gt;장기 메모리 유형] --&gt; B[Semantic Memory&lt;br/&gt;의미적 메모리]
+    A --&gt; C[Episodic Memory&lt;br/&gt;일화적 메모리]
+    A --&gt; D[Procedural Memory&lt;br/&gt;절차적 메모리]
+    
+<pre><code>B --&amp;gt; B1[Remembering Facts&amp;lt;br/&amp;gt;사실 기억]
+B --&amp;gt; B2[User Preferences&amp;lt;br/&amp;gt;사용자 선호도]
+B --&amp;gt; B3[Domain Knowledge&amp;lt;br/&amp;gt;도메인 지식]
+
+C --&amp;gt; C1[Remembering Experiences&amp;lt;br/&amp;gt;경험 기억]
+C --&amp;gt; C2[Past Events&amp;lt;br/&amp;gt;과거 이벤트]
+C --&amp;gt; C3[Few-shot Examples&amp;lt;br/&amp;gt;Few-shot 예제]
+
+D --&amp;gt; D1[Remembering Rules&amp;lt;br/&amp;gt;규칙 기억]
+D --&amp;gt; D2[Core Instructions&amp;lt;br/&amp;gt;핵심 지시사항]
+D --&amp;gt; D3[System Prompts&amp;lt;br/&amp;gt;시스템 프롬프트]
+
+style B fill:#ffcc99
+style C fill:#99ccff
+style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">20 lines</span>
+  </div>
+</div>
+
+<h5>1. 의미적 메모리 (Semantic Memory): 사실 기억</h5>
+<p>특정 사실과 개념을 유지하는 것을 포함합니다.</p>
+<p><strong>특징</strong>:</p>
+<ul>
+<li>사용자 선호도나 도메인 지식과 같은 정보</li>
+<li>에이전트의 응답을 기반으로 하여 더 개인화되고 관련성 있는 상호작용으로 이어짐</li>
+<li>지속적으로 업데이트되는 사용자 &quot;프로필&quot; (JSON 문서) 또는 개별 사실 문서의 &quot;컬렉션&quot;으로 관리될 수 있음</li>
+</ul>
+<h5>2. 일화적 메모리 (Episodic Memory): 경험 기억</h5>
+<p>과거 이벤트나 행동을 회상하는 것을 포함합니다.</p>
+<p><strong>특징</strong>:</p>
+<ul>
+<li>AI 에이전트의 경우, 일화적 메모리는 종종 작업을 수행하는 방법을 기억하는 데 사용됨</li>
+<li>실제로는 few-shot 예제 프롬프팅을 통해 자주 구현되며, 에이전트가 과거 성공적인 상호작용 시퀀스로부터 학습하여 작업을 올바르게 수행</li>
+</ul>
+<h5>3. 절차적 메모리 (Procedural Memory): 규칙 기억</h5>
+<p>작업을 수행하는 방법에 대한 메모리입니다.</p>
+<p><strong>특징</strong>:</p>
+<ul>
+<li>에이전트의 핵심 지시사항과 행동으로, 종종 시스템 프롬프트에 포함됨</li>
+<li>에이전트가 자신의 프롬프트를 수정하여 적응하고 개선하는 것이 일반적</li>
+<li>효과적인 기술은 &quot;Reflection&quot;으로, 에이전트가 현재 지시사항과 최근 상호작용으로 프롬프트되고 자신의 지시사항을 정제하도록 요청받음</li>
+</ul>
+<p><strong>반성을 통한 절차적 메모리 업데이트 예제</strong>:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-712" onclick="copyCode('code-1769482284808-712')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-712" class="language-python"># 에이전트의 지시사항을 업데이트하는 노드
+def update_instructions(state: State, store: BaseStore):
+    namespace = (&quot;instructions&quot;,)
+    # 저장소에서 현재 지시사항 가져오기
+    current_instructions = store.search(namespace)[0]
+    
+<pre><code># LLM에게 대화를 반성하고 새로운 개선된 지시사항을 생성하도록 요청하는 프롬프트 생성
+prompt = prompt_template.format(
+    instructions=current_instructions.value[&amp;quot;instructions&amp;quot;],
+    conversation=state[&amp;quot;messages&amp;quot;]
+)
+
+# LLM에서 새로운 지시사항 가져오기
+output = llm.invoke(prompt)
+new_instructions = output[&amp;#39;new_instructions&amp;#39;]
+
+# 업데이트된 지시사항을 저장소에 다시 저장
+store.put((&amp;quot;agent_instructions&amp;quot;,), &amp;quot;agent_a&amp;quot;, {&amp;quot;instructions&amp;quot;: new_instructions})
+</code></pre>
+<h1>지시사항을 사용하여 응답을 생성하는 노드</h1>
+<p>def call_model(state: State, store: BaseStore):
+    namespace = (&quot;agent_instructions&quot;,)
+    # 저장소에서 최신 지시사항 검색
+    instructions = store.get(namespace, key=&quot;agent_a&quot;)[0]</p>
+<pre><code># 검색된 지시사항을 사용하여 프롬프트 포맷
+prompt = prompt_template.format(instructions=instructions.value[&amp;quot;instructions&amp;quot;])
+# ... 애플리케이션 로직 계속&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">27 lines</span>
+  </div>
+</div>
+
+<h4>LangGraph Store 사용</h4>
+<p>LangGraph는 저장소에 장기 메모리를 JSON 문서로 저장합니다. 각 메모리는 커스텀 네임스페이스(폴더와 같음)와 고유 키(파일명과 같음) 아래에 구성됩니다.</p>
+<p><strong>예제</strong>:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-713" onclick="copyCode('code-1769482284808-713')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-713" class="language-python">from langgraph.store.memory import InMemoryStore
+
+<h1>실제 임베딩 함수를 위한 플레이스홀더</h1>
+<p>def embed(texts: list[str]) -&gt; list[list[float]]:
+    # 실제 애플리케이션에서는 적절한 임베딩 모델 사용
+    return [[1.0, 2.0] for _ in texts]</p>
+<h1>인메모리 저장소 초기화. 프로덕션에서는 데이터베이스 기반 저장소 사용</h1>
+<p>store = InMemoryStore(index={&quot;embed&quot;: embed, &quot;dims&quot;: 2})</p>
+<h1>특정 사용자 및 애플리케이션 컨텍스트를 위한 네임스페이스 정의</h1>
+<p>user_id = &quot;my-user&quot;
+application_context = &quot;chitchat&quot;
+namespace = (user_id, application_context)</p>
+<h1>1. 저장소에 메모리 넣기</h1>
+<p>store.put(
+    namespace,
+    &quot;a-memory&quot;,  # 이 메모리의 키
+    {
+        &quot;rules&quot;: [
+            &quot;User likes short, direct language&quot;,
+            &quot;User only speaks English &amp; python&quot;,
+        ],
+        &quot;my-key&quot;: &quot;my-value&quot;,
+    },
+)</p>
+<h1>2. 네임스페이스와 키로 메모리 가져오기</h1>
+<p>item = store.get(namespace, &quot;a-memory&quot;)
+print(&quot;Retrieved Item:&quot;, item)</p>
+<h1>3. 네임스페이스 내에서 메모리 검색, 콘텐츠로 필터링하고</h1>
+<h1>쿼리에 대한 벡터 유사도로 정렬</h1>
+<p>items = store.search(
+    namespace,
+    filter={&quot;my-key&quot;: &quot;my-value&quot;},
+    query=&quot;language preferences&quot;
+)
+print(&quot;Search Results:&quot;, items)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">34 lines</span>
+  </div></p>
+</div>
+
+<h3 id="vertex-memory-bank">Vertex Memory Bank {#vertex-memory-bank}</h3>
+<p>Memory Bank는 Vertex AI Agent Engine의 관리형 서비스로, 에이전트에 지속적인 장기 메모리를 제공합니다.</p>
+<h4>주요 특징</h4>
+<p><strong>자동 분석</strong>:</p>
+<ul>
+<li>Gemini 모델을 사용하여 대화 기록을 비동기적으로 분석하여 주요 사실과 사용자 선호도를 추출</li>
+</ul>
+<p><strong>지속적 저장</strong>:</p>
+<ul>
+<li>사용자 ID와 같은 정의된 범위로 정보를 지속적으로 저장</li>
+<li>새 데이터를 통합하고 모순을 해결하도록 지능적으로 업데이트</li>
+</ul>
+<p><strong>검색</strong>:</p>
+<ul>
+<li>새 세션을 시작할 때 에이전트는 전체 데이터 회상 또는 임베딩을 사용한 유사도 검색을 통해 관련 메모리를 검색</li>
+<li>이 프로세스를 통해 에이전트가 세션 간 연속성을 유지하고 회상된 정보를 기반으로 응답을 개인화할 수 있음</li>
+</ul>
+<h4>사용 예제</h4>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-714" onclick="copyCode('code-1769482284808-714')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-714" class="language-python">from google.adk.memory import VertexAiMemoryBankService
+
+<p>agent_engine_id = agent_engine.api_resource.name.split(&quot;/&quot;)[-1]
+memory_service = VertexAiMemoryBankService(
+    project=&quot;PROJECT_ID&quot;,
+    location=&quot;LOCATION&quot;,
+    agent_engine_id=agent_engine_id
+)</p>
+<p>session = await session_service.get_session(
+    app_name=app_name,
+    user_id=&quot;USER_ID&quot;,
+    session_id=session.id
+)
+await memory_service.add_session_to_memory(session)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div></p>
+</div>
+
+<h4>통합</h4>
+<p>Memory Bank는 Google ADK와 원활하게 통합되어 즉시 사용 가능한 경험을 제공합니다. LangGraph 및 CrewAI와 같은 다른 에이전트 프레임워크의 사용자를 위해 Memory Bank는 직접 API 호출을 통한 지원도 제공합니다.</p>
+<h2 id="한눈에-보기-at-a-glance">한눈에 보기 (At a Glance) {#한눈에-보기-at-a-glance}</h2>
+<h3 id="무엇-what">무엇 (What) {#무엇-what}</h3>
+<p>에이전트 시스템은 복잡한 작업을 수행하고 일관된 경험을 제공하기 위해 과거 상호작용의 정보를 기억해야 합니다. 메모리 메커니즘이 없으면 에이전트는 상태가 없으며, 대화 컨텍스트를 유지하거나 경험으로부터 학습하거나 사용자를 위해 응답을 개인화할 수 없습니다.</p>
+<h3 id="왜-why">왜 (Why) {#왜-why}</h3>
+<p>표준화된 솔루션은 단기 및 장기 저장소를 구분하는 이중 구성 요소 메모리 시스템을 구현하는 것입니다. 단기, 컨텍스트 메모리는 대화 흐름을 유지하기 위해 LLM의 컨텍스트 창 내에 최근 상호작용 데이터를 보유합니다. 지속되어야 하는 정보의 경우, 장기 메모리 솔루션은 효율적인 의미적 검색을 위해 외부 데이터베이스, 종종 벡터 저장소를 사용합니다.</p>
+<h3 id="경험-법칙-rule-of-thumb">경험 법칙 (Rule of Thumb) {#경험-법칙-rule-of-thumb}</h3>
+<p>에이전트가 단일 질문에 답하는 것 이상을 수행해야 하는 경우 이 패턴을 사용하세요. 대화 전반에 걸쳐 컨텍스트를 유지하거나, 다단계 작업에서 진행 상황을 추적하거나, 사용자 선호도와 기록을 회상하여 상호작용을 개인화해야 하는 에이전트에게 필수적입니다.</p>
+<h3 id="시각적-요약">시각적 요약 {#시각적-요약}</h3>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-715" onclick="copyCode('code-1769482284808-715')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-715" class="language-mermaid">graph TD
+    A[User Interaction&lt;br/&gt;사용자 상호작용] --&gt; B[Short-Term Memory&lt;br/&gt;단기 메모리]
+    A --&gt; C[Long-Term Memory&lt;br/&gt;장기 메모리]
+    B --&gt; D[Context Window&lt;br/&gt;컨텍스트 창]
+    C --&gt; E[Vector Database&lt;br/&gt;벡터 데이터베이스]
+    D --&gt; F[LLM Processing&lt;br/&gt;LLM 처리]
+    E --&gt; F
+    F --&gt; G[Response&lt;br/&gt;응답]
+    
+<pre><code>style A fill:#ff9999
+style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div>
+</div>
+
+<h2 id="핵심-요약-key-takeaways">핵심 요약 (Key Takeaways) {#핵심-요약-key-takeaways}</h2>
+<ol>
+<li><p><strong>메모리는 에이전트가 사물을 추적하고, 학습하며, 상호작용을 개인화하는 데 매우 중요합니다</strong></p>
+</li>
+<li><p><strong>대화형 AI는 단일 채팅 내의 즉각적인 컨텍스트를 위한 단기 메모리와 여러 세션에 걸친 지속적인 지식을 위한 장기 메모리에 의존합니다</strong></p>
+</li>
+<li><p><strong>단기 메모리(즉각적인 것)는 일시적이며, 종종 LLM의 컨텍스트 창이나 프레임워크가 컨텍스트를 전달하는 방식에 의해 제한됩니다</strong></p>
+</li>
+<li><p><strong>장기 메모리(지속되는 것)는 벡터 데이터베이스와 같은 외부 저장소를 사용하여 다른 채팅 간에 정보를 저장하며 검색을 통해 접근됩니다</strong></p>
+</li>
+<li><p><strong>ADK와 같은 프레임워크는 Session(채팅 스레드), State(임시 채팅 데이터), MemoryService(검색 가능한 장기 지식)와 같은 특정 부분을 가져 메모리를 관리합니다</strong></p>
+</li>
+<li><p><strong>ADK의 SessionService는 기록(이벤트)과 임시 데이터(상태)를 포함하여 채팅 세션의 전체 생명주기를 처리합니다</strong></p>
+</li>
+<li><p><strong>장기 메모리는 의미적 메모리(사실), 일화적 메모리(경험), 절차적 메모리(규칙)로 분류할 수 있습니다</strong></p>
+</li>
+</ol>
+<h2 id="결론">결론 {#결론}</h2>
+<p>메모리 관리는 지능형 에이전트 시스템의 핵심 구성 요소입니다. 단기 및 장기 메모리를 구분하고 효과적으로 관리함으로써, 에이전트는 대화 컨텍스트를 유지하고, 경험으로부터 학습하며, 사용자 선호도를 기억하고, 시간이 지남에 따라 개선할 수 있습니다.</p>
+<p>Google ADK와 LangChain/LangGraph와 같은 프레임워크는 메모리 관리를 위한 강력한 도구와 추상화를 제공하여 개발자가 복잡하고 상태 저장이며 컨텍스트 인식 에이전트를 구축할 수 있게 합니다.</p>
+<p>Vertex Memory Bank와 같은 관리형 서비스는 자동 분석 및 지속적 저장을 통해 장기 메모리 관리를 더욱 단순화하여, 에이전트가 세션 간 연속성을 유지하고 개인화된 경험을 제공할 수 있게 합니다.</p>
+<h2 id="이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation) {#이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati}</h2>
+<h3 id="인지-심리학-작업-기억-모델">인지 심리학: 작업 기억 모델 {#인지-심리학-작업-기억-모델}</h3>
+<p>Baddeley &amp; Hitch(1974)의 작업 기억 모델은 단기 메모리의 구조를 설명합니다.</p>
+<p><strong>작업 기억 구성 요소</strong>:</p>
+<ul>
+<li><strong>음성 루프 (Phonological Loop)</strong>: 언어 정보 처리</li>
+<li><strong>시공간 스케치패드 (Visuospatial Sketchpad)</strong>: 시각-공간 정보 처리</li>
+<li><strong>중앙 집행기 (Central Executive)</strong>: 주의력 조절 및 조정</li>
+<li><strong>에피소드 버퍼 (Episodic Buffer)</strong>: 다양한 정보 소스 통합</li>
+</ul>
+<p><strong>에이전트 시스템에서의 적용</strong>:</p>
+<ul>
+<li>컨텍스트 창은 작업 기억과 유사</li>
+<li>여러 정보 소스(텍스트, 도구 출력, 검색 결과) 통합</li>
+<li>중앙 집행기는 LLM의 추론 능력과 유사</li>
+</ul>
+<h3 id="장기-기억-이론">장기 기억 이론 {#장기-기억-이론}</h3>
+<p>Tulving(1972)는 장기 기억을 세 가지 유형으로 분류합니다:</p>
+<ol>
+<li><strong>에피소드 기억 (Episodic Memory)</strong>: 특정 시간과 장소의 경험</li>
+<li><strong>의미 기억 (Semantic Memory)</strong>: 사실과 개념에 대한 지식</li>
+<li><strong>절차 기억 (Procedural Memory)</strong>: 기술과 절차에 대한 지식</li>
+</ol>
+<p><strong>에이전트 메모리 시스템에서의 구현</strong>:</p>
+<ul>
+<li><strong>에피소드 메모리</strong>: 세션별 상호작용 기록</li>
+<li><strong>의미 메모리</strong>: 벡터 데이터베이스의 지식 기반</li>
+<li><strong>절차 메모리</strong>: 도구 사용 패턴 및 워크플로우</li>
+</ul>
+<h3 id="망각-이론-forgetting-theory">망각 이론 (Forgetting Theory) {#망각-이론-forgetting-theory}</h3>
+<p>Ebbinghaus(1885)의 망각 곡선은 시간에 따른 정보 손실을 설명합니다.</p>
+<p><strong>망각 곡선 특성</strong>:</p>
+<ul>
+<li>초기에는 빠른 정보 손실</li>
+<li>시간이 지나면서 손실 속도 감소</li>
+<li>반복 학습으로 망각 속도 감소</li>
+</ul>
+<p><strong>에이전트 시스템에서의 적용</strong>:</p>
+<ul>
+<li>오래된 정보의 우선순위 감소</li>
+<li>중요 정보의 주기적 강화</li>
+<li>관련성 기반 정보 보존</li>
+</ul>
+<h3 id="정보-검색-이론">정보 검색 이론 {#정보-검색-이론}</h3>
+<p>벡터 검색은 정보 검색 이론에 기반합니다.</p>
+<p><strong>TF-IDF (Term Frequency-Inverse Document Frequency)</strong>:</p>
+<ul>
+<li>문서 내 단어 빈도와 전체 문서 집합에서의 역빈도</li>
+<li>중요 단어 식별</li>
+</ul>
+<p><strong>의미적 검색</strong>:</p>
+<ul>
+<li>단어 의미를 벡터로 표현</li>
+<li>코사인 유사도로 관련성 측정</li>
+<li>키워드 매칭을 넘어 의미적 유사성 파악</li>
+</ul>
+<h2 id="성능-최적화-기법-performance-optimization-techniques">성능 최적화 기법 (Performance Optimization Techniques) {#성능-최적화-기법-performance-optimization-techniques}</h2>
+<h3 id="1-메모리-압축-및-요약">1. 메모리 압축 및 요약 {#1-메모리-압축-및-요약}</h3>
+<p>컨텍스트 창을 효율적으로 사용하기 위한 전략:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-716" onclick="copyCode('code-1769482284808-716')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-716" class="language-python">def compress_memory(conversation_history: List[Message], max_tokens: int) -&gt; List[Message]:
+    &quot;&quot;&quot;대화 기록 압축&quot;&quot;&quot;
+    current_tokens = count_tokens(conversation_history)
+    
+<pre><code>if current_tokens &amp;lt;= max_tokens:
+    return conversation_history
+
+# 오래된 메시지 요약
+old_messages = conversation_history[:-10]  # 최근 10개 제외
+summary = summarize_messages(old_messages)
+
+# 요약과 최근 메시지 결합
+compressed = [summary] + conversation_history[-10:]
+return compressed&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">14 lines</span>
+  </div>
+</div>
+
+<h3 id="2-적응형-메모리-검색">2. 적응형 메모리 검색 {#2-적응형-메모리-검색}</h3>
+<p>쿼리와 관련성에 따라 검색 범위 조정:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-717" onclick="copyCode('code-1769482284808-717')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-717" class="language-python">def adaptive_memory_search(query: str, memory_service: MemoryService) -&gt; List[Memory]:
+    &quot;&quot;&quot;적응형 메모리 검색&quot;&quot;&quot;
+    query_embedding = embed(query)
+    
+<pre><code># 초기 검색 (넓은 범위)
+candidates = memory_service.search(query_embedding, top_k=50)
+
+# 관련성 재계산
+scored = [(m, cosine_similarity(query_embedding, m.embedding)) 
+          for m in candidates]
+
+# 상위 관련 메모리만 반환
+top_memories = sorted(scored, key=lambda x: x[1], reverse=True)[:10]
+return [m for m, _ in top_memories]&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">14 lines</span>
+  </div>
+</div>
+
+<h3 id="3-메모리-우선순위-관리">3. 메모리 우선순위 관리 {#3-메모리-우선순위-관리}</h3>
+<p>중요한 메모리를 우선적으로 보존:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-718" onclick="copyCode('code-1769482284808-718')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-718" class="language-python">class PriorityMemoryManager:
+    def __init__(self):
+        self.memory_priorities = {}
+    
+<pre><code>def update_priority(self, memory_id: str, importance: float):
+    &amp;quot;&amp;quot;&amp;quot;메모리 우선순위 업데이트&amp;quot;&amp;quot;&amp;quot;
+    self.memory_priorities[memory_id] = importance
+
+def evict_low_priority(self, max_size: int):
+    &amp;quot;&amp;quot;&amp;quot;낮은 우선순위 메모리 제거&amp;quot;&amp;quot;&amp;quot;
+    sorted_memories = sorted(
+        self.memory_priorities.items(),
+        key=lambda x: x[1]
+    )
+    
+    # 낮은 우선순위 메모리 제거
+    to_evict = sorted_memories[:-max_size]
+    for memory_id, _ in to_evict:
+        self.delete_memory(memory_id)&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">19 lines</span>
+  </div>
+</div>
+
+<h3 id="4-메모리-인덱싱-최적화">4. 메모리 인덱싱 최적화 {#4-메모리-인덱싱-최적화}</h3>
+<p>빠른 검색을 위한 인덱스 구조:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-719" onclick="copyCode('code-1769482284808-719')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-719" class="language-python">class OptimizedMemoryIndex:
+    def __init__(self):
+        self.vector_index = AnnoyIndex(embedding_dim, &#39;angular&#39;)
+        self.metadata_index = {}  # 메타데이터 인덱스
+    
+<pre><code>def build_index(self, memories: List[Memory]):
+    &amp;quot;&amp;quot;&amp;quot;메모리 인덱스 구축&amp;quot;&amp;quot;&amp;quot;
+    for i, memory in enumerate(memories):
+        self.vector_index.add_item(i, memory.embedding)
+        self.metadata_index[i] = {
+            &amp;#39;timestamp&amp;#39;: memory.timestamp,
+            &amp;#39;importance&amp;#39;: memory.importance,
+            &amp;#39;tags&amp;#39;: memory.tags
+        }
+    
+    self.vector_index.build(10)  # 10개의 트리
+
+def search(self, query_embedding, top_k=10):
+    &amp;quot;&amp;quot;&amp;quot;빠른 검색&amp;quot;&amp;quot;&amp;quot;
+    indices = self.vector_index.get_nns_by_vector(
+        query_embedding, top_k
+    )
+    return [self.metadata_index[i] for i in indices]&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">23 lines</span>
+  </div>
+</div>
+
+<h2 id="트레이드오프-및-한계점-trade-offs-and-limitations">트레이드오프 및 한계점 (Trade-offs and Limitations) {#트레이드오프-및-한계점-trade-offs-and-limitations}</h2>
+<h3 id="메모리-관리의-장점">메모리 관리의 장점 {#메모리-관리의-장점}</h3>
+<ol>
+<li><strong>컨텍스트 유지</strong>: 대화 연속성 보장</li>
+<li><strong>개인화</strong>: 사용자 선호도 기억</li>
+<li><strong>학습</strong>: 경험으로부터 개선</li>
+<li><strong>효율성</strong>: 관련 정보만 검색</li>
+</ol>
+<h3 id="메모리-관리의-한계">메모리 관리의 한계 {#메모리-관리의-한계}</h3>
+<ol>
+<li><strong>저장 비용</strong>: 장기 메모리 저장 비용</li>
+<li><strong>검색 지연</strong>: 대규모 메모리에서 검색 시간</li>
+<li><strong>프라이버시</strong>: 개인 정보 보호 문제</li>
+<li><strong>일관성</strong>: 메모리 간 일관성 유지 어려움</li>
+</ol>
+<h3 id="완화-전략">완화 전략 {#완화-전략}</h3>
+<ol>
+<li><strong>계층적 저장</strong>: 중요도에 따른 저장 전략</li>
+<li><strong>비동기 검색</strong>: 백그라운드에서 검색 수행</li>
+<li><strong>암호화</strong>: 민감한 정보 암호화</li>
+<li><strong>버전 관리</strong>: 메모리 버전 추적 및 관리</li>
+</ol>
+<h2 id="관련-패턴과의-비교-comparison-with-related-patterns">관련 패턴과의 비교 (Comparison with Related Patterns) {#관련-패턴과의-비교-comparison-with-related-patterns}</h2>
+<h3 id="memory-management-vs-stateless-systems">Memory Management vs. Stateless Systems {#memory-management-vs-stateless-systems}</h3>
+<table>
+<thead>
+<tr>
+<th>특성</th>
+<th>Stateless</th>
+<th>Memory Management</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>컨텍스트</td>
+<td>없음</td>
+<td>있음</td>
+</tr>
+<tr>
+<td>개인화</td>
+<td>불가능</td>
+<td>가능</td>
+</tr>
+<tr>
+<td>복잡도</td>
+<td>낮음</td>
+<td>높음</td>
+</tr>
+<tr>
+<td>확장성</td>
+<td>높음</td>
+<td>중간</td>
+</tr>
+</tbody></table>
+<h3 id="short-term-vs-long-term-memory">Short-term vs. Long-term Memory {#short-term-vs-long-term-memory}</h3>
+<p>단기와 장기 메모리는 서로 보완적:</p>
+<ul>
+<li><strong>Short-term</strong>: 빠른 접근, 제한된 용량</li>
+<li><strong>Long-term</strong>: 느린 접근, 큰 용량</li>
+<li><strong>통합</strong>: 단기 메모리에서 장기로 전환</li>
+</ul>
+<h2 id="실무-적용-사례-확장-extended-practical-applications">실무 적용 사례 확장 (Extended Practical Applications) {#실무-적용-사례-확장-extended-practical-applications}</h2>
+<h3 id="1-개인화된-학습-시스템">1. 개인화된 학습 시스템 {#1-개인화된-학습-시스템}</h3>
+<p>학습자의 진행 상황과 선호도를 기억:</p>
+<div class="code-block" data-language="mermaid">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-720" onclick="copyCode('code-1769482284808-720')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-720" class="language-mermaid">graph TD
+    A[Learning Session&lt;br/&gt;학습 세션] --&gt; B[Short-term Memory&lt;br/&gt;단기 메모리]
+    B --&gt; C[Progress Tracking&lt;br/&gt;진행 추적]
+    C --&gt; D[Long-term Memory&lt;br/&gt;장기 메모리]
+    D --&gt; E[Personalized Content&lt;br/&gt;개인화된 콘텐츠]
+    E --&gt; A
+    
+<pre><code>style A fill:#ff9999
+style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
+</div>
+
+<h3 id="2-지능형-고객-관계-관리">2. 지능형 고객 관계 관리 {#2-지능형-고객-관계-관리}</h3>
+<p>고객 상호작용 기록 및 선호도 관리:</p>
+<ul>
+<li><strong>에피소드 메모리</strong>: 과거 상호작용 기록</li>
+<li><strong>의미 메모리</strong>: 고객 프로필 및 선호도</li>
+<li><strong>절차 메모리</strong>: 효과적인 상호작용 패턴</li>
+</ul>
+<h3 id="3-지속적-대화-시스템">3. 지속적 대화 시스템 {#3-지속적-대화-시스템}</h3>
+<p>장기간 대화 컨텍스트 유지:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284808-721" onclick="copyCode('code-1769482284808-721')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284808-721" class="language-python">class PersistentConversationAgent:
+    def __init__(self, memory_service: MemoryService):
+        self.memory_service = memory_service
+        self.session_memory = {}  # 단기 메모리
+    
+<pre><code>async def process_message(self, user_id: str, message: str):
+    &amp;quot;&amp;quot;&amp;quot;메시지 처리 및 메모리 관리&amp;quot;&amp;quot;&amp;quot;
+    # 장기 메모리에서 관련 정보 검색
+    relevant_memories = await self.memory_service.search(
+        user_id=user_id,
+        query=message,
+        top_k=5
+    )
+    
+    # 단기 메모리에 추가
+    self.session_memory[user_id].append({
+        &amp;#39;role&amp;#39;: &amp;#39;user&amp;#39;,
+        &amp;#39;content&amp;#39;: message
+    })
+    
+    # 컨텍스트 구성
+    context = self.build_context(
+        relevant_memories,
+        self.session_memory[user_id]
+    )
+    
+    # 응답 생성
+    response = await self.generate_response(context)
+    
+    # 장기 메모리에 저장
+    await self.memory_service.add(
+        user_id=user_id,
+        memory={
+            &amp;#39;user_message&amp;#39;: message,
+            &amp;#39;agent_response&amp;#39;: response,
+            &amp;#39;timestamp&amp;#39;: datetime.now()
+        }
+    )
+    
+    return response&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">40 lines</span>
+  </div>
+</div>
+
+<h2 id="참고-자료-references">참고 자료 (References) {#참고-자료-references}</h2>
+<h3 id="학술-논문">학술 논문 {#학술-논문}</h3>
+<ol>
+<li><p>Baddeley, A. D., &amp; Hitch, G. (1974). &quot;Working memory.&quot; <em>Psychology of Learning and Motivation</em>, 8, 47-89.</p>
+</li>
+<li><p>Tulving, E. (1972). &quot;Episodic and semantic memory.&quot; <em>Organization of Memory</em>, 381-403.</p>
+</li>
+<li><p>Ebbinghaus, H. (1885). <em>Über das Gedächtnis: Untersuchungen zur experimentellen Psychologie</em>. Duncker &amp; Humblot.</p>
+</li>
+<li><p>Atkinson, R. C., &amp; Shiffrin, R. M. (1968). &quot;Human memory: A proposed system and its control processes.&quot; <em>Psychology of Learning and Motivation</em>, 2, 89-195.</p>
+</li>
+<li><p>Salton, G., &amp; McGill, M. J. (1986). <em>Introduction to Modern Information Retrieval</em>. McGraw-Hill.</p>
+</li>
+<li><p>Mikolov, T., et al. (2013). &quot;Efficient estimation of word representations in vector space.&quot; <em>arXiv preprint arXiv:1301.3781</em>.</p>
+</li>
+</ol>
+<h3 id="프레임워크-및-도구-문서">프레임워크 및 도구 문서 {#프레임워크-및-도구-문서}</h3>
+<ol>
+<li><p>Google ADK Memory Documentation:
+<a href="https://google.github.io/adk-docs/memory/">https://google.github.io/adk-docs/memory/</a></p>
+</li>
+<li><p>LangChain Memory Documentation:
+<a href="https://python.langchain.com/docs/modules/memory/">https://python.langchain.com/docs/modules/memory/</a></p>
+</li>
+<li><p>LangGraph Store Documentation:
+<a href="https://langchain-ai.github.io/langgraph/how-tos/memory/">https://langchain-ai.github.io/langgraph/how-tos/memory/</a></p>
+</li>
+<li><p>Vertex Memory Bank:
+<a href="https://cloud.google.com/vertex-ai/docs/agent-builder/memory-bank">https://cloud.google.com/vertex-ai/docs/agent-builder/memory-bank</a></p>
+</li>
+</ol>
+<h3 id="추가-학습-자료">추가 학습 자료 {#추가-학습-자료}</h3>
+<ol start="5">
+<li><p>&quot;Memory: From Mind to Molecules&quot; by Larry R. Squire &amp; Eric R. Kandel</p>
+</li>
+<li><p>&quot;Information Retrieval: Algorithms and Heuristics&quot; by David A. Grossman &amp; Ophir Frieder</p>
+</li>
+<li><p>&quot;Vector Space Models of Semantics&quot; - Stanford NLP Course</p>
+</li>
+</ol>
+<hr>
+<p><strong>이전 챕터</strong>: <a href="chapter_07_Multi-Agent.md">Chapter 7: Multi-Agent</a><br><strong>다음 챕터</strong>: <a href="chapter_09_Learning_and_Adaptation.md">Chapter 9: Learning and Adaptation</a></p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-9.html&text=Untitled" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-9.html&title=Untitled" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-9.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/agent-architect.html" class="author-bio__card">
+          <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">에이전트 아키텍트</h3>
+            <p class="author-bio__role">AI Agent Systems Designer</p>
+            <p class="author-bio__text">AI 에이전트 시스템 설계와 디자인 패턴을 전문으로 다룹니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/untitled.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/agent-patterns-placeholder.svg"
+             alt="Untitled"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #6366f1">
+          Agent 패턴
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Untitled</h3>
+          <p class="article-card__excerpt">Welcome to "Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems." As we look across the landscape of modern artificial...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-card__avatar">
+              <span>에이전트 아키텍트</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/untitled-1.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/agent-patterns-placeholder.svg"
+             alt="Untitled"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #6366f1">
+          Agent 패턴
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Untitled</h3>
+          <p class="article-card__excerpt">In simple terms, an AI agent is a system designed to perceive its environment and take actions to achieve a specific goal. It's an evolution from a...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-card__avatar">
+              <span>에이전트 아키텍트</span>
+            </div>
+            <span class="article-card__reading-time">32 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/untitled-2.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/agent-patterns-placeholder.svg"
+             alt="Untitled"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #6366f1">
+          Agent 패턴
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Untitled</h3>
+          <p class="article-card__excerpt">Prompt chaining, sometimes referred to as Pipeline pattern, represents a powerful paradigm for handling intricate tasks when leveraging large...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-card__avatar">
+              <span>에이전트 아키텍트</span>
+            </div>
+            <span class="article-card__reading-time">46 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI 기술 자료 저널</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

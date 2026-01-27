@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>교사 관찰 기록 생성기 (NEIS 포맷) 코드 | AI &amp; Development Journal</title>
+  <meta name="description" content="교사 관찰 기록 생성기 (NEIS 포맷) 코드">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="교사 관찰 기록 생성기 (NEIS 포맷) 코드">
+  <meta property="og:description" content="교사 관찰 기록 생성기 (NEIS 포맷) 코드">
+  <meta property="og:image" content="/assets/images/tutorials-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/교사-관찰-기록-생성기-neis-포맷-코드.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="교사 관찰 기록 생성기 (NEIS 포맷) 코드">
+  <meta name="twitter:description" content="교사 관찰 기록 생성기 (NEIS 포맷) 코드">
+  <meta name="twitter:image" content="/assets/images/tutorials-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/교사-관찰-기록-생성기-neis-포맷-코드.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/tutorials.html" class="article-category" style="background-color: #14b8a6">
+          튜토리얼
+        </a>
+        <h1 class="article-title">교사 관찰 기록 생성기 (NEIS 포맷) 코드</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-expert.html" class="article-author">
+            <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 전문가</span>
+              <span class="article-author__role">AI &amp; Development Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 10월 5일">2025년 10월 5일</time>
+            <span class="article-meta__separator">·</span>
+            <span>15 read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#your-task" class="toc__link">Your Task</a>
+    </li>
+    <li class="toc__item">
+      <a href="#observation-record-requirements" class="toc__link">Observation Record Requirements</a>
+    </li>
+    <li class="toc__item">
+      <a href="#output-format" class="toc__link">Output Format</a>
+    </li>
+  </ol>
+</nav>
+
+            <div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055671-7569" onclick="copyCode('code-1769481055671-7569')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055671-7569" class="language-plaintext">&lt;!DOCTYPE html&gt;
+
+<p>&lt;html lang=&quot;ko&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>&lt;title&gt;교사 관찰 기록 생성기 (NEIS 포맷)&lt;/title&gt;</p>
+<p>&lt;script src=&quot;<a href="https://cdn.tailwindcss.com&quot;&gt;&lt;/script">https://cdn.tailwindcss.com&quot;&gt;&lt;/script</a>&gt;</p>
+<p>&lt;script src=&quot;<a href="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js&quot;&gt;&lt;/script">https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js&quot;&gt;&lt;/script</a>&gt;</p>
+<p>&lt;link href=&quot;<a href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap</a>&quot; rel=&quot;stylesheet&quot;&gt;</p>
+<p>&lt;style&gt;</p>
+<p>body {</p>
+<p>font-family: &#39;Noto Sans KR&#39;, sans-serif;</p>
+<p>}</p>
+<p>.tooltip {</p>
+<p>position: relative;</p>
+<p>display: inline-block;</p>
+<p>}</p>
+<p>.tooltip .tooltiptext {</p>
+<p>visibility: hidden;</p>
+<p>width: 250px;</p>
+<p>background-color: #555;</p>
+<p>color: #fff;</p>
+<p>text-align: center;</p>
+<p>border-radius: 6px;</p>
+<p>padding: 5px;</p>
+<p>position: absolute;</p>
+<p>z-index: 1;</p>
+<p>bottom: 125%;</p>
+<p>left: 50%;</p>
+<p>margin-left: -125px;</p>
+<p>opacity: 0;</p>
+<p>transition: opacity 0.3s;</p>
+<p>}</p>
+<p>.tooltip .tooltiptext::after {</p>
+<p>content: &quot;&quot;;</p>
+<p>position: absolute;</p>
+<p>top: 100%;</p>
+<p>left: 50%;</p>
+<p>margin-left: -5px;</p>
+<p>border-width: 5px;</p>
+<p>border-style: solid;</p>
+<p>border-color: #555 transparent transparent transparent;</p>
+<p>}</p>
+<p>.tooltip:hover .tooltiptext {</p>
+<p>visibility: visible;</p>
+<p>opacity: 1;</p>
+<p>}</p>
+<p>table th, table td {</p>
+<p>border: 1px solid #e2e8f0;</p>
+<p>padding: 12px;</p>
+<p>text-align: left;</p>
+<p>}</p>
+<p>.calculated-value {</p>
+<p>background-color: #e0f2fe;</p>
+<p>font-weight: 500;</p>
+<p>}</p>
+<p>.copy-btn-feedback {</p>
+<p>background-color: #28a745 !important;</p>
+<p>color: white;</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body class=&quot;bg-gray-100 flex items-center justify-center min-h-screen&quot;&gt;</p>
+<p>&lt;div class=&quot;container mx-auto p-4 md:p-8 max-w-5xl w-full&quot;&gt;</p>
+<p>&lt;div class=&quot;bg-white rounded-2xl shadow-lg p-6 md:p-8&quot;&gt;</p>
+<p>&lt;div class=&quot;text-center mb-6&quot;&gt;</p>
+<p>&lt;h1 class=&quot;text-3xl font-bold text-gray-800&quot;&gt;교사 관찰 기록 생성기&lt;/h1&gt;</p>
+<p>&lt;p class=&quot;text-gray-500 mt-2&quot;&gt;NEIS 형식에 맞는 학생의 강점 및 관찰 기록을 생성합니다.&lt;/p&gt;</p>
+<p>&lt;p class=&quot;text-xs text-blue-600 mt-1&quot;&gt;✓ 글자수와 바이트수는 브라우저에서 자동으로 정확하게 계산됩니다&lt;/p&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div class=&quot;mb-6&quot;&gt;</p>
+<p>&lt;label for=&quot;studentData&quot; class=&quot;block text-sm font-medium text-gray-700 mb-2&quot;&gt;</p>
+<p>학생 활동 데이터 입력</p>
+<p>&lt;div class=&quot;tooltip inline-block&quot;&gt;</p>
+<p>&lt;span class=&quot;ml-2 text-xs text-white bg-gray-400 hover:bg-gray-500 rounded-full px-2 py-1 cursor-pointer align-middle&quot;&gt;입력 방법&lt;/span&gt;</p>
+<p>&lt;span class=&quot;tooltiptext&quot;&gt;</p>
+<p>학생 데이터를 입력하세요. 여러 학생의 경우, 각 학생 데이터 사이에 &#39;---&#39; 구분 기호를 넣어주세요.&lt;br&gt;&lt;br&gt;</p>
+<p>예시:&lt;br&gt;</p>
+<p>학번: 202301, 이름: 김철수...&lt;br&gt;</p>
+<p>---&lt;br&gt;</p>
+<p>학번: 202302, 이름: 이영희...</p>
+<p>&lt;/span&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/label&gt;</p>
+<p>&lt;textarea id=&quot;studentData&quot; rows=&quot;10&quot; class=&quot;w-full p-4 text-gray-700 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 placeholder-gray-400&quot; placeholder=&quot;이곳에 학생 활동 데이터를 붙여넣으세요.&amp;#10;여러 학생의 데이터를 입력할 경우, 각 학생의 데이터는 &#39;---&#39;로 구분해주세요.&quot;&gt;&lt;/textarea&gt;</p>
+<p>&lt;div id=&quot;inputDataCounter&quot; class=&quot;text-right text-sm text-gray-500 mt-1 pr-1&quot;&gt;&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div class=&quot;grid grid-cols-1 sm:grid-cols-2 gap-4 mb-2&quot;&gt;</p>
+<p>&lt;div&gt;</p>
+<p>&lt;label for=&quot;charCountInput&quot; class=&quot;block text-sm font-medium text-gray-700&quot;&gt;목표 글자 수 (선택)&lt;/label&gt;</p>
+<p>&lt;input type=&quot;number&quot; id=&quot;charCountInput&quot; class=&quot;mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500&quot; placeholder=&quot;예: 150&quot;&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div&gt;</p>
+<p>&lt;label for=&quot;byteCountInput&quot; class=&quot;block text-sm font-medium text-gray-700&quot;&gt;목표 바이트 수 (선택)&lt;/label&gt;</p>
+<p>&lt;input type=&quot;number&quot; id=&quot;byteCountInput&quot; class=&quot;mt-1 block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-blue-500 focus:border-blue-500&quot; placeholder=&quot;예: 450&quot;&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;p class=&quot;text-xs text-gray-500 mb-6&quot;&gt;한쪽 값을 입력하면 다른 쪽 값이 자동으로 계산됩니다. (한글 3바이트 기준)&lt;/p&gt;</p>
+<p>&lt;div class=&quot;text-center flex flex-col sm:flex-row justify-center items-center space-y-2 sm:space-y-0 sm:space-x-4&quot;&gt;</p>
+<p>&lt;button id=&quot;guideButton&quot; class=&quot;w-full sm:w-auto bg-teal-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-teal-600 focus:outline-none focus:ring-4 focus:ring-teal-300 transition-transform transform hover:scale-105 duration-300&quot;&gt;</p>
+<p>사용자 가이드</p>
+<p>&lt;/button&gt;</p>
+<p>&lt;button id=&quot;newPostButton&quot; class=&quot;w-full sm:w-auto bg-gray-500 text-white font-bold py-3 px-8 rounded-lg hover:bg-gray-600 focus:outline-none focus:ring-4 focus:ring-gray-300 transition-transform transform hover:scale-105 duration-300&quot;&gt;</p>
+<p>새글</p>
+<p>&lt;/button&gt;</p>
+<p>&lt;button id=&quot;generateButton&quot; class=&quot;w-full sm:w-auto bg-blue-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-blue-700 focus:outline-none focus:ring-4 focus:ring-blue-300 transition-transform transform hover:scale-105 duration-300&quot;&gt;</p>
+<p>생성하기</p>
+<p>&lt;/button&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div id=&quot;loader&quot; class=&quot;hidden my-6 text-center&quot;&gt;</p>
+<p>&lt;p class=&quot;text-gray-600&quot;&gt;관찰 기록을 생성 중입니다. 잠시만 기다려주세요...&lt;/p&gt;</p>
+<p>&lt;div class=&quot;w-full bg-gray-200 rounded-full h-2.5 mt-2&quot;&gt;</p>
+<p>&lt;div id=&quot;progressBar&quot; class=&quot;bg-blue-600 h-2.5 rounded-full transition-all duration-300&quot; style=&quot;width: 0%&quot;&gt;&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div id=&quot;error&quot; class=&quot;hidden my-6 p-4 bg-red-100 text-red-700 border border-red-300 rounded-lg&quot;&gt;&lt;/div&gt;</p>
+<p>&lt;div id=&quot;result&quot; class=&quot;mt-8 overflow-x-auto&quot;&gt;&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;!-- User Guide Modal --&gt;</p>
+<p>&lt;div id=&quot;guideModal&quot; class=&quot;hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex justify-center items-center p-4&quot;&gt;</p>
+<p>&lt;div class=&quot;bg-white rounded-lg shadow-xl max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 md:p-8 relative&quot;&gt;</p>
+<p>&lt;button id=&quot;closeModalButton&quot; class=&quot;absolute top-4 right-4 text-gray-400 hover:text-gray-600&quot;&gt;</p>
+<p>&lt;svg class=&quot;w-6 h-6&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; viewBox=&quot;0 0 24 24&quot; xmlns=&quot;<a href="http://www.w3.org/2000/svg&quot;&gt;&lt;path">http://www.w3.org/2000/svg&quot;&gt;&lt;path</a> stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot; stroke-width=&quot;2&quot; d=&quot;M6 18L18 6M6 6l12 12&quot;&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p>&lt;/button&gt;</p>
+<p>&lt;h2 class=&quot;text-2xl font-bold mb-4 text-gray-800&quot;&gt;사용자 가이드&lt;/h2&gt;</p>
+<p>&lt;h3 class=&quot;text-lg font-semibold mt-6 mb-2 text-gray-700&quot;&gt;간단 사용법&lt;/h3&gt;</p>
+<p>&lt;ol class=&quot;list-decimal list-inside space-y-2 text-gray-600 bg-gray-50 p-4 rounded-md&quot;&gt;</p>
+<p>&lt;li&gt;&#39;학생 활동 데이터 입력&#39;란에 학생 데이터를 붙여넣습니다. (입력창 하단에서 각 학생 데이터의 글자/바이트 수를 실시간으로 확인할 수 있습니다.)&lt;/li&gt;</p>
+<p>&lt;li&gt;&#39;목표 글자 수&#39; 또는 &#39;목표 바이트 수&#39;는 선택 사항입니다. 입력하지 않으면 기본값으로 생성되며, 길이를 조절하고 싶을 경우에만 입력하세요.&lt;/li&gt;</p>
+<p>&lt;li&gt;학생이 여러 명일 경우, 각 학생의 데이터는 &lt;code class=&quot;bg-gray-200 text-red-500 font-mono px-1 rounded&quot;&gt;---&lt;/code&gt; 로 구분해주세요.&lt;/li&gt;</p>
+<p>&lt;li&gt;&#39;생성하기&#39; 버튼을 클릭하여 관찰 기록을 생성합니다.&lt;/li&gt;</p>
+<p>&lt;li&gt;&#39;새글&#39; 버튼을 누르면 입력된 내용과 결과가 초기화됩니다.&lt;/li&gt;</p>
+<p>&lt;/ol&gt;</p>
+<p>&lt;h3 class=&quot;text-lg font-semibold mt-6 mb-2 text-gray-700&quot;&gt;결과 활용하기&lt;/h3&gt;</p>
+<p>&lt;ul class=&quot;list-disc list-inside space-y-2 text-gray-600 bg-gray-50 p-4 rounded-md&quot;&gt;</p>
+<p>&lt;li&gt;&lt;b&gt;개별 기록 복사:&lt;/b&gt; &#39;교사 관찰 기록&#39; 셀 위에 마우스를 올리면 나타나는 복사 아이콘을 클릭하여 해당 내용을 클립보드에 복사할 수 있습니다.&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;b&gt;테이블 전체 복사:&lt;/b&gt; &#39;테이블 복사&#39; 버튼을 클릭하면 전체 표의 내용이 클립보드에 복사되어, 엑셀이나 구글 스프레드시트에 바로 붙여넣을 수 있습니다.&lt;/li&gt;</p>
+<p>&lt;li&gt;&lt;b&gt;엑셀로 내보내기:&lt;/b&gt; &#39;엑셀 파일로 내보내기&#39; 버튼을 클릭하면 전체 표를 .xlsx 파일로 다운로드할 수 있습니다.&lt;/li&gt;</p>
+<p>&lt;/ul&gt;</p>
+<p>&lt;h3 class=&quot;text-lg font-semibold mt-6 mb-2 text-gray-700&quot;&gt;입력 예시&lt;/h3&gt;</p>
+<p>&lt;div class=&quot;bg-blue-50 border-l-4 border-blue-500 text-blue-700 p-4 rounded-md mb-4&quot;&gt;</p>
+<p>&lt;p class=&quot;font-bold&quot;&gt;입력 형식 안내&lt;/p&gt;</p>
+<p>&lt;p&gt;자유로운 형식으로 학생의 활동 내용을 입력할 수 있습니다. 아래 예시처럼 항목을 나누어 정리하거나, 간단히 서술하여 입력해도 좋습니다.&lt;/p&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;h4 class=&quot;text-md font-semibold mt-4 mb-2 text-gray-600&quot;&gt;# 요소를 구분하여 입력한 예시&lt;/h4&gt;</p>
+<p>&lt;pre class=&quot;bg-gray-100 p-4 rounded-md text-sm text-gray-800 overflow-x-auto&quot;&gt;&lt;code&gt;학번: 202401, 이름: 김지혜</p>
+<p>활동: 과학 프로젝트 &#39;식물 성장 관찰&#39;에서 팀장 역할 수행. 실험 설계 및 데이터 분석 주도. 최종 보고서 작성 기여도 높음.</p>
+<p>성취: 교내 과학 경진대회 은상 수상.</p>
+<p>태도: 탐구심이 강하고, 문제 해결 과정에서 논리적 사고력이 돋보임. 팀원들과의 협업 능력 우수.&lt;/code&gt;&lt;/pre&gt;</p>
+<p>&lt;h4 class=&quot;text-md font-semibold mt-6 mb-2 text-gray-600&quot;&gt;# 서울형으로 기록한 내용 입력 예시&lt;/h4&gt;</p>
+<p>&lt;pre class=&quot;bg-gray-100 p-4 rounded-md text-sm text-gray-800 overflow-x-auto&quot;&gt;&lt;code&gt;10301 홍길동 수학 교사를 목표로 학생들의 공부량과 성적간의 관계를 파악하면서 공부에 어려움을 겪고 있는 학생들에게 도움을 줄 수 있을 것 같다.api 를 이용해 보고 싶어 계속 노력을 했으나 오류가 나와 다른 방향으로 챗봇을 만들었다. 앱을 만드는데 많은 노력이 필요 하다는것을 알게되었고 api 오픈챗봇을 만들기 위해 더 시도해 볼 예정이다.코드를 직접 짜면서 여러가지 문제점을 발생했지만 해결하며 문제해결능력을 키웠다.&lt;/code&gt;&lt;/pre&gt;</p>
+<p>&lt;h3 class=&quot;text-lg font-semibold mt-8 mb-2 text-gray-700&quot;&gt;목표 글자 수 설정 안내&lt;/h3&gt;</p>
+<p>&lt;div class=&quot;bg-yellow-50 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-md&quot;&gt;</p>
+<p>&lt;p class=&quot;font-bold&quot;&gt;AI 생성 길이 관련 참고사항&lt;/p&gt;</p>
+<p>&lt;p class=&quot;mt-1 text-sm&quot;&gt;목표 글자 수를 설정하면 AI는 해당 길이를 &#39;지향점&#39;으로 인식하여 최대한 근접하게 생성하려고 노력합니다. 하지만 AI의 최우선 목표는 내용의 완성도와 문장의 자연스러움이므로, 설정한 값과 실제 결과물 사이에 약간의 차이가 발생할 수 있습니다.&lt;/p&gt;</p>
+<p>&lt;p class=&quot;mt-2 text-sm&quot;&gt;이 기능은 생성될 내용의 길이를 대략적으로 조절하는 용도로 활용하시는 것이 좋습니다.&lt;/p&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;h3 class=&quot;text-lg font-semibold mt-8 mb-2 text-gray-700&quot;&gt;결과 화면 예시&lt;/h3&gt;</p>
+<p>&lt;div class=&quot;overflow-x-auto border border-gray-200 rounded-lg&quot;&gt;</p>
+<p>&lt;table class=&quot;min-w-full bg-white&quot;&gt;</p>
+<p>&lt;thead class=&quot;bg-gray-50&quot;&gt;</p>
+<p>&lt;tr&gt;</p>
+<p>&lt;th class=&quot;px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;학번&lt;/th&gt;</p>
+<p>&lt;th class=&quot;px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;이름&lt;/th&gt;</p>
+<p>&lt;th class=&quot;px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;차별화된 강점&lt;/th&gt;</p>
+<p>&lt;th class=&quot;px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;교사 관찰 기록&lt;/th&gt;</p>
+<p>&lt;th class=&quot;px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;글자수&lt;/th&gt;</p>
+<p>&lt;th class=&quot;px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider&quot;&gt;바이트수&lt;/th&gt;</p>
+<p>&lt;/tr&gt;</p>
+<p>&lt;/thead&gt;</p>
+<p>&lt;tbody class=&quot;divide-y divide-gray-200&quot;&gt;</p>
+<p>&lt;tr&gt;</p>
+<p>&lt;td class=&quot;px-6 py-4 whitespace-nowrap text-sm&quot;&gt;202401&lt;/td&gt;</p>
+<p>&lt;td class=&quot;px-6 py-4 whitespace-nowrap text-sm&quot;&gt;김지혜&lt;/td&gt;</p>
+<p>&lt;td class=&quot;px-6 py-4 text-sm align-top&quot;&gt;• 뛰어난 과학 탐구 및 분석 능력&lt;br&gt;• 리더십과 협업 능력&lt;/td&gt;</p>
+<p>&lt;td class=&quot;px-6 py-4 text-sm align-top&quot;&gt;과학 분야에 대한 깊은 탐구심과 지적 호기심을 바탕으로 자기주도적 학습 능력이 탁월함. 특히 과학 프로젝트에서 팀장 역할을 맡아 실험 설계부터 데이터 분석, 보고서 작성까지 전 과정을 주도적으로 이끌며 뛰어난 리더십을 보여줌. 복잡한 문제 상황에서 논리적 사고를 통해 해결책을 찾아내는 능력이 우수하며, 팀원들과의 원활한 소통과 협업을 통해 공동의 목표를 성공적으로 달성하는 데 핵심적인 역할을 수행함.&lt;/td&gt;</p>
+<p>&lt;td class=&quot;px-6 py-4 text-sm calculated-value&quot;&gt;148&lt;/td&gt;</p>
+<p>&lt;td class=&quot;px-6 py-4 text-sm calculated-value&quot;&gt;440&lt;/td&gt;</p>
+<p>&lt;/tr&gt;</p>
+<p>&lt;/tbody&gt;</p>
+<p>&lt;/table&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;script&gt;</p>
+<p>const generateButton = document.getElementById(&#39;generateButton&#39;);</p>
+<p>const newPostButton = document.getElementById(&#39;newPostButton&#39;);</p>
+<p>const guideButton = document.getElementById(&#39;guideButton&#39;);</p>
+<p>const guideModal = document.getElementById(&#39;guideModal&#39;);</p>
+<p>const closeModalButton = document.getElementById(&#39;closeModalButton&#39;);</p>
+<p>const studentDataInput = document.getElementById(&#39;studentData&#39;);</p>
+<p>const charCountInput = document.getElementById(&#39;charCountInput&#39;);</p>
+<p>const byteCountInput = document.getElementById(&#39;byteCountInput&#39;);</p>
+<p>const inputDataCounter = document.getElementById(&#39;inputDataCounter&#39;);</p>
+<p>const loader = document.getElementById(&#39;loader&#39;);</p>
+<p>const resultDiv = document.getElementById(&#39;result&#39;);</p>
+<p>const errorDiv = document.getElementById(&#39;error&#39;);</p>
+<p>let progressInterval = null;</p>
+<p>// 글자수와 바이트 수 자동 변환</p>
+<p>charCountInput.addEventListener(&#39;input&#39;, () =&gt; {</p>
+<p>const chars = parseInt(charCountInput.value, 10);</p>
+<p>if (!isNaN(chars)) {</p>
+<p>byteCountInput.value = Math.round(chars * 3);</p>
+<p>} else {</p>
+<p>byteCountInput.value = &#39;&#39;;</p>
+<p>}</p>
+<p>});</p>
+<p>byteCountInput.addEventListener(&#39;input&#39;, () =&gt; {</p>
+<p>const bytes = parseInt(byteCountInput.value, 10);</p>
+<p>if (!isNaN(bytes)) {</p>
+<p>charCountInput.value = Math.round(bytes / 3);</p>
+<p>} else {</p>
+<p>charCountInput.value = &#39;&#39;;</p>
+<p>}</p>
+<p>});</p>
+<p>// 입력 데이터 글자 수 및 바이트 수 실시간 계산</p>
+<p>studentDataInput.addEventListener(&#39;input&#39;, () =&gt; {</p>
+<p>const text = studentDataInput.value;</p>
+<p>if (text) {</p>
+<p>const students = text.split(&#39;---&#39;);</p>
+<p>const countsText = students.map((studentText, index) =&gt; {</p>
+<p>const trimmedText = studentText.trim();</p>
+<p>if (trimmedText) {</p>
+<p>const { totalChars, totalBytes } = calculateNEIS(trimmedText);</p>
+<p>return <code>학생 ${index + 1}: ${totalChars}자 / ${totalBytes}바이트</code>;</p>
+<p>}</p>
+<p>return null;</p>
+<p>}).filter(Boolean).join(&#39;&lt;br&gt;&#39;); // Use &lt;br&gt; for line breaks in HTML</p>
+<p>inputDataCounter.innerHTML = countsText; // Use innerHTML to render line breaks</p>
+<p>} else {</p>
+<p>inputDataCounter.innerHTML = &#39;&#39;; // Clear if textarea is empty</p>
+<p>}</p>
+<p>});</p>
+<p>// NEIS 바이트 계산 함수</p>
+<p>function calculateNEIS(text) {</p>
+<p>const koreanCount = (text.match(/[가-힣]/g) || []).length;</p>
+<p>const englishCount = (text.match(/[a-zA-Z]/g) || []).length;</p>
+<p>const numberCount = (text.match(/[0-9]/g) || []).length;</p>
+<p>const spaceCount = (text.match(/ /g) || []).length;</p>
+<p>const newlineCount = (text.match(/\n/g) || []).length;</p>
+<p>const totalChars = text.length;</p>
+<p>const specialCount = totalChars - koreanCount - englishCount - numberCount - spaceCount - newlineCount;</p>
+<p>const totalBytes = (koreanCount * 3) + englishCount + numberCount + spaceCount + specialCount + newlineCount;</p>
+<p>return {</p>
+<p>totalChars,</p>
+<p>totalBytes,</p>
+<p>};</p>
+<p>}</p>
+<p>generateButton.addEventListener(&#39;click&#39;, async () =&gt; {</p>
+<p>const studentData = studentDataInput.value.trim();</p>
+<p>if (!studentData) {</p>
+<p>showError(&quot;학생 활동 데이터를 입력해주세요.&quot;);</p>
+<p>return;</p>
+<p>}</p>
+<p>showLoader(true);</p>
+<p>clearResults();</p>
+<p>try {</p>
+<p>const desiredChars = charCountInput.value;</p>
+<p>const desiredBytes = byteCountInput.value;</p>
+<p>const modelResponse = await callGenerativeAI(studentData, desiredChars, desiredBytes);</p>
+<p>displayResult(modelResponse);</p>
+<p>} catch (e) {</p>
+<p>console.error(&quot;최종 생성 실패:&quot;, e);</p>
+<p>showError(<code>오류가 발생했습니다: ${e.message}. 잠시 후 다시 시도해주세요.</code>);</p>
+<p>} finally {</p>
+<p>showLoader(false);</p>
+<p>}</p>
+<p>});</p>
+<p>newPostButton.addEventListener(&#39;click&#39;, () =&gt; {</p>
+<p>studentDataInput.value = &#39;&#39;;</p>
+<p>charCountInput.value = &#39;&#39;;</p>
+<p>byteCountInput.value = &#39;&#39;;</p>
+<p>inputDataCounter.innerHTML = &#39;&#39;;</p>
+<p>clearResults();</p>
+<p>studentDataInput.focus();</p>
+<p>});</p>
+<p>guideButton.addEventListener(&#39;click&#39;, () =&gt; {</p>
+<p>guideModal.classList.remove(&#39;hidden&#39;);</p>
+<p>});</p>
+<p>closeModalButton.addEventListener(&#39;click&#39;, () =&gt; {</p>
+<p>guideModal.classList.add(&#39;hidden&#39;);</p>
+<p>});</p>
+<p>guideModal.addEventListener(&#39;click&#39;, (event) =&gt; {</p>
+<p>if (event.target === guideModal) {</p>
+<p>guideModal.classList.add(&#39;hidden&#39;);</p>
+<p>}</p>
+<p>});</p>
+<p>function showLoader(isLoading) {</p>
+<p>const progressBar = document.getElementById(&#39;progressBar&#39;);</p>
+<p>loader.classList.toggle(&#39;hidden&#39;, !isLoading);</p>
+<p>generateButton.disabled = isLoading;</p>
+<p>newPostButton.disabled = isLoading;</p>
+<p>guideButton.disabled = isLoading;</p>
+<p>generateButton.classList.toggle(&#39;opacity-50&#39;, isLoading);</p>
+<p>newPostButton.classList.toggle(&#39;opacity-50&#39;, isLoading);</p>
+<p>guideButton.classList.toggle(&#39;opacity-50&#39;, isLoading);</p>
+<p>generateButton.classList.toggle(&#39;cursor-not-allowed&#39;, isLoading);</p>
+<p>newPostButton.classList.toggle(&#39;cursor-not-allowed&#39;, isLoading);</p>
+<p>guideButton.classList.toggle(&#39;cursor-not-allowed&#39;, isLoading);</p>
+<p>if (isLoading) {</p>
+<p>progressBar.style.width = &#39;0%&#39;;</p>
+<p>let progress = 0;</p>
+<p>progressInterval = setInterval(() =&gt; {</p>
+<p>progress += Math.random() * 5;</p>
+<p>if (progress &gt; 95) {</p>
+<p>progress = 95;</p>
+<p>clearInterval(progressInterval);</p>
+<p>}</p>
+<p>progressBar.style.width = progress + &#39;%&#39;;</p>
+<p>}, 300);</p>
+<p>} else {</p>
+<p>if (progressInterval) {</p>
+<p>clearInterval(progressInterval);</p>
+<p>progressInterval = null;</p>
+<p>}</p>
+<p>progressBar.style.width = &#39;100%&#39;;</p>
+<p>setTimeout(() =&gt; {</p>
+<p>progressBar.style.width = &#39;0%&#39;;</p>
+<p>}, 500);</p>
+<p>}</p>
+<p>}</p>
+<p>function showError(message) {</p>
+<p>errorDiv.textContent = message;</p>
+<p>errorDiv.classList.remove(&#39;hidden&#39;);</p>
+<p>}</p>
+<p>function clearResults() {</p>
+<p>resultDiv.innerHTML = &#39;&#39;;</p>
+<p>errorDiv.classList.add(&#39;hidden&#39;);</p>
+<p>}</p>
+<p>function parseMarkdownTable(markdown) {</p>
+<p>const lines = markdown.trim().split(&#39;\n&#39;);</p>
+<p>if (lines.length &lt; 2) return null;</p>
+<p>const headers = lines[0].split(&#39;|&#39;).map(h =&gt; h.trim()).filter(Boolean);</p>
+<p>const rows = lines.slice(2).map(line =&gt; {</p>
+<p>const cells = line.split(/(?&lt;!\)|/).map(cell =&gt; cell.trim().replace(/\|/g, &#39;|&#39;)).filter(Boolean);</p>
+<p>return cells;</p>
+<p>});</p>
+<p>return { headers, rows };</p>
+<p>}</p>
+<p>function copyToClipboard(text, button) {</p>
+<p>const textarea = document.createElement(&#39;textarea&#39;);</p>
+<p>textarea.value = text;</p>
+<p>textarea.style.position = &#39;absolute&#39;;</p>
+<p>textarea.style.left = &#39;-9999px&#39;;</p>
+<p>document.body.appendChild(textarea);</p>
+<p>textarea.select();</p>
+<p>try {</p>
+<p>document.execCommand(&#39;copy&#39;);</p>
+<p>const originalContent = button.innerHTML;</p>
+<p>button.innerHTML = &#39;✓&#39;;</p>
+<p>button.classList.add(&#39;copy-btn-feedback&#39;);</p>
+<p>setTimeout(() =&gt; {</p>
+<p>button.innerHTML = originalContent;</p>
+<p>button.classList.remove(&#39;copy-btn-feedback&#39;);</p>
+<p>}, 1500);</p>
+<p>} catch (err) {</p>
+<p>console.error(&#39;클립보드 복사 실패:&#39;, err);</p>
+<p>}</p>
+<p>document.body.removeChild(textarea);</p>
+<p>}</p>
+<p>function exportToExcel() {</p>
+<p>const table = document.querySelector(&#39;#result-table&#39;);</p>
+<p>if (!table) {</p>
+<p>showError(&#39;내보낼 데이터가 없습니다.&#39;);</p>
+<p>return;</p>
+<p>}</p>
+<p>// 복사 버튼을 제외하고 내보내기 위해 테이블 복제 및 수정</p>
+<p>const tableClone = table.cloneNode(true);</p>
+<p>const copyButtons = tableClone.querySelectorAll(&#39;.copy-btn-container&#39;);</p>
+<p>copyButtons.forEach(btn =&gt; btn.remove());</p>
+<p>const wb = XLSX.utils.table_to_book(tableClone, { sheet: &quot;교사 관찰 기록&quot; });</p>
+<p>XLSX.writeFile(wb, &quot;교사_관찰_기록.xlsx&quot;);</p>
+<p>}</p>
+<p>function copyTableToClipboard(button) {</p>
+<p>const table = document.querySelector(&#39;#result-table&#39;);</p>
+<p>if (!table) {</p>
+<p>showError(&#39;복사할 데이터가 없습니다.&#39;);</p>
+<p>return;</p>
+<p>}</p>
+<p>let tsv = &#39;&#39;;</p>
+<p>const rows = table.querySelectorAll(&#39;tr&#39;);</p>
+<p>rows.forEach(row =&gt; {</p>
+<p>const cells = row.querySelectorAll(&#39;th, td&#39;);</p>
+<p>const rowData = [];</p>
+<p>cells.forEach(cell =&gt; {</p>
+<p>const cellClone = cell.cloneNode(true);</p>
+<p>const copyBtn = cellClone.querySelector(&#39;.copy-btn-container&#39;);</p>
+<p>if (copyBtn) {</p>
+<p>copyBtn.remove();</p>
+<p>}</p>
+<p>let cellText = cellClone.innerHTML.replace(/&lt;br\s*/?&gt;/gi, &#39; &#39;).trim();</p>
+<p>const tempDiv = document.createElement(&#39;div&#39;);</p>
+<p>tempDiv.innerHTML = cellText;</p>
+<p>cellText = (tempDiv.textContent || tempDiv.innerText || &quot;&quot;).replace(/\s+/g, &#39; &#39;).trim();</p>
+<p>rowData.push(<code>&amp;quot;${cellText}&amp;quot;</code>); // 따옴표로 감싸서 셀 내 줄바꿈 등을 유지</p>
+<p>});</p>
+<p>tsv += rowData.join(&#39;\t&#39;) + &#39;\n&#39;;</p>
+<p>});</p>
+<p>const textarea = document.createElement(&#39;textarea&#39;);</p>
+<p>textarea.value = tsv;</p>
+<p>textarea.style.position = &#39;absolute&#39;;</p>
+<p>textarea.style.left = &#39;-9999px&#39;;</p>
+<p>document.body.appendChild(textarea);</p>
+<p>textarea.select();</p>
+<p>try {</p>
+<p>document.execCommand(&#39;copy&#39;);</p>
+<p>const originalContent = button.innerHTML;</p>
+<p>button.innerHTML = &#39;✓ 복사 완료!&#39;;</p>
+<p>button.classList.add(&#39;copy-btn-feedback&#39;);</p>
+<p>setTimeout(() =&gt; {</p>
+<p>button.innerHTML = originalContent;</p>
+<p>button.classList.remove(&#39;copy-btn-feedback&#39;);</p>
+<p>}, 2000);</p>
+<p>} catch (err) {</p>
+<p>console.error(&#39;테이블 복사 실패:&#39;, err);</p>
+<p>showError(&#39;테이블 복사에 실패했습니다.&#39;);</p>
+<p>}</p>
+<p>document.body.removeChild(textarea);</p>
+<p>}</p>
+<p>function displayResult(response) {</p>
+<p>const tableRegex = /(|.+|\r?\n|-+.+|(\r?\n|.+|)+)/;</p>
+<p>const match = response.match(tableRegex);</p>
+<p>if (!match) {</p>
+<p>showError(&quot;생성된 결과에서 유효한 테이블을 찾을 수 없습니다. 모델이 예상치 못한 형식으로 응답했을 수 있습니다.&quot;);</p>
+<p>console.log(&quot;Raw response:&quot;, response);</p>
+<p>return;</p>
+<p>}</p>
+<p>const markdownTable = match[0];</p>
+<p>const parsedTable = parseMarkdownTable(markdownTable);</p>
+<p>if (!parsedTable) {</p>
+<p>showError(&quot;결과 테이블을 파싱하는 데 실패했습니다.&quot;);</p>
+<p>return;</p>
+<p>}</p>
+<p>const { headers, rows } = parsedTable;</p>
+<p>const table = document.createElement(&#39;table&#39;);</p>
+<p>table.id = &quot;result-table&quot;;</p>
+<p>table.className = &quot;min-w-full bg-white border border-gray-200 rounded-lg shadow&quot;;</p>
+<p>const thead = document.createElement(&#39;thead&#39;);</p>
+<p>thead.className = &quot;bg-gray-50&quot;;</p>
+<p>const headerRow = document.createElement(&#39;tr&#39;);</p>
+<p>headers.forEach(headerText =&gt; {</p>
+<p>const th = document.createElement(&#39;th&#39;);</p>
+<p>th.textContent = headerText;</p>
+<p>th.className = &quot;px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider&quot;;</p>
+<p>headerRow.appendChild(th);</p>
+<p>});</p>
+<p>thead.appendChild(headerRow);</p>
+<p>table.appendChild(thead);</p>
+<p>const tbody = document.createElement(&#39;tbody&#39;);</p>
+<p>tbody.className = &quot;bg-white divide-y divide-gray-200&quot;;</p>
+<p>rows.forEach(rowData =&gt; {</p>
+<p>const tr = document.createElement(&#39;tr&#39;);</p>
+<p>tr.className = &quot;hover:bg-gray-50 transition-colors&quot;;</p>
+<p>const observationIndex = headers.findIndex(h =&gt; h.includes(&#39;교사 관찰 기록&#39;));</p>
+<p>const charCountIndex = headers.findIndex(h =&gt; h.includes(&#39;글자수&#39;));</p>
+<p>const byteCountIndex = headers.findIndex(h =&gt; h.includes(&#39;바이트&#39;));</p>
+<p>let calculatedChars = null;</p>
+<p>let calculatedBytes = null;</p>
+<p>if (observationIndex !== -1 &amp;&amp; rowData[observationIndex]) {</p>
+<p>const observationText = rowData[observationIndex].trim();</p>
+<p>const calculation = calculateNEIS(observationText);</p>
+<p>calculatedChars = calculation.totalChars;</p>
+<p>calculatedBytes = calculation.totalBytes;</p>
+<p>}</p>
+<p>rowData.forEach((cellData, index) =&gt; {</p>
+<p>const td = document.createElement(&#39;td&#39;);</p>
+<p>if (index === charCountIndex &amp;&amp; calculatedChars !== null) {</p>
+<p>td.textContent = calculatedChars;</p>
+<p>td.className = &quot;px-6 py-4 text-sm text-gray-700 calculated-value&quot;;</p>
+<p>td.title = &quot;브라우저에서 정확하게 계산된 값&quot;;</p>
+<p>} else if (index === byteCountIndex &amp;&amp; calculatedBytes !== null) {</p>
+<p>td.textContent = calculatedBytes;</p>
+<p>td.className = &quot;px-6 py-4 text-sm text-gray-700 calculated-value&quot;;</p>
+<p>td.title = &quot;나이스(NEIS) 기준으로 정확하게 계산된 값&quot;;</p>
+<p>} else {</p>
+<p>td.className = &quot;px-6 py-4 whitespace-pre-wrap text-sm text-gray-700 align-top&quot;;</p>
+<p>if (index === observationIndex) {</p>
+<p>td.style.minWidth = &#39;350px&#39;;</p>
+<p>td.classList.add(&#39;relative&#39;, &#39;group&#39;);</p>
+<p>const textSpan = document.createElement(&#39;span&#39;);</p>
+<p>textSpan.innerHTML = cellData.replace(/•/g, &#39;&lt;br&gt;• &#39;).replace(/^&lt;br&gt;/, &#39;&#39;);</p>
+<p>td.appendChild(textSpan);</p>
+<p>const copyContainer = document.createElement(&#39;div&#39;);</p>
+<p>copyContainer.className = &#39;copy-btn-container absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity&#39;;</p>
+<p>const copyButton = document.createElement(&#39;button&#39;);</p>
+<p>copyButton.innerHTML = <code>&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; width=&amp;quot;16&amp;quot; height=&amp;quot;16&amp;quot; fill=&amp;quot;currentColor&amp;quot; class=&amp;quot;bi bi-clipboard&amp;quot; viewBox=&amp;quot;0 0 16 16&amp;quot;&amp;gt;&amp;lt;path d=&amp;quot;M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z&amp;quot;/&amp;gt;&amp;lt;path d=&amp;quot;M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zM8.5 2h-1v1h1v-1z&amp;quot;/&amp;gt;&amp;lt;/svg&amp;gt;</code>;</p>
+<p>copyButton.className = &quot;p-1.5 bg-gray-200 hover:bg-gray-300 rounded text-gray-600&quot;;</p>
+<p>copyButton.title = &quot;기록 내용 복사&quot;;</p>
+<p>copyButton.addEventListener(&#39;click&#39;, (e) =&gt; {</p>
+<p>e.stopPropagation();</p>
+<p>copyToClipboard(textSpan.textContent, copyButton);</p>
+<p>});</p>
+<p>copyContainer.appendChild(copyButton);</p>
+<p>td.appendChild(copyContainer);</p>
+<p>} else {</p>
+<p>td.innerHTML = cellData.replace(/•/g, &#39;&lt;br&gt;• &#39;).replace(/^&lt;br&gt;/, &#39;&#39;);</p>
+<p>}</p>
+<p>if (headers[index].includes(&#39;차별화된 강점&#39;)) {</p>
+<p>td.style.minWidth = &#39;250px&#39;;</p>
+<p>}</p>
+<p>}</p>
+<p>tr.appendChild(td);</p>
+<p>});</p>
+<p>tbody.appendChild(tr);</p>
+<p>});</p>
+<p>table.appendChild(tbody);</p>
+<p>const infoDiv = document.createElement(&#39;div&#39;);</p>
+<p>infoDiv.className = &quot;mt-4 p-3 bg-blue-50 text-blue-700 text-sm rounded-lg&quot;;</p>
+<p>infoDiv.innerHTML = `</p>
+<p>&lt;strong&gt;ℹ️ 알림:&lt;/strong&gt; 파란색 배경의 글자수와 바이트수는 나이스(NEIS) 기준으로 브라우저에서 정확하게 계산된 값입니다.&lt;br&gt;</p>
+<p>&lt;span class=&quot;text-xs text-blue-600&quot;&gt;• 한글: 3바이트 | 영문/숫자/공백/특수문자: 1바이트 | 줄바꿈: 1바이트&lt;/span&gt;</p>
+<p>`;</p>
+<p>const exportButtonContainer = document.createElement(&#39;div&#39;);</p>
+<p>exportButtonContainer.className = &#39;mt-4 flex flex-col sm:flex-row gap-2 justify-end&#39;;</p>
+<p>const exportButton = document.createElement(&#39;button&#39;);</p>
+<p>exportButton.id = &#39;exportButton&#39;;</p>
+<p>exportButton.innerHTML = <code>&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; width=&amp;quot;16&amp;quot; height=&amp;quot;16&amp;quot; fill=&amp;quot;currentColor&amp;quot; class=&amp;quot;bi bi-file-earmark-excel inline-block mr-2&amp;quot; viewBox=&amp;quot;0 0 16 16&amp;quot;&amp;gt;&amp;lt;path d=&amp;quot;M5.884 6.68a.5.5 0 1 0-.768.64L7.349 10l-2.233 2.68a.5.5 0 0 0 .768.64L8 10.781l2.116 2.54a.5.5 0 0 0 .768-.64L8.651 10l2.233-2.68a.5.5 0 0 0-.768-.64L8 9.219l-2.116-2.54z&amp;quot;/&amp;gt;&amp;lt;path d=&amp;quot;M14 14V4.5L9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2zM9.5 1A1.5 1.5 0 0 0 8 2.5v1A1.5 1.5 0 0 0 9.5 5h1A1.5 1.5 0 0 0 12 3.5v-1A1.5 1.5 0 0 0 10.5 1h-1z&amp;quot;/&amp;gt;&amp;lt;/svg&amp;gt;엑셀 파일로 내보내기</code>;</p>
+<p>exportButton.className = &quot;w-full sm:w-auto bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 focus:outline-none focus:ring-4 focus:ring-green-300 transition-transform transform hover:scale-105 duration-300&quot;;</p>
+<p>exportButton.addEventListener(&#39;click&#39;, exportToExcel);</p>
+<p>const copyTableButton = document.createElement(&#39;button&#39;);</p>
+<p>copyTableButton.id = &#39;copyTableButton&#39;;</p>
+<p>copyTableButton.innerHTML = <code>&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; width=&amp;quot;16&amp;quot; height=&amp;quot;16&amp;quot; fill=&amp;quot;currentColor&amp;quot; class=&amp;quot;bi bi-clipboard-check inline-block mr-2&amp;quot; viewBox=&amp;quot;0 0 16 16&amp;quot;&amp;gt;&amp;lt;path fill-rule=&amp;quot;evenodd&amp;quot; d=&amp;quot;M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z&amp;quot;/&amp;gt;&amp;lt;path d=&amp;quot;M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z&amp;quot;/&amp;gt;&amp;lt;path d=&amp;quot;M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3z&amp;quot;/&amp;gt;&amp;lt;/svg&amp;gt;테이블 복사</code>;</p>
+<p>copyTableButton.className = &quot;w-full sm:w-auto bg-sky-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-sky-700 focus:outline-none focus:ring-4 focus:ring-sky-300 transition-transform transform hover:scale-105 duration-300&quot;;</p>
+<p>copyTableButton.addEventListener(&#39;click&#39;, () =&gt; copyTableToClipboard(copyTableButton));</p>
+<p>exportButtonContainer.appendChild(copyTableButton);</p>
+<p>exportButtonContainer.appendChild(exportButton);</p>
+<p>resultDiv.appendChild(infoDiv);</p>
+<p>resultDiv.appendChild(table);</p>
+<p>resultDiv.appendChild(exportButtonContainer);</p>
+<p>}</p>
+<p>async function callGenerativeAI(studentData, desiredChars, desiredBytes) {</p>
+<p>const finalChars = desiredChars || &#39;150&#39;;</p>
+<p>const finalBytes = desiredBytes || &#39;450&#39;;</p>
+<p>const lengthInstruction = <code>approximately ${finalChars} characters (${finalBytes} bytes)</code>;</p>
+<p>const systemPrompt = `You are an experienced Korean teacher creating comprehensive student observation records for NEIS (National Education Information System).</p>
+<p>Here is the student activity data you need to analyze:</p>
+<p>&lt;student_data&gt;</p>
+<p>${studentData}</p>
+<p>&lt;/student_data&gt;</p>
+<h2 id="your-task">Your Task {#your-task}</h2>
+<p>For each student:</p>
+<ol>
+<li><p>Identify 1-2 key differentiated strengths based on their activities.</p>
+</li>
+<li><p>Write a professional observation record that adheres strictly to the target length of ${lengthInstruction}.</p>
+</li>
+</ol>
+<h2 id="observation-record-requirements">Observation Record Requirements {#observation-record-requirements}</h2>
+<ul>
+<li><p>Professional teacher perspective, third-person format.</p>
+</li>
+<li><p>Focus on patterns and trends, not just listing achievements.</p>
+</li>
+<li><p>Emphasize student strengths and connect to educational competencies.</p>
+</li>
+<li><p>Use formal Korean endings consistently (e.g., ~함, ~임, ~남).</p>
+</li>
+<li><p>Write in paragraph format without bullet points.</p>
+</li>
+<li><p><strong>Critically important subject omission: Omit subjects like &#39;학생은&#39; or &#39;이 학생은&#39;. Start sentences by describing actions or competencies (e.g., &quot;과학 분야에 대한 깊은 탐구심을 바탕으로...&quot;).</strong></p>
+</li>
+<li><p><strong>CRITICAL REQUIREMENT - ADHERE TO LENGTH:</strong> The observation record MUST be as close to ${finalChars} characters as possible. This is not a suggestion, but a strict rule. You must actively adjust sentence structure, add descriptive details, or combine sentences to precisely meet the target length of ${lengthInstruction}. Review and revise your writing to ensure it meets this requirement.</p>
+</li>
+<li><p>Maintain a constructive, professional tone.</p>
+</li>
+</ul>
+<h2 id="output-format">Output Format {#output-format}</h2>
+<p>Create a markdown table with the following columns. Output ONLY this table.</p>
+<p>| 학번 | 이름 | 차별화된 강점 | 교사 관찰 기록 | 글자수 | 바이트수 |</p>
+<p>|------|------|----------------|----------------|--------|----------|</p>
+<p>| [ID] | [Name] | • [Key strength 1]&lt;br&gt;• [Key strength 2] | [Observation record of the target length] | 0 | 0 |</p>
+<p><strong>Important Notes:</strong></p>
+<ul>
+<li><p>For &#39;글자수&#39; and &#39;바이트수&#39; columns, you MUST put &quot;0&quot;. These are calculated by the client-side code automatically.</p>
+</li>
+<li><p>Focus on writing a high-quality observation record following all rules, especially the length requirement.</p>
+</li>
+<li><p>Do NOT attempt to calculate character or byte counts yourself.</p>
+</li>
+</ul>
+<p>`;</p>
+<p>const apiKey = &quot;&quot;;</p>
+<p>const model = &#39;gemini-2.5-flash-preview-05-20&#39;;</p>
+<p>const API_URL = <code>https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}</code>;</p>
+<p>const payload = {</p>
+<p>contents: [{</p>
+<p>parts: [{ text: systemPrompt }]</p>
+<p>}]</p>
+<p>};</p>
+<p>let response;</p>
+<p>let retries = 3;</p>
+<p>let delay = 1000;</p>
+<p>while (retries &gt; 0) {</p>
+<p>try {</p>
+<p>response = await fetch(API_URL, {</p>
+<p>method: &#39;POST&#39;,</p>
+<p>headers: {</p>
+<p>&#39;Content-Type&#39;: &#39;application/json&#39;,</p>
+<p>},</p>
+<p>body: JSON.stringify(payload),</p>
+<p>});</p>
+<p>if (response.ok) {</p>
+<p>const result = await response.json();</p>
+<p>if (result.candidates &amp;&amp; result.candidates.length &gt; 0 &amp;&amp; result.candidates[0].content &amp;&amp; result.candidates[0].content.parts[0].text) {</p>
+<p>return result.candidates[0].content.parts[0].text;</p>
+<p>}</p>
+<p>let errorMessage = &#39;모델이 응답을 생성하지 못했습니다.&#39;;</p>
+<p>if (result.promptFeedback &amp;&amp; result.promptFeedback.blockReason) {</p>
+<p>errorMessage += <code> 이유: ${result.promptFeedback.blockReason}</code>;</p>
+<p>}</p>
+<p>throw new Error(errorMessage);</p>
+<p>} else {</p>
+<p>let errorData;</p>
+<p>try {</p>
+<p>errorData = await response.json();</p>
+<p>} catch (e) {</p>
+<p>throw new Error(<code>API 요청 실패: ${response.status} ${response.statusText}</code>);</p>
+<p>}</p>
+<p>const message = errorData?.error?.message || JSON.stringify(errorData);</p>
+<p>throw new Error(<code>API 오류 (${response.status}): ${message}</code>);</p>
+<p>}</p>
+<p>} catch (error) {</p>
+<p>console.error(&quot;API 호출 중 오류 발생:&quot;, error);</p>
+<p>retries--;</p>
+<p>if (retries === 0) {</p>
+<p>throw error;</p>
+<p>}</p>
+<p>console.log(<code>Retrying in ${delay / 1000}s... (${retries} left)</code>);</p>
+<p>await new Promise(res =&gt; setTimeout(res, delay));</p>
+<p>delay *= 2; // Exponential backoff</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>&lt;/script&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">686 lines</span>
+  </div></p>
+</div>
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/tutorial.html" class="article-tag">tutorial</a><a href="/tag/guide.html" class="article-tag">guide</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/교사-관찰-기록-생성기-neis-포맷-코드.html&text=교사 관찰 기록 생성기 (NEIS 포맷) 코드" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/교사-관찰-기록-생성기-neis-포맷-코드.html&title=교사 관찰 기록 생성기 (NEIS 포맷) 코드" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/교사-관찰-기록-생성기-neis-포맷-코드.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-expert.html" class="author-bio__card">
+          <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 전문가</h3>
+            <p class="author-bio__role">AI &amp; Development Writer</p>
+            <p class="author-bio__text">AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/langcode-가이드-생성-완료-안내.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/tutorials-placeholder.svg"
+             alt="LangCode 입문 완전 가이드 - 생성 완료 보고서"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">LangCode 입문 완전 가이드 - 생성 완료 보고서</h3>
+          <p class="article-card__excerpt">LangCode 입문 완전 가이드 5개 문서 생성 완료 보고서</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">6</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/readme.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/demo.gif"
+             alt="README"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">README</h3>
+          <p class="article-card__excerpt">README</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">10</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/lovable-prompting-bible.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/tutorials-placeholder.svg"
+             alt="{{task_type}} Prompt"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">{{task_type}} Prompt</h3>
+          <p class="article-card__excerpt">The Lovable Prompting Bible: Complete Guide to AI Prompting in Lovable (2025)   ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">90</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

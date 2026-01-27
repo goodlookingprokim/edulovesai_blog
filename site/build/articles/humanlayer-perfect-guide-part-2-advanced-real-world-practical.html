@@ -1,0 +1,2904 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HumanLayer 완벽 가이드 Part 2 - 고급편 (실전 활용부터 마스터까지) | AI &amp; Development Journal</title>
+  <meta name="description" content="&quot;이제 진짜 실력을 발휘할 시간입니다&quot; HumanLayer의 고급 기능과 실전 노하우를 마스터해보세요. 📌 이전 내용:  || HumanLayer 완벽 가이드 Part 1 - 기초편을 먼저 읽고 오세요! --- 1.  || #레벨별 실전 시나리오 2.  || #팀...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="HumanLayer 완벽 가이드 Part 2 - 고급편 (실전 활용부터 마스터까지)">
+  <meta property="og:description" content="&quot;이제 진짜 실력을 발휘할 시간입니다&quot; HumanLayer의 고급 기능과 실전 노하우를 마스터해보세요. 📌 이전 내용:  || HumanLayer 완벽 가이드 Part 1 - 기초편을 먼저 읽고 오세요! --- 1.  || #레벨별 실전 시나리오 2.  || #팀...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/humanlayer-perfect-guide-part-2-advanced-real-world-practical.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="HumanLayer 완벽 가이드 Part 2 - 고급편 (실전 활용부터 마스터까지)">
+  <meta name="twitter:description" content="&quot;이제 진짜 실력을 발휘할 시간입니다&quot; HumanLayer의 고급 기능과 실전 노하우를 마스터해보세요. 📌 이전 내용:  || HumanLayer 완벽 가이드 Part 1 - 기초편을 먼저 읽고 오세요! --- 1.  || #레벨별 실전 시나리오 2.  || #팀...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/humanlayer-perfect-guide-part-2-advanced-real-world-practical.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">HumanLayer 완벽 가이드 Part 2 - 고급편 (실전 활용부터 마스터까지)</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 10월 13일">2025년 10월 13일</time>
+            <span class="article-meta__separator">·</span>
+            <span>46 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차-part-2-고급편" class="toc__link">📋 목차 (Part 2 - 고급편)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실전-활용" class="toc__link">실전 활용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-기능" class="toc__link">고급 기능</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#문제-해결" class="toc__link">문제 해결</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#참고-자료" class="toc__link">참고 자료</a>
+    </li>
+    <li class="toc__item">
+      <a href="#레벨별-실전-시나리오" class="toc__link">레벨별 실전 시나리오</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#레벨-1-주니어-개발자-경력-1년-미만" class="toc__link">🌱 레벨 1: 주니어 개발자 (경력 1년 미만)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#레벨-2-중급-개발자-경력-1-3년" class="toc__link">🚀 레벨 2: 중급 개발자 (경력 1-3년)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#레벨-3-시니어-개발자-경력-3년" class="toc__link">💼 레벨 3: 시니어 개발자 (경력 3년+)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#팀-협업-워크플로우" class="toc__link">팀 협업 워크플로우</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#팀-설정-및-관리" class="toc__link">👥 팀 설정 및 관리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#코드-리뷰-자동화" class="toc__link">🔄 코드 리뷰 자동화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#팀-생산성-대시보드" class="toc__link">📊 팀 생산성 대시보드</a>
+    </li>
+    <li class="toc__item">
+      <a href="#context-engineering-심화" class="toc__link">Context Engineering 심화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#context-최적화-기법" class="toc__link">🎯 Context 최적화 기법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#커스텀-컨텍스트-제공자" class="toc__link">🧩 커스텀 컨텍스트 제공자</a>
+    </li>
+    <li class="toc__item">
+      <a href="#커스텀-워크플로우-만들기" class="toc__link">커스텀 워크플로우 만들기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-dsl" class="toc__link">🔧 워크플로우 DSL</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#조건부-워크플로우" class="toc__link">🎛️ 조건부 워크플로우</a>
+    </li>
+    <li class="toc__item">
+      <a href="#ai-프롬프트-최적화" class="toc__link">AI 프롬프트 최적화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#효과적인-프롬프트-작성" class="toc__link">📝 효과적인 프롬프트 작성</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#프롬프트-템플릿" class="toc__link">🎨 프롬프트 템플릿</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결" class="toc__link">문제 해결</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#일반적인-문제와-해결책" class="toc__link">🐛 일반적인 문제와 해결책</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#성능-튜닝-가이드" class="toc__link">⚡ 성능 튜닝 가이드</a>
+    </li>
+    <li class="toc__item">
+      <a href="#faq-자주-묻는-질문" class="toc__link">FAQ (자주 묻는 질문)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#가격-관련" class="toc__link">💰 가격 관련</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#보안-관련" class="toc__link">🔒 보안 관련</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기술-관련" class="toc__link">🔧 기술 관련</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#사용법-관련" class="toc__link">🤔 사용법 관련</a>
+    </li>
+    <li class="toc__item">
+      <a href="#용어-설명-사전" class="toc__link">용어 설명 사전</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#a-c" class="toc__link">A-C</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#d-i" class="toc__link">D-I</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#m-p" class="toc__link">M-P</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#s-w" class="toc__link">S-W</a>
+    </li>
+    <li class="toc__item">
+      <a href="#학습-로드맵" class="toc__link">학습 로드맵</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4주-마스터-계획" class="toc__link">📚 4주 마스터 계획</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#레벨별-목표" class="toc__link">🎯 레벨별 목표</a>
+    </li>
+    <li class="toc__item">
+      <a href="#마치며" class="toc__link">마치며</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-요약-part-2" class="toc__link">🎓 핵심 요약 (Part 2)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#다음-단계" class="toc__link">🚀 다음 단계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#성공-스토리가-되세요" class="toc__link">🌟 성공 스토리가 되세요!</a>
+    </li>
+    <li class="toc__item">
+      <a href="#체크리스트-part-2-완료-확인" class="toc__link">체크리스트 (Part 2 완료 확인)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실전-적용" class="toc__link">실전 적용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-기능" class="toc__link">고급 기능</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#문제-해결" class="toc__link">문제 해결</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#마스터" class="toc__link">마스터</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#이전-단계" class="toc__link">이전 단계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#관련-주제" class="toc__link">관련 주제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#확장-학습" class="toc__link">확장 학습</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>HumanLayer 완벽 가이드 Part 2 - 고급편</h1>
+<blockquote>
+<p><strong>&quot;이제 진짜 실력을 발휘할 시간입니다&quot;</strong>
+HumanLayer의 고급 기능과 실전 노하우를 마스터해보세요.</p>
+</blockquote>
+<p><strong>📌 이전 내용</strong>: <a href="/articles/humanlayer-perfect-guide-part-1-basics.html" class="internal-link">HumanLayer 완벽 가이드 Part 1 - 기초편</a>을 먼저 읽고 오세요!</p>
+<hr>
+<h2 id="목차-part-2-고급편">📋 목차 (Part 2 - 고급편) {#목차-part-2-고급편}</h2>
+<h3 id="실전-활용">실전 활용 {#실전-활용}</h3>
+<ol>
+<li><a href="#레벨별-실전-시나리오" class="internal-link internal-link--section">레벨별 실전 시나리오</a></li>
+<li><a href="#팀-협업-워크플로우" class="internal-link internal-link--section">팀 협업 워크플로우</a></li>
+<li><a href="#레거시-코드-현대화-프로젝트" class="internal-link internal-link--section">레거시 코드 현대화 프로젝트</a></li>
+<li><a href="#성능-최적화-전략" class="internal-link internal-link--section">성능 최적화 전략</a></li>
+</ol>
+<h3 id="고급-기능">고급 기능 {#고급-기능}</h3>
+<ol start="5">
+<li><a href="#context-engineering-심화" class="internal-link internal-link--section">Context Engineering 심화</a></li>
+<li><a href="#커스텀-워크플로우-만들기" class="internal-link internal-link--section">커스텀 워크플로우 만들기</a></li>
+<li><a href="#ai-프롬프트-최적화" class="internal-link internal-link--section">AI 프롬프트 최적화</a></li>
+<li><a href="#원격-클라우드-워커-활용" class="internal-link internal-link--section">원격 클라우드 워커 활용</a></li>
+</ol>
+<h3 id="문제-해결">문제 해결 {#문제-해결}</h3>
+<ol start="9">
+<li><a href="#일반적인-문제와-해결책" class="internal-link internal-link--section">일반적인 문제와 해결책</a></li>
+<li><a href="#성능-튜닝-가이드" class="internal-link internal-link--section">성능 튜닝 가이드</a></li>
+<li><a href="#디버깅-팁" class="internal-link internal-link--section">디버깅 팁</a></li>
+</ol>
+<h3 id="참고-자료">참고 자료 {#참고-자료}</h3>
+<ol start="12">
+<li><a href="#faq-자주-묻는-질문" class="internal-link internal-link--section">FAQ 자주 묻는 질문</a></li>
+<li><a href="#용어-설명-사전" class="internal-link internal-link--section">용어 설명 사전</a></li>
+<li><a href="#커뮤니티-리소스" class="internal-link internal-link--section">커뮤니티 리소스</a></li>
+<li><a href="#학습-로드맵" class="internal-link internal-link--section">학습 로드맵</a></li>
+</ol>
+<hr>
+<h2 id="레벨별-실전-시나리오">레벨별 실전 시나리오 {#레벨별-실전-시나리오}</h2>
+<h3 id="레벨-1-주니어-개발자-경력-1년-미만">🌱 레벨 1: 주니어 개발자 (경력 1년 미만) {#레벨-1-주니어-개발자-경력-1년-미만}</h3>
+<h4>시나리오 1: 버그 수정 미션</h4>
+<p><strong>상황</strong>: 프로덕션에서 버그 발견</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3879" onclick="copyCode('code-1769481054772-3879')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3879" class="language-plaintext">에러 로그:
+ERROR: division by zero in calculate_discount()
+File: backend/pricing.py, Line: 45</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>일반적 접근 (3시간)</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3880" onclick="copyCode('code-1769481054772-3880')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3880" class="language-plaintext">1. 파일 찾기 (10분)
+   - pricing.py가 어디 있지?
+   - 관련 파일 뭐가 있지?
+
+<ol start="2">
+<li><p>코드 이해 (1시간)</p>
+<ul>
+<li>calculate_discount() 뭐하는 함수?</li>
+<li>어디서 호출되지?</li>
+<li>왜 0으로 나누지?</li>
+</ul>
+</li>
+<li><p>수정 (30분)</p>
+<ul>
+<li>if문으로 체크 추가</li>
+<li>테스트 케이스는?</li>
+</ul>
+</li>
+<li><p>테스트 (1시간)</p>
+<ul>
+<li>수동 테스트</li>
+<li>다른 곳 영향은?</li>
+</ul>
+</li>
+<li><p>PR 작성 (20분)</p>
+<ul>
+<li>커밋 메시지 뭐라 쓰지?</li>
+<li>설명은?</code></pre><div class="code-block__footer">
+ <span class="code-block__lines">16 lines</span>
+</div>
+</div></li>
+</ul>
+</li>
+</ol>
+<p><strong>HumanLayer 활용 (15분)</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3881" onclick="copyCode('code-1769481054772-3881')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3881" class="language-bash"># 1단계: 버그 리포트 (2분)
+humanlayer fix &quot;backend/pricing.py의 calculate_discount()
+division by zero 에러 수정
+- 0으로 나누는 경우 처리
+- 테스트 케이스 추가
+- 로깅 개선&quot;
+
+<h1>2단계: AI 자동 처리 (10분)</h1>
+<p>[AI #1 - Bug Fix]
+✓ 에러 위치 파악: line 45
+✓ 원인 분석: quantity가 0일 때
+✓ 수정 코드 작성:
+  def calculate_discount(price, quantity):
+      if quantity == 0:
+          logger.warning(&quot;Quantity is zero&quot;)
+          return 0
+      return price / quantity</p>
+<p>[AI #2 - Testing]
+✓ 버그 재현 테스트 추가
+✓ Edge case 테스트 5개
+✓ 모든 테스트 통과</p>
+<p>[AI #3 - Documentation]
+✓ 함수 독스트링 추가
+✓ CHANGELOG.md 업데이트
+✓ PR 템플릿 작성</p>
+<h1>3단계: 검토 및 승인 (3분)</h1>
+<p>변경 사항 확인 → 승인 → PR 자동 생성</p>
+<p>총 시간: 15분 (12배 빠름!)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">27 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h4>시나리오 2: 새 기능 구현 학습</h4>
+<p><strong>미션</strong>: &quot;좋아요&quot; 기능 추가</p>
+<p><strong>학습 목표</strong>:</p>
+<ul>
+<li>REST API 설계</li>
+<li>데이터베이스 스키마</li>
+<li>프론트엔드 연동</li>
+</ul>
+<p><strong>HumanLayer 튜터 모드</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3882" onclick="copyCode('code-1769481054772-3882')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3882" class="language-bash">humanlayer learn &quot;좋아요 기능 구현하면서
+각 단계마다 설명해줘
+- 왜 이렇게 하는지
+- 대안은 무엇인지
+- 베스트 프랙티스는&quot;
+
+<h1>AI가 교육용 코드 작성</h1>
+<p>[Step 1: 데이터베이스 스키마]
+AI: &quot;먼저 likes 테이블을 만들어요:</p>
+<p>CREATE TABLE likes (
+  id SERIAL PRIMARY KEY,
+  user_id INT NOT NULL,
+  post_id INT NOT NULL,
+  created_at TIMESTAMP,
+  UNIQUE(user_id, post_id)  ← 중복 좋아요 방지!
+);</p>
+<p>💡 UNIQUE 제약을 왜 쓸까요?
+→ 한 사용자가 같은 게시물에 여러 번 좋아요 못 하게</p>
+<p>💡 대안은?
+→ 애플리케이션 레벨에서 체크 가능
+   하지만 데이터베이스 제약이 더 안전해요</p>
+<p>계속할까요? (Y/n)&quot;</p>
+<p>[Step 2: API 엔드포인트]
+AI: &quot;POST /api/posts/{id}/like 만들어요:</p>
+<p>@router.post(&#39;/posts/{post_id}/like&#39;)
+async def like_post(
+    post_id: int,
+    current_user: User = Depends(get_current_user)
+):
+    # 이미 좋아요 했는지 확인
+    existing = await db.get_like(current_user.id, post_id)
+    if existing:
+        raise HTTPException(409, &#39;이미 좋아요함&#39;)</p>
+<pre><code># 좋아요 추가
+await db.add_like(current_user.id, post_id)
+
+return {&amp;#39;status&amp;#39;: &amp;#39;success&amp;#39;}
+</code></pre>
+<p>💡 왜 409 Conflict 에러?
+→ 이미 존재하는 리소스에 대한 요청이니까</p>
+<p>💡 대안: 200 OK + &#39;already_liked&#39; 메시지?
+→ 가능하지만 RESTful하지 않아요</p>
+<p>이해되셨나요? (Y/n)&quot;</p>
+<p>[Step 3: 프론트엔드]
+AI: &quot;React 컴포넌트 만들어요:</p>
+<p>function LikeButton({ postId }) {
+  const [liked, setLiked] = useState(false);</p>
+<p>  const handleLike = async () =&gt; {
+    try {
+      await api.post(<code>/posts/${postId}/like</code>);
+      setLiked(true);
+    } catch (error) {
+      if (error.status === 409) {
+        // 이미 좋아요 했음
+        setLiked(true);
+      }
+    }
+  };</p>
+<p>  return (
+    &lt;button onClick={handleLike}&gt;
+      {liked ? &#39;❤️&#39; : &#39;🤍&#39;}
+    &lt;/button&gt;
+  );
+}</p>
+<p>💡 useState는 왜 필요해요?
+→ UI 상태 관리용. 좋아요 누르면 즉시 반영</p>
+<p>💡 에러 처리는 왜?
+→ 네트워크 문제 대비. 사용자 경험 개선</p>
+<p>더 알고 싶은 게 있나요?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">66 lines</span>
+  </div></p>
+</div>
+
+<p><strong>학습 효과</strong>:</p>
+<ul>
+<li>✅ 코드 작성법</li>
+<li>✅ 설계 이유</li>
+<li>✅ 베스트 프랙티스</li>
+<li>✅ 실전 예제</li>
+</ul>
+<hr>
+<h3 id="레벨-2-중급-개발자-경력-1-3년">🚀 레벨 2: 중급 개발자 (경력 1-3년) {#레벨-2-중급-개발자-경력-1-3년}</h3>
+<h4>시나리오 1: 마이크로서비스 분리</h4>
+<p><strong>배경</strong>: 모놀리스 → 마이크로서비스</p>
+<p><strong>기존 구조</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3883" onclick="copyCode('code-1769481054772-3883')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3883" class="language-plaintext">monolith/
+├── users/
+├── products/
+├── orders/
+├── payments/
+└── notifications/</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<p><strong>목표</strong>: Payment 서비스 분리</p>
+<p><strong>HumanLayer 활용</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3884" onclick="copyCode('code-1769481054772-3884')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3884" class="language-bash">humanlayer microservice &quot;payments 모듈을
+독립 마이크로서비스로 분리
+- FastAPI 신규 서비스
+- REST API 설계
+- 데이터베이스 분리 (PostgreSQL)
+- 기존 코드와 호환성 유지
+- Docker 컨테이너화
+- 통합 테스트&quot;
+
+<h1>Multi-Agent 실행</h1>
+<p>[AI #1 - Service Architecture]
+✓ 새 FastAPI 프로젝트 생성
+✓ 서비스 경계 정의
+✓ API 계약 설계
+✓ 데이터 모델 분리</p>
+<p>[AI #2 - Migration]
+✓ 기존 payments/ 코드 복사
+✓ 의존성 제거
+✓ 인터페이스 어댑터 생성
+✓ 호환성 레이어 추가</p>
+<p>[AI #3 - Infrastructure]
+✓ Dockerfile 작성
+✓ docker-compose.yml
+✓ Kubernetes 매니페스트
+✓ CI/CD 파이프라인</p>
+<p>[AI #4 - Testing]
+✓ 단위 테스트 마이그레이션
+✓ 통합 테스트 작성
+✓ Contract testing
+✓ 부하 테스트</p>
+<p>완료! (45분)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">30 lines</span>
+  </div></p>
+</div>
+
+<p><strong>생성된 구조</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3885" onclick="copyCode('code-1769481054772-3885')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3885" class="language-plaintext">payment-service/
+├── app/
+│   ├── main.py
+│   ├── api/
+│   │   └── v1/
+│   ├── models/
+│   ├── services/
+│   └── utils/
+├── tests/
+├── Dockerfile
+├── docker-compose.yml
+├── k8s/
+│   ├── deployment.yaml
+│   └── service.yaml
+└── README.md</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">15 lines</span>
+  </div>
+</div>
+
+<hr>
+<h4>시나리오 2: 성능 병목 해결</h4>
+<p><strong>문제</strong>: API 응답 느림 (3초 → 300ms 목표)</p>
+<p><strong>분석</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3886" onclick="copyCode('code-1769481054772-3886')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3886" class="language-bash">humanlayer analyze &quot;API 성능 병목 찾아서 최적화
+- /api/products 엔드포인트
+- 현재 응답 시간: 3초
+- 목표: 300ms 이하
+- 프로파일링 후 최적화&quot;
+
+<p>[AI #1 - Profiling]
+🔍 병목 지점 발견:</p>
+<ol>
+<li><p>N+1 쿼리 문제 (2초)</p>
+<ul>
+<li>Product 조회 시 Category 별도 조회</li>
+<li>100개 제품 = 101번 쿼리</li>
+</ul>
+</li>
+<li><p>불필요한 JSON 직렬화 (500ms)</p>
+<ul>
+<li>전체 객체 직렬화 후 필터링</li>
+</ul>
+</li>
+<li><p>동기 I/O (500ms)</p>
+<ul>
+<li>이미지 URL 검증을 동기로 처리</li>
+</ul>
+</li>
+</ol>
+<p>[AI #2 - Optimization]
+✓ N+1 해결: select_related() 사용
+  products = Product.objects.select_related(&#39;category&#39;).all()
+  쿼리 101번 → 1번</p>
+<p>✓ JSON 최적화: 필요한 필드만 선택
+  .values(&#39;id&#39;, &#39;name&#39;, &#39;price&#39;, &#39;category__name&#39;)</p>
+<p>✓ 비동기 I/O: asyncio.gather()
+  await asyncio.gather(*[
+      validate_image_url(p.image) for p in products
+  ])</p>
+<p>[AI #3 - Caching]
+✓ Redis 캐싱 추가
+  @cache(ttl=300)  # 5분 캐시
+  async def get_products():
+      ...</p>
+<p>결과:</p>
+<ul>
+<li>첫 요청: 280ms ✅</li>
+<li>캐시 히트: 15ms 🚀</li>
+<li>목표 달성!</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">33 lines</span>
+</div>
+</div></li>
+</ul>
+<hr>
+<h3 id="레벨-3-시니어-개발자-경력-3년">💼 레벨 3: 시니어 개발자 (경력 3년+) {#레벨-3-시니어-개발자-경력-3년}</h3>
+<h4>시나리오 1: 시스템 아키텍처 설계</h4>
+<p><strong>프로젝트</strong>: 실시간 채팅 서비스</p>
+<p><strong>요구사항</strong>:</p>
+<ul>
+<li>동시 접속 10만 명</li>
+<li>메시지 지연 &lt; 100ms</li>
+<li>99.9% 가용성</li>
+</ul>
+<p><strong>HumanLayer 협업</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3887" onclick="copyCode('code-1769481054772-3887')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3887" class="language-bash">humanlayer design &quot;실시간 채팅 시스템 설계
+요구사항:
+- 동시 접속: 100k users
+- 지연시간: &lt;100ms
+- 가용성: 99.9%
+- 메시지 영속성 보장
+
+<p>고려사항:</p>
+<ul>
+<li>WebSocket vs Server-Sent Events</li>
+<li>수평 확장 전략</li>
+<li>메시지 큐 선택</li>
+<li>데이터베이스 샤딩</li>
+<li>캐싱 전략</li>
+<li>모니터링&quot;</li>
+</ul>
+<p>[AI #1 - Architecture Design]
+📐 시스템 아키텍처 제안:</p>
+<p>┌─────────┐
+│ Clients │ (100k+ WebSocket connections)
+└────┬────┘
+     │
+┌────▼─────────────────────────────────┐
+│   Load Balancer (HAProxy)            │
+│   - WebSocket support                │
+│   - Session affinity                 │
+└────┬─────────────────────────────────┘
+     │
+┌────▼──────────────────────────────┐
+│  API Gateway (Kong)                │
+│  - Rate limiting                   │
+│  - Authentication                  │
+│  - Protocol translation            │
+└────┬───────────────────────────────┘
+     │
+┌────▼────────────────────────────────┐
+│  WebSocket Servers (10+ instances)  │
+│  - Node.js + Socket.io              │
+│  - Horizontal auto-scaling          │
+│  - Redis Pub/Sub for coordination   │
+└────┬────────────────────────────────┘
+     │
+┌────▼─────────────────────────────────┐
+│  Message Queue (Kafka)               │
+│  - Partitioning by chat room         │
+│  - Message ordering guarantee        │
+│  - At-least-once delivery            │
+└────┬─────────────────────────────────┘
+     │
+┌────▼──────────────────────────────┐
+│  Message Service (Microservice)    │
+│  - Go for performance              │
+│  - Handles business logic          │
+└────┬───────────────────────────────┘
+     │
+┌────▼─────────────────────────────────┐
+│  Storage Layer                       │
+│  ├─ PostgreSQL (metadata)            │
+│  ├─ Cassandra (message history)      │
+│  └─ Redis (online status, cache)     │
+└──────────────────────────────────────┘</p>
+<p>📊 성능 예측:</p>
+<ul>
+<li>Latency: 50-80ms (목표 달성 ✅)</li>
+<li>Throughput: 500k msg/sec</li>
+<li>Cost: ~$5k/month (AWS)</li>
+</ul>
+<p>⚠️ Trade-offs:</p>
+<ol>
+<li>복잡도 증가 vs 확장성</li>
+<li>비용 vs 성능</li>
+<li>일관성 vs 가용성 (CAP)</li>
+</ol>
+<p>대안 아키텍처도 제시할까요? (Y/n)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">67 lines</span>
+  </div></p>
+</div>
+
+<p><strong>AI가 제시한 대안</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3888" onclick="copyCode('code-1769481054772-3888')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3888" class="language-plaintext">대안 1: 서버리스 (AWS Lambda + API Gateway)
+  장점: 관리 부담 낮음, 탄력적 확장
+  단점: WebSocket 제약, 비용 예측 어려움
+
+<p>대안 2: Elixir/Phoenix
+  장점: 경량 프로세스, 내장 Pub/Sub
+  단점: 팀 러닝 커브, 생태계 작음</p>
+<p>대안 3: Firebase (Managed)
+  장점: 즉시 사용 가능, 관리 불필요
+  단점: 벤더 락인, 커스터마이징 제한</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h4>시나리오 2: 레거시 시스템 마이그레이션</h4>
+<p><strong>배경</strong>:</p>
+<ul>
+<li>PHP 5.6 → Python FastAPI</li>
+<li>MySQL → PostgreSQL</li>
+<li>15년 된 코드베이스</li>
+<li>다운타임 최소화</li>
+</ul>
+<p><strong>전략적 접근</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3889" onclick="copyCode('code-1769481054772-3889')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3889" class="language-bash">humanlayer migrate-plan &quot;PHP → Python 마이그레이션 전략 수립
+현황:
+- 코드: PHP 5.6, 50만 줄
+- DB: MySQL 5.7
+- Traffic: 1M requests/day
+- 다운타임 허용: 최대 1시간
+
+<p>단계별 계획:</p>
+<ol>
+<li>분석 및 우선순위</li>
+<li>점진적 마이그레이션 (Strangler Pattern)</li>
+<li>데이터 동기화 전략</li>
+<li>롤백 계획&quot;</li>
+</ol>
+<p>[AI #1 - Analysis &amp; Prioritization]
+📊 코드베이스 분석 완료:</p>
+<p>모듈별 복잡도:
+├─ auth/ (5k lines) - Priority: HIGH
+│  → 모든 요청 거침, 독립적
+├─ api/ (20k lines) - Priority: HIGH
+│  → 외부 의존도 낮음
+├─ admin/ (10k lines) - Priority: MEDIUM
+│  → 트래픽 낮음
+├─ cron/ (5k lines) - Priority: MEDIUM
+├─ legacy/ (30k lines) - Priority: LOW
+│  → 거의 안 씀
+└─ core/ (10k lines) - Priority: HIGH
+   → 모든 모듈이 의존</p>
+<p>권장 마이그레이션 순서:</p>
+<ol>
+<li>auth/ (2주)</li>
+<li>api/ (4주)</li>
+<li>core/ (6주)</li>
+<li>admin/ (2주)</li>
+<li>cron/ (1주)</li>
+<li>legacy/ (보류/재작성)</li>
+</ol>
+<p>[AI #2 - Strangler Pattern Implementation]
+🔄 점진적 마이그레이션 설계:</p>
+<p>┌─────────────────────────────────┐
+│  Nginx Routing Layer            │
+│  - /api/v1/* → Python (new)     │
+│  - /api/* → PHP (legacy)        │
+│  - Gradual traffic shifting     │
+└─────────────────────────────────┘</p>
+<p>Phase 1: Proxy Setup (1주)
+✓ Nginx 라우팅 규칙
+✓ Health check 엔드포인트
+✓ 로깅 및 모니터링</p>
+<p>Phase 2: Auth Migration (2주)
+✓ Python FastAPI auth 모듈
+✓ JWT 토큰 호환
+✓ 세션 공유 (Redis)
+✓ A/B 테스트 (10% → 100%)</p>
+<p>Phase 3: API Migration (4주)
+✓ 엔드포인트별 마이그레이션
+✓ 통합 테스트 자동화
+✓ 점진적 트래픽 전환</p>
+<p>Phase 4: Database Migration (병렬)
+✓ MySQL → PostgreSQL 복제
+✓ Dual write (both DBs)
+✓ 데이터 검증
+✓ 최종 전환</p>
+<p>[AI #3 - Risk Mitigation]
+⚠️ 리스크 및 대응:</p>
+<p>Risk 1: 데이터 불일치
+  → Dual write + reconciliation job
+  → 자동 모니터링 알람</p>
+<p>Risk 2: 성능 저하
+  → Canary deployment
+  → 즉시 롤백 스크립트</p>
+<p>Risk 3: 버그 발생
+  → Feature flag로 제어
+  → Shadow mode로 검증</p>
+<p>Risk 4: 팀 학습 곡선
+  → 단계별 교육 자료
+  → Pair programming</p>
+<p>예상 총 기간: 15주
+다운타임: 0시간 (점진적 전환)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">74 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="팀-협업-워크플로우">팀 협업 워크플로우 {#팀-협업-워크플로우}</h2>
+<h3 id="팀-설정-및-관리">👥 팀 설정 및 관리 {#팀-설정-및-관리}</h3>
+<h4>팀 구성 모범 사례</h4>
+<p><strong>소규모 팀 (3-5명)</strong>:</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3890" onclick="copyCode('code-1769481054772-3890')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3890" class="language-yaml">team_structure:
+  shared_context:
+    - 프로젝트 문서
+    - 코딩 컨벤션
+    - API 스펙
+
+<p>  individual_contexts:
+    - 각자 담당 모듈
+    - 개인 작업 히스토리</p>
+<p>  collaboration:
+    - PR 리뷰 공유
+    - 공통 워크플로우</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<p><strong>중규모 팀 (10-20명)</strong>:</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3891" onclick="copyCode('code-1769481054772-3891')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3891" class="language-yaml">team_structure:
+  squad_based:
+    - Frontend Squad
+    - Backend Squad
+    - DevOps Squad
+
+<p>  shared_libraries:
+    - Common components
+    - Shared utilities</p>
+<p>  integration:
+    - Cross-squad reviews
+    - Integration testing</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h4>팀 워크플로우 설정</h4>
+<p><strong>예시: Feature 개발 흐름</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3892" onclick="copyCode('code-1769481054772-3892')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3892" class="language-bash"># 1. 팀 워크플로우 정의
+humanlayer workflow create &quot;feature-development&quot;
+
+<h1>2. 단계 정의</h1>
+<p>workflow:</p>
+<ol>
+<li><p>Design:</p>
+<ul>
+<li>AI: 기술 스펙 작성</li>
+<li>Human: 리뷰 및 승인</li>
+</ul>
+</li>
+<li><p>Implementation:</p>
+<ul>
+<li>AI #1: Backend</li>
+<li>AI #2: Frontend</li>
+<li>AI #3: Tests</li>
+<li>Human: 코드 리뷰</li>
+</ul>
+</li>
+<li><p>Testing:</p>
+<ul>
+<li>AI: 자동 테스트 실행</li>
+<li>Human: QA 체크리스트</li>
+</ul>
+</li>
+<li><p>Documentation:</p>
+<ul>
+<li>AI: 자동 문서 생성</li>
+<li>Human: 최종 검토</li>
+</ul>
+</li>
+<li><p>Deployment:</p>
+<ul>
+<li>AI: Staging 배포</li>
+<li>Human: Production 승인</li>
+</ul>
+</li>
+</ol>
+<h1>3. 실행</h1>
+<p>humanlayer run-workflow feature-development <br>  --feature &quot;사용자 알림 시스템&quot;</p>
+<h1>각 단계마다 팀원 승인 대기</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">25 lines</span>
+  </div>
+</div>
+
+<hr>
+<h3 id="코드-리뷰-자동화">🔄 코드 리뷰 자동화 {#코드-리뷰-자동화}</h3>
+<p><strong>AI 기반 코드 리뷰</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3893" onclick="copyCode('code-1769481054772-3893')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3893" class="language-bash"># PR 생성 시 자동 리뷰
+humanlayer review-pr #123
+
+<p>[AI Code Reviewer]
+📋 Pull Request #123 분석 중...</p>
+<p>✅ Positive Points:</p>
+<ul>
+<li>테스트 커버리지: 95% (우수)</li>
+<li>타입 힌트 완벽</li>
+<li>문서화 충실</li>
+</ul>
+<p>⚠️ Issues Found:</p>
+<ol>
+<li><p>[HIGH] SQL Injection 취약점
+File: api/users.py:45</p>
+<p>현재 코드:
+query = f&quot;SELECT * FROM users WHERE id = {user_id}&quot;</p>
+<p>권장 수정:
+query = &quot;SELECT * FROM users WHERE id = %s&quot;
+cursor.execute(query, (user_id,))</p>
+</li>
+<li><p>[MEDIUM] N+1 쿼리 문제
+File: api/posts.py:78</p>
+<p>제안: select_related() 사용</p>
+</li>
+<li><p>[LOW] 네이밍 컨벤션
+변수명 &#39;usr&#39; → &#39;user&#39; 권장</p>
+</li>
+</ol>
+<p>💡 Suggestions:</p>
+<ul>
+<li>Error handling 개선 권장</li>
+<li>Logging 추가 고려</li>
+<li>Cache 적용 가능</li>
+</ul>
+<p>자동 수정할까요? (Y/n)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">26 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3 id="팀-생산성-대시보드">📊 팀 생산성 대시보드 {#팀-생산성-대시보드}</h3>
+<p><strong>메트릭 추적</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3894" onclick="copyCode('code-1769481054772-3894')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3894" class="language-bash">humanlayer team-stats --period last-month
+
+<p>┌─────────────────────────────────────┐
+│   Team Productivity Dashboard       │
+├─────────────────────────────────────┤
+│ Total PRs: 156 (↑ 23% vs 지난달)   │
+│ AI 작성 코드: 78%                   │
+│ 평균 리뷰 시간: 15분 (↓ 45분)      │
+│ 버그 발견율: 0.3/PR (↓ 60%)        │
+│                                      │
+│ Top Contributors:                   │
+│ 1. Alice: 45 PRs                    │
+│ 2. Bob: 38 PRs                      │
+│ 3. Carol: 34 PRs                    │
+│                                      │
+│ Most Active AI Agents:              │
+│ 1. Backend Agent: 234 tasks         │
+│ 2. Frontend Agent: 189 tasks        │
+│ 3. Testing Agent: 156 tasks         │
+└─────────────────────────────────────┘</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">19 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="context-engineering-심화">Context Engineering 심화 {#context-engineering-심화}</h2>
+<h3 id="context-최적화-기법">🎯 Context 최적화 기법 {#context-최적화-기법}</h3>
+<h4>기법 1: 계층적 컨텍스트</h4>
+<p><strong>문제</strong>: AI에게 너무 많은 정보</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3895" onclick="copyCode('code-1769481054772-3895')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3895" class="language-plaintext">전체 코드베이스 → AI
+= 10만 줄 → 토큰 초과 😵</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>해결</strong>: 3단계 계층</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3896" onclick="copyCode('code-1769481054772-3896')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3896" class="language-plaintext">Layer 1: 즉시 필요 (Hot Context)
+  ├─ 현재 작업 파일
+  ├─ 직접 import한 파일
+  └─ 에러 메시지
+
+<p>Layer 2: 참고용 (Warm Context)
+  ├─ 관련 모듈
+  ├─ 테스트 파일
+  └─ 문서</p>
+<p>Layer 3: 배경지식 (Cold Context)
+  ├─ 프로젝트 전체 구조
+  ├─ 아키텍처 문서
+  └─ 히스토리</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<p><strong>설정</strong>:</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3897" onclick="copyCode('code-1769481054772-3897')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3897" class="language-yaml"># .humanlayer/context-strategy.yml
+hot_context:
+  max_files: 5
+  max_tokens: 4000
+  include:
+    - current_file
+    - direct_imports
+    - error_stack
+
+<p>warm_context:
+  max_files: 20
+  max_tokens: 10000
+  include:
+    - related_modules
+    - test_files
+    - recent_changes</p>
+<p>cold_context:
+  summarize: true
+  max_tokens: 2000
+  include:
+    - project_structure
+    - architecture_docs</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">21 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h4>기법 2: 동적 컨텍스트 확장</h4>
+<p><strong>개념</strong>: 필요에 따라 컨텍스트 확장</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3898" onclick="copyCode('code-1769481054772-3898')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3898" class="language-bash"># 초기 요청 (최소 컨텍스트)
+humanlayer &quot;로그인 함수 수정&quot;
+
+<p>[AI]
+현재 컨텍스트로 부족합니다.
+다음 정보가 필요해요:</p>
+<ul>
+<li>인증 방식 (JWT/Session?)</li>
+<li>데이터베이스 스키마</li>
+</ul>
+<p>추가 컨텍스트를 로드할까요? (Y/n) Y</p>
+<p>[로딩...]
+✓ auth/ 모듈 분석
+✓ JWT 설정 파일
+✓ User 모델</p>
+<p>이제 작업 가능합니다!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h4>기법 3: 컨텍스트 캐싱</h4>
+<p><strong>문제</strong>: 반복 작업 시 매번 분석</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3899" onclick="copyCode('code-1769481054772-3899')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3899" class="language-plaintext">같은 프로젝트에서 10번 작업
+= 10번 코드베이스 분석 😰</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>해결</strong>: 캐싱</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3900" onclick="copyCode('code-1769481054772-3900')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3900" class="language-bash"># 첫 실행 (느림)
+humanlayer &quot;기능 A 추가&quot;
+→ 코드베이스 분석: 30초
+
+<h1>두 번째 실행 (빠름)</h1>
+<p>humanlayer &quot;기능 B 추가&quot;
+→ 캐시 사용: 0.5초 ⚡</p>
+<h1>캐시 갱신 (코드 변경 시)</h1>
+<p>humanlayer refresh-context</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3 id="커스텀-컨텍스트-제공자">🧩 커스텀 컨텍스트 제공자 {#커스텀-컨텍스트-제공자}</h3>
+<p><strong>상황</strong>: 특수한 프로젝트 구조</p>
+<p><strong>예시</strong>: Monorepo</p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3901" onclick="copyCode('code-1769481054772-3901')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3901" class="language-javascript">// .humanlayer/context-provider.js
+module.exports = {
+  // 컨텍스트 수집 로직
+  async collectContext(task) {
+    const { packages } = await this.findWorkspaces();
+
+<pre><code>// 관련 패키지만 선택
+const relevantPackages = packages.filter(pkg =&amp;gt;
+  task.includes(pkg.name)
+);
+
+return {
+  files: await this.getFiles(relevantPackages),
+  dependencies: await this.getDependencies(relevantPackages),
+  sharedLibraries: await this.getSharedCode()
+};
+</code></pre>
+<p>  },</p>
+<p>  // 컨텍스트 우선순위
+  prioritize(contexts) {
+    return contexts.sort((a, b) =&gt; {
+      // 최근 수정 파일 우선
+      if (a.lastModified &gt; b.lastModified) return -1;
+      // 의존성 깊이
+      if (a.depth &lt; b.depth) return -1;
+      return 0;
+    });
+  }
+};</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">26 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="커스텀-워크플로우-만들기">커스텀 워크플로우 만들기 {#커스텀-워크플로우-만들기}</h2>
+<h3 id="워크플로우-dsl">🔧 워크플로우 DSL {#워크플로우-dsl}</h3>
+<p><strong>기본 구조</strong>:</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3902" onclick="copyCode('code-1769481054772-3902')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3902" class="language-yaml"># .humanlayer/workflows/deploy.yml
+name: &quot;Smart Deploy&quot;
+description: &quot;AI가 안전하게 배포&quot;
+
+<p>triggers:</p>
+<ul>
+<li>type: manual</li>
+<li>type: schedule
+cron: &quot;0 0 * * 1&quot;  # 매주 월요일</li>
+</ul>
+<p>steps:</p>
+<ul>
+<li><p>name: &quot;Pre-Deploy Checks&quot;
+agent: quality-checker
+tasks:</p>
+<ul>
+<li>run_tests</li>
+<li>check_coverage</li>
+<li>security_scan
+gates:</li>
+<li>test_pass_rate &gt; 95%</li>
+<li>coverage &gt; 80%</li>
+<li>no_critical_vulnerabilities</li>
+</ul>
+</li>
+<li><p>name: &quot;Build &amp; Package&quot;
+agent: builder
+tasks:</p>
+<ul>
+<li>build_artifacts</li>
+<li>create_docker_image</li>
+<li>push_to_registry</li>
+</ul>
+</li>
+<li><p>name: &quot;Staging Deploy&quot;
+agent: deployer
+environment: staging
+tasks:</p>
+<ul>
+<li>apply_migrations</li>
+<li>deploy_services</li>
+<li>smoke_tests</li>
+</ul>
+</li>
+<li><p>name: &quot;Human Approval&quot;
+type: human_gate
+approvers:</p>
+<ul>
+<li>tech-lead</li>
+<li>product-owner
+timeout: 24h</li>
+</ul>
+</li>
+<li><p>name: &quot;Production Deploy&quot;
+agent: deployer
+environment: production
+strategy: canary
+tasks:</p>
+<ul>
+<li>deploy_canary    # 5% traffic</li>
+<li>monitor_metrics  # 10분</li>
+<li>full_rollout     # 100% traffic</li>
+</ul>
+<p>rollback_on:</p>
+<ul>
+<li>error_rate &gt; 1%</li>
+<li>response_time &gt; 500ms</code></pre></li>
+</ul>
+</li>
+</ul>
+  <div class="code-block__footer">
+    <span class="code-block__lines">48 lines</span>
+  </div>
+</div>
+
+<hr>
+<h3 id="조건부-워크플로우">🎛️ 조건부 워크플로우 {#조건부-워크플로우}</h3>
+<p><strong>예시</strong>: 긴급 핫픽스</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3903" onclick="copyCode('code-1769481054772-3903')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3903" class="language-yaml"># hotfix.yml
+name: &quot;Hotfix Pipeline&quot;
+
+<p>conditions:</p>
+<ul>
+<li>branch: hotfix/*</li>
+<li>severity: critical</li>
+</ul>
+<p>steps:</p>
+<ul>
+<li><p>name: &quot;Fast Track Review&quot;
+parallel: true
+agents:</p>
+<ul>
+<li>security-scanner</li>
+<li>code-reviewer</li>
+<li>test-runner</li>
+</ul>
+<h1>하나라도 실패하면 중단</h1>
+<p>fail_fast: true</p>
+</li>
+<li><p>name: &quot;Emergency Deploy&quot;
+skip_staging: true  # 긴급 시 스테이징 스킵</p>
+<p>human_approval:
+  required_approvers: 1  # 1명만 OK
+  notify:
+- slack: &quot;#incidents&quot;
+- pager: on-call-engineer
+deploy:
+  strategy: blue-green  # 안전한 배포
+  automatic_rollback: true</code></pre></p>
+</li>
+</ul>
+  <div class="code-block__footer">
+    <span class="code-block__lines">24 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="ai-프롬프트-최적화">AI 프롬프트 최적화 {#ai-프롬프트-최적화}</h2>
+<h3 id="효과적인-프롬프트-작성">📝 효과적인 프롬프트 작성 {#효과적인-프롬프트-작성}</h3>
+<h4>원칙 1: 구체적으로</h4>
+<p><strong>❌ 나쁜 예</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3904" onclick="copyCode('code-1769481054772-3904')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3904" class="language-bash">humanlayer &quot;API 만들어줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>✅ 좋은 예</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3905" onclick="copyCode('code-1769481054772-3905')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3905" class="language-bash">humanlayer &quot;RESTful API 생성
+엔드포인트:
+- POST /api/users (사용자 생성)
+- GET /api/users/{id} (조회)
+- PUT /api/users/{id} (수정)
+- DELETE /api/users/{id} (삭제)
+
+<p>요구사항:</p>
+<ul>
+<li>FastAPI 프레임워크</li>
+<li>Pydantic 모델 검증</li>
+<li>JWT 인증</li>
+<li>PostgreSQL 데이터베이스</li>
+<li>OpenAPI 문서 자동 생성</li>
+<li>단위 테스트 (pytest)&quot;</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">13 lines</span>
+</div>
+</div></li>
+</ul>
+<hr>
+<h4>원칙 2: 맥락 제공</h4>
+<p><strong>❌ 맥락 없음</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3906" onclick="copyCode('code-1769481054772-3906')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3906" class="language-bash">humanlayer &quot;성능 개선&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>✅ 맥락 있음</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3907" onclick="copyCode('code-1769481054772-3907')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3907" class="language-bash">humanlayer &quot;제품 목록 API 성능 개선
+현재 상황:
+- 엔드포인트: GET /api/products
+- 응답 시간: 3초
+- 데이터: 10,000개 제품
+- 문제: N+1 쿼리
+
+<p>목표:</p>
+<ul>
+<li>응답 시간: 300ms 이하</li>
+<li>페이지네이션 추가</li>
+<li>Redis 캐싱 도입&quot;</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">10 lines</span>
+</div>
+</div></li>
+</ul>
+<hr>
+<h4>원칙 3: 예제 포함</h4>
+<p><strong>❌ 예제 없음</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3908" onclick="copyCode('code-1769481054772-3908')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3908" class="language-bash">humanlayer &quot;에러 처리 추가&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>✅ 예제 있음</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3909" onclick="copyCode('code-1769481054772-3909')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3909" class="language-bash">humanlayer &quot;전체 API에 일관된 에러 처리 추가
+현재:
+def get_user(user_id):
+    user = db.query(User).filter(User.id == user_id).first()
+    return user  # None 반환 가능
+
+<p>원하는 형태:
+def get_user(user_id):
+    user = db.query(User).filter(User.id == user_id).first()
+    if not user:
+        raise HTTPException(
+            status_code=404,
+            detail={
+                &#39;error&#39;: &#39;USER_NOT_FOUND&#39;,
+                &#39;message&#39;: &#39;User not found&#39;,
+                &#39;user_id&#39;: user_id
+            }
+        )
+    return user</p>
+<p>모든 API 엔드포인트에 적용해줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">19 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3 id="프롬프트-템플릿">🎨 프롬프트 템플릿 {#프롬프트-템플릿}</h3>
+<p><strong>템플릿 저장</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3910" onclick="copyCode('code-1769481054772-3910')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3910" class="language-bash"># 템플릿 생성
+humanlayer template create &quot;feature-template&quot;
+
+<h1>템플릿 내용</h1>
+<p>template:
+  name: &quot;New Feature&quot;
+  variables:
+    - feature_name
+    - description
+    - endpoints</p>
+<p>  prompt: |
+    새 기능 구현: {{feature_name}}</p>
+<pre><code>설명:
+{{description}}
+
+API 엔드포인트:
+{{endpoints}}
+
+기본 요구사항:
+- RESTful API 설계
+- 입력 검증
+- 에러 처리
+- 로깅
+- 단위 테스트 (90% 커버리지)
+- API 문서
+- CHANGELOG 업데이트
+</code></pre>
+<h1>템플릿 사용</h1>
+<p>humanlayer use-template feature-template <br>  --feature_name &quot;사용자 알림&quot; <br>  --description &quot;실시간 푸시 알림 시스템&quot; <br>  --endpoints &quot;POST /api/notifications, GET /api/notifications&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">28 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="문제-해결">문제 해결 {#문제-해결}</h2>
+<h3 id="일반적인-문제와-해결책">🐛 일반적인 문제와 해결책 {#일반적인-문제와-해결책}</h3>
+<h4>문제 1: &quot;AI가 잘못된 코드 생성&quot;</h4>
+<p><strong>증상</strong>:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3911" onclick="copyCode('code-1769481054772-3911')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3911" class="language-python"># AI가 생성한 코드 (잘못됨)
+def calculate_total(items):
+    total = 0
+    for item in items:
+        total += item.price
+    return total  # 세금 계산 누락!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<p><strong>원인</strong>: 불충분한 컨텍스트</p>
+<p><strong>해결</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3912" onclick="copyCode('code-1769481054772-3912')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3912" class="language-bash"># 명확한 요구사항 제공
+humanlayer &quot;calculate_total 함수 수정
+요구사항:
+- 상품 가격 합계
+- 세금 10% 추가
+- 할인 코드 적용
+- 소수점 2자리 반올림
+
+<p>테스트 케이스:
+items = [
+  Item(price=100),
+  Item(price=200)
+]
+discount = 0.1  # 10% 할인
+result = calculate_total(items, discount)
+assert result == 297.00  # (300 * 0.9) * 1.1&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">15 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h4>문제 2: &quot;API 키 에러&quot;</h4>
+<p><strong>증상</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3913" onclick="copyCode('code-1769481054772-3913')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3913" class="language-plaintext">Error: ANTHROPIC_API_KEY not found</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>해결책</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3914" onclick="copyCode('code-1769481054772-3914')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3914" class="language-bash"># 1. 환경 변수 확인
+echo $ANTHROPIC_API_KEY
+
+<h1>2. 없으면 설정</h1>
+<p>export ANTHROPIC_API_KEY=&quot;sk-ant-xxxxx&quot;</p>
+<h1>3. 영구 설정 (.bashrc 또는 .zshrc)</h1>
+<p>echo &#39;export ANTHROPIC_API_KEY=&quot;sk-ant-xxxxx&quot;&#39; &gt;&gt; ~/.bashrc
+source ~/.bashrc</p>
+<h1>4. 검증</h1>
+<p>humanlayer config check</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h4>문제 3: &quot;느린 응답 시간&quot;</h4>
+<p><strong>증상</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3915" onclick="copyCode('code-1769481054772-3915')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3915" class="language-plaintext">요청 후 3분 대기...</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>원인</strong>:</p>
+<ul>
+<li>큰 코드베이스</li>
+<li>과도한 컨텍스트</li>
+</ul>
+<p><strong>해결</strong>:</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3916" onclick="copyCode('code-1769481054772-3916')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3916" class="language-yaml"># .humanlayer/performance.yml
+optimization:
+  # 컨텍스트 제한
+  max_context_files: 10
+  max_tokens_per_request: 8000
+
+<h1>캐싱 활성화</h1>
+<p>  enable_cache: true
+  cache_ttl: 3600</p>
+<h1>병렬 처리</h1>
+<p>  max_concurrent_agents: 3</p>
+<h1>증분 처리</h1>
+<p>  incremental_mode: true</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3917" onclick="copyCode('code-1769481054772-3917')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3917" class="language-bash"># 컨텍스트 프리워밍 (미리 로드)
+humanlayer warm-cache
+
+<h1>이후 요청이 빨라짐</h1>
+<p>humanlayer &quot;기능 추가&quot;  # 3분 → 10초</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h4>문제 4: &quot;Git 충돌&quot;</h4>
+<p><strong>증상</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3918" onclick="copyCode('code-1769481054772-3918')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3918" class="language-plaintext">CONFLICT (content): Merge conflict in api/users.py</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>HumanLayer 해결</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3919" onclick="copyCode('code-1769481054772-3919')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3919" class="language-bash">humanlayer resolve-conflict api/users.py
+
+<p>[AI Conflict Resolver]
+충돌 분석 중...</p>
+<p>📍 충돌 위치: api/users.py:45-60</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD (AI #1)
+def get_user(user_id):
+    return db.query(User).get(user_id)
+=======
+def get_user(user_id):
+    user = cache.get(f&quot;user:{user_id}&quot;)
+    if not user:
+        user = db.query(User).get(user_id)
+        cache.set(f&quot;user:{user_id}&quot;, user)
+    return user
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature-branch (AI #2)</p>
+<p>📊 분석:</p>
+<ul>
+<li>AI #1: 간단한 DB 조회</li>
+<li>AI #2: 캐싱 로직 추가</li>
+</ul>
+<p>💡 권장 해결:
+AI #2의 변경을 채택 (캐싱이 성능 향상)</p>
+<p>자동 해결할까요? (Y/n) Y</p>
+<p>✅ 충돌 해결 완료</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">22 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3 id="성능-튜닝-가이드">⚡ 성능 튜닝 가이드 {#성능-튜닝-가이드}</h3>
+<h4>튜닝 1: 컨텍스트 최적화</h4>
+<p><strong>Before</strong> (느림):</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3920" onclick="copyCode('code-1769481054772-3920')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3920" class="language-yaml">context:
+  include: &quot;**/*&quot;  # 모든 파일!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>After</strong> (빠름):</p>
+<div class="code-block" data-language="yaml">
+  <div class="code-block__header" style="background-color: #cb171e; color: #fff">
+    <span class="code-block__language">YAML</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3921" onclick="copyCode('code-1769481054772-3921')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3921" class="language-yaml">context:
+  include:
+    - &quot;src/**/*.py&quot;
+    - &quot;tests/**/*.py&quot;
+  exclude:
+    - &quot;**/__pycache__/**&quot;
+    - &quot;**/node_modules/**&quot;
+    - &quot;**/*.pyc&quot;
+    - &quot;.git/**&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
+</div>
+
+<hr>
+<h4>튜닝 2: 병렬 처리</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3922" onclick="copyCode('code-1769481054772-3922')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3922" class="language-bash"># 순차 실행 (느림)
+humanlayer &quot;기능 A 추가&quot;  # 10분
+humanlayer &quot;기능 B 추가&quot;  # 10분
+humanlayer &quot;기능 C 추가&quot;  # 10분
+# 총 30분
+
+<h1>병렬 실행 (빠름)</h1>
+<p>humanlayer parallel <br>  &quot;기능 A 추가&quot; <br>  &quot;기능 B 추가&quot; <br>  &quot;기능 C 추가&quot;</p>
+<h1>총 10분 (3배 빠름!)</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="faq-자주-묻는-질문">FAQ (자주 묻는 질문) {#faq-자주-묻는-질문}</h2>
+<h3 id="가격-관련">💰 가격 관련 {#가격-관련}</h3>
+<p><strong>Q1: HumanLayer는 무료인가요?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3923" onclick="copyCode('code-1769481054772-3923')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3923" class="language-plaintext">A: 현재는 Early Access 기간:
+   - 대기자 명단 가입 필요
+   - 초기 사용자는 무료/할인
+
+<p>   향후 예상 플랜:</p>
+<ul>
+<li>Free: 개인 프로젝트, 제한적</li>
+<li>Pro: $50/월, 개인 사용</li>
+<li>Team: $200/월, 5명 팀</li>
+<li>Enterprise: 맞춤형</code></pre>  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div></li>
+</ul>
+<p><strong>Q2: Claude API 비용은요?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3924" onclick="copyCode('code-1769481054772-3924')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3924" class="language-plaintext">A: 별도로 발생:
+   - Claude Sonnet: ~$3/1M 입력 토큰
+   - 일반적 사용: $10-50/월
+   - 많이 사용 시: $100-500/월
+
+<p>   팁: 캐싱으로 70% 절약 가능</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3 id="보안-관련">🔒 보안 관련 {#보안-관련}</h3>
+<p><strong>Q3: 내 코드가 학습되나요?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3925" onclick="copyCode('code-1769481054772-3925')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3925" class="language-plaintext">A: NO! 절대 학습 안 됨
+   - Claude API는 학습 안 함
+   - HumanLayer도 저장 안 함
+   - 요청 시에만 전송
+   - 종료 후 즉시 삭제</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>Q4: API 키 보안은?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3926" onclick="copyCode('code-1769481054772-3926')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3926" class="language-plaintext">A: 안전하게 관리:
+   - 로컬 환경 변수
+   - .env 파일 (gitignore)
+   - 암호화 저장
+   - 절대 코드에 하드코딩 금지</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<hr>
+<h3 id="기술-관련">🔧 기술 관련 {#기술-관련}</h3>
+<p><strong>Q5: 어떤 언어를 지원하나요?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3927" onclick="copyCode('code-1769481054772-3927')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3927" class="language-plaintext">A: 주요 언어 모두 지원:
+   ✅ Python
+   ✅ JavaScript/TypeScript
+   ✅ Go
+   ✅ Rust
+   ✅ Java
+   ✅ C#
+   ✅ Ruby
+   ✅ PHP
+
+<p>   프레임워크:
+   ✅ FastAPI, Django, Flask
+   ✅ React, Vue, Angular
+   ✅ Express, NestJS
+   ✅ Spring Boot
+   ...</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">15 lines</span>
+  </div></p>
+</div>
+
+<p><strong>Q6: 기존 IDE와 함께 쓸 수 있나요?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3928" onclick="copyCode('code-1769481054772-3928')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3928" class="language-plaintext">A: 네! 통합 가능:
+   - VS Code 확장 (개발 중)
+   - CLI로 터미널에서 사용
+   - Git 훅 연동
+   - CI/CD 파이프라인 통합</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<hr>
+<h3 id="사용법-관련">🤔 사용법 관련 {#사용법-관련}</h3>
+<p><strong>Q7: 학습이 어렵나요?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3929" onclick="copyCode('code-1769481054772-3929')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3929" class="language-plaintext">A: 매우 쉬움:
+   - 기본: 30분
+   - 중급: 2시간
+   - 고급: 1일
+
+<p>   기존 Claude Code 사용 경험 있으면
+   → 10분이면 시작 가능</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<p><strong>Q8: 팀 협업은 어떻게?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3930" onclick="copyCode('code-1769481054772-3930')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3930" class="language-plaintext">A: 여러 방식:
+   1. 공유 설정 파일 (.humanlayer/)
+   2. 커스텀 워크플로우 공유
+   3. 컨텍스트 전략 표준화
+   4. [Enterprise] 중앙 관리 서버</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="용어-설명-사전">용어 설명 사전 {#용어-설명-사전}</h2>
+<h3 id="a-c">A-C {#a-c}</h3>
+<p><strong>Agent (에이전트)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: AI 로봇 조수</li>
+<li><strong>기술적</strong>: Claude API를 활용한 자율적 작업 단위</li>
+<li><strong>예시</strong>: Backend Agent, Testing Agent</li>
+</ul>
+<p><strong>Claude Code</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: Anthropic의 AI 코딩 도구</li>
+<li><strong>기술적</strong>: Claude 기반 코드 생성/수정 시스템</li>
+<li><strong>관계</strong>: HumanLayer는 Claude Code 위에 구축됨</li>
+</ul>
+<p><strong>Context Engineering</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: AI에게 필요한 정보만 정확하게 주는 기술</li>
+<li><strong>비유</strong>: 의사에게 증상 정확히 설명하기</li>
+<li><strong>중요성</strong>: 컨텍스트가 좋을수록 AI 결과물 좋음</li>
+</ul>
+<p><strong>Canary Deployment (카나리 배포)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 일부만 먼저 배포해서 테스트</li>
+<li><strong>비유</strong>: 탄광의 카나리아 (위험 감지)</li>
+<li><strong>예시</strong>: 5% 사용자 → 문제없으면 100%</li>
+</ul>
+<hr>
+<h3 id="d-i">D-I {#d-i}</h3>
+<p><strong>DSL (Domain Specific Language)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 특정 작업용 전용 언어</li>
+<li><strong>예시</strong>: SQL (데이터베이스), HTML (웹)</li>
+<li><strong>HumanLayer</strong>: 워크플로우 정의용 YAML</li>
+</ul>
+<p><strong>Human Gate</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 사람이 확인하는 단계</li>
+<li><strong>예시</strong>: &quot;배포 전에 CTO 승인 필요&quot;</li>
+<li><strong>사용 이유</strong>: 중요한 결정은 사람이 판단</li>
+</ul>
+<p><strong>Incremental (증분)</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 조금씩 나눠서 처리</li>
+<li><strong>반대</strong>: 한 번에 전부</li>
+<li><strong>장점</strong>: 빠름, 에러 시 영향 적음</li>
+</ul>
+<hr>
+<h3 id="m-p">M-P {#m-p}</h3>
+<p><strong>MULTICLAUD</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 여러 Claude AI 동시 실행</li>
+<li><strong>비유</strong>: 요리사 여러 명이 동시에 요리</li>
+<li><strong>효과</strong>: 작업 시간 단축</li>
+</ul>
+<p><strong>N+1 Query Problem</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 데이터베이스를 너무 많이 조회하는 문제</li>
+<li><strong>예시</strong>:<div class="code-block" data-language="python">
+<div class="code-block__header" style="background-color: #3776ab; color: #fff">
+  <span class="code-block__language">Python</span>
+  <button class="code-block__copy" data-code-id="code-1769481054772-3931" onclick="copyCode('code-1769481054772-3931')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054772-3931" class="language-python"># 나쁜 예 (N+1)
+posts = Post.objects.all()  # 1번 조회
+for post in posts:
+    post.author  # N번 조회 (각 post마다)
+
+<h1>좋은 예</h1>
+posts = Post.objects.select_related(&#39;author&#39;)  # 1번만!</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">7 lines</span>
+</div></li>
+</ul>
+</div>
+
+<p><strong>Prompt Engineering</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: AI에게 잘 물어보는 기술</li>
+<li><strong>중요성</strong>: 질문이 좋아야 답변도 좋음</li>
+<li><strong>예시</strong>: &quot;고쳐줘&quot; vs &quot;이 버그를 이렇게 고쳐줘&quot;</li>
+</ul>
+<hr>
+<h3 id="s-w">S-W {#s-w}</h3>
+<p><strong>Strangler Pattern</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: 옛날 시스템을 조금씩 교체</li>
+<li><strong>비유</strong>: 집 리모델링 (한 방씩)</li>
+<li><strong>반대</strong>: Big Bang (전체 동시 교체)</li>
+</ul>
+<p><strong>Token</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: AI가 이해하는 단어 조각</li>
+<li><strong>예시</strong>: &quot;안녕하세요&quot; ≈ 2-3 토큰</li>
+<li><strong>중요성</strong>: 비용 계산 기준</li>
+</ul>
+<p><strong>Worktree</strong></p>
+<ul>
+<li><strong>쉬운 설명</strong>: Git 브랜치를 별도 폴더에서 작업</li>
+<li><strong>예시</strong>:<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054772-3932" onclick="copyCode('code-1769481054772-3932')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054772-3932" class="language-plaintext">project/main/     # main 브랜치
+project/feature/  # feature 브랜치
+→ 동시 작업 가능!</code></pre>
+<div class="code-block__footer">
+  <span class="code-block__lines">4 lines</span>
+</div>
+</div></li>
+</ul>
+<hr>
+<h2 id="학습-로드맵">학습 로드맵 {#학습-로드맵}</h2>
+<h3 id="4주-마스터-계획">📚 4주 마스터 계획 {#4주-마스터-계획}</h3>
+<h4>Week 1: 기초 (Part 1)</h4>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+Day 1-2: 개념 이해</p>
+<ul>
+<li>HumanLayer가 뭔지</li>
+<li>3가지 핵심 개념</li>
+<li>설치 및 설정</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+Day 3-4: 기본 사용</p>
+<ul>
+<li>첫 프로젝트 (5분 실습)</li>
+<li>간단한 버그 수정</li>
+<li>AI 프롬프트 연습</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+Day 5-7: 워크플로우</p>
+<ul>
+<li>기본 워크플로우 이해</li>
+<li>실전 프로젝트 1개 완성</li>
+<li>체크리스트 완료</li>
+</ul>
+</li>
+</ul>
+<p><strong>목표</strong>: 혼자서 기본 작업 가능</p>
+<hr>
+<h4>Week 2: 중급 (Part 2 시작)</h4>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+Day 8-10: 실전 시나리오</p>
+<ul>
+<li>레벨별 예시 따라하기</li>
+<li>자기 프로젝트에 적용</li>
+<li>팀 협업 시도</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+Day 11-12: Context Engineering</p>
+<ul>
+<li>계층적 컨텍스트 이해</li>
+<li>최적화 기법 적용</li>
+<li>성능 개선 체감</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+Day 13-14: 커스텀 워크플로우</p>
+<ul>
+<li>자주 하는 작업 자동화</li>
+<li>팀 워크플로우 만들기</li>
+<li>프롬프트 템플릿 작성</li>
+</ul>
+</li>
+</ul>
+<p><strong>목표</strong>: 효율적으로 활용</p>
+<hr>
+<h4>Week 3: 고급</h4>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+Day 15-17: 마이크로서비스</p>
+<ul>
+<li>서비스 분리 실습</li>
+<li>복잡한 아키텍처 다루기</li>
+<li>시스템 설계 AI 협업</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+Day 18-19: 성능 최적화</p>
+<ul>
+<li>병목 지점 찾기</li>
+<li>최적화 전략 수립</li>
+<li>모니터링 설정</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+Day 20-21: 레거시 마이그레이션</p>
+<ul>
+<li>Strangler Pattern 적용</li>
+<li>점진적 전환 전략</li>
+<li>리스크 관리</li>
+</ul>
+</li>
+</ul>
+<p><strong>목표</strong>: 복잡한 프로젝트 가능</p>
+<hr>
+<h4>Week 4: 마스터</h4>
+<ul>
+<li><p><input disabled="" type="checkbox"> 
+Day 22-24: 팀 스케일링</p>
+<ul>
+<li>팀 워크플로우 정립</li>
+<li>코드 리뷰 자동화</li>
+<li>생산성 메트릭 추적</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+Day 25-26: 고급 커스터마이징</p>
+<ul>
+<li>커스텀 컨텍스트 제공자</li>
+<li>플러그인 개발</li>
+<li>통합 자동화</li>
+</ul>
+</li>
+<li><p><input disabled="" type="checkbox"> 
+Day 27-28: 베스트 프랙티스</p>
+<ul>
+<li>케이스 스터디 분석</li>
+<li>자기 워크플로우 완성</li>
+<li>팀 가이드 작성</li>
+</ul>
+</li>
+</ul>
+<p><strong>목표</strong>: HumanLayer 전문가</p>
+<hr>
+<h3 id="레벨별-목표">🎯 레벨별 목표 {#레벨별-목표}</h3>
+<p><strong>🌱 초급 (Week 1-2)</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3933" onclick="copyCode('code-1769481054772-3933')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3933" class="language-plaintext">할 수 있는 것:
+✓ 간단한 기능 구현
+✓ 버그 수정
+✓ 테스트 작성
+✓ 문서 자동 생성
+
+<p>생산성: 2-3배 향상</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🚀 중급 (Week 3)</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3934" onclick="copyCode('code-1769481054772-3934')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3934" class="language-plaintext">할 수 있는 것:
+✓ 복잡한 기능 구현
+✓ 리팩토링
+✓ 성능 최적화
+✓ 아키텍처 설계 보조
+
+<p>생산성: 5-7배 향상</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<p><strong>💎 고급 (Week 4)</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3935" onclick="copyCode('code-1769481054772-3935')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3935" class="language-plaintext">할 수 있는 것:
+✓ 시스템 설계
+✓ 마이그레이션 프로젝트
+✓ 팀 프로세스 구축
+✓ 커스텀 자동화
+
+<p>생산성: 10배+ 향상</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="마치며">마치며 {#마치며}</h2>
+<h3 id="핵심-요약-part-2">🎓 핵심 요약 (Part 2) {#핵심-요약-part-2}</h3>
+<p><strong>5가지 고급 스킬</strong>:</p>
+<ol>
+<li>🎯 <strong>Context Engineering</strong>: 정확한 정보만 제공</li>
+<li>🔄 <strong>워크플로우 자동화</strong>: 반복 작업 제거</li>
+<li>🤝 <strong>팀 협업</strong>: 함께 10배 개발자 되기</li>
+<li>⚡ <strong>성능 최적화</strong>: 느린 부분 빠르게</li>
+<li>🔧 <strong>문제 해결</strong>: 막혔을 때 돌파구</li>
+</ol>
+<p><strong>실전 적용 3단계</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3936" onclick="copyCode('code-1769481054772-3936')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3936" class="language-plaintext">1. 작게 시작
+   → 하나의 프로젝트부터
+
+<ol start="2">
+<li><p>점진적 확대
+→ 팀원에게 공유</p>
+</li>
+<li><p>표준화
+→ 팀 전체 프로세스로</code></pre></p>
+  <div class="code-block__footer">
+ <span class="code-block__lines">6 lines</span>
+  </div>
+</div></li>
+</ol>
+<hr>
+<h3 id="다음-단계">🚀 다음 단계 {#다음-단계}</h3>
+<p><strong>지금 바로 실행</strong>:</p>
+<ol>
+<li><input disabled="" type="checkbox"> 대기자 명단 가입</li>
+<li><input disabled="" type="checkbox"> 첫 프로젝트 시작</li>
+<li><input disabled="" type="checkbox"> 팀원에게 공유</li>
+<li><input disabled="" type="checkbox"> 피드백 제공</li>
+</ol>
+<p><strong>커뮤니티 참여</strong>:</p>
+<ul>
+<li>💬 Discord: 질문하고 답변받기</li>
+<li>🐙 GitHub: 이슈 제기 및 기여</li>
+<li>📧 이메일: <a href="mailto:contact@humanlayer.dev">contact@humanlayer.dev</a></li>
+</ul>
+<hr>
+<h3 id="성공-스토리가-되세요">🌟 성공 스토리가 되세요! {#성공-스토리가-되세요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054772-3937" onclick="copyCode('code-1769481054772-3937')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054772-3937" class="language-plaintext">&quot;1주일 전 HumanLayer를 시작했어요.
+ 이제는 하루에 10개 PR을 찍어내고 있어요.
+ 팀원들도 모두 놀랐어요!&quot;
+
+<ul>
+<li>당신의 이름, 1주일 후</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">4 lines</span>
+  </div>
+</div></li>
+</ul>
+<hr>
+<p><strong>💬 피드백 환영</strong>:</p>
+<ul>
+<li>이 가이드가 도움되었나요?</li>
+<li>더 알고 싶은 내용이 있나요?</li>
+<li>GitHub에서 Issue로 제안해주세요!</li>
+</ul>
+<hr>
+<h2 id="체크리스트-part-2-완료-확인">체크리스트 (Part 2 완료 확인) {#체크리스트-part-2-완료-확인}</h2>
+<h3 id="실전-적용">실전 적용 {#실전-적용}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 레벨별 시나리오 3개 이상 완료</li>
+<li><input disabled="" type="checkbox"> 팀 협업 워크플로우 구축</li>
+<li><input disabled="" type="checkbox"> 커스텀 워크플로우 1개 이상 작성</li>
+</ul>
+<h3 id="고급-기능">고급 기능 {#고급-기능}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> Context Engineering 최적화</li>
+<li><input disabled="" type="checkbox"> AI 프롬프트 템플릿 작성</li>
+<li><input disabled="" type="checkbox"> 성능 튜닝 적용</li>
+</ul>
+<h3 id="문제-해결">문제 해결 {#문제-해결}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 일반적인 문제 5가지 해결 경험</li>
+<li><input disabled="" type="checkbox"> 디버깅 프로세스 확립</li>
+</ul>
+<h3 id="마스터">마스터 {#마스터}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 4주 로드맵 완료</li>
+<li><input disabled="" type="checkbox"> 팀에 HumanLayer 소개</li>
+<li><input disabled="" type="checkbox"> 커뮤니티 기여 (Issue/PR)</li>
+</ul>
+<p><strong>완료율</strong>: <em><strong>% (</strong></em>/12)</p>
+<hr>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<h3 id="이전-단계">이전 단계 {#이전-단계}</h3>
+<ul>
+<li><a href="/articles/humanlayer-perfect-guide-part-1-basics.html" class="internal-link">HumanLayer 완벽 가이드 Part 1 - 기초편</a> - 기초부터 시작</li>
+</ul>
+<h3 id="관련-주제">관련 주제 {#관련-주제}</h3>
+<ul>
+<li><a href="/articles/claude-code-perfect-guide.html" class="internal-link">Claude Code 완벽 가이드</a> - 기반 기술</li>
+<li><a href="/articles/ai-tools.html" class="internal-link">AI 코딩 도구 비교</a> - 다른 도구와 비교</li>
+<li><a href="/articles/context-engineering-deep-dive.html" class="internal-link">Context Engineering 심화</a> - 맥락 관리 전문</li>
+<li><a href="/articles/development.html" class="internal-link">팀 개발 프로세스 최적화</a> - 협업 전략</li>
+</ul>
+<h3 id="확장-학습">확장 학습 {#확장-학습}</h3>
+<ul>
+<li><a href="/articles/article.html" class="internal-link">마이크로서비스 아키텍처</a> - 고급 설계</li>
+<li><a href="/articles/real-world.html" class="internal-link">성능 최적화 실전</a> - 속도 개선</li>
+<li><a href="/articles/article.html" class="internal-link">레거시 시스템 현대화</a> - 마이그레이션</li>
+</ul>
+<hr>
+<p><strong>🎉 축하합니다!</strong>
+HumanLayer 완벽 가이드 Part 2를 완료하셨습니다!</p>
+<p>이제 당신은 HumanLayer 고급 사용자입니다. 🚀</p>
+<p><strong>작성일</strong>: 2025-10-13
+<strong>Part</strong>: 2/2 (고급편)
+<strong>난이도</strong>: ⭐⭐⭐⭐☆ (고급)
+<strong>예상 학습 시간</strong>: 2시간</p>
+<p>Happy Coding with AI! 🤖✨</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/코딩도구.html" class="article-tag">코딩도구</a><a href="/tag/개발도구.html" class="article-tag">개발도구</a><a href="/tag/HumanLayer.html" class="article-tag">HumanLayer</a><a href="/tag/고급가이드.html" class="article-tag">고급가이드</a><a href="/tag/실전활용.html" class="article-tag">실전활용</a><a href="/tag/문제해결.html" class="article-tag">문제해결</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/humanlayer-perfect-guide-part-2-advanced-real-world-practical.html&text=HumanLayer 완벽 가이드 Part 2 - 고급편 (실전 활용부터 마스터까지)" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/humanlayer-perfect-guide-part-2-advanced-real-world-practical.html&title=HumanLayer 완벽 가이드 Part 2 - 고급편 (실전 활용부터 마스터까지)" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/humanlayer-perfect-guide-part-2-advanced-real-world-practical.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

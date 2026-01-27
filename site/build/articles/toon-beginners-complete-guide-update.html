@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TOON 포맷 초보자 완전 가이드 - 인덱스 (업데이트됨) | AI &amp; Development Journal</title>
+  <meta name="description" content="이것은 세 부분으로 나뉜 TOON 완전 가이드의 시작점입니다. 여기서 시작해서 각 파트로 이동하세요! --- 이 가이드는 세 개의 독립적인 부분으로 구성되어 있습니다: 총 학습 시간: 약 23시간 --- 소요 시간: 2030분 대상: 프로그래밍 경험이 거의 없는...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="TOON 포맷 초보자 완전 가이드 - 인덱스 (업데이트됨)">
+  <meta property="og:description" content="이것은 세 부분으로 나뉜 TOON 완전 가이드의 시작점입니다. 여기서 시작해서 각 파트로 이동하세요! --- 이 가이드는 세 개의 독립적인 부분으로 구성되어 있습니다: 총 학습 시간: 약 23시간 --- 소요 시간: 2030분 대상: 프로그래밍 경험이 거의 없는...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/toon-beginners-complete-guide-update.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="TOON 포맷 초보자 완전 가이드 - 인덱스 (업데이트됨)">
+  <meta name="twitter:description" content="이것은 세 부분으로 나뉜 TOON 완전 가이드의 시작점입니다. 여기서 시작해서 각 파트로 이동하세요! --- 이 가이드는 세 개의 독립적인 부분으로 구성되어 있습니다: 총 학습 시간: 약 23시간 --- 소요 시간: 2030분 대상: 프로그래밍 경험이 거의 없는...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/toon-beginners-complete-guide-update.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">TOON 포맷 초보자 완전 가이드 - 인덱스 (업데이트됨)</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 11월 18일">2025년 11월 18일</time>
+            <span class="article-meta__separator">·</span>
+            <span>10 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#가이드-구조" class="toc__link">🎯 가이드 구조</a>
+    </li>
+    <li class="toc__item">
+      <a href="#각-파트-소개" class="toc__link">📖 각 파트 소개</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#part-1-기본-개념편" class="toc__link">🌱 Part 1: 기본 개념편</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#part-2-실전-활용편" class="toc__link">🚀 Part 2: 실전 활용편</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#part-3-고급-기능편" class="toc__link">🎓 Part 3: 고급 기능편</a>
+    </li>
+    <li class="toc__item">
+      <a href="#빠른-시작-5분" class="toc__link">🚀 빠른 시작 (5분)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1단계-toon이-뭐예요" class="toc__link">1단계: TOON이 뭐예요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2단계-3가지만-기억하면-돼요" class="toc__link">2단계: 3가지만 기억하면 돼요</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3단계-왜-배워야-할까요" class="toc__link">3단계: 왜 배워야 할까요?</a>
+    </li>
+    <li class="toc__item">
+      <a href="#학습-경로-추천" class="toc__link">📚 학습 경로 추천</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#경로-1-초보자" class="toc__link">경로 1️⃣: 초보자</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#경로-2-빠른-학습자" class="toc__link">경로 2️⃣: 빠른 학습자</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#경로-3-심화-학습자" class="toc__link">경로 3️⃣: 심화 학습자</a>
+    </li>
+    <li class="toc__item">
+      <a href="#학습-목표-체크리스트" class="toc__link">🎯 학습 목표 체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#파트-1을-마친-후" class="toc__link">파트 1을 마친 후</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#파트-2를-마친-후" class="toc__link">파트 2를 마친 후</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#파트-3을-마친-후" class="toc__link">파트 3을 마친 후</a>
+    </li>
+    <li class="toc__item">
+      <a href="#활용-시나리오" class="toc__link">💡 활용 시나리오</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시나리오-1-ai에게-데이터-분석-요청" class="toc__link">시나리오 1: AI에게 데이터 분석 요청</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시나리오-2-대용량-데이터-처리" class="toc__link">시나리오 2: 대용량 데이터 처리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시나리오-3-복잡한-데이터-구조" class="toc__link">시나리오 3: 복잡한 데이터 구조</a>
+    </li>
+    <li class="toc__item">
+      <a href="#자주-묻는-질문" class="toc__link">🤔 자주 묻는 질문</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#q1-모든-데이터를-toon으로-해야-하나요" class="toc__link">Q1: 모든 데이터를 TOON으로 해야 하나요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#q2-part-1만-읽어도-되나요" class="toc__link">Q2: Part 1만 읽어도 되나요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#q3-얼마나-자주-사용하게-되나요" class="toc__link">Q3: 얼마나 자주 사용하게 되나요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#q4-cli-도구를-반드시-배워야-하나요" class="toc__link">Q4: CLI 도구를 반드시 배워야 하나요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#q5-json을-toon으로-자동-변환되나요" class="toc__link">Q5: JSON을 TOON으로 자동 변환되나요?</a>
+    </li>
+    <li class="toc__item">
+      <a href="#가이드-통계" class="toc__link">📊 가이드 통계</a>
+    </li>
+    <li class="toc__item">
+      <a href="#보너스-팁" class="toc__link">🎁 보너스 팁</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#팁-1-feynman-기법으로-배우기" class="toc__link">팁 1: Feynman 기법으로 배우기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#팁-2-손으로-직접-연습" class="toc__link">팁 2: 손으로 직접 연습</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#팁-3-실제-프로젝트에-적용" class="toc__link">팁 3: 실제 프로젝트에 적용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#팁-4-커뮤니티와-공유" class="toc__link">팁 4: 커뮤니티와 공유</a>
+    </li>
+    <li class="toc__item">
+      <a href="#다음-단계" class="toc__link">📞 다음 단계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#지금-바로-시작" class="toc__link">🚀 지금 바로 시작</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#이미-경험-있으신-분들" class="toc__link">📈 이미 경험 있으신 분들</a>
+    </li>
+    <li class="toc__item">
+      <a href="#관련-노트" class="toc__link">🔗 관련 노트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#가이드-특징" class="toc__link">⭐ 가이드 특징</a>
+    </li>
+    <li class="toc__item">
+      <a href="#버전-정보" class="toc__link">📝 버전 정보</a>
+    </li>
+    <li class="toc__item">
+      <a href="#마치며" class="toc__link">🙌 마치며</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>📚 TOON 포맷 초보자 완전 가이드 - 인덱스</h1>
+<blockquote>
+<p><strong>이것은 세 부분으로 나뉜 TOON 완전 가이드의 시작점입니다.</strong>
+여기서 시작해서 각 파트로 이동하세요!</p>
+</blockquote>
+<hr>
+<h2 id="가이드-구조">🎯 가이드 구조 {#가이드-구조}</h2>
+<p>이 가이드는 <strong>세 개의 독립적인 부분</strong>으로 구성되어 있습니다:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055075-5994" onclick="copyCode('code-1769481055075-5994')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055075-5994" class="language-plaintext">🌱 Part 1: 기본 개념편 (20~30분)
+  ↓ (기초를 다졌으면)
+🚀 Part 2: 실전 활용편 (40~60분)
+  ↓ (기본 사용법을 익혔으면)
+🎓 Part 3: 고급 기능편 (50~70분)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>총 학습 시간</strong>: 약 2~3시간</p>
+<hr>
+<h2 id="각-파트-소개">📖 각 파트 소개 {#각-파트-소개}</h2>
+<h3 id="part-1-기본-개념편">🌱 Part 1: 기본 개념편 {#part-1-기본-개념편}</h3>
+<p><strong>소요 시간</strong>: 20~30분
+<strong>대상</strong>: 프로그래밍 경험이 거의 없는 초보자
+<strong>난이도</strong>: ⭐ 초급</p>
+<p><strong>배우게 되는 것</strong>:</p>
+<ul>
+<li>TOON이 뭔가요?</li>
+<li>왜 TOON을 배워야 하나요?</li>
+<li>일상 비유로 이해하는 TOON</li>
+<li>JSON과 TOON의 차이</li>
+<li>TOON의 3가지 핵심 개념</li>
+<li>첫 번째 TOON 예제</li>
+<li>완벽한 용어 사전</li>
+</ul>
+<p><strong>이 파트를 마치면</strong>:</p>
+<ul>
+<li>✅ TOON의 기본 개념을 이해</li>
+<li>✅ 간단한 데이터를 TOON으로 표현 가능</li>
+<li>✅ 어려운 용어들의 의미를 알 수 있음</li>
+</ul>
+<p>👉 <strong><a href="/articles/toonbeginnerscompleteguidepart1.html" class="internal-link">Part 1으로 이동하기</a></strong></p>
+<hr>
+<h3 id="part-2-실전-활용편">🚀 Part 2: 실전 활용편 {#part-2-실전-활용편}</h3>
+<p><strong>소요 시간</strong>: 40~60분
+<strong>대상</strong>: Part 1을 완료한 사람
+<strong>난이도</strong>: ⭐⭐ 중급</p>
+<p><strong>배우게 되는 것</strong>:</p>
+<ul>
+<li>객체를 마스터하기</li>
+<li>배열을 완전히 정복하기</li>
+<li>표 형식 데이터 다루기 (가장 중요!)</li>
+<li>인용 규칙 쉽게 배우기</li>
+<li>빈 컨테이너와 타입 변환</li>
+<li>실무 예제 4가지</li>
+<li>흔한 실수와 해결법</li>
+<li>체크리스트 형식 실습</li>
+</ul>
+<p><strong>이 파트를 마치면</strong>:</p>
+<ul>
+<li>✅ 객체, 배열, 표를 자유자재로 사용 가능</li>
+<li>✅ 따옴표(인용) 규칙을 완벽히 이해</li>
+<li>✅ 실제 데이터를 TOON으로 변환 가능</li>
+<li>✅ CLI 도구로 자동 변환 가능</li>
+</ul>
+<p>👉 <strong><a href="/articles/toonbeginnerscompleteguidepart2.html" class="internal-link">Part 2로 이동하기</a></strong></p>
+<hr>
+<h3 id="part-3-고급-기능편">🎓 Part 3: 고급 기능편 {#part-3-고급-기능편}</h3>
+<p><strong>소요 시간</strong>: 50~70분
+<strong>대상</strong>: Part 1과 Part 2를 완료한 사람
+<strong>난이도</strong>: ⭐⭐⭐ 고급</p>
+<p><strong>배우게 되는 것</strong>:</p>
+<ul>
+<li>다양한 구분자 사용하기 (쉼표, 탭, 파이프)</li>
+<li>Key Folding으로 토큰 절감</li>
+<li>복합 구조 다루기</li>
+<li>성능 최적화 전략</li>
+<li>레이턴시 vs 토큰 트레이드오프</li>
+<li>AI 프롬프트에서 TOON 활용</li>
+<li>TOON vs JSON 성능 비교</li>
+<li>Playgrounds 활용하기</li>
+<li>문제 해결 가이드</li>
+</ul>
+<p><strong>이 파트를 마치면</strong>:</p>
+<ul>
+<li>✅ 토큰 절감 효과 극대화 가능</li>
+<li>✅ 복잡한 데이터 구조 처리 가능</li>
+<li>✅ AI에게 효율적으로 데이터 전달 가능</li>
+<li>✅ 성능 최적화 전문가 수준</li>
+</ul>
+<p>👉 <strong><a href="/articles/toonbeginnerscompleteguidepart3.html" class="internal-link">Part 3으로 이동하기</a></strong></p>
+<hr>
+<h2 id="빠른-시작-5분">🚀 빠른 시작 (5분) {#빠른-시작-5분}</h2>
+<h3 id="1단계-toon이-뭐예요">1단계: TOON이 뭐예요? {#1단계-toon이-뭐예요}</h3>
+<p>TOON은 <strong>AI에게 데이터를 더 효율적으로 전달하는 새로운 포맷</strong>입니다.</p>
+<p><strong>JSON</strong> (기존 방식):</p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481055075-5995" onclick="copyCode('code-1769481055075-5995')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055075-5995" class="language-json">{
+  &quot;friends&quot;: [&quot;철수&quot;, &quot;영희&quot;, &quot;민준&quot;]
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>TOON</strong> (새로운 방식):</p>
+<div class="code-block" data-language="toon">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481055075-5996" onclick="copyCode('code-1769481055075-5996')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055075-5996" class="language-toon">friends[3]: 철수,영희,민준</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>효과</strong>: 같은 정보인데 <strong>30~60% 더 적은 토큰</strong> 사용!</p>
+<h3 id="2단계-3가지만-기억하면-돼요">2단계: 3가지만 기억하면 돼요 {#2단계-3가지만-기억하면-돼요}</h3>
+<div class="code-block" data-language="toon">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Code</span>
+    <button class="code-block__copy" data-code-id="code-1769481055075-5997" onclick="copyCode('code-1769481055075-5997')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055075-5997" class="language-toon"># 1. 객체 (한 사람의 정보)
+이름: 김철수
+나이: 30
+
+<h1>2. 배열 (여러 항목)</h1>
+<p>친구[3]: 철수,영희,민준</p>
+<h1>3. 표 (여러 사람의 정보)</h1>
+<p>학생[2]{이름,나이}:
+  김철수,30
+  이영희,25</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h3 id="3단계-왜-배워야-할까요">3단계: 왜 배워야 할까요? {#3단계-왜-배워야-할까요}</h3>
+<table>
+<thead>
+<tr>
+<th>이유</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>💰 <strong>비용 절감</strong></td>
+<td>AI API 사용 비용 30~60% 감소</td>
+</tr>
+<tr>
+<td>⚡ <strong>속도</strong></td>
+<td>AI의 응답 시간 단축</td>
+</tr>
+<tr>
+<td>🎯 <strong>정확도</strong></td>
+<td>AI가 더 정확하게 이해</td>
+</tr>
+<tr>
+<td>📊 <strong>효율성</strong></td>
+<td>대용량 데이터 처리 최적화</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="학습-경로-추천">📚 학습 경로 추천 {#학습-경로-추천}</h2>
+<h3 id="경로-1-초보자">경로 1️⃣: 초보자 {#경로-1-초보자}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055075-5998" onclick="copyCode('code-1769481055075-5998')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055075-5998" class="language-plaintext">Part 1 (기본 개념)
+  ↓ (30분)
+실제 데이터로 연습
+  ↓
+Part 2 (실전 활용)
+  ↓ (1시간)
+더 많은 예제로 연습
+  ↓
+Part 3 (고급) - 필요시</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
+</div>
+
+<p><strong>예상 시간</strong>: 2~3시간</p>
+<h3 id="경로-2-빠른-학습자">경로 2️⃣: 빠른 학습자 {#경로-2-빠른-학습자}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055075-5999" onclick="copyCode('code-1769481055075-5999')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055075-5999" class="language-plaintext">Part 1 (기본 개념)
+  ↓ (20분)
+Part 2 (실전 활용)
+  ↓ (45분)
+실전 프로젝트 적용</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>예상 시간</strong>: 1~2시간</p>
+<h3 id="경로-3-심화-학습자">경로 3️⃣: 심화 학습자 {#경로-3-심화-학습자}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055075-6000" onclick="copyCode('code-1769481055075-6000')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055075-6000" class="language-plaintext">Part 1 + Part 2 + Part 3
+  ↓
+성능 최적화 전략 학습
+  ↓
+실제 AI 프롬프트에 적용
+  ↓
+팀과 함께 사용</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<p><strong>예상 시간</strong>: 2.5~3.5시간</p>
+<hr>
+<h2 id="학습-목표-체크리스트">🎯 학습 목표 체크리스트 {#학습-목표-체크리스트}</h2>
+<h3 id="파트-1을-마친-후">파트 1을 마친 후 {#파트-1을-마친-후}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> TOON이 뭔지 1문장으로 설명할 수 있다</li>
+<li><input disabled="" type="checkbox"> 왜 JSON보다 TOON이 효율적인지 알 수 있다</li>
+<li><input disabled="" type="checkbox"> 객체, 배열, 표의 차이를 설명할 수 있다</li>
+<li><input disabled="" type="checkbox"> 간단한 데이터를 TOON으로 만들 수 있다</li>
+<li><input disabled="" type="checkbox"> 용어 사전의 주요 용어 10개를 이해한다</li>
+<li><input disabled="" type="checkbox"> TOON을 사용하지 말아야 할 경우를 알 수 있다</li>
+</ul>
+<h3 id="파트-2를-마친-후">파트 2를 마친 후 {#파트-2를-마친-후}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 객체를 자유롭게 다룰 수 있다</li>
+<li><input disabled="" type="checkbox"> 배열과 표를 완벽히 이해한다</li>
+<li><input disabled="" type="checkbox"> 따옴표 규칙을 모두 알 수 있다</li>
+<li><input disabled="" type="checkbox"> 빈 컨테이너를 다룰 수 있다</li>
+<li><input disabled="" type="checkbox"> 타입 변환을 이해할 수 있다</li>
+<li><input disabled="" type="checkbox"> 실무 예제 4가지를 직접 만들 수 있다</li>
+<li><input disabled="" type="checkbox"> CLI 도구로 자동 변환할 수 있다</li>
+</ul>
+<h3 id="파트-3을-마친-후">파트 3을 마친 후 {#파트-3을-마친-후}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 구분자의 3가지 종류를 사용할 수 있다</li>
+<li><input disabled="" type="checkbox"> Key Folding으로 토큰을 절감할 수 있다</li>
+<li><input disabled="" type="checkbox"> 복합 구조를 다룰 수 있다</li>
+<li><input disabled="" type="checkbox"> 레이턴시 vs 토큰 트레이드오프를 이해한다</li>
+<li><input disabled="" type="checkbox"> 성능 최적화 전략을 적용할 수 있다</li>
+<li><input disabled="" type="checkbox"> Playgrounds로 실시간 테스트할 수 있다</li>
+<li><input disabled="" type="checkbox"> AI 프롬프트에 효과적으로 활용할 수 있다</li>
+</ul>
+<hr>
+<h2 id="활용-시나리오">💡 활용 시나리오 {#활용-시나리오}</h2>
+<h3 id="시나리오-1-ai에게-데이터-분석-요청">시나리오 1: AI에게 데이터 분석 요청 {#시나리오-1-ai에게-데이터-분석-요청}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055075-6001" onclick="copyCode('code-1769481055075-6001')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055075-6001" class="language-plaintext">[사용자] &quot;다음 학생 성적을 분석해줘&quot;
+  ↓
+[TOON 형식으로 효율적 전달]
+  ↓
+[AI] &quot;토큰이 적어서 더 빠르고 정확히 분석할 수 있어!&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h3 id="시나리오-2-대용량-데이터-처리">시나리오 2: 대용량 데이터 처리 {#시나리오-2-대용량-데이터-처리}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055075-6002" onclick="copyCode('code-1769481055075-6002')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055075-6002" class="language-plaintext">[상황] 1,000명의 고객 정보 처리 필요
+  ↓
+[JSON] 30,000 토큰 = $0.09 비용
+[TOON] 12,000 토큰 = $0.036 비용
+  ↓
+[절감] $0.054 (60% 절감!)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h3 id="시나리오-3-복잡한-데이터-구조">시나리오 3: 복잡한 데이터 구조 {#시나리오-3-복잡한-데이터-구조}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055075-6003" onclick="copyCode('code-1769481055075-6003')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055075-6003" class="language-plaintext">[학교 정보 + 학생 + 성적 + 댓글]
+  ↓
+[TOON 표 형식으로 깔끔하게 정렬]
+  ↓
+[AI가 쉽게 이해하고 처리]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="자주-묻는-질문">🤔 자주 묻는 질문 {#자주-묻는-질문}</h2>
+<h3 id="q1-모든-데이터를-toon으로-해야-하나요">Q1: 모든 데이터를 TOON으로 해야 하나요? {#q1-모든-데이터를-toon으로-해야-하나요}</h3>
+<p><strong>A</strong>: 아니요. 균일한 테이블 데이터에 TOON이 최고입니다. 깊게 중첩된 데이터는 JSON이 더 나을 수 있어요.</p>
+<h3 id="q2-part-1만-읽어도-되나요">Q2: Part 1만 읽어도 되나요? {#q2-part-1만-읽어도-되나요}</h3>
+<p><strong>A</strong>: 기본을 이해하려면 가능하지만, Part 2를 해야 실제로 사용할 수 있습니다!</p>
+<h3 id="q3-얼마나-자주-사용하게-되나요">Q3: 얼마나 자주 사용하게 되나요? {#q3-얼마나-자주-사용하게-되나요}</h3>
+<p><strong>A</strong>: AI를 자주 사용한다면 거의 매일! 대용량 데이터를 처리할 때마다 유용합니다.</p>
+<h3 id="q4-cli-도구를-반드시-배워야-하나요">Q4: CLI 도구를 반드시 배워야 하나요? {#q4-cli-도구를-반드시-배워야-하나요}</h3>
+<p><strong>A</strong>: 기본 개념을 알면 손으로 작성할 수 있지만, CLI가 있으면 훨씬 편합니다.</p>
+<h3 id="q5-json을-toon으로-자동-변환되나요">Q5: JSON을 TOON으로 자동 변환되나요? {#q5-json을-toon으로-자동-변환되나요}</h3>
+<p><strong>A</strong>: 네! CLI 도구로 자동 변환됩니다.</p>
+<hr>
+<h2 id="가이드-통계">📊 가이드 통계 {#가이드-통계}</h2>
+<table>
+<thead>
+<tr>
+<th>항목</th>
+<th>수치</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>총 페이지</td>
+<td>3부</td>
+</tr>
+<tr>
+<td>총 단어</td>
+<td>약 15,000+</td>
+</tr>
+<tr>
+<td>예제 개수</td>
+<td>50+</td>
+</tr>
+<tr>
+<td>실습 문제</td>
+<td>20+</td>
+</tr>
+<tr>
+<td>용어 개수</td>
+<td>30+</td>
+</tr>
+<tr>
+<td>평균 학습 시간</td>
+<td>2~3시간</td>
+</tr>
+<tr>
+<td>난이도</td>
+<td>초급 → 중급 → 고급</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="보너스-팁">🎁 보너스 팁 {#보너스-팁}</h2>
+<h3 id="팁-1-feynman-기법으로-배우기">팁 1: Feynman 기법으로 배우기 {#팁-1-feynman-기법으로-배우기}</h3>
+<ul>
+<li><strong>설명하기</strong>: 배운 개념을 다른 사람에게 설명</li>
+<li><strong>단순화하기</strong>: 복잡한 부분을 더 간단히</li>
+<li><strong>반복하기</strong>: 같은 데이터를 여러 번 표현</li>
+</ul>
+<h3 id="팁-2-손으로-직접-연습">팁 2: 손으로 직접 연습 {#팁-2-손으로-직접-연습}</h3>
+<ul>
+<li>예제를 복사-붙여넣기하지 말고 직접 타이핑</li>
+<li>자신의 데이터로 연습</li>
+<li>틀렸다가 맞춰나가기</li>
+</ul>
+<h3 id="팁-3-실제-프로젝트에-적용">팁 3: 실제 프로젝트에 적용 {#팁-3-실제-프로젝트에-적용}</h3>
+<ul>
+<li>간단한 데이터부터 시작</li>
+<li>CLI로 검증해보기</li>
+<li>효과를 측정하기</li>
+</ul>
+<h3 id="팁-4-커뮤니티와-공유">팁 4: 커뮤니티와 공유 {#팁-4-커뮤니티와-공유}</h3>
+<ul>
+<li>팀원들과 함께 배우기</li>
+<li>실제 효과 공유하기</li>
+<li>피드백 받기</li>
+</ul>
+<hr>
+<h2 id="다음-단계">📞 다음 단계 {#다음-단계}</h2>
+<h3 id="지금-바로-시작">🚀 지금 바로 시작 {#지금-바로-시작}</h3>
+<ol>
+<li><strong>Part 1 읽기</strong> (20~30분)</li>
+<li><strong>간단한 예제 만들기</strong> (10분)</li>
+<li><strong>Part 2로 진행</strong> (40~60분)</li>
+</ol>
+<p>👉 <strong><a href="/articles/toonbeginnerscompleteguidepart1.html" class="internal-link">Part 1로 이동하기 →</a></strong></p>
+<h3 id="이미-경험-있으신-분들">📈 이미 경험 있으신 분들 {#이미-경험-있으신-분들}</h3>
+<p>Part 2나 Part 3로 바로 가셔도 됩니다!</p>
+<ul>
+<li>👉 <strong><a href="/articles/toonbeginnerscompleteguidepart2.html" class="internal-link">Part 2로 이동하기 →</a></strong></li>
+<li>👉 <strong><a href="/articles/toonbeginnerscompleteguidepart3.html" class="internal-link">Part 3으로 이동하기 →</a></strong></li>
+</ul>
+<hr>
+<h2 id="관련-노트">🔗 관련 노트 {#관련-노트}</h2>
+<ul>
+<li><a href="/articles/promptengineering.html" class="internal-link">프롬프트 엔지니어링 완전 가이드</a></li>
+<li><a href="/articles/llmpracticalguide.html" class="internal-link">LLM 실무 활용 가이드</a></li>
+<li><a href="/articles/jsoncompleteguide.html" class="internal-link">JSON 완전 가이드</a></li>
+<li><a href="/articles/article.html" class="internal-link">데이터 포맷 비교</a></li>
+<li><a href="/articles/aitoolspractical.html" class="internal-link">AI 도구 활용 가이드</a></li>
+</ul>
+<hr>
+<h2 id="가이드-특징">⭐ 가이드 특징 {#가이드-특징}</h2>
+<p>✅ <strong>초보자 친화적</strong></p>
+<ul>
+<li>전문 용어 최소화</li>
+<li>모든 개념을 일상 비유로 설명</li>
+<li>단계별 예제 (50+개)</li>
+</ul>
+<p>✅ <strong>실전 중심</strong></p>
+<ul>
+<li>실제 사용할 수 있는 예제</li>
+<li>흔한 실수와 해결법</li>
+<li>CLI 도구 활용법</li>
+</ul>
+<p>✅ <strong>완전한 학습</strong></p>
+<ul>
+<li>기본부터 고급까지</li>
+<li>성능 최적화</li>
+<li>AI 프롬프트 통합</li>
+</ul>
+<p>✅ <strong>쉬운 네비게이션</strong></p>
+<ul>
+<li>목차에서 클릭으로 이동</li>
+<li>파트 간 연결</li>
+<li>관련 노트 링크</li>
+</ul>
+<hr>
+<h2 id="버전-정보">📝 버전 정보 {#버전-정보}</h2>
+<ul>
+<li><strong>작성일</strong>: 2025-11-18</li>
+<li><strong>상태</strong>: 완료</li>
+<li><strong>버전</strong>: 1.0</li>
+<li><strong>총 파일</strong>: 4개 (인덱스 + Part 1, 2, 3)</li>
+<li><strong>호환성</strong>: Obsidian 1.0+</li>
+</ul>
+<hr>
+<h2 id="마치며">🙌 마치며 {#마치며}</h2>
+<p>이 가이드는 <strong>프로그래밍 경험이 거의 없는 분들도 TOON을 완벽히 이해할 수 있도록</strong> 작성되었습니다.</p>
+<p><strong>지금 바로 시작하세요!</strong></p>
+<blockquote>
+<p>💡 <strong>기억하세요</strong>: &quot;배우기는 여행이지 목적지가 아닙니다.&quot;
+천천히, 꾸준히 진행하면 됩니다!</p>
+</blockquote>
+<hr>
+<p><strong>📚 시작하기 준비가 되셨나요?</strong></p>
+<p>👉 <strong><a href="/articles/toonbeginnerscompleteguidepart1.html" class="internal-link">Part 1: 기본 개념편으로 이동하기 →</a></strong></p>
+<p><strong>학습을 응원합니다! 화이팅! 💪</strong></p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/TOON.html" class="article-tag">TOON</a><a href="/tag/데이터포맷.html" class="article-tag">데이터포맷</a><a href="/tag/초보자.html" class="article-tag">초보자</a><a href="/tag/인덱스.html" class="article-tag">인덱스</a><a href="/tag/네비게이션.html" class="article-tag">네비게이션</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/toon-beginners-complete-guide-update.html&text=TOON 포맷 초보자 완전 가이드 - 인덱스 (업데이트됨)" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/toon-beginners-complete-guide-update.html&title=TOON 포맷 초보자 완전 가이드 - 인덱스 (업데이트됨)" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/toon-beginners-complete-guide-update.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

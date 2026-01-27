@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>copyparty 초보자 완전정복 가이드: 파일 공유의 새로운 패러다임 | AI &amp; Development Journal</title>
+  <meta name="description" content="1.  || #프롤로그 왜 copyparty인가 2.  || #copyparty 본질 이해하기 3.  || #마법의 설치 과정 4.  || #첫 번째 파일 서버 만들기 5.  || #고급 기능 탐험하기 6.  || #실전 활용 시나리오 7.  || #문제 해결 가이드...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="copyparty 초보자 완전정복 가이드: 파일 공유의 새로운 패러다임">
+  <meta property="og:description" content="1.  || #프롤로그 왜 copyparty인가 2.  || #copyparty 본질 이해하기 3.  || #마법의 설치 과정 4.  || #첫 번째 파일 서버 만들기 5.  || #고급 기능 탐험하기 6.  || #실전 활용 시나리오 7.  || #문제 해결 가이드...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/copyparty-beginners-complete-guide-new.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="copyparty 초보자 완전정복 가이드: 파일 공유의 새로운 패러다임">
+  <meta name="twitter:description" content="1.  || #프롤로그 왜 copyparty인가 2.  || #copyparty 본질 이해하기 3.  || #마법의 설치 과정 4.  || #첫 번째 파일 서버 만들기 5.  || #고급 기능 탐험하기 6.  || #실전 활용 시나리오 7.  || #문제 해결 가이드...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/copyparty-beginners-complete-guide-new.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">copyparty 초보자 완전정복 가이드: 파일 공유의 새로운 패러다임</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 1월 25일">2025년 1월 25일</time>
+            <span class="article-meta__separator">·</span>
+            <span>14 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차-내부-링크-활용" class="toc__link">📋 목차 (내부 링크 활용)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#프롤로그-왜-copyparty인가" class="toc__link">프롤로그 왜 copyparty인가</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#상황극-디지털-노마드-지훈이의-하루" class="toc__link">🎭 상황극: 디지털 노마드 지훈이의 하루</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#파인만-방식-설명-copyparty란" class="toc__link">💡 파인만 방식 설명: copyparty란?</a>
+    </li>
+    <li class="toc__item">
+      <a href="#copyparty-본질-이해하기" class="toc__link">copyparty 본질 이해하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#서커스단-비유로-이해하는-copyparty" class="toc__link">🎪 서커스단 비유로 이해하는 copyparty</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#copyparty-vs-경쟁자들" class="toc__link">📊 copyparty vs 경쟁자들</a>
+    </li>
+    <li class="toc__item">
+      <a href="#마법의-설치-과정" class="toc__link">마법의 설치 과정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#설치-마법서-단계별-스토리" class="toc__link">🧙‍♂️ 설치 마법서 (단계별 스토리)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#첫-번째-파일-서버-만들기" class="toc__link">첫 번째 파일 서버 만들기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#미션-3분-만에-파일-서버-구축하기" class="toc__link">🚀 미션: 3분 만에 파일 서버 구축하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#축하합니다-첫-파일-서버-완성" class="toc__link">🎊 축하합니다! 첫 파일 서버 완성!</a>
+    </li>
+    <li class="toc__item">
+      <a href="#고급-기능-탐험하기" class="toc__link">고급 기능 탐험하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#copyparty-서커스단의-특별-공연" class="toc__link">🎪 copyparty 서커스단의 특별 공연</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#보안-마법진" class="toc__link">🔒 보안 마법진</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실전-활용-시나리오" class="toc__link">실전 활용 시나리오</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시나리오-1-가족-사진-보관소" class="toc__link">🏠 시나리오 1: 가족 사진 보관소</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시나리오-2-재택근무-파일-서버" class="toc__link">💼 시나리오 2: 재택근무 파일 서버</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시나리오-3-게임-친구들과-파일-공유" class="toc__link">🎮 시나리오 3: 게임 친구들과 파일 공유</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결-가이드" class="toc__link">문제 해결 가이드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#응급실-자주-발생하는-문제들" class="toc__link">🚨 응급실: 자주 발생하는 문제들</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-트러블슈팅" class="toc__link">🛠️ 고급 트러블슈팅</a>
+    </li>
+    <li class="toc__item">
+      <a href="#모바일-기기-특별-가이드-new" class="toc__link">📱 모바일 기기 특별 가이드 (NEW!)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#android에서-copyparty-활용하기" class="toc__link">Android에서 copyparty 활용하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#ios에서-copyparty-활용하기" class="toc__link">iOS에서 copyparty 활용하기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#더-깊이-파보기" class="toc__link">더 깊이 파보기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#copyparty-대학원-과정" class="toc__link">🎓 copyparty 대학원 과정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#생태계-확장하기" class="toc__link">🌐 생태계 확장하기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실습-체크리스트" class="toc__link">🎯 실습 체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초급자-미션-왕초보도-ok" class="toc__link">초급자 미션 (왕초보도 OK!)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#중급자-미션-실용성-up" class="toc__link">중급자 미션 (실용성 UP!)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급자-미션-전문가-레벨" class="toc__link">고급자 미션 (전문가 레벨!)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">🔗 연결된 노트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#관련-기술-스택" class="toc__link">관련 기술 스택</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#유사-도구-비교" class="toc__link">유사 도구 비교</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실전-활용-사례" class="toc__link">실전 활용 사례</a>
+    </li>
+    <li class="toc__item">
+      <a href="#마무리-copyparty-마스터가-되신-것을-축하합니다" class="toc__link">🎊 마무리: copyparty 마스터가 되신 것을 축하합니다!</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#다음-스텝-추천" class="toc__link">🚀 다음 스텝 추천</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#마지막-당부" class="toc__link">💌 마지막 당부</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>🏠 copyparty 초보자 완전정복 가이드: 파일 공유의 새로운 패러다임</h1>
+<h2 id="목차-내부-링크-활용">📋 목차 (내부 링크 활용) {#목차-내부-링크-활용}</h2>
+<ol>
+<li><a href="#프롤로그-왜-copyparty인가" class="internal-link internal-link--section">프롤로그 왜 copyparty인가</a></li>
+<li><a href="#copyparty-본질-이해하기" class="internal-link internal-link--section">copyparty 본질 이해하기</a></li>
+<li><a href="#마법의-설치-과정" class="internal-link internal-link--section">마법의 설치 과정</a></li>
+<li><a href="#첫-번째-파일-서버-만들기" class="internal-link internal-link--section">첫 번째 파일 서버 만들기</a></li>
+<li><a href="#고급-기능-탐험하기" class="internal-link internal-link--section">고급 기능 탐험하기</a></li>
+<li><a href="#실전-활용-시나리오" class="internal-link internal-link--section">실전 활용 시나리오</a></li>
+<li><a href="#문제-해결-가이드" class="internal-link internal-link--section">문제 해결 가이드</a></li>
+<li><a href="#더-깊이-파보기" class="internal-link internal-link--section">더 깊이 파보기</a></li>
+</ol>
+<hr>
+<h2 id="프롤로그-왜-copyparty인가">프롤로그 왜 copyparty인가 {#프롤로그-왜-copyparty인가}</h2>
+<h3 id="상황극-디지털-노마드-지훈이의-하루">🎭 상황극: 디지털 노마드 지훈이의 하루 {#상황극-디지털-노마드-지훈이의-하루}</h3>
+<blockquote>
+<p>&quot;아, 또야!&quot; 지훈이는 카페에서 노트북을 열며 한숨을 쉽니다. 집에 있는 중요한 파일을 가져오지 못했거든요. 구글 드라이브는 용량이 부족하고, USB는 또 집에 두고 왔습니다. </p>
+<p>&quot;내가 원하는 건 단순해. 집 컴퓨터의 파일을 언제 어디서나 접근하고 싶을 뿐이야!&quot;</p>
+</blockquote>
+<p><strong>바로 이런 상황에서 copyparty가 빛을 발합니다!</strong> 🌟</p>
+<h3 id="파인만-방식-설명-copyparty란">💡 파인만 방식 설명: copyparty란? {#파인만-방식-설명-copyparty란}</h3>
+<p>10살 아이에게 설명한다면?</p>
+<blockquote>
+<p>&quot;copyparty는 마치 네 집을 인터넷으로 연결된 도서관으로 바꿔주는 마법 같은 프로그램이야. 친구들이 인터넷만 있으면 네 집 컴퓨터에 있는 파일을 볼 수 있고, 새로운 파일도 올릴 수 있어!&quot;</p>
+</blockquote>
+<p><strong>핵심 개념 3가지</strong>:</p>
+<ol>
+<li><strong>서버</strong> = 네 컴퓨터 (파일들이 살고 있는 집)</li>
+<li><strong>클라이언트</strong> = 다른 기기들 (파일을 보러 오는 친구들)</li>
+<li><strong>HTTP/웹</strong> = 인터넷 도로 (친구들이 오는 길)</li>
+</ol>
+<hr>
+<h2 id="copyparty-본질-이해하기">copyparty 본질 이해하기 {#copyparty-본질-이해하기}</h2>
+<h3 id="서커스단-비유로-이해하는-copyparty">🎪 서커스단 비유로 이해하는 copyparty {#서커스단-비유로-이해하는-copyparty}</h3>
+<p>copyparty를 <strong>디지털 서커스단</strong>이라고 생각해보세요:</p>
+<h4>🎭 주요 등장인물들</h4>
+<ul>
+<li><strong>단장 (copyparty 프로그램)</strong>: 모든 것을 조율하는 핵심</li>
+<li><strong>공연장 (웹 브라우저 인터페이스)</strong>: 관객들이 쇼를 보는 곳  </li>
+<li><strong>곡예사들 (다양한 프로토콜)</strong>: HTTP, WebDAV, FTP, SMB 등</li>
+<li><strong>관객들 (사용자들)</strong>: 파일을 업로드/다운로드하는 사람들</li>
+</ul>
+<h4>🎨 특별한 재주들</h4>
+<ol>
+<li><strong>마술사 기능</strong>: 파일 미리보기 (이미지, 동영상, 문서)</li>
+<li><strong>저글링</strong>: 여러 파일 동시 업로드</li>
+<li><strong>공중그네</strong>: 끊어진 업로드 이어받기</li>
+<li><strong>화염술</strong>: 실시간 변환 (동영상 스트리밍)</li>
+</ol>
+<h3 id="copyparty-vs-경쟁자들">📊 copyparty vs 경쟁자들 {#copyparty-vs-경쟁자들}</h3>
+<table>
+<thead>
+<tr>
+<th>특징</th>
+<th>copyparty</th>
+<th>Google Drive</th>
+<th>Dropbox</th>
+<th>자체 FTP</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>설치 복잡도</td>
+<td>⭐ (매우 쉬움)</td>
+<td>❌ (계정 필요)</td>
+<td>❌ (계정 필요)</td>
+<td>⭐⭐⭐ (복잡)</td>
+</tr>
+<tr>
+<td>용량 제한</td>
+<td>✅ 무제한</td>
+<td>❌ 15GB</td>
+<td>❌ 2GB</td>
+<td>✅ 무제한</td>
+</tr>
+<tr>
+<td>프라이버시</td>
+<td>✅ 완전 통제</td>
+<td>❌ 구글이 관리</td>
+<td>❌ Dropbox가 관리</td>
+<td>✅ 완전 통제</td>
+</tr>
+<tr>
+<td>접근성</td>
+<td>✅ 웹브라우저</td>
+<td>✅ 웹브라우저</td>
+<td>✅ 웹브라우저</td>
+<td>❌ 전용 클라이언트</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="마법의-설치-과정">마법의 설치 과정 {#마법의-설치-과정}</h2>
+<h3 id="설치-마법서-단계별-스토리">🧙‍♂️ 설치 마법서 (단계별 스토리) {#설치-마법서-단계별-스토리}</h3>
+<h4>📖 챕터 1: 환경 점검 주문</h4>
+<p>먼저 컴퓨터에게 물어보세요:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6605" onclick="copyCode('code-1769481055205-6605')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6605" class="language-bash">python --version
+# 또는
+python3 --version</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>결과 해석</strong>:</p>
+<ul>
+<li><code>Python 3.x.x</code> 나오면 ✅ 준비 완료!</li>
+<li><code>command not found</code> 나오면 ❌ Python 설치 필요</li>
+</ul>
+<p><strong>Python 없다면?</strong> → <a href="https://python.org">python.org</a> 방문 후 설치</p>
+<h4>📖 챕터 2: copyparty 소환 주문</h4>
+<p><strong>🥇 방법 1: 마법의 원클릭 (추천)</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6606" onclick="copyCode('code-1769481055205-6606')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6606" class="language-bash"># Linux/Mac
+wget https://github.com/9001/copyparty/releases/latest/download/copyparty-sfx.py
+
+<h1>Windows PowerShell</h1>
+<p>Invoke-WebRequest -Uri &quot;<a href="https://github.com/9001/copyparty/releases/latest/download/copyparty-sfx.py">https://github.com/9001/copyparty/releases/latest/download/copyparty-sfx.py</a>&quot; -OutFile &quot;copyparty-sfx.py&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<p><strong>🥈 방법 2: pip 마법상자</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6607" onclick="copyCode('code-1769481055205-6607')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6607" class="language-bash">pip install copyparty
+# 또는
+python -m pip install --user copyparty</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>🥉 방법 3: Windows 사용자 특별 선물</strong></p>
+<ul>
+<li><a href="https://github.com/9001/copyparty/releases">Releases 페이지</a>에서 <code>.exe</code> 파일 다운로드</li>
+</ul>
+<p><strong>📱 방법 4: 모바일 기기에서 설치 (NEW!)</strong></p>
+<ul>
+<li><strong>Android</strong>: Termux 앱에서 설치<div class="code-block" data-language="bash">
+<div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+  <span class="code-block__language">Bash</span>
+  <button class="code-block__copy" data-code-id="code-1769481055205-6608" onclick="copyCode('code-1769481055205-6608')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481055205-6608" class="language-bash"># Termux 앱 설치 후
+pkg install python
+pip install copyparty</code></pre>
+<div class="code-block__footer">
+  <span class="code-block__lines">4 lines</span>
+</div>
+</div></li>
+<li><strong>iOS</strong>: a-Shell 앱에서 설치<div class="code-block" data-language="bash">
+<div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+  <span class="code-block__language">Bash</span>
+  <button class="code-block__copy" data-code-id="code-1769481055205-6609" onclick="copyCode('code-1769481055205-6609')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481055205-6609" class="language-bash"># a-Shell 앱 설치 후
+pip install copyparty</code></pre>
+<div class="code-block__footer">
+  <span class="code-block__lines">3 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>🐳 방법 5: Docker로 한 번에 (초간단!)</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6610" onclick="copyCode('code-1769481055205-6610')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6610" class="language-bash"># Docker가 설치되어 있다면
+docker run --rm -it -p 3923:3923 -v $PWD:/srv ghcr.io/9001/copyparty</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>🐧 방법 6: 리눅스 패키지 매니저</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6611" onclick="copyCode('code-1769481055205-6611')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6611" class="language-bash"># Arch Linux
+pacman -S copyparty</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>📖 챕터 3: 소환 성공 확인</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6612" onclick="copyCode('code-1769481055205-6612')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6612" class="language-bash">python copyparty-sfx.py --help
+# 또는 pip 설치한 경우
+copyparty --help</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>성공 신호</strong>: 도움말 텍스트가 쭉~ 나타나면 성공! 🎉</p>
+<hr>
+<h2 id="첫-번째-파일-서버-만들기">첫 번째 파일 서버 만들기 {#첫-번째-파일-서버-만들기}</h2>
+<h3 id="미션-3분-만에-파일-서버-구축하기">🚀 미션: 3분 만에 파일 서버 구축하기 {#미션-3분-만에-파일-서버-구축하기}</h3>
+<h4>🎯 레벨 1: 기본 서버 (무방비 상태)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6613" onclick="copyCode('code-1769481055205-6613')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6613" class="language-bash"># 현재 폴더를 공유하는 가장 간단한 명령어
+python copyparty-sfx.py</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>결과</strong>: </p>
+<ul>
+<li>브라우저에서 <code>http://localhost:3923</code> 접속</li>
+<li>현재 폴더의 모든 파일이 보임! 😱 (위험!)</li>
+</ul>
+<h4>🎯 레벨 2: 안전한 서버 (읽기 전용)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6614" onclick="copyCode('code-1769481055205-6614')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6614" class="language-bash"># 읽기 전용으로 안전하게 공유
+python copyparty-sfx.py -v .::r</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>해석</strong>:</p>
+<ul>
+<li><code>-v</code>: volume (공유 폴더 설정)</li>
+<li><code>.</code>: 현재 폴더</li>
+<li><code>::r</code>: 읽기(read) 권한만</li>
+</ul>
+<h4>🎯 레벨 3: 회원제 서버 (계정 시스템)</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6615" onclick="copyCode('code-1769481055205-6615')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6615" class="language-bash"># 계정이 있는 사용자만 접근 가능
+python copyparty-sfx.py -v .::r -a admin:secret123</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>해석</strong>:</p>
+<ul>
+<li><code>-a admin:secret123</code>: admin 계정, 비밀번호 secret123</li>
+</ul>
+<h3 id="축하합니다-첫-파일-서버-완성">🎊 축하합니다! 첫 파일 서버 완성! {#축하합니다-첫-파일-서버-완성}</h3>
+<p>이제 같은 네트워크의 다른 컴퓨터에서 <code>http://[내컴퓨터IP]:3923</code>으로 접속할 수 있습니다!</p>
+<hr>
+<h2 id="고급-기능-탐험하기">고급 기능 탐험하기 {#고급-기능-탐험하기}</h2>
+<h3 id="copyparty-서커스단의-특별-공연">🎪 copyparty 서커스단의 특별 공연 {#copyparty-서커스단의-특별-공연}</h3>
+<h4>🎭 공연 1: 다중 폴더 마술</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6616" onclick="copyCode('code-1769481055205-6616')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6616" class="language-bash"># 여러 폴더를 다른 권한으로 공유
+python copyparty-sfx.py \
+  -v /home/documents:docs:r \
+  -v /home/photos:pics:rw \
+  -v /tmp:temp:rwm</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>마술 해석</strong>:</p>
+<ul>
+<li><code>docs</code> 폴더: 읽기만 가능</li>
+<li><code>pics</code> 폴더: 읽기+쓰기 가능  </li>
+<li><code>temp</code> 폴더: 읽기+쓰기+삭제 가능</li>
+</ul>
+<h4>🎭 공연 2: 사용자별 맞춤 서비스</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6617" onclick="copyCode('code-1769481055205-6617')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6617" class="language-bash">python copyparty-sfx.py \
+  -v /shared:공용:r:* \
+  -v /private:개인:rw:admin \
+  -a admin:secret123 \
+  -a guest:guest</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<p><strong>맞춤 서비스 설명</strong>:</p>
+<ul>
+<li><code>공용</code>: 모든 사용자가 볼 수 있음</li>
+<li><code>개인</code>: admin만 접근 가능</li>
+<li><code>*</code>: 모든 사용자</li>
+<li><code>:admin</code>: admin 사용자만</li>
+</ul>
+<h4>🎭 공연 3: 업로드 파티존</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6618" onclick="copyCode('code-1769481055205-6618')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6618" class="language-bash">python copyparty-sfx.py \
+  -v .:파일박스:rwmda \
+  --no-thumb \
+  -a uploader:upload123</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>파티 규칙</strong>:</p>
+<ul>
+<li><code>rwmda</code>: 읽기+쓰기+삭제+관리자+전체권한</li>
+<li><code>--no-thumb</code>: 썸네일 생성 안 함 (빠른 업로드)</li>
+</ul>
+<h3 id="보안-마법진">🔒 보안 마법진 {#보안-마법진}</h3>
+<h4>방패막이 주문들</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6619" onclick="copyCode('code-1769481055205-6619')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6619" class="language-bash">python copyparty-sfx.py \
+  --ssl-cert cert.pem \
+  --ssl-key key.pem \
+  -v .::r \
+  --no-robots \
+  --rproxy-xff</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<p><strong>방패 효과</strong>:</p>
+<ul>
+<li>HTTPS 암호화</li>
+<li>검색엔진 차단</li>
+<li>프록시 서버와 호환</li>
+</ul>
+<h4>🌩️ Cloudflare 보호막 (NEW!)</h4>
+<p>Cloudflare를 사용하는 경우:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6620" onclick="copyCode('code-1769481055205-6620')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6620" class="language-bash">python copyparty-sfx.py \
+  -v .::r \
+  --xff-hdr CF-Connecting-IP</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>효과</strong>: Cloudflare를 통한 실제 사용자 IP 인식</p>
+<hr>
+<h2 id="실전-활용-시나리오">실전 활용 시나리오 {#실전-활용-시나리오}</h2>
+<h3 id="시나리오-1-가족-사진-보관소">🏠 시나리오 1: 가족 사진 보관소 {#시나리오-1-가족-사진-보관소}</h3>
+<p><strong>상황</strong>: 가족 모임에서 찍은 사진을 모든 가족이 쉽게 다운로드하고 싶어요!</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6621" onclick="copyCode('code-1769481055205-6621')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6621" class="language-bash"># 가족용 사진 서버 구축
+python copyparty-sfx.py \
+  -v ./family-photos:가족사진:r \
+  -v ./upload:사진올리기:rw \
+  -a family:love2024 \
+  --html-head &quot;📸 김가네 사진 보관소&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<p><strong>사용법</strong>:</p>
+<ol>
+<li>가족들에게 <code>http://[내IP]:3923</code> 주소와 <code>family/love2024</code> 계정 공유</li>
+<li>기존 사진은 <code>가족사진</code> 폴더에서 다운로드</li>
+<li>새 사진은 <code>사진올리기</code> 폴더에 업로드</li>
+</ol>
+<h3 id="시나리오-2-재택근무-파일-서버">💼 시나리오 2: 재택근무 파일 서버 {#시나리오-2-재택근무-파일-서버}</h3>
+<p><strong>상황</strong>: 집에서 회사 파일에 안전하게 접근하고 싶어요!</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6622" onclick="copyCode('code-1769481055205-6622')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6622" class="language-bash"># 보안 강화 업무용 서버
+python copyparty-sfx.py \
+  -v ./work-docs:업무자료:r:worker \
+  -v ./shared:공유폴더:rw:worker \
+  -a worker:SecureWork2024! \
+  --ssl-cert my-cert.pem \
+  --ssl-key my-key.pem \
+  -p 8443</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div>
+
+<p><strong>보안 포인트</strong>:</p>
+<ul>
+<li>HTTPS 암호화 통신</li>
+<li>강력한 비밀번호</li>
+<li>표준이 아닌 포트 사용</li>
+</ul>
+<h3 id="시나리오-3-게임-친구들과-파일-공유">🎮 시나리오 3: 게임 친구들과 파일 공유 {#시나리오-3-게임-친구들과-파일-공유}</h3>
+<p><strong>상황</strong>: 마인크래프트 월드 파일, 게임 동영상을 친구들과 공유하고 싶어요!</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6623" onclick="copyCode('code-1769481055205-6623')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6623" class="language-bash"># 게이머용 파일 공유 서버
+python copyparty-sfx.py \
+  -v ./minecraft:마크월드:r:* \
+  -v ./game-videos:게임영상:r:* \
+  -v ./upload:친구업로드:rw:gamers \
+  -a gamers:game2024 \
+  --no-robots</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="문제-해결-가이드">문제 해결 가이드 {#문제-해결-가이드}</h2>
+<h3 id="응급실-자주-발생하는-문제들">🚨 응급실: 자주 발생하는 문제들 {#응급실-자주-발생하는-문제들}</h3>
+<h4>🔥 응급상황 1: &quot;접속이 안 돼요!&quot;</h4>
+<p><strong>증상</strong>: 브라우저에서 연결할 수 없음</p>
+<p><strong>진단 체크리스트</strong>:</p>
+<ol>
+<li><p><strong>copyparty가 실행 중인가?</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481055205-6624" onclick="copyCode('code-1769481055205-6624')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6624" class="language-bash"># 터미널에 에러 메시지 없이 실행 중이어야 함</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+</li>
+<li><p><strong>포트가 열려 있나?</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+ <span class="code-block__language">Bash</span>
+ <button class="code-block__copy" data-code-id="code-1769481055205-6625" onclick="copyCode('code-1769481055205-6625')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6625" class="language-bash"># Windows
+netstat -an | findstr 3923
+
+<h1>Linux/Mac</h1>
+<p>netstat -an | grep 3923</code></pre></p>
+</li>
+</ol>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<ol start="3">
+<li><strong>방화벽이 차단하고 있나?</strong><ul>
+<li>Windows: Windows Defender 방화벽에서 3923 포트 허용</li>
+<li>Mac: 시스템 환경설정 &gt; 보안 및 개인 정보 보호 &gt; 방화벽</li>
+</ul>
+</li>
+</ol>
+<p><strong>해결책</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6626" onclick="copyCode('code-1769481055205-6626')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6626" class="language-bash"># 특정 포트로 시도
+python copyparty-sfx.py -p 8080 -v .::r</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>🔥 응급상황 2: &quot;업로드가 너무 느려요!&quot;</h4>
+<p><strong>원인</strong>: 썸네일 생성 때문일 가능성</p>
+<p><strong>해결책</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6627" onclick="copyCode('code-1769481055205-6627')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6627" class="language-bash"># 썸네일 생성 비활성화
+python copyparty-sfx.py -v .::rw --no-thumb</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>🔥 응급상황 3: &quot;외부에서 접속이 안 돼요!&quot;</h4>
+<p><strong>문제</strong>: 집 밖에서 접속 불가</p>
+<p><strong>체크포인트</strong>:</p>
+<ol>
+<li><p><strong>내부 IP vs 외부 IP</strong></p>
+<ul>
+<li>내부: <code>192.168.x.x</code> (집 안에서만)</li>
+<li>외부: 공인 IP (인터넷에서)</li>
+</ul>
+</li>
+<li><p><strong>공유기 포트 포워딩 설정</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+ <span class="code-block__language">Plain Text</span>
+ <button class="code-block__copy" data-code-id="code-1769481055205-6628" onclick="copyCode('code-1769481055205-6628')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6628" class="language-plaintext">외부 포트: 3923 → 내부 IP:3923</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">2 lines</span>
+  </div>
+</div></li>
+</ol>
+<h3 id="고급-트러블슈팅">🛠️ 고급 트러블슈팅 {#고급-트러블슈팅}</h3>
+<h4>성능 최적화 비법</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6629" onclick="copyCode('code-1769481055205-6629')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6629" class="language-bash"># 대용량 파일용 최적화
+python copyparty-sfx.py \
+  -v .::rw \
+  --no-thumb \
+  --no-hash \
+  --threads 8 \
+  --max-conn 100</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="모바일-기기-특별-가이드-new">📱 모바일 기기 특별 가이드 (NEW!) {#모바일-기기-특별-가이드-new}</h2>
+<h3 id="android에서-copyparty-활용하기">Android에서 copyparty 활용하기 {#android에서-copyparty-활용하기}</h3>
+<h4>설정 최적화</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6630" onclick="copyCode('code-1769481055205-6630')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6630" class="language-bash"># Termux에서 실행 시
+copyparty -v /storage/emulated/0:폰저장소:r</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<p><strong>Chrome 브라우저 팁</strong>:</p>
+<ul>
+<li>설정 → 다운로드 → &quot;병렬 다운로드&quot; 활성화</li>
+<li>대용량 파일 업로드 시 속도 향상</li>
+</ul>
+<h3 id="ios에서-copyparty-활용하기">iOS에서 copyparty 활용하기 {#ios에서-copyparty-활용하기}</h3>
+<p><strong>다운로드 팁</strong>:</p>
+<ul>
+<li>Safari 대신 Firefox 사용 추천</li>
+<li>파일 앱과 연동하여 다운로드 관리</li>
+</ul>
+<p><strong>미디어 재생</strong>:</p>
+<ul>
+<li>동영상은 스트리밍으로 직접 재생 가능</li>
+<li>음악 파일은 VLC 앱과 연동 추천</li>
+</ul>
+<hr>
+<h2 id="더-깊이-파보기">더 깊이 파보기 {#더-깊이-파보기}</h2>
+<h3 id="copyparty-대학원-과정">🎓 copyparty 대학원 과정 {#copyparty-대학원-과정}</h3>
+<h4>박사 1년차: 고급 설정 파일</h4>
+<p><code>config.txt</code> 파일로 복잡한 설정 관리:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6631" onclick="copyCode('code-1769481055205-6631')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6631" class="language-plaintext">[global]
+port = 3923
+ssl-cert = ./cert.pem
+ssl-key = ./key.pem
+
+<p>[account]
+admin = password123, rwmda
+guest = , r</p>
+<p>[volume]
+share = ./shared, :, rwmda, admin
+public = ./public, :, r, *</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<h4>박사 2년차: 플러그인 시스템</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6632" onclick="copyCode('code-1769481055205-6632')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6632" class="language-bash"># FFmpeg 연동으로 동영상 스트리밍
+python copyparty-sfx.py \
+  -v ./videos:영상:r \
+  --ffmpeg /usr/bin/ffmpeg \
+  --transcode</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>박사 3년차: 클러스터링 &amp; 로드 밸런싱</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6633" onclick="copyCode('code-1769481055205-6633')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6633" class="language-bash"># 여러 서버 인스턴스 동시 운영
+python copyparty-sfx.py -p 3923 -v ./data1::r &amp;
+python copyparty-sfx.py -p 3924 -v ./data2::r &amp;
+python copyparty-sfx.py -p 3925 -v ./data3::r &amp;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h3 id="생태계-확장하기">🌐 생태계 확장하기 {#생태계-확장하기}</h3>
+<h4>모바일 앱 연동</h4>
+<ul>
+<li><strong>AndFTP</strong> (Android): WebDAV 지원</li>
+<li><strong>FE File Explorer</strong> (iOS): HTTP/WebDAV 지원</li>
+<li><strong>VLC Player</strong>: 네트워크 스트림으로 동영상 재생</li>
+</ul>
+<h4>다른 도구와의 콤비네이션</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055205-6634" onclick="copyCode('code-1769481055205-6634')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055205-6634" class="language-bash"># nginx와 함께 사용 (리버스 프록시)
+# docker와 함께 사용 (컨테이너화)
+# systemd와 함께 사용 (서비스화)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="실습-체크리스트">🎯 실습 체크리스트 {#실습-체크리스트}</h2>
+<h3 id="초급자-미션-왕초보도-ok">초급자 미션 (왕초보도 OK!) {#초급자-미션-왕초보도-ok}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> copyparty 설치 완료 (6가지 방법 중 하나)</li>
+<li><input disabled="" type="checkbox"> 기본 파일 서버 실행 (<code>python copyparty-sfx.py</code>)</li>
+<li><input disabled="" type="checkbox"> 웹 브라우저에서 파일 목록 확인 (<code>localhost:3923</code>)</li>
+<li><input disabled="" type="checkbox"> 파일 하나 업로드해보기 (드래그&amp;드롭)</li>
+<li><input disabled="" type="checkbox"> 같은 네트워크의 다른 기기에서 접속</li>
+<li><input disabled="" type="checkbox"> <strong>NEW!</strong> 스마트폰에서 접속해보기</li>
+</ul>
+<h3 id="중급자-미션-실용성-up">중급자 미션 (실용성 UP!) {#중급자-미션-실용성-up}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 계정 시스템 구축 (<code>-a</code> 옵션)</li>
+<li><input disabled="" type="checkbox"> 여러 폴더를 다른 권한으로 공유 (<code>-v</code> 다중)</li>
+<li><input disabled="" type="checkbox"> 외부 네트워크에서 접속 설정 (포트 포워딩)</li>
+<li><input disabled="" type="checkbox"> HTTPS 보안 연결 구축 (<code>--ssl-cert</code>)</li>
+<li><input disabled="" type="checkbox"> 설정 파일로 관리하기 (<code>config.txt</code>)</li>
+<li><input disabled="" type="checkbox"> <strong>NEW!</strong> Docker로 컨테이너 실행</li>
+</ul>
+<h3 id="고급자-미션-전문가-레벨">고급자 미션 (전문가 레벨!) {#고급자-미션-전문가-레벨}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 동영상 스트리밍 서버 구축 (<code>--transcode</code>)</li>
+<li><input disabled="" type="checkbox"> 모바일 앱과 연동 (WebDAV)</li>
+<li><input disabled="" type="checkbox"> 자동 시작 서비스 설정 (systemd/윈도우 서비스)</li>
+<li><input disabled="" type="checkbox"> 로그 분석 및 모니터링 (Prometheus 메트릭)</li>
+<li><input disabled="" type="checkbox"> 백업 및 복구 시스템 구축</li>
+<li><input disabled="" type="checkbox"> <strong>NEW!</strong> Cloudflare 연동 설정</li>
+<li><input disabled="" type="checkbox"> <strong>NEW!</strong> 모바일 최적화 설정</li>
+</ul>
+<hr>
+<h2 id="연결된-노트">🔗 연결된 노트 {#연결된-노트}</h2>
+<h3 id="관련-기술-스택">관련 기술 스택 {#관련-기술-스택}</h3>
+<ul>
+<li><a href="/articles/pythondevelopmentguide.html" class="internal-link">Python_웹서버_개발_가이드</a></li>
+<li><a href="/articles/httpcomplete.html" class="internal-link">HTTP_프로토콜_완전정복</a></li>
+<li><a href="/articles/webdavpractical.html" class="internal-link">WebDAV_구축_및_활용</a></li>
+<li><a href="/articles/basics.html" class="internal-link">네트워크_보안_기초</a></li>
+</ul>
+<h3 id="유사-도구-비교">유사 도구 비교 {#유사-도구-비교}</h3>
+<ul>
+<li><a href="/articles/nextcloudvscopypartyanalysis.html" class="internal-link">Nextcloud_vs_copyparty_비교분석</a></li>
+<li><a href="/articles/guide.html" class="internal-link">파일_서버_솔루션_종합_가이드</a></li>
+<li><a href="/articles/toolsrecommended.html" class="internal-link">자가호스팅_도구_추천</a></li>
+</ul>
+<h3 id="실전-활용-사례">실전 활용 사례 {#실전-활용-사례}</h3>
+<ul>
+<li><a href="/articles/article.html" class="internal-link">재택근무_파일_서버_구축기</a></li>
+<li><a href="/articles/article.html" class="internal-link">가족_클라우드_만들기_프로젝트</a></li>
+<li><a href="/articles/nasvscopyparty.html" class="internal-link">개인_NAS_vs_copyparty</a></li>
+</ul>
+<hr>
+<h2 id="마무리-copyparty-마스터가-되신-것을-축하합니다">🎊 마무리: copyparty 마스터가 되신 것을 축하합니다! {#마무리-copyparty-마스터가-되신-것을-축하합니다}</h2>
+<p>이제 여러분은:</p>
+<ol>
+<li><strong>copyparty의 본질</strong>을 이해했고</li>
+<li><strong>안전한 설치와 설정</strong>을 할 수 있으며  </li>
+<li><strong>다양한 상황에 맞는 활용</strong>이 가능하고</li>
+<li><strong>문제가 생겨도 해결</strong>할 수 있습니다</li>
+</ol>
+<h3 id="다음-스텝-추천">🚀 다음 스텝 추천 {#다음-스텝-추천}</h3>
+<ol>
+<li><strong>나만의 서버 구축</strong>: 실제 환경에서 copyparty 서버 운영해보기</li>
+<li><strong>자동화</strong>: 스크립트로 서버 관리 자동화하기  </li>
+<li><strong>확장</strong>: 다른 도구들과 연동해서 더 강력한 시스템 만들기</li>
+<li><strong>공유</strong>: 주변 사람들에게 copyparty 전파하기</li>
+<li><strong>NEW!</strong> <strong>모바일 활용</strong>: 스마트폰을 파일 서버로 활용해보기</li>
+<li><strong>NEW!</strong> <strong>Docker 컨테이너</strong>: 더 안전하고 격리된 환경에서 운영하기</li>
+</ol>
+<h3 id="마지막-당부">💌 마지막 당부 {#마지막-당부}</h3>
+<blockquote>
+<p>copyparty는 단순한 파일 공유 도구가 아닙니다. <strong>디지털 자유</strong>를 실현하는 도구입니다. 여러분만의 창의적인 활용법을 찾아보세요!</p>
+</blockquote>
+<p><strong>Happy File Sharing!</strong> 🎉</p>
+<hr>
+<p><em>&quot;가장 좋은 학습은 실제로 써보는 것이다.&quot; - copyparty 마스터의 명언</em></p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/개발도구.html" class="article-tag">개발도구</a><a href="/tag/파일서버.html" class="article-tag">파일서버</a><a href="/tag/네트워킹.html" class="article-tag">네트워킹</a><a href="/tag/파일공유.html" class="article-tag">파일공유</a><a href="/tag/Python.html" class="article-tag">Python</a><a href="/tag/웹서버.html" class="article-tag">웹서버</a><a href="/tag/초보자가이드.html" class="article-tag">초보자가이드</a><a href="/tag/설치.html" class="article-tag">설치</a><a href="/tag/스토리텔링.html" class="article-tag">스토리텔링</a><a href="/tag/파인만기법.html" class="article-tag">파인만기법</a><a href="/tag/copyparty.html" class="article-tag">copyparty</a><a href="/tag/파일서버.html" class="article-tag">파일서버</a><a href="/tag/HTTP.html" class="article-tag">HTTP</a><a href="/tag/WebDAV.html" class="article-tag">WebDAV</a><a href="/tag/자가호스팅.html" class="article-tag">자가호스팅</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/copyparty-beginners-complete-guide-new.html&text=copyparty 초보자 완전정복 가이드: 파일 공유의 새로운 패러다임" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/copyparty-beginners-complete-guide-new.html&title=copyparty 초보자 완전정복 가이드: 파일 공유의 새로운 패러다임" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/copyparty-beginners-complete-guide-new.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

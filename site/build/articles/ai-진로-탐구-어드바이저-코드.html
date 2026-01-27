@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[SYSTEM] | AI &amp; Development Journal</title>
+  <meta name="description" content="[SYSTEM]">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="[SYSTEM]">
+  <meta property="og:description" content="[SYSTEM]">
+  <meta property="og:image" content="/assets/images/tutorials-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/ai-진로-탐구-어드바이저-코드.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="[SYSTEM]">
+  <meta name="twitter:description" content="[SYSTEM]">
+  <meta name="twitter:image" content="/assets/images/tutorials-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/ai-진로-탐구-어드바이저-코드.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/tutorials.html" class="article-category" style="background-color: #14b8a6">
+          튜토리얼
+        </a>
+        <h1 class="article-title">[SYSTEM]</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-expert.html" class="article-author">
+            <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 전문가</span>
+              <span class="article-author__role">AI &amp; Development Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 10월 5일">2025년 10월 5일</time>
+            <span class="article-meta__separator">·</span>
+            <span>22 read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#1-정체성persona-정의" class="toc__link">[1] 정체성(Persona) 정의</a>
+    </li>
+    <li class="toc__item">
+      <a href="#2-핵심-기능-및-프로세스-4-step-workflow" class="toc__link">[2] 핵심 기능 및 프로세스 (4-Step Workflow)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#3-상호작용-규칙-interaction-rules" class="toc__link">[3] 상호작용 규칙 (Interaction Rules)</a>
+    </li>
+  </ol>
+</nav>
+
+            <div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055591-7547" onclick="copyCode('code-1769481055591-7547')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055591-7547" class="language-plaintext">&lt;!DOCTYPE html&gt;
+
+<p>&lt;html lang=&quot;ko&quot;&gt;</p>
+<p>&lt;head&gt;</p>
+<p>&lt;meta charset=&quot;UTF-8&quot;&gt;</p>
+<p>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;</p>
+<p>&lt;title&gt;AI 진로 탐구 어드바이저&lt;/title&gt;</p>
+<p>&lt;script src=&quot;<a href="https://cdn.tailwindcss.com&quot;&gt;&lt;/script">https://cdn.tailwindcss.com&quot;&gt;&lt;/script</a>&gt;</p>
+<p>&lt;script src=&quot;<a href="https://cdn.jsdelivr.net/npm/marked/marked.min.js&quot;&gt;&lt;/script">https://cdn.jsdelivr.net/npm/marked/marked.min.js&quot;&gt;&lt;/script</a>&gt;</p>
+<p>&lt;link rel=&quot;preconnect&quot; href=&quot;<a href="https://fonts.googleapis.com">https://fonts.googleapis.com</a>&quot;&gt;</p>
+<p>&lt;link rel=&quot;preconnect&quot; href=&quot;<a href="https://fonts.gstatic.com">https://fonts.gstatic.com</a>&quot; crossorigin&gt;</p>
+<p>&lt;link href=&quot;<a href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap">https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&amp;display=swap</a>&quot; rel=&quot;stylesheet&quot;&gt;</p>
+<p>&lt;style&gt;</p>
+<p>body {</p>
+<p>font-family: &#39;Noto Sans KR&#39;, sans-serif;</p>
+<p>}</p>
+<p>.chat-bubble {</p>
+<p>max-width: 90%;</p>
+<p>/* 줄간격과 여백을 조정하여 더 컴팩트하게 만듭니다. */</p>
+<p>padding: 12px 18px;</p>
+<p>border-radius: 22px;</p>
+<p>word-wrap: break-word;</p>
+<p>white-space: pre-wrap;</p>
+<p>line-height: 1.5; /* 줄간격 축소 */</p>
+<p>box-shadow: 0 4px 8px rgba(0,0,0,0.05);</p>
+<p>word-break: keep-all;</p>
+<p>}</p>
+<p>.advisor-bubble {</p>
+<p>background-color: #ffffff;</p>
+<p>color: #333;</p>
+<p>border: 1px solid #e5e7eb;</p>
+<p>border-bottom-left-radius: 6px;</p>
+<p>}</p>
+<p>.user-bubble {</p>
+<p>background: linear-gradient(135deg, #007bff, #0056b3);</p>
+<p>color: white;</p>
+<p>border-bottom-right-radius: 6px;</p>
+<p>}</p>
+<p>.step-button {</p>
+<p>transition: all 0.2s ease-in-out;</p>
+<p>}</p>
+<p>.step-button:hover {</p>
+<p>transform: translateY(-2px);</p>
+<p>box-shadow: 0 6px 14px rgba(0,0,0,0.1);</p>
+<p>}</p>
+<p>/* 마크다운 텍스트의 여백을 미세 조정합니다. */</p>
+<p>.markdown h1, .markdown h2, .markdown h3, .markdown h4 { margin-top: 1em; margin-bottom: 0.5em; font-weight: bold; }</p>
+<p>.markdown h1 { font-size: 1.5em; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.3em; }</p>
+<p>.markdown h2 { font-size: 1.25em; }</p>
+<p>.markdown h3 { font-size: 1.1em; }</p>
+<p>.markdown p { margin-bottom: 0.8em; }</p>
+<p>.markdown ul, .markdown ol { margin-left: 25px; margin-bottom: 0.8em; }</p>
+<p>.markdown ul { list-style-type: disc; }</p>
+<p>.markdown ol { list-style-type: decimal; }</p>
+<p>.markdown li { margin-bottom: 0.5em; }</p>
+<p>.markdown strong { font-weight: 700; color: #0056b3; }</p>
+<p>.markdown em { font-style: italic; }</p>
+<p>.markdown blockquote { border-left: 4px solid #d1d5db; padding: 10px 15px; margin: 1em 0; background-color: #f9fafb; }</p>
+<p>.navigator-step.completed .step-icon-wrapper { background-color: #10b981; color: white; }</p>
+<p>.navigator-step.active .step-icon-wrapper { background-color: #3b82f6; color: white; animation: pulse 2s infinite; }</p>
+<p>.navigator-step.completed .step-line { background-color: #10b981; }</p>
+<p>@keyframes pulse {</p>
+<p>0%, 100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }</p>
+<p>50% { transform: scale(1.05); box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }</p>
+<p>}</p>
+<p>.export-button {</p>
+<p>display: inline-flex;</p>
+<p>align-items: center;</p>
+<p>gap: 0.5rem;</p>
+<p>padding: 0.5rem 1rem;</p>
+<p>border: 1px solid #d1d5db;</p>
+<p>border-radius: 9999px;</p>
+<p>background-color: #fff;</p>
+<p>color: #374151;</p>
+<p>font-size: 0.875rem;</p>
+<p>font-weight: 500;</p>
+<p>transition: all 0.2s;</p>
+<p>box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);</p>
+<p>}</p>
+<p>.export-button:hover {</p>
+<p>background-color: #f9fafb;</p>
+<p>border-color: #9ca3af;</p>
+<p>box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1);</p>
+<p>}</p>
+<p>@keyframes fade-in-out {</p>
+<p>0%, 100% { opacity: 0; transform: translateY(20px); }</p>
+<p>10%, 90% { opacity: 1; transform: translateY(0); }</p>
+<p>}</p>
+<p>.toast-animation {</p>
+<p>animation: fade-in-out 3s ease-in-out;</p>
+<p>}</p>
+<p>/* Modal Styles */</p>
+<p>.modal-overlay {</p>
+<p>position: fixed;</p>
+<p>top: 0;</p>
+<p>left: 0;</p>
+<p>right: 0;</p>
+<p>bottom: 0;</p>
+<p>background: rgba(0, 0, 0, 0.6);</p>
+<p>display: flex;</p>
+<p>align-items: center;</p>
+<p>justify-content: center;</p>
+<p>z-index: 50;</p>
+<p>opacity: 0;</p>
+<p>visibility: hidden;</p>
+<p>transition: opacity 0.3s ease, visibility 0.3s ease;</p>
+<p>}</p>
+<p>.modal-overlay.visible {</p>
+<p>opacity: 1;</p>
+<p>visibility: visible;</p>
+<p>}</p>
+<p>.modal-content {</p>
+<p>background: white;</p>
+<p>padding: 2rem;</p>
+<p>border-radius: 1rem;</p>
+<p>max-width: 640px;</p>
+<p>width: 90%;</p>
+<p>max-height: 90vh;</p>
+<p>overflow-y: auto;</p>
+<p>transform: scale(0.95);</p>
+<p>transition: transform 0.3s ease;</p>
+<p>}</p>
+<p>.modal-overlay.visible .modal-content {</p>
+<p>transform: scale(1);</p>
+<p>}</p>
+<p>&lt;/style&gt;</p>
+<p>&lt;/head&gt;</p>
+<p>&lt;body class=&quot;bg-slate-100&quot;&gt;</p>
+<p>&lt;div class=&quot;w-full h-screen flex flex-col bg-white md:shadow-2xl md:rounded-3xl md:h-[95vh] md:max-w-5xl md:mx-auto md:my-auto overflow-hidden md:border md:border-slate-200&quot;&gt;</p>
+<p>&lt;header class=&quot;bg-gradient-to-r from-sky-500 to-indigo-600 text-white p-4 shadow-md flex justify-between items-center shrink-0&quot;&gt;</p>
+<p>&lt;div class=&quot;flex-1&quot;&gt;&lt;/div&gt;</p>
+<p>&lt;div class=&quot;flex-1 text-center&quot;&gt;</p>
+<p>&lt;h1 class=&quot;text-xl sm:text-2xl font-bold&quot;&gt;🎓 AI 진로 탐구 어드바이저&lt;/h1&gt;</p>
+<p>&lt;p class=&quot;text-xs sm:text-sm opacity-90&quot;&gt;당신의 지적 호기심을 최고의 연구 프로젝트로!&lt;/p&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div class=&quot;flex-1 flex justify-end&quot;&gt;</p>
+<p>&lt;button id=&quot;guide-button&quot; class=&quot;text-white hover:bg-white/20 rounded-full py-2 px-4 text-sm font-semibold transition-colors&quot;&gt;</p>
+<p>사용자 가이드</p>
+<p>&lt;/button&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/header&gt;</p>
+<p>&lt;div class=&quot;p-4 sm:p-5 bg-slate-50 border-b border-slate-200 shrink-0&quot;&gt;</p>
+<p>&lt;div class=&quot;flex items-center justify-between font-medium text-slate-500 text-xs sm:text-sm&quot;&gt;</p>
+<p>&lt;div id=&quot;step-1&quot; class=&quot;navigator-step flex-1 text-center&quot;&gt;&lt;div class=&quot;step-icon-wrapper w-10 h-10 mx-auto bg-slate-200 rounded-full text-lg flex items-center justify-center&quot;&gt;&lt;/div&gt;&lt;p class=&quot;mt-2&quot;&gt;주제 추천&lt;/p&gt;&lt;/div&gt;</p>
+<p>&lt;div class=&quot;step-line flex-1 h-1 bg-slate-200&quot;&gt;&lt;/div&gt;</p>
+<p>&lt;div id=&quot;step-2&quot; class=&quot;navigator-step flex-1 text-center&quot;&gt;&lt;div class=&quot;step-icon-wrapper w-10 h-10 mx-auto bg-slate-200 rounded-full text-lg flex items-center justify-center&quot;&gt;&lt;/div&gt;&lt;p class=&quot;mt-2&quot;&gt;방향 설정&lt;/p&gt;&lt;/div&gt;</p>
+<p>&lt;div class=&quot;step-line flex-1 h-1 bg-slate-200&quot;&gt;&lt;/div&gt;</p>
+<p>&lt;div id=&quot;step-3&quot; class=&quot;navigator-step flex-1 text-center&quot;&gt;&lt;div class=&quot;step-icon-wrapper w-10 h-10 mx-auto bg-slate-200 rounded-full text-lg flex items-center justify-center&quot;&gt;&lt;/div&gt;&lt;p class=&quot;mt-2&quot;&gt;계획서 작성&lt;/p&gt;&lt;/div&gt;</p>
+<p>&lt;div class=&quot;step-line flex-1 h-1 bg-slate-200&quot;&gt;&lt;/div&gt;</p>
+<p>&lt;div id=&quot;step-4&quot; class=&quot;navigator-step flex-1 text-center&quot;&gt;&lt;div class=&quot;step-icon-wrapper w-10 h-10 mx-auto bg-slate-200 rounded-full text-lg flex items-center justify-center&quot;&gt;&lt;/div&gt;&lt;p class=&quot;mt-2&quot;&gt;PPT 구성&lt;/p&gt;&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;main id=&quot;chat-container&quot; class=&quot;flex-1 p-4 sm:p-6 overflow-y-auto flex flex-col gap-5 bg-slate-100/50&quot;&gt;</p>
+<p>&lt;/main&gt;</p>
+<p>&lt;footer class=&quot;p-4 bg-white border-t border-slate-200 shrink-0&quot;&gt;</p>
+<p>&lt;div id=&quot;input-area&quot;&gt;</p>
+<p>&lt;form id=&quot;interest-form&quot; class=&quot;flex items-center gap-3&quot;&gt;</p>
+<p>&lt;input type=&quot;text&quot; id=&quot;interest-input&quot; class=&quot;flex-1 p-3 border border-slate-300 rounded-full focus:ring-2 focus:ring-blue-500 focus:outline-none transition&quot; placeholder=&quot;여기에 메시지를 입력하세요...&quot;&gt;</p>
+<p>&lt;button type=&quot;submit&quot; class=&quot;bg-blue-600 text-white rounded-full p-3 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-all duration-200 transform hover:scale-110&quot;&gt;</p>
+<p>&lt;svg xmlns=&quot;<a href="http://www.w3.org/2000/svg">http://www.w3.org/2000/svg</a>&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;line x1=&quot;22&quot; y1=&quot;2&quot; x2=&quot;11&quot; y2=&quot;13&quot;&gt;&lt;/line&gt;&lt;polygon points=&quot;22 2 15 22 11 13 2 9 22 2&quot;&gt;&lt;/polygon&gt;&lt;/svg&gt;</p>
+<p>&lt;/button&gt;</p>
+<p>&lt;/form&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/footer&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;!-- User Guide Modal --&gt;</p>
+<p>&lt;div id=&quot;guide-modal&quot; class=&quot;modal-overlay&quot;&gt;</p>
+<p>&lt;div class=&quot;modal-content relative&quot;&gt;</p>
+<p>&lt;button id=&quot;close-guide-button&quot; class=&quot;absolute top-4 right-4 text-gray-400 hover:text-gray-700&quot;&gt;</p>
+<p>&lt;svg xmlns=&quot;<a href="http://www.w3.org/2000/svg">http://www.w3.org/2000/svg</a>&quot; width=&quot;28&quot; height=&quot;28&quot; viewBox=&quot;0 0 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;line x1=&quot;18&quot; y1=&quot;6&quot; x2=&quot;6&quot; y2=&quot;18&quot;&gt;&lt;/line&gt;&lt;line x1=&quot;6&quot; y1=&quot;6&quot; x2=&quot;18&quot; y2=&quot;18&quot;&gt;&lt;/line&gt;&lt;/svg&gt;</p>
+<p>&lt;/button&gt;</p>
+<p>&lt;h2 class=&quot;text-2xl font-bold text-center mb-6 text-gray-800&quot;&gt;AI 진로 탐구 어드바이저 사용법&lt;/h2&gt;</p>
+<p>&lt;div class=&quot;space-y-5&quot;&gt;</p>
+<p>&lt;!-- Step 1 --&gt;</p>
+<p>&lt;div class=&quot;flex items-start gap-4&quot;&gt;</p>
+<p>&lt;div class=&quot;flex-shrink-0 w-12 h-12 bg-sky-100 text-sky-600 rounded-full flex items-center justify-center font-bold text-xl&quot;&gt;1&lt;/div&gt;</p>
+<p>&lt;div&gt;</p>
+<p>&lt;h3 class=&quot;font-bold text-lg text-gray-700&quot;&gt;관심 분야 입력 &amp; 주제 추천&lt;/h3&gt;</p>
+<p>&lt;p class=&quot;text-gray-600 mt-1&quot;&gt;채팅창에 관심사를 입력하면 AI가 탐구 주제 3~5개를 추천합니다. 추천된 주제가 마음에 들지 않으면 &lt;b&gt;&#39;다른 주제 추천받기&#39;&lt;/b&gt; 버튼으로 새로운 주제를 계속 탐색할 수 있어요.&lt;/p&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;!-- Step 2 --&gt;</p>
+<p>&lt;div class=&quot;flex items-start gap-4&quot;&gt;</p>
+<p>&lt;div class=&quot;flex-shrink-0 w-12 h-12 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold text-xl&quot;&gt;2&lt;/div&gt;</p>
+<p>&lt;div&gt;</p>
+<p>&lt;h3 class=&quot;font-bold text-lg text-gray-700&quot;&gt;연구 스타일 정하기&lt;/h3&gt;</p>
+<p>&lt;p class=&quot;text-gray-600 mt-1&quot;&gt;마음에 드는 주제를 선택하면 두 가지 연구 스타일이 제시됩니다. &lt;br&gt;&lt;b&gt;A트랙&lt;/b&gt;은 설문조사처럼 사람들의 생각을 알아보는 사회 탐구, &lt;b&gt;B트랙&lt;/b&gt;은 데이터를 분석해 기술적인 해결책을 찾는 기술 분석 방식이에요.&lt;/p&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;!-- Step 3 &amp; 4 --&gt;</p>
+<p>&lt;div class=&quot;flex items-start gap-4&quot;&gt;</p>
+<p>&lt;div class=&quot;flex-shrink-0 w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center font-bold text-xl&quot;&gt;3&lt;/div&gt;</p>
+<p>&lt;div&gt;</p>
+<p>&lt;h3 class=&quot;font-bold text-lg text-gray-700&quot;&gt;계획서 작성 &amp; PPT 구성&lt;/h3&gt;</p>
+<p>&lt;p class=&quot;text-gray-600 mt-1&quot;&gt;선택한 스타일에 맞춰 AI가 연구 계획서와 PPT 구성안을 멋진 카드로 만들어 줍니다. 내용을 수정하고 싶다면 채팅으로 편하게 요청하세요. 모든 과정이 끝나면 결과물을 내보낼 수 있습니다.&lt;/p&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;!-- NEW SECTION: Exporting --&gt;</p>
+<p>&lt;div class=&quot;border-t pt-6 mt-6&quot;&gt;</p>
+<p>&lt;h3 class=&quot;text-xl font-bold text-center mb-4 text-gray-800&quot;&gt;💡 결과물 활용하기 (내보내기 가이드)&lt;/h3&gt;</p>
+<p>&lt;div class=&quot;bg-blue-50 border-l-4 border-blue-500 text-blue-800 p-4 rounded-r-lg&quot;&gt;</p>
+<p>&lt;p class=&quot;font-bold&quot;&gt;중요! (보안 안내)&lt;/p&gt;</p>
+<p>&lt;p class=&quot;text-sm mt-1&quot;&gt;학생 여러분의 소중한 구글 계정을 보호하기 위해, 이 프로그램은 파일을 직접 만들지 않아요. 대신 &#39;내보내기&#39; 버튼은 <strong>내용을 클립보드에 복사</strong>하는 기능으로 안전하게 작동합니다. 복사한 내용을 새 Google 문서에 붙여넣어 주세요!&lt;/p&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div class=&quot;mt-6&quot;&gt;</p>
+<p>&lt;h4 class=&quot;font-bold text-lg text-gray-700&quot;&gt;📋 Google Slides 붙여넣기 TIP!&lt;/h4&gt;</p>
+<p>&lt;p class=&quot;text-gray-600 mt-1 text-sm&quot;&gt;복사한 PPT 구성안을 슬라이드로 쉽게 옮기는 방법이에요.&lt;/p&gt;</p>
+<p>&lt;ol class=&quot;list-decimal list-inside text-gray-600 mt-2 space-y-2 text-sm&quot;&gt;</p>
+<p>&lt;li&gt;&#39;Google Slides로 내보내기&#39; 버튼을 클릭해 전체 구성안을 복사하세요.&lt;/li&gt;</p>
+<p>&lt;li&gt;먼저, 새 &lt;b&gt;Google Docs&lt;/b&gt; 문서를 열고 복사한 내용을 모두 붙여넣으세요. 발표 대본처럼 사용하면 편리합니다.&lt;/li&gt;</p>
+<p>&lt;li&gt;다음으로, 새 &lt;b&gt;Google Slides&lt;/b&gt; 프레젠테이션을 열어주세요.&lt;/li&gt;</p>
+<p>&lt;li&gt;Docs에 옮겨둔 내용에서 첫 번째 슬라이드의 &lt;b&gt;제목&lt;/b&gt;을 복사해, Slides의 &lt;b class=&quot;text-red-500&quot;&gt;제목 칸&lt;/b&gt;에 붙여넣습니다.&lt;/li&gt;</p>
+<p>&lt;li&gt;다시 Docs에서 첫 번째 슬라이드의 &lt;b&gt;본문 내용&lt;/b&gt;을 복사해, Slides의 &lt;b class=&quot;text-blue-500&quot;&gt;본문 칸&lt;/b&gt;에 붙여넣습니다.&lt;/li&gt;</p>
+<p>&lt;li&gt;Slides에서 새 슬라이드를 추가하고, 모든 내용이 옮겨질 때까지 4~5번 과정을 반복하면 멋진 발표 초안이 완성됩니다!&lt;/li&gt;</p>
+<p>&lt;/ol&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;script&gt;</p>
+<p>const chatContainer = document.getElementById(&#39;chat-container&#39;);</p>
+<p>const interestForm = document.getElementById(&#39;interest-form&#39;);</p>
+<p>const interestInput = document.getElementById(&#39;interest-input&#39;);</p>
+<p>const guideButton = document.getElementById(&#39;guide-button&#39;);</p>
+<p>const guideModal = document.getElementById(&#39;guide-modal&#39;);</p>
+<p>const closeGuideButton = document.getElementById(&#39;close-guide-button&#39;);</p>
+<p>let currentStep = 0;</p>
+<p>let conversationHistory = [];</p>
+<p>let state = { interest: &#39;&#39;, selectedTopic: &#39;&#39;, selectedTrack: &#39;&#39;, researchPlan: &#39;&#39;, pptStructure: &#39;&#39; };</p>
+<p>const systemPrompt = `</p>
+<h1>[SYSTEM]</h1>
+<h2 id="1-정체성persona-정의">[1] 정체성(Persona) 정의 {#1-정체성persona-정의}</h2>
+<p>너는 &quot;AI 진로 탐구 어드바이저&quot;이다. 학생들의 지적 호기심을 실제 연구 프로젝트로 발전시키는 최고의 연구 컨설턴트이다. 너의 임무는 [관심 분야 입력] → [탐구 주제 추천] → [연구 계획서 작성] → [발표 PPT 구성]으로 이어지는 연구의 전 과정을 체계적으로 관리하고 지원하는 것이다. 너는 항상 학생의 눈높이에서 명확하고 논리적인 가이드를 제공해야 한다.</p>
+<h2 id="2-핵심-기능-및-프로세스-4-step-workflow">[2] 핵심 기능 및 프로세스 (4-Step Workflow) {#2-핵심-기능-및-프로세스-4-step-workflow}</h2>
+<p>너는 다음 4단계 워크플로우를 순서대로, 그리고 반드시 사용자의 확인과 선택을 받은 후 진행해야 한다.</p>
+<ul>
+<li><strong>1단계: 🔍 탐구 주제 추천 (Topic Recommendation)</strong></li>
+</ul>
+<ol>
+<li><p>자신을 &quot;AI 진로 탐구 어드바이저&quot;로 소개하고, 사용자(학생)에게 연구하고 싶은 <strong>관심 분야</strong>를 질문한다.</p>
+</li>
+<li><p>입력받은 관심 분야와 관련된 구체적이고 독창적인 탐구 주제 3~5개를 제안한다.</p>
+</li>
+<li><p><strong>[중요]</strong> 이 주제들은 너의 내부 지식에만 의존하지 말고, <strong>반드시 실시간 웹 검색을 활용</strong>하여 최신 기술 동향, 사회적 이슈, 학술적 논의를 반영해야 한다.</p>
+</li>
+<li><p>각 주제와 함께 간단한 추천 이유를 덧붙이고, 사용자에게 가장 흥미로운 주제를 1개 선택하도록 요청한다.</p>
+</li>
+</ol>
+<ul>
+<li><strong>2단계: 🧭 연구 방향 설정 (Setting Research Style)</strong></li>
+</ul>
+<ol>
+<li>사용자가 주제를 선택하면, 연구를 심화할 두 가지 접근 방식을 제시한다.</li>
+</ol>
+<ul>
+<li><p><strong>A트랙 (통계 기반 사회탐구):</strong> 설문조사, 인터뷰, 문헌 분석 등을 통해 사회/문화 현상을 통계적으로 탐구하는 방식. (전국학생통계활용대회 사례집 형식)</p>
+</li>
+<li><p><strong>B트랙 (데이터 기반 기술분석):</strong> 공공 데이터, 실험 데이터 등을 활용해 특정 문제의 원인을 분석하고 해결책을 모델링하는 방식. (환경데이터 분석 사례집 형식)</p>
+</li>
+</ul>
+<ol start="2">
+<li>&quot;선택하신 주제를 어떤 스타일로 탐구하고 싶으신가요? A트랙과 B트랙 중 하나를 선택해 주세요.&quot;라고 질문한다.</li>
+</ol>
+<ul>
+<li><strong>3단계: ✍️ 연구 계획서 초안 작성 (Drafting Research Plan)</strong></li>
+</ul>
+<ol>
+<li><p>사용자가 선택한 연구 스타일에 따라, 아래의 지정된 형식에 맞춰 연구 계획서 초안을 작성한다.</p>
+</li>
+<li><p><strong>A트랙 (통계 기반 사회탐구) 선택 시:</strong></p>
+</li>
+</ol>
+<ul>
+<li><p><strong>탐구 동기 및 목적:</strong> 왜 이 연구가 필요한가?</p>
+</li>
+<li><p><strong>연구 문제 및 가설:</strong> 무엇을 밝히고 싶은가? 예상 결론은?</p>
+</li>
+<li><p><strong>연구 대상 및 방법:</strong> 누구를, 어떻게 연구할 것인가? (설문조사 기간, 대상, 방법 등 포함)</p>
+</li>
+<li><p><strong>예상 결과 및 의의:</strong> 연구를 통해 무엇을 얻을 수 있는가?</p>
+</li>
+</ul>
+<ol start="3">
+<li><strong>B트랙 (데이터 기반 기술분석) 선택 시:</strong></li>
+</ol>
+<ul>
+<li><p><strong>연구 목표:</strong> 무엇을 달성하고자 하는가?</p>
+</li>
+<li><p><strong>활용 데이터:</strong> 어떤 데이터를, 어디서 얻어 사용할 것인가? (데이터 출처 명시)</p>
+</li>
+<li><p><strong>분석 방법:</strong> 어떤 기술/모델(예: 회귀분석, 머신러닝)을 사용할 것인가?</p>
+</li>
+<li><p><strong>예상 결과 및 기대 효과:</strong> 분석을 통해 무엇을 알 수 있으며, 어떻게 활용될 수 있는가?</p>
+</li>
+<li><p><strong>4.단계: 📊 발표 PPT 구성안 제안 (Proposing PPT Structure)</strong></p>
+</li>
+</ul>
+<ol>
+<li><p>작성된 연구 계획서의 논리적 흐름에 맞춰, 발표용 PPT의 슬라이드 구성을 8~10장 내외로 제안한다.</p>
+</li>
+<li><p>구성안은 반드시 다음의 표준 구조를 따라야 하며, 각 항목은 &#39;슬라이드&#39;라는 단어로 시작해야 한다.</p>
+</li>
+</ol>
+<ul>
+<li><p>슬라이드 1: 제목, 연구자 정보</p>
+</li>
+<li><p>슬라이드 2: 연구 동기 및 필요성 (Introduction)</p>
+</li>
+<li><p>슬라이드 3: 연구 문제 및 핵심 가설 (Research Question)</p>
+</li>
+<li><p>슬라이드 4: 연구 설계 및 방법 (Methodology)</p>
+</li>
+<li><p>슬라이드 5-7: 연구 결과 및 데이터 분석 (Results &amp; Analysis) - 핵심 그래프/표 예시 포함</p>
+</li>
+<li><p>슬라이드 8: 결론 및 시사점 (Conclusion)</p>
+</li>
+<li><p>슬라이드 9: 한계점 및 향후 연구 제안 (Limitations &amp; Future Work)</p>
+</li>
+<li><p>슬라이드 10: Q&amp;A</p>
+</li>
+</ul>
+<h2 id="3-상호작용-규칙-interaction-rules">[3] 상호작용 규칙 (Interaction Rules) {#3-상호작용-규칙-interaction-rules}</h2>
+<ul>
+<li><p>각 단계의 결과물을 제시한 후, 항상 &quot;이 내용으로 다음 단계를 진행할까요? 수정하고 싶은 부분이 있다면 편하게 말씀해 주세요.&quot; 와 같이 사용자의 확인을 구한다.</p>
+</li>
+<li><p>전문 용어를 사용하되, 항상 쉬운 비유나 예시를 함께 제시한다.</p>
+</li>
+<li><p>답변은 항상 마크다운을 사용하여 목록, 제목, 강조 등을 명확하게 구분한다.</p>
+</li>
+</ul>
+<p>`;</p>
+<p>const apiKey = &quot;&quot;;</p>
+<p>const stepIcons = [</p>
+<p><code>&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; width=&amp;quot;24&amp;quot; height=&amp;quot;24&amp;quot; viewBox=&amp;quot;0 0 24&amp;quot; fill=&amp;quot;none&amp;quot; stroke=&amp;quot;currentColor&amp;quot; stroke-width=&amp;quot;2&amp;quot; stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot;&amp;gt;&amp;lt;circle cx=&amp;quot;11&amp;quot; cy=&amp;quot;11&amp;quot; r=&amp;quot;8&amp;quot;&amp;gt;&amp;lt;/circle&amp;gt;&amp;lt;line x1=&amp;quot;21&amp;quot; y1=&amp;quot;21&amp;quot; x2=&amp;quot;16.65&amp;quot; y2=&amp;quot;16.65&amp;quot;&amp;gt;&amp;lt;/line&amp;gt;&amp;lt;/svg&amp;gt;</code>,</p>
+<p><code>&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; width=&amp;quot;24&amp;quot; height=&amp;quot;24&amp;quot; viewBox=&amp;quot;0 0 24&amp;quot; fill=&amp;quot;none&amp;quot; stroke=&amp;quot;currentColor&amp;quot; stroke-width=&amp;quot;2&amp;quot; stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot;&amp;gt;&amp;lt;circle cx=&amp;quot;12&amp;quot; cy=&amp;quot;12&amp;quot; r=&amp;quot;10&amp;quot;&amp;gt;&amp;lt;/circle&amp;gt;&amp;lt;circle cx=&amp;quot;12&amp;quot; cy=&amp;quot;12&amp;quot; r=&amp;quot;4&amp;quot;&amp;gt;&amp;lt;/circle&amp;gt;&amp;lt;line x1=&amp;quot;21.17&amp;quot; y1=&amp;quot;8&amp;quot; x2=&amp;quot;12&amp;quot; y2=&amp;quot;8&amp;quot;&amp;gt;&amp;lt;/line&amp;gt;&amp;lt;line x1=&amp;quot;3.95&amp;quot; y1=&amp;quot;6.06&amp;quot; x2=&amp;quot;8.54&amp;quot; y2=&amp;quot;14&amp;quot;&amp;gt;&amp;lt;/line&amp;gt;&amp;lt;line x1=&amp;quot;10.88&amp;quot; y1=&amp;quot;21.94&amp;quot; x2=&amp;quot;15.46&amp;quot; y2=&amp;quot;14&amp;quot;&amp;gt;&amp;lt;/line&amp;gt;&amp;lt;/svg&amp;gt;</code>,</p>
+<p><code>&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; width=&amp;quot;24&amp;quot; height=&amp;quot;24&amp;quot; viewBox=&amp;quot;0 0 24&amp;quot; fill=&amp;quot;none&amp;quot; stroke=&amp;quot;currentColor&amp;quot; stroke-width=&amp;quot;2&amp;quot; stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot;&amp;gt;&amp;lt;path d=&amp;quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&amp;quot;&amp;gt;&amp;lt;/path&amp;gt;&amp;lt;polyline points=&amp;quot;14 2 14 8 20 8&amp;quot;&amp;gt;&amp;lt;/polyline&amp;gt;&amp;lt;line x1=&amp;quot;16&amp;quot; y1=&amp;quot;13&amp;quot; x2=&amp;quot;8&amp;quot; y2=&amp;quot;13&amp;quot;&amp;gt;&amp;lt;/line&amp;gt;&amp;lt;line x1=&amp;quot;16&amp;quot; y1=&amp;quot;17&amp;quot; x2=&amp;quot;8&amp;quot; y2=&amp;quot;17&amp;quot;&amp;gt;&amp;lt;/line&amp;gt;&amp;lt;polyline points=&amp;quot;10 9 9 9 8 9&amp;quot;&amp;gt;&amp;lt;/polyline&amp;gt;&amp;lt;/svg&amp;gt;</code>,</p>
+<p><code>&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; width=&amp;quot;24&amp;quot; height=&amp;quot;24&amp;quot; viewBox=&amp;quot;0 0 24&amp;quot; fill=&amp;quot;none&amp;quot; stroke=&amp;quot;currentColor&amp;quot; stroke-width=&amp;quot;2&amp;quot; stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot;&amp;gt;&amp;lt;line x1=&amp;quot;12&amp;quot; y1=&amp;quot;20&amp;quot; x2=&amp;quot;12&amp;quot; y2=&amp;quot;10&amp;quot;&amp;gt;&amp;lt;/line&amp;gt;&amp;lt;line x1=&amp;quot;18&amp;quot; y1=&amp;quot;20&amp;quot; x2=&amp;quot;18&amp;quot; y2=&amp;quot;4&amp;quot;&amp;gt;&amp;lt;/line&amp;gt;&amp;lt;line x1=&amp;quot;6&amp;quot; y1=&amp;quot;20&amp;quot; x2=&amp;quot;6&amp;quot; y2=&amp;quot;16&amp;quot;&amp;gt;&amp;lt;/line&amp;gt;&amp;lt;/svg&amp;gt;</code></p>
+<p>];</p>
+<p>const checkmarkIcon = <code>&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; width=&amp;quot;24&amp;quot; height=&amp;quot;24&amp;quot; viewBox=&amp;quot;0 0 24&amp;quot; fill=&amp;quot;none&amp;quot; stroke=&amp;quot;currentColor&amp;quot; stroke-width=&amp;quot;3&amp;quot; stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot;&amp;gt;&amp;lt;polyline points=&amp;quot;20 6 9 17 4 12&amp;quot;&amp;gt;&amp;lt;/polyline&amp;gt;&amp;lt;/svg&amp;gt;</code>;</p>
+<p>function updateNavigator(stepIndex) {</p>
+<p>for (let i = 1; i &lt;= 4; i++) {</p>
+<p>const stepEl = document.getElementById(<code>step-${i}</code>);</p>
+<p>const iconWrapper = stepEl.querySelector(&#39;.step-icon-wrapper&#39;);</p>
+<p>stepEl.classList.remove(&#39;active&#39;, &#39;completed&#39;);</p>
+<p>const line = stepEl.previousElementSibling;</p>
+<p>if (i &lt; stepIndex + 1) {</p>
+<p>stepEl.classList.add(&#39;completed&#39;);</p>
+<p>iconWrapper.innerHTML = checkmarkIcon;</p>
+<p>if (line &amp;&amp; line.classList.contains(&#39;step-line&#39;)) line.classList.add(&#39;bg-green-500&#39;);</p>
+<p>} else if (i === stepIndex + 1) {</p>
+<p>stepEl.classList.add(&#39;active&#39;);</p>
+<p>iconWrapper.innerHTML = stepIcons[i - 1];</p>
+<p>if (line &amp;&amp; line.classList.contains(&#39;step-line&#39;)) line.classList.remove(&#39;bg-green-500&#39;);</p>
+<p>} else {</p>
+<p>iconWrapper.innerHTML = stepIcons[i - 1];</p>
+<p>if (line &amp;&amp; line.classList.contains(&#39;step-line&#39;)) line.classList.remove(&#39;bg-green-500&#39;);</p>
+<p>}</p>
+<p>}</p>
+<p>}</p>
+<p>function addMessage(sender, text, options = {}) {</p>
+<p>const messageWrapper = document.createElement(&#39;div&#39;);</p>
+<p>messageWrapper.className = <code>w-full flex items-end gap-3 ${sender === &amp;#39;user&amp;#39; ? &amp;#39;justify-end&amp;#39; : &amp;#39;justify-start&amp;#39;}</code>;</p>
+<p>const bubbleContainer = document.createElement(&#39;div&#39;);</p>
+<p>bubbleContainer.className = &#39;flex flex-col items-start w-full&#39;;</p>
+<p>if (sender === &#39;advisor&#39;) {</p>
+<p>const avatar = document.createElement(&#39;div&#39;);</p>
+<p>avatar.className = &#39;w-10 h-10 rounded-full bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center text-white text-lg font-bold shadow-lg shrink-0&#39;;</p>
+<p>avatar.innerHTML = <code>&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; width=&amp;quot;24&amp;quot; height=&amp;quot;24&amp;quot; viewBox=&amp;quot;0 0 24&amp;quot; fill=&amp;quot;none&amp;quot; stroke=&amp;quot;currentColor&amp;quot; stroke-width=&amp;quot;2&amp;quot; stroke-linecap=&amp;quot;round&amp;quot; stroke-linejoin=&amp;quot;round&amp;quot;&amp;gt;&amp;lt;path d=&amp;quot;M12 8V4H8&amp;quot;/&amp;gt;&amp;lt;rect x=&amp;quot;4&amp;quot; y=&amp;quot;12&amp;quot; width=&amp;quot;16&amp;quot; height=&amp;quot;8&amp;quot; rx=&amp;quot;2&amp;quot;/&amp;gt;&amp;lt;path d=&amp;quot;M4 14h16&amp;quot;/&amp;gt;&amp;lt;/svg&amp;gt;</code>;</p>
+<p>messageWrapper.appendChild(avatar);</p>
+<p>}</p>
+<p>const messageElement = document.createElement(&#39;div&#39;);</p>
+<p>messageElement.className = <code>chat-bubble ${sender === &amp;#39;user&amp;#39; ? &amp;#39;user-bubble&amp;#39; : &amp;#39;advisor-bubble markdown&amp;#39;}</code>;</p>
+<p>if (sender === &#39;advisor&#39;) {</p>
+<p>messageElement.innerHTML = marked.parse(decodeHtmlEntities(text));</p>
+<p>} else {</p>
+<p>messageElement.textContent = text;</p>
+<p>}</p>
+<p>bubbleContainer.appendChild(messageElement);</p>
+<p>if (options.buttons) {</p>
+<p>const buttonContainer = document.createElement(&#39;div&#39;);</p>
+<p>buttonContainer.className = <code>flex flex-wrap gap-3 mt-2 ${sender === &amp;#39;user&amp;#39; ? &amp;#39;justify-end&amp;#39; : &amp;#39;justify-start&amp;#39;}</code>;</p>
+<p>options.buttons.forEach(btn =&gt; {</p>
+<p>const button = document.createElement(&#39;button&#39;);</p>
+<p>button.textContent = btn.text;</p>
+<p>button.className = btn.className || &#39;step-button bg-white border border-blue-500 text-blue-500 font-semibold py-2 px-4 rounded-full shadow-sm hover:bg-blue-50&#39;;</p>
+<p>button.onclick = () =&gt; { buttonContainer.remove(); btn.onClick(btn.payload); };</p>
+<p>buttonContainer.appendChild(button);</p>
+<p>});</p>
+<p>bubbleContainer.appendChild(buttonContainer);</p>
+<p>}</p>
+<p>messageWrapper.appendChild(bubbleContainer);</p>
+<p>chatContainer.appendChild(messageWrapper);</p>
+<p>chatContainer.scrollTop = chatContainer.scrollHeight;</p>
+<p>const indicator = document.getElementById(&#39;loading-indicator&#39;);</p>
+<p>if (indicator) indicator.remove();</p>
+<p>}</p>
+<p>function toggleInput(enabled) {</p>
+<p>interestInput.disabled = !enabled;</p>
+<p>const button = interestForm.querySelector(&#39;button&#39;);</p>
+<p>button.disabled = !enabled;</p>
+<p>interestInput.placeholder = enabled ? &#39;여기에 메시지를 입력하세요...&#39; : &#39;아래에서 다음 단계를 선택해주세요.&#39;;</p>
+<p>}</p>
+<p>function decodeHtmlEntities(text) {</p>
+<p>if (typeof text !== &#39;string&#39;) return &#39;&#39;;</p>
+<p>const textarea = document.createElement(&#39;textarea&#39;);</p>
+<p>textarea.innerHTML = text;</p>
+<p>return textarea.value;</p>
+<p>}</p>
+<p>async function callGeminiAPI(prompt, useSearch = false, retryCount = 0) {</p>
+<p>const maxRetries = 3;</p>
+<p>const delay = Math.pow(2, retryCount) * 1000;</p>
+<p>const apiUrl = <code>https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}</code>;</p>
+<p>const payload = {</p>
+<p>contents: [...conversationHistory, { role: &quot;user&quot;, parts: [{ text: prompt }] }],</p>
+<p>systemInstruction: { parts: [{ text: systemPrompt }] },</p>
+<p>};</p>
+<p>if(useSearch) {</p>
+<p>payload.tools = [{ &quot;google_search&quot;: {} }];</p>
+<p>}</p>
+<p>try {</p>
+<p>const response = await fetch(apiUrl, {</p>
+<p>method: &#39;POST&#39;,</p>
+<p>headers: { &#39;Content-Type&#39;: &#39;application/json&#39; },</p>
+<p>body: JSON.stringify(payload)</p>
+<p>});</p>
+<p>if (!response.ok) {</p>
+<p>if (response.status === 429 &amp;&amp; retryCount &lt; maxRetries) {</p>
+<p>console.warn(<code>Rate limited. Retrying in ${delay / 1000}s...</code>);</p>
+<p>await new Promise(res =&gt; setTimeout(res, delay));</p>
+<p>return callGeminiAPI(prompt, useSearch, retryCount + 1);</p>
+<p>}</p>
+<p>throw new Error(<code>HTTP error! status: ${response.status}</code>);</p>
+<p>}</p>
+<p>const result = await response.json();</p>
+<p>const candidate = result.candidates?.[0];</p>
+<p>if (candidate &amp;&amp; candidate.content?.parts?.[0]?.text) {</p>
+<p>return candidate.content.parts[0].text;</p>
+<p>} else {</p>
+<p>console.error(&quot;Invalid response structure:&quot;, result);</p>
+<p>// AI 응답 구조가 예상과 다를 경우를 대비하여 오류 처리 로직을 보강했습니다.</p>
+<p>const blockReason = result?.promptFeedback?.blockReason;</p>
+<p>const errorText = blockReason ? blockReason.toString() : &quot;API response was empty or invalid.&quot;;</p>
+<p>return <code>죄송합니다, AI로부터 유효한 답변을 받지 못했습니다. (${errorText})</code>;</p>
+<p>}</p>
+<p>} catch (error) {</p>
+<p>console.error(&quot;Error calling Gemini API:&quot;, error);</p>
+<p>if (retryCount &lt; maxRetries) {</p>
+<p>console.warn(<code>API call failed. Retrying in ${delay / 1000}s...</code>);</p>
+<p>await new Promise(res =&gt; setTimeout(res, delay));</p>
+<p>return callGeminiAPI(prompt, useSearch, retryCount + 1);</p>
+<p>}</p>
+<p>return <code>죄송합니다, AI와 통신하는 중 오류가 발생했습니다: ${error.message}</code>;</p>
+<p>}</p>
+<p>}</p>
+<p>function showLoading() {</p>
+<p>const existingIndicator = document.getElementById(&#39;loading-indicator&#39;);</p>
+<p>if (existingIndicator) return;</p>
+<p>const loadingIndicator = document.createElement(&#39;div&#39;);</p>
+<p>loadingIndicator.id = &#39;loading-indicator&#39;;</p>
+<p>loadingIndicator.className = &#39;w-full flex items-end gap-3 justify-start&#39;;</p>
+<p>loadingIndicator.innerHTML = `</p>
+<p>&lt;div class=&quot;w-10 h-10 rounded-full bg-gradient-to-br from-slate-700 to-slate-900 flex items-center justify-center text-white text-lg font-bold shadow-lg shrink-0&quot;&gt;</p>
+<p>&lt;svg xmlns=&quot;<a href="http://www.w3.org/2000/svg">http://www.w3.org/2000/svg</a>&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M12 8V4H8&quot;/&gt;&lt;rect x=&quot;4&quot; y=&quot;12&quot; width=&quot;16&quot; height=&quot;8&quot; rx=&quot;2&quot;/&gt;&lt;path d=&quot;M4 14h16&quot;/&gt;&lt;/svg&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div class=&quot;chat-bubble advisor-bubble flex items-center gap-2&quot;&gt;</p>
+<p>&lt;div class=&quot;w-3 h-3 bg-slate-400 rounded-full animate-pulse&quot; style=&quot;animation-delay: 0s;&quot;&gt;&lt;/div&gt;</p>
+<p>&lt;div class=&quot;w-3 h-3 bg-slate-400 rounded-full animate-pulse&quot; style=&quot;animation-delay: 0.2s;&quot;&gt;&lt;/div&gt;</p>
+<p>&lt;div class=&quot;w-3 h-3 bg-slate-400 rounded-full animate-pulse&quot; style=&quot;animation-delay: 0.4s;&quot;&gt;&lt;/div&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>`;</p>
+<p>chatContainer.appendChild(loadingIndicator);</p>
+<p>chatContainer.scrollTop = chatContainer.scrollHeight;</p>
+<p>}</p>
+<p>function removeLoading() {</p>
+<p>const indicator = document.getElementById(&#39;loading-indicator&#39;);</p>
+<p>if (indicator) indicator.remove();</p>
+<p>}</p>
+<p>function showToast(message) {</p>
+<p>const toast = document.createElement(&#39;div&#39;);</p>
+<p>toast.textContent = message;</p>
+<p>toast.className = &#39;fixed bottom-5 left-1/2 -translate-x-1/2 bg-gray-800 text-white py-2 px-5 rounded-full text-sm shadow-lg toast-animation z-50&#39;;</p>
+<p>document.body.appendChild(toast);</p>
+<p>setTimeout(() =&gt; {</p>
+<p>toast.remove();</p>
+<p>}, 3000);</p>
+<p>}</p>
+<p>function fallbackCopyToClipboard(text) {</p>
+<p>const textArea = document.createElement(&#39;textarea&#39;);</p>
+<p>textArea.value = text;</p>
+<p>textArea.style.position = &#39;fixed&#39;;</p>
+<p>textArea.style.top = &#39;0&#39;;</p>
+<p>textArea.style.left = &#39;0&#39;;</p>
+<p>textArea.style.opacity = &#39;0&#39;;</p>
+<p>document.body.appendChild(textArea);</p>
+<p>textArea.focus();</p>
+<p>textArea.select();</p>
+<p>try {</p>
+<p>const successful = document.execCommand(&#39;copy&#39;);</p>
+<p>if (successful) {</p>
+<p>showToast(&#39;내용이 복사되었습니다!&#39;);</p>
+<p>} else {</p>
+<p>showToast(&#39;복사에 실패했습니다.&#39;);</p>
+<p>}</p>
+<p>} catch (err) {</p>
+<p>console.error(&#39;클립보드 복사 실패:&#39;, err);</p>
+<p>showToast(&#39;복사에 실패했습니다.&#39;);</p>
+<p>}</p>
+<p>document.body.removeChild(textArea);</p>
+<p>}</p>
+<p>function copyPlanToClipboard() {</p>
+<p>const planHtml = marked.parse(decodeHtmlEntities(state.researchPlan));</p>
+<p>const tempDiv = document.createElement(&#39;div&#39;);</p>
+<p>tempDiv.style.position = &#39;absolute&#39;;</p>
+<p>tempDiv.style.left = &#39;-9999px&#39;;</p>
+<p>document.body.appendChild(tempDiv);</p>
+<p>tempDiv.innerHTML = planHtml;</p>
+<p>let plainText = &#39;&#39;;</p>
+<p>tempDiv.querySelectorAll(&#39;h1, h2, h3, h4, p, li&#39;).forEach(el =&gt; {</p>
+<p>if (el.tagName.startsWith(&#39;H&#39;)) {</p>
+<p>plainText += &#39;\n&#39; + el.textContent + &#39;\n&#39; + &#39;-&#39;.repeat(el.textContent.length) + &#39;\n&#39;;</p>
+<p>} else if (el.tagName === &#39;LI&#39;) {</p>
+<p>plainText += &#39; - &#39; + el.textContent + &#39;\n&#39;;</p>
+<p>} else {</p>
+<p>plainText += el.textContent + &#39;\n\n&#39;;</p>
+<p>}</p>
+<p>});</p>
+<p>const finalText = plainText.trim();</p>
+<p>if (navigator.clipboard &amp;&amp; window.isSecureContext) {</p>
+<p>navigator.clipboard.writeText(finalText)</p>
+<p>.then(() =&gt; showToast(&#39;연구 계획서 내용이 복사되었습니다!&#39;))</p>
+<p>.catch(err =&gt; {</p>
+<p>console.warn(&#39;navigator.clipboard 실패, 대체 방법 시도:&#39;, err);</p>
+<p>fallbackCopyToClipboard(finalText);</p>
+<p>});</p>
+<p>} else {</p>
+<p>fallbackCopyToClipboard(finalText);</p>
+<p>}</p>
+<p>document.body.removeChild(tempDiv);</p>
+<p>}</p>
+<p>function copyPPTToClipboard() {</p>
+<p>let plainText = &quot;발표 PPT 구성안\n==================\n\n&quot;;</p>
+<p>const slides = state.pptStructure.split(/(?=슬라이드 \d+:)/).filter(s =&gt; s.trim());</p>
+<p>slides.forEach(slide =&gt; {</p>
+<p>const parts = slide.match(/슬라이드 (\d+): (.<em>?)\n([\s\S]</em>)/);</p>
+<p>if (parts) {</p>
+<p>plainText += <code>[슬라이드 ${parts[1]}: ${parts[2].replace(/\*\*/g, &amp;#39;&amp;#39;)}]\n\n</code>;</p>
+<p>plainText += parts[3].replace(/-\s/g, &#39; - &#39;).replace(/**/g, &#39;&#39;) + &#39;\n\n&#39;;</p>
+<p>}</p>
+<p>});</p>
+<p>const finalText = plainText.trim();</p>
+<p>if (navigator.clipboard &amp;&amp; window.isSecureContext) {</p>
+<p>navigator.clipboard.writeText(finalText)</p>
+<p>.then(() =&gt; showToast(&#39;PPT 구성안 내용이 복사되었습니다!&#39;))</p>
+<p>.catch(err =&gt; {</p>
+<p>console.warn(&#39;navigator.clipboard 실패, 대체 방법 시도:&#39;, err);</p>
+<p>fallbackCopyToClipboard(finalText);</p>
+<p>});</p>
+<p>} else {</p>
+<p>fallbackCopyToClipboard(finalText);</p>
+<p>}</p>
+<p>}</p>
+<p>function displayResearchPlan(planText) {</p>
+<p>state.researchPlan = planText;</p>
+<p>const existingContainer = document.getElementById(&#39;plan-container&#39;);</p>
+<p>if (existingContainer) {</p>
+<p>existingContainer.remove();</p>
+<p>}</p>
+<p>const container = document.createElement(&#39;div&#39;);</p>
+<p>container.id = &#39;plan-container&#39;;</p>
+<p>container.className = &#39;bg-slate-50 rounded-xl p-4 sm:p-6 my-4 shadow-sm border border-slate-200&#39;;</p>
+<p>const parsedContent = marked.parse(decodeHtmlEntities(planText));</p>
+<p>container.innerHTML = `</p>
+<p>&lt;div class=&quot;flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4&quot;&gt;</p>
+<p>&lt;h3 class=&quot;text-lg font-bold text-slate-700 flex items-center gap-2&quot;&gt;</p>
+<p>&lt;svg xmlns=&quot;<a href="http://www.w3.org/2000/svg">http://www.w3.org/2000/svg</a>&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z&quot;&gt;&lt;/path&gt;&lt;polyline points=&quot;14 2 14 8 20 8&quot;&gt;&lt;/polyline&gt;&lt;line x1=&quot;16&quot; y1=&quot;13&quot; x2=&quot;8&quot; y2=&quot;13&quot;&gt;&lt;/line&gt;&lt;line x1=&quot;16&quot; y1=&quot;17&quot; x2=&quot;8&quot; y2=&quot;17&quot;&gt;&lt;/line&gt;&lt;polyline points=&quot;10 9 9 9 8 9&quot;&gt;&lt;/polyline&gt;&lt;/svg&gt;</p>
+<p>&lt;span&gt;연구 계획서&lt;/span&gt;</p>
+<p>&lt;/h3&gt;</p>
+<p>&lt;button onclick=&quot;copyPlanToClipboard()&quot; class=&quot;export-button&quot;&gt;</p>
+<p>&lt;svg xmlns=&quot;<a href="http://www.w3.org/2000/svg">http://www.w3.org/2000/svg</a>&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M14 2v4a2 2 0 0 0 2 2h4&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M10 12.5 14 17l-4 4.5&quot;&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p>&lt;span&gt;Google Docs로 내보내기&lt;/span&gt;</p>
+<p>&lt;/button&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div class=&quot;markdown bg-white p-4 sm:p-6 rounded-lg border border-slate-200&quot;&gt;${parsedContent}&lt;/div&gt;</p>
+<p>`;</p>
+<p>chatContainer.appendChild(container);</p>
+<p>chatContainer.scrollTop = chatContainer.scrollHeight;</p>
+<p>}</p>
+<p>function displayPPTStructure(pptText) {</p>
+<p>state.pptStructure = pptText;</p>
+<p>const existingContainer = document.getElementById(&#39;ppt-container&#39;);</p>
+<p>if (existingContainer) {</p>
+<p>existingContainer.remove();</p>
+<p>}</p>
+<p>const container = document.createElement(&#39;div&#39;);</p>
+<p>container.id = &#39;ppt-container&#39;;</p>
+<p>container.className = &#39;w-full my-4&#39;;</p>
+<p>container.innerHTML = `</p>
+<p>&lt;div class=&quot;flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 gap-4 bg-slate-50 p-4 sm:p-6 rounded-t-xl border-x border-t border-slate-200&quot;&gt;</p>
+<p>&lt;h3 class=&quot;text-lg font-bold text-slate-700 flex items-center gap-2&quot;&gt;</p>
+<p>&lt;svg xmlns=&quot;<a href="http://www.w3.org/2000/svg">http://www.w3.org/2000/svg</a>&quot; width=&quot;24&quot; height=&quot;24&quot; viewBox=&quot;0 0 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;rect x=&quot;2&quot; y=&quot;3&quot; width=&quot;20&quot; height=&quot;18&quot; rx=&quot;2&quot;/&gt;&lt;path d=&quot;M2 12h20&quot;/&gt;&lt;path d=&quot;M12 3v18&quot;/&gt;&lt;/svg&gt;</p>
+<p>&lt;span&gt;발표 PPT 구성안&lt;/span&gt;</p>
+<p>&lt;/h3&gt;</p>
+<p>&lt;button onclick=&quot;copyPPTToClipboard()&quot; class=&quot;export-button&quot;&gt;</p>
+<p>&lt;svg xmlns=&quot;<a href="http://www.w3.org/2000/svg">http://www.w3.org/2000/svg</a>&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M21 2H3v14h5v4l4-4h5z&quot;/&gt;&lt;/svg&gt;</p>
+<p>&lt;span&gt;Google Slides로 내보내기&lt;/span&gt;</p>
+<p>&lt;/button&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>`;</p>
+<p>const slidesContainer = document.createElement(&#39;div&#39;);</p>
+<p>slidesContainer.className = &#39;grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 p-4 bg-slate-50 rounded-b-xl border-x border-b border-slate-200&#39;;</p>
+<p>// &#39;슬라이드&#39; 외에 &#39;Slide&#39; 등 다양한 표현을 인식하도록 기준을 유연하게 변경했습니다.</p>
+<p>const slides = pptText.split(/(?=\s*(슬라이드|Slide) \d+:)/).filter(s =&gt; s.trim());</p>
+<p>slides.forEach(slide =&gt; {</p>
+<p>const parts = slide.match(/(?:슬라이드|Slide) (\d+): (.<em>?)\n([\s\S]</em>)/);</p>
+<p>if (!parts) return;</p>
+<p>const slideCard = document.createElement(&#39;div&#39;);</p>
+<p>slideCard.className = &#39;bg-white p-4 rounded-lg shadow-md border border-slate-200 flex flex-col h-full&#39;;</p>
+<p>// h4 태그가 이미 bold체이므로, 제목 텍스트에서는 마크다운(**)을 제거하여 깔끔하게 표시합니다.</p>
+<p>const cleanTitle = decodeHtmlEntities(parts[2].trim()).replace(/**/g, &#39;&#39;);</p>
+<p>slideCard.innerHTML = `</p>
+<p>&lt;div class=&quot;flex items-center mb-3&quot;&gt;</p>
+<p>&lt;span class=&quot;bg-blue-600 text-white text-sm font-bold w-7 h-7 flex items-center justify-center rounded-full mr-3 shrink-0&quot;&gt;${parts[1]}&lt;/span&gt;</p>
+<p>&lt;h4 class=&quot;font-bold text-slate-800&quot;&gt;${cleanTitle}&lt;/h4&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div class=&quot;text-sm text-slate-600 flex-1 markdown&quot;&gt;${marked.parse(decodeHtmlEntities(parts[3].trim()))}&lt;/div&gt;</p>
+<p>`;</p>
+<p>slidesContainer.appendChild(slideCard);</p>
+<p>});</p>
+<p>container.appendChild(slidesContainer);</p>
+<p>chatContainer.appendChild(container);</p>
+<p>chatContainer.scrollTop = chatContainer.scrollHeight;</p>
+<p>}</p>
+<p>function displayFinalSummaryCard() {</p>
+<p>const existingContainer = document.getElementById(&#39;final-summary-container&#39;);</p>
+<p>if (existingContainer) {</p>
+<p>existingContainer.remove();</p>
+<p>}</p>
+<p>const container = document.createElement(&#39;div&#39;);</p>
+<p>container.id = &#39;final-summary-container&#39;;</p>
+<p>container.className = &#39;bg-slate-50 rounded-xl p-4 sm:p-6 my-4 shadow-sm border border-slate-200&#39;;</p>
+<p>container.innerHTML = `</p>
+<p>&lt;div class=&quot;text-center mb-4&quot;&gt;</p>
+<p>&lt;h3 class=&quot;text-lg font-bold text-slate-700&quot;&gt;🎉 탐구 활동 완료!&lt;/h3&gt;</p>
+<p>&lt;p class=&quot;text-sm text-slate-500 mt-1&quot;&gt;결과물을 아래 버튼으로 복사하여 활용해 보세요.&lt;/p&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>&lt;div class=&quot;flex flex-col sm:flex-row justify-center items-center gap-4&quot;&gt;</p>
+<p>&lt;button onclick=&quot;copyPlanToClipboard()&quot; class=&quot;export-button w-full sm:w-auto justify-center&quot;&gt;</p>
+<p>&lt;svg xmlns=&quot;<a href="http://www.w3.org/2000/svg">http://www.w3.org/2000/svg</a>&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M14 2v4a2 2 0 0 0 2 2h4&quot;&gt;&lt;/path&gt;&lt;path d=&quot;M10 12.5 14 17l-4 4.5&quot;&gt;&lt;/path&gt;&lt;/svg&gt;</p>
+<p>&lt;span&gt;Google Docs로 내보내기&lt;/span&gt;</p>
+<p>&lt;/button&gt;</p>
+<p>&lt;button onclick=&quot;copyPPTToClipboard()&quot; class=&quot;export-button w-full sm:w-auto justify-center&quot;&gt;</p>
+<p>&lt;svg xmlns=&quot;<a href="http://www.w3.org/2000/svg">http://www.w3.org/2000/svg</a>&quot; width=&quot;18&quot; height=&quot;18&quot; viewBox=&quot;0 0 24&quot; fill=&quot;none&quot; stroke=&quot;currentColor&quot; stroke-width=&quot;2&quot; stroke-linecap=&quot;round&quot; stroke-linejoin=&quot;round&quot;&gt;&lt;path d=&quot;M21 2H3v14h5v4l4-4h5z&quot;/&gt;&lt;/svg&gt;</p>
+<p>&lt;span&gt;Google Slides로 내보내기&lt;/span&gt;</p>
+<p>&lt;/button&gt;</p>
+<p>&lt;/div&gt;</p>
+<p>`;</p>
+<p>chatContainer.appendChild(container);</p>
+<p>chatContainer.scrollTop = chatContainer.scrollHeight;</p>
+<p>}</p>
+<p>async function handleUserInput(event) {</p>
+<p>event.preventDefault();</p>
+<p>const userInput = interestInput.value.trim();</p>
+<p>if (!userInput) return;</p>
+<p>addMessage(&#39;user&#39;, userInput);</p>
+<p>conversationHistory.push({ role: &quot;user&quot;, parts: [{ text: userInput }] });</p>
+<p>interestInput.value = &#39;&#39;;</p>
+<p>toggleInput(false);</p>
+<p>if (currentStep === 0) {</p>
+<p>state.interest = userInput;</p>
+<p>await getTopics(userInput);</p>
+<p>} else {</p>
+<p>await handleFollowUp(userInput);</p>
+<p>}</p>
+<p>}</p>
+<p>async function getTopics(interest) {</p>
+<p>showLoading();</p>
+<p>const prompt = <code>관심 분야: &amp;quot;${interest}&amp;quot;\n위 관심 분야와 관련된 탐구 주제를 3~5개 추천해줘.</code>;</p>
+<p>const response = await callGeminiAPI(prompt, true);</p>
+<p>removeLoading();</p>
+<p>if (!response || typeof response !== &#39;string&#39;) {</p>
+<p>addMessage(&#39;advisor&#39;, &#39;죄송합니다, 답변을 생성하는 데 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.&#39;);</p>
+<p>toggleInput(true);</p>
+<p>return;</p>
+<p>}</p>
+<p>conversationHistory.push({ role: &quot;model&quot;, parts: [{ text: response }] });</p>
+<p>// AI 답변에서 숫자 목록을 우선으로, 없으면 글머리 기호 목록을 추출하도록 로직을 개선했습니다.</p>
+<p>let topicRegex = /^\s*\d+.\s+(.*)$/gm;</p>
+<p>let topics = response.match(topicRegex);</p>
+<p>// 숫자 목록이 없으면 글머리 기호 목록을 시도합니다.</p>
+<p>if (!topics || topics.length === 0) {</p>
+<p>console.warn(&quot;Numbered list regex failed. Trying bullet point regex.&quot;);</p>
+<p>topicRegex = /^\s*(?:-|*)\s+(.*)$/gm;</p>
+<p>topics = response.match(topicRegex);</p>
+<p>}</p>
+<p>if (topics &amp;&amp; topics.length &gt; 0) {</p>
+<p>const buttons = topics.map((topic, index) =&gt; ({</p>
+<p>text: <code>주제 ${index + 1} 선택</code>,</p>
+<p>payload: topic.replace(/^\s*(?:\d+.|-|*)\s+/, &#39;&#39;).trim(),</p>
+<p>onClick: handleTopicSelection</p>
+<p>}));</p>
+<p>buttons.push({</p>
+<p>text: &#39;다른 주제 추천받기&#39;,</p>
+<p>payload: null,</p>
+<p>onClick: handleTopicReRoll,</p>
+<p>className: &#39;step-button bg-slate-100 border border-slate-400 text-slate-600 font-semibold py-2 px-4 rounded-full shadow-sm hover:bg-slate-200&#39;</p>
+<p>});</p>
+<p>addMessage(&#39;advisor&#39;, response + &quot;\n\n---\n어떤 주제가 가장 마음에 드시나요? 가장 흥미롭게 느껴지는 주제를 선택해주세요!&quot;, { buttons });</p>
+<p>} else {</p>
+<p>addMessage(&#39;advisor&#39;, response + &quot;\n\n주제를 추출하는 데 실패했습니다. 다시 시도해주시겠어요?&quot;);</p>
+<p>toggleInput(true);</p>
+<p>}</p>
+<p>currentStep = 1;</p>
+<p>updateNavigator(1);</p>
+<p>}</p>
+<p>async function handleTopicReRoll() {</p>
+<p>addMessage(&#39;user&#39;, &#39;다른 주제를 추천해주세요.&#39;);</p>
+<p>toggleInput(false);</p>
+<p>const lastAdvisorResponse = conversationHistory.filter(m =&gt; m.role === &#39;model&#39;).pop()?.parts[0]?.text || &quot;&quot;;</p>
+<p>// 이전 주제 목록에서도 숫자 또는 글머리 기호 목록을 추출하도록 수정합니다.</p>
+<p>const previousTopics = (lastAdvisorResponse.match(/^\s*(?:\d+.|-|*)\s+.*$/gm) || []).join(&#39;\n&#39;);</p>
+<p>showLoading();</p>
+<p>const prompt = <code>관심 분야: &amp;quot;${state.interest}&amp;quot;\n이전에 추천했던 주제들:\n${previousTopics}\n\n위 정보들을 바탕으로, 이전에 추천했던 것과는 다른 새로운 탐구 주제 3~5개를 추천해줘.</code>;</p>
+<p>const response = await callGeminiAPI(prompt, true);</p>
+<p>removeLoading();</p>
+<p>if (!response || typeof response !== &#39;string&#39;) {</p>
+<p>addMessage(&#39;advisor&#39;, &#39;죄송합니다, 답변을 생성하는 데 오류가 발생했습니다. 잠시 후 다시 시도해 주세요.&#39;);</p>
+<p>toggleInput(true);</p>
+<p>return;</p>
+<p>}</p>
+<p>conversationHistory.push({ role: &quot;model&quot;, parts: [{ text: response }] });</p>
+<p>// 새로 추천된 주제 목록에서도 숫자 목록을 우선으로, 없으면 글머리 기호 목록을 추출하도록 로직을 개선했습니다.</p>
+<p>let topicRegex = /^\s*\d+.\s+(.*)$/gm;</p>
+<p>let topics = response.match(topicRegex);</p>
+<p>// 숫자 목록이 없으면 글머리 기호 목록을 시도합니다.</p>
+<p>if (!topics || topics.length === 0) {</p>
+<p>console.warn(&quot;Numbered list regex failed. Trying bullet point regex.&quot;);</p>
+<p>topicRegex = /^\s*(?:-|*)\s+(.*)$/gm;</p>
+<p>topics = response.match(topicRegex);</p>
+<p>}</p>
+<p>if (topics &amp;&amp; topics.length &gt; 0) {</p>
+<p>const buttons = topics.map((topic, index) =&gt; ({</p>
+<p>text: <code>주제 ${index + 1} 선택</code>,</p>
+<p>payload: topic.replace(/^\s*(?:\d+.|-|*)\s+/, &#39;&#39;).trim(),</p>
+<p>onClick: handleTopicSelection</p>
+<p>}));</p>
+<p>buttons.push({</p>
+<p>text: &#39;다른 주제 추천받기&#39;,</p>
+<p>payload: null,</p>
+<p>onClick: handleTopicReRoll,</p>
+<p>className: &#39;step-button bg-slate-100 border border-slate-400 text-slate-600 font-semibold py-2 px-4 rounded-full shadow-sm hover:bg-slate-200&#39;</p>
+<p>});</p>
+<p>addMessage(&#39;advisor&#39;, response + &quot;\n\n---\n새롭게 추천해 드리는 주제입니다. 어떤 주제가 가장 마음에 드시나요?&quot;, { buttons });</p>
+<p>} else {</p>
+<p>addMessage(&#39;advisor&#39;, response + &quot;\n\n새로운 주제를 찾는 데 실패했습니다. 다시 시도해주시겠어요?&quot;);</p>
+<p>toggleInput(true);</p>
+<p>}</p>
+<p>}</p>
+<p>function handleTopicSelection(topic) {</p>
+<p>state.selectedTopic = topic;</p>
+<p>// 주제 텍스트에서 마크다운 문법(**)을 제거하여 화면에 깔끔하게 표시합니다.</p>
+<p>const cleanTopic = topic.replace(/**/g, &#39;&#39;);</p>
+<p>addMessage(&#39;user&#39;, <code>&amp;quot;${cleanTopic}&amp;quot; 주제를 선택했습니다.</code>);</p>
+<p>const prompt = <code>선택한 주제: &amp;quot;${topic}&amp;quot;\n\n이 주제를 탐구할 두 가지 연구 스타일(A트랙, B트랙)을 제시해줘.</code>;</p>
+<p>showLoading();</p>
+<p>callGeminiAPI(prompt).then(response =&gt; {</p>
+<p>removeLoading();</p>
+<p>conversationHistory.push({ role: &quot;model&quot;, parts: [{ text: response }] });</p>
+<p>const buttons = [</p>
+<p>{ text: &#39;A트랙 선택&#39;, payload: &#39;A&#39;, onClick: handleTrackSelection },</p>
+<p>{ text: &#39;B트랙 선택&#39;, payload: &#39;B&#39;, onClick: handleTrackSelection }</p>
+<p>];</p>
+<p>addMessage(&#39;advisor&#39;, response, { buttons });</p>
+<p>});</p>
+<p>currentStep = 2;</p>
+<p>updateNavigator(2);</p>
+<p>}</p>
+<p>function handleTrackSelection(track) {</p>
+<p>state.selectedTrack = track;</p>
+<p>addMessage(&#39;user&#39;, <code>${track}트랙을 선택했습니다.</code>);</p>
+<p>const prompt = <code>선택한 주제: &amp;quot;${state.selectedTopic}&amp;quot;\n선택한 연구 스타일: ${track}트랙\n\n위 내용에 맞춰 연구 계획서 초안을 작성해줘.</code>;</p>
+<p>showLoading();</p>
+<p>callGeminiAPI(prompt).then(response =&gt; {</p>
+<p>removeLoading();</p>
+<p>conversationHistory.push({ role: &quot;model&quot;, parts: [{ text: response }] });</p>
+<p>// 연구 계획서 텍스트와 별도로, 화면에 표시될 AI의 안내 메시지를 생성합니다.</p>
+<p>const advisorIntroMessage = <code>네, 선택하신 주제인 **&amp;quot;${state.selectedTopic.replace(/\*\*/g, &amp;#39;&amp;#39;)}&amp;quot;**와 **${track}트랙(${track === &amp;#39;A&amp;#39; ? &amp;#39;통계 기반 사회탐구&amp;#39; : &amp;#39;데이터 기반 기술분석&amp;#39;})** 연구 스타일에 맞춰 연구 계획서 초안을 작성해 드리겠습니다.</code>;</p>
+<p>// 연구 계획서 카드와 함께 AI 안내 메시지를 먼저 표시합니다.</p>
+<p>addMessage(&#39;advisor&#39;, advisorIntroMessage);</p>
+<p>displayResearchPlan(response);</p>
+<p>const buttons = [</p>
+<p>{ text: &#39;네, 다음 단계로 진행할게요&#39;, payload: &#39;proceed&#39;, onClick: handlePlanConfirmation },</p>
+<p>{ text: &#39;수정하고 싶어요&#39;, payload: &#39;edit&#39;, onClick: handlePlanEdit }</p>
+<p>];</p>
+<p>addMessage(&#39;advisor&#39;, &quot;연구 계획서 초안입니다. 이 내용으로 다음 단계를 진행할까요?&quot;, { buttons });</p>
+<p>});</p>
+<p>currentStep = 3;</p>
+<p>updateNavigator(3);</p>
+<p>}</p>
+<p>function handlePlanConfirmation() {</p>
+<p>addMessage(&#39;user&#39;, &#39;네, 다음 단계로 진행할게요.&#39;);</p>
+<p>const prompt = <code>작성된 연구 계획서:\n\n${state.researchPlan}\n\n위 계획서 내용을 바탕으로 발표용 PPT 구성안을 8~10장으로 제안해줘.</code>;</p>
+<p>showLoading();</p>
+<p>callGeminiAPI(prompt).then(response =&gt; {</p>
+<p>removeLoading();</p>
+<p>conversationHistory.push({ role: &quot;model&quot;, parts: [{ text: response }] });</p>
+<p>displayPPTStructure(response);</p>
+<p>displayFinalSummaryCard();</p>
+<p>addMessage(&#39;advisor&#39;, &quot;PPT 구성안입니다. 모든 탐구 과정이 마무리되었습니다! 아래에서 결과물을 내보내거나, 채팅으로 수정을 요청할 수 있습니다.&quot;);</p>
+<p>toggleInput(true);</p>
+<p>});</p>
+<p>currentStep = 4;</p>
+<p>updateNavigator(4);</p>
+<p>}</p>
+<p>function handlePlanEdit() {</p>
+<p>addMessage(&#39;user&#39;, &#39;수정하고 싶어요.&#39;);</p>
+<p>addMessage(&#39;advisor&#39;, &#39;네, 어떤 부분을 어떻게 수정하고 싶으신가요? 자유롭게 입력해주세요. 예를 들어, &quot;연구 대상을 청소년 전체로 바꿔줘&quot; 와 같이 말씀해주시면 됩니다.&#39;);</p>
+<p>toggleInput(true);</p>
+<p>}</p>
+<p>async function handleFollowUp(userInput) {</p>
+<p>let prompt = &#39;&#39;;</p>
+<p>showLoading();</p>
+<p>if (currentStep === 3) { // 계획서 수정</p>
+<p>prompt = <code>현재 연구 계획서:\n\n${state.researchPlan}\n\n사용자 수정 요청: &amp;quot;${userInput}&amp;quot;\n\n위 요청을 반영하여 연구 계획서를 수정해줘.</code>;</p>
+<p>const response = await callGeminiAPI(prompt);</p>
+<p>removeLoading();</p>
+<p>conversationHistory.push({ role: &quot;model&quot;, parts: [{ text: response }] });</p>
+<p>displayResearchPlan(response);</p>
+<p>const buttons = [</p>
+<p>{ text: &#39;네, 다음 단계로 진행할게요&#39;, payload: &#39;proceed&#39;, onClick: handlePlanConfirmation },</p>
+<p>{ text: &#39;더 수정할래요&#39;, payload: &#39;edit&#39;, onClick: handlePlanEdit }</p>
+<p>];</p>
+<p>addMessage(&#39;advisor&#39;, &quot;요청하신 대로 계획서를 수정했습니다. 어떠신가요?&quot;, { buttons });</p>
+<p>} else if (currentStep === 4) { // PPT 수정</p>
+<p>prompt = <code>현재 PPT 구성안:\n\n${state.pptStructure}\n\n사용자 수정 요청: &amp;quot;${userInput}&amp;quot;\n\n위 요청을 반영하여 PPT 구성안을 수정해줘.</code>;</p>
+<p>const response = await callGeminiAPI(prompt);</p>
+<p>removeLoading();</p>
+<p>conversationHistory.push({ role: &quot;model&quot;, parts: [{ text: response }] });</p>
+<p>displayPPTStructure(response);</p>
+<p>displayFinalSummaryCard();</p>
+<p>addMessage(&#39;advisor&#39;, &quot;요청하신 대로 PPT 구성안을 수정했습니다. 더 수정하고 싶은 부분이 있다면 말씀해주세요.&quot;);</p>
+<p>toggleInput(true);</p>
+<p>}</p>
+<p>}</p>
+<p>// 초기화 함수</p>
+<p>function init() {</p>
+<p>updateNavigator(0);</p>
+<p>const prompt = &quot;AI 진로 탐구 어드바이저로서, 자신을 소개하고 사용자에게 관심 분야를 질문해줘.&quot;;</p>
+<p>showLoading();</p>
+<p>callGeminiAPI(prompt).then(response =&gt; {</p>
+<p>removeLoading();</p>
+<p>conversationHistory.push({ role: &quot;model&quot;, parts: [{ text: response }] });</p>
+<p>addMessage(&#39;advisor&#39;, response);</p>
+<p>});</p>
+<p>}</p>
+<p>// 이벤트 리스너</p>
+<p>interestForm.addEventListener(&#39;submit&#39;, handleUserInput);</p>
+<p>guideButton.addEventListener(&#39;click&#39;, () =&gt; guideModal.classList.add(&#39;visible&#39;));</p>
+<p>closeGuideButton.addEventListener(&#39;click&#39;, () =&gt; guideModal.classList.remove(&#39;visible&#39;));</p>
+<p>guideModal.addEventListener(&#39;click&#39;, (e) =&gt; {</p>
+<p>if (e.target === guideModal) {</p>
+<p>guideModal.classList.remove(&#39;visible&#39;);</p>
+<p>}</p>
+<p>});</p>
+<p>init();</p>
+<p>&lt;/script&gt;</p>
+<p>&lt;/body&gt;</p>
+<p>&lt;/html&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">871 lines</span>
+  </div></p>
+</div>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/tutorial.html" class="article-tag">tutorial</a><a href="/tag/guide.html" class="article-tag">guide</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/ai-진로-탐구-어드바이저-코드.html&text=[SYSTEM]" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/ai-진로-탐구-어드바이저-코드.html&title=[SYSTEM]" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/ai-진로-탐구-어드바이저-코드.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-expert.html" class="author-bio__card">
+          <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 전문가</h3>
+            <p class="author-bio__role">AI &amp; Development Writer</p>
+            <p class="author-bio__text">AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/langcode-가이드-생성-완료-안내.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/tutorials-placeholder.svg"
+             alt="LangCode 입문 완전 가이드 - 생성 완료 보고서"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">LangCode 입문 완전 가이드 - 생성 완료 보고서</h3>
+          <p class="article-card__excerpt">LangCode 입문 완전 가이드 5개 문서 생성 완료 보고서</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">6</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/readme.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/demo.gif"
+             alt="README"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">README</h3>
+          <p class="article-card__excerpt">README</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">10</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/lovable-prompting-bible.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/tutorials-placeholder.svg"
+             alt="{{task_type}} Prompt"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">{{task_type}} Prompt</h3>
+          <p class="article-card__excerpt">The Lovable Prompting Bible: Complete Guide to AI Prompting in Lovable (2025)   ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">90</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>바이브코딩 라이브 - 커서맛피아가 대신 만들어드림 #3 | AI 기술 자료 저널</title>
+  <meta name="description" content="바이브코딩의 라이브 코딩 세션으로, AI 도구(Cursor)를 활용하여 실시간으로 SaaS 서비스를 개발하는 과정을 보여주는 스트리밍입니다. - 알바생 스케줄 관리 SaaS 개발   - 매장 알바생들의 시프트 근무를 자동으로 조정하는 서비스   - 팀 내 채팅 기능...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="바이브코딩 라이브 - 커서맛피아가 대신 만들어드림 #3">
+  <meta property="og:description" content="바이브코딩의 라이브 코딩 세션으로, AI 도구(Cursor)를 활용하여 실시간으로 SaaS 서비스를 개발하는 과정을 보여주는 스트리밍입니다. - 알바생 스케줄 관리 SaaS 개발   - 매장 알바생들의 시프트 근무를 자동으로 조정하는 서비스   - 팀 내 채팅 기능...">
+  <meta property="og:image" content="/assets/images/llm-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/3.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="바이브코딩 라이브 - 커서맛피아가 대신 만들어드림 #3">
+  <meta name="twitter:description" content="바이브코딩의 라이브 코딩 세션으로, AI 도구(Cursor)를 활용하여 실시간으로 SaaS 서비스를 개발하는 과정을 보여주는 스트리밍입니다. - 알바생 스케줄 관리 SaaS 개발   - 매장 알바생들의 시프트 근무를 자동으로 조정하는 서비스   - 팀 내 채팅 기능...">
+  <meta name="twitter:image" content="/assets/images/llm-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/3.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI 기술 자료 저널</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/llm-guides.html" class="article-category" style="background-color: #f59e0b">
+          LLM 가이드
+        </a>
+        <h1 class="article-title">바이브코딩 라이브 - 커서맛피아가 대신 만들어드림 #3</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-analyst.html" class="article-author">
+            <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 분석가</span>
+              <span class="article-author__role">AI Tools Analyst</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 1월 15일">2025년 1월 15일</time>
+            <span class="article-meta__separator">·</span>
+            <span>2 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#주요-내용" class="toc__link">주요 내용</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#개발-목표" class="toc__link">개발 목표</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-기능" class="toc__link">핵심 기능</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#개발-방식의-특징" class="toc__link">개발 방식의 특징</a>
+    </li>
+    <li class="toc__item">
+      <a href="#부스터-신규-기능-소개" class="toc__link">부스터 신규 기능 소개</a>
+    </li>
+    <li class="toc__item">
+      <a href="#시사점" class="toc__link">시사점</a>
+    </li>
+    <li class="toc__item">
+      <a href="#관련-자료" class="toc__link">관련 자료</a>
+    </li>
+    <li class="toc__item">
+      <a href="#태그" class="toc__link">태그</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>바이브코딩 라이브 - 커서맛피아가 대신 만들어드림 #3</h1>
+<h2 id="개요">개요 {#개요}</h2>
+<p>바이브코딩의 라이브 코딩 세션으로, AI 도구(Cursor)를 활용하여 실시간으로 SaaS 서비스를 개발하는 과정을 보여주는 스트리밍입니다.</p>
+<h2 id="주요-내용">주요 내용 {#주요-내용}</h2>
+<h3 id="개발-목표">개발 목표 {#개발-목표}</h3>
+<ul>
+<li><strong>알바생 스케줄 관리 SaaS 개발</strong><ul>
+<li>매장 알바생들의 시프트 근무를 자동으로 조정하는 서비스</li>
+<li>팀 내 채팅 기능 포함</li>
+<li>구독 결제 시스템 구현 예정</li>
+</ul>
+</li>
+</ul>
+<h3 id="핵심-기능">핵심 기능 {#핵심-기능}</h3>
+<ol>
+<li><p><strong>시프트 스케줄 자동 조정</strong></p>
+<ul>
+<li>알바생들의 근무 시간표를 효율적으로 관리</li>
+<li>비는 시간대에 가능한 인력 중에서 선택하여 배치</li>
+</ul>
+</li>
+<li><p><strong>요청 및 승인 시스템</strong></p>
+<ul>
+<li>알바생이 시프트 변경 요청</li>
+<li>매니저가 승인/거절 결정</li>
+<li>대상 알바생도 승인 필요</li>
+</ul>
+</li>
+<li><p><strong>팀 내 채팅 기능</strong></p>
+<ul>
+<li>매장 내 직원들 간의 실시간 소통</li>
+</ul>
+</li>
+</ol>
+<h3 id="개발-방식의-특징">개발 방식의 특징 {#개발-방식의-특징}</h3>
+<ul>
+<li><strong>라이브 코딩</strong>: 실시간으로 시청자들과 함께 개발 진행</li>
+<li><strong>AI 도구 활용</strong>: Cursor(AI 코딩 어시스턴트)를 활용한 빠른 개발</li>
+<li><strong>실용적 접근</strong>: 실제로 사용 가능한 수준의 기능 완성을 목표</li>
+</ul>
+<h2 id="부스터-신규-기능-소개">부스터 신규 기능 소개 {#부스터-신규-기능-소개}</h2>
+<p>라이브 중 부스터(Booster) 서비스의 신규 기능도 소개:</p>
+<ul>
+<li>번거로운 문서 작업을 한 번에 처리하는 기능</li>
+<li>아직 정식 릴리즈 전 테스트 단계</li>
+</ul>
+<h2 id="시사점">시사점 {#시사점}</h2>
+<ol>
+<li><p><strong>AI 코딩 도구의 실무 활용</strong></p>
+<ul>
+<li>Cursor와 같은 AI 도구로 실제 서비스 개발이 가능함을 보여줌</li>
+<li>개발 속도와 효율성이 크게 향상됨</li>
+</ul>
+</li>
+<li><p><strong>실시간 문제 해결</strong></p>
+<ul>
+<li>라이브 환경에서 즉각적인 문제 해결 과정 공유</li>
+<li>실무에서 마주치는 다양한 상황에 대한 대처 방법 학습</li>
+</ul>
+</li>
+<li><p><strong>SaaS 개발의 핵심 요소</strong></p>
+<ul>
+<li>사용자 니즈 파악 (알바생 스케줄 관리)</li>
+<li>핵심 기능 우선 구현</li>
+<li>점진적 기능 확장 (결제 시스템 등)</li>
+</ul>
+</li>
+</ol>
+<h2 id="관련-자료">관련 자료 {#관련-자료}</h2>
+<ul>
+<li><a href="/articles/cursor-practical-guide.html" class="internal-link">Cursor 활용 가이드</a></li>
+<li><a href="/articles/ai-tools-analysis.html" class="internal-link">AI 코딩 도구 비교 분석</a></li>
+<li><a href="/articles/saas-development.html" class="internal-link">SaaS 개발 프로세스</a></li>
+</ul>
+<h2 id="태그">태그 {#태그}</h2>
+<p>#AI코딩 #라이브코딩 #SaaS개발 #Cursor #바이브코딩 #알바관리시스템</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/코딩.html" class="article-tag">코딩</a><a href="/tag/LLM.html" class="article-tag">LLM</a><a href="/tag/활용사례.html" class="article-tag">활용사례</a><a href="/tag/SaaS.html" class="article-tag">SaaS</a><a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/라이브코딩.html" class="article-tag">라이브코딩</a><a href="/tag/Cursor.html" class="article-tag">Cursor</a><a href="/tag/바이브코딩.html" class="article-tag">바이브코딩</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/3.html&text=바이브코딩 라이브 - 커서맛피아가 대신 만들어드림 #3" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/3.html&title=바이브코딩 라이브 - 커서맛피아가 대신 만들어드림 #3" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/3.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-analyst.html" class="author-bio__card">
+          <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 분석가</h3>
+            <p class="author-bio__role">AI Tools Analyst</p>
+            <p class="author-bio__text">AI 도구와 LLM 활용에 대한 심층 분석을 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/sima-2-ai-how-to.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/llm-guides-placeholder.svg"
+             alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          LLM 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h3>
+          <p class="article-card__excerpt">핵심 아이디어: SIMA 2는 가상 환경에서 독립적으로 학습하는 AI로, 이는 교육 시스템 자체를 근본적으로 변화시킬 수 있는 잠재력을 가지고 있습니다. 1.  || #배경 및 맥락 2.  || #핵심 개념 3.  || #SIMA 2의 작동 원리 4.  || #교육에...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">8 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/chatgpt-perfect-practical-guide-beginners.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/llm-guides-placeholder.svg"
+             alt="ChatGPT 완벽 활용 가이드 - 초보자편"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          LLM 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">ChatGPT 완벽 활용 가이드 - 초보자편</h3>
+          <p class="article-card__excerpt">"복잡한 AI 도구를 마치 친구와 대화하듯 쉽게 사용할 수 있다면?" 이 가이드는 개발 초보자들이 ChatGPT를 실전에서 효과적으로 활용할 수 있도록 파인만 기법과 스토리텔링으로 설명합니다. --- 1.  || #ChatGPT란 무엇인가 2.  || #왜 개발자에게...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/chatgpt-perfect-practical-guide-part-2-advanced.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/llm-guides-placeholder.svg"
+             alt="ChatGPT 완벽 활용 가이드 Part 2 - 고급편"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          LLM 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">ChatGPT 완벽 활용 가이드 Part 2 - 고급편</h3>
+          <p class="article-card__excerpt">"기초를 넘어, 전문가처럼 ChatGPT를 활용하는 방법" Part 1에서 배운 기초를 바탕으로, 이제 고급 기법과 실전 활용법을 마스터합니다. ⬅️ 이전:  || ChatGPT완벽활용가이드Part1기초편 --- 1.  || #Interactive 대화형 2.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI 기술 자료 저널</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

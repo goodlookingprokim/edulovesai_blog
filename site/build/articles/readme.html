@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>README | AI &amp; Development Journal</title>
+  <meta name="description" content="README">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="README">
+  <meta property="og:description" content="README">
+  <meta property="og:image" content="/assets/images/demo.gif">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/readme.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="README">
+  <meta name="twitter:description" content="README">
+  <meta name="twitter:image" content="/assets/images/demo.gif">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/readme.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/tutorials.html" class="article-category" style="background-color: #14b8a6">
+          튜토리얼
+        </a>
+        <h1 class="article-title">README</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-expert.html" class="article-author">
+            <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 전문가</span>
+              <span class="article-author__role">AI &amp; Development Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 11월 16일">2025년 11월 16일</time>
+            <span class="article-meta__separator">·</span>
+            <span>10 read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#key-features" class="toc__link">Key Features</a>
+    </li>
+    <li class="toc__item">
+      <a href="#get-started" class="toc__link">Get Started</a>
+    </li>
+    <li class="toc__item">
+      <a href="#interactive-mode" class="toc__link">Interactive Mode</a>
+    </li>
+    <li class="toc__item">
+      <a href="#core-commands" class="toc__link">Core Commands</a>
+    </li>
+    <li class="toc__item">
+      <a href="#slash-commands" class="toc__link">Slash Commands</a>
+    </li>
+    <li class="toc__item">
+      <a href="#configuration-files" class="toc__link">Configuration &amp; Files</a>
+    </li>
+    <li class="toc__item">
+      <a href="#command-line-interface-cli-and-usage" class="toc__link">Command-Line Interface (CLI) and Usage</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#langcode-chat" class="toc__link">`langcode chat`</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#langcode-feature" class="toc__link">`langcode feature`</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#langcode-fix" class="toc__link">`langcode fix`</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#langcode-analyze" class="toc__link">`langcode analyze`</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#langcode-instr" class="toc__link">`langcode instr`</a>
+    </li>
+    <li class="toc__item">
+      <a href="#reasoning-engines-workflows" class="toc__link">Reasoning Engines &amp; Workflows</a>
+    </li>
+    <li class="toc__item">
+      <a href="#under-the-hood" class="toc__link">Under the Hood</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#hybrid-intelligent-llm-router" class="toc__link">Hybrid Intelligent LLM Router</a>
+    </li>
+    <li class="toc__item">
+      <a href="#agent-architectures" class="toc__link">Agent architectures</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#react-agent" class="toc__link">ReAct Agent</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#deep-agent" class="toc__link">Deep Agent</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#deep-agent-state" class="toc__link">Deep Agent state</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#deep-autopilot-mode" class="toc__link">DEEP AUTOPILOT mode</a>
+    </li>
+    <li class="toc__item">
+      <a href="#built-in-tools" class="toc__link">Built-in Tools</a>
+    </li>
+    <li class="toc__item">
+      <a href="#mcp-integration" class="toc__link">MCP integration</a>
+    </li>
+    <li class="toc__item">
+      <a href="#image-support-in-chat" class="toc__link">Image support in chat</a>
+    </li>
+    <li class="toc__item">
+      <a href="#safety-and-control" class="toc__link">Safety and Control</a>
+    </li>
+    <li class="toc__item">
+      <a href="#examples" class="toc__link">Examples</a>
+    </li>
+    <li class="toc__item">
+      <a href="#troubleshooting-debugging" class="toc__link">Troubleshooting &amp; Debugging</a>
+    </li>
+    <li class="toc__item">
+      <a href="#configuration" class="toc__link">Configuration</a>
+    </li>
+    <li class="toc__item">
+      <a href="#custom-tools" class="toc__link">Custom Tools</a>
+    </li>
+    <li class="toc__item">
+      <a href="#contributing" class="toc__link">Contributing</a>
+    </li>
+    <li class="toc__item">
+      <a href="#license" class="toc__link">License</a>
+    </li>
+    <li class="toc__item">
+      <a href="#acknowledgments" class="toc__link">Acknowledgments</a>
+    </li>
+  </ol>
+</nav>
+
+            <p align="center">
+  <img src="assets/logo.png" alt="LangCode Logo" width="160" / loading="eager" fetchpriority="high">
+</p>
+
+<h1 align="center" style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; font-weight: 700; font-size: 2.8em;">
+  LangCode
+</h1>
+<p align="center">
+  <em>
+    <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="40">
+      <defs>
+        <linearGradient id="grad" gradientTransform="rotate(90)">
+          <stop offset="0%" stop-color="#A8E063"/>
+          <stop offset="100%" stop-color="#56AB2F"/>
+        </linearGradient>
+      </defs>
+      <text x="50%" y="50%" dominant-baseline="middle" text-anchor="middle"
+            style="font-family: 'Segoe UI', Arial, sans-serif; font-size: 22px; font-weight: 600; fill: url(#grad);">
+        The only CLI you'll ever need!
+      </text>
+    </svg>
+  </em>
+</p>
+
+<p><img src="assets/demo.gif" alt="LangCode Demo" loading="eager" fetchpriority="high" style="aspect-ratio: 16/9; object-fit: cover;"></p>
+<p align="left">
+  <span style="
+    background: linear-gradient(90deg, #a8e063, #56ab2f);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.0em;
+    font-weight: bold;">
+    Gemini CLI or Claude Code? Why not both—and a bit more.
+  </span>
+</p>
+<strong>LangCode brings Gemini, Anthropic, OpenAI, and Ollama together with ReAct & Deep modes, fully inline, anywhere you need it.</strong>
+<br>
+<br>
+
+<p><a href="https://pypi.org/project/langchain-code/"><img src="https://badge.fury.io/py/langchain-code.svg" alt="PyPI version" loading="eager" fetchpriority="high" style="aspect-ratio: 16/9; object-fit: cover;"></a> <a href="https://pepy.tech/project/langchain-code"><img src="https://static.pepy.tech/personalized-badge/langchain-code?period=total&units=international_system&left_color=black&right_color=green&left_text=downloads" alt="PyPI Downloads" loading="lazy" decoding="async" style="aspect-ratio: 16/9; object-fit: cover;"></a> <img src="https://img.shields.io/pypi/pyversions/langchain-code.svg" alt="Python Versions" loading="lazy" decoding="async" style="aspect-ratio: 16/9; object-fit: cover;"> <a href="https://github.com/zamalali/langchain-code/blob/main/LICENSE"><img src="https://img.shields.io/github/license/zamalali/langchain-code" alt="License" loading="lazy" decoding="async" style="aspect-ratio: 16/9; object-fit: cover;"></a> <a href="https://github.com/zamalali/langchain-code/actions/workflows/docker-build.yml"><img src="https://github.com/zamalali/langchain-code/actions/workflows/docker-build.yml/badge.svg" alt="Docker Build" loading="lazy" decoding="async" style="aspect-ratio: 16/9; object-fit: cover;"></a> <a href="https://hub.docker.com/r/at384/langchain-code"><img src="https://img.shields.io/docker/pulls/at384/langchain-code" alt="Docker Pulls" loading="lazy" decoding="async" style="aspect-ratio: 16/9; object-fit: cover;"></a> <a href="https://hub.docker.com/r/at384/langchain-code"><img src="https://img.shields.io/docker/image-size/at384/langchain-code/latest" alt="Docker Image Size" loading="lazy" decoding="async" style="aspect-ratio: 16/9; object-fit: cover;"></a> <a href="https://hub.docker.com/r/at384/langchain-code/tags"><img src="https://img.shields.io/docker/v/at384/langchain-code/latest" alt="Docker Version" loading="lazy" decoding="async" style="aspect-ratio: 16/9; object-fit: cover;"></a> <a href="https://github.com/psf/black"><img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Code style: black" loading="lazy" decoding="async" style="aspect-ratio: 16/9; object-fit: cover;"></a> <a href="https://pycqa.github.io/isort/"><img src="https://img.shields.io/badge/imports-isort-ef8336.svg" alt="Imports: isort" loading="lazy" decoding="async" style="aspect-ratio: 16/9; object-fit: cover;"></a></p>
+<h2 id="key-features">Key Features {#key-features}</h2>
+<ul>
+<li><strong>Interactive Launcher:</strong> Start with <code>langcode</code> and configure everything through a user-friendly interface.</li>
+<li><strong>AI-Powered Code Understanding:</strong> Deeply analyzes your code to answer questions and generate insights.</li>
+<li><strong>Automated Coding Tasks:</strong> Implements features, fixes bugs, and refactors code with minimal effort.</li>
+<li><strong>Safe and Reviewable Changes:</strong> Generates clear diffs for every modification, ensuring you stay in control.</li>
+<li><strong>Multi-LLM Support:</strong> Seamlessly integrates with Google Gemini and Anthropic Claude, intelligently routing to the best model for the task.</li>
+<li><strong>Customizable Instructions:</strong> Tailor the agent&#39;s behavior with project-specific rules and guidelines using <code>.langcode/langcode.md</code>.</li>
+<li><strong>Extensible with MCP:</strong> Integrate custom tools via Model Context Protocol (MCP).</li>
+</ul>
+<h2 id="get-started">Get Started {#get-started}</h2>
+<ol>
+<li><p><strong>Installation:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+<span class="code-block__language">Bash</span>
+<button class="code-block__copy" data-code-id="code-1769481055637-7553" onclick="copyCode('code-1769481055637-7553')" title="Copy code">
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+    <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+  </svg>
+  <span>Copy</span>
+</button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7553" class="language-bash">pip install langchain-code</code></pre>
+  <div class="code-block__footer">
+<span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+<p align="center">
+  <img src="assets/cmd.png" alt="LangCode Home Screen" width="100%" / loading="lazy" decoding="async">
+</p>
+</li>
+<li><p><strong>Launch the Interactive Launcher:</strong>
+Just type <code>langcode</code> in your terminal and hit Enter. This opens a user-friendly interactive menu where you can easily configure your session and access various functionalities without needing to remember specific command-line arguments. See the image shown above.</p>
+</li>
+</ol>
+<h2 id="interactive-mode">Interactive Mode {#interactive-mode}</h2>
+<p>The interactive mode serves as the central hub for all your coding tasks. It allows you to:</p>
+<ul>
+<li><strong>Choose a Command:</strong> Select what you want to do: <code>chat</code>, <code>feature</code>, <code>fix</code>, or <code>analyze</code>.</li>
+<li><strong>Configure the Engine:</strong> Pick between <code>react</code> (fast and efficient) and <code>deep</code> (for complex tasks).</li>
+<li><strong>Enable Smart Routing:</strong> Let LangCode automatically select the best LLM for each task.</li>
+<li><strong>Set the Priority:</strong> Optimize for <code>cost</code>, <code>speed</code>, or <code>quality</code> when using smart routing.</li>
+<li><strong>Manage Autopilot:</strong> Enable fully autonomous mode for the Deep Agent (use with caution!).</li>
+<li><strong>Toggle Apply Mode:</strong> Allow LangCode to automatically write changes to your file system.</li>
+<li><strong>Select an LLM:</strong> Explicitly choose between Anthropic and Google Gemini, or let LangCode decide.</li>
+<li><strong>Specify the Project Directory:</strong> Tell LangCode where your codebase is located.</li>
+<li><strong>Edit Environment Variables:</strong> Quickly add or modify API keys and other settings in your <code>.env</code> file.</li>
+<li><strong>Customize Instructions:</strong> Open the <code>.langcode/langcode.md</code> file to add project-specific guidelines.</li>
+<li><strong>Configure MCP Servers:</strong> Set up Model Context Protocol (MCP) servers for advanced tool integration.</li>
+<li><strong>Edit Language Code:</strong> Modify the core language code directly from the main window.</li>
+<li><strong>Specify MCP Servers:</strong> Configure Model Context Protocol (MCP) servers for advanced tool integration.</li>
+<li><strong>Define a Test Command:</strong> Specify a command to run after making changes (e.g., <code>pytest -q</code>).</li>
+<li><strong>Access Help:</strong> Press <code>h</code> to toggle help and <code>q</code> or <code>Esc</code> to quit.</li>
+</ul>
+<h2 id="core-commands">Core Commands {#core-commands}</h2>
+<p>While the interactive launcher is the recommended way to use LangCode, you can also use the following commands directly from the terminal:</p>
+<ul>
+<li><code>langcode chat</code>: Starts an interactive chat session.</li>
+<li><code>langcode feature</code>: Implements a new feature.</li>
+<li><code>langcode fix</code>: Fixes a bug.</li>
+<li><code>langcode analyze</code>: Analyzes the codebase.</li>
+<li><code>langcode instr</code>: Opens the project instructions file.</li>
+</ul>
+<p>See the &quot;Commands&quot; section below for more details.</p>
+<h2 id="slash-commands">Slash Commands {#slash-commands}</h2>
+<p>You can use the following slash commands during a chat session:</p>
+<ul>
+<li><code>/clear</code>: Clears the chat history.</li>
+<li><code>/select</code>: Returns to the interactive launcher.</li>
+<li><code>/exit</code> or <code>/quit</code>: Ends the chat session.</li>
+<li><code>/help</code>: Displays a help message.</li>
+<li><code>/memory</code> or <code>/stats</code>: Shows memory and statistics about the current session (deep mode only).</li>
+<li><code>/env</code>: Allows you to create an environment if one doesn&#39;t exist.</li>
+</ul>
+<h2 id="configuration">Configuration &amp; Files {#configuration-files}</h2>
+<p>LangCode uses a few key files for configuration:</p>
+<ul>
+<li><code>.env</code>: Stores API keys and other environment variables. You can create and edit this file directly from the interactive launcher.</li>
+<li><code>.langcode/langcode.md</code>: Contains project-specific instructions for the agent. Edit this file to tailor LangCode&#39;s behavior to your codebase.</li>
+<li><code>.langcode/mcp.json</code>: Configures Model Context Protocol (MCP) servers for advanced tool integration.</li>
+</ul>
+<h2 id="command-line-interface-cli-and-usage">Command-Line Interface (CLI) and Usage {#command-line-interface-cli-and-usage}</h2>
+<p>LangCode provides a set of commands to interact with your codebase. Here&#39;s a breakdown of each command and its usage:</p>
+<h3><code>langcode chat</code> {#langcode-chat}</h3>
+<p>Starts an interactive chat session with the agent. This is useful for exploring the codebase, asking questions, and making scoped edits.</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7554" onclick="copyCode('code-1769481055637-7554')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7554" class="language-bash">langcode chat [--llm &lt;provider&gt;] [--mode &lt;react|deep&gt;] [--auto] [--router] [--priority &lt;balanced|cost|speed|quality&gt;] [--project-dir &lt;path&gt;]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<ul>
+<li><code>--llm</code>: Specifies the LLM provider to use (anthropic or gemini). If not specified, LangCode will automatically select a provider based on availability and router policy.</li>
+<li><code>--mode</code>: Selects the reasoning engine to use: <code>react</code> (default) or <code>deep</code>. The <code>deep</code> mode enables more complex, multi-step reasoning.</li>
+<li><code>--auto</code>: (Deep mode only) Enables autopilot mode, where the agent plans and executes tasks end-to-end without asking for confirmation.</li>
+<li><code>--router</code>: Enables smart model routing, which automatically picks the most efficient LLM per prompt based on the specified priority.</li>
+<li><code>--priority</code>: Sets the routing priority: <code>balanced</code> (default), <code>cost</code>, <code>speed</code>, or <code>quality</code>. This influences the model choice when routing is enabled.</li>
+<li><code>--project-dir</code>: Specifies the project directory to operate in. Defaults to the current directory.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7555" onclick="copyCode('code-1769481055637-7555')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7555" class="language-bash">langcode chat --llm gemini --mode deep --auto</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+This command starts a chat session using the Gemini LLM in deep mode with autopilot enabled.
+
+<h3><code>langcode feature</code> {#langcode-feature}</h3>
+<p>Implements a feature end-to-end, following a plan -&gt; edit -&gt; verify workflow. This command is designed to automate the process of adding new features to your codebase.</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7556" onclick="copyCode('code-1769481055637-7556')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7556" class="language-bash">langcode feature &lt;request&gt; [--test-cmd &lt;command&gt;] [--apply] [--llm &lt;provider&gt;] [--router] [--priority &lt;balanced|cost|speed|quality&gt;] [--project-dir &lt;path&gt;]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<ul>
+<li><code>&lt;request&gt;</code>: A description of the feature to implement (e.g., &quot;Add a dark mode toggle&quot;).</li>
+<li><code>--test-cmd</code>: Specifies a command to run to verify the changes (e.g., <code>pytest -q</code>).</li>
+<li><code>--apply</code>: Applies the changes and runs the test command without prompting for confirmation.</li>
+<li><code>--llm</code>: Specifies the LLM provider to use (anthropic or gemini).</li>
+<li><code>--router</code>: Enables smart model routing.</li>
+<li><code>--priority</code>: Sets the routing priority.</li>
+<li><code>--project-dir</code>: Specifies the project directory.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7557" onclick="copyCode('code-1769481055637-7557')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7557" class="language-bash">langcode feature &quot;Implement user authentication with JWT&quot; --test-cmd &quot;pytest -q&quot; --apply</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+This command implements user authentication with JWT, runs the tests, and applies the changes without prompting.
+
+<h3><code>langcode fix</code> {#langcode-fix}</h3>
+<p>Diagnoses and fixes a bug, following a trace -&gt; pinpoint -&gt; patch -&gt; test workflow. This command helps automate the process of fixing bugs in your codebase.</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7558" onclick="copyCode('code-1769481055637-7558')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7558" class="language-bash">langcode fix &lt;request&gt; [--log &lt;file&gt;] [--test-cmd &lt;command&gt;] [--apply] [--llm &lt;provider&gt;] [--router] [--priority &lt;balanced|cost|speed|quality&gt;] [--project-dir &lt;path&gt;]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<ul>
+<li><code>&lt;request&gt;</code>: A description of the bug to fix (e.g., &quot;Fix crash on image upload&quot;).</li>
+<li><code>--log</code>: Specifies the path to an error log or stack trace.</li>
+<li><code>--test-cmd</code>: Specifies a command to run to verify the fix.</li>
+<li><code>--apply</code>: Applies the changes and runs the test command without prompting for confirmation.</li>
+<li><code>--llm</code>: Specifies the LLM provider to use.</li>
+<li><code>--router</code>: Enables smart model routing.</li>
+<li><code>--priority</code>: Sets the routing priority.</li>
+<li><code>--project-dir</code>: Specifies the project directory.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7559" onclick="copyCode('code-1769481055637-7559')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7559" class="language-bash">langcode fix &quot;Resolve memory leak in image processing module&quot; --log memory_leak.log --test-cmd &quot;pytest -q&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+This command resolves a memory leak using the provided log file and runs the tests to verify the fix.
+
+<h3><code>langcode analyze</code> {#langcode-analyze}</h3>
+<p>Analyzes the codebase and generates insights using the Deep Agent architecture. This command is useful for getting an overview of the project and understanding its architecture.</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7560" onclick="copyCode('code-1769481055637-7560')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7560" class="language-bash">langcode analyze &lt;request&gt; [--llm &lt;provider&gt;] [--router] [--priority &lt;balanced|cost|speed|quality&gt;] [--project-dir &lt;path&gt;]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<ul>
+<li><code>&lt;request&gt;</code>: A question or request for analysis (e.g., &quot;What are the main components of this project?&quot;).</li>
+<li><code>--llm</code>: Specifies the LLM provider to use.</li>
+<li><code>--router</code>: Enables smart model routing.</li>
+<li><code>--priority</code>: Sets the routing priority.</li>
+<li><code>--project-dir</code>: Specifies the project directory.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7561" onclick="copyCode('code-1769481055637-7561')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7561" class="language-bash">langcode analyze &quot;Explain the data flow in the user authentication module&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+This command analyzes the user authentication module and explains the data flow.
+
+<h3><code>langcode instr</code> {#langcode-instr}</h3>
+<p>Opens or creates the project-specific instructions file (<code>.langcode/langcode.md</code>) in your editor. This file allows you to provide custom instructions and guidelines for the agent to follow.</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7562" onclick="copyCode('code-1769481055637-7562')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7562" class="language-bash">langcode instr [--project-dir &lt;path&gt;]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<ul>
+<li><code>--project-dir</code>: Specifies the project directory.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7563" onclick="copyCode('code-1769481055637-7563')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7563" class="language-bash">langcode instr</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+This command opens the `.langcode/langcode.md` file in your default editor.
+
+
+<h2>Reasoning Engines &amp; Workflows {#reasoning-engines-workflows}</h2>
+<ul>
+<li><code>auto</code> – DEEP AUTOPILOT end‑to‑end execution</li>
+<li><code>bug_fix</code> – guided diagnosis → patch → verify</li>
+<li><code>feature_impl</code> – plan → small diffs → test → review</li>
+</ul>
+<h2 id="under-the-hood">Under the Hood {#under-the-hood}</h2>
+<h3 id="hybrid-intelligent-llm-router">Hybrid Intelligent LLM Router {#hybrid-intelligent-llm-router}</h3>
+<p>A rule‑augmented, feedback‑aware router picks the right model for each task based on complexity, context size, latency, and cost. Use <code>--llm</code> to override.</p>
+<h4>Agent Architectures</h4>
+<h2 id="agent-architectures">Agent architectures {#agent-architectures}</h2>
+<h3 id="react-agent">ReAct Agent {#react-agent}</h3>
+<p>The ReAct Agent is a fast loop for chat, reads, and targeted edits. It follows the ReAct (Reasoning and Acting) framework, where the agent reasons about the current state, decides on an action, and then observes the result of that action. This process is repeated until the agent reaches a conclusion or the maximum number of iterations is reached.</p>
+<h3 id="deep-agent">Deep Agent {#deep-agent}</h3>
+<p>The Deep Agent is a structured, multi-agent system for complex work. It uses a LangGraph-style architecture to execute multi-step, long-horizon tasks. The Deep Agent consists of several sub-agents, each responsible for a specific task, such as research, code generation, and Git operations.</p>
+<ul>
+<li><p><strong>ReAct Agent</strong> – fast loop for chat, reads, and targeted edits.</p>
+</li>
+<li><p><strong>Deep Agent</strong> – structured, multi‑agent system for complex work:</p>
+<ul>
+<li><code>research-agent</code> – gathers local and web context</li>
+<li><code>code-agent</code> – generates minimal, verifiable diffs and runs tests</li>
+<li><code>git-agent</code> – stages changes and crafts commits</li>
+</ul>
+</li>
+</ul>
+<h3 id="deep-agent-state">Deep Agent state {#deep-agent-state}</h3>
+<ul>
+<li><strong>Todos</strong> – managed via <code>write_todos</code></li>
+<li><strong>Virtual files</strong> – stage edits safely before touching disk</li>
+</ul>
+<h3 id="deep-autopilot-mode">DEEP AUTOPILOT mode {#deep-autopilot-mode}</h3>
+<p>Run fully autonomously with a single final report. Combine with tests for safe, end‑to‑end changes.</p>
+<h2 id="built-in-tools">Built-in Tools {#built-in-tools}</h2>
+<ul>
+<li><code>list_dir</code>, <code>glob</code>, <code>grep</code> – fast project navigation</li>
+<li><code>read_file</code>, <code>edit_by_diff</code>, <code>write_file</code> – safe, reviewable edits</li>
+<li><code>run_cmd</code> – gated shell execution</li>
+<li><code>process_multimodal</code> – text + image understanding in chat</li>
+<li><code>write_todos</code> – persistent plan items for Deep Agent</li>
+</ul>
+<h2 id="mcp-integration">MCP integration {#mcp-integration}</h2>
+<p>Extend LangCode with external capabilities using Model Context Protocol. Define servers in <code>~/.langcode/mcp.json</code> or <code>./.langcode/mcp.json</code>.</p>
+<p>Example <code>mcp.json</code> snippet:</p>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7564" onclick="copyCode('code-1769481055637-7564')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7564" class="language-json">{
+  &quot;servers&quot;: {
+    &quot;github&quot;: { &quot;command&quot;: &quot;mcp-github&quot; },
+    &quot;search&quot;: { &quot;command&quot;: &quot;mcp-search&quot; }
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<p>Invoke tools naturally in chat or within Deep Agent plans once configured.</p>
+<h2 id="image-support-in-chat">Image support in chat {#image-support-in-chat}</h2>
+<p>Use the <code>/img</code> directive to analyze images alongside your prompt:</p>
+<div class="code-block" data-language="text">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7565" onclick="copyCode('code-1769481055637-7565')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7565" class="language-text">/img assets/screenshot.png :: What’s wrong with this UI?</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h2 id="safety-and-control">Safety and Control {#safety-and-control}</h2>
+<ul>
+<li>Preview all diffs and commands before execution</li>
+<li>Explicit confirmation gates by default</li>
+<li><code>--apply</code> for non‑interactive runs</li>
+<li>Minimal diffs for clear reviews and quick rollbacks</li>
+</ul>
+<h2 id="examples">Examples {#examples}</h2>
+<p>Summarize a repo:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7566" onclick="copyCode('code-1769481055637-7566')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7566" class="language-bash">langcode chat -p &quot;Summarize this codebase and list risky areas&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p>Refactor with tests:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7567" onclick="copyCode('code-1769481055637-7567')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7567" class="language-bash">langcode feature &quot;Switch user IDs to UUID&quot; --test-cmd &quot;pytest -q&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p>Patch from stack trace:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481055637-7568" onclick="copyCode('code-1769481055637-7568')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481055637-7568" class="language-bash">langcode fix --log crash.log --test-cmd &quot;npm test&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+
+<h2>Troubleshooting &amp; Debugging {#troubleshooting-debugging}</h2>
+<ul>
+<li>Run with <code>--verbose</code> to inspect tool calls and decisions</li>
+<li>Ensure provider keys are present in <code>.env</code></li>
+<li>Narrow scope or provide <code>--include-directories</code> for large monorepos</li>
+<li>File an issue with a minimal reproduction</li>
+</ul>
+<h2>Configuration {#configuration}</h2>
+<p>LangCode can be configured via environment variables and project-specific files. The following environment variables are supported:</p>
+<ul>
+<li><code>ANTHROPIC_API_KEY</code>: API key for Anthropic Claude.</li>
+<li><code>GOOGLE_API_KEY</code>: API key for Google Gemini.</li>
+</ul>
+<p>Project-specific configuration files:</p>
+<ul>
+<li><code>./.langcode/mcp.json</code>: Configuration for Model Context Protocol (MCP) servers.</li>
+<li><code>./.langcode/</code>: Directory for project-specific context or defaults.</li>
+</ul>
+<h2 id="custom-tools">Custom Tools {#custom-tools}</h2>
+<p>LangCode can be extended with custom tools using the Model Context Protocol (MCP). To create a custom tool, you need to define a server that implements the MCP protocol and register it in the <code>mcp.json</code> file. Once configured, you can invoke the tool naturally in chat or within Deep Agent plans.</p>
+<h2 id="contributing">Contributing {#contributing}</h2>
+<p>Issues and PRs are welcome. Please open an issue to discuss substantial changes before submitting a PR. See <code>CONTRIBUTING.md</code> for guidelines.</p>
+<h2 id="license">License {#license}</h2>
+<p>Apache 2.0 See <a href="LICENSE">LICENSE</a>.</p>
+<h2 id="acknowledgments">Acknowledgments {#acknowledgments}</h2>
+<p>LangCode draws inspiration from the design and developer experience of Google’s Gemini CLI and Anthropic’s Claude Code, unified into a single, streamlined tool.</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/tutorial.html" class="article-tag">tutorial</a><a href="/tag/guide.html" class="article-tag">guide</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/readme.html&text=README" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/readme.html&title=README" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/readme.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-expert.html" class="author-bio__card">
+          <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 전문가</h3>
+            <p class="author-bio__role">AI &amp; Development Writer</p>
+            <p class="author-bio__text">AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/langcode-가이드-생성-완료-안내.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/tutorials-placeholder.svg"
+             alt="LangCode 입문 완전 가이드 - 생성 완료 보고서"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">LangCode 입문 완전 가이드 - 생성 완료 보고서</h3>
+          <p class="article-card__excerpt">LangCode 입문 완전 가이드 5개 문서 생성 완료 보고서</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">6</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/lovable-prompting-bible.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/tutorials-placeholder.svg"
+             alt="{{task_type}} Prompt"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">{{task_type}} Prompt</h3>
+          <p class="article-card__excerpt">The Lovable Prompting Bible: Complete Guide to AI Prompting in Lovable (2025)   ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">90</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/plasmo-framework-초보자-가이드.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/tutorials-placeholder.svg"
+             alt="Plasmo_Framework_초보자_가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Plasmo_Framework_초보자_가이드</h3>
+          <p class="article-card__excerpt">PlasmoFramework초보자가이드</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">83</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

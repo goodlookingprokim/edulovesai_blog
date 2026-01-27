@@ -1,0 +1,2527 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kilo Code CLI 완전 정복 가이드 - Part 1: 기초편 (초보자용) | AI &amp; Development Journal</title>
+  <meta name="description" content="&quot;5살 아이에게 설명할 수 있다면, 진정으로 이해한 것이다.&quot; - 리처드 파인만 안녕하세요! 👋 이 가이드는 프로그래밍을 처음 시작하는 분들도 쉽게 이해할 수 있도록 작성되었습니다. 마치 친구가 옆에서 차근차근 설명해주는 것처럼 따라오세요! --- 1.  || #이...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Kilo Code CLI 완전 정복 가이드 - Part 1: 기초편 (초보자용)">
+  <meta property="og:description" content="&quot;5살 아이에게 설명할 수 있다면, 진정으로 이해한 것이다.&quot; - 리처드 파인만 안녕하세요! 👋 이 가이드는 프로그래밍을 처음 시작하는 분들도 쉽게 이해할 수 있도록 작성되었습니다. 마치 친구가 옆에서 차근차근 설명해주는 것처럼 따라오세요! --- 1.  || #이...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/kilo-code-cli-complete-guide-part-1-basics-beginners.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Kilo Code CLI 완전 정복 가이드 - Part 1: 기초편 (초보자용)">
+  <meta name="twitter:description" content="&quot;5살 아이에게 설명할 수 있다면, 진정으로 이해한 것이다.&quot; - 리처드 파인만 안녕하세요! 👋 이 가이드는 프로그래밍을 처음 시작하는 분들도 쉽게 이해할 수 있도록 작성되었습니다. 마치 친구가 옆에서 차근차근 설명해주는 것처럼 따라오세요! --- 1.  || #이...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/kilo-code-cli-complete-guide-part-1-basics-beginners.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">Kilo Code CLI 완전 정복 가이드 - Part 1: 기초편 (초보자용)</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 10월 24일">2025년 10월 24일</time>
+            <span class="article-meta__separator">·</span>
+            <span>33 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시작하기-전에" class="toc__link">시작하기 전에</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#설치하기" class="toc__link">설치하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기본-개념-이해하기" class="toc__link">기본 개념 이해하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#첫-걸음" class="toc__link">첫 걸음</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#용어-사전" class="toc__link">용어 사전</a>
+    </li>
+    <li class="toc__item">
+      <a href="#이-가이드는-누구를-위한-것인가요" class="toc__link">이 가이드는 누구를 위한 것인가요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#이런-분들께-추천합니다" class="toc__link">✅ 이런 분들께 추천합니다</a>
+    </li>
+    <li class="toc__item">
+      <a href="#kilo-code-cli란-무엇인가요" class="toc__link">Kilo Code CLI란 무엇인가요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#일상-비유로-이해하기" class="toc__link">🎯 일상 비유로 이해하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#정확한-정의" class="toc__link">🔍 정확한 정의</a>
+    </li>
+    <li class="toc__item">
+      <a href="#왜-kilo-code를-배워야-할까요" class="toc__link">왜 Kilo Code를 배워야 할까요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초보자에게-특히-좋은-이유" class="toc__link">💡 초보자에게 특히 좋은 이유</a>
+    </li>
+    <li class="toc__item">
+      <a href="#준비물-확인하기" class="toc__link">준비물 확인하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#필요한-것들" class="toc__link">🛠️ 필요한 것들</a>
+    </li>
+    <li class="toc__item">
+      <a href="#kilo-code-설치하기-단계별" class="toc__link">Kilo Code 설치하기 단계별</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초보자도-따라할-수-있는-상세-가이드" class="toc__link">🌱 초보자도 따라할 수 있는 상세 가이드</a>
+    </li>
+    <li class="toc__item">
+      <a href="#설치가-잘-되었는지-확인하기" class="toc__link">설치가 잘 되었는지 확인하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#확인-방법" class="toc__link">✅ 확인 방법</a>
+    </li>
+    <li class="toc__item">
+      <a href="#터미널이란-무엇인가요" class="toc__link">터미널이란 무엇인가요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#쉬운-설명" class="toc__link">🖥️ 쉬운 설명</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기본-터미널-명령어" class="toc__link">📝 기본 터미널 명령어</a>
+    </li>
+    <li class="toc__item">
+      <a href="#cli가-뭔가요" class="toc__link">CLI가 뭔가요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#command-line-interface의-약자" class="toc__link">💬 Command Line Interface의 약자</a>
+    </li>
+    <li class="toc__item">
+      <a href="#ai가-코드를-어떻게-도와주나요" class="toc__link">AI가 코드를 어떻게 도와주나요?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#ai-코딩-도우미의-원리" class="toc__link">🤖 AI 코딩 도우미의 원리</a>
+    </li>
+    <li class="toc__item">
+      <a href="#kilo-code-처음-실행하기" class="toc__link">Kilo Code 처음 실행하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#첫-실행-가이드" class="toc__link">🎬 첫 실행 가이드</a>
+    </li>
+    <li class="toc__item">
+      <a href="#간단한-질문-해보기" class="toc__link">간단한 질문 해보기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#첫-번째-대화" class="toc__link">🗣️ 첫 번째 대화</a>
+    </li>
+    <li class="toc__item">
+      <a href="#코드-설명-받아보기" class="toc__link">코드 설명 받아보기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#이해하기-어려운-코드-해석하기" class="toc__link">📖 이해하기 어려운 코드 해석하기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#용어-사전-glossary" class="toc__link">용어 사전 (Glossary)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#초보자를-위한-쉬운-용어-설명" class="toc__link">💡 초보자를 위한 쉬운 용어 설명</a>
+    </li>
+    <li class="toc__item">
+      <a href="#다음-단계는" class="toc__link">🎯 다음 단계는?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#part-2에서-배울-내용-미리보기" class="toc__link">Part 2에서 배울 내용 미리보기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#복습-체크리스트" class="toc__link">복습 체크리스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#다음-단계" class="toc__link">다음 단계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#관련-가이드" class="toc__link">관련 가이드</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#상위-개념" class="toc__link">상위 개념</a>
+    </li>
+    <li class="toc__item">
+      <a href="#connected-insights" class="toc__link">🧠 Connected Insights</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#related-notes" class="toc__link">🔗 Related Notes</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#knowledge-gaps" class="toc__link">📚 Knowledge Gaps</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#ai-insights" class="toc__link">💡 AI Insights</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>🚀 Kilo Code CLI 완전 정복 가이드 - Part 1: 기초편</h1>
+<blockquote>
+<p><strong>&quot;5살 아이에게 설명할 수 있다면, 진정으로 이해한 것이다.&quot;</strong> - 리처드 파인만</p>
+</blockquote>
+<p>안녕하세요! 👋 이 가이드는 <strong>프로그래밍을 처음 시작하는 분들</strong>도 쉽게 이해할 수 있도록 작성되었습니다. 마치 친구가 옆에서 차근차근 설명해주는 것처럼 따라오세요!</p>
+<hr>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<h3 id="시작하기-전에">시작하기 전에 {#시작하기-전에}</h3>
+<ol>
+<li><a href="#이-가이드는-누구를-위한-것인가요" class="internal-link internal-link--section">이 가이드는 누구를 위한 것인가요</a></li>
+<li><a href="#kilo-code-cli란-무엇인가요" class="internal-link internal-link--section">Kilo Code CLI란 무엇인가요</a></li>
+<li><a href="#왜-kilo-code를-배워야-할까요" class="internal-link internal-link--section">왜 Kilo Code를 배워야 할까요</a></li>
+</ol>
+<h3 id="설치하기">설치하기 {#설치하기}</h3>
+<ol start="4">
+<li><a href="#준비물-확인하기" class="internal-link internal-link--section">준비물 확인하기</a></li>
+<li><a href="#kilo-code-설치하기-단계별" class="internal-link internal-link--section">Kilo Code 설치하기 단계별</a></li>
+<li><a href="#설치가-잘-되었는지-확인하기" class="internal-link internal-link--section">설치가 잘 되었는지 확인하기</a></li>
+</ol>
+<h3 id="기본-개념-이해하기">기본 개념 이해하기 {#기본-개념-이해하기}</h3>
+<ol start="7">
+<li><a href="#터미널이란-무엇인가요" class="internal-link internal-link--section">터미널이란 무엇인가요</a></li>
+<li><a href="#cli가-뭔가요" class="internal-link internal-link--section">CLI가 뭔가요</a></li>
+<li><a href="#ai가-코드를-어떻게-도와주나요" class="internal-link internal-link--section">AI가 코드를 어떻게 도와주나요</a></li>
+</ol>
+<h3 id="첫-걸음">첫 걸음 {#첫-걸음}</h3>
+<ol start="10">
+<li><a href="#kilo-code-처음-실행하기" class="internal-link internal-link--section">Kilo Code 처음 실행하기</a></li>
+<li><a href="#간단한-질문-해보기" class="internal-link internal-link--section">간단한 질문 해보기</a></li>
+<li><a href="#코드-설명-받아보기" class="internal-link internal-link--section">코드 설명 받아보기</a></li>
+</ol>
+<h3 id="용어-사전">용어 사전 {#용어-사전}</h3>
+<ol start="13">
+<li><a href="#용어-사전-glossary" class="internal-link internal-link--section">용어 사전 Glossary</a></li>
+</ol>
+<hr>
+<h2 id="이-가이드는-누구를-위한-것인가요">이 가이드는 누구를 위한 것인가요? {#이-가이드는-누구를-위한-것인가요}</h2>
+<h3 id="이런-분들께-추천합니다">✅ 이런 분들께 추천합니다 {#이런-분들께-추천합니다}</h3>
+<h4>📚 프로그래밍 입문자</h4>
+<ul>
+<li><strong>상황</strong>: &quot;코딩을 배우고 싶은데 뭐부터 해야 할지 모르겠어요&quot;</li>
+<li><strong>이 도구가 도움이 되는 이유</strong>: AI가 친절한 선생님처럼 코드를 설명해줍니다</li>
+</ul>
+<h4>🤔 코드 이해가 어려운 분</h4>
+<ul>
+<li><strong>상황</strong>: &quot;다른 사람이 쓴 코드를 봐도 무슨 말인지 모르겠어요&quot;</li>
+<li><strong>이 도구가 도움이 되는 이유</strong>: 복잡한 코드를 쉬운 말로 풀어서 설명해줍니다</li>
+</ul>
+<h4>🐛 에러 메시지가 두려운 분</h4>
+<ul>
+<li><strong>상황</strong>: &quot;빨간 글씨만 보면 머리가 아파요&quot;</li>
+<li><strong>이 도구가 도움이 되는 이유</strong>: 에러를 한국어로 설명하고 해결 방법을 알려줍니다</li>
+</ul>
+<h4>💻 터미널이 낯선 분</h4>
+<ul>
+<li><strong>상황</strong>: &quot;검은 화면이 무서워요&quot;</li>
+<li><strong>이 도구가 도움이 되는 이유</strong>: 터미널을 친근한 대화 창으로 만들어줍니다</li>
+</ul>
+<hr>
+<h2 id="kilo-code-cli란-무엇인가요">Kilo Code CLI란 무엇인가요? {#kilo-code-cli란-무엇인가요}</h2>
+<h3 id="일상-비유로-이해하기">🎯 일상 비유로 이해하기 {#일상-비유로-이해하기}</h3>
+<h4>비유 1: AI 개인 코딩 선생님</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4066" onclick="copyCode('code-1769481054801-4066')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4066" class="language-plaintext">상황을 상상해보세요...
+
+<p>당신은 수학 문제를 풀고 있습니다.
+옆에 친절한 선생님이 앉아 계십니다.</p>
+<p>&quot;선생님, 이 문제 어떻게 푸는 거예요?&quot;
+→ 선생님이 차근차근 설명해줍니다.</p>
+<p>&quot;여기서 실수한 것 같은데, 어디가 틀렸을까요?&quot;
+→ 선생님이 틀린 부분을 찾아 고쳐줍니다.</p>
+<p>Kilo Code CLI는 바로 이런 선생님입니다!
+단, 수학이 아니라 &#39;코딩&#39;을 가르쳐주는 선생님이죠.</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h4>비유 2: 번역기 + 도우미</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4067" onclick="copyCode('code-1769481054801-4067')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4067" class="language-plaintext">외국어 책을 읽는다고 생각해보세요.
+
+<p>어려운 단어가 나올 때마다
+→ 번역기에게 물어봅니다.</p>
+<p>문장 구조가 이해 안 될 때
+→ 번역기가 쉽게 풀어서 설명해줍니다.</p>
+<p>Kilo Code CLI는 &#39;코드 번역기&#39;입니다!
+복잡한 코드를 쉬운 말로 번역해줍니다.</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h3 id="정확한-정의">🔍 정확한 정의 {#정확한-정의}</h3>
+<p><strong>Kilo Code CLI</strong>는:</p>
+<ol>
+<li><strong>터미널에서 실행</strong>되는 프로그램입니다</li>
+<li><strong>AI를 활용</strong>하여 코드 작성을 도와줍니다</li>
+<li><strong>대화하듯이</strong> 질문하고 답변을 받을 수 있습니다</li>
+<li><strong>수백 개의 AI 모델</strong>을 사용할 수 있습니다</li>
+</ol>
+<hr>
+<h2 id="왜-kilo-code를-배워야-할까요">왜 Kilo Code를 배워야 할까요? {#왜-kilo-code를-배워야-할까요}</h2>
+<h3 id="초보자에게-특히-좋은-이유">💡 초보자에게 특히 좋은 이유 {#초보자에게-특히-좋은-이유}</h3>
+<h4>1️⃣ 학습 속도가 빨라집니다</h4>
+<p><strong>기존 방법</strong> (도구 없이 배우기):</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4068" onclick="copyCode('code-1769481054801-4068')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4068" class="language-plaintext">1. 에러 발생
+2. 구글 검색
+3. Stack Overflow에서 비슷한 질문 찾기
+4. 영어로 된 답변 읽기
+5. 내 코드에 적용해보기
+6. 또 에러 발생
+7. 1번으로 돌아가기
+⏰ 소요 시간: 30분~1시간</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div>
+
+<p><strong>Kilo Code 사용</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4069" onclick="copyCode('code-1769481054801-4069')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4069" class="language-plaintext">1. 에러 발생
+2. Kilo Code에게 물어보기
+3. 한국어로 설명 듣기
+4. 제안된 해결책 적용하기
+⏰ 소요 시간: 5분</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>2️⃣ 혼자서도 문제를 해결할 수 있습니다</h4>
+<p><strong>실제 이야기</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4070" onclick="copyCode('code-1769481054801-4070')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4070" class="language-plaintext">민수는 코딩 부트캠프에 다니고 있습니다.
+밤 11시, 과제를 하다가 막혔습니다.
+
+<p>선택지:
+A) 내일 아침까지 기다려서 선생님께 질문하기
+B) 친구에게 카톡으로 물어보기 (답장이 올까...?)
+C) Kilo Code에게 즉시 물어보고 해결하기 ✅</p>
+<p>민수는 C를 선택했고, 5분 만에 문제를 해결했습니다!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<h4>3️⃣ 실수가 두렵지 않게 됩니다</h4>
+<p><strong>심리적 장벽 제거</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4071" onclick="copyCode('code-1769481054801-4071')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4071" class="language-plaintext">사람에게 질문할 때:
+😰 &quot;이런 걸 물어봐도 될까?&quot;
+😓 &quot;바보 같은 질문이면 어쩌지?&quot;
+😔 &quot;이미 세 번이나 물어봤는데...&quot;
+
+<p>AI에게 질문할 때:
+😊 &quot;100번 물어봐도 괜찮아!&quot;
+🤗 &quot;어떤 질문이든 친절하게 답해줘!&quot;
+💪 &quot;실수해도 부끄럽지 않아!&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="준비물-확인하기">준비물 확인하기 {#준비물-확인하기}</h2>
+<h3 id="필요한-것들">🛠️ 필요한 것들 {#필요한-것들}</h3>
+<h4>1. 컴퓨터 (Mac, Windows, Linux)</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4072" onclick="copyCode('code-1769481054801-4072')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4072" class="language-plaintext">✅ Mac: macOS 10.15 이상
+✅ Windows: Windows 10 이상
+✅ Linux: Ubuntu 18.04 이상</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<h4>2. Node.js (노드 제이에스)</h4>
+<blockquote>
+<p><strong>용어 설명</strong>: JavaScript를 컴퓨터에서 실행할 수 있게 해주는 프로그램</p>
+</blockquote>
+<p><strong>비유</strong>:</p>
+<ul>
+<li>게임을 하려면 게임기가 필요하듯이</li>
+<li>Node.js 프로그램을 실행하려면 Node.js가 필요합니다</li>
+</ul>
+<p><strong>설치 확인하기</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4073" onclick="copyCode('code-1769481054801-4073')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4073" class="language-bash"># 터미널을 열고 이 명령어를 입력하세요
+node --version
+
+<h1>이렇게 나오면 이미 설치되어 있습니다:</h1>
+<h1>v18.17.0 (숫자는 다를 수 있습니다)</h1>
+<h1>이렇게 나오면 설치가 필요합니다:</h1>
+<h1>command not found: node</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<p><strong>없다면 설치하기</strong>:</p>
+<ol>
+<li><a href="https://nodejs.org">https://nodejs.org</a> 접속</li>
+<li>&quot;LTS&quot; 버전 다운로드 (추천)</li>
+<li>다운로드한 파일 실행</li>
+<li>&quot;다음&quot;, &quot;동의&quot;, &quot;설치&quot; 버튼만 누르면 끝!</li>
+</ol>
+<h4>3. 인터넷 연결</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4074" onclick="copyCode('code-1769481054801-4074')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4074" class="language-plaintext">🌐 필수! AI와 대화하려면 인터넷이 필요합니다
+📶 안정적인 Wi-Fi 권장</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>4. 텍스트 에디터 (선택사항)</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4075" onclick="copyCode('code-1769481054801-4075')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4075" class="language-plaintext">코드를 보고 수정하려면 필요합니다:
+- VS Code (추천! 무료)
+- Sublime Text
+- Atom
+- 메모장도 괜찮아요!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="kilo-code-설치하기-단계별">Kilo Code 설치하기 단계별 {#kilo-code-설치하기-단계별}</h2>
+<h3 id="초보자도-따라할-수-있는-상세-가이드">🌱 초보자도 따라할 수 있는 상세 가이드 {#초보자도-따라할-수-있는-상세-가이드}</h3>
+<h4>Step 1: 터미널 열기</h4>
+<p><strong>Mac 사용자</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4076" onclick="copyCode('code-1769481054801-4076')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4076" class="language-plaintext">방법 1) Spotlight 사용
+1. Command(⌘) + Space 누르기
+2. &quot;터미널&quot; 입력
+3. Enter 누르기
+
+<p>방법 2) 직접 찾기</p>
+<ol>
+<li>Finder 열기</li>
+<li>&quot;응용 프로그램&quot; → &quot;유틸리티&quot;</li>
+<li>&quot;터미널&quot; 더블 클릭</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">8 lines</span>
+  </div>
+</div></li>
+</ol>
+<p><strong>Windows 사용자</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4077" onclick="copyCode('code-1769481054801-4077')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4077" class="language-plaintext">방법 1) 검색 사용
+1. Windows 키 누르기
+2. &quot;cmd&quot; 또는 &quot;명령 프롬프트&quot; 입력
+3. Enter 누르기
+
+<p>방법 2) PowerShell 사용 (추천)</p>
+<ol>
+<li>Windows 키 + X</li>
+<li>&quot;Windows PowerShell&quot; 선택</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">7 lines</span>
+  </div>
+</div></li>
+</ol>
+<p><strong>Linux 사용자</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4078" onclick="copyCode('code-1769481054801-4078')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4078" class="language-plaintext">방법 1) 단축키
+Ctrl + Alt + T
+
+<p>방법 2) 메뉴에서 찾기
+&quot;Terminal&quot; 또는 &quot;터미널&quot; 검색</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>Step 2: 설치 명령어 입력</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4079" onclick="copyCode('code-1769481054801-4079')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4079" class="language-bash">npm install -g @kilocode/cli</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>명령어 분석</strong> (무슨 뜻일까요?):</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4080" onclick="copyCode('code-1769481054801-4080')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4080" class="language-plaintext">npm          → Node Package Manager (노드 프로그램 설치 도구)
+install      → 설치하라는 뜻
+-g           → &#39;global&#39;의 약자, 컴퓨터 어디서든 사용 가능하게
+@kilocode/cli → 설치할 프로그램 이름</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>실제로 보이는 화면</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4081" onclick="copyCode('code-1769481054801-4081')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4081" class="language-plaintext">$ npm install -g @kilocode/cli
+
+<p>downloading... ████████████████░░░░ 75%</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div></p>
+</div>
+
+<h4>Step 3: 기다리기 ⏰</h4>
+<p>설치 중에 이런 것들이 보일 거예요:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4082" onclick="copyCode('code-1769481054801-4082')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4082" class="language-plaintext">✓ 패키지 다운로드 중...
+✓ 의존성 설치 중...
+✓ 설정 파일 생성 중...
+✓ 완료!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<p><strong>소요 시간</strong>:</p>
+<ul>
+<li>빠른 인터넷: 1-2분</li>
+<li>느린 인터넷: 3-5분</li>
+</ul>
+<p><strong>⚠️ 만약 에러가 난다면?</strong></p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4083" onclick="copyCode('code-1769481054801-4083')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4083" class="language-plaintext">에러 메시지: &quot;permission denied&quot; 또는 &quot;권한이 없습니다&quot;
+
+<p>해결 방법:
+Mac/Linux: sudo npm install -g @kilocode/cli
+(비밀번호 입력 필요)</p>
+<p>Windows: 관리자 권한으로 cmd 실행 후 다시 시도</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="설치가-잘-되었는지-확인하기">설치가 잘 되었는지 확인하기 {#설치가-잘-되었는지-확인하기}</h2>
+<h3 id="확인-방법">✅ 확인 방법 {#확인-방법}</h3>
+<h4>테스트 1: 버전 확인</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4084" onclick="copyCode('code-1769481054801-4084')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4084" class="language-bash">kilocode --version</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>성공 시 출력</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4085" onclick="copyCode('code-1769481054801-4085')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4085" class="language-plaintext">kilocode v1.2.3</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>실패 시 출력</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4086" onclick="copyCode('code-1769481054801-4086')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4086" class="language-plaintext">command not found: kilocode
+→ 설치가 안 된 것입니다. 위의 설치 과정을 다시 해보세요.</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>테스트 2: 도움말 보기</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4087" onclick="copyCode('code-1769481054801-4087')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4087" class="language-bash">kilocode --help</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>화면에 나올 것들</strong>:</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4088" onclick="copyCode('code-1769481054801-4088')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4088" class="language-plaintext">Kilo Code CLI - AI-powered coding assistant
+
+<p>Usage:
+  kilocode [command] [options]</p>
+<p>Commands:
+  ask          Ask a question
+  debug        Debug your code
+  architect    Design system architecture
+  ...</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="터미널이란-무엇인가요">터미널이란 무엇인가요? {#터미널이란-무엇인가요}</h2>
+<h3 id="쉬운-설명">🖥️ 쉬운 설명 {#쉬운-설명}</h3>
+<h4>비유: 마법의 주문을 외우는 곳</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4089" onclick="copyCode('code-1769481054801-4089')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4089" class="language-plaintext">옛날 옛적, 컴퓨터는 마우스가 없었습니다.
+모든 것을 &#39;글자로 명령&#39;해야 했죠.
+
+<p>터미널은 그때의 방식입니다.
+하지만 아직도 쓰는 이유가 있어요!</p>
+<p>왜냐하면...</p>
+<ul>
+<li>빠르고 정확하기 때문</li>
+<li>자동화하기 쉽기 때문</li>
+<li>개발자들이 선호하기 때문</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">8 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>실생활 비유</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4090" onclick="copyCode('code-1769481054801-4090')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4090" class="language-plaintext">마우스로 파일 10개 복사하기:
+1. 마우스로 파일 선택
+2. 드래그
+3. 폴더로 이동
+4. 붙여넣기
+5. 1-4 반복 10번
+⏰ 1분 소요
+
+<p>터미널로 파일 10개 복사하기:
+cp file*.txt /destination/
+⏰ 1초 소요!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<h3 id="기본-터미널-명령어">📝 기본 터미널 명령어 {#기본-터미널-명령어}</h3>
+<h4>필수 명령어 5가지</h4>
+<p><strong>1. <code>pwd</code> (Print Working Directory)</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4091" onclick="copyCode('code-1769481054801-4091')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4091" class="language-bash">pwd
+# 출력 예시: /Users/yourname/Documents</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+**뜻**: "지금 내가 어디에 있는지 보여줘"
+**비유**: 내비게이션에서 "현재 위치" 보기
+
+<p><strong>2. <code>ls</code> (List)</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4092" onclick="copyCode('code-1769481054801-4092')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4092" class="language-bash">ls
+# 출력 예시:
+# file1.txt  file2.txt  폴더1  폴더2</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+**뜻**: "여기 있는 파일과 폴더를 보여줘"
+**비유**: 서랍 열어서 안에 뭐가 있나 보기
+
+<p><strong>3. <code>cd</code> (Change Directory)</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4093" onclick="copyCode('code-1769481054801-4093')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4093" class="language-bash">cd Documents
+# Documents 폴더로 이동</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+**뜻**: "이 폴더로 이동해"
+**비유**: 방에서 거실로 이동하기
+
+<p><strong>4. <code>mkdir</code> (Make Directory)</strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4094" onclick="copyCode('code-1769481054801-4094')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4094" class="language-bash">mkdir my-project
+# my-project라는 폴더 생성</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+**뜻**: "새 폴더 만들어"
+**비유**: 새 서랍 만들기
+
+<p><strong>5. <code>clear</code></strong></p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4095" onclick="copyCode('code-1769481054801-4095')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4095" class="language-bash">clear
+# 화면이 깨끗해집니다</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+**뜻**: "화면 지워"
+**비유**: 칠판 지우기
+
+<hr>
+<h2 id="cli가-뭔가요">CLI가 뭔가요? {#cli가-뭔가요}</h2>
+<h3 id="command-line-interface의-약자">💬 Command Line Interface의 약자 {#command-line-interface의-약자}</h3>
+<h4>쉬운 설명</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4096" onclick="copyCode('code-1769481054801-4096')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4096" class="language-plaintext">CLI = 명령줄 인터페이스
+
+<p>&#39;인터페이스&#39;란?
+→ 사람과 컴퓨터가 소통하는 방법</p>
+<p>두 가지 종류:</p>
+<ol>
+<li>GUI (그래픽): 마우스로 클릭 (우리가 익숙한 방식)</li>
+<li>CLI (글자): 키보드로 명령 타이핑</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">6 lines</span>
+  </div>
+</div></li>
+</ol>
+<h4>비교 표</h4>
+<table>
+<thead>
+<tr>
+<th>특징</th>
+<th>GUI (그래픽)</th>
+<th>CLI (명령줄)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>예시</strong></td>
+<td>바탕화면, 아이콘</td>
+<td>터미널, 검은 화면</td>
+</tr>
+<tr>
+<td><strong>사용 방법</strong></td>
+<td>마우스 클릭</td>
+<td>키보드 타이핑</td>
+</tr>
+<tr>
+<td><strong>장점</strong></td>
+<td>직관적, 쉬움</td>
+<td>빠름, 정확함</td>
+</tr>
+<tr>
+<td><strong>단점</strong></td>
+<td>느림, 반복작업 힘듦</td>
+<td>배우기 어려움</td>
+</tr>
+<tr>
+<td><strong>비유</strong></td>
+<td>그림책 읽기</td>
+<td>소설책 읽기</td>
+</tr>
+</tbody></table>
+<h4>왜 개발자들은 CLI를 좋아할까?</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4097" onclick="copyCode('code-1769481054801-4097')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4097" class="language-plaintext">이유 1: 빠르다
+마우스로 클릭 10번 vs 명령어 한 줄
+
+<p>이유 2: 정확하다
+&quot;여기를... 아니 저기를... 아 잘못 클릭했네&quot; ❌
+명령어는 항상 똑같이 실행됩니다 ✅</p>
+<p>이유 3: 자동화할 수 있다
+같은 작업을 100번 반복? 명령어 하나로 끝!</p>
+<p>이유 4: 프로처럼 보인다 😎
+(농담 아니에요! 개발자들 사이에서 인정받습니다)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="ai가-코드를-어떻게-도와주나요">AI가 코드를 어떻게 도와주나요? {#ai가-코드를-어떻게-도와주나요}</h2>
+<h3 id="ai-코딩-도우미의-원리">🤖 AI 코딩 도우미의 원리 {#ai-코딩-도우미의-원리}</h3>
+<h4>비유: 초능력 있는 친구</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4098" onclick="copyCode('code-1769481054801-4098')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4098" class="language-plaintext">상황을 상상해보세요...
+
+<p>당신은 레고를 조립하고 있습니다.
+옆에 레고 전문가 친구가 있습니다.</p>
+<p>당신: &quot;이 부품을 어디에 끼워야 하지?&quot;
+친구: &quot;아! 그건 저기 빨간 블록 옆이야!&quot;</p>
+<p>당신: &quot;이렇게 만들고 싶은데 어떻게 하지?&quot;
+친구: &quot;3가지 방법이 있어! 첫 번째는...&quot;</p>
+<p>AI는 이런 친구와 같습니다!
+단, 레고가 아니라 &#39;코드&#39;를 도와줍니다.</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h4>AI가 할 수 있는 일들</h4>
+<p><strong>1. 코드 설명하기</strong> 📖</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4099" onclick="copyCode('code-1769481054801-4099')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4099" class="language-python"># 이런 코드가 있다면:
+def calculate_sum(numbers):
+    total = 0
+    for num in numbers:
+        total += num
+    return total
+
+<h1>AI에게 물어보면:</h1>
+<p>&quot;이 함수는 리스트에 있는 모든 숫자를 더하는 함수예요!</p>
+<ol>
+<li>total이라는 변수를 0으로 시작해요</li>
+<li>numbers에 있는 숫자를 하나씩 꺼내서</li>
+<li>total에 계속 더해요</li>
+<li>마지막에 합계를 돌려줘요</li>
+</ol>
+<p>예를 들어 [1, 2, 3]을 넣으면 6이 나와요!&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
+  </div></p>
+</div>
+
+<p><strong>2. 에러 찾기</strong> 🔍</p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4100" onclick="copyCode('code-1769481054801-4100')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4100" class="language-javascript">// 잘못된 코드
+const message = &quot;Hello World&quot;
+console.log(mesage)  // 오타!
+
+<p>// AI의 설명:
+&quot;아! 7번째 줄에서 &#39;mesage&#39;라고 쓰셨는데,
+5번째 줄에서는 &#39;message&#39;라고 정의하셨어요.
+&#39;s&#39; 하나가 빠졌네요! 고쳐볼까요?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<p><strong>3. 코드 작성하기</strong> ✍️</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4101" onclick="copyCode('code-1769481054801-4101')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4101" class="language-plaintext">당신: &quot;사용자가 입력한 숫자가 짝수인지 홀수인지
+      알려주는 함수를 만들어줘&quot;
+
+<p>AI: &quot;네! 이렇게 만들어드릴게요!&quot;</p>
+<p>def check_even_or_odd(number):
+    &quot;&quot;&quot;
+    숫자가 짝수인지 홀수인지 판단하는 함수
+    &quot;&quot;&quot;
+    if number % 2 == 0:
+        return &quot;짝수입니다!&quot;
+    else:
+        return &quot;홀수입니다!&quot;</p>
+<h1>사용 예시:</h1>
+<p>print(check_even_or_odd(4))  # &quot;짝수입니다!&quot;
+print(check_even_or_odd(7))  # &quot;홀수입니다!&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">14 lines</span>
+  </div></p>
+</div>
+
+<p><strong>4. 개선 제안하기</strong> 💡</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4102" onclick="copyCode('code-1769481054801-4102')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4102" class="language-python"># 비효율적인 코드
+numbers = [1, 2, 3, 4, 5]
+doubled = []
+for num in numbers:
+    doubled.append(num * 2)
+
+<h1>AI의 제안:</h1>
+<p>&quot;이 코드도 잘 작동하지만, 더 간결하게 쓸 수 있어요!
+리스트 컴프리헨션을 사용하면 한 줄로 가능합니다:</p>
+<p>doubled = [num * 2 for num in numbers]</p>
+<p>어때요? 훨씬 깔끔하죠?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="kilo-code-처음-실행하기">Kilo Code 처음 실행하기 {#kilo-code-처음-실행하기}</h2>
+<h3 id="첫-실행-가이드">🎬 첫 실행 가이드 {#첫-실행-가이드}</h3>
+<h4>Step 1: 터미널에서 실행</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4103" onclick="copyCode('code-1769481054801-4103')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4103" class="language-bash">kilocode</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>Step 2: 환영 메시지 확인</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4104" onclick="copyCode('code-1769481054801-4104')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4104" class="language-plaintext">🚀 Welcome to Kilo Code CLI!
+
+<p>This is your AI-powered coding assistant.
+You can ask questions, debug code, or get help with architecture.</p>
+<p>Type &#39;help&#39; for available commands or start asking questions!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>Step 3: 첫 명령어 입력</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4105" onclick="copyCode('code-1769481054801-4105')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4105" class="language-bash">kilocode ask &quot;안녕? 넌 뭐야?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>예상 응답</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4106" onclick="copyCode('code-1769481054801-4106')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4106" class="language-plaintext">안녕하세요! 저는 Kilo Code AI 어시스턴트입니다.
+
+<p>제가 도와드릴 수 있는 것들:
+✅ 코드 설명
+✅ 에러 해결
+✅ 코드 작성
+✅ 최적화 제안
+✅ 아키텍처 설계</p>
+<p>무엇을 도와드릴까요?</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="간단한-질문-해보기">간단한 질문 해보기 {#간단한-질문-해보기}</h2>
+<h3 id="첫-번째-대화">🗣️ 첫 번째 대화 {#첫-번째-대화}</h3>
+<h4>예제 1: 프로그래밍 용어 물어보기</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4107" onclick="copyCode('code-1769481054801-4107')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4107" class="language-bash">kilocode ask &quot;변수가 뭐야? 쉽게 설명해줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>AI의 답변</strong> (예상):</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4108" onclick="copyCode('code-1769481054801-4108')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4108" class="language-plaintext">변수는 &#39;값을 담는 상자&#39;라고 생각하시면 돼요!
+
+<p>실생활 비유:</p>
+<ul>
+<li>빈 통에 &quot;사과 3개&quot;라고 라벨을 붙인 것</li>
+<li>나중에 &quot;사과&quot;라고 부르면 3개가 나와요</li>
+</ul>
+<p>코드 예시:
+apples = 3
+print(apples)  # 3이 출력됩니다</p>
+<p>변수의 장점:</p>
+<ol>
+<li>값을 기억해둘 수 있어요</li>
+<li>나중에 다시 사용할 수 있어요</li>
+<li>이름만 보고 무엇인지 알 수 있어요</li>
+</ol>
+<p>이해되셨나요? 더 궁금한 게 있으면 물어보세요!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<h4>예제 2: 코드 오류 물어보기</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4109" onclick="copyCode('code-1769481054801-4109')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4109" class="language-bash">kilocode ask &quot;SyntaxError가 뭐야?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>AI의 답변</strong> (예상):</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4110" onclick="copyCode('code-1769481054801-4110')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4110" class="language-plaintext">SyntaxError는 &#39;문법 오류&#39;입니다!
+
+<p>쉬운 비유:
+한글 문장: &quot;나는 학교에 간다&quot; ✅
+틀린 문장: &quot;나는 학교 간다에&quot; ❌
+→ 문법이 틀렸죠?</p>
+<p>코드도 마찬가지예요!</p>
+<p>흔한 SyntaxError:</p>
+<ol>
+<li><p>괄호 안 닫기
+print(&quot;Hello&quot;  ❌
+print(&quot;Hello&quot;) ✅</p>
+</li>
+<li><p>따옴표 안 닫기
+name = &quot;Tom ❌
+name = &quot;Tom&quot; ✅</p>
+</li>
+<li><p>콜론(:) 빼먹기
+if age &gt; 18  ❌
+if age &gt; 18: ✅</p>
+</li>
+</ol>
+<p>해결 방법:</p>
+<ul>
+<li>에러 메시지를 잘 읽어보세요</li>
+<li>어느 줄인지 알려줍니다!</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">19 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>예제 3: 간단한 코드 작성 요청</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4111" onclick="copyCode('code-1769481054801-4111')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4111" class="language-bash">kilocode ask &quot;구구단 2단을 출력하는 코드 만들어줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>AI의 답변</strong> (예상):</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4112" onclick="copyCode('code-1769481054801-4112')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4112" class="language-python"># 구구단 2단 출력하기
+
+<h1>방법 1: 직접 출력</h1>
+<p>print(&quot;2 x 1 =&quot;, 2 * 1)
+print(&quot;2 x 2 =&quot;, 2 * 2)
+print(&quot;2 x 3 =&quot;, 2 * 3)</p>
+<h1>... 반복</h1>
+<h1>방법 2: 반복문 사용 (더 똑똑한 방법!)</h1>
+<p>for i in range(1, 10):  # 1부터 9까지
+    result = 2 * i
+    print(f&quot;2 x {i} = {result}&quot;)</p>
+<h1>출력 결과:</h1>
+<h1>2 x 1 = 2</h1>
+<h1>2 x 2 = 4</h1>
+<h1>2 x 3 = 6</h1>
+<h1>...</h1>
+<h1>2 x 9 = 18</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">16 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="코드-설명-받아보기">코드 설명 받아보기 {#코드-설명-받아보기}</h2>
+<h3 id="이해하기-어려운-코드-해석하기">📖 이해하기 어려운 코드 해석하기 {#이해하기-어려운-코드-해석하기}</h3>
+<h4>실전 예제 1: JavaScript 함수 이해하기</h4>
+<p><strong>준비물</strong>: 설명받고 싶은 코드 파일</p>
+<p><strong>코드 예시</strong> (app.js):</p>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4113" onclick="copyCode('code-1769481054801-4113')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4113" class="language-javascript">function greet(name) {
+    const timeOfDay = new Date().getHours();
+    if (timeOfDay &lt; 12) {
+        return `Good morning, ${name}!`;
+    } else if (timeOfDay &lt; 18) {
+        return `Good afternoon, ${name}!`;
+    } else {
+        return `Good evening, ${name}!`;
+    }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div>
+</div>
+
+<p><strong>질문하기</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4114" onclick="copyCode('code-1769481054801-4114')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4114" class="language-bash">kilocode ask &quot;이 코드 설명해줘&quot; --file app.js</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>AI의 설명</strong> (예상):</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4115" onclick="copyCode('code-1769481054801-4115')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4115" class="language-plaintext">이 코드는 &#39;시간대별 인사말&#39; 함수예요!
+
+<p>📖 전체 흐름:</p>
+<ol>
+<li>greet라는 함수 정의</li>
+<li>현재 시간 확인</li>
+<li>시간대에 따라 다른 인사말 반환</li>
+</ol>
+<p>🔍 자세한 설명:</p>
+<p>1줄: function greet(name) {
+→ &quot;greet&quot;라는 함수를 만들어요
+→ &quot;name&quot;을 입력받아요</p>
+<p>2줄: const timeOfDay = new Date().getHours();
+→ 현재 시각의 &#39;시(hour)&#39;를 가져와요
+→ 예: 오전 9시면 9, 오후 3시면 15</p>
+<p>3-5줄: if (timeOfDay &lt; 12) { ... }
+→ 시간이 12시 이전이면 (오전)
+→ &quot;Good morning, [이름]!&quot; 반환</p>
+<p>6-8줄: else if (timeOfDay &lt; 18) { ... }
+→ 시간이 12시~18시 사이면 (오후)
+→ &quot;Good afternoon, [이름]!&quot; 반환</p>
+<p>9-11줄: else { ... }
+→ 그 외의 시간이면 (저녁)
+→ &quot;Good evening, [이름]!&quot; 반환</p>
+<p>💡 사용 예시:
+greet(&quot;철수&quot;)
+// 오전 10시라면: &quot;Good morning, 철수!&quot;
+// 오후 3시라면: &quot;Good afternoon, 철수!&quot;
+// 저녁 8시라면: &quot;Good evening, 철수!&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">26 lines</span>
+  </div></p>
+</div>
+
+<h4>실전 예제 2: Python 리스트 컴프리헨션</h4>
+<p><strong>코드</strong>:</p>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4116" onclick="copyCode('code-1769481054801-4116')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4116" class="language-python">numbers = [1, 2, 3, 4, 5]
+squared = [x**2 for x in numbers if x % 2 == 0]
+print(squared)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">3 lines</span>
+  </div>
+</div>
+
+<p><strong>질문</strong>:</p>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4117" onclick="copyCode('code-1769481054801-4117')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4117" class="language-bash">kilocode ask &quot;이 파이썬 코드가 무슨 뜻이야?&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<p><strong>AI의 설명</strong> (예상):</p>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054801-4118" onclick="copyCode('code-1769481054801-4118')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054801-4118" class="language-plaintext">이 코드는 &#39;짝수만 골라서 제곱하기&#39;예요!
+
+<p>🎯 결과부터 보면:
+[4, 16]</p>
+<p>왜냐하면:</p>
+<ul>
+<li>1은 홀수라서 제외</li>
+<li>2는 짝수 → 2² = 4</li>
+<li>3은 홀수라서 제외</li>
+<li>4는 짝수 → 4² = 16</li>
+<li>5는 홀수라서 제외</li>
+</ul>
+<p>📝 한 줄씩 뜯어보기:</p>
+<p>1줄: numbers = [1, 2, 3, 4, 5]
+→ 숫자 리스트 만들기</p>
+<p>2줄: squared = [x**2 for x in numbers if x % 2 == 0]
+이것을 풀어서 설명하면...</p>
+<p>[x**2          → x의 제곱
+ for x         → 각각의 x에 대해
+ in numbers    → numbers 리스트에서
+ if x % 2 == 0]→ x가 짝수인 것만</p>
+<p>일반 for문으로 쓰면:
+squared = []
+for x in numbers:
+    if x % 2 == 0:  # 짝수면
+        squared.append(x**2)  # 제곱해서 추가</p>
+<p>리스트 컴프리헨션이 더 짧고 깔끔하죠?</p>
+<p>3줄: print(squared)
+→ 결과 출력: [4, 16]</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">26 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="용어-사전-glossary">용어 사전 (Glossary) {#용어-사전-glossary}</h2>
+<h3 id="초보자를-위한-쉬운-용어-설명">💡 초보자를 위한 쉬운 용어 설명 {#초보자를-위한-쉬운-용어-설명}</h3>
+<h4>A</h4>
+<p><strong>API (Application Programming Interface)</strong></p>
+<ul>
+<li><p><strong>사전적 정의</strong>: 프로그램 간 소통하는 규칙</p>
+</li>
+<li><p><strong>쉬운 설명</strong>: 식당의 메뉴판과 같아요!</p>
+<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4119" onclick="copyCode('code-1769481054801-4119')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4119" class="language-plaintext">당신(손님) ← 메뉴판 → 주방
+
+<p>메뉴판을 보고:
+&quot;치킨 1개 주세요!&quot; → 주방에서 만들어줌</p>
+<p>API를 사용해:
+&quot;날씨 정보 주세요!&quot; → 서버에서 보내줌</code></pre></p>
+<div class="code-block__footer">
+  <span class="code-block__lines">6 lines</span>
+</div></li>
+</ul>
+</div>
+
+<p><strong>AI (Artificial Intelligence, 인공지능)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: 사람처럼 생각하는 컴퓨터</li>
+<li><strong>쉬운 설명</strong>: 매우 똑똑한 로봇 친구<ul>
+<li>질문하면 답해줘요</li>
+<li>패턴을 학습해요</li>
+<li>사람처럼 대화할 수 있어요</li>
+</ul>
+</li>
+</ul>
+<h4>C</h4>
+<p><strong>CLI (Command Line Interface)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: 명령줄 인터페이스</li>
+<li><strong>쉬운 설명</strong>: 키보드로만 컴퓨터와 대화하는 방식<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4120" onclick="copyCode('code-1769481054801-4120')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4120" class="language-plaintext">GUI (그래픽): 🖱️ 마우스 클릭
+CLI (명령줄): ⌨️ 키보드 타이핑</code></pre>
+<div class="code-block__footer">
+  <span class="code-block__lines">3 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>Code (코드)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: 컴퓨터가 이해하는 명령어</li>
+<li><strong>쉬운 설명</strong>: 컴퓨터에게 보내는 &#39;지시서&#39;<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4121" onclick="copyCode('code-1769481054801-4121')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4121" class="language-plaintext">사람 세계: &quot;문 좀 닫아줄래?&quot;
+컴퓨터 세계: door.close()</code></pre>
+<div class="code-block__footer">
+  <span class="code-block__lines">3 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>Compiler (컴파일러)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: 코드를 기계어로 번역하는 프로그램</li>
+<li><strong>쉬운 설명</strong>: 통역사와 같아요!<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4122" onclick="copyCode('code-1769481054801-4122')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4122" class="language-plaintext">사람 말 → 통역사 → 외국어
+코드 → 컴파일러 → 기계어</code></pre>
+<div class="code-block__footer">
+  <span class="code-block__lines">3 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>D</h4>
+<p><strong>Debug (디버그)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: 버그(오류)를 찾아서 고치는 것</li>
+<li><strong>쉬운 설명</strong>: 코드 탐정이 되는 것!<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4123" onclick="copyCode('code-1769481054801-4123')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4123" class="language-plaintext">1. 뭔가 이상해 (버그 발견)
+2. 어디가 문제지? (원인 찾기)
+3. 이렇게 고치면 돼! (수정)
+4. 잘 작동한다! (해결)</code></pre>
+<div class="code-block__footer">
+  <span class="code-block__lines">5 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>E</h4>
+<p><strong>Error (에러)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: 프로그램이 잘못 실행될 때 나는 오류</li>
+<li><strong>쉬운 설명</strong>: 컴퓨터가 &quot;이해 못 했어요!&quot; 하는 것<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4124" onclick="copyCode('code-1769481054801-4124')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4124" class="language-plaintext">종류:
+- SyntaxError: 문법 틀림 (맞춤법 오류)
+- TypeError: 타입이 안 맞음 (사과에 나누기 하기)
+- NameError: 존재하지 않는 이름 (없는 변수 부르기)</code></pre>
+<div class="code-block__footer">
+  <span class="code-block__lines">5 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>F</h4>
+<p><strong>Function (함수)</strong></p>
+<ul>
+<li><p><strong>사전적 정의</strong>: 특정 작업을 수행하는 코드 묶음</p>
+</li>
+<li><p><strong>쉬운 설명</strong>: 요리 레시피와 같아요!</p>
+<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4125" onclick="copyCode('code-1769481054801-4125')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4125" class="language-plaintext">레시피: &quot;계란말이 만들기&quot;
+1. 계란 깨기
+2. 섞기
+3. 프라이팬에 굽기
+
+<p>함수: makeOmelette()</p>
+<ol>
+<li>eggs.crack()</li>
+<li>eggs.mix()</li>
+<li>pan.cook()</li>
+</ol>
+<p>필요할 때마다 makeOmelette() 호출!</code></pre></p>
+<div class="code-block__footer">
+  <span class="code-block__lines">10 lines</span>
+</div></li>
+</ul>
+</div>
+
+<h4>I</h4>
+<p><strong>IDE (Integrated Development Environment)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: 통합 개발 환경</li>
+<li><strong>쉬운 설명</strong>: 개발자의 작업실<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4126" onclick="copyCode('code-1769481054801-4126')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4126" class="language-plaintext">VS Code, PyCharm 등
+
+포함된 것들:<ul>
+<li>코드 에디터 (글 쓰는 곳)</li>
+<li>디버거 (오류 찾기 도구)</li>
+<li>터미널 (명령어 실행)</li>
+<li>기타 편리한 도구들</code></pre><div class="code-block__footer">
+<span class="code-block__lines">7 lines</span>
+</div></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h4>L</h4>
+<p><strong>LLM (Large Language Model)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: 대형 언어 모델</li>
+<li><strong>쉬운 설명</strong>: 엄청나게 많은 글을 읽고 학습한 AI<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4127" onclick="copyCode('code-1769481054801-4127')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4127" class="language-plaintext">예시: ChatGPT, Claude, Gemini
+
+할 수 있는 것:<ul>
+<li>대화하기</li>
+<li>글 쓰기</li>
+<li>코드 설명</li>
+<li>번역</li>
+<li>요약</code></pre><div class="code-block__footer">
+<span class="code-block__lines">8 lines</span>
+</div></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><strong>Loop (반복문)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: 같은 작업을 반복하는 코드</li>
+<li><strong>쉬운 설명</strong>: &quot;이거 10번 해줘!&quot; 같은 것<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4128" onclick="copyCode('code-1769481054801-4128')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4128" class="language-plaintext">사람한테 시키기:
+&quot;1부터 10까지 말해봐&quot;
+→ &quot;하나, 둘, 셋...&quot; (힘들다!)
+
+반복문 사용:
+for i in range(1, 11):
+print(i)
+→ 컴퓨터가 자동으로 출력!</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">8 lines</span>
+</div></li>
+</ul>
+</div>
+
+<h4>N</h4>
+<p><strong>Node.js (노드 제이에스)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: JavaScript 실행 환경</li>
+<li><strong>쉬운 설명</strong>: JavaScript를 브라우저 밖에서도 쓸 수 있게 해주는 프로그램<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4129" onclick="copyCode('code-1769481054801-4129')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4129" class="language-plaintext">원래: JavaScript는 웹브라우저에서만 가능
+Node.js 설치 후: 내 컴퓨터 어디서든 가능!</code></pre>
+<div class="code-block__footer">
+  <span class="code-block__lines">3 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>npm (Node Package Manager)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: 노드 패키지 관리자</li>
+<li><strong>쉬운 설명</strong>: 프로그램 다운로드 하는 앱스토어<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4130" onclick="copyCode('code-1769481054801-4130')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4130" class="language-plaintext">스마트폰: 앱스토어에서 앱 다운로드
+개발자: npm에서 패키지 다운로드
+
+명령어: npm install [패키지명]</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">4 lines</span>
+</div></li>
+</ul>
+</div>
+
+<h4>P</h4>
+<p><strong>Package (패키지)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: 재사용 가능한 코드 묶음</li>
+<li><strong>쉬운 설명</strong>: 누군가 만들어둔 도구 상자<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4131" onclick="copyCode('code-1769481054801-4131')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4131" class="language-plaintext">직접 만들기: 100시간
+패키지 사용: 1분
+
+예시:<ul>
+<li>lodash: 편리한 함수들</li>
+<li>axios: 웹 요청 보내기</li>
+<li>express: 웹서버 만들기</code></pre><div class="code-block__footer">
+<span class="code-block__lines">7 lines</span>
+</div></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<p><strong>Parameter (매개변수)</strong></p>
+<ul>
+<li><p><strong>사전적 정의</strong>: 함수에 전달되는 값</p>
+</li>
+<li><p><strong>쉬운 설명</strong>: 함수에게 주는 &#39;재료&#39;</p>
+<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4132" onclick="copyCode('code-1769481054801-4132')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4132" class="language-plaintext">함수: 주스 만들기
+매개변수: 과일 종류
+
+<p>makeJuice(&quot;사과&quot;)  → 사과주스
+makeJuice(&quot;바나나&quot;) → 바나나주스</p>
+<p>def makeJuice(fruit):  # fruit이 매개변수
+return f&quot;{fruit} 주스&quot;</code></pre></p>
+<div class="code-block__footer">
+  <span class="code-block__lines">7 lines</span>
+</div></li>
+</ul>
+</div>
+
+<h4>S</h4>
+<p><strong>Syntax (문법)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: 프로그래밍 언어의 규칙</li>
+<li><strong>쉬운 설명</strong>: 언어의 &#39;맞춤법&#39;<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4133" onclick="copyCode('code-1769481054801-4133')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4133" class="language-plaintext">한국어 문법: &quot;나는 학교에 간다&quot;
+틀린 문법: &quot;나는 학교 간다에&quot;
+
+Python 문법: print(&quot;Hello&quot;)
+틀린 문법: print &quot;Hello&quot;  (괄호 없음)</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">5 lines</span>
+</div></li>
+</ul>
+</div>
+
+<h4>T</h4>
+<p><strong>Terminal (터미널)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: 명령어를 입력하는 프로그램</li>
+<li><strong>쉬운 설명</strong>: 컴퓨터와 대화하는 &#39;채팅창&#39;<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4134" onclick="copyCode('code-1769481054801-4134')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4134" class="language-plaintext">검은 화면에
+하얀 글자로
+명령어를 입력하면
+컴퓨터가 실행해줍니다!</code></pre>
+<div class="code-block__footer">
+  <span class="code-block__lines">5 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>Type (타입, 자료형)</strong></p>
+<ul>
+<li><strong>사전적 정의</strong>: 데이터의 종류</li>
+<li><strong>쉬운 설명</strong>: 값의 &#39;종류&#39;<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4135" onclick="copyCode('code-1769481054801-4135')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4135" class="language-plaintext">실생활:
+- 사과 (과일)
+- 자동차 (탈것)
+- 돈 (숫자)
+
+프로그래밍:<ul>
+<li>&quot;Hello&quot; (문자열, String)</li>
+<li>123 (숫자, Number)</li>
+<li>True (참/거짓, Boolean)</code></pre><div class="code-block__footer">
+<span class="code-block__lines">9 lines</span>
+</div></li>
+</ul>
+</li>
+</ul>
+</div>
+
+<h4>V</h4>
+<p><strong>Variable (변수)</strong></p>
+<ul>
+<li><p><strong>사전적 정의</strong>: 값을 저장하는 공간</p>
+</li>
+<li><p><strong>쉬운 설명</strong>: 이름표 붙은 상자</p>
+<div class="code-block" data-language="plaintext">
+<div class="code-block__header" style="background-color: #6b7280; color: #fff">
+  <span class="code-block__language">Plain Text</span>
+  <button class="code-block__copy" data-code-id="code-1769481054801-4136" onclick="copyCode('code-1769481054801-4136')" title="Copy code">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+    </svg>
+    <span>Copy</span>
+  </button>
+</div>
+<pre class="code-block__content"><code id="code-1769481054801-4136" class="language-plaintext">age = 25
+
+<p>&#39;age&#39;라는 상자에
+&#39;25&#39;라는 값을 담아요</p>
+<p>나중에:
+print(age)  → 25가 나와요!</code></pre></p>
+<div class="code-block__footer">
+  <span class="code-block__lines">6 lines</span>
+</div></li>
+</ul>
+</div>
+
+<hr>
+<h2 id="다음-단계는">🎯 다음 단계는? {#다음-단계는}</h2>
+<p>축하합니다! Part 1 기초편을 완료하셨습니다! 🎉</p>
+<h3 id="part-2에서-배울-내용-미리보기">Part 2에서 배울 내용 미리보기 {#part-2에서-배울-내용-미리보기}</h3>
+<p><strong>Part 2: 실전편</strong>에서는:</p>
+<ol>
+<li>✅ 다양한 모드 사용하기 (ask, debug, architect)</li>
+<li>✅ 실제 프로젝트에 적용하기</li>
+<li>✅ 팀 협업에서 활용하기</li>
+<li>✅ 고급 기능 활용하기</li>
+<li>✅ 트러블슈팅 &amp; FAQ</li>
+</ol>
+<h3 id="복습-체크리스트">복습 체크리스트 {#복습-체크리스트}</h3>
+<p>Part 2로 넘어가기 전에 확인하세요:</p>
+<ul>
+<li><input disabled="" type="checkbox"> Kilo Code CLI 설치 완료</li>
+<li><input disabled="" type="checkbox"> 터미널 기본 명령어 이해</li>
+<li><input disabled="" type="checkbox"> 간단한 질문 해보기 성공</li>
+<li><input disabled="" type="checkbox"> 용어 사전 한 번 읽어보기</li>
+</ul>
+<hr>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<h3 id="다음-단계">다음 단계 {#다음-단계}</h3>
+<ul>
+<li><a href="/articles/kilo-code-cli-complete-guide-part-2-real-world.html" class="internal-link">Kilo Code CLI 완전 정복 가이드 - Part 2 실전편</a></li>
+</ul>
+<h3 id="관련-가이드">관련 가이드 {#관련-가이드}</h3>
+<ul>
+<li><a href="/articles/basics-complete.html" class="internal-link">터미널 기초 명령어 완전 정복</a></li>
+<li><a href="/articles/ai-guide.html" class="internal-link">AI 코딩 도우미 비교 가이드</a></li>
+<li><a href="/articles/beginners.html" class="internal-link">프로그래밍 입문자를 위한 로드맵</a></li>
+</ul>
+<h3 id="상위-개념">상위 개념 {#상위-개념}</h3>
+<ul>
+<li><a href="/articles/development-tools-guide.html" class="internal-link">개발 도구 가이드</a></li>
+<li><a href="/articles/ai-practical-development.html" class="internal-link">AI 활용 개발 환경</a></li>
+</ul>
+<hr>
+<p><strong>📝 학습 노트</strong></p>
+<ul>
+<li>처음에는 천천히 따라하세요</li>
+<li>모르는 용어는 용어 사전을 참고하세요</li>
+<li>실습하면서 배우는 게 가장 빠릅니다!</li>
+<li>막히면 언제든 AI에게 물어보세요</li>
+</ul>
+<p><strong>🤗 격려의 말</strong></p>
+<blockquote>
+<p>&quot;모든 전문가도 처음에는 초보자였습니다.
+지금 이 가이드를 읽고 있는 당신,
+이미 훌륭한 첫걸음을 내딛고 있어요!&quot;</p>
+</blockquote>
+<hr>
+<p><em>최종 업데이트: 2025-10-24</em>
+<em>작성: Claude AI (초보자 교육용 최적화)</em></p>
+<h2 id="connected-insights">🧠 Connected Insights {#connected-insights}</h2>
+<blockquote>
+<p>📅 Last analyzed: 2025. 12. 20. 오후 11:40:33
+💰 Analysis cost: $0.0219</p>
+</blockquote>
+<h3 id="related-notes">🔗 Related Notes {#related-notes}</h3>
+<ul>
+<li><p>🔼 <a href="/articles/r-resourcesai-developmentdevelopment-tools-guidekilo-code-cli-complete-guide-part-2-real-worldmd.html" class="internal-link">R - Resources/AI 및 개발/개발 도구 가이드/Kilo Code CLI 완전 정복 가이드 - Part 2 실전편.md</a></p>
+<ul>
+<li>extends: Part 1 기초편의 직접적인 후속으로, Ask 모드, Debug 모드 등 실전 활용과 프로젝트 적용을 다루며 논리적으로 확장됨. 동일 시리즈, 태그, 구조(목차, 용어 사전) 공유.</li>
+<li>Confidence: █████ (95%)</li>
+</ul>
+</li>
+<li><p>✅ <a href="/articles/r-resources-knowledgemanagement-how-tobeginners-development-guidepart3md.html" class="internal-link">R - Resources/교육 및 학습/지식관리 방법론/초보 개발자를 위한 프로그래밍 가이드_Part3.md</a></p>
+<ul>
+<li>supports: 초보자 대상 프로그래밍 용어 사전과 문제 해결을 제공하여 Part 1의 &#39;용어 사전 Glossary&#39;와 &#39;에러 해결&#39; 주제를 보강. 파인만 기법과 비유 설명 스타일 유사.</li>
+<li>Confidence: ████░ (88%)</li>
+</ul>
+</li>
+<li><p>🔗 <a href="/articles/r-resourcesai-tools-guideprompt-engineeringgpt-5-codex-perfect-guide-part-3md.html" class="internal-link">R - Resources/AI 도구 가이드/프롬프트 엔지니어링/GPT-5-Codex 프롬프팅 완벽 가이드 (Part 3).md</a></p>
+<ul>
+<li>related: AI/LLM 용어 사전(Glossary)과 FAQ가 Part 1의 용어 사전 및 AI 코드 도움 개념을 보완. 초보자 비유 설명과 프롬프팅 활용 연결.</li>
+<li>Confidence: ████░ (85%)</li>
+</ul>
+</li>
+<li><p>🔗 <a href="/articles/r-resourcesai-developmentdevelopment-tools-guidelangcodelangcodebeginnerscompleteguidepart1md.html" class="internal-link">R - Resources/AI 및 개발/개발 도구 가이드/LangCode/LangCode_입문_완전_가이드_Part_1.md</a></p>
+<ul>
+<li>related: 유사한 AI CLI 도구(LangCode)의 기초 개념, 설치, 용어 사전 다루며 비교 사례로 활용 가능. 초보자 가이드 구조와 태그(AI/도구, CLI) 중복.</li>
+<li>Confidence: ████░ (84%)</li>
+</ul>
+</li>
+<li><p>📝 <a href="/articles/r-resources-resourcesresourcescc-curriculum-20251109teachingguidesweek1teachingguidemd.html" class="internal-link">R - Resources/개인 연구 자료/익상님_연구자료/CC-Curriculum-20251109/teaching_guides/week1_teaching_guide.md</a></p>
+<ul>
+<li>examples: AI CLI(Claude Code CLI) 초보자 교안으로 터미널, 첫 실행, 에러 대응 예시 제공. Part 1의 설치/실행/에러 설명을 구체적 교육 사례로 지원.</li>
+<li>Confidence: ████░ (82%)</li>
+</ul>
+</li>
+</ul>
+<h3 id="knowledge-gaps">📚 Knowledge Gaps {#knowledge-gaps}</h3>
+<ul>
+<li><p>🔴 <strong>실제 코드 생성 및 간단한 프로젝트 예시</strong></p>
+<ul>
+<li>Part 1에서 &#39;간단한 질문 해보기&#39;와 &#39;코드 설명&#39;만 다루며 실제 코드 출력/수정 예시 부족. 초보자가 즉시 실습하며 학습 속도 향상을 위해 필수.</li>
+<li>Suggested resources: Kilo Code CLI 공식 문서 예제, Part 2 실전편 프로젝트 섹션</li>
+</ul>
+</li>
+<li><p>🟡 <strong>설치 트러블슈팅 및 OS별 상세 에러 해결</strong></p>
+<ul>
+<li>Node.js 설치와 npm 명령어는 있지만, Windows/Linux 특정 에러(권한, PATH 등) 미언급. 초보자 터미널 공포 해소를 위해 깊이 필요.</li>
+<li>Suggested resources: Node.js 공식 설치 가이드, Stack Overflow npm install 에러 FAQ</li>
+</ul>
+</li>
+<li><p>🔴 <strong>AI 모델 선택 및 API 키 설정</strong></p>
+<ul>
+<li>&#39;수백 개의 AI 모델&#39; 언급하나 설정 방법 생략. 모델별 성능 비교와 비용/프라이버시 고려가 초보자 활용 확대에 중요.</li>
+<li>Suggested resources: Kilo Code CLI GitHub README, OpenAI/Anthropic API 키 가이드</li>
+</ul>
+</li>
+<li><p>🟡 <strong>보안 및 데이터 프라이버시 고려사항</strong></p>
+<ul>
+<li>코드 공유 시 AI 서버 전송 위험 미언급. 초보자가 안전하게 사용하도록 교육 필요.</li>
+<li>Suggested resources: OWASP AI 보안 가이드, LLM 프롬프트 보안 베스트 프랙티스</li>
+</ul>
+</li>
+</ul>
+<h3 id="ai-insights">💡 AI Insights {#ai-insights}</h3>
+<p>이 노트는 파인만 기법(비유, 5살 아이 설명)을 활용한 초보자 최적화 가이드로, 설치/개념/첫 실행 흐름이 논리적. Part 2와 시리즈화되어 지식 체계화에 강하나, 실습 코드와 트러블슈팅 보강 시 완벽한 온보딩 자료 될 수 있음. 유사 CLI 가이드와 연계해 AI 도구 생태계 지도화 가능.</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/도구.html" class="article-tag">도구</a><a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/CLI.html" class="article-tag">CLI</a><a href="/tag/LLM.html" class="article-tag">LLM</a><a href="/tag/활용.html" class="article-tag">활용</a><a href="/tag/초보자.html" class="article-tag">초보자</a><a href="/tag/가이드.html" class="article-tag">가이드</a><a href="/tag/튜토리얼.html" class="article-tag">튜토리얼</a><a href="/tag/단계별.html" class="article-tag">단계별</a><a href="/tag/파인만기법.html" class="article-tag">파인만기법</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/kilo-code-cli-complete-guide-part-1-basics-beginners.html&text=Kilo Code CLI 완전 정복 가이드 - Part 1: 기초편 (초보자용)" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/kilo-code-cli-complete-guide-part-1-basics-beginners.html&title=Kilo Code CLI 완전 정복 가이드 - Part 1: 기초편 (초보자용)" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/kilo-code-cli-complete-guide-part-1-basics-beginners.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/flutter-beginners-guide-quick-start.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h3>
+          <p class="article-card__excerpt">"어디서 시작해야 할까? 이 페이지가 도움될 거다." --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">15 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

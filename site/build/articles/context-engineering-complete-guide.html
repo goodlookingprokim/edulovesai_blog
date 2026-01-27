@@ -1,0 +1,2510 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Context Engineering 완전 가이드 | AI 기술 자료 저널</title>
+  <meta name="description" content="1.  || #개요 2.  || #Context Engineering이란 3.  || #프롬프트 엔지니어링과의 차이점 4.  || #핵심 구성 요소 5.  || #파일 구조와 역할 6.  || #실제 워크플로우 7.  || #구현 방법 8.  || #활용 사례 9. ...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Context Engineering 완전 가이드">
+  <meta property="og:description" content="1.  || #개요 2.  || #Context Engineering이란 3.  || #프롬프트 엔지니어링과의 차이점 4.  || #핵심 구성 요소 5.  || #파일 구조와 역할 6.  || #실제 워크플로우 7.  || #구현 방법 8.  || #활용 사례 9. ...">
+  <meta property="og:image" content="/assets/images/prompt-engineering-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/context-engineering-complete-guide.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Context Engineering 완전 가이드">
+  <meta name="twitter:description" content="1.  || #개요 2.  || #Context Engineering이란 3.  || #프롬프트 엔지니어링과의 차이점 4.  || #핵심 구성 요소 5.  || #파일 구조와 역할 6.  || #실제 워크플로우 7.  || #구현 방법 8.  || #활용 사례 9. ...">
+  <meta name="twitter:image" content="/assets/images/prompt-engineering-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/context-engineering-complete-guide.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI 기술 자료 저널</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/prompt-engineering.html" class="article-category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </a>
+        <h1 class="article-title">Context Engineering 완전 가이드</h1>
+        <div class="article-meta">
+          <a href="/journalist/prompt-master.html" class="article-author">
+            <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">프롬프트 마스터</span>
+              <span class="article-author__role">Prompt Engineering Specialist</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 7월 7일">2025년 7월 7일</time>
+            <span class="article-meta__separator">·</span>
+            <span>35 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-가치-제안" class="toc__link">🎯 핵심 가치 제안</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기대-효과" class="toc__link">📊 기대 효과</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#원본-자료" class="toc__link">🔗 원본 자료</a>
+    </li>
+    <li class="toc__item">
+      <a href="#context-engineering이란" class="toc__link">Context Engineering이란</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#정의와-철학" class="toc__link">🧠 정의와 철학</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#패러다임-전환" class="toc__link">🔄 패러다임 전환</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#목표" class="toc__link">🎯 목표</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-원칙" class="toc__link">🌟 핵심 원칙</a>
+    </li>
+    <li class="toc__item">
+      <a href="#프롬프트-엔지니어링과의-차이점" class="toc__link">프롬프트 엔지니어링과의 차이점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#비교-분석" class="toc__link">📊 비교 분석</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#세부-차이점" class="toc__link">🔍 세부 차이점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실무-예시" class="toc__link">💡 실무 예시</a>
+    </li>
+    <li class="toc__item">
+      <a href="#핵심-구성-요소" class="toc__link">핵심 구성 요소</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시스템-아키텍처" class="toc__link">🏗️ 시스템 아키텍처</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#워크플로우-통합" class="toc__link">🔄 워크플로우 통합</a>
+    </li>
+    <li class="toc__item">
+      <a href="#파일-구조와-역할" class="toc__link">파일 구조와 역할</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#전체-디렉토리-구조" class="toc__link">📁 전체 디렉토리 구조</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-파일별-상세-역할" class="toc__link">📄 핵심 파일별 상세 역할</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#요구사항" class="toc__link">요구사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#필수-기능" class="toc__link">필수 기능</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#선택적-기능" class="toc__link">선택적 기능</a>
+    </li>
+    <li class="toc__item">
+      <a href="#수용-기준" class="toc__link">수용 기준</a>
+    </li>
+    <li class="toc__item">
+      <a href="#제약-조건" class="toc__link">제약 조건</a>
+    </li>
+    <li class="toc__item">
+      <a href="#컨텍스트" class="toc__link">컨텍스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#요구사항" class="toc__link">요구사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-계획" class="toc__link">구현 계획</a>
+    </li>
+    <li class="toc__item">
+      <a href="#검증-게이트" class="toc__link">검증 게이트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#claude-설정-디렉토리" class="toc__link">⚙️ .claude/ 설정 디렉토리</a>
+    </li>
+    <li class="toc__item">
+      <a href="#목적" class="toc__link">목적</a>
+    </li>
+    <li class="toc__item">
+      <a href="#사용법" class="toc__link">사용법</a>
+    </li>
+    <li class="toc__item">
+      <a href="#동작-과정" class="toc__link">동작 과정</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실제-워크플로우" class="toc__link">실제 워크플로우</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#단계별-프로세스" class="toc__link">🔄 단계별 프로세스</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item">
+      <a href="#요구사항" class="toc__link">요구사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#필수-기능" class="toc__link">필수 기능</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#선택적-기능" class="toc__link">선택적 기능</a>
+    </li>
+    <li class="toc__item">
+      <a href="#수용-기준" class="toc__link">수용 기준</a>
+    </li>
+    <li class="toc__item">
+      <a href="#제약-조건" class="toc__link">제약 조건</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#반복적-개선-프로세스" class="toc__link">🔄 반복적 개선 프로세스</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-방법" class="toc__link">구현 방법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실제-구현-단계" class="toc__link">🛠️ 실제 구현 단계</a>
+    </li>
+    <li class="toc__item">
+      <a href="#기술-스택" class="toc__link">기술 스택</a>
+    </li>
+    <li class="toc__item">
+      <a href="#아키텍처-원칙" class="toc__link">아키텍처 원칙</a>
+    </li>
+    <li class="toc__item">
+      <a href="#코딩-규칙" class="toc__link">코딩 규칙</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#typescript" class="toc__link">TypeScript</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#react" class="toc__link">React</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#데이터베이스" class="toc__link">데이터베이스</a>
+    </li>
+    <li class="toc__item">
+      <a href="#테스트-전략" class="toc__link">테스트 전략</a>
+    </li>
+    <li class="toc__item">
+      <a href="#프로젝트-컨텍스트" class="toc__link">📋 프로젝트 컨텍스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#기능-요구사항" class="toc__link">🎯 기능 요구사항</a>
+    </li>
+    <li class="toc__item">
+      <a href="#구현-계획" class="toc__link">🏗️ 구현 계획</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-아키텍처-설계" class="toc__link">1. 아키텍처 설계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-백엔드-구현" class="toc__link">2. 백엔드 구현</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-프론트엔드-구현" class="toc__link">3. 프론트엔드 구현</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-테스트-작성" class="toc__link">4. 테스트 작성</a>
+    </li>
+    <li class="toc__item">
+      <a href="#검증-게이트" class="toc__link">✅ 검증 게이트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#완료-기준" class="toc__link">📊 완료 기준</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#자동화-도구-활용" class="toc__link">🔧 자동화 도구 활용</a>
+    </li>
+    <li class="toc__item">
+      <a href="#수행-작업" class="toc__link">수행 작업</a>
+    </li>
+    <li class="toc__item">
+      <a href="#사용법" class="toc__link">사용법</a>
+    </li>
+    <li class="toc__item">
+      <a href="#활용-사례" class="toc__link">활용 사례</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실무-적용-시나리오" class="toc__link">🎯 실무 적용 시나리오</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#산업별-적용-사례" class="toc__link">💡 산업별 적용 사례</a>
+    </li>
+    <li class="toc__item">
+      <a href="#모범-사례" class="toc__link">모범 사례</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#context-engineering-베스트-프랙티스" class="toc__link">🌟 Context Engineering 베스트 프랙티스</a>
+    </li>
+    <li class="toc__item">
+      <a href="#레이어별-조직화" class="toc__link">레이어별 조직화</a>
+    </li>
+    <li class="toc__item">
+      <a href="#복잡도별-예제" class="toc__link">복잡도별 예제</a>
+    </li>
+    <li class="toc__item">
+      <a href="#시나리오별-템플릿" class="toc__link">시나리오별 템플릿</a>
+    </li>
+    <li class="toc__item">
+      <a href="#1-명확한-구조" class="toc__link">1. 명확한 구조</a>
+    </li>
+    <li class="toc__item">
+      <a href="#2-구체적인-검증-게이트" class="toc__link">2. 구체적인 검증 게이트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#3-단계별-확인-포인트" class="toc__link">3. 단계별 확인 포인트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#phase-1-설계-검토" class="toc__link">Phase 1: 설계 검토</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#phase-2-구현-검토" class="toc__link">Phase 2: 구현 검토</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#phase-3-최종-검토" class="toc__link">Phase 3: 최종 검토</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#성능-최적화-팁" class="toc__link">⚡ 성능 최적화 팁</a>
+    </li>
+    <li class="toc__item">
+      <a href="#do-필수-정보만-포함" class="toc__link">DO: 필수 정보만 포함</a>
+    </li>
+    <li class="toc__item">
+      <a href="#don39t-과도한-정보-제공" class="toc__link">DON&amp;#39;T: 과도한 정보 제공</a>
+    </li>
+    <li class="toc__item">
+      <a href="#역할-분담" class="toc__link">역할 분담</a>
+    </li>
+    <li class="toc__item">
+      <a href="#정기-리뷰-프로세스" class="toc__link">정기 리뷰 프로세스</a>
+    </li>
+    <li class="toc__item">
+      <a href="#지식-공유" class="toc__link">지식 공유</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결" class="toc__link">문제 해결</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#일반적인-문제와-해결책" class="toc__link">🚨 일반적인 문제와 해결책</a>
+    </li>
+    <li class="toc__item">
+      <a href="#규칙-적용-우선순위" class="toc__link">규칙 적용 우선순위</a>
+    </li>
+    <li class="toc__item">
+      <a href="#코드-품질-체크리스트" class="toc__link">코드 품질 체크리스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#prp-1-핵심-데이터-모델-설계" class="toc__link">PRP 1: 핵심 데이터 모델 설계</a>
+    </li>
+    <li class="toc__item">
+      <a href="#prp-2-기본-crud-api-구현" class="toc__link">PRP 2: 기본 CRUD API 구현</a>
+    </li>
+    <li class="toc__item">
+      <a href="#prp-3-비즈니스-로직-통합" class="toc__link">PRP 3: 비즈니스 로직 통합</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#고급-트러블슈팅" class="toc__link">🔧 고급 트러블슈팅</a>
+    </li>
+    <li class="toc__item">
+      <a href="#해결-전략" class="toc__link">해결 전략</a>
+    </li>
+    <li class="toc__item">
+      <a href="#해결-방안" class="toc__link">해결 방안</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실무-적용-전략" class="toc__link">실무 적용 전략</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#도입-로드맵" class="toc__link">🎯 도입 로드맵</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#week-1-환경-설정" class="toc__link">Week 1: 환경 설정</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#week-2-기본-컨텍스트-작성" class="toc__link">Week 2: 기본 컨텍스트 작성</a>
+    </li>
+    <li class="toc__item">
+      <a href="#성공-지표" class="toc__link">성공 지표</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#week-3-4-점진적-적용" class="toc__link">Week 3-4: 점진적 적용</a>
+    </li>
+    <li class="toc__item">
+      <a href="#측정-지표" class="toc__link">측정 지표</a>
+    </li>
+    <li class="toc__item">
+      <a href="#리스크-관리" class="toc__link">리스크 관리</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#week-5-6-프로세스-최적화" class="toc__link">Week 5-6: 프로세스 최적화</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#week-7-8-팀-확산" class="toc__link">Week 7-8: 팀 확산</a>
+    </li>
+    <li class="toc__item">
+      <a href="#성과-목표" class="toc__link">성과 목표</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#성과-측정-프레임워크" class="toc__link">📊 성과 측정 프레임워크</a>
+    </li>
+    <li class="toc__item">
+      <a href="#코드-품질-지표" class="toc__link">코드 품질 지표</a>
+    </li>
+    <li class="toc__item">
+      <a href="#팀-생산성-지표" class="toc__link">팀 생산성 지표</a>
+    </li>
+    <li class="toc__item">
+      <a href="#코드-리뷰-품질" class="toc__link">코드 리뷰 품질</a>
+    </li>
+    <li class="toc__item">
+      <a href="#팀-협업-개선" class="toc__link">팀 협업 개선</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#확장-전략" class="toc__link">🚀 확장 전략</a>
+    </li>
+    <li class="toc__item">
+      <a href="#조직-수준-organization-level" class="toc__link">조직 수준 (Organization Level)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#제품-수준-product-level" class="toc__link">제품 수준 (Product Level)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#프로젝트-수준-project-level" class="toc__link">프로젝트 수준 (Project Level)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#파이프라인-단계별-검증" class="toc__link">파이프라인 단계별 검증</a>
+    </li>
+    <li class="toc__item">
+      <a href="#자동화-도구-예시" class="toc__link">자동화 도구 예시</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#혁신적-응용-사례" class="toc__link">💡 혁신적 응용 사례</a>
+    </li>
+    <li class="toc__item">
+      <a href="#claude-특화-컨텍스트" class="toc__link">Claude 특화 컨텍스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#gpt-계열-최적화" class="toc__link">GPT 계열 최적화</a>
+    </li>
+    <li class="toc__item">
+      <a href="#오픈소스-모델-적용" class="toc__link">오픈소스 모델 적용</a>
+    </li>
+    <li class="toc__item">
+      <a href="#핀테크-컨텍스트-라이브러리" class="toc__link">핀테크 컨텍스트 라이브러리</a>
+    </li>
+    <li class="toc__item">
+      <a href="#헬스케어-컨텍스트" class="toc__link">헬스케어 컨텍스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#e-커머스-컨텍스트" class="toc__link">E-커머스 컨텍스트</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#상위-개념" class="toc__link">🔗 상위 개념</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#하위-세부사항" class="toc__link">🔗 하위 세부사항</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#병렬-주제" class="toc__link">🔗 병렬 주제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실전-활용" class="toc__link">🔗 실전 활용</a>
+    </li>
+    <li class="toc__item">
+      <a href="#출처-및-참고자료" class="toc__link">📚 출처 및 참고자료</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#주요-출처" class="toc__link">🔗 주요 출처</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-참고자료" class="toc__link">📋 핵심 참고자료</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기술-문서-및-도구" class="toc__link">💡 기술 문서 및 도구</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실습-관련-자료" class="toc__link">🛠️ 실습 관련 자료</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#관련-연구-및-통계" class="toc__link">🎯 관련 연구 및 통계</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#추가-학습-자료" class="toc__link">📚 추가 학습 자료</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Context Engineering 완전 가이드</h1>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#개요" class="internal-link internal-link--section">개요</a></li>
+<li><a href="#context-engineering이란" class="internal-link internal-link--section">Context Engineering이란</a></li>
+<li><a href="#프롬프트-엔지니어링과의-차이점" class="internal-link internal-link--section">프롬프트 엔지니어링과의 차이점</a></li>
+<li><a href="#핵심-구성-요소" class="internal-link internal-link--section">핵심 구성 요소</a></li>
+<li><a href="#파일-구조와-역할" class="internal-link internal-link--section">파일 구조와 역할</a></li>
+<li><a href="#실제-워크플로우" class="internal-link internal-link--section">실제 워크플로우</a></li>
+<li><a href="#구현-방법" class="internal-link internal-link--section">구현 방법</a></li>
+<li><a href="#활용-사례" class="internal-link internal-link--section">활용 사례</a></li>
+<li><a href="#모범-사례" class="internal-link internal-link--section">모범 사례</a></li>
+<li><a href="#문제-해결" class="internal-link internal-link--section">문제 해결</a></li>
+<li><a href="#실무-적용-전략" class="internal-link internal-link--section">실무 적용 전략</a></li>
+</ol>
+<h2 id="개요">개요 {#개요}</h2>
+<p><strong>Context Engineering</strong>은 AI 코딩 어시스턴트를 위한 포괄적인 컨텍스트 제공 방법론입니다. 단순한 프롬프트 작성을 넘어서 체계적인 문서화, 예제, 규칙, 패턴, 검증을 통해 AI의 코드 구현 정확도와 일관성을 획기적으로 향상시킵니다.</p>
+<h3 id="핵심-가치-제안">🎯 핵심 가치 제안 {#핵심-가치-제안}</h3>
+<blockquote>
+<p><strong>&quot;Context Engineering is 10x better than prompt engineering and 100x better than vibe coding&quot;</strong></p>
+</blockquote>
+<ul>
+<li><strong>프롬프트 엔지니어링 대비 10배</strong> 더 효과적</li>
+<li><strong>직감 기반 코딩 대비 100배</strong> 더 우수한 성과</li>
+<li><strong>체계적 접근</strong>: 일관성 있는 고품질 코드 생성</li>
+<li><strong>재사용 가능</strong>: 한 번 설정으로 지속적인 효과</li>
+</ul>
+<h3 id="기대-효과">📊 기대 효과 {#기대-효과}</h3>
+<ul>
+<li><strong>AI 구현 실패율 감소</strong>: 명확한 컨텍스트로 오류 최소화</li>
+<li><strong>프로젝트 일관성 보장</strong>: 기존 규약과 패턴 유지</li>
+<li><strong>복잡한 기능 구현</strong>: 고도화된 요구사항 정확 반영</li>
+<li><strong>자기 교정 프로세스</strong>: 검증 단계를 통한 품질 관리</li>
+</ul>
+<h3 id="원본-자료">🔗 원본 자료 {#원본-자료}</h3>
+<ul>
+<li><strong>저자</strong>: IncomeStreamSurfer</li>
+<li><strong>플랫폼</strong>: GitHub</li>
+<li><strong>라이선스</strong>: MIT</li>
+<li><strong>원문 링크</strong>: <a href="https://github.com/IncomeStreamSurfer/context-engineering-intro">https://github.com/IncomeStreamSurfer/context-engineering-intro</a></li>
+</ul>
+<h2 id="context-engineering이란">Context Engineering이란 {#context-engineering이란}</h2>
+<h3 id="정의와-철학">🧠 정의와 철학 {#정의와-철학}</h3>
+<p>Context Engineering은 AI 어시스턴트에게 <strong>포괄적이고 구조화된 컨텍스트</strong>를 제공하여, 복잡한 소프트웨어 개발 작업을 효과적으로 이해하고 구현할 수 있도록 하는 체계적 방법론입니다.</p>
+<h3 id="패러다임-전환">🔄 패러다임 전환 {#패러다임-전환}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1619" onclick="copyCode('code-1769482285007-1619')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1619" class="language-plaintext">기존 방식: 프롬프트 → AI → 결과
+새로운 방식: 컨텍스트 + 예제 + 규칙 + 검증 → AI → 고품질 결과</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h3 id="목표">🎯 목표 {#목표}</h3>
+<ol>
+<li><strong>정확성</strong>: 요구사항을 정확히 이해하고 구현</li>
+<li><strong>일관성</strong>: 프로젝트 전반에 걸친 코딩 스타일 유지</li>
+<li><strong>효율성</strong>: 반복 작업 최소화, 한 번에 정확한 구현</li>
+<li><strong>확장성</strong>: 팀 전체가 활용 가능한 표준화된 프로세스</li>
+</ol>
+<h3 id="핵심-원칙">🌟 핵심 원칙 {#핵심-원칙}</h3>
+<ul>
+<li><strong>명시성</strong>: 모든 요구사항을 명확하게 문서화</li>
+<li><strong>예시성</strong>: 구체적인 코드 패턴과 예제 제공</li>
+<li><strong>구조성</strong>: 체계적인 파일 구성과 명명 규칙</li>
+<li><strong>검증성</strong>: 단계별 검증 게이트를 통한 품질 보장</li>
+</ul>
+<h2 id="프롬프트-엔지니어링과의-차이점">프롬프트 엔지니어링과의 차이점 {#프롬프트-엔지니어링과의-차이점}</h2>
+<h3 id="비교-분석">📊 비교 분석 {#비교-분석}</h3>
+<table>
+<thead>
+<tr>
+<th>구분</th>
+<th>프롬프트 엔지니어링</th>
+<th>Context Engineering</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>접근 방식</strong></td>
+<td>단일 프롬프트 최적화</td>
+<td>포괄적 컨텍스트 구축</td>
+</tr>
+<tr>
+<td><strong>범위</strong></td>
+<td>개별 요청 중심</td>
+<td>프로젝트 전체 시스템</td>
+</tr>
+<tr>
+<td><strong>재사용성</strong></td>
+<td>제한적</td>
+<td>높은 재사용성</td>
+</tr>
+<tr>
+<td><strong>일관성</strong></td>
+<td>요청마다 상이</td>
+<td>프로젝트 전반 일관성</td>
+</tr>
+<tr>
+<td><strong>복잡도 처리</strong></td>
+<td>단순 작업 적합</td>
+<td>복잡한 기능 구현 가능</td>
+</tr>
+<tr>
+<td><strong>유지보수</strong></td>
+<td>개별 관리 필요</td>
+<td>중앙집중식 관리</td>
+</tr>
+</tbody></table>
+<h3 id="세부-차이점">🔍 세부 차이점 {#세부-차이점}</h3>
+<h4>프롬프트 엔지니어링의 한계</h4>
+<ul>
+<li><strong>문맥 부족</strong>: 프로젝트 전체 맥락 이해 부족</li>
+<li><strong>일회성</strong>: 각 요청마다 새로운 컨텍스트 제공 필요</li>
+<li><strong>일관성 부족</strong>: 동일한 작업도 매번 다른 결과</li>
+<li><strong>복잡도 제한</strong>: 간단한 작업에만 효과적</li>
+</ul>
+<h4>Context Engineering의 장점</h4>
+<ul>
+<li><strong>전체적 이해</strong>: 프로젝트 구조와 규약 완전 파악</li>
+<li><strong>누적 학습</strong>: 기존 패턴과 예제를 통한 점진적 개선</li>
+<li><strong>표준화</strong>: 팀 전체가 활용하는 일관된 방법론</li>
+<li><strong>고도화</strong>: 복잡한 아키텍처와 비즈니스 로직 처리</li>
+</ul>
+<h3 id="실무-예시">💡 실무 예시 {#실무-예시}</h3>
+<h4>기존 프롬프트 방식</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1620" onclick="copyCode('code-1769482285007-1620')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1620" class="language-plaintext">&quot;React 컴포넌트를 만들어줘&quot;
+→ 매번 다른 스타일, 일관성 부족</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>Context Engineering 방식</h4>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1621" onclick="copyCode('code-1769482285007-1621')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1621" class="language-plaintext">CLAUDE.md: 프로젝트 규칙 정의
+examples/: 기존 컴포넌트 패턴 제공
+INITIAL.md: 구체적 요구사항 명세
+→ 일관되고 정확한 컴포넌트 생성</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div>
+</div>
+
+<h2 id="핵심-구성-요소">핵심 구성 요소 {#핵심-구성-요소}</h2>
+<h3 id="시스템-아키텍처">🏗️ 시스템 아키텍처 {#시스템-아키텍처}</h3>
+<p>Context Engineering은 4개의 핵심 요소로 구성됩니다:</p>
+<h4>1. CLAUDE.md - 글로벌 규칙 정의</h4>
+<ul>
+<li><strong>프로젝트 전반 규칙</strong>: 코딩 스타일, 아키텍처 패턴</li>
+<li><strong>기술 스택 정보</strong>: 사용 기술과 버전, 의존성</li>
+<li><strong>팀 컨벤션</strong>: 네이밍 규칙, 파일 구조, 주석 스타일</li>
+<li><strong>품질 기준</strong>: 테스트 요구사항, 성능 기준</li>
+</ul>
+<h4>2. INITIAL.md - 기능 요청 템플릿</h4>
+<ul>
+<li><strong>요구사항 명세</strong>: 구체적이고 명확한 기능 설명</li>
+<li><strong>수용 기준</strong>: 완료 조건과 검증 방법</li>
+<li><strong>제약 조건</strong>: 기술적 제약, 성능 요구사항</li>
+<li><strong>우선순위</strong>: 핵심 기능과 부가 기능 구분</li>
+</ul>
+<h4>3. examples/ - 코드 패턴 저장소</h4>
+<ul>
+<li><strong>참조 구현</strong>: 모범 사례 코드 예제</li>
+<li><strong>패턴 라이브러리</strong>: 자주 사용되는 코딩 패턴</li>
+<li><strong>테스트 예제</strong>: 단위 테스트, 통합 테스트 샘플</li>
+<li><strong>구조 가이드</strong>: 폴더 구조, 파일 명명 규칙</li>
+</ul>
+<h4>4. PRPs/ - 제품 요구사항 프롬프트</h4>
+<ul>
+<li><strong>구조화된 명세</strong>: 체계적인 요구사항 문서</li>
+<li><strong>검증 게이트</strong>: 단계별 확인 체크포인트</li>
+<li><strong>구현 가이드</strong>: 구체적인 개발 방향성</li>
+<li><strong>품질 기준</strong>: 코드 품질과 성능 요구사항</li>
+</ul>
+<h3 id="워크플로우-통합">🔄 워크플로우 통합 {#워크플로우-통합}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1622" onclick="copyCode('code-1769482285007-1622')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1622" class="language-plaintext">1. CLAUDE.md 설정 → 프로젝트 기본 규칙 정의
+2. examples/ 구축 → 참조 가능한 패턴 수집
+3. INITIAL.md 작성 → 구체적 기능 요청 명세
+4. PRP 생성 → 종합적인 구현 계획 수립
+5. 실행 및 검증 → 단계별 품질 확인</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h2 id="파일-구조와-역할">파일 구조와 역할 {#파일-구조와-역할}</h2>
+<h3 id="전체-디렉토리-구조">📁 전체 디렉토리 구조 {#전체-디렉토리-구조}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1623" onclick="copyCode('code-1769482285007-1623')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1623" class="language-plaintext">context-engineering-intro/
+├── README.md                 # 메인 가이드
+├── CLAUDE.md                # 글로벌 AI 규칙
+├── INITIAL.md               # 기능 요청 템플릿
+├── INITIAL_EXAMPLE.md       # 완성된 요청 예시
+├── LICENSE                  # MIT 라이선스
+├── .claude/                 # Claude Code 설정
+│   ├── commands/           # 커스텀 명령어
+│   │   ├── generate-prp.md # PRP 생성 명령
+│   │   └── execute-prp.md  # PRP 실행 명령
+│   └── settings.local.json # 권한 설정
+├── PRPs/                   # 요구사항 프롬프트
+│   ├── templates/         # 기본 템플릿
+│   │   └── prp_base.md   # PRP 기본 구조
+│   └── examples/         # 실제 PRP 예시
+└── examples/             # 코드 패턴 저장소
+    ├── cli/             # CLI 애플리케이션 패턴
+    ├── agents/          # 에이전트 구현 패턴
+    └── testing/         # 테스트 방법론</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">19 lines</span>
+  </div>
+</div>
+
+<h3 id="핵심-파일별-상세-역할">📄 핵심 파일별 상세 역할 {#핵심-파일별-상세-역할}</h3>
+<h4>CLAUDE.md - AI 어시스턴트 글로벌 규칙</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1624" onclick="copyCode('code-1769482285007-1624')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1624" class="language-markdown"># 프로젝트 개요
+- 기술 스택: React, TypeScript, Node.js
+- 아키텍처: 마이크로서비스, RESTful API
+- 데이터베이스: PostgreSQL, Redis
+
+<h1>코딩 규칙</h1>
+<ul>
+<li>ESLint + Prettier 강제 적용</li>
+<li>함수형 프로그래밍 선호</li>
+<li>타입 안전성 최우선</li>
+</ul>
+<h1>파일 구조</h1>
+<p>src/
+  components/     # 재사용 가능한 컴포넌트
+  hooks/          # 커스텀 훅
+  utils/          # 유틸리티 함수
+  types/          # 타입 정의</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">14 lines</span>
+  </div></p>
+</div>
+
+<h4>INITIAL.md - 기능 요청 표준 템플릿</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1625" onclick="copyCode('code-1769482285007-1625')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1625" class="language-markdown"># 기능 요청: [기능명]
+
+<h2 id="개요">개요 {#개요}</h2>
+<p>[기능의 목적과 배경]</p>
+<h2 id="요구사항">요구사항 {#요구사항}</h2>
+<h3 id="필수-기능">필수 기능 {#필수-기능}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 핵심 기능 1</li>
+<li><input disabled="" type="checkbox"> 핵심 기능 2</li>
+</ul>
+<h3 id="선택적-기능">선택적 기능 {#선택적-기능}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 부가 기능 1</li>
+<li><input disabled="" type="checkbox"> 부가 기능 2</li>
+</ul>
+<h2 id="수용-기준">수용 기준 {#수용-기준}</h2>
+<ul>
+<li>성능: 응답 시간 &lt; 200ms</li>
+<li>호환성: IE11+ 지원</li>
+<li>접근성: WCAG 2.1 AA 준수</li>
+</ul>
+<h2 id="제약-조건">제약 조건 {#제약-조건}</h2>
+<ul>
+<li>기존 API 변경 불가</li>
+<li>레거시 코드 유지 필요</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">17 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>PRPs/templates/prp_base.md - PRP 기본 구조</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1626" onclick="copyCode('code-1769482285007-1626')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1626" class="language-markdown"># PRP: [프로젝트명] - [기능명]
+
+<h2 id="컨텍스트">컨텍스트 {#컨텍스트}</h2>
+<p>[CLAUDE.md 규칙 참조]
+[examples/ 패턴 활용]</p>
+<h2 id="요구사항">요구사항 {#요구사항}</h2>
+<p>[INITIAL.md 내용 기반]</p>
+<h2 id="구현-계획">구현 계획 {#구현-계획}</h2>
+<ol>
+<li>아키텍처 설계</li>
+<li>핵심 로직 구현</li>
+<li>테스트 작성</li>
+<li>문서화</li>
+</ol>
+<h2 id="검증-게이트">검증 게이트 {#검증-게이트}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 코드 리뷰 통과</li>
+<li><input disabled="" type="checkbox"> 단위 테스트 커버리지 80%+</li>
+<li><input disabled="" type="checkbox"> 성능 기준 만족</li>
+<li><input disabled="" type="checkbox"> 보안 검토 완료</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">16 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="claude-설정-디렉토리">⚙️ .claude/ 설정 디렉토리 {#claude-설정-디렉토리}</h3>
+<h4>commands/generate-prp.md - PRP 생성 명령</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1627" onclick="copyCode('code-1769482285007-1627')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1627" class="language-markdown"># Generate PRP 명령어
+
+<h2 id="목적">목적 {#목적}</h2>
+<p>INITIAL.md와 프로젝트 컨텍스트를 기반으로 
+완전한 PRP(Product Requirements Prompt) 생성</p>
+<h2 id="사용법">사용법 {#사용법}</h2>
+<p>/generate-prp</p>
+<h2 id="동작-과정">동작 과정 {#동작-과정}</h2>
+<ol>
+<li>CLAUDE.md 규칙 로드</li>
+<li>INITIAL.md 요구사항 분석</li>
+<li>examples/ 패턴 참조</li>
+<li>종합적인 PRP 문서 생성</code></pre>  <div class="code-block__footer">
+ <span class="code-block__lines">11 lines</span>
+  </div>
+</div></li>
+</ol>
+<h4>settings.local.json - 권한 설정</h4>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1628" onclick="copyCode('code-1769482285007-1628')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1628" class="language-json">{
+  &quot;allowed_commands&quot;: [
+    &quot;generate-prp&quot;,
+    &quot;execute-prp&quot;
+  ],
+  &quot;file_access&quot;: {
+    &quot;read&quot;: [&quot;**/*.md&quot;, &quot;**/*.json&quot;],
+    &quot;write&quot;: [&quot;PRPs/**&quot;, &quot;examples/**&quot;]
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div>
+</div>
+
+<h2 id="실제-워크플로우">실제 워크플로우 {#실제-워크플로우}</h2>
+<h3 id="단계별-프로세스">🔄 단계별 프로세스 {#단계별-프로세스}</h3>
+<h4>1단계: 프로젝트 초기 설정</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1629" onclick="copyCode('code-1769482285007-1629')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1629" class="language-bash"># 1. 템플릿 복제
+git clone https://github.com/IncomeStreamSurfer/context-engineering-intro
+cd context-engineering-intro
+
+<h1>2. 프로젝트에 맞게 CLAUDE.md 수정</h1>
+<h1>- 기술 스택 정보 업데이트</h1>
+<h1>- 코딩 규칙 정의</h1>
+<h1>- 프로젝트별 컨벤션 추가</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+
+<h4>2단계: 예제 패턴 구축</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1630" onclick="copyCode('code-1769482285007-1630')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1630" class="language-markdown"># examples/ 구조 예시
+examples/
+├── components/
+│   ├── Button.tsx              # 기본 버튼 컴포넌트
+│   ├── Modal.tsx               # 모달 컴포넌트 패턴
+│   └── Form.tsx                # 폼 핸들링 패턴
+├── hooks/
+│   ├── useApi.ts               # API 호출 훅
+│   ├── useLocalStorage.ts      # 로컬 스토리지 훅
+│   └── useDebounce.ts          # 디바운스 훅
+└── utils/
+    ├── validation.ts           # 입력값 검증 유틸
+    ├── formatting.ts           # 데이터 포맷팅
+    └── api.ts                  # API 클라이언트</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">14 lines</span>
+  </div>
+</div>
+
+<h4>3단계: 기능 요청 작성</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1631" onclick="copyCode('code-1769482285007-1631')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1631" class="language-markdown"># INITIAL.md 예시 - 사용자 인증 시스템
+
+<h2 id="개요">개요 {#개요}</h2>
+<p>JWT 기반 사용자 인증 시스템 구현</p>
+<h2 id="요구사항">요구사항 {#요구사항}</h2>
+<h3 id="필수-기능">필수 기능 {#필수-기능}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 이메일/패스워드 로그인</li>
+<li><input disabled="" type="checkbox"> JWT 토큰 발급 및 갱신</li>
+<li><input disabled="" type="checkbox"> 보호된 라우트 접근 제어</li>
+<li><input disabled="" type="checkbox"> 로그아웃 처리</li>
+</ul>
+<h3 id="선택적-기능">선택적 기능 {#선택적-기능}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 소셜 로그인 (Google, GitHub)</li>
+<li><input disabled="" type="checkbox"> 2FA (Two-Factor Authentication)</li>
+<li><input disabled="" type="checkbox"> 비밀번호 재설정</li>
+</ul>
+<h2 id="수용-기준">수용 기준 {#수용-기준}</h2>
+<ul>
+<li>보안: OWASP 가이드라인 준수</li>
+<li>성능: 로그인 응답 시간 &lt; 300ms</li>
+<li>UX: 로딩 상태, 에러 핸들링 포함</li>
+</ul>
+<h2 id="제약-조건">제약 조건 {#제약-조건}</h2>
+<ul>
+<li>기존 API 엔드포인트 유지</li>
+<li>레거시 사용자 데이터 마이그레이션</li>
+<li>GDPR 컴플라이언스 필요</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">21 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>4단계: PRP 생성 및 실행</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1632" onclick="copyCode('code-1769482285007-1632')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1632" class="language-bash"># Claude Code에서 실행
+/generate-prp
+
+<h1>생성된 PRP 확인 후 실행</h1>
+<p>/execute-prp PRPs/auth_system_prp.md</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h3 id="반복적-개선-프로세스">🔄 반복적 개선 프로세스 {#반복적-개선-프로세스}</h3>
+<ol>
+<li><strong>초기 구현</strong>: PRP 기반 코드 생성</li>
+<li><strong>검증 및 테스트</strong>: 품질 기준 확인</li>
+<li><strong>피드백 수집</strong>: 개선점 파악</li>
+<li><strong>패턴 업데이트</strong>: examples/ 및 규칙 개선</li>
+<li><strong>다음 기능 적용</strong>: 향상된 컨텍스트로 새 기능 개발</li>
+</ol>
+<h2 id="구현-방법">구현 방법 {#구현-방법}</h2>
+<h3 id="실제-구현-단계">🛠️ 실제 구현 단계 {#실제-구현-단계}</h3>
+<h4>1. 환경 설정</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1633" onclick="copyCode('code-1769482285007-1633')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1633" class="language-bash"># 필요 도구 설치
+npm install -g @anthropic-ai/claude-code
+
+<h1>프로젝트 초기화</h1>
+<p>mkdir my-context-project
+cd my-context-project
+git init</p>
+<h1>Context Engineering 템플릿 적용</h1>
+<p>curl -L <a href="https://github.com/IncomeStreamSurfer/context-engineering-intro/archive/main.zip">https://github.com/IncomeStreamSurfer/context-engineering-intro/archive/main.zip</a> | tar -xz
+cp -r context-engineering-intro-main/* .</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<h4>2. CLAUDE.md 커스터마이징</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1634" onclick="copyCode('code-1769482285007-1634')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1634" class="language-markdown"># 프로젝트별 CLAUDE.md 예시
+
+<h1>프로젝트: E-commerce Platform</h1>
+<h2 id="기술-스택">기술 스택 {#기술-스택}</h2>
+<ul>
+<li>Frontend: Next.js, TypeScript, Tailwind CSS</li>
+<li>Backend: Express.js, Prisma, PostgreSQL</li>
+<li>Infrastructure: Docker, AWS</li>
+</ul>
+<h2 id="아키텍처-원칙">아키텍처 원칙 {#아키텍처-원칙}</h2>
+<ul>
+<li>Clean Architecture 적용</li>
+<li>Domain-Driven Design</li>
+<li>Event-Driven Architecture</li>
+</ul>
+<h2 id="코딩-규칙">코딩 규칙 {#코딩-규칙}</h2>
+<h3 id="typescript">TypeScript {#typescript}</h3>
+<ul>
+<li>strict mode 활성화</li>
+<li>any 타입 사용 금지</li>
+<li>모든 함수에 명시적 반환 타입</li>
+</ul>
+<h3 id="react">React {#react}</h3>
+<ul>
+<li>함수형 컴포넌트만 사용</li>
+<li>Custom Hook으로 로직 분리</li>
+<li>props 인터페이스 정의 필수</li>
+</ul>
+<h3 id="데이터베이스">데이터베이스 {#데이터베이스}</h3>
+<ul>
+<li>Prisma ORM 사용</li>
+<li>마이그레이션 스크립트 버전 관리</li>
+<li>소프트 딜리트 적용</li>
+</ul>
+<h2 id="테스트-전략">테스트 전략 {#테스트-전략}</h2>
+<ul>
+<li>단위 테스트: Jest + Testing Library</li>
+<li>통합 테스트: Supertest</li>
+<li>E2E 테스트: Playwright</li>
+<li>커버리지: 최소 80%</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">28 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>3. 예제 패턴 구축</h4>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1635" onclick="copyCode('code-1769482285007-1635')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1635" class="language-typescript">// examples/api/user.controller.ts
+import { Request, Response } from &#39;express&#39;;
+import { UserService } from &#39;../services/user.service&#39;;
+import { validateUser } from &#39;../utils/validation&#39;;
+
+<p>export class UserController {
+  constructor(private userService: UserService) {}</p>
+<p>  async createUser(req: Request, res: Response): Promise&lt;void&gt; {
+    try {
+      const validatedData = await validateUser(req.body);
+      const user = await this.userService.create(validatedData);</p>
+<pre><code>  res.status(201).json({
+    success: true,
+    data: user,
+    message: &amp;#39;User created successfully&amp;#39;
+  });
+} catch (error) {
+  res.status(400).json({
+    success: false,
+    error: error.message
+  });
+}
+</code></pre>
+<p>  }
+}</p>
+<p>// examples/hooks/useUser.ts
+import { useState, useEffect } from &#39;react&#39;;
+import { User } from &#39;../types/user&#39;;
+import { userApi } from &#39;../api/user&#39;;</p>
+<p>export const useUser = (userId: string) =&gt; {
+  const [user, setUser] = useState&lt;User | null&gt;(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState&lt;string | null&gt;(null);</p>
+<p>  useEffect(() =&gt; {
+    const fetchUser = async () =&gt; {
+      try {
+        setLoading(true);
+        const userData = await userApi.getById(userId);
+        setUser(userData);
+      } catch (err) {
+        setError(err instanceof Error ? err.message : &#39;Unknown error&#39;);
+      } finally {
+        setLoading(false);
+      }
+    };</p>
+<pre><code>if (userId) {
+  fetchUser();
+}
+</code></pre>
+<p>  }, [userId]);</p>
+<p>  return { user, loading, error };
+};</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">50 lines</span>
+  </div></p>
+</div>
+
+<h4>4. PRP 템플릿 작성</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1636" onclick="copyCode('code-1769482285007-1636')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1636" class="language-markdown"># PRPs/templates/feature_base.md
+
+<h1>PRP: [프로젝트명] - [기능명]</h1>
+<h2 id="프로젝트-컨텍스트">📋 프로젝트 컨텍스트 {#프로젝트-컨텍스트}</h2>
+<ul>
+<li>CLAUDE.md 규칙 및 아키텍처 원칙 준수</li>
+<li>examples/ 폴더의 기존 패턴 참조</li>
+<li>프로젝트 기술 스택 활용</li>
+</ul>
+<h2 id="기능-요구사항">🎯 기능 요구사항 {#기능-요구사항}</h2>
+<p>[INITIAL.md에서 가져온 상세 요구사항]</p>
+<h2 id="구현-계획">🏗️ 구현 계획 {#구현-계획}</h2>
+<h3 id="1-아키텍처-설계">1. 아키텍처 설계 {#1-아키텍처-설계}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 도메인 모델 정의</li>
+<li><input disabled="" type="checkbox"> API 인터페이스 설계</li>
+<li><input disabled="" type="checkbox"> 데이터베이스 스키마 설계</li>
+</ul>
+<h3 id="2-백엔드-구현">2. 백엔드 구현 {#2-백엔드-구현}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 컨트롤러 작성</li>
+<li><input disabled="" type="checkbox"> 서비스 로직 구현</li>
+<li><input disabled="" type="checkbox"> 데이터 액세스 레이어</li>
+</ul>
+<h3 id="3-프론트엔드-구현">3. 프론트엔드 구현 {#3-프론트엔드-구현}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 컴포넌트 구조 설계</li>
+<li><input disabled="" type="checkbox"> 상태 관리 구현</li>
+<li><input disabled="" type="checkbox"> UI/UX 구현</li>
+</ul>
+<h3 id="4-테스트-작성">4. 테스트 작성 {#4-테스트-작성}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 단위 테스트</li>
+<li><input disabled="" type="checkbox"> 통합 테스트</li>
+<li><input disabled="" type="checkbox"> E2E 테스트</li>
+</ul>
+<h2 id="검증-게이트">✅ 검증 게이트 {#검증-게이트}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 코드 리뷰 완료</li>
+<li><input disabled="" type="checkbox"> 테스트 커버리지 80% 이상</li>
+<li><input disabled="" type="checkbox"> 성능 기준 만족</li>
+<li><input disabled="" type="checkbox"> 보안 검토 통과</li>
+<li><input disabled="" type="checkbox"> 문서화 완료</li>
+</ul>
+<h2 id="완료-기준">📊 완료 기준 {#완료-기준}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 모든 필수 요구사항 구현</li>
+<li><input disabled="" type="checkbox"> 수용 기준 만족</li>
+<li><input disabled="" type="checkbox"> 프로덕션 배포 준비 완료</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">35 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="자동화-도구-활용">🔧 자동화 도구 활용 {#자동화-도구-활용}</h3>
+<h4>Claude Code 커스텀 명령어 설정</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1637" onclick="copyCode('code-1769482285007-1637')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1637" class="language-markdown"># .claude/commands/context-init.md
+# Context 초기화 명령어
+
+<p>프로젝트의 Context Engineering 환경을 초기화합니다.</p>
+<h2 id="수행-작업">수행 작업 {#수행-작업}</h2>
+<ol>
+<li>CLAUDE.md 템플릿 생성</li>
+<li>examples/ 디렉토리 구조 생성</li>
+<li>PRPs/ 템플릿 설정</li>
+<li>기본 .gitignore 및 설정 파일 생성</li>
+</ol>
+<h2 id="사용법">사용법 {#사용법}</h2>
+<p>/context-init [프로젝트명] [기술스택]</p>
+<p>예시: /context-init &quot;E-commerce API&quot; &quot;Node.js Express PostgreSQL&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<h2 id="활용-사례">활용 사례 {#활용-사례}</h2>
+<h3 id="실무-적용-시나리오">🎯 실무 적용 시나리오 {#실무-적용-시나리오}</h3>
+<h4>사례 1: 대규모 웹 애플리케이션 개발</h4>
+<p><strong>프로젝트</strong>: SaaS 플랫폼 구축
+<strong>팀 규모</strong>: 8명 (프론트엔드 4명, 백엔드 4명)
+<strong>기간</strong>: 6개월</p>
+<p><strong>Context Engineering 적용 결과</strong>:</p>
+<ul>
+<li><strong>개발 속도 40% 향상</strong>: 명확한 컨텍스트로 재작업 감소</li>
+<li><strong>코드 일관성 90% 개선</strong>: 통일된 패턴과 규칙 적용</li>
+<li><strong>버그 발생률 60% 감소</strong>: 체계적인 검증 게이트 운영</li>
+<li><strong>온보딩 시간 70% 단축</strong>: 새 팀원의 빠른 적응</li>
+</ul>
+<p><strong>주요 성공 요인</strong>:</p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1638" onclick="copyCode('code-1769482285007-1638')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1638" class="language-markdown"># CLAUDE.md 구성
+- 엄격한 TypeScript 규칙
+- 컴포넌트 설계 원칙
+- API 설계 가이드라인
+- 테스트 작성 기준
+
+<h1>examples/ 활용</h1>
+<ul>
+<li>30+ 재사용 가능한 컴포넌트</li>
+<li>API 엔드포인트 패턴</li>
+<li>에러 핸들링 템플릿</li>
+<li>성능 최적화 예제</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">10 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>사례 2: 마이크로서비스 아키텍처 전환</h4>
+<p><strong>프로젝트</strong>: 모놀리식 → 마이크로서비스 전환
+<strong>복잡도</strong>: 15개 서비스, 200+ API 엔드포인트
+<strong>도전과제</strong>: 서비스 간 일관성 유지</p>
+<p><strong>Context Engineering 솔루션</strong>:</p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1639" onclick="copyCode('code-1769482285007-1639')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1639" class="language-markdown"># 서비스별 CLAUDE.md
+- 공통 아키텍처 원칙
+- 서비스 간 통신 프로토콜
+- 데이터 일관성 규칙
+- 모니터링 및 로깅 기준
+
+<h1>통합 examples/ 라이브러리</h1>
+<ul>
+<li>서비스 템플릿</li>
+<li>API Gateway 패턴</li>
+<li>이벤트 소싱 구현</li>
+<li>분산 트랜잭션 처리</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">10 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>성과</strong>:</p>
+<ul>
+<li><strong>아키텍처 일관성</strong>: 15개 서비스 모두 동일한 패턴 적용</li>
+<li><strong>개발 표준화</strong>: 팀 간 코드 스타일 통일</li>
+<li><strong>유지보수성 향상</strong>: 예측 가능한 구조로 인한 빠른 수정</li>
+</ul>
+<h4>사례 3: AI 스타트업 제품 개발</h4>
+<p><strong>프로젝트</strong>: AI 기반 데이터 분석 플랫폼
+<strong>특징</strong>: 빠른 프로토타이핑 필요, 알고리즘 복잡도 높음
+<strong>팀</strong>: 소규모 (3명), 빠른 출시 압박</p>
+<p><strong>Context Engineering 전략</strong>:</p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1640" onclick="copyCode('code-1769482285007-1640')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1640" class="language-markdown"># 민첩한 Context 구성
+- 최소 필수 규칙만 정의
+- 알고리즘 구현 패턴 중심
+- 실험적 코드와 프로덕션 코드 분리
+- 빠른 검증을 위한 간소화된 PRP
+
+<h1>examples/ 집중 영역</h1>
+<ul>
+<li>데이터 파이프라인 패턴</li>
+<li>ML 모델 통합 방법</li>
+<li>API 설계 템플릿</li>
+<li>성능 측정 도구</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">10 lines</span>
+</div>
+</div></li>
+</ul>
+<p><strong>결과</strong>:</p>
+<ul>
+<li><strong>프로토타이핑 속도 300% 향상</strong>: 재사용 가능한 패턴 활용</li>
+<li><strong>품질 일관성</strong>: 작은 팀에서도 엔터프라이즈급 코드 품질</li>
+<li><strong>기술 부채 최소화</strong>: 체계적 접근으로 리팩토링 부담 감소</li>
+</ul>
+<h3 id="산업별-적용-사례">💡 산업별 적용 사례 {#산업별-적용-사례}</h3>
+<h4>핀테크</h4>
+<ul>
+<li><strong>규제 준수</strong>: 금융 규제 요구사항을 CLAUDE.md에 명시</li>
+<li><strong>보안 강화</strong>: 보안 코딩 패턴 examples/에 수록</li>
+<li><strong>감사 대응</strong>: PRP 기반 개발 과정 문서화</li>
+</ul>
+<h4>헬스케어</h4>
+<ul>
+<li><strong>HIPAA 컴플라이언스</strong>: 개인정보 보호 규칙 내장</li>
+<li><strong>데이터 검증</strong>: 의료 데이터 검증 로직 패턴화</li>
+<li><strong>안전성</strong>: 다중 검증 게이트 적용</li>
+</ul>
+<h4>이커머스</h4>
+<ul>
+<li><strong>성능 최적화</strong>: 대용량 트래픽 처리 패턴</li>
+<li><strong>국제화</strong>: 다국어 지원 구현 가이드</li>
+<li><strong>결제 연동</strong>: 안전한 결제 처리 템플릿</li>
+</ul>
+<h2 id="모범-사례">모범 사례 {#모범-사례}</h2>
+<h3 id="context-engineering-베스트-프랙티스">🌟 Context Engineering 베스트 프랙티스 {#context-engineering-베스트-프랙티스}</h3>
+<h4>1. CLAUDE.md 작성 원칙</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1641" onclick="copyCode('code-1769482285007-1641')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1641" class="language-markdown">✅ 구체적이고 명확한 규칙
+- ❌ &quot;좋은 코드를 작성하세요&quot;
+- ✅ &quot;함수명은 동사+명사 형태, 최대 3개 단어&quot;
+
+<p>✅ 측정 가능한 기준</p>
+<ul>
+<li>❌ &quot;성능을 고려하세요&quot;</li>
+<li>✅ &quot;API 응답 시간 200ms 이하, 메모리 사용량 100MB 이하&quot;</li>
+</ul>
+<p>✅ 실행 가능한 지침</p>
+<ul>
+<li>❌ &quot;에러를 잘 처리하세요&quot;</li>
+<li>✅ &quot;모든 async 함수는 try-catch 블록 사용, 에러는 ErrorHandler 클래스로 처리&quot;</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">9 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>2. examples/ 구성 전략</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1642" onclick="copyCode('code-1769482285007-1642')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1642" class="language-markdown"># 효과적인 예제 구성
+
+<h2 id="레이어별-조직화">레이어별 조직화 {#레이어별-조직화}</h2>
+<p>examples/
+├── presentation/     # UI 컴포넌트, 페이지
+├── business/        # 비즈니스 로직, 서비스
+├── data/           # 데이터 액세스, API 클라이언트
+└── infrastructure/ # 설정, 유틸리티, 공통 기능</p>
+<h2 id="복잡도별-예제">복잡도별 예제 {#복잡도별-예제}</h2>
+<p>├── basic/          # 기본 패턴 (신입 개발자용)
+├── intermediate/   # 중급 패턴 (실무 경험자용)
+└── advanced/       # 고급 패턴 (시니어 개발자용)</p>
+<h2 id="시나리오별-템플릿">시나리오별 템플릿 {#시나리오별-템플릿}</h2>
+<p>├── crud/           # 기본 CRUD 작업
+├── auth/           # 인증/권한 처리
+├── payment/        # 결제 처리
+└── integration/    # 외부 시스템 연동</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">16 lines</span>
+  </div></p>
+</div>
+
+<h4>3. PRP 작성 가이드라인</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1643" onclick="copyCode('code-1769482285007-1643')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1643" class="language-markdown"># 효과적인 PRP 구성
+
+<h2 id="1-명확한-구조">1. 명확한 구조 {#1-명확한-구조}</h2>
+<ul>
+<li>배경 → 요구사항 → 구현 계획 → 검증 기준</li>
+</ul>
+<h2 id="2-구체적인-검증-게이트">2. 구체적인 검증 게이트 {#2-구체적인-검증-게이트}</h2>
+<ul>
+<li><input disabled="" type="checkbox"> 단위 테스트 커버리지 85% 이상</li>
+<li><input disabled="" type="checkbox"> 코드 복잡도 Cyclomatic Complexity 10 이하</li>
+<li><input disabled="" type="checkbox"> 메모리 누수 없음 (Heap 분석 통과)</li>
+<li><input disabled="" type="checkbox"> 접근성 WCAG 2.1 AA 준수</li>
+</ul>
+<h2 id="3-단계별-확인-포인트">3. 단계별 확인 포인트 {#3-단계별-확인-포인트}</h2>
+<h3 id="phase-1-설계-검토">Phase 1: 설계 검토 {#phase-1-설계-검토}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 아키텍처 다이어그램 승인</li>
+<li><input disabled="" type="checkbox"> API 명세서 검토 완료</li>
+<li><input disabled="" type="checkbox"> 데이터베이스 스키마 확정</li>
+</ul>
+<h3 id="phase-2-구현-검토">Phase 2: 구현 검토 {#phase-2-구현-검토}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 핵심 로직 구현 완료</li>
+<li><input disabled="" type="checkbox"> 에러 핸들링 적용</li>
+<li><input disabled="" type="checkbox"> 로깅 및 모니터링 추가</li>
+</ul>
+<h3 id="phase-3-최종-검토">Phase 3: 최종 검토 {#phase-3-최종-검토}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 성능 테스트 통과</li>
+<li><input disabled="" type="checkbox"> 보안 취약점 스캔 클리어</li>
+<li><input disabled="" type="checkbox"> 프로덕션 배포 승인</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">21 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="성능-최적화-팁">⚡ 성능 최적화 팁 {#성능-최적화-팁}</h3>
+<h4>1. 컨텍스트 크기 관리</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1644" onclick="copyCode('code-1769482285007-1644')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1644" class="language-markdown"># 효율적인 컨텍스트 구성
+
+<h2 id="do-필수-정보만-포함">DO: 필수 정보만 포함 {#do-필수-정보만-포함}</h2>
+<ul>
+<li>핵심 아키텍처 원칙 (10-15개 규칙)</li>
+<li>자주 사용되는 패턴 (20-30개 예제)</li>
+<li>현재 작업과 관련된 컨텍스트</li>
+</ul>
+<h2 id="don39t-과도한-정보-제공">DON&#39;T: 과도한 정보 제공 {#don39t-과도한-정보-제공}</h2>
+<ul>
+<li>모든 가능한 시나리오 나열</li>
+<li>사용하지 않는 예제 코드</li>
+<li>추상적이거나 모호한 지침</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">9 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>2. 점진적 개선 전략</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1645" onclick="copyCode('code-1769482285007-1645')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1645" class="language-markdown"># 컨텍스트 진화 프로세스
+
+<p>Week 1-2: 기본 구조 구축</p>
+<ul>
+<li>핵심 CLAUDE.md 규칙 (5-10개)</li>
+<li>기본 예제 패턴 (10-15개)</li>
+<li>간단한 PRP 템플릿</li>
+</ul>
+<p>Week 3-4: 실무 적용 및 개선</p>
+<ul>
+<li>실제 개발에서 부족한 부분 식별</li>
+<li>추가 예제 패턴 수집</li>
+<li>규칙 세분화 및 구체화</li>
+</ul>
+<p>Week 5-8: 최적화 및 표준화</p>
+<ul>
+<li>사용 빈도 높은 패턴 우선순위 조정</li>
+<li>팀 피드백 반영</li>
+<li>자동화 도구 도입</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">13 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>3. 팀 협업 최적화</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1646" onclick="copyCode('code-1769482285007-1646')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1646" class="language-markdown"># 팀 단위 Context Engineering
+
+<h2 id="역할-분담">역할 분담 {#역할-분담}</h2>
+<ul>
+<li>Tech Lead: CLAUDE.md 아키텍처 규칙 정의</li>
+<li>Senior Dev: examples/ 고품질 패턴 작성</li>
+<li>Team Members: PRP 작성 및 피드백 제공</li>
+</ul>
+<h2 id="정기-리뷰-프로세스">정기 리뷰 프로세스 {#정기-리뷰-프로세스}</h2>
+<ul>
+<li>주간: PRP 결과 리뷰, 개선점 논의</li>
+<li>월간: Context 효과성 측정, 규칙 업데이트</li>
+<li>분기: 전체 Context 아키텍처 재검토</li>
+</ul>
+<h2 id="지식-공유">지식 공유 {#지식-공유}</h2>
+<ul>
+<li>Context 패턴 라이브러리 구축</li>
+<li>성공/실패 사례 문서화</li>
+<li>신규 팀원 온보딩 가이드</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">13 lines</span>
+</div>
+</div></li>
+</ul>
+<h2 id="문제-해결">문제 해결 {#문제-해결}</h2>
+<h3 id="일반적인-문제와-해결책">🚨 일반적인 문제와 해결책 {#일반적인-문제와-해결책}</h3>
+<h4>1. AI가 컨텍스트를 무시하는 경우</h4>
+<p><strong>증상</strong>: 설정한 규칙과 다른 코드 생성</p>
+<p><strong>원인 분석</strong>:</p>
+<ul>
+<li>컨텍스트가 너무 복잡하거나 모호함</li>
+<li>상충하는 규칙이나 예제 존재</li>
+<li>PRP에서 컨텍스트 참조가 명확하지 않음</li>
+</ul>
+<p><strong>해결 방법</strong>:</p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1647" onclick="copyCode('code-1769482285007-1647')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1647" class="language-markdown"># 1. 컨텍스트 명확화
+# CLAUDE.md에서 우선순위 명시
+## 규칙 적용 우선순위 {#규칙-적용-우선순위}
+1. 보안 관련 규칙 (최우선)
+2. 아키텍처 패턴 준수
+3. 코딩 스타일 가이드
+4. 성능 최적화 규칙
+
+<h1>2. 예제 일관성 검증</h1>
+<h1>모든 examples/가 CLAUDE.md 규칙을 준수하는지 확인</h1>
+<h1>3. PRP에서 명시적 참조</h1>
+<p>&quot;반드시 CLAUDE.md의 TypeScript 규칙을 따르고, 
+examples/auth/login.ts 패턴을 참조하여 구현하세요&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<h4>2. 생성된 코드 품질이 일관되지 않는 경우</h4>
+<p><strong>증상</strong>: 같은 요청이라도 실행할 때마다 다른 품질의 코드</p>
+<p><strong>원인 분석</strong>:</p>
+<ul>
+<li>검증 게이트가 구체적이지 않음</li>
+<li>품질 기준이 측정 불가능한 형태</li>
+<li>예제가 부족하거나 품질이 낮음</li>
+</ul>
+<p><strong>해결 방법</strong>:</p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1648" onclick="copyCode('code-1769482285007-1648')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1648" class="language-markdown"># 구체적인 품질 기준 설정
+## 코드 품질 체크리스트 {#코드-품질-체크리스트}
+- [ ] ESLint 규칙 100% 준수
+- [ ] 함수 복잡도 Cyclomatic Complexity &lt; 10
+- [ ] 테스트 커버리지 &gt; 85%
+- [ ] 타입 안전성: any 타입 사용 금지
+- [ ] 성능: 시간 복잡도 O(n²) 이하
+
+<h1>고품질 예제 확충</h1>
+<p>examples/
+├── best-practices/     # 최고 품질 구현 예제
+├── anti-patterns/      # 피해야 할 패턴 예제
+└── review-checklist/   # 코드 리뷰 체크리스트</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<h4>3. 복잡한 요구사항 처리 실패</h4>
+<p><strong>증상</strong>: 단순한 기능은 잘 구현하지만 복합적인 요구사항에서 실패</p>
+<p><strong>원인 분석</strong>:</p>
+<ul>
+<li>PRP가 너무 복잡하거나 단계별로 나뉘지 않음</li>
+<li>의존성 관계가 명확하지 않음</li>
+<li>검증 포인트가 마지막에만 위치</li>
+</ul>
+<p><strong>해결 방법</strong>:</p>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1649" onclick="copyCode('code-1769482285007-1649')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1649" class="language-markdown"># 단계별 PRP 분할
+## PRP 1: 핵심 데이터 모델 설계 {#prp-1-핵심-데이터-모델-설계}
+- 목표: User, Product, Order 엔티티 정의
+- 검증: 스키마 검토, 관계 정의 확인
+
+<h2 id="prp-2-기본-crud-api-구현">PRP 2: 기본 CRUD API 구현 {#prp-2-기본-crud-api-구현}</h2>
+<ul>
+<li>목표: 각 엔티티별 기본 작업 구현</li>
+<li>검증: API 테스트, 데이터 검증 확인</li>
+</ul>
+<h2 id="prp-3-비즈니스-로직-통합">PRP 3: 비즈니스 로직 통합 {#prp-3-비즈니스-로직-통합}</h2>
+<ul>
+<li>목표: 주문 처리, 재고 관리 로직 구현</li>
+<li>검증: 통합 테스트, 성능 테스트</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">10 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="고급-트러블슈팅">🔧 고급 트러블슈팅 {#고급-트러블슈팅}</h3>
+<h4>컨텍스트 오버로드 문제</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1650" onclick="copyCode('code-1769482285007-1650')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1650" class="language-markdown"># 문제: 너무 많은 정보로 인한 AI 혼란
+
+<h2 id="해결-전략">해결 전략 {#해결-전략}</h2>
+<ol>
+<li><p>계층적 컨텍스트 구성</p>
+<ul>
+<li>글로벌 규칙 (CLAUDE.md)</li>
+<li>도메인별 규칙 (domain-specific.md)</li>
+<li>기능별 컨텍스트 (feature-context.md)</li>
+</ul>
+</li>
+<li><p>동적 컨텍스트 로딩</p>
+<ul>
+<li>현재 작업과 관련된 컨텍스트만 활성화</li>
+<li>사용 빈도 기반 우선순위 적용</li>
+</ul>
+</li>
+<li><p>컨텍스트 검증 도구</p>
+<ul>
+<li>규칙 충돌 검사</li>
+<li>컨텍스트 유효성 검증</li>
+<li>사용하지 않는 컨텍스트 정리</code></pre><div class="code-block__footer">
+ <span class="code-block__lines">13 lines</span>
+</div>
+</div></li>
+</ul>
+</li>
+</ol>
+<h4>팀 간 컨텍스트 불일치</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1651" onclick="copyCode('code-1769482285007-1651')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1651" class="language-markdown"># 문제: 여러 팀이 다른 컨텍스트 사용
+
+<h2 id="해결-방안">해결 방안 {#해결-방안}</h2>
+<ol>
+<li><p>중앙집중식 컨텍스트 관리</p>
+<ul>
+<li>Git 서브모듈을 통한 공통 컨텍스트 공유</li>
+<li>버전 관리를 통한 일관성 유지</li>
+</ul>
+</li>
+<li><p>컨텍스트 상속 구조</code></pre></p>
+  <div class="code-block__footer">
+ <span class="code-block__lines">7 lines</span>
+  </div>
+</div>
+corporate-context/
+├── global/           # 전사 공통 규칙
+├── domain/          # 도메인별 규칙
+└── team/            # 팀별 특화 규칙
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+ <span class="code-block__language">Plain Text</span>
+ <button class="code-block__copy" data-code-id="code-1769482285007-1652" onclick="copyCode('code-1769482285007-1652')" title="Copy code">
+   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+     <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+     <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+   </svg>
+   <span>Copy</span>
+ </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1652" class="language-plaintext">3. 정기적 동기화 프로세스
+- 월간 컨텍스트 리뷰 미팅
+- 크로스팀 컨텍스트 감사
+- 모범 사례 공유 세션</code></pre>
+  <div class="code-block__footer">
+ <span class="code-block__lines">4 lines</span>
+  </div>
+</div></li>
+</ol>
+<h2 id="실무-적용-전략">실무 적용 전략 {#실무-적용-전략}</h2>
+<h3 id="도입-로드맵">🎯 도입 로드맵 {#도입-로드맵}</h3>
+<h4>Phase 1: 기초 구축 (1-2주)</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1653" onclick="copyCode('code-1769482285007-1653')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1653" class="language-markdown">## 목표: Context Engineering 기반 마련
+
+<h3 id="week-1-환경-설정">Week 1: 환경 설정 {#week-1-환경-설정}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 팀원 Claude Code 설치 및 설정</li>
+<li><input disabled="" type="checkbox"> 기본 템플릿 복제 및 커스터마이징</li>
+<li><input disabled="" type="checkbox"> Git 리포지토리 구성 및 권한 설정</li>
+</ul>
+<h3 id="week-2-기본-컨텍스트-작성">Week 2: 기본 컨텍스트 작성 {#week-2-기본-컨텍스트-작성}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 프로젝트별 CLAUDE.md 초안 작성</li>
+<li><input disabled="" type="checkbox"> 핵심 예제 패턴 5-10개 수집</li>
+<li><input disabled="" type="checkbox"> 기본 PRP 템플릿 작성</li>
+</ul>
+<h2 id="성공-지표">성공 지표 {#성공-지표}</h2>
+<ul>
+<li>팀원 100% Claude Code 활용 가능</li>
+<li>기본 컨텍스트로 간단한 기능 구현 성공</li>
+<li>첫 PRP 생성 및 실행 완료</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">13 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>Phase 2: 실무 적용 (3-4주)</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1654" onclick="copyCode('code-1769482285007-1654')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1654" class="language-markdown">## 목표: 실제 프로젝트에 Context Engineering 적용
+
+<h3 id="week-3-4-점진적-적용">Week 3-4: 점진적 적용 {#week-3-4-점진적-적용}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 신규 기능 개발에 Context Engineering 적용</li>
+<li><input disabled="" type="checkbox"> 기존 코드 패턴을 examples/에 추가</li>
+<li><input disabled="" type="checkbox"> 팀원 피드백 수집 및 컨텍스트 개선</li>
+</ul>
+<h2 id="측정-지표">측정 지표 {#측정-지표}</h2>
+<ul>
+<li>코드 리뷰 시간 20% 감소</li>
+<li>버그 발생률 30% 감소</li>
+<li>개발 속도 유지 또는 향상</li>
+</ul>
+<h2 id="리스크-관리">리스크 관리 {#리스크-관리}</h2>
+<ul>
+<li>기존 워크플로우와의 충돌 최소화</li>
+<li>러닝 커브 지원 (페어 프로그래밍, 멘토링)</li>
+<li>점진적 도입으로 저항 최소화</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">13 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>Phase 3: 최적화 및 확산 (5-8주)</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1655" onclick="copyCode('code-1769482285007-1655')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1655" class="language-markdown">## 목표: Context Engineering 성숙도 향상
+
+<h3 id="week-5-6-프로세스-최적화">Week 5-6: 프로세스 최적화 {#week-5-6-프로세스-최적화}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 사용 데이터 분석을 통한 컨텍스트 우선순위 조정</li>
+<li><input disabled="" type="checkbox"> 자동화 도구 도입 (린터, 검증 도구)</li>
+<li><input disabled="" type="checkbox"> 고급 PRP 패턴 개발</li>
+</ul>
+<h3 id="week-7-8-팀-확산">Week 7-8: 팀 확산 {#week-7-8-팀-확산}</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 다른 팀에 성과 공유</li>
+<li><input disabled="" type="checkbox"> 전사 Context Library 구축</li>
+<li><input disabled="" type="checkbox"> 모범 사례 문서화</li>
+</ul>
+<h2 id="성과-목표">성과 목표 {#성과-목표}</h2>
+<ul>
+<li>개발 생산성 40% 향상</li>
+<li>코드 품질 지표 개선</li>
+<li>팀 만족도 증가</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">13 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="성과-측정-프레임워크">📊 성과 측정 프레임워크 {#성과-측정-프레임워크}</h3>
+<h4>정량적 지표</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1656" onclick="copyCode('code-1769482285007-1656')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1656" class="language-markdown">## 개발 효율성 지표
+- 기능 개발 시간 (Before/After 비교)
+- 코드 리뷰 사이클 시간
+- 버그 발생률 (개발/스테이징/프로덕션)
+- 테스트 커버리지 개선률
+
+<h2 id="코드-품질-지표">코드 품질 지표 {#코드-품질-지표}</h2>
+<ul>
+<li>Cyclomatic Complexity 평균값</li>
+<li>Code Duplication 비율</li>
+<li>Static Analysis 경고 수</li>
+<li>기술 부채 누적 정도</li>
+</ul>
+<h2 id="팀-생산성-지표">팀 생산성 지표 {#팀-생산성-지표}</h2>
+<ul>
+<li>개발자 1인당 완료 스토리 포인트</li>
+<li>배포 빈도 및 성공률</li>
+<li>장애 대응 시간 (MTTR)</li>
+<li>신규 기능 출시 주기</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">15 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>정성적 지표</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1657" onclick="copyCode('code-1769482285007-1657')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1657" class="language-markdown">## 개발자 경험 (DX) 평가
+- 도구 사용 만족도 (1-10 스케일)
+- 코드 작성 자신감 수준
+- 새로운 기능 개발 스트레스 정도
+- 팀 내 지식 공유 빈도
+
+<h2 id="코드-리뷰-품질">코드 리뷰 품질 {#코드-리뷰-품질}</h2>
+<ul>
+<li>리뷰 댓글의 건설적 비율</li>
+<li>아키텍처 관련 토론 빈도</li>
+<li>학습 기회 제공 정도</li>
+<li>코드 일관성 만족도</li>
+</ul>
+<h2 id="팀-협업-개선">팀 협업 개선 {#팀-협업-개선}</h2>
+<ul>
+<li>의사소통 효율성</li>
+<li>지식 전달 속도</li>
+<li>신규 팀원 온보딩 효과</li>
+<li>크로스 기능팀 협업 질</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">15 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="확장-전략">🚀 확장 전략 {#확장-전략}</h3>
+<h4>다중 프로젝트 관리</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1658" onclick="copyCode('code-1769482285007-1658')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1658" class="language-markdown"># 프로젝트별 Context 계층 구조
+
+<h2 id="조직-수준-organization-level">조직 수준 (Organization Level) {#조직-수준-organization-level}</h2>
+<p>org-context/
+├── security/         # 보안 규칙 (모든 프로젝트 공통)
+├── compliance/       # 규제 준수 (업계별)
+└── architecture/     # 아키텍처 원칙 (기술별)</p>
+<h2 id="제품-수준-product-level">제품 수준 (Product Level) {#제품-수준-product-level}</h2>
+<p>product-context/
+├── api-standards/    # API 설계 가이드라인
+├── ui-patterns/      # UI/UX 디자인 시스템
+└── data-models/      # 도메인 모델 정의</p>
+<h2 id="프로젝트-수준-project-level">프로젝트 수준 (Project Level) {#프로젝트-수준-project-level}</h2>
+<p>project-context/
+├── CLAUDE.md         # 프로젝트별 특화 규칙
+├── examples/         # 프로젝트 특화 패턴
+└── PRPs/            # 기능별 요구사항</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">16 lines</span>
+  </div></p>
+</div>
+
+<h4>자동화 파이프라인 통합</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1659" onclick="copyCode('code-1769482285007-1659')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1659" class="language-markdown"># CI/CD와 Context Engineering 통합
+
+<h2 id="파이프라인-단계별-검증">파이프라인 단계별 검증 {#파이프라인-단계별-검증}</h2>
+<ol>
+<li><p>코드 커밋 시</p>
+<ul>
+<li>Context 규칙 준수 검증</li>
+<li>예제 패턴 일치 확인</li>
+</ul>
+</li>
+<li><p>PR 생성 시</p>
+<ul>
+<li>PRP 기반 요구사항 추적</li>
+<li>자동 코드 리뷰 시스템</li>
+</ul>
+</li>
+<li><p>배포 전</p>
+<ul>
+<li>컨텍스트 기반 품질 게이트</li>
+<li>성능 및 보안 기준 검증</li>
+</ul>
+</li>
+</ol>
+<h2 id="자동화-도구-예시">자동화 도구 예시 {#자동화-도구-예시}</h2>
+<ul>
+<li>Context Linter: 규칙 준수 자동 검사</li>
+<li>Pattern Matcher: 예제 패턴 일치 검증</li>
+<li>PRP Tracker: 요구사항 추적 및 완성도 측정</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">15 lines</span>
+</div>
+</div></li>
+</ul>
+<h3 id="혁신적-응용-사례">💡 혁신적 응용 사례 {#혁신적-응용-사례}</h3>
+<h4>AI 모델 특화 컨텍스트</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1660" onclick="copyCode('code-1769482285007-1660')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1660" class="language-markdown"># 다양한 AI 모델별 최적화
+
+<h2 id="claude-특화-컨텍스트">Claude 특화 컨텍스트 {#claude-특화-컨텍스트}</h2>
+<ul>
+<li>긴 컨텍스트 활용 최적화</li>
+<li>추론 능력 극대화 패턴</li>
+<li>코드 생성 정확도 향상</li>
+</ul>
+<h2 id="gpt-계열-최적화">GPT 계열 최적화 {#gpt-계열-최적화}</h2>
+<ul>
+<li>토큰 효율성 최대화</li>
+<li>프롬프트 엔지니어링 통합</li>
+<li>함수 호출 패턴 최적화</li>
+</ul>
+<h2 id="오픈소스-모델-적용">오픈소스 모델 적용 {#오픈소스-모델-적용}</h2>
+<ul>
+<li>로컬 실행 환경 최적화</li>
+<li>제한된 컨텍스트 효율 활용</li>
+<li>모델별 강점 극대화</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">13 lines</span>
+</div>
+</div></li>
+</ul>
+<h4>도메인 특화 Context Library</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482285007-1661" onclick="copyCode('code-1769482285007-1661')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482285007-1661" class="language-markdown"># 산업별 특화 컨텍스트
+
+<h2 id="핀테크-컨텍스트-라이브러리">핀테크 컨텍스트 라이브러리 {#핀테크-컨텍스트-라이브러리}</h2>
+<ul>
+<li>PCI DSS 준수 패턴</li>
+<li>금융 계산 로직 템플릿</li>
+<li>규제 보고 자동화</li>
+</ul>
+<h2 id="헬스케어-컨텍스트">헬스케어 컨텍스트 {#헬스케어-컨텍스트}</h2>
+<ul>
+<li>HIPAA 컴플라이언스 패턴</li>
+<li>의료 데이터 처리 규칙</li>
+<li>FDA 검증 요구사항</li>
+</ul>
+<h2 id="e-커머스-컨텍스트">E-커머스 컨텍스트 {#e-커머스-컨텍스트}</h2>
+<ul>
+<li>결제 처리 보안 패턴</li>
+<li>재고 관리 로직</li>
+<li>국제화 지원 템플릿</code></pre><div class="code-block__footer">
+  <span class="code-block__lines">13 lines</span>
+</div>
+</div></li>
+</ul>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<h3 id="상위-개념">🔗 상위 개념 {#상위-개념}</h3>
+<ul>
+<li><a href="/articles/ai-tools-analysis.html" class="internal-link">AI 코딩 도구 비교 분석</a></li>
+<li><a href="/articles/prompt-engineering-advanced.html" class="internal-link">프롬프트 엔지니어링 고급 기법</a></li>
+<li><a href="/articles/development-how-to.html" class="internal-link">소프트웨어 개발 방법론</a></li>
+</ul>
+<h3 id="하위-세부사항">🔗 하위 세부사항 {#하위-세부사항}</h3>
+<ul>
+<li><a href="/articles/claudemd-perfect-guide.html" class="internal-link">CLAUDE.md 작성 완벽 가이드</a></li>
+<li><a href="/articles/prp-template.html" class="internal-link">PRP 템플릿 라이브러리</a></li>
+<li><a href="/articles/context-engineering-automation-tools.html" class="internal-link">Context Engineering 자동화 도구</a></li>
+</ul>
+<h3 id="병렬-주제">🔗 병렬 주제 {#병렬-주제}</h3>
+<ul>
+<li><a href="/articles/github-copilot.html" class="internal-link">GitHub Copilot 최적화 전략</a></li>
+<li><a href="/articles/chatgpt-workflow.html" class="internal-link">ChatGPT 코딩 워크플로우</a></li>
+<li><a href="/articles/ai.html" class="internal-link">AI 페어 프로그래밍 기법</a></li>
+</ul>
+<h3 id="실전-활용">🔗 실전 활용 {#실전-활용}</h3>
+<ul>
+<li><a href="/articles/context-engineering-guide.html" class="internal-link">팀 단위 Context Engineering 도입 가이드</a></li>
+<li><a href="/articles/article.html" class="internal-link">프로젝트별 컨텍스트 설계 패턴</a></li>
+<li><a href="/articles/context-engineering-roi-how-to.html" class="internal-link">Context Engineering ROI 측정 방법</a></li>
+</ul>
+<hr>
+<h2 id="출처-및-참고자료">📚 출처 및 참고자료 {#출처-및-참고자료}</h2>
+<h3 id="주요-출처">🔗 주요 출처 {#주요-출처}</h3>
+<ul>
+<li><strong>GitHub 저장소</strong>: context-engineering-intro</li>
+<li><strong>작성자</strong>: IncomeStreamSurfer</li>
+<li><strong>원본 링크</strong>: <a href="https://github.com/IncomeStreamSurfer/context-engineering-intro">https://github.com/IncomeStreamSurfer/context-engineering-intro</a></li>
+<li><strong>분석 일자</strong>: 2025년 7월 7일</li>
+<li><strong>라이선스</strong>: MIT License</li>
+<li><strong>내용 언어</strong>: 영어 (한국어 분석)</li>
+</ul>
+<h3 id="핵심-참고자료">📋 핵심 참고자료 {#핵심-참고자료}</h3>
+<ul>
+<li><strong>Andre Karpathy의 Context Engineering 원론</strong>: OpenAI 연구진의 기초 이론</li>
+<li><strong>프롬프트 엔지니어링 vs Context Engineering</strong>: 개념 비교 및 발전 과정</li>
+<li><strong>GitHub README 원문</strong>: 10분 퀵스타트 가이드</li>
+<li><strong>실습 코드 예제</strong>: examples/ 폴더 내 구현 패턴</li>
+</ul>
+<h3 id="기술-문서-및-도구">💡 기술 문서 및 도구 {#기술-문서-및-도구}</h3>
+<ul>
+<li><strong>Claude Code 공식 문서</strong>: MCP 통합 및 활용 가이드</li>
+<li><strong>LangChain Context Engineering</strong>: 프레임워크 활용법</li>
+<li><strong>OpenAI 프롬프트 엔지니어링 가이드</strong>: 기초 개념 학습</li>
+<li><strong>Anthropic Claude API</strong>: 컨텍스트 최적화 방법</li>
+</ul>
+<h3 id="실습-관련-자료">🛠️ 실습 관련 자료 {#실습-관련-자료}</h3>
+<ul>
+<li><strong>GitHub 템플릿</strong>: context-engineering-intro 저장소</li>
+<li><strong>CLAUDE.md 예제</strong>: AI 코딩 규칙 템플릿</li>
+<li><strong>PRP 템플릿</strong>: Product Requirements Prompt 작성법</li>
+<li><strong>examples/ 폴더</strong>: 코드 패턴 및 모범 사례</li>
+</ul>
+<h3 id="관련-연구-및-통계">🎯 관련 연구 및 통계 {#관련-연구-및-통계}</h3>
+<ul>
+<li><strong>개발 생산성 향상</strong>: 10배 효과 (vs 프롬프트 엔지니어링)</li>
+<li><strong>코드 품질 개선</strong>: 100배 효과 (vs vibe coding)</li>
+<li><strong>팀 적용 성과</strong>: 개발 속도 40% 향상 목표</li>
+<li><strong>ROI 측정</strong>: 비용 절감 및 품질 향상 지표</li>
+</ul>
+<h3 id="추가-학습-자료">📚 추가 학습 자료 {#추가-학습-자료}</h3>
+<ul>
+<li><strong>소프트웨어 아키텍처 원칙</strong>: 컨텍스트 설계 기초</li>
+<li><strong>DevOps 자동화 가이드</strong>: CI/CD 파이프라인 통합</li>
+<li><strong>코드 품질 측정</strong>: 정량적 지표 및 도구</li>
+<li><strong>팀 협업 방법론</strong>: 컨텍스트 공유 및 관리</li>
+</ul>
+<hr>
+<p><strong>💡 Pro Tip</strong>: Context Engineering은 단순한 도구가 아닌 개발 문화의 변화입니다. 팀 전체가 체계적인 접근 방식을 내재화할 때 진정한 효과를 발휘합니다!</p>
+<p><strong>🎯 다음 학습 목표</strong>: 실제 프로젝트에 Context Engineering을 적용하여 개발 생산성과 코드 품질의 동시 향상 달성하기</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/코딩.html" class="article-tag">코딩</a><a href="/tag/프롬프트.html" class="article-tag">프롬프트</a><a href="/tag/엔지니어링.html" class="article-tag">엔지니어링</a><a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/방법론.html" class="article-tag">방법론</a><a href="/tag/Claude.html" class="article-tag">Claude</a><a href="/tag/Code.html" class="article-tag">Code</a><a href="/tag/생산성.html" class="article-tag">생산성</a><a href="/tag/향상.html" class="article-tag">향상</a><a href="/tag/가이드.html" class="article-tag">가이드</a><a href="/tag/실무.html" class="article-tag">실무</a><a href="/tag/출처.html" class="article-tag">출처</a><a href="/tag/GitHub.html" class="article-tag">GitHub</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/context-engineering-complete-guide.html&text=Context Engineering 완전 가이드" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/context-engineering-complete-guide.html&title=Context Engineering 완전 가이드" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/context-engineering-complete-guide.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/prompt-master.html" class="author-bio__card">
+          <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">프롬프트 마스터</h3>
+            <p class="author-bio__role">Prompt Engineering Specialist</p>
+            <p class="author-bio__text">효과적인 프롬프트 작성 기법과 엔지니어링 전략을 연구합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/lovable-prompt-engineering-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/prompt-engineering-placeholder.svg"
+             alt="Lovable 프롬프트 엔지니어링 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Lovable 프롬프트 엔지니어링 완전 가이드</h3>
+          <p class="article-card__excerpt">"2025년, 시장의 승자는 최고의 AI 모델을 가진 기업이 아니라, AI와 가장 잘 소통하는 기업이 될 것이다." <div style="background: #e3f2fd; border: 1px solid #2196F3; padding: 10px;...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">
+              <span>프롬프트 마스터</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/context-engineering-complete-prompt.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/prompt-engineering-placeholder.svg"
+             alt="Context Engineering 완전 정복 - 프롬프트를 넘어서"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Context Engineering 완전 정복 - 프롬프트를 넘어서</h3>
+          <p class="article-card__excerpt">1.  || #충격적인 진실 - 프롬프트 엔지니어링은 낡았다 2.  || #Context Engineering이 뭔가요 3.  || #왜 AI는 실패할까 컨텍스트 부족 문제 4.  || #Context Engineering의 핵심 구조 5.  || #PRP 워크플로우...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">
+              <span>프롬프트 마스터</span>
+            </div>
+            <span class="article-card__reading-time">41 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/context-engineering-new-vibe-coding.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/prompt-engineering-placeholder.svg"
+             alt="Context Engineering은 새로운 Vibe Coding이다"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Context Engineering은 새로운 Vibe Coding이다</h3>
+          <p class="article-card__excerpt">1.  || #개요 2.  || #Vibe Coding의 한계 3.  || #Context Engineering의 등장 4.  || #Context Engineering vs 프롬프트 엔지니어링 5.  || #Context Engineering 구성 요소 6.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">
+              <span>프롬프트 마스터</span>
+            </div>
+            <span class="article-card__reading-time">22 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI 기술 자료 저널</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

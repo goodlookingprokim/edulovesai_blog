@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plasmo_Framework_초보자_가이드 | AI &amp; Development Journal</title>
+  <meta name="description" content="PlasmoFramework초보자가이드">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Plasmo_Framework_초보자_가이드">
+  <meta property="og:description" content="PlasmoFramework초보자가이드">
+  <meta property="og:image" content="/assets/images/tutorials-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/plasmo-framework-초보자-가이드.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Plasmo_Framework_초보자_가이드">
+  <meta name="twitter:description" content="PlasmoFramework초보자가이드">
+  <meta name="twitter:image" content="/assets/images/tutorials-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/plasmo-framework-초보자-가이드.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/tutorials.html" class="article-category" style="background-color: #14b8a6">
+          튜토리얼
+        </a>
+        <h1 class="article-title">Plasmo_Framework_초보자_가이드</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-expert.html" class="article-author">
+            <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 전문가</span>
+              <span class="article-author__role">AI &amp; Development Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 10월 11일">2025년 10월 11일</time>
+            <span class="article-meta__separator">·</span>
+            <span>83 read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#plasmo-frameworkplasmo-framework" class="toc__link">Plasmo Framework[](#plasmo-framework)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#itero-testbeditero-testbed" class="toc__link">Itero TestBed[](#itero-testbed)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#plasmo-browser-platform-publisherplasmo-browser-platform-pub" class="toc__link">Plasmo Browser Platform Publisher[](#plasmo-browser-platform-publisher)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#development-serverdevelopment-server" class="toc__link">Development Server[](#development-server)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#production-buildproduction-build" class="toc__link">Production Build[](#production-build)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#loading-the-extension-in-chromeloading-the-extension-in-chro" class="toc__link">Loading the Extension in Chrome[](#loading-the-extension-in-chrome)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#use-casesuse-cases" class="toc__link">Use cases:[](#use-cases)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#configconfig" class="toc__link">Config[](#config)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#overlayoverlay" class="toc__link">Overlay[](#overlay)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#inlineinline" class="toc__link">Inline[](#inline)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#custom-dom-mountingcustom-dom-mounting" class="toc__link">Custom DOM Mounting[](#custom-dom-mounting)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#closed-shadow-rootclosed-shadow-root" class="toc__link">Closed Shadow Root[](#closed-shadow-root)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#custom-stylescustom-styles" class="toc__link">Custom Styles[](#custom-styles)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#custom-root-containercustom-root-container" class="toc__link">Custom Root Container[](#custom-root-container)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#detecting-and-optimizing-root-container-removaldetecting-and" class="toc__link">Detecting and Optimizing Root Container Removal[](#detecting-and-optimizing-root-container-removal)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#custom-renderercustom-renderer" class="toc__link">Custom Renderer[](#custom-renderer)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#css-variablescss-variables" class="toc__link">CSS Variables[](#css-variables)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#root-container-styleroot-container-style" class="toc__link">Root Container Style[](#root-container-style)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#1-install-dependency1-install-dependency" class="toc__link">1\. Install dependency[](#1-install-dependency)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#2-create-background-folder-file2-create-background-folder-fi" class="toc__link">2\. Create background folder &amp; file[](#2-create-background-folder--file)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#3-generate-static-types3-generate-static-types" class="toc__link">3\. Generate static types[](#3-generate-static-types)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#4-thats-all4-thats-all" class="toc__link">4\. That&#39;s all[](#4-thats-all)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#setting-up-a-relaysetting-up-a-relay" class="toc__link">Setting Up a Relay[](#setting-up-a-relay)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#node_env-specific-envnode_env-specific-env" class="toc__link">NODE\_ENV Specific Env[](#node_env-specific-env)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#bundle-specific-envbundle-specific-env" class="toc__link">Bundle Specific Env[](#bundle-specific-env)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#local-envlocal-env" class="toc__link">Local Env[](#local-env)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#prioritized-envprioritized-env" class="toc__link">Prioritized Env[](#prioritized-env)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#in-source-codein-source-code" class="toc__link">In Source Code[](#in-source-code)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#in-remote-code-importin-remote-code-import" class="toc__link">In Remote Code Import[](#in-remote-code-import)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#in-content-scripts-configin-content-scripts-config" class="toc__link">In Content Scripts Config[](#in-content-scripts-config)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#in-manifest-overridesin-manifest-overrides" class="toc__link">In Manifest Overrides[](#in-manifest-overrides)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#customizing-the-storage-areacustomizing-the-storage-area" class="toc__link">Customizing the storage area[](#customizing-the-storage-area)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#automatically-copy-data-to-localstorageautomatically-copy-da" class="toc__link">Automatically copy data to localStorage[](#automatically-copy-data-to-localstorage)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#watch-for-state-syncwatch-for-state-sync" class="toc__link">Watch (for state sync)[](#watch-for-state-sync)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#watch-and-render-a-valuewatch-and-render-a-value" class="toc__link">Watch and render a value[](#watch-and-render-a-value)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#with-a-custom-storage-instancewith-a-custom-storage-instance" class="toc__link">With a custom storage instance[](#with-a-custom-storage-instance)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#rendering-initial-value-without-persistingrendering-initial-" class="toc__link">Rendering initial value WITHOUT persisting[](#rendering-initial-value-without-persisting)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#rendering-and-persisting-initial-valuerendering-and-persisti" class="toc__link">Rendering AND persisting initial value[](#rendering-and-persisting-initial-value)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#advanced-usageadvanced-usage" class="toc__link">Advanced usage[](#advanced-usage)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#usage-with-firefoxusage-with-firefox" class="toc__link">Usage with Firefox[](#usage-with-firefox)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#tilde-tilde" class="toc__link">Tilde (`~/`)[](#tilde-)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#absolute-absolute" class="toc__link">Absolute (`/`)[](#absolute-)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#relative-relative" class="toc__link">Relative (`./`, `../`)[](#relative--)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#rawraw" class="toc__link">raw[](#raw)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#raw-envraw-env" class="toc__link">raw-env[](#raw-env)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#urlurl" class="toc__link">url[](#url)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#data-textdata-text" class="toc__link">data-text[](#data-text)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#data-text-envdata-text-env" class="toc__link">data-text-env[](#data-text-env)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#data-base64data-base64" class="toc__link">data-base64[](#data-base64)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#data-envdata-env" class="toc__link">data-env[](#data-env)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#reactsvgreactsvg" class="toc__link">react:\*.svg[](#reactsvg)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#custom-development-iconcustom-development-icon" class="toc__link">Custom Development Icon[](#custom-development-icon)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#loading-asset-during-runtimeloading-asset-during-runtime" class="toc__link">Loading Asset during runtime[](#loading-asset-during-runtime)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#inside-source-code-modulesinside-source-code-modules" class="toc__link">Inside source code modules[](#inside-source-code-modules)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#inside-packagejson-and-manifest-overridesinside-packagejson-" class="toc__link">Inside package.json and manifest overrides[](#inside-packagejson-and-manifest-overrides)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#using-preact-instead-of-reactusing-preact-instead-of-react" class="toc__link">Using Preact instead of React[](#using-preact-instead-of-react)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#prepare-your-extensions-zip-bundleprepare-your-extensions-zi" class="toc__link">Prepare Your Extension&#39;s Zip Bundle[](#prepare-your-extensions-zip-bundle)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#upload-your-browser-extensions-zip-file-on-iteroupload-your-" class="toc__link">Upload Your Browser Extension&#39;s Zip File on Itero[](#upload-your-browser-extensions-zip-file-on-itero)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#share-your-extensions-link-with-your-beta-testersshare-your-" class="toc__link">Share Your Extension&#39;s Link with Your Beta Testers[](#share-your-extensions-link-with-your-beta-testers)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#upload-a-new-extension-on-your-itero-opens-in-a-new-tabhttps" class="toc__link">Upload a new extension on your [Itero (opens in a new tab)](https://itero.plasmo.com/) account[](#upload-a-new-extension-on-your-itero-account)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#link-your-github-organization-to-iterolink-your-github-organ" class="toc__link">Link your GitHub organization to Itero[](#link-your-github-organization-to-itero)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#1-post-httpsiteroplasmocomapisubmitupload1-post-httpsiteropl" class="toc__link">1\. POST `https://itero.plasmo.com/api/submit/upload`[](#1-post-httpsiteroplasmocomapisubmitupload)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#2-put-signed-upload-url2-put-signed-upload-url" class="toc__link">2\. PUT signed-upload-url[](#2-put-signed-upload-url)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#3-post-httpsiteroplasmocomapisubmitsign3-post-httpsiteroplas" class="toc__link">3\. POST `https://itero.plasmo.com/api/submit/sign`[](#3-post-httpsiteroplasmocomapisubmitsign)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#create-your-slicecreate-your-slice" class="toc__link">Create Your Slice[](#create-your-slice)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#create-your-storecreate-your-store" class="toc__link">Create Your Store[](#create-your-store)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#using-in-reactusing-in-react" class="toc__link">Using in React[](#using-in-react)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#using-in-a-background-service-workerusing-in-a-background-se" class="toc__link">Using in a Background Service Worker[](#using-in-a-background-service-worker)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#set-up-fixed-extension-id-for-developmentset-up-fixed-extens" class="toc__link">Set up fixed Extension ID for development[](#set-up-fixed-extension-id-for-development)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#add-dependenciesadd-dependencies" class="toc__link">Add Dependencies[](#add-dependencies)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#generate-your-tailwindconfigjs-filegenerate-your-tailwindcon" class="toc__link">Generate your tailwind.config.js file[](#generate-your-tailwindconfigjs-file)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#defining-your-postcss-configdefining-your-postcss-config" class="toc__link">Defining Your PostCSS Config[](#defining-your-postcss-config)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#setting-up-tailwind-configsetting-up-tailwind-config" class="toc__link">Setting up Tailwind config[](#setting-up-tailwind-config)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#adding-root-stylesadding-root-styles" class="toc__link">Adding Root Styles[](#adding-root-styles)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#in-extension-pagesin-extension-pages" class="toc__link">In Extension Pages[](#in-extension-pages)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#in-content-scripts-uiin-content-scripts-ui" class="toc__link">In Content Scripts UI[](#in-content-scripts-ui)</a>
+    </li>
+    <li class="toc__item">
+      <a href="#configconfig" class="toc__link">Config[](#config)</a>
+    </li>
+  </ol>
+</nav>
+
+            <page>
+  <title>Introduction to Plasmo – Plasmo</title>
+  <url>https://docs.plasmo.com/</url>
+  <content>[](https://www.twitter.com/plasmohq)[](https://www.twitch.tv/plasmohq)[](https://www.plasmo.com/s/d)
+
+<p>Welcome to Plasmo, the all-in-one platform that makes it easy for browser extension developers to create, test, and publish amazing extensions. With Plasmo, you can say goodbye to tedious boilerplate code and hello to a faster, more seamless development experience.</p>
+<h2>Product Offerings<a href="#product-offerings"></a></h2>
+<p>Our flagship product, the <a href="https://docs.plasmo.com/#plasmo-framework">Plasmo Framework</a>, is the ultimate Browser Extension SDK. It&#39;s designed to help you write extension code quickly and easily, without worrying about the intricacies of browser extensions.</p>
+<p>Once you&#39;ve built your extension, use <a href="https://docs.plasmo.com/#itero-testbed">Itero TestBed</a> to test it in a real-world environment. This powerful staging environment lets you see how your extension will perform in the wild, and make any necessary changes before you launch. Ship directly to your beta testers without a review process holding you back.</p>
+<p>Finally, when you&#39;re ready to go live, our <a href="https://docs.plasmo.com/#plasmo-browser-platform-publisher">Plasmo BPP tool</a> makes it easy to automate the publishing process. With just a few clicks, you can publish your extension to the world and start gaining users.</p>
+<h3>Plasmo Framework<a href="#plasmo-framework"></a> {#plasmo-frameworkplasmo-framework}</h3>
+<p>Imagine a world where building browser extensions is easy and fun. Gone are the days of tedious development processes and struggling with complex APIs and configurations.</p>
+<p>With Plasmo, declarative development is a breeze - just write a file, export a component, and Plasmo does the rest, automatically bundling and mounting it for you. Plus, <a href="https://www.plasmo.com/s/d">our active community (opens in a new tab)</a> of over 400 developers is always there to help out and share their expertise.</p>
+<p>Plasmo offers first-class support for Typescript, React, Preact, Svelte, and Vue, making it easy to build complex, beautiful and scalable extensions. And with live-reload and React HMR built-in, you can see your changes instantly, without having to manually refresh your extension.</p>
+<p>Plasmo also comes with powerful libraries for <a href="https://docs.plasmo.com/framework/storage">storage</a> and <a href="https://docs.plasmo.com/framework/messaging">messaging</a>, as well as built-in support for <a href="https://docs.plasmo.com/framework/env">.env files</a>. Plus, with Plasmo&#39;s &quot;learn once, write everywhere&quot; approach, you can build an extension once and easily <a href="https://docs.plasmo.com/framework/workflows/build#with-a-specific-target">target it to multiple browsers and manifest versions</a>.</p>
+<p>To get started: <a href="https://docs.plasmo.com/framework#getting-started">Click Here</a></p>
+<p>To migrate: <a href="https://docs.plasmo.com/quickstarts/migrate-to-plasmo">Click Here</a></p>
+<h3>Itero TestBed<a href="#itero-testbed"></a> {#itero-testbeditero-testbed}</h3>
+<p>Testing browser extensions can be a tedious and time-consuming process. Traditional methods often require waiting for approval from browser stores or having your beta testers manually install updates. Itero TestBed offers a solution to this problem by allowing you to instantly push updates to your beta testers.</p>
+<p>Our SaaS platform also integrates with GitHub and includes automatic versioning. With Itero TestBed, you can streamline the testing process and focus on iterating quickly.</p>
+<p>Features include:</p>
+<ul>
+<li>Instant updates to your beta testers</li>
+<li>GitHub integration for easy deployment</li>
+<li>Automatic versioning</li>
+</ul>
+<p>To get started: <a href="https://docs.plasmo.com/itero">Click Here</a></p>
+<h3>Plasmo Browser Platform Publisher<a href="#plasmo-browser-platform-publisher"></a> {#plasmo-browser-platform-publisherplasmo-browser-platform-pub}</h3>
+<p>Open-source GitHub action that makes it easy to publish your browser extension to the Chrome, Firefox Add-ons, and Microsoft Edge Add-ons stores. With Plasmo BPP, you can automate the publishing process and spend more time building your extension.</p>
+<p>To get started: <a href="https://docs.plasmo.com/framework/workflows/submit">Click Here</a></p>
+<p><a href="https://docs.plasmo.com/framework" title="Getting Started">Getting Started</a></content>
+</page></p>
+<page>
+  <title>Plasmo Framework – Plasmo</title>
+  <url>https://docs.plasmo.com/framework</url>
+  <content>[](https://github.com/PlasmoHQ/plasmo/blob/main/LICENSE)[](https://www.npmjs.com/package/plasmo)[](https://www.twitter.com/plasmohq)[](https://www.twitch.tv/plasmohq)[](https://www.plasmo.com/s/d)
+
+<p>The <a href="https://www.plasmo.com/">Plasmo (opens in a new tab)</a> Framework is a battery-packed browser extension SDK made by hackers for hackers. Build your product and stop worrying about config files and the odd peculiarities of building browser extensions.</p>
+<h2>Highlighted Features<a href="#highlighted-features"></a></h2>
+<ul>
+<li>First-class <a href="https://reactjs.org/">React (opens in a new tab)</a> + <a href="https://www.typescriptlang.org/">Typescript (opens in a new tab)</a> Support</li>
+<li><a href="https://docs.plasmo.com/framework#where-is-the-manifestjson-file">Declarative Development (opens in a new tab)</a></li>
+<li><a href="https://docs.plasmo.com/csui">Content Scripts UI (opens in a new tab)</a></li>
+<li><a href="https://docs.plasmo.com/framework/tab-pages">Tab Pages (opens in a new tab)</a></li>
+<li>Live-reloading + React HMR</li>
+<li><a href="https://docs.plasmo.com/framework/env"><code>.env*</code> files (opens in a new tab)</a></li>
+<li><a href="https://docs.plasmo.com/framework/storage">Storage API (opens in a new tab)</a></li>
+<li><a href="https://docs.plasmo.com/framework/messaging">Messaging API (opens in a new tab)</a></li>
+<li><a href="https://docs.plasmo.com/framework/remote-code">Remote code bundling (opens in a new tab)</a> (e.g., for Google Analytics)</li>
+<li>Targeting <a href="https://docs.plasmo.com/framework/workflows/build#with-specific-target">multiple browser and manifest pairs (opens in a new tab)</a></li>
+<li><a href="https://docs.plasmo.com/framework/workflows/submit">Automated deployment via BPP (opens in a new tab)</a></li>
+<li>Optional support for <a href="https://github.com/PlasmoHQ/examples/tree/main/with-svelte">Svelte (opens in a new tab)</a> and <a href="https://github.com/PlasmoHQ/examples/tree/main/with-vue">Vue (opens in a new tab)</a>, and <a href="https://github.com/PlasmoHQ/examples">a lot of other tools (opens in a new tab)</a></li>
+</ul>
+<p>And many, many more! 🚀</p>
+<h2>System Requirements<a href="#system-requirements"></a></h2>
+<ul>
+<li>Node.js 16.14.x or later</li>
+<li>macOS, Windows, or Linux</li>
+<li>(Strongly Recommended) <a href="https://pnpm.io/">pnpm (opens in a new tab)</a></li>
+</ul>
+<h2>Getting Started<a href="#getting-started"></a></h2>
+<p>This command will set up the simplest Plasmo browser extension project for you. The structure is straightforward:</p>
+<h3>Development Server<a href="#development-server"></a> {#development-serverdevelopment-server}</h3>
+<p>For live-reloading and HMR, you can start the development server with:</p>
+<p>The above command will watch for file changes and regenerate a bundle of your extension in <code>build/chrome-mv3-dev</code>, and automatically reload your extension in your browser.</p>
+<h3>Production Build<a href="#production-build"></a> {#production-buildproduction-build}</h3>
+<p>For a production build, run:</p>
+<p>This will create a production version of the extension in <code>build/chrome-mv3-prod</code></p>
+<h3>Loading the Extension in Chrome<a href="#loading-the-extension-in-chrome"></a> {#loading-the-extension-in-chromeloading-the-extension-in-chro}</h3>
+<p>We plan to automate this in the future, but for the time being, these are the steps you need to take to load your extension in Chrome.</p>
+<p>Head over to <code>chrome://extensions</code> and enable Developer Mode.</p>
+<p>Click on &quot;Load Unpacked&quot; and navigate to your extension&#39;s <code>build/chrome-mv3-dev</code> (or <code>build/chrome-mv3-prod</code>) directory.</p>
+<p>To see your popup, click on the puzzle piece icon on the Chrome toolbar, and click on your extension.</p>
+<h2>Where is the manifest.json file?<a href="#where-is-the-manifestjson-file"></a></h2>
+<p>Plasmo abstracts away the manifest file. The framework generates the manifest under the hood based on your source files and configurations you export from your code, similar to how <a href="https://nextjs.org/">Next.js (opens in a new tab)</a> abstracts page routing and SSG with the file system and page components.</p>
+<p>We will further abstract with auto-permissions and a needs-based permission scheme, removing the need to specify permissions manually! <em>(Coming soon)</em></p>
+<h2>Next Steps<a href="#next-steps"></a></h2>
+<p>Go to the <a href="https://docs.plasmo.com/framework/ext-pages">Extension Pages section</a> to learn more about the different UI elements in a Plasmo extension and get inspiration. A modular example accompanies each workflow, showcasing the framework&#39;s simplicity. View examples on <a href="https://github.com/PlasmoHQ/examples">our GitHub repo (opens in a new tab)</a>.</p>
+<p>Check out the <a href="https://docs.plasmo.com/framework/customization">Customization section</a> for documentation on making Plasmo adapt to your needs.</p>
+<p>To see how to integrate Plasmo with other tools (such as TailwindCSS or Firebase), check out the list of examples in the <a href="https://docs.plasmo.com/quickstarts">Quickstarts section</a>.</p>
+<h2>Community<a href="#community"></a></h2>
+<p>Find the Plasmo community on <a href="https://www.plasmo.com/s/d">Discord (opens in a new tab)</a>. If you&#39;re stuck and want some help or looking to chat more about Plasmo and browser extensions, this is the place to be!</p>
+<p>If you find a bug in the Plasmo Framework, please report it using our <a href="https://docs.plasmo.com/bug">Bug Report Form</a>.</p>
+<p>Our <a href="https://github.com/PlasmoHQ/plasmo/blob/main/.github/CODE_OF_CONDUCT.md">Code of Conduct (opens in a new tab)</a> applies to all Plasmo community channels.</p>
+<h2>Projects using Plasmo Framework<a href="#projects-using-plasmo-framework"></a></h2>
+<ul>
+<li><a href="https://playcradle.com/">Cradle (opens in a new tab)</a></li>
+<li><a href="https://www.plasmo.com/blog/posts/migrating-chrome-extension-to-plasmo">ArConnect (opens in a new tab)</a></li>
+<li><a href="https://github.com/PlasmoHQ/mice">MICE (opens in a new tab)</a></li>
+<li><a href="https://github.com/PlasmoHQ/plasmo/network/dependents">Hundreds of Repos on GitHub (opens in a new tab)</a></li>
+<li>Many hundreds more on the Chrome Web Store</li>
+</ul>
+<p><a href="https://docs.plasmo.com/" title="Welcome">Welcome</a><a href="https://docs.plasmo.com/framework/workflows/new" title="New Extension">New Extension</a></content>
+</page></p>
+<page>
+  <title>Start the Development Server – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/workflows/dev</url>
+  <content>Once you've set up your project, start developing your extension by navigating to your project directory and running:
+
+<p>Plasmo will create a dev bundle for your extension and a live-reloading development server, automatically updating your extension bundle on file changes and reloading your browser on source code changes. It also prefixes the extension name with <code>DEV |</code> and makes the icon grayscale to distinguish between development and production extension bundles.</p>
+<h2>Loading the extension<a href="#loading-the-extension"></a></h2>
+<p>We plan to automate this in the future, but for the time being, these are the steps you need to take to load your extension in Chrome.</p>
+<p>Head over to <code>chrome://extensions</code> and enable Developer Mode.</p>
+<p>Click on &quot;Load Unpacked&quot; and navigate to your extension&#39;s <code>build/chrome-mv3-dev</code> (or <code>build/chrome-mv3-prod</code>) directory.</p>
+<p>To see your popup, click on the puzzle piece icon on the Chrome toolbar, and click on your extension.</p>
+<p><strong>Pro tip:</strong> Pin your extension to the Chrome toolbar for easy access by clicking the pin button.</p>
+<h2>With a specific target<a href="#with-a-specific-target"></a></h2>
+<p>When you&#39;re building with Plasmo, you&#39;re building a Plasmo extension, rather than a Chrome or Firefox extension. This means that you can build a single extension that works across all supported browsers, with minor tweaks. You can direct Plasmo to build an extension for a specific browser and manifest version by using the <code>--target</code> flag:</p>
+<p>The final bundle will be available in the <code>build/firefox-mv2-dev</code> directory.</p>
+<p>For a list of officially supported targets, <a href="https://docs.plasmo.com/framework/workflows/faq#what-are-the-officially-supported-browser-targets">visit this link</a>.</p>
+<h2>Without source maps<a href="#without-source-maps"></a></h2>
+<p>By default, Plasmo generates source maps for your extension during development. If you need to disable this, you can use the <code>--no-source-maps</code> flag:</p>
+<p>This is useful when you have dependencies that don&#39;t play well with source maps.</p>
+<h2>With a specific hostname and port<a href="#with-a-specific-hostname-and-port"></a></h2>
+<p>The development server will, by default, bind to <code>localhost</code> and port <code>1012</code>. You can change these with <code>--serve-host</code> and <code>--serve-port</code>:</p>
+<p>Similarly, the hot module reload websocket will, by default, bind to <code>localhost</code> and port <code>1815</code>, with the build reporter binding to the HMR socket + 1 (1816 by default). You can change these with <code>--hmr-host</code> and <code>--hmr-port</code>:</p>
+<p><a href="https://docs.plasmo.com/framework/workflows/new" title="New Extension">New Extension</a><a href="https://docs.plasmo.com/framework/workflows/build" title="Production Build">Production Build</a></content>
+</page></p>
+<page>
+  <title>Create a New Extension – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/workflows/new</url>
+  <content>To run the interactive initialization wizard, use the following command:
+
+<p>To skip the naming prompt, supply a name as a positional argument:</p>
+<h2>With src directory<a href="#with-src-directory"></a></h2>
+<p>By default, Plasmo expects all source code to be in the root directory. However, you can follow <a href="https://docs.plasmo.com/framework/customization/src">this guide</a> to use the <code>src</code> directory as the home for your source code.</p>
+<h2>With specific entry files<a href="#with-specific-entry-files"></a></h2>
+<p>The default project contains just a <a href="https://docs.plasmo.com/framework/ext-pages#adding-a-popup-page">popup</a> entry file. However, you can customize this behavior by using the <code>entry</code> flag with a comma-separated list of entry files to include in your initial project.</p>
+<p>To use this flag, pick the entry files you would like to see in your project, omit its file extension, and supply it to the <code>--entry</code> flag:</p>
+<p>There are many entry files to choose from. Check out <a href="https://github.com/PlasmoHQ/plasmo/tree/main/packages/init/entries">this directory (opens in a new tab)</a> to see all the different entry files available to you.</p>
+<p>The command above will create a project with the <a href="https://docs.plasmo.com/framework/ext-pages#adding-the-options-ui">options page</a>, a <a href="https://docs.plasmo.com/framework/ext-pages#adding-a-new-tab-page">newtab page</a>, and an <a href="https://docs.plasmo.com/framework/content-scripts-ui">inline content script UI</a>.</p>
+<h2>With an example template<a href="#with-an-example-template"></a></h2>
+<p>Even more powerful, Plasmo can create a new project based on one of <a href="https://github.com/PlasmoHQ/examples/">our examples (opens in a new tab)</a>. Pick an example, and use its name as a flag when running the <code>create plasmo</code> command:</p>
+<p>The above will generate a project using the <a href="https://github.com/PlasmoHQ/examples/tree/main/with-env">with-env (opens in a new tab)</a> example.</p>
+<p><a href="https://docs.plasmo.com/framework" title="Getting Started">Getting Started</a><a href="https://docs.plasmo.com/framework/workflows/dev" title="Development Server">Development Server</a></content>
+</page></p>
+<page>
+  <title>Create a Production Build – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/workflows/build</url>
+  <content>To create a production bundle for distribution, run:
+
+<h2>Generating a zip bundle<a href="#generating-a-zip-bundle"></a></h2>
+<p>To create a production zip bundle ready to be uploaded to the web stores, use the <code>package</code> command:</p>
+<p>If you would like to combine the building and packaging process, use the <code>--zip</code> flag with the <code>build</code> command instead:</p>
+<h2>With a specific target<a href="#with-a-specific-target"></a></h2>
+<p>The <code>build</code> command accepts a <code>--target</code> flag in the form of <code>&lt;browser-name&gt;-&lt;manifest-version&gt;</code>. Use it to specify a browser and manifest version combination to build for:</p>
+<p>The final bundle will be available in the <code>build/firefox-mv2-prod</code> directory. You may use any pairs of target browser and manifest version.</p>
+<p>For a list of officially supported targets, <a href="https://docs.plasmo.com/framework/workflows/faq#what-are-the-officially-supported-browser-targets">visit this link</a>. These targets are recognized by the bundler, which will automatically handle some vendor-specific behavior for you.</p>
+<p>The <code>--target</code> flag also enables you to:</p>
+<ul>
+<li>Use a target-specific environment file: <code>.env.&lt;browser-name&gt;</code></li>
+<li>Use a target-specific entry files: e.g <code>popup.&lt;browser-name&gt;.tsx</code></li>
+<li>Set the process.env.PLASMO_BROWSER to <code>&lt;browser-name&gt;</code></li>
+</ul>
+<p>The third feature works with deadcode elimination. Thus the following code:</p>
+<p>Will be trimmed down to <code>console.log(&quot;A&quot;)</code> if the target is <code>safari-mv3</code>.</p>
+<h2>With a custom tag<a href="#with-a-custom-tag"></a></h2>
+<p>Plasmo uses the <code>prod</code> tag for your production build. You can use the <code>--tag</code> flag to change this behavior:</p>
+<p>The command above will:</p>
+<ul>
+<li>Create the bundle in the <code>build/chrome-mv3-staging</code> directory</li>
+<li>Set the <code>process.env.PLASMO_TAG</code> environment variables to <code>staging</code></li>
+<li>Parse and prioritize <a href="https://docs.plasmo.com/framework/env#bundle-specific-env"><code>.env.staging</code> or <code>.env.staging.local</code></a> if any exist</li>
+</ul>
+<h2>With source maps<a href="#with-source-maps"></a></h2>
+<p>By default, Plasmo does not generate source maps for your production bundle. However, you can use the <code>--source-maps</code> flag to change this behavior:</p>
+<h2>Bundle Buddy<a href="#bundle-buddy"></a></h2>
+<p>If you&#39;d like to analyze your bundle, you can use the <code>--bundle-buddy</code> flag, combined with <code>--source-maps</code> to generate a <a href="https://bundle-buddy.com/">Bundle Buddy (opens in a new tab)</a> report:</p>
+<h2>Optimization<a href="#optimization"></a></h2>
+<p>To create a bundle with minification disabled:</p>
+<p>To create an import-optimized build where the bundle deduplicate and hoist your dependency to the top of the bundle:</p>
+<p>Note that hoisting can potentially break your dependency, especially those that import dynamic dependency via a plugin system. However, hoisting can significantly improve the bundling speed and reduce the size of your bundle.</p>
+<p>You may combine these flags as needed.</p>
+<p><a href="https://docs.plasmo.com/framework/workflows/dev" title="Development Server">Development Server</a><a href="https://docs.plasmo.com/framework/workflows/submit" title="Submission">Submission</a></content>
+</page></p>
+<page>
+  <title>Workflows Frequently Asked Questions – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/workflows/faq</url>
+  <content>How do I update Plasmo to the latest version?[](#how-do-i-update-plasmo-to-the-latest-version)
+----------------------------------------------------------------------------------------------
+
+<p>If you use pnpm, run:</p>
+<p>For other package managers, you will need to purge the lock file and rerun the install command to get the latest version of Plasmo.</p>
+<p>Alternatively, you can manually pin Plasmo&#39;s version by upgrading its version number in <code>package.json</code> and running the install command afterward.</p>
+<h2>How do I use the experimental version of Plasmo?<a href="#how-do-i-use-the-experimental-version-of-plasmo"></a></h2>
+<p>Change the version of <code>plasmo</code> in <code>package.json</code> to <code>lab</code>:</p>
+<p>Then do <code>pnpm i</code> to install the version.</p>
+<h2>What should I do if an error occurs?<a href="#what-should-i-do-if-an-error-occurs"></a></h2>
+<p>Please run <code>plasmo</code> with the <code>--verbose</code> flag and paste the output in the log section of a <a href="https://docs.plasmo.com/bug">bug report</a>. That will help us triage the issue 100x faster 🙏</p>
+<h2>What are the officially supported browser targets?<a href="#what-are-the-officially-supported-browser-targets"></a></h2>
+<p>Officially supported targets are:</p>
+<ul>
+<li><code>chrome-mv3</code> (default)</li>
+<li><code>firefox-mv2</code></li>
+<li><code>firefox-mv3</code> (experimental)</li>
+</ul>
+<p>Any chromium-based browser (e.g. Edge, Brave, Opera, etc.) should work, e.g:</p>
+<ul>
+<li><code>edge-mv3</code></li>
+<li><code>brave-mv3</code></li>
+<li><code>opera-mv3</code></li>
+<li><code>safari-mv3</code> requires some workaround. See <a href="https://github.com/PlasmoHQ/plasmo/issues/233">this issue (opens in a new tab)</a>.</li>
+</ul>
+<p>For the time being, if you&#39;d like to build for Safari, you can target <code>safari-mv3</code> and use the <a href="https://developer.apple.com/documentation/safariservices/safari_web_extensions/converting_a_web_extension_for_safari">safari-web-extension-converter (opens in a new tab)</a> to convert the extension to Safari.</p>
+<p><a href="https://docs.plasmo.com/framework/workflows/submit" title="Submission">Submission</a><a href="https://docs.plasmo.com/framework/ext-pages" title="Extension Pages">Extension Pages</a></content>
+</page></p>
+<page>
+  <title>Submit Your Extension – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/workflows/submit</url>
+  <content>The Plasmo Framework ships with a convenient GitHub action called [Browser Platform Publish (opens in a new tab)](https://github.com/marketplace/actions/browser-platform-publisher/) or BPP. This action will automatically publish your extension to all supported browser extension stores. It runs on a manual trigger by default, but changing its config can make it run on every push.
+
+<p>To start publishing your Plasmo extension, set up a <code>keys.json</code> file with the following schema:</p>
+<p>This schema is helpful if your editor supports <a href="https://json-schema.org/"><code>JSON schema</code> (opens in a new tab)</a>. Make sure to only declare valid submission credentials. Otherwise, the action will fail.</p>
+<p>Check out our <a href="https://github.com/PlasmoHQ/bms/blob/main/tokens.md">token guide (opens in a new tab)</a> to learn more about the tokens required to submit.</p>
+<p>The final key might look like this:</p>
+<p>Copy this key, and add it as a <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository">repository secret on GitHub (opens in a new tab)</a> called <code>SUBMIT_KEYS</code></p>
+<p>Then, go on GitHub and trigger the action manually when you need to submit a new extension version!</p>
+<p><a href="https://docs.plasmo.com/framework/workflows/build" title="Production Build">Production Build</a><a href="https://docs.plasmo.com/framework/workflows/faq" title="FAQ">FAQ</a></content>
+</page></p>
+<page>
+  <title>Browser Extension Pages – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/ext-pages</url>
+  <content>Extension pages are built-in pages recognized by the browser. They include the extension's popup, options, sidepanel and newtab pages.
+
+<h2>Adding a Popup Page<a href="#adding-a-popup-page"></a></h2>
+<p>The popup page is a small dialog window that opens when a user clicks on the extension&#39;s icon in the browser toolbar. It is the most common type of extension page.</p>
+<p>Create a <code>popup.tsx</code> file or a <code>popup/index.tsx</code> file that exports a default React component. With that, your popup is ready to be used 🚀!</p>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-popup">with-popup (opens in a new tab)</a></p>
+<h2>Adding the Options Page<a href="#adding-the-options-page"></a></h2>
+<p>The options page is meant to be a dedicated place for the extension&#39;s settings and configuration.</p>
+<p>Create either an <code>options.tsx</code> or <code>options/index.tsx</code> file to render the options_ui 👌</p>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-options-ui">with-options (opens in a new tab)</a></p>
+<h2>Adding a New Tab Page<a href="#adding-a-new-tab-page"></a></h2>
+<p>The New Tab page overrides the default tab and is generally how the browser greets the user.</p>
+<p>Create a <code>newtab.tsx</code> file or a <code>newtab/index.tsx</code> file, and Plasmo will take care of the rest to render your new tab page 🤘!</p>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-newtab">with-newtab (opens in a new tab)</a></p>
+<h2>Adding a Side Panel<a href="#adding-a-side-panel"></a></h2>
+<p>The Side Panel allows extensions to display their own UI in the side panel, enabling persistent experiences that complement the user&#39;s browsing journey.</p>
+<p>Create a <code>sidepanel.tsx</code> file or a <code>sidepanel/index.tsx</code> file, and Plasmo will take care of the rest to render the UI in the Side Panel.</p>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-sidepanel">with-sidepanel (opens in a new tab)</a></p>
+<h2>Adding a Dev Tools Page<a href="#adding-a-dev-tools-page"></a></h2>
+<p>The Dev Tools page is a dedicated page that opens when a user opens the Dev Tools for the extension.</p>
+<p>Create a <code>devtools.tsx</code> file or a <code>devtools/index.tsx</code> file, and Plasmo will take care of the rest!</p>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-devtools">with-devtools (opens in a new tab)</a></p>
+<p><a href="https://docs.plasmo.com/framework/workflows/faq" title="FAQ">FAQ</a><a href="https://docs.plasmo.com/framework/tab-pages" title="Tab Pages">Tab Pages</a></content>
+</page></p>
+<page>
+  <title>Sandbox Pages – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/sandbox-pages</url>
+  <content>Sandbox Pages are special extension pages with a different set of CSP restrictions. For example, it is possible to `eval` arbitrary code inside a sandbox page. Use the sandbox page to dynamically run code in a secure context with more privileges compared to an extension page.
+
+<p>A sandbox page can mount UI components similar to a <a href="https://docs.plasmo.com/framework/content-scripts-ui">CSUI</a> or execute simple scripts. The following example showcases the ability to <code>eval</code> arbitrary code from a sandbox page and communicate the result back to the caller via message passing.</p>
+<p>First, we want to add a sandbox page:</p>
+<ol>
+<li>Create a <code>sandbox.ts</code> file or a <code>sandboxes/&lt;name&gt;.ts</code> file in the source directory (project root or <code>src</code>)</li>
+<li>Export the following script:</li>
+</ol>
+<p>The script above listens to a <code>message</code> event from the window scope, and evals the code sent by the caller via the data property. The sandbox page is now available under <code>sandbox.html</code> OR <code>sandboxes/&lt;name&gt;.html</code> in the extension bundle. To send messages to this page, we will need to mount it inside an iframe, and invoke the postMessage API. Let&#39;s do so in a <code>popup.tsx</code> <a href="https://docs.plasmo.com/framework">extension page</a>:</p>
+<p>When a user clicks the <code>trigger iframe eval</code>, they will see the result of the eval done inside the sandbox page.</p>
+<p>See <a href="https://github.com/PlasmoHQ/plasmo-test/blob/main/rfc/rfc-263-sandbox-pages">rfc-263 (opens in a new tab)</a> for more details.</p>
+<p><a href="https://docs.plasmo.com/framework/tab-pages" title="Tab Pages">Tab Pages</a><a href="https://docs.plasmo.com/framework/content-scripts" title="Content Scripts">Content Scripts</a></content>
+</page></p>
+<page>
+  <title>Tab Pages – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/tab-pages</url>
+  <content>Tab Pages is a feature unique to the Plasmo framework. Unlike [Extension Pages](https://docs.plasmo.com/framework/ext-pages), Tab Pages are just regular web pages shipped with your extension bundle. Extensions generally redirect to or open these pages programmatically, but you can link to them as well.
+
+<h2>Use Cases<a href="#use-cases"></a></h2>
+<ul>
+<li>A page to show when a user first installs your extension.</li>
+<li>A dedicated page for authentication</li>
+<li>When you need a more elaborate routing setup</li>
+</ul>
+<h2>Examples<a href="#examples"></a></h2>
+<ul>
+<li><a href="https://github.com/PlasmoHQ/examples/tree/main/with-tabs">with-tabs (opens in a new tab)</a></li>
+<li><a href="https://github.com/PlasmoHQ/plasmo-test/tree/main/rfc/rfc-182-tabs">rfc-182 (opens in a new tab)</a></li>
+</ul>
+<h2>Usage<a href="#usage"></a></h2>
+<p>To add a tab:</p>
+<ol>
+<li>Create a <code>tabs</code> folder in the source directory (project root or <code>src</code>)</li>
+<li>Add a <code>.tsx</code> file such as <code>delta-flyer.tsx</code></li>
+<li>Export a default React component:</li>
+</ol>
+<p>Your tab page will be available under the <code>/tabs</code> path in the extension bundle. It will be accessible from the browser under the URL:</p>
+<p><a href="https://docs.plasmo.com/framework/ext-pages" title="Extension Pages">Extension Pages</a><a href="https://docs.plasmo.com/framework/sandbox-pages" title="Sandbox Pages">Sandbox Pages</a></content>
+</page></p>
+<page>
+  <title>Content Scripts – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/content-scripts</url>
+  <content>Content scripts run in the context of web pages in an _isolated world_. This allows multiple content scripts from various extensions to coexist without conflicting with each other's execution and to stay isolated from the page's JavaScript.
+
+<p>A script that ends with <code>.ts</code> will not have front-end runtime (react/vue/svelte) bundled with it and won&#39;t be treated as a ui script, while a script that ends in <code>.tsx</code>, <code>.vue</code> or <code>.svelte</code>, will be.</p>
+<h3>Use cases:<a href="#use-cases"></a> {#use-casesuse-cases}</h3>
+<ul>
+<li>Scraping data from the current web page</li>
+<li>Selecting, finding, and styling elements from the current web page</li>
+<li><a href="https://docs.plasmo.com/framework/content-scripts-ui">Injecting UI elements into the current web page</a></li>
+<li><a href="https://docs.plasmo.com/framework/content-scripts#injecting-into-the-main-world">Injecting code into the &quot;main world&quot; context</a></li>
+</ul>
+<h2>Adding a single content script<a href="#adding-a-single-content-script"></a></h2>
+<p>Create a <code>content.ts</code> file, export an empty object and hack away!</p>
+<p>Reload your extension, open a web page, then open its inspector:</p>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-content-script">with-content-script (opens in a new tab)</a> for a full example.</p>
+<h2>Adding multiple content scripts<a href="#adding-multiple-content-scripts"></a></h2>
+<p>Create a <code>contents</code> directory for multiple content scripts, and add your content scripts there. Make sure their names describe what they do!</p>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-many-content-scripts">with-many-content-scripts (opens in a new tab)</a> for an example.</p>
+<h2>Config<a href="#config"></a></h2>
+<p>Sometimes, you&#39;ll want to run a content script on certain pages. You can provide a custom content script configuration by exporting a config object from your content script:</p>
+<p>Working with this configuration object is a breeze thanks to the exported <code>PlasmoCSConfig</code> type 🥳.</p>
+<p>To learn more about the config and each property, <a href="https://developer.chrome.com/docs/extensions/mv3/content_scripts/#static-declarative">check out Chrome&#39;s official documentation (opens in a new tab)</a>.</p>
+<h2>Injecting into the main world<a href="#injecting-into-the-main-world"></a></h2>
+<p>To modify the <code>window</code> object from your content script, you must inject code into the &quot;main world.&quot;</p>
+<p>Starting from Plasmo <code>v0.65.0</code>, Plasmo content script may specify a <code>world</code> property within the config:</p>
+<p>The above script will be injected into the main world.</p>
+<p>To manually inject a main world script, use the <code>chrome.scripting.executeScript</code> API. First, manually add the scripting permission in your <a href="https://docs.plasmo.com/framework/customization/manifest">package.json&#39;s &#39;manifest.permissions&#39; array</a>:</p>
+<p>Then, inject your content script into the main world by calling <code>chrome.scripting.executeScript</code> from your background service worker:</p>
+<p>For the <code>func</code> key, you can pass in a TS function from your project. It will be transpiled into JS when your extension bundles. You may also use the <code>files</code> key to inject a file from the root of the built bundle.</p>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-main-world">with-main-world (opens in a new tab)</a> for an example.</p>
+<h2>Fetching external API and CORS<a href="#fetching-external-api-and-cors"></a></h2>
+<p>Because content scripts run within the context of a web page, they are subject to the same-origin policy. To mitigate CORS restrictions, you can use the <a href="https://docs.plasmo.com/framework/messaging#message-flow">Plasmo Messaging API</a> to proxy the request via your background service worker.</p>
+<h2>Importing resources<a href="#importing-resources"></a></h2>
+<p>To import external assets into your content script, you can use the <a href="https://docs.plasmo.com/framework/import#url"><code>url:</code> scheme</a>:</p>
+<p>The <code>url:</code> scheme will automatically resolve the <code>something.js</code> asset and add it to the <code>web_accessible_resources</code> declaration in the built bundle. The above <code>myFile</code> variable will be a string containing the URL to the asset:</p>
+<p>Alternatively, you can use the <a href="https://docs.plasmo.com/framework/import#data-base64"><code>data-base64</code></a> or the <a href="https://docs.plasmo.com/framework/import#data-text"><code>data-text</code></a> scheme to import and embed the asset directly into your code. For small assets, these schemes should work well.</p>
+<p><a href="https://docs.plasmo.com/framework/sandbox-pages" title="Sandbox Pages">Sandbox Pages</a><a href="https://docs.plasmo.com/framework/content-scripts-ui" title="Content Scripts UI">Content Scripts UI</a></content>
+</page></p>
+<page>
+  <title>Content Scripts UI – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/content-scripts-ui</url>
+  <content>Plasmo has first-class support for mounting React, Svelte3, or Vue3 components into the current webpage. This feature is called content scripts UI (CSUI).
+
+<p>An extension can have as many CSUI as needed, with each CSUI targeting a group of webpages or a specific webpage by <a href="https://docs.plasmo.com/framework/content-scripts#config">exporting the config object</a>. To start injecting UI using React:</p>
+<ol>
+<li>Create a <code>content.tsx</code></li>
+<li>Export a default React component</li>
+<li>Profit 🎉</li>
+</ol>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-content-scripts-ui">with-content-scripts-ui (opens in a new tab)</a> for a full example.</p>
+<h3>Config<a href="#config"></a> {#configconfig}</h3>
+<p>Content scripts UI are a subset of content scripts. Thus, you can <a href="https://docs.plasmo.com/framework/content-scripts#config">export a config object</a> just as you would a regular Plasmo content script.</p>
+<h2>How does Plasmo CSUI work?<a href="#how-does-plasmo-csui-work"></a></h2>
+<p><strong>TL;DR</strong>: Plasmo creates a <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM">Shadow DOM (opens in a new tab)</a> and mounts your exported component onto it. This isolation technique prevents the web page&#39;s style from affecting your component&#39;s styling and vice-versa.</p>
+<p>For more details, please see the <a href="https://docs.plasmo.com/framework/content-scripts-ui/life-cycle">Life Cycle of Plasmo CSUI</a>.</p>
+<p><a href="https://docs.plasmo.com/framework/content-scripts" title="Content Scripts">Content Scripts</a><a href="https://docs.plasmo.com/framework/content-scripts-ui/life-cycle" title="Life Cycle">Life Cycle</a></content>
+</page></p>
+<page>
+  <title>Life Cycle of Plasmo CSUI – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/content-scripts-ui/life-cycle</url>
+  <content>Plasmo's CSUI orchestrates a lifecycle dedicated to mounting and unmounting your React, Vue, or Svelte components in a content script. Although each UI library/framework has a slightly different mounting API, the top-level lifecycle is largely the same:
+
+<ol>
+<li>Get an <a href="https://docs.plasmo.com/framework/content-scripts-ui/life-cycle#anchor"><code>Anchor</code></a></li>
+<li>Create or locate a <a href="https://docs.plasmo.com/framework/content-scripts-ui/life-cycle#root-container"><code>Root Container</code></a></li>
+<li><a href="https://docs.plasmo.com/framework/content-scripts-ui/life-cycle#renderer">Render</a> the component onto the <code>Root Container</code></li>
+</ol>
+<h2>Terminologies<a href="#terminologies"></a></h2>
+<h2>Anchor<a href="#anchor"></a></h2>
+<p>A Plasmo CSUI anchor is defined by the following type:</p>
+<p>By default, the CSUI lifecycle creates an overlay anchor using the <code>document.body</code> element:</p>
+<p>If any anchor-getter function is defined and exported, the CSUI lifecycle will use the returned element and the relevant anchor type instead. Since the anchor-getter functions can be async, you also have the power to control <em>when</em> Plasmo mounts your component. For example, you can wait for a specific element to appear on the page before mounting your component.</p>
+<p>The anchor is passed down to the CSUI via the anchor props. You can access it as follow:</p>
+<h3>Overlay<a href="#overlay"></a> {#overlayoverlay}</h3>
+<p>Overlay anchors spawn <code>CSUI Overlay Containers</code> which are batch-mounted onto a single <code>Root Container</code> element per CSUI. The <code>Overlay Containers</code> are absolutely positioned relative to each anchor&#39;s element with maxed out z-index. Then, your exported <code>CSUI Component</code> is mounted onto each <code>Overlay Container</code>:</p>
+<p>To specify a single overlay anchor, export a <code>getOverlayAnchor</code> function:</p>
+<p>To specify a list of overlay anchors, export a <code>getOverlayAnchorList</code> function:</p>
+<h4>Update Position<a href="#update-position"></a></h4>
+<p>The default <code>Overlay Container</code> listens to the window scroll event to align itself with the anchor element. You can customize how the <code>Overlay Container</code> refreshes its absolute positioning by exporting a <code>watchOverlayAnchor</code> function. The example below refreshes the position every 8472ms:</p>
+<p>Check <a href="https://github.com/PlasmoHQ/examples/blob/main/with-content-scripts-ui/contents/plasmo-overlay-watch.tsx">with-content-scripts-ui/contents/plasmo-overlay-watch.tsx (opens in a new tab)</a> for an example.</p>
+<h3>Inline<a href="#inline"></a> {#inlineinline}</h3>
+<p>Inline anchor embeds your <code>CSUI Component</code> directly into the web page. Each anchor spawns a <code>Root Container</code> appended next to its target element. Within each <code>Root Container</code>, an <code>Inline Container</code> is created which is then used to mount the exported <code>CSUI Component</code>:</p>
+<p>To specify a single inline anchor, export a <code>getInlineAnchor</code> function:</p>
+<p>To specify single inline anchor with insert position:</p>
+<p>To specify a list of inline anchors, export a <code>getInlineAnchorList</code> function:</p>
+<p>To specify a list of inline anchors with insert position:</p>
+<p>Check <a href="https://github.com/PlasmoHQ/examples/blob/main/with-content-scripts-ui/contents/plasmo-inline.tsx">with-content-scripts-ui/contents/plasmo-inline.tsx (opens in a new tab)</a> for an example.</p>
+<h2>Root Container<a href="#root-container"></a></h2>
+<p>The <code>Root Container</code> is where your <code>CSUI Component</code> is mounted. The built-in <code>Root Container</code> is a ShadowDOM element with the <code>plasmo-csui</code> custom tag. This allows you to style the <code>Root Container</code> and their exported components without being impacted by the web page&#39;s styles.</p>
+<h3>Custom DOM Mounting<a href="#custom-dom-mounting"></a> {#custom-dom-mountingcustom-dom-mounting}</h3>
+<p>The <code>Root Container</code> creates a <code>shadowHost</code> which gets injected into the web page&#39;s DOM tree. By default, Plasmo injects the <code>shadowHost</code> after the element for an inline anchor, and before the <code>document.body</code> for an overlay anchor. To customize this behavior, export a <code>mountShadowHost</code> function:</p>
+<h3>Closed Shadow Root<a href="#closed-shadow-root"></a> {#closed-shadow-rootclosed-shadow-root}</h3>
+<p>By default, the shadow root is &quot;open,&quot; allowing anyone (developer and extension user) to inspect the hierarchy of the ShadowDOM. To override this behavior, export a <code>createShadowRoot</code> function:</p>
+<h3>Custom Styles<a href="#custom-styles"></a> {#custom-stylescustom-styles}</h3>
+<p>The built-in ShadowDOM provides a convenient mechanism for extension developers to safely style their components by exporting a <code>getStyle</code> function that returns an <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/style">HTML style element (opens in a new tab)</a>.</p>
+<p>For further guidance on styling CSUI, please read <a href="https://docs.plasmo.com/framework/content-scripts-ui/styling">Styling Plasmo CSUI</a>.</p>
+<h3>Custom Root Container<a href="#custom-root-container"></a> {#custom-root-containercustom-root-container}</h3>
+<p>Sometimes, you&#39;ll want to completely replace Plasmo&#39;s Shadow DOM container implementation to fit your needs. For example, you might want to piggyback on an element within the web page itself instead of creating a new DOM element. To do so, export a <code>getRootContainer</code> function:</p>
+<p>Some reasons you&#39;d want to do this:</p>
+<ul>
+<li>The extension needs to <a href="https://github.com/PlasmoHQ/plasmo/issues/10#issuecomment-1149499252">absorb the styling of the host webpage (opens in a new tab)</a></li>
+<li>The extension needs to mount the component directly into the webpage instead of using a shadow DOM</li>
+<li>The extension needs to use an <a href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/iframe">iframe (opens in a new tab)</a>, instead</li>
+</ul>
+<p>Check <a href="https://github.com/PlasmoHQ/examples/blob/main/with-content-scripts-ui/contents/plasmo-root-container.tsx">with-content-scripts-ui (opens in a new tab)</a> for an example.</p>
+<h2>Renderer<a href="#renderer"></a></h2>
+<p>The <code>Renderer</code> is in charge of observing the website&#39;s DOM to detect the presence of each <code>Root Container</code> and tracking the linking between each anchor&#39;s element and its <code>Root Container</code>. Once a stable <code>Root Container</code> is determined, the <code>Renderer</code> mounts the exported <code>CSUI Component</code> into the <code>Root Container</code> using either an <code>Inline Container</code> or an <code>Overlay Container</code>, depending on the type of the <code>Anchor</code>.</p>
+<h3>Detecting and Optimizing Root Container Removal<a href="#detecting-and-optimizing-root-container-removal"></a> {#detecting-and-optimizing-root-container-removaldetecting-and}</h3>
+<p>When a webpage changes its DOM structure, the <code>Root Container</code> might be removed. For example, given an email client filled with inbox items, and a CSUI injected inline next to each item. When an item is deleted, the root container will be removed as well.</p>
+<p>To detect <code>Root Container</code> removal, the <code>CSUI Renderer</code> compares each mounted container&#39;s root against the <code>window.document</code> object. This check can be optimized to O(1) by exporting a <code>getShadowHostId</code> function:</p>
+<p>The function also allows developers to customize the id for each anchor found:</p>
+<h3>Custom Renderer<a href="#custom-renderer"></a> {#custom-renderercustom-renderer}</h3>
+<p>Developers may export a <code>render</code> function to override the default renderer. You might need this ability to:</p>
+<ul>
+<li>Provide a custom <code>Inline container</code> or <code>Overlay container</code></li>
+<li>Customize the mounting logic</li>
+<li>Provide a custom <code>MutationObserver</code></li>
+</ul>
+<p>For example, to use an existing element as a custom container:</p>
+<p>How to dynamically create a custom container:</p>
+<p>To utilize the built-in <code>Inline Container</code> or <code>Overlay Container</code>:</p>
+<p>If you need to customize the MutationObserver, do not export an anchor-getter function. Otherwise, the built-in MutationObserver will still be spawned.</p>
+<p><a href="https://docs.plasmo.com/framework/content-scripts-ui" title="Content Scripts UI">Content Scripts UI</a><a href="https://docs.plasmo.com/framework/content-scripts-ui/styling" title="Styling">Styling</a></content>
+</page></p>
+<page>
+  <title>Background Service Worker – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/background-service-worker</url>
+  <content>An extension's background service worker is powerful because it runs in the [service worker context (opens in a new tab)](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers). For example, when in this context, you no longer need to worry about CORS and can fetch resources from any origin. It is also common to offload heavy computation to the background service worker.
+
+<p>To build your first background service worker, create a <code>background.ts</code> file in the root directory, and start hacking 💪</p>
+<p>Reload the extension, then open its &quot;Service Worker inspector&quot;:</p>
+<p>You should see what we&#39;ve logged in the inspector:</p>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-background">with-background (opens in a new tab)</a> for a complete example.</p>
+<h2>Persisting state<a href="#persisting-state"></a></h2>
+<p>The worker becomes idle after a few seconds of inactivity, and the browser will kill its process entirely after 5 minutes. This means all state (variables, etc.) is lost unless you use a storage engine.</p>
+<p>The simplest way to persist your background service worker&#39;s state is to use the <a href="https://docs.plasmo.com/framework/storage">storage API</a>.</p>
+<p>The more advanced way is to send the state to a remote database via a fetch call or WebSocket.</p>
+<p><a href="https://docs.plasmo.com/framework/content-scripts-ui/styling" title="Styling">Styling</a><a href="https://docs.plasmo.com/framework/messaging" title="Messaging">Messaging</a></content>
+</page></p>
+<page>
+  <title>Styling Plasmo CSUI – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/content-scripts-ui/styling</url>
+  <content>[Plasmo CSUI's built-in `Root Container`](https://docs.plasmo.com/framework/content-scripts-ui/life-cycle#root-container) allows extension developers to safely style their components. It ensures that for the most part:
+
+<ul>
+<li>The exported style does not leak to the web page</li>
+<li>The web page&#39;s style does not influence the component&#39;s styling</li>
+</ul>
+<p>See <a href="https://docs.plasmo.com/framework/content-scripts-ui/styling#caveats">caveats</a> for when it does not work.</p>
+<h2>Raw CSS Text<a href="#raw-css-text"></a></h2>
+<p>To style your CSUI, export a <code>getStyle</code> function:</p>
+<h2>Import Stylesheet<a href="#import-stylesheet"></a></h2>
+<p>To import CSS/LESS/SASS files, combine the <code>getStyle</code> API with the <a href="https://docs.plasmo.com/framework/import#data-text"><code>data-text</code> import scheme</a>:</p>
+<h2>CSS-in-JS<a href="#css-in-js"></a></h2>
+<p>The <code>getStyle</code> API can also be used to hydrate CSS-in-JS style cache, for example when using <a href="https://github.com/PlasmoHQ/examples/tree/main/with-emotion"><code>with emotion</code> (opens in a new tab)</a>:</p>
+<h2>CSS Modules<a href="#css-modules"></a></h2>
+<p>To utilize CSS modules, import the stylesheet twice:</p>
+<h2>Custom Font<a href="#custom-font"></a></h2>
+<p>To use a custom font in your CSUI, you must import the font inside a CSS file and declare it in the <code>css</code> property of the <a href="https://docs.plasmo.com/framework/content-scripts#config">config object</a>. The browser does not recognize Font assets if declared inside a ShadowDOM. You have to load them in the global scope.</p>
+<ol>
+<li><p>Add your font in the <code>assets</code> directory (e.g <code>/assets/Fascinate.woff2</code>)</p>
+</li>
+<li><p>Create a <code>font.css</code> file next to your content script, importing the font inline using the <a href="https://docs.plasmo.com/framework/import#data-base64"><code>data-base64</code></a> scheme:</p>
+</li>
+<li><p>Declare the file in the <code>css</code> property of the content script config:</p>
+</li>
+<li><p>Once the browser registers the font, you can reference it inside your CSS style:</p>
+</li>
+</ol>
+<p>See <a href="https://github.com/PlasmoHQ/examples/blob/main/with-content-scripts-ui/contents/plasmo-overlay.tsx">with-content-scripts-ui/contents/plasmo-overlay.tsx (opens in a new tab)</a> for a full example.</p>
+<h2>Styling the Shadow DOM<a href="#styling-the-shadow-dom"></a></h2>
+<p>Use the IDs <code>#plasmo-shadow-container</code> and <code>plasmo-inline</code> to alter the <code>Root Container</code> styles in your CSS:</p>
+<h2>Inherit the Web Page&#39;s Style<a href="#inherit-the-web-pages-style"></a></h2>
+<p>To inherit the web page&#39;s style, override the built-in <code>Root Container</code> to mount your component directly into the web page&#39;s DOM. <a href="https://docs.plasmo.com/framework/content-scripts-ui/life-cycle#custom-root-container">Click here for more details</a>.</p>
+<h2>Caveats<a href="#caveats"></a></h2>
+<p>There are many situations that the framework&#39;s generic style encapsulation cannot handle (yet). Here are some common gotchas:</p>
+<h3>CSS Variables<a href="#css-variables"></a> {#css-variablescss-variables}</h3>
+<p>CSS Variables are shared across every frame within the same browser tab. This means that if the webpage declares some CSS variables at the <code>:root</code> context, it will be prioritized over yours.</p>
+<p>To mitigate CSS variable sharing between CSUI and the web page, you can either:</p>
+<ul>
+<li>Declare a unique prefix namespace for your CSS variables</li>
+<li>Hoist your CSS variable under a <code>:host</code> scope</li>
+<li>Mount your component inside an iframe, with its own head and body</li>
+</ul>
+<h3>Root Container Style<a href="#root-container-style"></a> {#root-container-styleroot-container-style}</h3>
+<p>If the host webpage uses a global <code>*</code> specifier to style its page, it can potentially override the <code>Root Container</code> style. For example:</p>
+<p>The above code will cause the root container to have block display. In cases like these, overriding the root container style with an inline style will help keep the container consistent.</p>
+<p>There may exist some CSS styling declarations that cannot be overridden to alter the the <code>Root Container</code> styles. In those cases, the <code>!important</code> flag can be used as a workaround.</p>
+<p><a href="https://docs.plasmo.com/framework/content-scripts-ui/life-cycle" title="Life Cycle">Life Cycle</a><a href="https://docs.plasmo.com/framework/background-service-worker" title="Background SW">Background SW</a></content>
+</page></p>
+<page>
+  <title>Messaging API – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/messaging</url>
+  <content>[](https://github.com/PlasmoHQ/plasmo/blob/main/LICENSE)[](https://www.npmjs.com/package/@plasmohq/messaging)[](https://www.twitter.com/plasmohq)[](https://www.twitch.tv/plasmohq)[](https://www.plasmo.com/s/d)
+
+<p>Plasmo&#39;s Messaging API makes communication between different parts of your extension easy. Add a file to your <code>messages</code> directory, and Plasmo will handle all the rest. Plasmo Messaging is a declarative, type-safe, functional, promise-based API for sending, relaying, and receiving messages between your extension components.</p>
+<h2>Installation<a href="#installation"></a></h2>
+<h3>1. Install dependency<a href="#1-install-dependency"></a> {#1-install-dependency1-install-dependency}</h3>
+<p>The <code>@plasmohq/messaging</code> library is kept in a separate repository. You will first have to install it with your package manager.</p>
+<h3>2. Create background folder &amp; file<a href="#2-create-background-folder--file"></a> {#2-create-background-folder-file2-create-background-folder-fi}</h3>
+<p>The <code>@plasmohq/messaging</code> library requires the background service worker to live inside a <code>background/index.ts</code> folder, and all message handlers to live inside <code>background/*</code> folders.</p>
+<p>If you already have a <code>background.ts</code> or <code>background.js</code> file, you will have to create a <code>background</code> folder and move your script to <code>background/index.ts</code> or <code>background/index.js</code>.</p>
+<p>If you don&#39;t already have a <code>background</code> folder, create a <code>background</code> folder and create a new, empty <code>background/index.ts</code> or <code>background/index.js</code> file.</p>
+<p>You will now be able to create new handlers inside the <code>background/</code> subfolder. For example, to create a <code>messages</code> handler with the name <code>ping</code>, you would create a <code>background/messages/ping.ts</code>. See the rest of the documentation to learn about the different types of handlers available to you, and how to configure them.</p>
+<p>At this point, your folder structure might look like this.</p>
+<h3>3. Generate static types<a href="#3-generate-static-types"></a> {#3-generate-static-types3-generate-static-types}</h3>
+<p>On compilation, Plasmo will generate static types for all of your message handlers. This will happen automatically if you have the dev server running; it will also happen automatically each time you build. The <code>sendToBackground</code> and <code>relayMessage</code> functions both take a <code>name</code> field as part of their params object; this <code>name</code> field will be statically typed with the names of all of your message handlers.</p>
+<h3>4. That&#39;s all<a href="#4-thats-all"></a> {#4-thats-all4-thats-all}</h3>
+<p>You have now successfully installed Plasmo&#39;s messaging library.</p>
+<h2>TL;DR<a href="#tldr"></a></h2>
+<h2>Examples<a href="#examples"></a></h2>
+<ul>
+<li><a href="https://github.com/PlasmoHQ/examples/tree/main/with-messaging">with-messaging (opens in a new tab)</a></li>
+</ul>
+<h2>Message Flow<a href="#message-flow"></a></h2>
+<p>Use the Message Flow to initiate one-time messages between extension pages, tab pages or content scripts with the background service worker. This flow is useful to offload heavy computation to the background service worker or to bypass CORS.</p>
+<p>The background service worker is a message hub with REST-style API handlers. To create a message handler, create a ts module in the <code>background/messages</code> directory. The file name should be the message name, and the default export should be the handler function:</p>
+<p>Extension pages, content scripts, or tab pages can send messages to these handlers using the <code>@plasmohq/messaging</code> library. Since Plasmo Framework orchestrates your handlers behind the scenes, the message names are typed and will enable IntelliSense in your editor:</p>
+<p>To send a message from a content script thats in the main world you&#39;ll have to include your extension&#39;s id in the request. Your extension&#39;s id can be found in chrome&#39;s extension manager window once you&#39;ve built and added it to your browser.</p>
+<h2>Relay Flow<a href="#relay-flow"></a></h2>
+<p>The Relay Flow enables communication between a target webpage and a background service worker using a lightweight message handler called a relay. This relay is registered with the <code>relayMessage</code> function in a <a href="https://docs.plasmo.com/framework/content-scripts">content script</a>.</p>
+<p>The <code>relayMessage</code> function abstracts the <code>window.postMessage</code> mechanism, registering a listener that checks for messages matching the same origin and forwards them to the background service worker. These messages are then processed by the appropriate <a href="https://docs.plasmo.com/framework/messaging#message-flow">message flow handlers</a> registered under <code>background/messages</code>.</p>
+<p>The <code>sendToBackgroundViaRelay</code> function sends messages through the relay and waits for a response. It generates a unique instance ID for each message to ensure proper handling and response tracking.</p>
+<p>You may view the implementation of these functions in the <a href="https://github.com/PlasmoHQ/plasmo/blob/main/api/messaging/src/relay.ts">GitHub repository (opens in a new tab)</a>.</p>
+<p>This method provides an alternative to the <a href="https://developer.chrome.com/docs/extensions/develop/concepts/messaging#external-webpage">&quot;externally_connectable&quot; (opens in a new tab)</a> method described in the Chrome extension documentation.</p>
+<h3>Setting Up a Relay<a href="#setting-up-a-relay"></a> {#setting-up-a-relaysetting-up-a-relay}</h3>
+<p>To set up a relay, use the <code>relayMessage</code> function in a content script. A content script can have multiple relays. Given the <code>ping</code> message handler from the previous example, and the website <code>www.plasmo.com</code>:</p>
+<p>In the code of the target webpage (e.g., <code>plasmo.com</code>), you can send messages using the registered relay using <code>sendToBackgroundViaRelay</code> as follows:</p>
+<p>To relay messages from contexts where <code>chrome.runtime</code> is unavailable, you can use the <code>relay</code> function:</p>
+<h2>Ports<a href="#ports"></a></h2>
+<p>The Messaging Ports API is a high-level abstraction over the chrome runtime&#39;s <a href="https://developer.chrome.com/docs/extensions/mv3/messaging/#connect">port API (opens in a new tab)</a> to establish long-lived connections with the background service worker.</p>
+<p>The current implementation focuses on establishing connections to a port listener in the background service worker:</p>
+<p>To create a BGSW port handler, create a ts module in the <code>background/ports</code> directory. The file name will be the port name, and the default export will be the handler function:</p>
+<p>In your extension page, get the port using the <code>getPort</code> utility under the <code>@plasmohq/messaging/port</code>, <strong>OR</strong> use the <code>usePort</code> hook, keep in mind that <code>usePort</code> currently relies on React hooks so you will need to use it within a React component. This example shows the usage of <code>getPort</code> within a Svelte component:</p>
+<p>Here&#39;s an example of <code>usePort</code> in React, the data will always reflect the latest response from the port handler:</p>
+<h2>E2E Type Safety (WIP)<a href="#e2e-type-safety-wip"></a></h2>
+<p>End-to-end request/response body type-safety is in progress at <a href="https://github.com/PlasmoHQ/plasmo/issues/334">#334 (opens in a new tab)</a>. In the meantime, you can use the provided generic types:</p>
+<p><a href="https://docs.plasmo.com/framework/background-service-worker" title="Background SW">Background SW</a><a href="https://docs.plasmo.com/framework/storage" title="Storage">Storage</a></content>
+</page></p>
+<page>
+  <title>Environment Variables – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/env</url>
+  <content>Plasmo offers first-class support for environment variables. This allows you to customize your extension to fit the need of each browser and development environment from the same codebase.
+
+<h2>Examples<a href="#examples"></a></h2>
+<ul>
+<li><a href="https://github.com/PlasmoHQ/examples/tree/main/with-env">with-env (opens in a new tab)</a></li>
+</ul>
+<h2>Built-in Environment Variables<a href="#built-in-environment-variables"></a></h2>
+<p>Plasmo framework provides the following built-in client-side environment variables:</p>
+<ul>
+<li><code>NODE_ENV</code>: Either <code>development</code> or <code>production</code> depending on the build command</li>
+<li><code>PLASMO_TARGET</code>: The specified target, e.g. <code>chrome-mv3</code>, specified by <a href="https://docs.plasmo.com/framework/workflows/build#with-a-specific-target">the <code>--target</code> flag</a></li>
+<li><code>PLASMO_BROWSER</code>: The name of the target browser, e.g. <code>chrome</code></li>
+<li><code>PLASMO_MANIFEST_VERSION</code>: The manifest version, e.g. <code>mv3</code> or <code>mv2</code></li>
+<li><code>PLASMO_TAG</code>: The build tag, e.g. <code>dev</code>, <code>prod</code> or a custom one specified by <a href="https://docs.plasmo.com/framework/workflows/build#with-a-custom-tag">the <code>--tag</code> flag</a></li>
+</ul>
+<h2>Custom Environment Variables<a href="#custom-environment-variables"></a></h2>
+<p>To add environment variables accessible to the extension, create a <code>.env</code> file:</p>
+<h3>NODE_ENV Specific Env<a href="#node_env-specific-env"></a> {#node_env-specific-envnode_env-specific-env}</h3>
+<p>To separate environment variables between <code>dev</code> and <code>build</code>, you can use the following files:</p>
+<ul>
+<li><code>.env.development</code></li>
+<li><code>.env.production</code></li>
+</ul>
+<p>If there is a <code>CRX_PUBLIC_KEY</code> environment variable in <code>.env.development</code> but not in <code>.env.production</code> or <code>.env</code>, it will only be available in <code>plasmo dev</code> but not <code>plasmo build</code>.</p>
+<h3>Bundle Specific Env<a href="#bundle-specific-env"></a> {#bundle-specific-envbundle-specific-env}</h3>
+<p>Plasmo Framework also provides environment variables specific to a certain <a href="https://docs.plasmo.com/framework/workflows/build#with-a-specific-target">build target</a> or <a href="https://docs.plasmo.com/framework/workflows/build#with-a-custom-tag">build tag</a> when creating the final bundle. Given the following build command:</p>
+<p>The following env files will be considered, ordered by priority:</p>
+<ul>
+<li><code>.env.safari</code></li>
+<li><code>.env.alpha</code></li>
+<li><code>.env</code></li>
+</ul>
+<h3>Local Env<a href="#local-env"></a> {#local-envlocal-env}</h3>
+<p>Plasmo also supports the following environment file names (Next.js developers will find these familiar):</p>
+<ul>
+<li><code>.env.&lt;browser&gt;.local</code></li>
+<li><code>.env.&lt;tag&gt;.local</code></li>
+<li><code>.env.&lt;NODE_ENV&gt;.local</code></li>
+<li><code>.env.local</code></li>
+</ul>
+<p>Files with <code>.local</code> at the end of their names have a higher priority than non-local ones. For example, <code>.env.local</code> has higher priority than <code>.env.production</code> and <code>.env.development</code>.</p>
+<p>Within the same namespace, however, the cascading order is as expected. This feature utilizes a cascading/overriding strategy for environment variables using the <a href="https://www.npmjs.com/package/dotenv"><code>dotenv</code> package (opens in a new tab)</a>.</p>
+<h3>Prioritized Env<a href="#prioritized-env"></a> {#prioritized-envprioritized-env}</h3>
+<p>To include an environment file that is prioritized above all, use the <code>--env</code> flag. The name of this file can be named anything:</p>
+<h2>Using Environment Variables<a href="#using-environment-variables"></a></h2>
+<p>Environment variables are a powerful feature that allow you to customize your extension to fit the needs of each browser and development environment from the same codebase.</p>
+<h3>In Source Code<a href="#in-source-code"></a> {#in-source-codein-source-code}</h3>
+<p>To reference an environment variable in your source code, use the full path <code>process.env.&lt;ENV_NAME&gt;</code>. For example:</p>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-env">with-env (opens in a new tab)</a> for more details about using .env variables.</p>
+<h3>In Remote Code Import<a href="#in-remote-code-import"></a> {#in-remote-code-importin-remote-code-import}</h3>
+<p>Use public environment variables if you are <a href="https://docs.plasmo.com/framework/remote-code">importing remote code</a>:</p>
+<h3>In Content Scripts Config<a href="#in-content-scripts-config"></a> {#in-content-scripts-configin-content-scripts-config}</h3>
+<p>You can also use environment variables in the <a href="https://docs.plasmo.com/framework/content-scripts#customizing-content-script-config">content script config exports</a>:</p>
+<h3>In Manifest Overrides<a href="#in-manifest-overrides"></a> {#in-manifest-overridesin-manifest-overrides}</h3>
+<p>Plasmo lets you <a href="https://docs.plasmo.com/framework/customization/manifest">override the final generated extension manifest via the <code>manifest</code> property of the package.json file</a>. Taking one step further, Plasmo also parses any environment variables used in the manifest overrides:</p>
+<p>You can use public (prefixed with <code>PLASMO_PUBLIC</code>) and private environment variables in your manifest override. 😎</p>
+<p><a href="https://docs.plasmo.com/framework/storage" title="Storage">Storage</a><a href="https://docs.plasmo.com/framework/import" title="Import Resolution">Import Resolution</a></content>
+</page></p>
+<page>
+  <title>Storage API – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/storage</url>
+  <content>[](https://github.com/PlasmoHQ/plasmo/blob/main/LICENSE)[](https://www.npmjs.com/package/@plasmohq/storage)[](https://www.twitter.com/plasmohq)[](https://www.twitch.tv/plasmohq)[](https://www.plasmo.com/s/d)
+
+<p><code>@plasmohq/storage</code> is a utility library from <a href="https://www.plasmo.com/">plasmo (opens in a new tab)</a> that abstracts the persistent storage API available to browser extensions. It falls back to localStorage when the extension storage API is unavailable, allowing for state sync between extension pages, content scripts, background service workers and web pages.</p>
+<blockquote>
+<p>This library will enable the <code>storage</code> permission automatically if used as a <strong>dependencies</strong> in a <a href="https://docs.plasmo.com/">Plasmo framework (opens in a new tab)</a> project</p>
+</blockquote>
+<h2>Installation<a href="#installation"></a></h2>
+<p>The package exports the following modules, in both ESM and CJS format:</p>
+<h2>Usage Examples<a href="#usage-examples"></a></h2>
+<ul>
+<li>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-storage">with-storage (opens in a new tab)</a> for an example of how to use this library to sync state between options and popups.</li>
+<li>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-redux">with-redux (opens in a new tab)</a> for an example of how to use this library as your Redux persistent layer (crucial for MV3).</li>
+<li>See <a href="https://github.com/PlasmoHQ/mice">MICE (opens in a new tab)</a> for an experimental use case of this library integrated with WebRTC to pipe messages between browsers via an extension.</li>
+</ul>
+<h2>Storage<a href="#storage"></a></h2>
+<p>The base Storage API is designed to be easy to use. It is usable in every extension runtime such as background service workers, content scripts and extension pages.</p>
+<p>Get/set data without the need to JSON.stringify/parse. As long as the data you are storing is serializable (plain object or of primitive type), it can be stored:</p>
+<h3>Customizing the storage area<a href="#customizing-the-storage-area"></a> {#customizing-the-storage-areacustomizing-the-storage-area}</h3>
+<p>The storage area defaults to &quot;sync&quot;, which means the data is synced across all instances of Chrome where the user is logged in.</p>
+<p>You can see all of the other possible scopes Plasmo supports in the <a href="https://developer.chrome.com/docs/extensions/reference/api/storage#storage_areas">Chrome Storage API documentation (opens in a new tab)</a>.</p>
+<h3>Automatically copy data to localStorage<a href="#automatically-copy-data-to-localstorage"></a> {#automatically-copy-data-to-localstorageautomatically-copy-da}</h3>
+<p>The code above will copy the data to Web localStorage when used with content scripts or extension pages.</p>
+<h3>Watch (for state sync)<a href="#watch-for-state-sync"></a> {#watch-for-state-syncwatch-for-state-sync}</h3>
+<p>To watch for changes when using the Storage API:</p>
+<p>This can be used as a layer to communicate messages across your extension. We demonstrate this in the <a href="https://github.com/PlasmoHQ/examples/tree/main/with-redux">with-redux (opens in a new tab)</a> example.</p>
+<h2>Secure Storage<a href="#secure-storage"></a></h2>
+<p>The SecureStorage API extends Storage with data encryption and decryption for at-rest cold storage of sensitive keys. It utilizes the <a href="https://developer.mozilla.org/en-US/docs/Web/API/SubtleCrypto">Web Crypto <code>SubtleCrypto</code> API (opens in a new tab)</a> which only works in secure contexts (HTTPS).</p>
+<h2>React Hook API<a href="#react-hook-api"></a></h2>
+<p>The hook API is designed to streamline the state-syncing workflow between the different pieces of an extension. There are many ways it can be used, but first and foremost you will want to import the hook into your React component:</p>
+<h3>Watch and render a value<a href="#watch-and-render-a-value"></a> {#watch-and-render-a-valuewatch-and-render-a-value}</h3>
+<h3>With a custom storage instance<a href="#with-a-custom-storage-instance"></a> {#with-a-custom-storage-instancewith-a-custom-storage-instance}</h3>
+<h3>Rendering initial value WITHOUT persisting<a href="#rendering-initial-value-without-persisting"></a> {#rendering-initial-value-without-persistingrendering-initial-}</h3>
+<p>&quot;Persisting&quot; means writing into the internal memory.</p>
+<p>By not persisting the value, only this specific instance of the hook will render the given initial value when there is no value in storage. Other instances can either show <code>undefined</code> OR specify their own initial value. To elaborate on this:</p>
+<p>Given a <code>popup.tsx</code> that sets a static initial value:</p>
+<p>If we subscribe to this key in <code>content.tsx</code>, we will see it be <code>undefined</code> until <code>setHailingFrequency</code> is called with a defined value:</p>
+<p>If we subscribe to this key in <code>options.tsx</code>, but with a different static initial value, we will see that value instead:</p>
+<p>With the above setup, suppose we call <code>setHailingFrequency(&quot;8472&quot;)</code> in any of the instances above, we will see that all instances will now show &quot;8472&quot; and will now track the value in storage instead of the initial value.</p>
+<h3>Rendering AND persisting initial value<a href="#rendering-and-persisting-initial-value"></a> {#rendering-and-persisting-initial-valuerendering-and-persisti}</h3>
+<p>By using a function instead of a static value, the initial value will be persisted in storage memory. The initialize function has one parameter which is the existing value in storage. If there is no value, it is <code>undefined</code>.</p>
+<p>Let&#39;s say we have a <code>popup.tsx</code> that initialize the state to &quot;42&quot; if there is nothing in storage:</p>
+<p>Then, if we make a new hook instance in our <code>content.tsx</code> or <code>options.tsx</code>, we will see the initial value that persisted, without calling <code>setHailingFrequency</code>:</p>
+<h3>Advanced usage<a href="#advanced-usage"></a> {#advanced-usageadvanced-usage}</h3>
+<p>When dealing with form input or real-time input, you might need the following:</p>
+<h3>Usage with Firefox<a href="#usage-with-firefox"></a> {#usage-with-firefoxusage-with-firefox}</h3>
+<p>To use the storage API on Firefox during development you need to add an Add-on ID to your manifest, otherwise, you will get this error:</p>
+<blockquote>
+<p>Error: The storage API will not work with a temporary addon ID. Please add an explicit addon ID to your manifest. For more information see <a href="https://mzl.la/3lPk1aE">https://mzl.la/3lPk1aE (opens in a new tab)</a>.</p>
+</blockquote>
+<p>To add an Add-on ID to your manifest, add this to your <code>package.json</code>:</p>
+<p>The format of Add-on IDs differ between manifest versions.</p>
+<ul>
+<li>Manifest V2: <code>your-id@example.com</code></li>
+<li>Manifest V3: <code>{ed7ba470-8e54-465e-825c-99712043e01c}</code> (any UUID)</li>
+</ul>
+<p>Once your extension is published, the Add-on ID defined in the <code>package.json</code> file <em>should</em> be displayed in your extension&#39;s Developer Page under <em>&quot;Technical Details &gt; UUID&quot;</em>.</p>
+<p><strong>Note:</strong> The Add-on ID used during development (i.e. the one defined in the manifest) will likely be the one Mozilla assigns to your when publishing. If it&#39;s not and one is generated for you, you will have to update the <code>package.json</code> file with the new ID.</p>
+<p>Add-on IDs are unique and the same one cannot be used for multiple extensions (both manifest versions).</p>
+<p><a href="https://docs.plasmo.com/framework/messaging" title="Messaging">Messaging</a><a href="https://docs.plasmo.com/framework/env" title="Environment Variables">Environment Variables</a></content>
+</page></p>
+<page>
+  <title>Import Resolution – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/import</url>
+  <content>Plasmo framework ships with its own code/asset bundler tailored specifically for extension development. It supports raw/transformed bundle inlining, asset mirroring, environment injection, and more.
+
+<h2>Supported File Types<a href="#supported-file-types"></a></h2>
+<p>The following files can be imported into Source Code modules and will be transformed accordingly:</p>
+<h2>Paths<a href="#paths"></a></h2>
+<p>Plasmo has built-in support for most common import paths such as relative import, <code>node_module</code> package import, and <code>ESM exports</code> import. It also provides project-relative paths via tilde and absolute imports. To customize your import path further, check out the <a href="https://docs.plasmo.com/framework/customization/alias">Alias Imports Section</a>.</p>
+<h3>Tilde (<code>~/</code>)<a href="#tilde-"></a> {#tilde-tilde}</h3>
+<p>The tilde import path is a convenient shortcut for the &quot;source code module directory.&quot; Plasmo only considers files ending in the following extension to be &quot;source code module&quot;:</p>
+<p>When used outside a source code module or with an asset <a href="https://docs.plasmo.com/framework/import#schemes">scheme</a> such as <code>data-base64</code>, <code>data-text</code>, or <code>url</code>, the tilde (<code>~</code>) <strong>always</strong> resolves to the project&#39;s root directory where the <code>package.json</code> resides. Thus:</p>
+<ul>
+<li><code>~rulesets/test.json</code> used in the <a href="https://docs.plasmo.com/framework/customization/manifest">manifest override inside <code>package.json</code></a> resolves to <code>/rulesets/test.json</code></li>
+<li><code>data-base64:~assets/image.png</code> resolves to <code>/assets/image.png</code></li>
+<li><code>url:~src/code.js</code> resolves to <code>/src/code.js.</code></li>
+</ul>
+<p>Suppose the tilde is by itself without a scheme and is being used to import a source code module from another source code module. In that case, it has two behaviors depending on whether you are using the default setup or the <a href="https://docs.plasmo.com/framework/customization/src">the <code>src</code> directory setup</a>:</p>
+<ul>
+<li>With the default setup, <code>~</code> points to the project root.</li>
+<li>With the <code>src</code> directory setup, <code>~</code> points to the <code>src</code> directory. Thus <code>~core/code-module.tsx</code>, resolves to <code>/src/core/code-module.tsx</code>.</li>
+</ul>
+<h3>Absolute (<code>/</code>)<a href="#absolute-"></a> {#absolute-absolute}</h3>
+<p>Unlike tilde, the absolute import path will always resolve to the project root (where the <code>package.json</code> resides) regardless of the <code>src</code> directory. Use the absolute import path if you prefer complete consistency.</p>
+<h3>Relative (<code>./</code>, <code>../</code>)<a href="#relative--"></a> {#relative-relative}</h3>
+<p>Use the <code>./</code> prefix to import files using paths relative to the current file. For example, to import a file from the same directory as the existing file, use <code>./file-name</code>. To import a file from a subdirectory, use <code>./subdirectory/file-name</code>. To import a file from a parent directory, use <code>../file-name</code>.</p>
+<h2>Schemes<a href="#schemes"></a></h2>
+<p>Plasmo introduces several <em>import schemes</em> that developers can use to import asset files into the extension bundle. Schemes follow the <code>&lt;scheme&gt;:&lt;file path&gt;</code> pattern. For example, <code>data-base64:~/assets/image.png</code> is a valid import path.</p>
+<h3>raw<a href="#raw"></a> {#rawraw}</h3>
+<p>The <code>raw</code> scheme instructs Plasmo to:</p>
+<ol>
+<li>Copy the file into the extension bundle at the root level</li>
+<li>Assign a content hash to distinguish it from other files with similar names</li>
+</ol>
+<p>The imported variable is an absolute URL to the file at runtime:</p>
+<h3>raw-env<a href="#raw-env"></a> {#raw-envraw-env}</h3>
+<p>The <code>raw-env</code> scheme is like the <code>raw</code> scheme but with added <a href="https://docs.plasmo.com/framework/env">environment variables</a>. For example, if you have a file <code>~/assets/config.json</code> with the following content:</p>
+<p>And you declared an environment variable <code>PLASMO_PUBLIC_URL</code> with the value <code>https://www.plasmo.com</code>, then the resulting file will be:</p>
+<h3>url<a href="#url"></a> {#urlurl}</h3>
+<p>The <code>url</code> scheme instructs Plasmo to:</p>
+<ol>
+<li>Transform/bundle/optimize the file for browser consumption (html/js/css/images)</li>
+<li>Copy the result + dependencies into the extension bundle at the root level</li>
+<li>Assign a content hash to distinguish it from other files with similar names</li>
+<li>(Content Script only) Add the file to the <code>web_accessible_resources</code> entry</li>
+</ol>
+<p>The imported variable is an absolute URL to the file at runtime:</p>
+<h3>data-text<a href="#data-text"></a> {#data-textdata-text}</h3>
+<p>The <code>data-text</code> scheme instructs Plasmo to:</p>
+<ol>
+<li>Read the file&#39;s content</li>
+<li>Transform/bundle/optimize the file for browser consumption (html/js/css/images)</li>
+<li>Inline the content as a single bundle in a string</li>
+</ol>
+<h3>data-text-env<a href="#data-text-env"></a> {#data-text-envdata-text-env}</h3>
+<p>The <code>data-text</code> scheme instructs Plasmo to:</p>
+<ol>
+<li>Read the file&#39;s content</li>
+<li>Inject public environment variables</li>
+<li>Transform/bundle/optimize the file for browser consumption (html/js/css/images)</li>
+<li>Inline the content as <code>string</code></li>
+</ol>
+<p><code>.env</code></p>
+<p><code>code.json</code></p>
+<p><code>content.tsx</code></p>
+<h3>data-base64<a href="#data-base64"></a> {#data-base64data-base64}</h3>
+<p>The <code>data-base64</code> scheme instructs Plasmo to:</p>
+<ol>
+<li>Read the file&#39;s content</li>
+<li>Transform/bundle/optimize the file for browser consumption (html/js/css/images)</li>
+<li>Convert the result to base64 string and inline it into the code</li>
+</ol>
+<h3>data-env<a href="#data-env"></a> {#data-envdata-env}</h3>
+<p>The <code>data-env</code> scheme instructs Plasmo to:</p>
+<ol>
+<li>Read the file&#39;s content</li>
+<li>Inject public environment variables</li>
+<li>Transform/bundle/optimize the file for browser consumption (html/js/css/images)</li>
+<li>Return appropriate runtime asset result</li>
+</ol>
+<h3>react:*.svg<a href="#reactsvg"></a> {#reactsvgreactsvg}</h3>
+<p>The <code>react</code> scheme transforms any svg assets into a React component (via SVGR and SVGO):</p>
+<p><a href="https://docs.plasmo.com/framework/env" title="Environment Variables">Environment Variables</a><a href="https://docs.plasmo.com/framework/assets" title="Assets">Assets</a></content>
+</page></p>
+<page>
+  <title>Extension Icon – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/icon</url>
+  <content>The Plasmo framework automatically generates smaller resolution versions of icons for the built bundle. Thus, all you need to work on is the high-fidelity version!
+
+<p>By default, Plasmo reads the <code>assets/icon.png</code> file for the extension icon. Optionally, you can use these names instead of <code>icon</code>:</p>
+<p>The alternative names are helpful to clarify the size of the original icon. However, Plasmo will only pick one file.</p>
+<h2>Development Icon<a href="#development-icon"></a></h2>
+<p>In <a href="https://docs.plasmo.com/framework/workflows/dev">development mode</a>, Plasmo converts the icon to grayscale to help distinguish it from the production bundle:</p>
+<h3>Custom Development Icon<a href="#custom-development-icon"></a> {#custom-development-iconcustom-development-icon}</h3>
+<p>If you don&#39;t want the default grayscale behavior, you can place an <code>icon.development.png</code> file in the <code>assets</code> directory. Plasmo will use this file instead of the <code>icon.png</code> file in development mode.</p>
+<h2>Tag Specific Icons<a href="#tag-specific-icons"></a></h2>
+<p>To use a different icon for a specific <a href="https://docs.plasmo.com/framework/workflows/build#with-a-custom-tag">build tag</a>, name your icon file as follows:</p>
+<ul>
+<li><code>icon.&lt;tag&gt;.png</code></li>
+<li><code>icon.&lt;tag&gt;.&lt;NODE_ENV&gt;.png</code></li>
+</ul>
+<h2>Icon Sizes<a href="#icon-sizes"></a></h2>
+<p>Plasmo generates the following icon sizes (in px):</p>
+<p>You can override a specific size by placing any of the following files in the <code>assets</code> directory:</p>
+<p><a href="https://docs.plasmo.com/framework/assets" title="Assets">Assets</a><a href="https://docs.plasmo.com/framework/locales" title="Locales">Locales</a></content>
+</page></p>
+<page>
+  <title>Assets – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/assets</url>
+  <content>Extension bundles can include assets such as images, fonts, binary WASM bundles, and other files. Plasmo provides several methods to work with these assets.
+
+<h2>Inline Image<a href="#inline-image"></a></h2>
+<p>The easiest way to load images inside your extension is to use the <code>data-base64</code> scheme. This will inline the image as base64 encoded data in the built bundle of your extension:</p>
+<h2>Web Accessible Resources<a href="#web-accessible-resources"></a></h2>
+<p>Plasmo automatically copies any web-accessible resources declared in <a href="https://docs.plasmo.com/framework/customization/manifest">the manifest override</a>. For example, by specifying the following config in <code>package.json</code>:</p>
+<p>The files below will be copied into the extension bundle and be available to <a href="https://developer.chrome.com/docs/extensions/reference/runtime/#method-getURL"><code>chrome.getURL()</code> (opens in a new tab)</a>:</p>
+<ul>
+<li><code>raw.js</code> in the root of the project (where package.json is)</li>
+<li>Any file matching the glob <code>assets/pic*.png</code> from the project root</li>
+<li><code>resources/test.json</code> from the project root</li>
+</ul>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-web-accessible-resources">with-web-accessible-resources (opens in a new tab)</a></p>
+<h3>Loading Asset during runtime<a href="#loading-asset-during-runtime"></a> {#loading-asset-during-runtimeloading-asset-during-runtime}</h3>
+<p>If you use a package that dynamically loads an asset (e.g. wasm) during runtime and needs a path to the local asset library, note that you need to make your asset folder available using ~assets, e.g.:</p>
+<p>While in your js/ts code you need to refer the folder using the absolute path <code>/</code></p>
+<h2>Assets from <code>node_modules</code><a href="#assets-from-node_modules"></a></h2>
+<p>Sometimes, a node package exposes static assets files you must include in your bundle as web-accessible resources. To do so, specify those assets in the <code>web_accessible_resources</code> field of the manifest override in <code>package.json</code>:</p>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-inbox-sdk">with-inbox-sdk (opens in a new tab)</a></p>
+<p><a href="https://docs.plasmo.com/framework/import" title="Import Resolution">Import Resolution</a><a href="https://docs.plasmo.com/framework/icon" title="Icon">Icon</a></content>
+</page></p>
+<page>
+  <title>Localization and Internationalization – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/locales</url>
+  <content>Plasmo has built-in support for localization. These concepts should feel familiar to you if you've ever done this in any other Chrome extension.
+
+<p>Plasmo expects your locale files in any of these locations:</p>
+<ul>
+<li><code>/locales/{lang}/messages.json</code></li>
+<li><code>/assets/_locales/{lang}/messages.json</code></li>
+<li><code>/assets/locales/{lang}/messages.json</code></li>
+</ul>
+<p>You will need to pick one and stick to it!</p>
+<h2>English Example<a href="#english-example"></a></h2>
+<p>Create a <code>locales/en/messages.json</code> file with a JSON mapping between a unique <code>key</code> and a locale object:</p>
+<p>By default, Plasmo picks the first locale alphabetically available as default. However, you can specify a <code>default_locale</code> in your manifest like so:</p>
+<p>Even more powerful, you can use environment variables inside your locale files:</p>
+<p>The locale files are monitored by Plasmo if they existed before the dev server started. Thus, you can change the locales file and see the changes in the browser without restarting the dev server.</p>
+<h2>Usage<a href="#usage"></a></h2>
+<p>With the locale files in place, you can use the <code>i18n</code> API to localize your extension.</p>
+<h3>Inside source code modules<a href="#inside-source-code-modules"></a> {#inside-source-code-modulesinside-source-code-modules}</h3>
+<p>To get the locale string inside your components, use the <code>i18n</code> API to get the locale message by its <code>key</code>:</p>
+<h3>Inside package.json and manifest overrides<a href="#inside-packagejson-and-manifest-overrides"></a> {#inside-packagejson-and-manifest-overridesinside-packagejson-}</h3>
+<p>To reference a locale string inside your manifest overrides, wrap the key inside <code>__MSG_&lt;key&gt;__</code>:</p>
+<p>Please refer to the <a href="https://developer.chrome.com/extensions/i18n">Chrome i18n documentation (opens in a new tab)</a> for more information.</p>
+<p>If you&#39;d like to see an example showcasing locale, check out <a href="https://github.com/PlasmoHQ/examples/blob/main/with-locales-i18n">with-locales-i18n (opens in a new tab)</a> in the <a href="https://github.com/PlasmoHQ/examples">Plasmo examples (opens in a new tab)</a> repository.</p>
+<p><a href="https://docs.plasmo.com/framework/icon" title="Icon">Icon</a><a href="https://docs.plasmo.com/framework/remote-code" title="Remote Code">Remote Code</a></content>
+</page></p>
+<page>
+  <title>Customization – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/customization</url>
+  <content>Framework
+
+<p>Customization</p>
+<p>Principles</p>
+<p>Plasmo is an <strong><em>opinionated</em></strong> framework. However, there are cases when it favors flexibility:</p>
+<ol>
+<li>When it has yet to formulate a proper abstraction/opinion</li>
+<li>When the opinion greatly tampers with the developer&#39;s experience</li>
+<li>When the topic does not matter</li>
+</ol>
+<p><a href="https://docs.plasmo.com/framework/remote-code" title="Remote Code">Remote Code</a><a href="https://docs.plasmo.com/framework/customization/manifest" title="Manifest Override">Manifest Override</a></content>
+</page></p>
+<page>
+  <title>Importing Remote Code – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/remote-code</url>
+  <content>Plasmo automatically bundles all import statements that point to a remote resource using the `https` protocol in build time. This is essential to work with [the remote code restriction in Manifest V3 (opens in a new tab)](https://developer.chrome.com/docs/extensions/mv3/intro/mv3-overview/#remotely-hosted-code).
+
+<p>Adding the <a href="https://developers.google.com/analytics/devguides/collection/ga4">Google Analytics 4 (opens in a new tab)</a> tracking code into our popup is as simple as:</p>
+<pre><code>import &quot;https://www.googletagmanager.com/gtag/js?id=XXXXXX&quot;
+</code></pre>
+<p>The code above is not clean due to the presence of the tracking ID. However, since Plasmo parses the import statement, we can use <a href="https://docs.plasmo.com/framework/env">environment variables</a> inside the import. Define the tracking ID in a <code>.env.local</code> file:</p>
+<pre><code>PLASMO_PUBLIC_GTAG_ID=XXXXXX
+</code></pre>
+<p>Then, use it in your import by prefixing a <code>$</code> before its name:</p>
+<pre><code>import &quot;https://www.googletagmanager.com/gtag/js?id=$PLASMO_PUBLIC_GTAG_ID&quot;
+</code></pre>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-google-analytics">with-google-analytics (opens in a new tab)</a></p>
+<p><a href="https://docs.plasmo.com/framework/locales" title="Locales">Locales</a><a href="https://docs.plasmo.com/framework/customization" title="Principles">Principles</a></content>
+</page></p>
+<page>
+  <title>Overriding the Manifest – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/customization/manifest</url>
+  <content>The Plasmo Framework extends the `package.json` with a `manifest` field to override the generated extension manifest. The primary use case is to enable features that the Plasmo framework does not _yet_ natively support.
+
+<p>For instance, the Plasmo Framework might not understand that you need to have an <code>activeTab</code> permission. You&#39;ll need to modify your project&#39;s <code>package.json</code> like so:</p>
+<p>Plasmo will pass over the following fields from the <code>package.json</code> to the generated extension manifest:</p>
+<ul>
+<li><code>packageJson.version</code> -&gt; <code>manifest.version</code></li>
+<li><code>packageJson.displayName</code> -&gt; <code>manifest.name</code></li>
+<li><code>packageJson.description</code> -&gt; <code>manifest.description</code></li>
+<li><code>packageJson.author</code> -&gt; <code>manifest.author</code></li>
+<li><code>packageJson.homepage</code> -&gt; <code>manifest.homepage_url</code></li>
+</ul>
+<h2>Using environment variables<a href="#using-environment-variables"></a></h2>
+<p>You can use environment variables inside the manifest overrides. For instance in the <a href="https://github.com/PlasmoHQ/examples/blob/main/with-storage/package.json">with-storage example (opens in a new tab)</a>:</p>
+<p>If the environment variable could not be found, the field will be removed completely from the manifest. This enables working with multiple browser targets by specifying <a href="https://docs.plasmo.com/framework/env#bundle-specific-env">target-specific environment variables</a>.</p>
+<h2>Using locale template string<a href="#using-locale-template-string"></a></h2>
+<p>You can use <a href="https://docs.plasmo.com/framework/locales">locale</a> template strings in the manifest overrides:</p>
+<p><a href="https://docs.plasmo.com/framework/customization" title="Principles">Principles</a><a href="https://docs.plasmo.com/framework/customization/src" title="Use src Directory">Use src Directory</a></content>
+</page></p>
+<page>
+  <title>Using the src directory for source code – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/customization/src</url>
+  <content>Instead of having your source codes in the root directory, you can put them in a child `src` directory.
+
+<h2>--with-src<a href="#--with-src"></a></h2>
+<p>Creating a Plasmo project with an <code>src</code> directory setup is as simple as:</p>
+<p>The command above utilizes Plasmo&#39;s <a href="https://docs.plasmo.com/framework/workflows/new#with-an-example-template">example template feature</a>.</p>
+<h2>Manual Setup<a href="#manual-setup"></a></h2>
+<p>First, copy all your source code files into the <code>src</code> directory. Then, for TypeScript to work correctly, you will need to point the resolved <code>paths</code> for the <code>~*</code> prefix in the <code>tsconfig.json</code> file to <code>&quot;./src/*&quot;</code>.</p>
+<p>The new configuration looks like this:</p>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-src">with-src (opens in a new tab)</a> for a full example.</p>
+<p><a href="https://docs.plasmo.com/framework/customization/manifest" title="Manifest Override">Manifest Override</a><a href="https://docs.plasmo.com/framework/customization/html" title="Replace the HTML">Replace the HTML</a></content>
+</page></p>
+<page>
+  <title>Replacing the HTML Templates – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/customization/html</url>
+  <content>Framework
+
+<p>Customization</p>
+<p>Replace the HTML</p>
+<p>To replace the default HTML templates, you can create a <code>.html</code> file with the same naming convention as the component file. For example, if you have a <code>popup.tsx</code> and would like to override the HTML, create a <code>popup.html</code> file:</p>
+<p>popup.html</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;__plasmo_static_index_title__&lt;/title&gt;
+    &lt;meta charset=&quot;utf-8&quot; /&gt;
+  &lt;/head&gt;
+  &lt;body&gt;&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>If you have a <code>popup/index.tsx</code> file, create a <code>popup/index.html</code> file with content similar to the above.</p>
+<p>👀</p>
+<p>You do not need to include the root element or the script tag. The Plasmo Framework will handle that for you.</p>
+<p><a href="https://docs.plasmo.com/framework/customization/src" title="Use src Directory">Use src Directory</a><a href="https://docs.plasmo.com/framework/customization/alias" title="Alias Imports">Alias Imports</a></content>
+</page></p>
+<page>
+  <title>Alias Source Code Import – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/customization/alias</url>
+  <content>There are two methods to override the import path:
+
+<ul>
+<li>Using the <code>paths</code> property in <code>tsconfig.json</code></li>
+<li>Using the <code>alias</code> property in <code>package.json</code></li>
+</ul>
+<h2>Alias Local TypeScript Imports<a href="#alias-local-typescript-imports"></a></h2>
+<p>To alias local imports, use the <code>paths</code> mapping in <code>tsconfig.json</code>:</p>
+<p>You can then use it as follow:</p>
+<p>See the example in <a href="https://github.com/PlasmoHQ/plasmo-test/tree/main/bug/bug-244-alias-local-imports">bug-244-alias-local-imports (opens in a new tab)</a></p>
+<h2>Alias External TypeScript Modules<a href="#alias-external-typescript-modules"></a></h2>
+<p>To alias external typescript modules, you may use the <code>paths</code> mapping pointing to an external directory in <code>tsconfig.json</code>:</p>
+<p>The import becomes:</p>
+<h2>Alias External Imports<a href="#alias-external-imports"></a></h2>
+<p>You can use the <code>alias</code> field to map an import path to a file external to your project:</p>
+<p>Make sure to also declare that import in a typescript declaration <code>cool-file.d.ts</code> file:</p>
+<p>And include that file in your <code>tsconfig.json</code>:</p>
+<p>Then you can use it in your code:</p>
+<h2>Alias API-Compatible Modules<a href="#alias-api-compatible-modules"></a></h2>
+<p>Use the <code>alias</code> field in <code>package.json</code> to alias API-compatible modules. You can map to a local file or a dependency package.</p>
+<h3>Using Preact instead of React<a href="#using-preact-instead-of-react"></a> {#using-preact-instead-of-reactusing-preact-instead-of-react}</h3>
+<p>Since Preact&#39;s API is compatible with React, you can alias it like so:</p>
+<p><a href="https://docs.plasmo.com/framework/customization/html" title="Replace the HTML">Replace the HTML</a><a href="https://docs.plasmo.com/framework/customization/internal-path" title="Internal Paths">Internal Paths</a></content>
+</page></p>
+<page>
+  <title>Customizing Internal Paths – Plasmo</title>
+  <url>https://docs.plasmo.com/framework/customization/internal-path</url>
+  <content>Plasmo constructs several paths to be used in the bundling process. These paths are used to locate the source code and the output directory for example. This section describes how to customize some of these paths.
+
+<h2>Build path<a href="#build-path"></a></h2>
+<p>The default bundle build path is <code>./build</code>. To change this behavior, either:</p>
+<ul>
+<li><p>Specify the <code>--build-path</code> flag:</p>
+</li>
+<li><p>Or use the <code>PLASMO_BUILD_PATH</code> top-level environment variable:</p>
+</li>
+</ul>
+<p>This applies to the <code>dev</code>, <code>build</code> and <code>package</code> commands.</p>
+<h2>Source path<a href="#source-path"></a></h2>
+<p>The default source path is <code>./src</code>. To change this behavior, either:</p>
+<ul>
+<li><p>Specify the <code>--src-path</code> flag:</p>
+</li>
+<li><p>Or use the <code>PLASMO_SRC_PATH</code> top-level environment variable:</p>
+</li>
+</ul>
+<p>This applies to the <code>dev</code>, <code>build</code> and <code>package</code> commands.</p>
+<p><a href="https://docs.plasmo.com/framework/customization/alias" title="Alias Imports">Alias Imports</a><a href="https://docs.plasmo.com/itero" title="Getting Started">Getting Started</a></content>
+</page></p>
+<page>
+  <title>Welcome to Itero: The Browser Extension Cloud – Plasmo</title>
+  <url>https://docs.plasmo.com/itero</url>
+  <content>Meet Itero, the cloud platform for browser extension development that allows you to iterate faster without a review process, and test new changes with each and every push. Whether you're an individual developer or a team, Itero's easy-to-use platform helps you save time and streamline your workflow.
+
+<p>At <a href="https://www.plasmo.com/">Plasmo (opens in a new tab)</a>, we understand the challenges of testing browser extensions, so we&#39;ve developed <a href="https://docs.plasmo.com/itero/test-bed">TestBed</a>, our staging environment for browser extension development. With <a href="https://docs.plasmo.com/itero/test-bed">TestBed</a>, you can quickly and easily test your extensions, and instantly push them to beta testers without waiting for a review or manually installing the extension.</p>
+<p>Our streamlined integration with the GitHub workflow ensures that each push to your repository is automatically deployed to your beta testers with the <a href="https://docs.plasmo.com/itero/builder">Itero Builder pipeline</a>. This saves you time and effort, allowing you to focus on developing your browser extension and receiving feedback from beta testers.</p>
+<p>With <a href="https://docs.plasmo.com/itero/publisher">Itero Publisher</a>, you can publish your browser extension to the Chrome Web Store and Firefox Add-ons Store effortlessly. We also offer the option to publish to the Microsoft Edge Add-ons Store, but you&#39;ll need a Microsoft Partner Center account.</p>
+<p>If you&#39;re looking to convert your extension from MV2 to MV3, Itero has got you covered with our <a href="https://docs.plasmo.com/itero/mv2-to-mv3">MV2 to MV3 Converter toolkit</a>. This makes the conversion process easy and straightforward, ensuring that your extension is compatible with the latest version of the browser.</p>
+<p>Want to see Itero in action? Check out our <a href="https://docs.plasmo.com/itero/test-bed">Testbed</a>, <a href="https://docs.plasmo.com/itero/builder">Builder</a>, <a href="https://docs.plasmo.com/itero/publisher">Publisher</a>, and <a href="https://docs.plasmo.com/itero/mv2-to-mv3">MV2 to MV3 Converter</a> pages for more information on our features and how they can help your business.</p>
+<p><a href="https://docs.plasmo.com/framework/customization/internal-path" title="Internal Paths">Internal Paths</a><a href="https://docs.plasmo.com/itero/test-bed" title="TestBed">TestBed</a></content>
+</page></p>
+<page>
+  <title>Itero TestBed: Your Browser Extension Testing Solution – Plasmo</title>
+  <url>https://docs.plasmo.com/itero/test-bed</url>
+  <content>Itero TestBed is a staging environment for browser extensions. With TestBed, you can instantly test your browser extensions without waiting for browser stores to approve your updates or dragging and dropping zip files.
+
+<h2>The Benefits of Itero TestBed<a href="#the-benefits-of-itero-testbed"></a></h2>
+<p>Itero TestBed is a game-changer for browser extension developers. It offers a multitude of benefits such as:</p>
+<ul>
+<li>No need to drag and drop zip files to test your extensions</li>
+<li>No waiting for the browser store to approve your updates</li>
+<li>Seamless integration with GitHub</li>
+<li>One-click installation for beta testers</li>
+<li>Automatic updates pushed out to testers</li>
+</ul>
+<h2>How to Get Started with Itero TestBed<a href="#how-to-get-started-with-itero-testbed"></a></h2>
+<p>To get started with Itero TestBed, you&#39;ll need to create an account on <a href="https://itero.plasmo.com/">Itero (opens in a new tab)</a>. Once you&#39;ve created your account, follow these simple steps:</p>
+<h3>Prepare Your Extension&#39;s Zip Bundle<a href="#prepare-your-extensions-zip-bundle"></a> {#prepare-your-extensions-zip-bundleprepare-your-extensions-zi}</h3>
+<p>If you don&#39;t already have a zip file of your extension, don&#39;t worry! You can easily generate one using the Plasmo Framework. Just follow these simple commands:</p>
+<p>For more detailed instructions, check out the <a href="https://docs.plasmo.com/framework/workflows/build#generating-a-zip-bundle">documentation</a> on the build pipeline.</p>
+<h3>Upload Your Browser Extension&#39;s Zip File on Itero<a href="#upload-your-browser-extensions-zip-file-on-itero"></a> {#upload-your-browser-extensions-zip-file-on-iteroupload-your-}</h3>
+<p>Take the zip file that you created in the previous step and upload it to Itero. You can do this by going to the <a href="https://itero.plasmo.com/">TestBed (opens in a new tab)</a> page and clicking the &quot;Upload New Extension&quot; button.</p>
+<h3>Share Your Extension&#39;s Link with Your Beta Testers<a href="#share-your-extensions-link-with-your-beta-testers"></a> {#share-your-extensions-link-with-your-beta-testersshare-your-}</h3>
+<p>Once you&#39;ve uploaded your extension, share the generated link with your beta testers. They&#39;ll need to install Plasmo&#39;s software, but after that, they can install your extension with a single click. As you make changes, the updates will automatically be pushed out to them.</p>
+<p>To get the Extension&#39;s Link, open the drop-down item for your Itero extension, then click Install Page:</p>
+<p>Share that URL with your tester. If you would like the extension to be accessible to just your team, switch its access to &quot;Private.&quot;</p>
+<h2>GitHub Integration<a href="#github-integration"></a></h2>
+<p>If you&#39;re using GitHub to manage your code, Itero TestBed can be integrated with it. This allows you to automatically deploy your browser extensions to Itero TestBed when you push to your GitHub repository. Visit the <a href="https://docs.plasmo.com/itero/builder">GitHub Builder page</a> page for more information.</p>
+<p>Itero TestBed is an excellent solution for browser extension developers who want to streamline their testing process. With seamless integration, one-click installation, and automatic updates, your beta testing process will be more efficient.</p>
+<p><a href="https://docs.plasmo.com/itero" title="Getting Started">Getting Started</a><a href="https://docs.plasmo.com/itero/team" title="Team">Team</a></content>
+</page></p>
+<page>
+  <title>Team – Plasmo</title>
+  <url>https://docs.plasmo.com/itero/team</url>
+  <content>You can create a team to collaborate with your team members on your extensions.
+
+<h2>Create a New Team<a href="#create-a-new-team"></a></h2>
+<p>To create a new team, click on your email address on the top left, and select &quot;Create Team&quot;.</p>
+<h2>Invite Team Members<a href="#invite-team-members"></a></h2>
+<p>To invite a new team member, go to the team settings page by clicking the Settings button in your extension dashboard:</p>
+<p>In the team settings page, add the email address of the person you want to invite and click on the &quot;Add&quot; button.</p>
+<ol>
+<li>Visit <code>https://itero.plasmo.com/team/&lt;TEAM_NAME&gt;/settings</code></li>
+<li>Enter the email of your team member, and press &quot;Add&quot;.</li>
+</ol>
+<h2>Join a Team<a href="#join-a-team"></a></h2>
+<p>To join a team, you need to be invited by the team owner or team admins. Once you receive an invitation, click on the &quot;Join Team&quot; button in the dashboard.</p>
+<p>This will take you to the team settings page where you can accept the invitation.</p>
+<h2>Changing Member&#39;s Role<a href="#changing-members-role"></a></h2>
+<p>To change a team member&#39;s role, go to the team settings page and click on the &quot;Edit&quot; button next to the member&#39;s name.</p>
+<p><a href="https://docs.plasmo.com/itero/test-bed" title="TestBed">TestBed</a><a href="https://docs.plasmo.com/itero/builder" title="GitHub Extension Builder">GitHub Extension Builder</a></content>
+</page></p>
+<page>
+  <title>GitHub Extension Builder – Plasmo</title>
+  <url>https://docs.plasmo.com/itero/builder</url>
+  <content>Build your extension on every push to GitHub, and automatically deploy it to all your beta testers.
+
+<h2>Getting Started<a href="#getting-started"></a></h2>
+<h3>Upload a new extension on your <a href="https://itero.plasmo.com/">Itero (opens in a new tab)</a> account<a href="#upload-a-new-extension-on-your-itero-account"></a> {#upload-a-new-extension-on-your-itero-opens-in-a-new-tabhttps}</h3>
+<p>If you already have an extension on Itero, you can skip this step. For more information on how to upload an extension, check out the <a href="https://docs.plasmo.com/itero/test-bed">TestBed page</a>.</p>
+<h3>Link your GitHub organization to Itero<a href="#link-your-github-organization-to-itero"></a> {#link-your-github-organization-to-iterolink-your-github-organ}</h3>
+<p>Once you have your extension on Itero, you need to link your GitHub organization to Itero. This is done by installing the GitHub App on your organization, selecting the repositories that you&#39;d like Builder to have access to, and then linking your organization and repository name on your extension&#39;s settings page.</p>
+<h4>Install the GitHub App<a href="#install-the-github-app"></a></h4>
+<p>To install the GitHub App on your organization, go to your team settings page and click &quot;Install GitHub App&quot;. Then, follow the instructions to install the app on your organization, and select the repositories that you&#39;d like Builder to have access to.</p>
+<h4>Giving Access to the Organization<a href="#giving-access-to-the-organization"></a></h4>
+<p>Select the organization that you&#39;d like Builder to have access to. This will either be your personal GitHub account, or the organization that you&#39;re a part of.</p>
+<h4>Giving Access to the Repositories<a href="#giving-access-to-the-repositories"></a></h4>
+<p>Select the repositories that you&#39;d like Builder to have access to. You can select all repositories, or select specific repositories. Remember, this doesn&#39;t link your extension to the repository, it just gives Builder access. You&#39;ll still need to link your extension to the repository on your extension&#39;s settings page.</p>
+<h4>Linking your Extension to GitHub<a href="#linking-your-extension-to-github"></a></h4>
+<p>After you&#39;ve installed the GitHub App and given it access to your repositories, you need to link your organization and repository name on your extension&#39;s settings page. This is done by adding your organization and repository name to the settings page and clicking &quot;Link&quot;.</p>
+<h2>Build History and Logs<a href="#build-history-and-logs"></a></h2>
+<p>Once you&#39;ve linked your extension to GitHub, you can view the build history and logs for your extension.</p>
+<h4>Click the Builds tab on your extension&#39;s dashboard page<a href="#click-the-builds-tab-on-your-extensions-dashboard-page"></a></h4>
+<h4>From here, you can view the build history and logs for your extension<a href="#from-here-you-can-view-the-build-history-and-logs-for-your-extension"></a></h4>
+<h4>You can also view the status of each commit&#39;s build on GitHub<a href="#you-can-also-view-the-status-of-each-commits-build-on-github"></a></h4>
+<p><a href="https://docs.plasmo.com/itero/team" title="Team">Team</a><a href="https://docs.plasmo.com/itero/publisher" title="Publisher">Publisher</a></content>
+</page></p>
+<page>
+  <title>Publisher – Plasmo</title>
+  <url>https://docs.plasmo.com/itero/publisher</url>
+  <content>When you're ready to publish your extension to the Chrome Web Store, Firefox Add-ons Store, or Edge Add-ons Store, you can use Itero Publisher to automate the process.
+
+<h2>Getting Started<a href="#getting-started"></a></h2>
+<p>Click on the &quot;Publish&quot; button on your extension&#39;s dashboard to get started.</p>
+<h2>Chrome Web Store<a href="#chrome-web-store"></a></h2>
+<p>Add your <code>clientId</code>, <code>clientSecret</code>, and <code>refreshToken</code>, and <code>extensionId</code> to the form. You can get these from Google Cloud Platform.</p>
+<p>Visit <a href="https://console.developers.google.com/apis/credentials">the Google Console (opens in a new tab)</a> and create a new project:</p>
+<p>Enter <code>chrome-webstore-upload</code> and click <strong>Create Project</strong></p>
+<p>Visit the <a href="https://console.cloud.google.com/apis/credentials/consent">Google Cloud Consent Portal (opens in a new tab)</a>, select <strong>External</strong> and <strong>Create</strong></p>
+<p>Only enter the application name (e.g. <code>chrome-webstore-upload</code>) and required email fields, and click <strong>Save</strong></p>
+<p>Add your email address to the Test users</p>
+<p>Visit the <a href="https://console.developers.google.com/apis/library/chromewebstore.googleapis.com">Chrome Web Store API page (opens in a new tab)</a> and click <strong>Enable</strong></p>
+<p>Visit <a href="https://console.developers.google.com/apis/credentials">the Google API Credentials page (opens in a new tab)</a> and click <strong>Create credentials</strong> &gt; <strong>OAuth Client ID</strong></p>
+<p>Select <strong>Desktop app</strong>, enter <code>Chrome Webstore Upload</code>, and click <strong>Create</strong></p>
+<p>Download the OAuth client JSON key, save it into a <code>key.json</code> file:</p>
+<p>Go back to the <a href="https://console.cloud.google.com/apis/credentials/consent">Google Cloud Consent page (opens in a new tab)</a> page, and click <strong>PUBLISH APP</strong> to confirm</p>
+<p>Open a console/terminal where you stored your <code>key.json</code> file. Run the following, replacing <code>pnpm dlx</code> with <code>npx</code> or <code>yarn dlx</code> as needed:</p>
+<p>The command will open an OAuth consent screen on the web. Follow its steps and warnings (this is your personal app). Make sure the local <code>port</code> is correct.</p>
+<p>Now you should have ✅ <code>clientId</code>, ✅ <code>clientSecret</code> and ✅ <code>refreshToken</code> in <code>key.json</code>.</p>
+<p>Enter these values into the form on Itero Publisher, along with the extension ID that you can find on the <a href="https://chrome.google.com/webstore/devconsole">Chrome Web Store Developer Dashboard (opens in a new tab)</a>.</p>
+<h2>Edge Add-ons Store<a href="#edge-add-ons-store"></a></h2>
+<p>Create an Edge add-on and go to the dashboard. You should see your product ID in the URL. It will look something like this: <code>https://partner.microsoft.com/en-us/dashboard/microsoftedge/{product-id}/package/dashboard</code></p>
+<p>You can get the <code>clientId</code>, <code>clientSecret</code>, and <code>accessTokenUrl</code> from the <a href="https://partner.microsoft.com/en-us/dashboard/microsoftedge/publishapi">Microsoft Edge Publish API page (opens in a new tab)</a>.</p>
+<h2>Firefox Add-ons Store<a href="#firefox-add-ons-store"></a></h2>
+<p>You can get your Extension UUID from the Firefox Add-ons hub: (Make sure to change the URL to match your extension&#39;s name): <code>https://addons.mozilla.org/en-US/developers/addon/%7B{ext-name}%7D/edit</code></p>
+<p>For the API Key and API Secret, you can get those from the <a href="https://addons.mozilla.org/en-US/developers/addon/api/key/">Firefox Add-ons Developer Hub&#39;s API page (opens in a new tab)</a></p>
+<p><a href="https://docs.plasmo.com/itero/builder" title="GitHub Extension Builder">GitHub Extension Builder</a><a href="https://docs.plasmo.com/itero/mv2-to-mv3" title="MV2 to MV3">MV2 to MV3</a></content>
+</page></p>
+<page>
+  <title>Manifest Version 2 to 3 Converter – Plasmo</title>
+  <url>https://docs.plasmo.com/itero/mv2-to-mv3</url>
+  <content>Converting your browser extension from Manifest V2 to Manifest V3 is a big task. With Itero's MV2-MV3 Converter, you can convert your extension to Manifest V3 with a single click. You can then use the TestBed to test your extension and make sure it works as expected.
+
+<p>Expand your extension on the Itero dashboard and click on MV2 to MV3.</p>
+<p>You&#39;ll see an entire page dedicated to converting your extension.</p>
+<p>Starter-tier users can only convert their manifest.json file. Pro-tier users can also have their code scanned!</p>
+<p>If you haven&#39;t already, click &quot;Run Code Scanning&quot; to scan your code for any issues. This will help you identify any issues that you might have with your extension.</p>
+<h2>Manifest Converter<a href="#manifest-converter"></a></h2>
+<p>Plasmo will look through your manifest.json file and let you know what you need to change in order to be MV3-ready. You can also click &quot;Download MV3 Manifest&quot; to download a manifest.json file that&#39;s ready for MV3.</p>
+<h2>Code Scanning<a href="#code-scanning"></a></h2>
+<p>Pro users get the added benefit of having their code scanned. This will identify if your extension uses any MV2-only features that are not supported in MV3.</p>
+<p><a href="https://docs.plasmo.com/itero/publisher" title="Publisher">Publisher</a><a href="https://docs.plasmo.com/itero/github" title="GitHub Integration">GitHub Integration</a></content>
+</page></p>
+<page>
+  <title>Itero GitHub Integration – Plasmo</title>
+  <url>https://docs.plasmo.com/itero/github</url>
+  <content>Itero integrates with GitHub to watch for changes in your extension repository and automatically builds and pushes your extension to Itero TestBed.
+
+<h2>Prerequisites<a href="#prerequisites"></a></h2>
+<ul>
+<li>You have uploaded an extension to Itero manually with a zip file</li>
+<li>You must have an Itero account</li>
+<li>You must have a GitHub account</li>
+</ul>
+<h2>Install the GitHub App<a href="#install-the-github-app"></a></h2>
+<ol>
+<li>Visit the settings page of an extension in your Itero dashboard and click &quot;Manage GitHub App.&quot;</li>
+<li>Press &quot;Install GitHub App&quot;</li>
+<li>Select the GitHub account that you want to use for the integration (ensure this account has access to the underlying extension repository)</li>
+<li>Press &quot;Install&quot;</li>
+</ol>
+<h2>Link GitHub Repository<a href="#link-github-repository"></a></h2>
+<ol>
+<li>Visit the settings page of an extension in your Itero dashboard</li>
+<li>Enter the repository name in the form <code>&lt;owner/repo&gt;</code></li>
+<li>Press &quot;Link&quot;</li>
+</ol>
+<p>If the linked GitHub account has access to the repository, the repository will be linked. If the linked GitHub account does not have access to the repository, the process will error.</p>
+<p>Once your repository is linked, an input field will appear that allows you to specify a custom branch to track. Specify the branch name and press &quot;Track branch&quot; if you would like to track a branch other than <code>main</code>.</p>
+<h2>Transitioning from Personal to Team<a href="#transitioning-from-personal-to-team"></a></h2>
+<p>The Itero GitHub integration is a 1-to-1 binding between an Itero &quot;entity&quot; and a GitHub &quot;entity.&quot;</p>
+<p>An entity can be a user or an organization.</p>
+<p>If you are switching from the starter tier to a team tier, and you would like to integrate with the new Itero team, you must remove the current GitHub integration from your personal Itero account. To do so:</p>
+<ol>
+<li>Open the settings page of an extension in your personal Itero dashboard</li>
+<li>Click &quot;Manage GitHub App&quot;</li>
+<li>Press &quot;Uninstall Plasmo Itero&quot;</li>
+</ol>
+<p>Then, open the settings page of an extension in your team Itero dashboard and follow the steps outlined in <a href="https://docs.plasmo.com/itero/github#install-the-github-app">the Install the GitHub App section</a>.</p>
+<h2>Aligning Itero Email and GitHub Email<a href="#aligning-itero-email-and-github-email"></a></h2>
+<p>When adding a new user to your Itero team, sometime the new member might have a different email address on GitHub than on Itero. This causes issues with the GitHub integration because we use the email address on each platform to identify the user when they make a git commit.</p>
+<p>To fix this, you may update the list of emails associated with your GitHub account. To do so:</p>
+<ol>
+<li>Visit <a href="https://github.com/settings/emails">https://github.com/settings/emails (opens in a new tab)</a></li>
+<li>Add the email address that you used to signup for Itero</li>
+</ol>
+<p><a href="https://docs.plasmo.com/itero/mv2-to-mv3" title="MV2 to MV3">MV2 to MV3</a><a href="https://docs.plasmo.com/itero/api" title="Manual API">Manual API</a></content>
+</page></p>
+<page>
+  <title>Manual Upload API – Plasmo</title>
+  <url>https://docs.plasmo.com/itero/api</url>
+  <content>If you would like to bring your own builder CI/CD pipeline instead of leveraging the [Itero's GitHub App](https://docs.plasmo.com/itero/github) integration, this page is for you! By manually submitting your zip file to Itero, your CI pipeline will not be limited by the number of seat licenses you have on Itero to trigger the cloud builder.
+
+<h2>Download the API Key<a href="#download-the-api-key"></a></h2>
+<p>Go to the settings page of your extension and download the API key. The key is a JSON file with the following shape:</p>
+<h2>Submission via GitHub Action<a href="#submission-via-github-action"></a></h2>
+<p>You may use the key with the <a href="https://docs.plasmo.com/framework/workflows/submit">BPP</a> GitHub Action to automatically upload your extension to Itero. Simply add the <code>itero</code> key to your existing BPP&#39;s secret or as a separate secret workflow.</p>
+<p>Make sure your BPP version is <a href="https://github.com/PlasmoHQ/bpp/releases/tag/v3.3.0">v3.3.0 (opens in a new tab)</a> or above.</p>
+<h2>Submission via API Calls<a href="#submission-via-api-calls"></a></h2>
+<p>First, create a zip file of your extension. Then, follow the flows below:</p>
+<h3>1. POST <code>https://itero.plasmo.com/api/submit/upload</code><a href="#1-post-httpsiteroplasmocomapisubmitupload"></a> {#1-post-httpsiteroplasmocomapisubmitupload1-post-httpsiteropl}</h3>
+<p>This endpoint issues a signed URL for you to upload your extension to.</p>
+<p>The request body must contain the <code>keys.itero</code> object, e.g:</p>
+<p>The response is a JSON containing the upload url:</p>
+<h3>2. PUT signed-upload-url<a href="#2-put-signed-upload-url"></a> {#2-put-signed-upload-url2-put-signed-upload-url}</h3>
+<p>Take the response url from step 1 and issue a PUT request to it with the zip blob. Ensure that the <code>Content-Type</code> header is <code>application/zip</code></p>
+<h3>3. POST <code>https://itero.plasmo.com/api/submit/sign</code><a href="#3-post-httpsiteroplasmocomapisubmitsign"></a> {#3-post-httpsiteroplasmocomapisubmitsign3-post-httpsiteroplas}</h3>
+<p>After uploading is done, you will need to call the sign endpoint to finalize the process and update the extension bundle that will be served to the beta testers.</p>
+<p>The request body must contain the <code>keys.itero</code> object like step 1.</p>
+<p><a href="https://docs.plasmo.com/itero/github" title="GitHub Integration">GitHub Integration</a><a href="https://docs.plasmo.com/quickstarts" title="Quickstarts">Quickstarts</a></content>
+</page></p>
+<page>
+  <title>Table of Contents – Plasmo</title>
+  <url>https://docs.plasmo.com/quickstarts</url>
+  <content>Quickstarts
+
+<p>To see how easy it is to switch from any extension setup to Plasmo, see: <a href="https://docs.plasmo.com/quickstarts/migrate-to-plasmo">Migrate to Plasmo</a>.</p>
+<p>We have many examples showcasing how to use Plasmo with:</p>
+<ul>
+<li><a href="https://docs.plasmo.com/quickstarts/with-nextjs">Next.js</a></li>
+<li><a href="https://docs.plasmo.com/quickstarts/with-stripe">Stripe</a></li>
+<li><a href="https://docs.plasmo.com/quickstarts/with-redux">Redux</a></li>
+<li><a href="https://docs.plasmo.com/quickstarts/with-tailwindcss">Tailwind CSS</a></li>
+<li><a href="https://docs.plasmo.com/quickstarts/with-firebase-authentication">Firebase Authentication</a></li>
+<li><a href="https://docs.plasmo.com/quickstarts/with-supabase">Supabase Authentication</a></li>
+<li><a href="https://docs.plasmo.com/quickstarts/with-google-analytics">Google Analytics</a></li>
+<li>And many more: <a href="https://github.com/PlasmoHQ/examples">visit the examples repository! (opens in a new tab)</a></li>
+</ul>
+<p><a href="https://docs.plasmo.com/itero/api" title="Manual API">Manual API</a><a href="https://docs.plasmo.com/quickstarts/migrate-to-plasmo" title="Migrate to Plasmo">Migrate to Plasmo</a></content>
+</page></p>
+<page>
+  <title>Quickstart with Next.js – Plasmo</title>
+  <url>https://docs.plasmo.com/quickstarts/with-nextjs</url>
+  <content>Plasmo seamlessly integrates with [Next.js (opens in a new tab)](https://nextjs.org/). The key idea is that Plasmo is your extension's entry point, and Next.js is your web application's entry point, allowing you to reuse your component across your codebase with minor adjustments.
+
+<p>List of compatibilities:</p>
+<ul>
+<li>The TypeScript configuration exposed by Plasmo is compatible with Next.js, including the ability to use the <code>src</code> directory.</li>
+<li>The <a href="https://docs.plasmo.com/framework/env">.env file</a> is the same, but uses a different namespace (<code>PLASMO_PUBLIC</code> vs <code>NEXT_PUBLIC</code>)</li>
+<li>Plasmo uses <a href="https://parceljs.org/">Parcel 2 (opens in a new tab)</a> which uses <a href="https://swc.rs/">swc (opens in a new tab)</a> underneath - the same bundler that Next.js uses. Thus, you can share plugin configs such as postcss and tailwindcss without modification.</li>
+</ul>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-nextjs">with-nextjs (opens in a new tab)</a> for an example!</p>
+<p><a href="https://docs.plasmo.com/quickstarts/migrate-to-plasmo" title="Migrate to Plasmo">Migrate to Plasmo</a><a href="https://docs.plasmo.com/quickstarts/with-stripe" title="Quickstart: Stripe">Quickstart: Stripe</a></content>
+</page></p>
+<page>
+  <title>Migrate to Plasmo Framework – Plasmo</title>
+  <url>https://docs.plasmo.com/quickstarts/migrate-to-plasmo</url>
+  <content>The Plasmo Browser Extension Framework simplifies building browser extensions with its declarative approach. It eliminates boilerplate code and provides a file-based configuration system that is easy to understand, use and [opt out of](https://docs.plasmo.com/quickstarts/migrate-to-plasmo#opting-out).
+
+<p>In this guide, we will walk you through transitioning from any extension project to Plasmo and highlight some key changes you need to make.</p>
+<h2>Install Plasmo CLI<a href="#install-plasmo-cli"></a></h2>
+<p>The Plasmo framework&#39;s main driver is the Plasmo CLI. It is a Node.js package that contains a compiler, a bundler, a development server, and a packager tailor-made for browser extensions:</p>
+<p>To start the development server, run <code>plasmo dev</code>. To build the extension, run <code>plasmo build</code>. To package the extension, run <code>plasmo package</code>.</p>
+<h2>manifest.json<a href="#manifestjson"></a></h2>
+<p>Plasmo merges <code>manifest.json</code> into the <code>package.json</code> and abstracts away the most basic properties:</p>
+<p>Plasmo centralizes common metadata between <code>package.json</code> and <code>manifest.json</code> and resolves any static file references (such as action, background, content scripts, and so on) automatically.</p>
+<p>This enables you to focus on the metadata that matters, such as name, description, OAuth, declarative_net_request, and so on.</p>
+<p>Furthermore, it enables the framework to provide even more powerful features, such as:</p>
+<ul>
+<li><a href="https://docs.plasmo.com/framework/env#in-manifest-overrides">Using environment variables in the manifest</a></li>
+<li><a href="https://docs.plasmo.com/framework/assets#assets-from-node_modules"><code>node_modules</code> resolving for web-accessible resources</a></li>
+<li><a href="https://docs.plasmo.com/framework/workflows/build#with-a-specific-target">Targeting multiple browsers, manifest versions, and environments (dev, prod, staging, etc...)</a></li>
+</ul>
+<h2>Popup, Options, New tab Pages<a href="#popup-options-new-tab-pages"></a></h2>
+<p>Plasmo removes the need to manually mount your React/Svelte/Vue components.</p>
+<p>In a non-Plasmo extension project, to mount a React component, you&#39;d create an <code>index.html</code> template and associated JavaScript code:</p>
+<p>If you wanted to add TypeScript, LESS, or SCSS, you would need to use Webpack, Parcel, or ESBuild, with extra plugins and loader setups.</p>
+<p>With the Plasmo framework, it&#39;s much simpler. Add a <code>popup.tsx</code> or <code>options.tsx</code> file in <a href="https://docs.plasmo.com/framework/customization/src">the source code directory</a>, exporting a default React component.</p>
+<p>Plasmo will take care of the rest:</p>
+<p>Plasmo has built-in support for CSS, SCSS, LESS, CSS Modules, and PostCSS plugins.</p>
+<p>If you&#39;d like to, for example, use SCSS, you can simply import the SCSS file in your React component:</p>
+<p>You can mount a React component this way for the options page, new tab page, <a href="https://docs.plasmo.com/framework/sandbox-pages">sandbox pages</a>, and any other <a href="https://docs.plasmo.com/quickstarts/migrate-to-plasmo#custom-pages">custom page</a>.</p>
+<h2>Custom Pages<a href="#custom-pages"></a></h2>
+<p>In non-Plasmo extension projects, creating custom pages typically requires additional HTML templates and associated JavaScript code:</p>
+<p>With Plasmo, you can use the built-in tab pages feature to create custom pages easily. Add a <strong><code>tabs</code></strong> folder in <a href="https://docs.plasmo.com/framework/customization/src">you source code directory</a>, and add your custom pages there, using <code>.tsx</code> files:</p>
+<p>The page will be available at <code>chrome-extension://&lt;extension-id&gt;/tabs/custom.html</code>.</p>
+<h2>Content Scripts<a href="#content-scripts"></a></h2>
+<p>In non-Plasmo extension projects, you&#39;d specify your content scripts in the <code>manifest.json</code> file and write them in JavaScript:</p>
+<p>With Plasmo, your can specify your content script and its respective config in a file called <code>content.ts</code>, or inside a directory called <code>contents</code> - More on that later!</p>
+<p>Here&#39;s what the <code>content.ts</code> file would look like:</p>
+<p>No more moving back and forth between your <code>manifest.json</code> and <code>content.js</code> files. An added benefit is that the config is fully typed and thus can provide valuable auto-completion from your IDE.</p>
+<p>To add multiple content scripts, create a directory called <code>contents</code> and repeat the above steps. You can name your scripts whatever you&#39;d like in this directory. They will all get added as content scripts with their own configs.</p>
+<p>For example, let&#39;s say you want to add a content script that changes the background color of the page to green. You can do so by creating a file called <code>emerald-splash.ts</code> in the <code>contents</code> directory:</p>
+<p>Since the content script file didn&#39;t export a config, Plasmo will use the default config:</p>
+<h2>Content Scripts UI<a href="#content-scripts-ui"></a></h2>
+<p>If you&#39;re injecting a React component into a web page, your extension likely has a lot of boilerplate code, creating Shadow DOMs, finding the right element to mount to, MutationObservers, and more.</p>
+<p>We&#39;ve abstracted all of this out so you can focus on building your component and not worry about the rest.</p>
+<p>For example, let&#39;s say you want to inject a React component of a simple button into a web page. You can do so by creating a file called <code>press-me.tsx</code> in the <code>contents</code> directory:</p>
+<p>Plasmo will automatically inject this component into the page, and mount it to the root element of the page.</p>
+<p>What if you want to inject the component into a specific element? You can do so by exporting a getInlineAnchor function from the file:</p>
+<p>By returning an Element, Plasmo will mount the component adjacent to that element. You can completely customize the mounting behavior, how the component renders, and more.</p>
+<p>This feature is called <a href="https://docs.plasmo.com/framework/content-scripts-ui">Content Scripts UI</a>. To learn more about its API and how it works, check out the technical documentation on <a href="https://docs.plasmo.com/framework/content-scripts-ui/life-cycle">its lifecycle</a>.</p>
+<p>You can also specify the component&#39;s insert position relative to the element you&#39;re mounting it to:</p>
+<h2>Background Service Worker<a href="#background-service-worker"></a></h2>
+<p>In non-Plasmo projects, creating a background service worker requires specifying the <code>background</code> property in the <code>manifest.json</code> file and writing the service worker code in JavaScript:</p>
+<p>In Plasmo, you specify the background service worker by creating a <code>background.ts</code> file:</p>
+<p>You can import any modules that target the standard service worker runtime into <code>background.ts</code>. For example, you can add the <code>bip39</code> module:</p>
+<p>Plasmo will automatically bundle the <code>background.ts</code> file and add it as a background service worker to the <code>manifest.json</code> file.</p>
+<h2>Environment Variables<a href="#environment-variables"></a></h2>
+<p>If you&#39;re currently using environment variables, you can continue to do so in Plasmo.</p>
+<p>The Plasmo framework supports <a href="https://docs.plasmo.com/framework/env">environment variables out of the box</a> with no additional setup required.</p>
+<h2>Opting Out<a href="#opting-out"></a></h2>
+<p>The Plasmo framework&#39;s abstraction philosophy is to remove the most common configuration and boilerplate code. This enables developers to work under a higher abstraction layer -- their chosen UI library/framework, such as React, Vue, and Svelte. This is the path to creating more powerful and beautiful extensions.</p>
+<p>Opting out of Plasmo is as easy as removing the <code>plasmo</code> dependency from your <code>package.json</code> file and taking your components out onto your custom setups. This is possible because all the glue code generated by Plasmo is injected at the framework compiler and bundler layer, making your feature code extremely portable.</p>
+<p>You can also use Plasmo as much or as little as needed. All chrome APIs are available, and you can use them directly in your feature code. For example, instead of using the <a href="https://docs.plasmo.com/framework/messaging">messaging API</a>, you can use the <code>chrome.runtime.messaging</code> API directly. The same goes for content scripts and extension pages.</p>
+<p><a href="https://docs.plasmo.com/quickstarts" title="Quickstarts">Quickstarts</a><a href="https://docs.plasmo.com/quickstarts/with-nextjs" title="Quickstart: Next.js">Quickstart: Next.js</a></content>
+</page></p>
+<page>
+  <title>Quickstart with Redux – Plasmo</title>
+  <url>https://docs.plasmo.com/quickstarts/with-redux</url>
+  <content>Easily integrate Redux to provide a simple way to manage state across your browser extension.
+
+<p>We forked <a href="https://github.com/plasmo-foss/redux-persist">redux-persist (opens in a new tab)</a> which you can utilize along with <a href="https://www.npmjs.com/package/redux-persist-webextension-storage">redux-persist-webextension-storage (opens in a new tab)</a> to persist your Redux state using <code>chrome.storage</code>.</p>
+<p>⚠️</p>
+<p>Support for Redux is provided by the open-source community at large. If it does not work, we welcome your contribution! For custom integration, we offer a consultation service. Please email <code>support@plasmo.com</code> for more detail.</p>
+<h2>Increment Example<a href="#increment-example"></a></h2>
+<p>Let&#39;s make a basic extension that increments and decrements a counter.</p>
+<h3>Create Your Slice<a href="#create-your-slice"></a> {#create-your-slicecreate-your-slice}</h3>
+<p>counter-slice.ts</p>
+<pre><code>import { createSlice } from &quot;@reduxjs/toolkit&quot;
+ 
+export interface CounterState {
+  count: number
+}
+ 
+const counterSlice = createSlice({
+  name: &quot;counter&quot;,
+  initialState: { count: 0 },
+  reducers: {
+    increment: (state) =&gt; {
+      state.count += 1
+    },
+    decrement: (state) =&gt; {
+      state.count -= 1
+    }
+  }
+})
+ 
+export const { increment, decrement } = counterSlice.actions
+ 
+export default counterSlice.reducer
+</code></pre>
+<h3>Create Your Store<a href="#create-your-store"></a> {#create-your-storecreate-your-store}</h3>
+<p>store.ts</p>
+<pre><code>import { configureStore } from &quot;@reduxjs/toolkit&quot;
+import { localStorage } from &quot;redux-persist-webextension-storage&quot;
+ 
+import {
+  FLUSH,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+  REHYDRATE,
+  RESYNC,
+  persistReducer,
+  persistStore
+} from &quot;@plasmohq/redux-persist&quot;
+import { Storage } from &quot;@plasmohq/storage&quot;
+ 
+import counterSlice from &quot;~counter-slice&quot;
+ 
+const rootReducer = counterSlice
+ 
+const persistConfig = {
+  key: &quot;root&quot;,
+  version: 1,
+  storage: localStorage
+}
+ 
+const persistedReducer = persistReducer(persistConfig, rootReducer)
+ 
+export const store = configureStore({
+  reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =&gt;
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [
+          FLUSH,
+          REHYDRATE,
+          PAUSE,
+          PERSIST,
+          PURGE,
+          REGISTER,
+          RESYNC
+        ]
+      }
+    })
+})
+export const persistor = persistStore(store)
+ 
+// This is what makes Redux sync properly with multiple pages
+// Open your extension&#39;s options page and popup to see it in action
+new Storage().watch({
+  [`persist:${persistConfig.key}`]: () =&gt; {
+    persistor.resync()
+  }
+})
+</code></pre>
+<p>The thing to note is the <code>new Storage().watch()</code> call. This will automatically resync the store whenever the Redux store changes in <code>chrome.storage</code>.</p>
+<h3>Using in React<a href="#using-in-react"></a> {#using-in-reactusing-in-react}</h3>
+<p>options.tsx</p>
+<pre><code>import { Provider } from &quot;react-redux&quot;
+ 
+import { PersistGate } from &quot;@plasmohq/redux-persist/integration/react&quot;
+ 
+import { CounterView } from &quot;~counter&quot;
+import { persistor, store } from &quot;~store&quot;
+ 
+function Options() {
+  return (
+    &lt;Provider store={store}&gt;
+      &lt;PersistGate loading={null} persistor={persistor}&gt;
+        &lt;CounterView /&gt;
+      &lt;/PersistGate&gt;
+    &lt;/Provider&gt;
+  )
+}
+ 
+export default Options
+</code></pre>
+<p>Using the <code>PersistGate</code> will ensure the child components don&#39;t render until the store is ready.</p>
+<h3>Using in a Background Service Worker<a href="#using-in-a-background-service-worker"></a> {#using-in-a-background-service-workerusing-in-a-background-se}</h3>
+<p>background.ts</p>
+<pre><code>import { persistor, store } from &quot;~store&quot;
+ 
+persistor.subscribe(() =&gt; {
+  console.log(&quot;State changed with: &quot;, store?.getState())
+})
+</code></pre>
+<h2>Full Example<a href="#full-example"></a></h2>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-redux">with-redux (opens in a new tab)</a> for a complete example.</p>
+<p><a href="https://docs.plasmo.com/quickstarts/with-stripe" title="Quickstart: Stripe">Quickstart: Stripe</a><a href="https://docs.plasmo.com/quickstarts/with-tailwindcss" title="Quickstart: Tailwind CSS">Quickstart: Tailwind CSS</a></content>
+</page></p>
+<page>
+  <title>Quickstart with Stripe – Plasmo</title>
+  <url>https://docs.plasmo.com/quickstarts/with-stripe</url>
+  <content>Intro[](#intro)
+---------------
+
+<p>Stripe is a payment processing platform. Use cases include:</p>
+<ul>
+<li>Monetizing access to expensive API calls</li>
+<li>Monetizing premium extension feature</li>
+<li>Selling themes, merch, physical and digital goods, etc.</li>
+</ul>
+<h2>Scenario<a href="#scenario"></a></h2>
+<p>You are a SaaS company looking to offer a premium API service to your customer via an extension. You would like your users to pay $5/month before the extension can access this premium feature.</p>
+<h2>Setting Up a Stripe Product Link<a href="#setting-up-a-stripe-product-link"></a></h2>
+<p>Due to <a href="https://developer.chrome.com/docs/extensions/mv3/intro/mv3-overview/#remotely-hosted-code">Manifest v3&#39;s restriction with remote code execution (opens in a new tab)</a>, there are limited options to have a PCI-compliant payment system integrated into an extension. The easiest way is to set up a Stripe Product Link.</p>
+<p>To set up a Stripe Product Link, you must create a Stripe product. Head to <a href="https://dashboard.stripe.com/test/products?active=true">Stripe Product Dashboard (opens in a new tab)</a> page, and press Add Product, then fill out the information:</p>
+<p>Then, go to the product page and click the <code>Create payment link</code> button:</p>
+<p>Above should get you the Stripe Payment Link. For backend authorization, head to the <a href="https://dashboard.stripe.com/test/dashboard">Stripe Dashboard Home Page (opens in a new tab)</a> for the Secret Key:</p>
+<h2>Using env variable<a href="#using-env-variable"></a></h2>
+<p>Assuming you have set up a basic Plasmo project, the first thing to do is to set up our <a href="https://docs.plasmo.com/framework/env">environment variables</a>:</p>
+<p>To enable typescript IntelliSense, create an <code>index.d.ts</code> file:</p>
+<p><a href="https://github.com/PlasmoHQ/examples/blob/main/with-stripe/index.d.ts"><code>.index.d.ts</code> (opens in a new tab)</a></p>
+<h2>Accessing Chrome identity API<a href="#accessing-chrome-identity-api"></a></h2>
+<p>To associate a subscription with a user, we can use their email address. One quick way of doing so is to leverage the Chrome extension&#39;s <a href="https://developer.chrome.com/docs/extensions/reference/identity">identity API (opens in a new tab)</a>. To prevent unauthorized access, we will need to setup the OAuth2 authentication schema, which works as follow:</p>
+<ul>
+<li>Our extension generates an OAuth2 access token</li>
+<li>Extension sends request with the token to our backend</li>
+<li>Backend validates the tokens to get the user&#39;s email address</li>
+<li>Backend queries subscription status for the user</li>
+</ul>
+<p>To enable the permission required for this feature, add the following to the <code>manifest</code> field of your <code>package.json</code> file:</p>
+<p>Then, we will need to set up an OAuth2 client ID using Google Cloud Platform (GCP). Quickly create a new project in GCP following <a href="https://cloud.google.com/resource-manager/docs/creating-managing-projects">this guide (opens in a new tab)</a>, then navigate to the Credentials page: <code>https://console.cloud.google.com/apis/credentials?referrer=search&amp;project=&lt;YOUR_PROJECT_ID&gt;</code>. It&#39;ll show you something like this:</p>
+<p>Click <code>CREATE CREDENTIALS</code>, then select <code>OAuth client ID</code>:</p>
+<p>On the next page, pick <code>Chrome app</code>. The form will then ask for an <code>Application ID</code>:</p>
+<p>This will be your Extension ID - the next section is about how to obtain it.</p>
+<h3>Set up fixed Extension ID for development<a href="#set-up-fixed-extension-id-for-development"></a> {#set-up-fixed-extension-id-for-developmentset-up-fixed-extens}</h3>
+<p>You will want to pin your extension ID for development. If you accidentally remove your development extension from your browser, the extension ID will be lost, and your OAuth2 client will be invalidated.</p>
+<p>Since Chromium derives the extension ID from a public key, you can pin it by generating your own <code>key</code> instead. You can specify it in the <a href="https://docs.plasmo.com/framework/customization/manifest"><code>manifest</code> override of your <code>package.json</code></a>. We can generate this key by following this <a href="https://stackoverflow.com/a/46739698">Stack Overflow answer (opens in a new tab)</a>:</p>
+<ol>
+<li><p>Generate the private key:</p>
+</li>
+<li><p>Generate the public key from the private key above:</p>
+</li>
+</ol>
+<p>We can then use this key by leveraging <a href="https://docs.plasmo.com/framework/env#in-manifest-overrides">env variable in our manifest override</a>:</p>
+<p><a href="https://docs.plasmo.com/framework/workflows/dev">Run the development server</a> then <a href="https://docs.plasmo.com/framework/workflows/dev#loading-the-extension">load the extension into your browser</a>. Then, copy the extension ID:</p>
+<p>Paste the ID into the OAuth form&#39;s Application ID field, then submit. You will then receive your OAuth2 client ID:</p>
+<p>Add it to your environment variables:</p>
+<p>And use it in our manifest override:</p>
+<p>We are now ready to generate an OAuth access token to authorize and process the user&#39;s subscription!</p>
+<h2>Accessing the user info<a href="#accessing-the-user-info"></a></h2>
+<p>We can use <code>chrome.identity.getProfileUserInfo</code> to know who our user is. To cache this data and reuse it across our app, we can create a quick <a href="https://reactjs.org/docs/context.html">React context (opens in a new tab)</a>. The easiest way is using <a href="https://www.npmjs.com/package/puro"><code>puro</code> (opens in a new tab)</a> - Plasmo&#39;s context utility library. Install it by adding the library to your <code>package.json</code> file and run <code>pnpm i</code>:</p>
+<p>Then, we can create our provider:</p>
+<p><a href="https://github.com/PlasmoHQ/examples/blob/main/with-stripe/core/user-info.tsx"><code>core/user-info.tsx</code> (opens in a new tab)</a></p>
+<p>And use it in our popup:</p>
+<p><a href="https://github.com/PlasmoHQ/examples/blob/main/with-stripe/popup.tsx"><code>popup.tsx</code> (opens in a new tab)</a></p>
+<h2>Integrating the Stripe Link into the Popup page<a href="#integrating-the-stripe-link-into-the-popup-page"></a></h2>
+<p>To streamline the Stripe payment link with the identity API, we can pre-fill the email on the Stripe hosted form via <a href="https://stripe.com/docs/payments/payment-links#url-prefills">their API parameters (opens in a new tab)</a> with the email obtained from the <code>UserInfoProvicer</code> above. Before we redirect our user to the Stripe payment, let&#39;s also invoke the OAuth flow to ensure the customer consents for us to use their email address. This will also initiate an access token cache for our extension, which allow future invocation to be non-interactive.</p>
+<p><a href="https://github.com/PlasmoHQ/examples/blob/main/with-stripe/popup.tsx"><code>popup.tsx</code> (opens in a new tab)</a></p>
+<h2>Verify the subscription and enable some premium features<a href="#verify-the-subscription-and-enable-some-premium-features"></a></h2>
+<p>We will now set up our backend to verify the user&#39;s subscription. We can simplify this process by leveraging <a href="https://docs.plasmo.com/quickstarts/with-nextjs">NextJS interoperability with Plasmo</a>. We will first install NextJS and some utility libraries:</p>
+<p>Once we&#39;ve set up our dependencies, let&#39;s create some utility functions:</p>
+<ul>
+<li><a href="https://github.com/PlasmoHQ/examples/blob/main/with-stripe/pages/api/_common.ts"><code>pages/api/_common.ts</code> (opens in a new tab)</a></li>
+</ul>
+<p>Then, we create our 2 API routes: one to check for the user&#39;s subscription and one to invoke the premium feature. Both API routes must first parse the authorization header for an access token, then use the token to fetch the user profile independently before using the profile&#39;s data to acquire the user&#39;s subscription.</p>
+<ul>
+<li><a href="https://github.com/PlasmoHQ/examples/blob/main/with-stripe/pages/api/check-subscription.ts"><code>pages/api/check-subscription.ts</code> (opens in a new tab)</a></li>
+<li><a href="https://github.com/PlasmoHQ/examples/blob/main/with-stripe/pages/api/premium-feature.ts"><code>pages/api/premium-feature.ts</code> (opens in a new tab)</a></li>
+</ul>
+<p>To call the dev server from our extension, we can store the API URI using an environment variable and reference it in our manifest host:</p>
+<p>Kill and re-run <code>pnpm dev</code> to start both the dev server for our backend and our extension. Before we call our API, let&#39;s set up more client-side helpers:</p>
+<ul>
+<li><a href="https://github.com/PlasmoHQ/examples/blob/main/with-stripe/core/access-token.ts">core/access-token.ts (opens in a new tab)</a></li>
+<li><a href="https://github.com/PlasmoHQ/examples/blob/main/with-stripe/core/premium-api.ts">core/premium-api.ts (opens in a new tab)</a></li>
+</ul>
+<p>Now, we can use <code>swr</code> to call and revalidate the <code>check-subscription</code> API in our popup:</p>
+<p>Then, to invoke our premium feature:</p>
+<h2>Full Example<a href="#full-example"></a></h2>
+<p>For the complete example, check out <a href="https://github.com/PlasmoHQ/examples/tree/main/with-stripe">with-stripe (opens in a new tab)</a> in the examples GitHub repository.</p>
+<p><a href="https://docs.plasmo.com/quickstarts/with-nextjs" title="Quickstart: Next.js">Quickstart: Next.js</a><a href="https://docs.plasmo.com/quickstarts/with-redux" title="Quickstart: Redux">Quickstart: Redux</a></content>
+</page></p>
+<page>
+  <title>Quickstart with TailwindCSS – Plasmo</title>
+  <url>https://docs.plasmo.com/quickstarts/with-tailwindcss</url>
+  <content>Using Tailwind CSS is super easy with Plasmo thanks to the built-in integration with PostCSS. The setup is identical to the [official Tailwind CSS docs guide (opens in a new tab)](https://tailwindcss.com/docs/installation/using-postcss).
+
+<p>You can use any PostCSS plugins as well such as Autoprefixer, PurgeCSS, and more. This guide will walk you through the steps to get started with Tailwind CSS.</p>
+<h2>Example<a href="#example"></a></h2>
+<ul>
+<li>To see a complete example of this quickstart, go to the <a href="https://github.com/PlasmoHQ/examples/tree/main/with-tailwindcss">with-tailwindcss example (opens in a new tab)</a>.</li>
+</ul>
+<h2>Create a Plasmo Project with TailwindCSS<a href="#create-a-plasmo-project-with-tailwindcss"></a></h2>
+<h2>Manual Installation<a href="#manual-installation"></a></h2>
+<p>If you already have a Plasmo extension project and would like to add TailwindCSS v3 manually, this section is for you!</p>
+<h3>Add Dependencies<a href="#add-dependencies"></a> {#add-dependenciesadd-dependencies}</h3>
+<h3>Generate your tailwind.config.js file<a href="#generate-your-tailwindconfigjs-file"></a> {#generate-your-tailwindconfigjs-filegenerate-your-tailwindcon}</h3>
+<h3>Defining Your PostCSS Config<a href="#defining-your-postcss-config"></a> {#defining-your-postcss-configdefining-your-postcss-config}</h3>
+<h3>Setting up Tailwind config<a href="#setting-up-tailwind-config"></a> {#setting-up-tailwind-configsetting-up-tailwind-config}</h3>
+<h3>Adding Root Styles<a href="#adding-root-styles"></a> {#adding-root-stylesadding-root-styles}</h3>
+<h2>Usage<a href="#usage"></a></h2>
+<h3>In Extension Pages<a href="#in-extension-pages"></a> {#in-extension-pagesin-extension-pages}</h3>
+<p>Once you have all the configs in place, start using Tailwind within your React components! Below is an example of how to use Tailwind on the popup page:</p>
+<h3>In Content Scripts UI<a href="#in-content-scripts-ui"></a> {#in-content-scripts-uiin-content-scripts-ui}</h3>
+<p>To use Tailwind in a <a href="https://docs.plasmo.com/csui">Content Scripts UI</a>, you will need to import the <code>style.css</code> file as text data, and expose it to the CSUI lifecycle via the <code>getStyle</code> method to inject the style into the CSUI shadowDOM:</p>
+<p><a href="https://docs.plasmo.com/quickstarts/with-redux" title="Quickstart: Redux">Quickstart: Redux</a><a href="https://docs.plasmo.com/quickstarts/with-supabase" title="Quickstart: Supabase">Quickstart: Supabase</a></content>
+</page></p>
+<page>
+  <title>Quickstart with Supabase – Plasmo</title>
+  <url>https://docs.plasmo.com/quickstarts/with-supabase</url>
+  <content>Intro[](#intro)
+---------------
+
+<p>Supabase is an open-source Firebase alternative.</p>
+<p>This quickstart is a simple example showcasing how to use Supabase with Plasmo.</p>
+<h2>Prerequisites<a href="#prerequisites"></a></h2>
+<ul>
+<li><a href="https://supabase.com/">Supabase (opens in a new tab)</a> Account</li>
+<li>Supabase project</li>
+</ul>
+<h2>Initialize a Plasmo project with Supabase<a href="#initialize-a-plasmo-project-with-supabase"></a></h2>
+<h2>Set up Environment Variables<a href="#set-up-environment-variables"></a></h2>
+<p>For Supabase to work, we&#39;ll need to define a URL and a KEY.</p>
+<p>You can find these by finding them in your Supabase project dashboard:</p>
+<p>Let&#39;s add them in an .env file:</p>
+<h2>Supabase Store<a href="#supabase-store"></a></h2>
+<p>We need to initialize Supabase, so let&#39;s add a file called <code>core/supabase.ts</code>:</p>
+<h2>Adding Redirect URL<a href="#adding-redirect-url"></a></h2>
+<p>When a user signs up, they&#39;ll need to confirm their email. To do this, we need to add a redirect URL to our Supabase project.</p>
+<p>First, we need to create a consistent ID for our extension for development. When you push to the different web stores, you&#39;ll get a different ID. To learn more about how all of this works, check out our blog post on <a href="https://www.plasmo.com/blog/posts/how-to-create-a-consistent-id-for-your-chrome-extension">creating consistent extension IDs (opens in a new tab)</a></p>
+<p>Go to the <a href="https://itero.plasmo.com/tools/generate-keypairs">Itero KeyPair Tool (opens in a new tab)</a> to generate your consistent extension ID.</p>
+<p>We can store the ID and public key in our <code>.env</code> file:</p>
+<p>Then, references the public key in your package.json under the manifest.key value:</p>
+<p>Now we need to make it so that the browser doesn&#39;t block access to our options page. To do this, we must add it to our web_accessible_resources in our manifest:</p>
+<p>Head over to the Supabase console and click on the &quot;Authentication&quot; tab, and click URL Configuration.</p>
+<p>Now add the following URL in your site URL as well as your redirect URL:</p>
+<p>Replace <code>CRX_ID</code> with the generated extension ID given to you by Itero KeyPairs tool, or the actual ID given to you by the production web store.</p>
+<h2>Integrating with a React component<a href="#integrating-with-a-react-component"></a></h2>
+<p>Now we can write code in our React components utilizing Supabase!</p>
+<p>Here&#39;s an example of using Supabase in a React component for the extension&#39;s options page.</p>
+<h2>Full Example<a href="#full-example"></a></h2>
+<p>To see a complete example, check out <a href="https://github.com/PlasmoHQ/examples/tree/main/with-supabase">with-supabase (opens in a new tab)</a> in our examples repo!</p>
+<p><a href="https://docs.plasmo.com/quickstarts/with-tailwindcss" title="Quickstart: Tailwind CSS">Quickstart: Tailwind CSS</a><a href="https://docs.plasmo.com/quickstarts/with-firebase-authentication" title="Quickstart: Firebase Auth">Quickstart: Firebase Auth</a></content>
+</page></p>
+<page>
+  <title>Quickstart with Google Analytics – Plasmo</title>
+  <url>https://docs.plasmo.com/quickstarts/with-google-analytics</url>
+  <content>Since Manifest V3 does not support [remote code execution (opens in a new tab)](https://developer.chrome.com/docs/extensions/mv3/intro/mv3-overview/#remotely-hosted-code), it has been very difficult for developers to integrate Google Analytics into their extension project, especially with the latest [gtag4 version (opens in a new tab)](https://developers.google.com/analytics/devguides/collection/ga4).
+
+<p>To overcome this issue, Plasmo <a href="https://docs.plasmo.com/framework/remote-code">bundles remote code at build time</a>.</p>
+<h2>Obtaining the Tracking/Measurement ID<a href="#obtaining-the-trackingmeasurement-id"></a></h2>
+<p>You will first need to create a property to get the Tracking ID. During this process, Google will ask to provide a website URL - we suggest providing a subdomain of your domain. This ensures the data coming in is only from your properties - website/domain/extension.</p>
+<p>Then, to get the Measurement ID, visit your Google Analytics dashboard, and navigate to the Tagging Instructions section (Admin -&gt; Setup Assistant -&gt; Tag installation -&gt; Data Streams -&gt; Web):</p>
+<p>Click the button next to the Measurement ID, which should copy to your clipboard.</p>
+<h2>Env Variable Setup<a href="#env-variable-setup"></a></h2>
+<p>To properly store the Measurement ID, we recommend using <a href="https://docs.plasmo.com/framework/env">environment variables</a>. Create an <code>.env.local</code> file:</p>
+<p>To get TypeScript IntelliSense, create an <code>index.d.ts</code> file:</p>
+<h2>Using Google Analytics in a React component<a href="#using-google-analytics-in-a-react-component"></a></h2>
+<p>Below is an example of how to implement the google tag tracking script in the popup page:</p>
+<p>The import statement and the code inside the <code>useEffect</code> is identical to what Google gives you (see image below). We adapted them into the React lifecycle. We also add the <code>window</code> object to make it work with Typescript.</p>
+<h2>Full Example<a href="#full-example"></a></h2>
+<p>To see a complete example, check out <a href="https://github.com/PlasmoHQ/examples/tree/main/with-google-analytics">with-google-analytics (opens in a new tab)</a> in our examples repo.</p>
+<p><a href="https://docs.plasmo.com/quickstarts/with-firebase-authentication" title="Quickstart: Firebase Auth">Quickstart: Firebase Auth</a><a href="https://docs.plasmo.com/quickstarts/with-chrome-storage" title="Quickstart: Chrome Storage">Quickstart: Chrome Storage</a></content>
+</page></p>
+<page>
+  <title>Quickstart with Firebase Auth – Plasmo</title>
+  <url>https://docs.plasmo.com/quickstarts/with-firebase-authentication</url>
+  <content>Since this is a bit more involved, we wrote [a blog post (opens in a new tab)](https://www.plasmo.com/blog/posts/firebase-chrome-extension) that goes into detail, step by step, on everything you need to do to get Firebase auth working.
+
+<p>For a quick start breakdown, read on:</p>
+<h2>Overview<a href="#overview"></a></h2>
+<p>Auth in browser extensions can be a little bit of an adjustment for a web developer to think about but it&#39;s not much more difficult than using Firebase in React or Next.js directly.</p>
+<p>We basically want to store our Tokens in Cookies so they can be used by Background Service Workers.</p>
+<h2>Setup<a href="#setup"></a></h2>
+<p>First, let&#39;s install some dependencies. Using Firebase and manipulating cookies in plasmo requires three packages.</p>
+<ul>
+<li>firebase (clientside firebase SDK)</li>
+<li>@plasmohq/messaging <a href="https://docs.plasmo.com/framework/messaging">See Messaging (opens in a new tab)</a></li>
+<li>@plasmohq/storage <a href="https://docs.plasmo.com/framework/storage">See Storage (opens in a new tab)</a></li>
+</ul>
+<p>or</p>
+<p>or</p>
+<h2>Initialize Firebase<a href="#initialize-firebase"></a></h2>
+<p>First we can create a singleton instance of our firebase clientside app.</p>
+<h2>Handling Tokens<a href="#handling-tokens"></a></h2>
+<p>Now that that&#39;s handled, we can create a re-usable hook to provide login and logout methods as well as an easy way to access user info on tabs / popup / options pages</p>
+<p>You&#39;ll notice in the above snippet we&#39;re calling two background processes, removeAuth and saveAuth. Let&#39;s create those now</p>
+<h2>Example Usage Background SW<a href="#example-usage-background-sw"></a></h2>
+<p>Great, now you&#39;re saving your Refresh Token, ID Token and UID in cookies. You can use them in other background workers like this</p>
+<p>In the above example we&#39;re refreshing our token if the response fails and retrying. Here&#39;s the utility method for refreshing the firebase token.</p>
+<h2>Example Usage React hook<a href="#example-usage-react-hook"></a></h2>
+<p>You can also use this in a react component (either CSUI or tabs/extension pages)</p>
+<p>Here&#39;s an example login page setup for options.tsx using TailwindCSS.</p>
+<p>And a logout method might look like this</p>
+<p><a href="https://docs.plasmo.com/quickstarts/with-supabase" title="Quickstart: Supabase">Quickstart: Supabase</a><a href="https://docs.plasmo.com/quickstarts/with-google-analytics" title="Quickstart: Google Analytics">Quickstart: Google Analytics</a></content>
+</page></p>
+<page>
+  <title>Quickstart with Chrome Storage – Plasmo</title>
+  <url>https://docs.plasmo.com/quickstarts/with-chrome-storage</url>
+  <content>Intro[](#intro)
+---------------
+
+<p>Chrome storage is a powerful mechanism for persisting data in your extension. It&#39;s essential in MV3 where persistent background pages, which used to be the place developers stored persistent data, no longer exist.</p>
+<h2>Plasmo Storage<a href="#plasmo-storage"></a></h2>
+<p>We built a <a href="https://docs.plasmo.com/framework/storage">library</a> on top of the <code>chrome.storage</code> API that makes it much easier to use, especially if you&#39;re writing a React app.</p>
+<h2>Storage Hooks<a href="#storage-hooks"></a></h2>
+<p>Our library provides React hooks for reading and writing to storage.</p>
+<p>Here&#39;s some example usage:</p>
+<h2>Full Example<a href="#full-example"></a></h2>
+<p>For the complete example, check out <a href="https://github.com/PlasmoHQ/examples/tree/main/with-storage">with-storage (opens in a new tab)</a> in the examples GitHub repository.</p>
+<p><a href="https://docs.plasmo.com/quickstarts/with-google-analytics" title="Quickstart: Google Analytics">Quickstart: Google Analytics</a></content>
+</page></p>
+<page>
+  <title>Content Scripts UI – Plasmo</title>
+  <url>https://docs.plasmo.com/csui</url>
+  <content>Plasmo has first-class support for mounting React, Svelte3, or Vue3 components into the current webpage. This feature is called content scripts UI (CSUI).
+
+<p>An extension can have as many CSUI as needed, with each CSUI targeting a group of webpages or a specific webpage by <a href="https://docs.plasmo.com/framework/content-scripts#config">exporting the config object</a>. To start injecting UI using React:</p>
+<ol>
+<li>Create a <code>content.tsx</code></li>
+<li>Export a default React component</li>
+<li>Profit 🎉</li>
+</ol>
+<p>See <a href="https://github.com/PlasmoHQ/examples/tree/main/with-content-scripts-ui">with-content-scripts-ui (opens in a new tab)</a> for a full example.</p>
+<h3>Config<a href="#config"></a> {#configconfig}</h3>
+<p>Content scripts UI are a subset of content scripts. Thus, you can <a href="https://docs.plasmo.com/framework/content-scripts#config">export a config object</a> just as you would a regular Plasmo content script.</p>
+<h2>How does Plasmo CSUI work?<a href="#how-does-plasmo-csui-work"></a></h2>
+<p><strong>TL;DR</strong>: Plasmo creates a <a href="https://developer.mozilla.org/en-US/docs/Web/Web_Components/Using_shadow_DOM">Shadow DOM (opens in a new tab)</a> and mounts your exported component onto it. This isolation technique prevents the web page&#39;s style from affecting your component&#39;s styling and vice-versa.</p>
+<p>For more details, please see the <a href="https://docs.plasmo.com/framework/content-scripts-ui/life-cycle">Life Cycle of Plasmo CSUI</a>.</p>
+<p><a href="https://docs.plasmo.com/framework/content-scripts" title="Content Scripts">Content Scripts</a><a href="https://docs.plasmo.com/framework/content-scripts-ui/life-cycle" title="Life Cycle">Life Cycle</a></content>
+</page></p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/tutorial.html" class="article-tag">tutorial</a><a href="/tag/guide.html" class="article-tag">guide</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/plasmo-framework-초보자-가이드.html&text=Plasmo_Framework_초보자_가이드" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/plasmo-framework-초보자-가이드.html&title=Plasmo_Framework_초보자_가이드" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/plasmo-framework-초보자-가이드.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-expert.html" class="author-bio__card">
+          <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 전문가</h3>
+            <p class="author-bio__role">AI &amp; Development Writer</p>
+            <p class="author-bio__text">AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/langcode-가이드-생성-완료-안내.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/tutorials-placeholder.svg"
+             alt="LangCode 입문 완전 가이드 - 생성 완료 보고서"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">LangCode 입문 완전 가이드 - 생성 완료 보고서</h3>
+          <p class="article-card__excerpt">LangCode 입문 완전 가이드 5개 문서 생성 완료 보고서</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">6</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/readme.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/demo.gif"
+             alt="README"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">README</h3>
+          <p class="article-card__excerpt">README</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">10</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/lovable-prompting-bible.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/tutorials-placeholder.svg"
+             alt="{{task_type}} Prompt"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #14b8a6">
+          튜토리얼
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">{{task_type}} Prompt</h3>
+          <p class="article-card__excerpt">The Lovable Prompting Bible: Complete Guide to AI Prompting in Lovable (2025)   ...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
+              <span>기술 전문가</span>
+            </div>
+            <span class="article-card__reading-time">90</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

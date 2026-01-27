@@ -1,0 +1,1150 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start) | AI &amp; Development Journal</title>
+  <meta name="description" content="&quot;어디서 시작해야 할까? 이 페이지가 도움될 거다.&quot; --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)">
+  <meta property="og:description" content="&quot;어디서 시작해야 할까? 이 페이지가 도움될 거다.&quot; --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...">
+  <meta property="og:image" content="/assets/images/development-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/flutter-beginners-guide-quick-start.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)">
+  <meta name="twitter:description" content="&quot;어디서 시작해야 할까? 이 페이지가 도움될 거다.&quot; --- --- --- --- --- --- --- --- --- --- --- --- --- - Flutter란 무엇인가? || Flutter 입문자 완전 가이드 Part 1#Flutter란 정확히 무엇인가 -...">
+  <meta name="twitter:image" content="/assets/images/development-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/flutter-beginners-guide-quick-start.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI &amp; Development Journal</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/development-guides.html" class="article-category" style="background-color: #f59e0b">
+          개발 가이드
+        </a>
+        <h1 class="article-title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h1>
+        <div class="article-meta">
+          <a href="/journalist/dev-guide.html" class="article-author">
+            <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">개발 가이드</span>
+              <span class="article-author__role">Development Guide Writer</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 11월 19일">2025년 11월 19일</time>
+            <span class="article-meta__separator">·</span>
+            <span>15 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#당신의-상황에-맞는-시작점-선택" class="toc__link">🚀 당신의 상황에 맞는 시작점 선택</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-정말-처음이에요" class="toc__link">1️⃣ &quot;정말 처음이에요&quot; 👶</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-약간의-프로그래밍-경험이-있어요" class="toc__link">2️⃣ &quot;약간의 프로그래밍 경험이 있어요&quot; 👨‍💻</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-빨리-배워서-앱을-만들고-싶어요" class="toc__link">3️⃣ &quot;빨리 배워서 앱을 만들고 싶어요&quot; ⚡</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-특정-주제에-대해만-궁금해요" class="toc__link">4️⃣ &quot;특정 주제에 대해만 궁금해요&quot; 🔍</a>
+    </li>
+    <li class="toc__item">
+      <a href="#전체-가이드-맵" class="toc__link">📚 전체 가이드 맵</a>
+    </li>
+    <li class="toc__item">
+      <a href="#시간대별-빠른-선택" class="toc__link">⏱️ 시간대별 빠른 선택</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#오늘-딱-30분만-있어요" class="toc__link">&quot;오늘 딱 30분만 있어요&quot;</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#이번-주에-5시간-있어요" class="toc__link">&quot;이번 주에 5시간 있어요&quot;</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#한-달-동안-20시간-투자할-수-있어요" class="toc__link">&quot;한 달 동안 20시간 투자할 수 있어요&quot;</a>
+    </li>
+    <li class="toc__item">
+      <a href="#목표별-체크리스트" class="toc__link">🎯 목표별 체크리스트</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기본-개념만-이해하고-싶어요" class="toc__link">&quot;기본 개념만 이해하고 싶어요&quot;</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#간단한-앱-하나를-만들고-싶어요" class="toc__link">&quot;간단한 앱 하나를 만들고 싶어요&quot;</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#여러-앱을-만들면서-배우고-싶어요" class="toc__link">&quot;여러 앱을 만들면서 배우고 싶어요&quot;</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#깊이-있게-배우고-싶어요" class="toc__link">&quot;깊이 있게 배우고 싶어요&quot;</a>
+    </li>
+    <li class="toc__item">
+      <a href="#직접-링크-즉시-이동" class="toc__link">🔗 직접 링크 (즉시 이동)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#part-1-바로-가기" class="toc__link">Part 1 바로 가기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#part-2-바로-가기" class="toc__link">Part 2 바로 가기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#part-3-바로-가기" class="toc__link">Part 3 바로 가기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#part-4-바로-가기" class="toc__link">Part 4 바로 가기</a>
+    </li>
+    <li class="toc__item">
+      <a href="#추천-학습-시작점" class="toc__link">✨ 추천 학습 시작점</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#가장-인기-있는-경로" class="toc__link">가장 인기 있는 경로</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#가장-빠른-경로" class="toc__link">가장 빠른 경로</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#가장-깊이-있는-경로" class="toc__link">가장 깊이 있는 경로</a>
+    </li>
+    <li class="toc__item">
+      <a href="#이런-상황이면" class="toc__link">🆘 이런 상황이면?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#처음-읽었는데-이해가-안-가요" class="toc__link">&quot;처음 읽었는데 이해가 안 가요&quot;</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#코드가-너무-어려워요" class="toc__link">&quot;코드가 너무 어려워요&quot;</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#어느-앱부터-만들어야-할지-모르겠어요" class="toc__link">&quot;어느 앱부터 만들어야 할지 모르겠어요&quot;</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#시간이-너무-부족해요" class="toc__link">&quot;시간이 너무 부족해요&quot;</a>
+    </li>
+    <li class="toc__item">
+      <a href="#북마크-추천" class="toc__link">📌 북마크 추천</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#자주-확인할-페이지" class="toc__link">자주 확인할 페이지</a>
+    </li>
+    <li class="toc__item">
+      <a href="#마지막-조언" class="toc__link">🎓 마지막 조언</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>Flutter 입문자 가이드 - 빠른 네비게이션</h1>
+<blockquote>
+<p><strong>&quot;어디서 시작해야 할까? 이 페이지가 도움될 거다.&quot;</strong></p>
+</blockquote>
+<hr>
+<h2 id="당신의-상황에-맞는-시작점-선택">🚀 당신의 상황에 맞는 시작점 선택 {#당신의-상황에-맞는-시작점-선택}</h2>
+<h3>1️⃣ &quot;정말 처음이에요&quot; 👶 {#1-정말-처음이에요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3670" onclick="copyCode('code-1769481054730-3670')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3670" class="language-plaintext">당신의 상황:
+  • Flutter가 정확히 뭔지 모른다
+  • 프로그래밍 경험이 거의 없다
+  • 천천히 이해하고 싶다
+
+<p>추천 순서:
+  1️⃣ &lt;a href=&quot;/articles/flutter-beginners-complete-guide-guide.html&quot; class=&quot;internal-link&quot;&gt;Flutter 입문자 완전 가이드 - 마스터 가이드&lt;/a&gt;
+     (5분: 전체 구조 이해)</p>
+<p>  2️⃣ &lt;a href=&quot;/articles/flutter-beginners-complete-guide-part-1.html&quot; class=&quot;internal-link&quot;&gt;Flutter 입문자 완전 가이드 Part 1&lt;/a&gt;
+     (2시간: 기초 개념)
+     ├─ Widget이 뭔가? 섹션부터
+     └─ 핵심 개념 5가지 읽기</p>
+<p>  3️⃣ &lt;a href=&quot;/articles/flutter-beginners-complete-guide-part-2.html&quot; class=&quot;internal-link&quot;&gt;Flutter 입문자 완전 가이드 Part 2&lt;/a&gt;
+     (30분: 난이도별 앱)
+     └─ &quot;초급자 추천 앱&quot; 섹션만</p>
+<p>  4️⃣ &lt;a href=&quot;/articles/flutter-beginners-complete-guide-part-3.html&quot; class=&quot;internal-link&quot;&gt;Flutter 입문자 완전 가이드 Part 3&lt;/a&gt;
+     (2시간: 1주차만)
+     └─ &quot;1주차: 기초 다지기&quot; 따라하기</p>
+<p>시간 투자: 약 5시간 (1주일)
+결과: 첫 To-Do 앱 완성 ✅</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">19 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3>2️⃣ &quot;약간의 프로그래밍 경험이 있어요&quot; 👨‍💻 {#2-약간의-프로그래밍-경험이-있어요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3671" onclick="copyCode('code-1769481054730-3671')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3671" class="language-plaintext">당신의 상황:
+  • Python, JavaScript 등 기본 경험
+  • 앱 개발은 처음
+  • 빠르게 실전으로 나가고 싶다
+
+<p>추천 순서:
+  1️⃣ &lt;a href=&quot;/articles/flutter-beginners-complete-guide-part-1.html&quot; class=&quot;internal-link&quot;&gt;Flutter 입문자 완전 가이드 Part 1&lt;/a&gt;
+     (1시간: 핵심 5가지 개념만)
+     ├─ &quot;핵심 개념 5가지&quot; 섹션
+     └─ Widget, State, Hot Reload</p>
+<p>  2️⃣ &lt;a href=&quot;/articles/flutter-beginners-complete-guide-part-2.html&quot; class=&quot;internal-link&quot;&gt;Flutter 입문자 완전 가이드 Part 2&lt;/a&gt;
+     (1시간: 앱 카테고리 빨리 훑기)
+     └─ &quot;초급자 추천 앱&quot; 섹션</p>
+<p>  3️⃣ &lt;a href=&quot;/articles/flutter-beginners-complete-guide-part-3.html&quot; class=&quot;internal-link&quot;&gt;Flutter 입문자 완전 가이드 Part 3&lt;/a&gt;
+     (2시간: 1-2주차)
+     └─ To-Do → 계산기 앱 만들기</p>
+<p>  4️⃣ &lt;a href=&quot;/articles/flutter-beginners-complete-guide-part-4-analysis.html&quot; class=&quot;internal-link&quot;&gt;Flutter 입문자 완전 가이드 Part 4 - 앱 사례 분석&lt;/a&gt;
+     (병행: Deer 앱 분석)</p>
+<p>시간 투자: 약 5시간 (1주일)
+결과: 계산기 앱 + BLoC 패턴 이해 ✅</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">19 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3>3️⃣ &quot;빨리 배워서 앱을 만들고 싶어요&quot; ⚡ {#3-빨리-배워서-앱을-만들고-싶어요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3672" onclick="copyCode('code-1769481054730-3672')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3672" class="language-plaintext">당신의 상황:
+  • 프로그래밍 경험이 충분
+  • 시간이 없다
+  • 실전 중심으로 배우고 싶다
+
+<p>추천 순서:
+  1️⃣ &lt;a href=&quot;/articles/flutter-beginners-complete-guide-part-1.html&quot; class=&quot;internal-link&quot;&gt;Flutter 입문자 완전 가이드 Part 1&lt;/a&gt;
+     (30분: 용어 사전만)
+     └─ &quot;용어 사전&quot; A~W 빠르게 훑기</p>
+<p>  2️⃣ &lt;a href=&quot;/articles/flutter-beginners-complete-guide-part-3.html&quot; class=&quot;internal-link&quot;&gt;Flutter 입문자 완전 가이드 Part 3&lt;/a&gt;
+     (3시간: 1-2주차 집중)
+     ├─ To-Do 앱 만들기
+     └─ 계산기 앱 만들기</p>
+<p>  3️⃣ &lt;a href=&quot;/articles/flutter-beginners-complete-guide-part-4-analysis.html&quot; class=&quot;internal-link&quot;&gt;Flutter 입문자 완전 가이드 Part 4 - 앱 사례 분석&lt;/a&gt;
+     (1시간: Tier 1 앱들)
+     ├─ Deer 분석
+     ├─ GitTouch 분석
+     └─ medito-app 분석</p>
+<p>  4️⃣ 자신의 아이디어 앱 시작</p>
+<p>시간 투자: 약 4시간 (3-4일)
+결과: 작동하는 앱 2개 + 기술 이해 ✅</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">20 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3>4️⃣ &quot;특정 주제에 대해만 궁금해요&quot; 🔍 {#4-특정-주제에-대해만-궁금해요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3673" onclick="copyCode('code-1769481054730-3673')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3673" class="language-plaintext">당신의 상황:
+  • 이미 기본은 알고 있다
+  • 특정 기술만 배우고 싶다
+  • 깊이 있게 학습하고 싶다
+
+<p>주제별 추천:</p>
+<p>◆ &quot;Widget과 UI&quot;를 배우고 싶다
+  └─ Part 1의 &quot;개념 2: Widget&quot; 섹션
+  └─ Part 2의 &quot;Layout&quot; 섹션
+  └─ Part 4의 &quot;medito-app&quot; 사례 (아름다운 UI)</p>
+<p>◆ &quot;상태 관리&quot;를 배우고 싶다
+  └─ Part 1의 &quot;개념 3: State&quot; 섹션
+  └─ Part 3의 &quot;2주차: 계산기&quot; (setState)
+  └─ Part 4의 &quot;기술 스택별 비교&quot; (Provider, GetX, BLoC)
+  └─ Part 4의 &quot;Deer&quot; 앱 분석 (BLoC 패턴)</p>
+<p>◆ &quot;API 통신&quot;을 배우고 싶다
+  └─ Part 2의 &quot;날씨 앱&quot; 섹션
+  └─ Part 3의 &quot;4주차: 날씨 앱&quot;
+  └─ Part 4의 &quot;GitTouch&quot; 사례 (복잡한 API)</p>
+<p>◆ &quot;데이터 저장&quot;을 배우고 싶다
+  └─ Part 2의 &quot;메모 앱&quot; 섹션
+  └─ Part 3의 &quot;3주차: 메모 앱&quot;
+  └─ Part 4의 &quot;기술 스택별 비교&quot; (Hive, SQLite)</p>
+<p>◆ &quot;게임 개발&quot;을 배우고 싶다
+  └─ Part 2의 &quot;Games &amp; Fun&quot; 섹션 (80개 앱!)
+  └─ Part 4의 &quot;Tier 2&quot; (게임 앱들)</p>
+<p>◆ &quot;금융 앱&quot;을 만들고 싶다
+  └─ Part 4의 &quot;Finance&quot; 카테고리
+  └─ Part 4의 &quot;차트 라이브러리&quot; 섹션
+  └─ &quot;Cake Wallet&quot; 또는 &quot;Monekin&quot; 분석</p>
+<p>◆ &quot;사진/비디오&quot;를 다루고 싶다
+  └─ Part 2의 &quot;Photo &amp; Video&quot; 섹션
+  └─ Part 4의 &quot;Immich&quot; 사례 (최고 수준)</p>
+<p>◆ &quot;AI/ChatGPT 앱&quot;을 만들고 싶다
+  └─ Part 4의 &quot;AI &amp; LLMs&quot; 카테고리
+  └─ 25개 앱 중 선택</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">35 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="전체-가이드-맵">📚 전체 가이드 맵 {#전체-가이드-맵}</h2>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3674" onclick="copyCode('code-1769481054730-3674')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3674" class="language-plaintext">마스터 가이드 (여기서 시작)
+│
+├─── Part 1: 기초 개념 (8시간)
+│    ├─ Flutter란 무엇인가
+│    ├─ 왜 배워야 할까
+│    ├─ 핵심 개념 5가지
+│    │  ├─ Dart 언어
+│    │  ├─ Widget
+│    │  ├─ State
+│    │  ├─ Layout
+│    │  └─ Hot Reload
+│    ├─ 개발자 여정의 지도
+│    └─ 용어 사전 (A~W)
+│
+├─── Part 2: 앱 카테고리 분석 (12시간)
+│    ├─ 난이도별 앱 분류
+│    ├─ 초급자 추천
+│    │  ├─ To-Do 앱
+│    │  ├─ 계산기
+│    │  └─ 메모 앱
+│    ├─ 중급자 추천
+│    │  ├─ 날씨 앱 (API)
+│    │  ├─ 뉴스 앱
+│    │  └─ 음악 플레이어
+│    ├─ 다른 10개 카테고리
+│    └─ 실제 사례 분석
+│
+├─── Part 3: 실전 학습 로드맵 (30시간)
+│    ├─ 1주차: To-Do 앱
+│    ├─ 2주차: 계산기 앱
+│    ├─ 3주차: 메모 앱 (+ Hive)
+│    ├─ 4주차: 날씨 앱 (+ API)
+│    ├─ 초급자 실수 5가지
+│    ├─ 전문가 팁과 트릭
+│    ├─ 코드 리뷰 받기
+│    ├─ 커뮤니티 참여하기
+│    └─ 번아웃 방지법
+│
+└─── Part 4: Awesome Flutter Apps (병행학습)
+     ├─ 프로젝트 개요 (2,000+ 별, 1,000+ 앱)
+     ├─ 40개 카테고리 심층 분석
+     ├─ 초급자 추천 TOP 20 앱
+     │  ├─ Tier 1 (필수 5개)
+     │  │  ├─ Deer (To-Do + BLoC)
+     │  │  ├─ GitTouch (복잡한 API)
+     │  │  ├─ medito-app (오디오)
+     │  │  ├─ Immich (대규모)
+     │  │  └─ AppFlowy (Notion 클론)
+     │  ├─ Tier 2 (중급 10개)
+     │  └─ Tier 3 (빠른 학습 5개)
+     ├─ 기술 스택별 비교
+     │  ├─ 상태 관리 (Provider, GetX, Riverpod, BLoC)
+     │  └─ 데이터 저장 (Hive, SQLite, Firebase)
+     ├─ 디자인 패턴
+     │  ├─ MVVM
+     │  ├─ Clean Architecture
+     │  └─ BLoC 패턴
+     ├─ GitHub 저장소 분석 방법
+     └─ 커뮤니티 통계</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">59 lines</span>
+  </div>
+</div>
+
+<hr>
+<h2 id="시간대별-빠른-선택">⏱️ 시간대별 빠른 선택 {#시간대별-빠른-선택}</h2>
+<h3>&quot;오늘 딱 30분만 있어요&quot; {#오늘-딱-30분만-있어요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3675" onclick="copyCode('code-1769481054730-3675')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3675" class="language-plaintext">1. 마스터 가이드의 &quot;학습 팁 5가지&quot; 읽기 (5분)
+2. Part 1의 &quot;Flutter란 정확히 무엇인가&quot; (15분)
+3. Part 1의 &quot;핵심 개념 5가지 중 Widget&quot; (10분)
+
+<p>결과: Flutter의 기본 개념 이해 ✅</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3>&quot;이번 주에 5시간 있어요&quot; {#이번-주에-5시간-있어요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3676" onclick="copyCode('code-1769481054730-3676')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3676" class="language-plaintext">월요: Part 1 읽기 (2시간)
+화요: Part 2의 난이도별 앱 읽기 (1시간)
+수요: Part 3의 1주차 따라하기 (2시간)
+
+<p>결과: 첫 To-Do 앱 완성 ✅</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3>&quot;한 달 동안 20시간 투자할 수 있어요&quot; {#한-달-동안-20시간-투자할-수-있어요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3677" onclick="copyCode('code-1769481054730-3677')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3677" class="language-plaintext">주차별 계획:
+1주차: Part 1 완독 + Part 3 1주차 실습 (5시간)
+2주차: Part 2 읽기 + Part 3 2주차 실습 (5시간)
+3주차: Part 3 3-4주차 실습 + Part 4 앱 분석 (5시간)
+4주차: 자신의 아이디어 앱 시작 (5시간)
+
+<p>결과: 5개 앱 + 기술 이해 + 포트폴리오 시작 ✅</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="목표별-체크리스트">🎯 목표별 체크리스트 {#목표별-체크리스트}</h2>
+<h3>&quot;기본 개념만 이해하고 싶어요&quot; {#기본-개념만-이해하고-싶어요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3678" onclick="copyCode('code-1769481054730-3678')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3678" class="language-plaintext">읽을 문서:
+  □ Part 1: 전체
+  □ Part 2: &quot;난이도별 앱 분류&quot; 섹션만
+  □ Part 3: 아무 것도 안 해도 됨
+
+<p>시간: 3시간
+결과: &quot;Flutter가 뭔지 설명할 수 있다&quot; ✅</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3>&quot;간단한 앱 하나를 만들고 싶어요&quot; {#간단한-앱-하나를-만들고-싶어요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3679" onclick="copyCode('code-1769481054730-3679')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3679" class="language-plaintext">읽을 문서:
+  □ Part 1: 전체 (이해 중요)
+  □ Part 2: &quot;To-Do 앱&quot; 섹션
+  □ Part 3: &quot;1주차: To-Do 앱 만들기&quot;
+
+<p>실습:
+  □ To-Do 앱 완성 (추가, 삭제 기능)
+  □ GitHub에 업로드</p>
+<p>시간: 8시간
+결과: 첫 앱 완성 + GitHub 경험 ✅</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3>&quot;여러 앱을 만들면서 배우고 싶어요&quot; {#여러-앱을-만들면서-배우고-싶어요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3680" onclick="copyCode('code-1769481054730-3680')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3680" class="language-plaintext">읽을 문서:
+  □ Part 1: 전체
+  □ Part 2: 전체
+  □ Part 3: 전체 (1-4주차)
+  □ Part 4: 각 주차마다 관련 앱 분석
+
+<p>실습:
+  □ To-Do, 계산기, 메모, 날씨 앱 완성
+  □ 각 주마다 사례 앱 분석
+  □ 자신의 아이디어 앱 시작</p>
+<p>시간: 60시간 (4주, 주 15시간)
+결과: 4개 앱 완성 + 기술 이해 + 다음 단계 준비 ✅</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3>&quot;깊이 있게 배우고 싶어요&quot; {#깊이-있게-배우고-싶어요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3681" onclick="copyCode('code-1769481054730-3681')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3681" class="language-plaintext">읽을 문서:
+  □ Part 1: 전체 (2번 읽기)
+  □ Part 2: 전체 (이해할 때까지)
+  □ Part 3: 전체 (고도화 섹션까지)
+  □ Part 4: 전체 (20개 앱 분석)
+
+<p>실습:
+  □ 4개 기본 앱 + 고도화 버전
+  □ 10개 사례 앱 코드 분석
+  □ 최소 3개 기술 패턴 이해
+  □ 코드 리뷰 받기</p>
+<p>시간: 100시간 (6주, 주 20시간)
+결과: 전문가 수준의 이해 + 포트폴리오 ✅</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">12 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="직접-링크-즉시-이동">🔗 직접 링크 (즉시 이동) {#직접-링크-즉시-이동}</h2>
+<h3 id="part-1-바로-가기">Part 1 바로 가기 {#part-1-바로-가기}</h3>
+<ul>
+<li><strong><a href="/articles/flutter-beginners-complete-guide-part-1flutter.html" class="internal-link">Flutter란 무엇인가?</a></strong></li>
+<li><strong><a href="/articles/flutter-beginners-complete-guide-part-1essential-5.html" class="internal-link">핵심 개념</a></strong></li>
+<li><strong><a href="/articles/flutter-beginners-complete-guide-part-1.html" class="internal-link">용어 사전</a></strong></li>
+</ul>
+<h3 id="part-2-바로-가기">Part 2 바로 가기 {#part-2-바로-가기}</h3>
+<ul>
+<li><strong><a href="/articles/flutter-beginners-complete-guide-part-2-recommended.html" class="internal-link">초급자 추천 앱</a></strong></li>
+<li><strong><a href="/articles/flutter-beginners-complete-guide-part-2.html" class="internal-link">중급자 앱</a></strong></li>
+<li><strong><a href="/articles/flutter-beginners-complete-guide-part-2.html" class="internal-link">학습 경로</a></strong></li>
+</ul>
+<h3 id="part-3-바로-가기">Part 3 바로 가기 {#part-3-바로-가기}</h3>
+<ul>
+<li><strong><a href="/articles/flutter-beginners-complete-guide-part-31-basics.html" class="internal-link">1주차: 기초</a></strong></li>
+<li><strong><a href="/articles/flutter-beginners-complete-guide-part-32-deep-dive.html" class="internal-link">2주차: 계산기</a></strong></li>
+<li><strong><a href="/articles/flutter-beginners-complete-guide-part-33.html" class="internal-link">3주차: 메모</a></strong></li>
+<li><strong><a href="/articles/flutter-beginners-complete-guide-part-34.html" class="internal-link">4주차: 날씨</a></strong></li>
+</ul>
+<h3 id="part-4-바로-가기">Part 4 바로 가기 {#part-4-바로-가기}</h3>
+<ul>
+<li><strong><a href="/articles/flutter-beginners-complete-guide-part-4-analysis-top-20.html" class="internal-link">TOP 20 앱</a></strong></li>
+<li><strong><a href="/articles/flutter-beginners-complete-guide-part-4-analysis-tech-analysis.html" class="internal-link">기술 스택</a></strong></li>
+<li><strong><a href="/articles/flutter-beginners-complete-guide-part-4-analysis-github-analysis.html" class="internal-link">GitHub 분석</a></strong></li>
+</ul>
+<hr>
+<h2 id="추천-학습-시작점">✨ 추천 학습 시작점 {#추천-학습-시작점}</h2>
+<h3 id="가장-인기-있는-경로">가장 인기 있는 경로 {#가장-인기-있는-경로}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3682" onclick="copyCode('code-1769481054730-3682')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3682" class="language-plaintext">1️⃣ 오늘: Part 1 읽기 (2시간)
+   └─ Flutter가 뭔지 완벽하게 이해
+
+<p>2️⃣ 내일: Part 3 1주차 시작 (3시간)
+   └─ 첫 To-Do 앱 작동시키기</p>
+<p>3️⃣ 3일째: Part 4 Deer 앱 분석 (1시간)
+   └─ 전문가 코드 이해</p>
+<p>4️⃣ 1주일 후: 계산기 앱 완성
+   └─ 두 번째 앱 완성</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<h3 id="가장-빠른-경로">가장 빠른 경로 {#가장-빠른-경로}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3683" onclick="copyCode('code-1769481054730-3683')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3683" class="language-plaintext">1️⃣ 지금: Part 3 1주차 따라하기 (2시간)
+   └─ &quot;일단 작동하는 앱&quot;부터
+
+<p>2️⃣ 모르는 부분: Part 1 참고 (필요할 때만)
+   └─ &quot;이게 왜 되지?&quot; → Part 1에서 찾기</p>
+<p>3️⃣ 2주일 후: Part 4 Tier 1 분석
+   └─ &quot;좋은 코드의 패턴&quot; 배우기</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div></p>
+</div>
+
+<h3 id="가장-깊이-있는-경로">가장 깊이 있는 경로 {#가장-깊이-있는-경로}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3684" onclick="copyCode('code-1769481054730-3684')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3684" class="language-plaintext">1️⃣ Part 1 정독 (3시간)
+   └─ 모든 개념 완벽 이해
+
+<p>2️⃣ Part 4 &quot;앱별 기술 스택 분석&quot; (2시간)
+   └─ 어떤 기술을 언제 써야 하는지</p>
+<p>3️⃣ Part 2 읽으며 선택 (2시간)
+   └─ 자신의 방향 결정</p>
+<p>4️⃣ Part 3로 실습 (매주 15시간)
+   └─ 이론을 실전으로</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="이런-상황이면">🆘 이런 상황이면? {#이런-상황이면}</h2>
+<h3>&quot;처음 읽었는데 이해가 안 가요&quot; {#처음-읽었는데-이해가-안-가요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3685" onclick="copyCode('code-1769481054730-3685')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3685" class="language-plaintext">해결책:
+  1️⃣ Part 1을 다시 읽기 (천천히)
+  2️⃣ 용어 사전에서 어려운 단어 찾아보기
+  3️⃣ &quot;예시&quot; 섹션을 따라 손으로 직접 코딩해보기
+  4️⃣ 이해 안 되는 부분만 Part 4의 사례 앱에서 찾기
+  5️⃣ 커뮤니티에 질문하기 (Flutter Korea)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<hr>
+<h3>&quot;코드가 너무 어려워요&quot; {#코드가-너무-어려워요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3686" onclick="copyCode('code-1769481054730-3686')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3686" class="language-plaintext">해결책:
+  1️⃣ &quot;간단한 코드 예시&quot; 부터 시작하기
+  2️⃣ Part 3 1주차의 기초부터 다시 따라하기
+  3️⃣ 한 줄 한 줄 주석 달아가며 읽기
+  4️⃣ Stack Overflow에서 비슷한 코드 찾아보기</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<hr>
+<h3>&quot;어느 앱부터 만들어야 할지 모르겠어요&quot; {#어느-앱부터-만들어야-할지-모르겠어요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3687" onclick="copyCode('code-1769481054730-3687')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3687" class="language-plaintext">추천 순서:
+  1️⃣ To-Do 앱 (상태 관리 핵심)
+  2️⃣ 계산기 (함수, 레이아웃)
+  3️⃣ 메모 앱 (데이터 저장)
+  4️⃣ 날씨 앱 (네트워킹)
+
+<p>질문: &quot;내가 정말 하고 싶은 앱은?&quot;
+답: Part 4에서 유사한 앱 찾아 분석하고 시작!</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">7 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h3>&quot;시간이 너무 부족해요&quot; {#시간이-너무-부족해요}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3688" onclick="copyCode('code-1769481054730-3688')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3688" class="language-plaintext">최소 학습:
+  1주: Part 1만 읽기
+  2주: Part 3의 1주차만 따라하기
+  3주+: Part 4에서 원하는 앱 분석
+
+<p>결과: 기본 개념 + 첫 앱 ✅</p>
+<p>추가 시간이 생기면:
+  → Part 3의 2-4주차 진행
+  → Part 4의 더 많은 앱 분석</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="북마크-추천">📌 북마크 추천 {#북마크-추천}</h2>
+<h3 id="자주-확인할-페이지">자주 확인할 페이지 {#자주-확인할-페이지}</h3>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3689" onclick="copyCode('code-1769481054730-3689')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3689" class="language-plaintext">메인 페이지:
+  • Flutter 입문자 완전 가이드 - 마스터 가이드
+
+<p>빠른 참고:
+  • Flutter 입문자 가이드 - 빠른 네비게이션 (지금 여기!)</p>
+<p>실습할 때마다:
+  • Flutter 입문자 완전 가이드 Part 3 (로드맵)</p>
+<p>막힐 때마다:
+  • Flutter 입문자 완전 가이드 Part 4 (사례 분석)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div></p>
+</div>
+
+<hr>
+<h2 id="마지막-조언">🎓 마지막 조언 {#마지막-조언}</h2>
+<div class="code-block" data-language="plaintext">
+  <div class="code-block__header" style="background-color: #6b7280; color: #fff">
+    <span class="code-block__language">Plain Text</span>
+    <button class="code-block__copy" data-code-id="code-1769481054730-3690" onclick="copyCode('code-1769481054730-3690')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769481054730-3690" class="language-plaintext">┌─────────────────────────────────────────┐
+│   당신이 지금 해야 할 일 (이 순간):     │
+├─────────────────────────────────────────┤
+│                                         │
+│  이 페이지 닫기                        │
+│          ↓                             │
+│  &lt;a href=&quot;/articles/guide.html&quot; class=&quot;internal-link&quot;&gt;마스터 가이드&lt;/a&gt; 읽기                │
+│          ↓                             │
+│  &lt;a href=&quot;/articles/part-1.html&quot; class=&quot;internal-link&quot;&gt;Part 1&lt;/a&gt; 읽기 시작하기             │
+│          ↓                             │
+│  손으로 직접 코딩해보기               │
+│          ↓                             │
+│  에러? 포기하지 말고 배우기           │
+│          ↓                             │
+│  완성되면 축하하기 🎉                 │
+│                                         │
+│     이 순간이 당신의 시작이다!        │
+│                                         │
+└─────────────────────────────────────────┘</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">19 lines</span>
+  </div>
+</div>
+
+<hr>
+<blockquote>
+<p><strong>당신은 할 수 있다. 지금 시작해보자. 🚀</strong></p>
+</blockquote>
+<p><strong>관련 자료:</strong></p>
+<ul>
+<li>🎯 <strong><a href="/articles/flutter-beginners-complete-guide-guide.html" class="internal-link">마스터 가이드로 돌아가기</a></strong></li>
+<li>📖 <strong><a href="/articles/flutter-beginners-complete-guide-part-1.html" class="internal-link">Part 1 시작하기</a></strong></li>
+<li>💬 <strong><a href="/articles/flutter-beginners-complete-guide-part-3.html" class="internal-link">Part 3 실전으로 가기</a></strong></li>
+<li>🔍 <strong><a href="/articles/flutter-beginners-complete-guide-part-4-analysis.html" class="internal-link">Part 4 사례 배우기</a></strong></li>
+</ul>
+<hr>
+<p><strong>마지막 업데이트:</strong> 2025-11-19
+<strong>생성자:</strong> Flutter 입문자 완전 가이드 팀
+<strong>라이센스:</strong> CC BY-SA (자유롭게 공유하세요)</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/Flutter.html" class="article-tag">Flutter</a><a href="/tag/빠른시작.html" class="article-tag">빠른시작</a><a href="/tag/네비게이션.html" class="article-tag">네비게이션</a><a href="/tag/목차.html" class="article-tag">목차</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">기술 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/readme-flutter-beginners-complete-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/development-guides-placeholder.svg" alt="README - Flutter 입문자 완전 가이드 프로젝트" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">README - Flutter 입문자 완전 가이드 프로젝트</h4>
+            <span class="sidebar-post__author">개발 가이드</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/flutter-beginners-guide-quick-start.html&text=Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/flutter-beginners-guide-quick-start.html&title=Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/flutter-beginners-guide-quick-start.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/dev-guide.html" class="author-bio__card">
+          <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">개발 가이드</h3>
+            <p class="author-bio__role">Development Guide Writer</p>
+            <p class="author-bio__text">초보 개발자를 위한 친절한 가이드를 작성합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="Microsoft WinAppCli - Technical Deep Dive"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Microsoft WinAppCli - Technical Deep Dive</h3>
+          <p class="article-card__excerpt">초보 개발자를 위한 한국어 가이드는 WinApp CLI 완전 정복 || Windows App Development CLI 완전 정복을 참조하세요. Windows app development just got dramatically simpler. Microsoft's...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/winapp-cli-complete.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="WinApp CLI 완전 정복"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">WinApp CLI 완전 정복</h3>
+          <p class="article-card__excerpt">"복잡한 Windows 개발 환경 설정을 단 하나의 명령어로!" --- 이 문서는 WinApp CLI를 처음 사용하는 개발자를 위해 작성되었습니다. - 🎯 목표: Windows 앱 개발 환경 설정부터 배포까지 한 번에! - 📖 구성: 개념 설명 → 실습 명령어 →...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">29 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/readme-flutter-beginners-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/development-guides-placeholder.svg"
+             alt="README - Flutter 입문자 완전 가이드 프로젝트"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          개발 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">README - Flutter 입문자 완전 가이드 프로젝트</h3>
+          <p class="article-card__excerpt">Flutter를 배우려는 초보 개발자들을 위한 완전한 한글 가이드를 제작했습니다. 이 가이드는 Feynman 기법(복잡한 개념을 단순하게 설명)과 스토리텔링 방식으로 작성되어, 프로그래밍 경험이 없는 사람도 이해할 수 있습니다. --- --- --- - 5살 아이도...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/dev-guide.svg" alt="개발 가이드" class="article-card__avatar">
+              <span>개발 가이드</span>
+            </div>
+            <span class="article-card__reading-time">12 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI &amp; Development Journal</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

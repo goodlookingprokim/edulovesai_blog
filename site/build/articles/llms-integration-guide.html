@@ -1,0 +1,1091 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>토스페이먼츠 LLMs 결제연동 가이드 | AI 기술 자료 저널</title>
+  <meta name="description" content="대규모 언어 모델(LLM)과 AI 개발 도구를 활용하여 토스페이먼츠 결제 시스템을 효과적으로 연동하는 방법을 안내합니다. 1.  || #개요 2.  || #llms.txt 활용하기 3.  || #MCP 서버란 무엇인가 4.  || #토스페이먼츠 MCP 서버 설정하기...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="토스페이먼츠 LLMs 결제연동 가이드">
+  <meta property="og:description" content="대규모 언어 모델(LLM)과 AI 개발 도구를 활용하여 토스페이먼츠 결제 시스템을 효과적으로 연동하는 방법을 안내합니다. 1.  || #개요 2.  || #llms.txt 활용하기 3.  || #MCP 서버란 무엇인가 4.  || #토스페이먼츠 MCP 서버 설정하기...">
+  <meta property="og:image" content="/assets/images/llm-guides-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/llms-integration-guide.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="토스페이먼츠 LLMs 결제연동 가이드">
+  <meta name="twitter:description" content="대규모 언어 모델(LLM)과 AI 개발 도구를 활용하여 토스페이먼츠 결제 시스템을 효과적으로 연동하는 방법을 안내합니다. 1.  || #개요 2.  || #llms.txt 활용하기 3.  || #MCP 서버란 무엇인가 4.  || #토스페이먼츠 MCP 서버 설정하기...">
+  <meta name="twitter:image" content="/assets/images/llm-guides-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/llms-integration-guide.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI 기술 자료 저널</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+        <a href="/category/mcp-servers.html">MCP</a>
+        <a href="/category/development-guides.html">개발 가이드</a>
+        <a href="/category/tutorials.html">튜토리얼</a>
+        <a href="/category/obsidian-integration.html">Obsidian</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/llm-guides.html" class="article-category" style="background-color: #f59e0b">
+          LLM 가이드
+        </a>
+        <h1 class="article-title">토스페이먼츠 LLMs 결제연동 가이드</h1>
+        <div class="article-meta">
+          <a href="/journalist/tech-analyst.html" class="article-author">
+            <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">기술 분석가</span>
+              <span class="article-author__role">AI Tools Analyst</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2025년 6월 24일">2025년 6월 24일</time>
+            <span class="article-meta__separator">·</span>
+            <span>12 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+<nav class="toc" aria-label="Table of contents">
+  <div class="toc__header">
+    <span class="toc__title">목차</span>
+    <button class="toc__toggle" aria-expanded="true" onclick="toggleToc(this)">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9"></polyline>
+      </svg>
+    </button>
+  </div>
+  <ol class="toc__list">
+    
+    <li class="toc__item">
+      <a href="#목차" class="toc__link">📋 목차</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개요" class="toc__link">개요</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#관련-문서" class="toc__link">관련 문서</a>
+    </li>
+    <li class="toc__item">
+      <a href="#llmstxt-활용하기" class="toc__link">llms.txt 활용하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#llmstxt란" class="toc__link">llms.txt란?</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#토스페이먼츠-llmstxt" class="toc__link">토스페이먼츠 llms.txt</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#활용-예시" class="toc__link">활용 예시</a>
+    </li>
+    <li class="toc__item">
+      <a href="#mcp-서버란-무엇인가" class="toc__link">MCP 서버란 무엇인가</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#model-context-protocol-mcp" class="toc__link">Model Context Protocol (MCP)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#토스페이먼츠-mcp-서버가-제공하는-도구" class="toc__link">토스페이먼츠 MCP 서버가 제공하는 도구</a>
+    </li>
+    <li class="toc__item">
+      <a href="#토스페이먼츠-mcp-서버-설정하기" class="toc__link">토스페이먼츠 MCP 서버 설정하기</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기본-설정-mcpjson" class="toc__link">기본 설정 (mcp.json)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#작동-원리" class="toc__link">작동 원리</a>
+    </li>
+    <li class="toc__item">
+      <a href="#개발도구별-연결-방법" class="toc__link">개발도구별 연결 방법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-cursor" class="toc__link">1. Cursor</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-vs-code" class="toc__link">2. VS Code</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-windsurf" class="toc__link">3. Windsurf</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#4-claude-desktop" class="toc__link">4. Claude Desktop</a>
+    </li>
+    <li class="toc__item">
+      <a href="#효과적인-프롬프트-작성법" class="toc__link">효과적인 프롬프트 작성법</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#기본-원칙" class="toc__link">기본 원칙</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#프롬프트-템플릿" class="toc__link">프롬프트 템플릿</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#실제-프롬프트-예시" class="toc__link">실제 프롬프트 예시</a>
+    </li>
+    <li class="toc__item">
+      <a href="#실전-예제" class="toc__link">실전 예제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#1-결제위젯-초기화-react-typescript" class="toc__link">1. 결제위젯 초기화 (React + TypeScript)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#2-결제-승인-요청-nodejs" class="toc__link">2. 결제 승인 요청 (Node.js)</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#3-결제-취소-처리" class="toc__link">3. 결제 취소 처리</a>
+    </li>
+    <li class="toc__item">
+      <a href="#문제-해결-및-팁" class="toc__link">문제 해결 및 팁</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#자주-발생하는-문제" class="toc__link">자주 발생하는 문제</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#성능-최적화-팁" class="toc__link">성능 최적화 팁</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#추가-리소스" class="toc__link">추가 리소스</a>
+    </li>
+    <li class="toc__item">
+      <a href="#결론" class="toc__link">결론</a>
+    </li>
+    <li class="toc__item toc__item--indent-1">
+      <a href="#핵심-요약" class="toc__link">핵심 요약</a>
+    </li>
+    <li class="toc__item">
+      <a href="#연결된-노트" class="toc__link">연결된 노트</a>
+    </li>
+  </ol>
+</nav>
+
+            <h1>🤖 토스페이먼츠 LLMs 결제연동 가이드</h1>
+<blockquote>
+<p>대규모 언어 모델(LLM)과 AI 개발 도구를 활용하여 토스페이먼츠 결제 시스템을 효과적으로 연동하는 방법을 안내합니다.</p>
+</blockquote>
+<h2 id="목차">📋 목차 {#목차}</h2>
+<ol>
+<li><a href="#개요" class="internal-link internal-link--section">개요</a></li>
+<li><a href="#llmstxt-활용하기" class="internal-link internal-link--section">llms.txt 활용하기</a></li>
+<li><a href="#mcp-서버란-무엇인가" class="internal-link internal-link--section">MCP 서버란 무엇인가</a></li>
+<li><a href="#토스페이먼츠-mcp-서버-설정하기" class="internal-link internal-link--section">토스페이먼츠 MCP 서버 설정하기</a></li>
+<li><a href="#개발도구별-연결-방법" class="internal-link internal-link--section">개발도구별 연결 방법</a></li>
+<li><a href="#효과적인-프롬프트-작성법" class="internal-link internal-link--section">효과적인 프롬프트 작성법</a></li>
+<li><a href="#실전-예제" class="internal-link internal-link--section">실전 예제</a></li>
+<li><a href="#문제-해결-및-팁" class="internal-link internal-link--section">문제 해결 및 팁</a></li>
+</ol>
+<h2 id="개요">개요 {#개요}</h2>
+<p>토스페이먼츠는 AI 시대에 맞춰 LLM을 활용한 결제 연동을 지원하기 위해 두 가지 핵심 도구를 제공합니다:</p>
+<ol>
+<li><strong>llms.txt</strong>: LLM이 토스페이먼츠 문서를 효과적으로 탐색할 수 있는 표준 형식</li>
+<li><strong>MCP 서버</strong>: AI 도구가 토스페이먼츠 연동 스펙을 정확히 이해하도록 돕는 컨텍스트 프로토콜</li>
+</ol>
+<h3 id="관련-문서">관련 문서 {#관련-문서}</h3>
+<ul>
+<li><a href="https://docs.tosspayments.com/guides/v2/get-started">토스페이먼츠 결제 시작하기</a></li>
+<li><a href="https://docs.tosspayments.com/guides/v2/payment-widget">결제위젯 이해하기</a></li>
+<li><a href="https://docs.tosspayments.com/guides/v2/get-started/environment">환경 설정하기</a></li>
+</ul>
+<h2 id="llmstxt-활용하기">llms.txt 활용하기 {#llmstxt-활용하기}</h2>
+<h3 id="llmstxt란">llms.txt란? {#llmstxt란}</h3>
+<p>llms.txt는 AI 도구와 에이전트가 웹사이트 정보를 더 효과적으로 탐색할 수 있도록 돕는 새로운 표준 형식입니다.</p>
+<h3 id="토스페이먼츠-llmstxt">토스페이먼츠 llms.txt {#토스페이먼츠-llmstxt}</h3>
+<ul>
+<li><strong>URL</strong>: <a href="https://docs.tosspayments.com/llms.txt">https://docs.tosspayments.com/llms.txt</a></li>
+<li><strong>용도</strong>: AI 도구의 프롬프트에 포함하여 더 정확한 답변 유도</li>
+<li><strong>표준 사양</strong>: <a href="https://llmstxt.org">llmstxt.org</a> 참고</li>
+</ul>
+<h3 id="활용-예시">활용 예시 {#활용-예시}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1512" onclick="copyCode('code-1769482284975-1512')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1512" class="language-bash"># AI 도구에 프롬프트 작성 시
+&quot;https://docs.tosspayments.com/llms.txt 를 참고하여 토스페이먼츠 결제위젯 연동 방법을 알려줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h2 id="mcp-서버란-무엇인가">MCP 서버란 무엇인가 {#mcp-서버란-무엇인가}</h2>
+<h3 id="model-context-protocol-mcp">Model Context Protocol (MCP) {#model-context-protocol-mcp}</h3>
+<ul>
+<li><strong>개발사</strong>: Anthropic</li>
+<li><strong>목적</strong>: LLM이 다양한 상황과 맥락을 잘 이해할 수 있도록 돕는 표준 프로토콜</li>
+<li><strong>장점</strong>: 특정 도메인(토스페이먼츠 결제)에 대한 정확한 컨텍스트 제공</li>
+</ul>
+<h3 id="토스페이먼츠-mcp-서버가-제공하는-도구">토스페이먼츠 MCP 서버가 제공하는 도구 {#토스페이먼츠-mcp-서버가-제공하는-도구}</h3>
+<table>
+<thead>
+<tr>
+<th>도구명</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>get-v2-documents</code></td>
+<td>토스페이먼츠 v2 문서 조회 (기본값)</td>
+</tr>
+<tr>
+<td><code>get-v1-documents</code></td>
+<td>토스페이먼츠 v1 문서 조회 (명시적 요청 시)</td>
+</tr>
+<tr>
+<td><code>document-by-id</code></td>
+<td>문서 ID로 전체 내용 조회</td>
+</tr>
+</tbody></table>
+<h2 id="토스페이먼츠-mcp-서버-설정하기">토스페이먼츠 MCP 서버 설정하기 {#토스페이먼츠-mcp-서버-설정하기}</h2>
+<h3 id="기본-설정-mcpjson">기본 설정 (mcp.json) {#기본-설정-mcpjson}</h3>
+<div class="code-block" data-language="json">
+  <div class="code-block__header" style="background-color: #292929; color: #fff">
+    <span class="code-block__language">JSON</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1513" onclick="copyCode('code-1769482284975-1513')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1513" class="language-json">{
+  &quot;mcpServers&quot;: {
+    &quot;tosspayments-integration-guide&quot;: {
+      &quot;command&quot;: &quot;npx&quot;,
+      &quot;args&quot;: [&quot;-y&quot;, &quot;@tosspayments/integration-guide-mcp@latest&quot;]
+    }
+  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">8 lines</span>
+  </div>
+</div>
+
+<h3 id="작동-원리">작동 원리 {#작동-원리}</h3>
+<ol>
+<li>AI 도구가 MCP 서버와 연결</li>
+<li>토스페이먼츠 관련 질문 시 MCP 서버가 적절한 문서 검색</li>
+<li>LLM이 정확한 컨텍스트를 바탕으로 코드 생성</li>
+</ol>
+<h2 id="개발도구별-연결-방법">개발도구별 연결 방법 {#개발도구별-연결-방법}</h2>
+<h3 id="1-cursor">1. Cursor {#1-cursor}</h3>
+<h4>자동 연결 방법</h4>
+<p><a href="cursor://anysphere.cursor-deeplink/mcp/install?name=tosspayments-integration-guide&config=eyJjb21tYW5kIjoibnB4IC15IEB0b3NzcGF5bWVudHMvaW50ZWdyYXRpb24tZ3VpZGUtbWNwQGxhdGVzdCJ9">📎 클릭하여 Cursor에 토스페이먼츠 MCP 자동 연결</a></p>
+<h4>수동 설정 방법</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1514" onclick="copyCode('code-1769482284975-1514')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1514" class="language-bash"># 1. 설정 파일 위치로 이동
+cd ~/.cursor/
+
+<h1>2. mcp.json 파일 생성 또는 편집</h1>
+<p>vim mcp.json</p>
+<h1>3. 위의 기본 설정 내용 추가</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>참고 자료</h4>
+<ul>
+<li><a href="https://docs.cursor.com/context/model-context-protocol">Cursor 공식 MCP 가이드</a></li>
+</ul>
+<h3 id="2-vs-code">2. VS Code {#2-vs-code}</h3>
+<h4>자동 연결 방법</h4>
+<p><a href="https://vscode.dev/redirect?url=vscode:mcp/install?%7B%22name%22%3A%22tosspayments-integration-guide%22%2C%22command%22%3A%22npx%22%2C%22args%22%3A%5B%22-y%22%2C%22%40tosspayments%2Fintegration-guide-mcp%40latest%22%5D%7D">📎 클릭하여 VS Code에 토스페이먼츠 MCP 자동 연결</a></p>
+<h4>수동 설정 방법</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1515" onclick="copyCode('code-1769482284975-1515')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1515" class="language-bash"># 프로젝트 루트에서
+mkdir -p .vscode
+cd .vscode
+vim mcp.json
+# 기본 설정 내용 추가</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>참고 자료</h4>
+<ul>
+<li><a href="https://code.visualstudio.com/docs/copilot/chat/mcp-servers">VS Code 공식 MCP 가이드</a></li>
+</ul>
+<h3 id="3-windsurf">3. Windsurf {#3-windsurf}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1516" onclick="copyCode('code-1769482284975-1516')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1516" class="language-bash"># 설정 파일 위치
+~/.codeium/windsurf/mcp_config.json
+
+<h1>파일 생성 및 편집</h1>
+<p>mkdir -p ~/.codeium/windsurf/
+vim ~/.codeium/windsurf/mcp_config.json</p>
+<h1>기본 설정 내용 추가</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">6 lines</span>
+  </div>
+</div>
+
+<h4>참고 자료</h4>
+<ul>
+<li><a href="https://docs.windsurf.com/windsurf/cascade/mcp">Windsurf 공식 MCP 가이드</a></li>
+</ul>
+<h3 id="4-claude-desktop">4. Claude Desktop {#4-claude-desktop}</h3>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1517" onclick="copyCode('code-1769482284975-1517')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1517" class="language-bash"># 설정 파일 위치 (OS별로 다름)
+# macOS: ~/Library/Application Support/Claude/
+# Windows: %APPDATA%\Claude\
+# Linux: ~/.config/Claude/
+
+<h1>claude_desktop_config.json 파일에 추가</code></pre></h1>
+  <div class="code-block__footer">
+    <span class="code-block__lines">5 lines</span>
+  </div>
+</div>
+
+<h4>참고 자료</h4>
+<ul>
+<li><a href="https://modelcontextprotocol.io/quickstart/user">Claude MCP 빠른 시작 가이드</a></li>
+</ul>
+<h2 id="효과적인-프롬프트-작성법">효과적인 프롬프트 작성법 {#효과적인-프롬프트-작성법}</h2>
+<h3 id="기본-원칙">기본 원칙 {#기본-원칙}</h3>
+<ol>
+<li><strong>버전 명시</strong>: v1/v2 중 사용할 버전 명확히 지정</li>
+<li><strong>기술 스택 언급</strong>: 사용 언어, 프레임워크 명시</li>
+<li><strong>구체적인 요구사항</strong>: 원하는 기능을 상세히 설명</li>
+</ol>
+<h3 id="프롬프트-템플릿">프롬프트 템플릿 {#프롬프트-템플릿}</h3>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1518" onclick="copyCode('code-1769482284975-1518')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1518" class="language-markdown">토스페이먼츠 V2 SDK를 사용하여 [기능]을 구현하고 싶습니다.
+
+<p>환경:</p>
+<ul>
+<li>언어: [JavaScript/TypeScript/Python 등]</li>
+<li>프레임워크: [React/Vue/Next.js 등]</li>
+<li>서버: [Node.js/Spring/Django 등]</li>
+</ul>
+<p>요구사항:</p>
+<ol>
+<li>[구체적인 기능 1]</li>
+<li>[구체적인 기능 2]</li>
+<li>[에러 처리 포함]</li>
+</ol>
+<p>코드를 작성해주세요.</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">10 lines</span>
+  </div></p>
+</div>
+
+<h3 id="실제-프롬프트-예시">실제 프롬프트 예시 {#실제-프롬프트-예시}</h3>
+<h4>1. 결제위젯 통합</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1519" onclick="copyCode('code-1769482284975-1519')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1519" class="language-markdown">&quot;V2 SDK로 주문서 내에 결제위젯을 삽입하는 코드를 작성해줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1520" onclick="copyCode('code-1769482284975-1520')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1520" class="language-markdown">&quot;토스페이먼츠 V2 SDK를 사용하여 React 앱에 결제위젯을 통합하는 코드를 작성해줘. 
+주문서 페이지에 결제위젯을 삽입하고, 카드/계좌이체/토스페이 결제수단을 지원해야 해.&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>2. 결제 승인 API</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1521" onclick="copyCode('code-1769482284975-1521')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1521" class="language-markdown">&quot;결제 승인 요청하는 코드를 작성해줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1522" onclick="copyCode('code-1769482284975-1522')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1522" class="language-markdown">&quot;Node.js Express 서버에서 토스페이먼츠 결제 승인 API를 호출하는 코드를 작성해줘.
+에러 처리와 로깅을 포함하고, TypeScript를 사용해줘.&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>3. 웹훅 처리</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1523" onclick="copyCode('code-1769482284975-1523')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1523" class="language-markdown">&quot;토스페이먼츠 결제 상태 변경 웹훅을 처리하는 Spring Boot 컨트롤러를 작성해줘.
+서명 검증과 중복 처리 방지 로직을 포함해줘.&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">2 lines</span>
+  </div>
+</div>
+
+<h4>4. 빌링키 발급</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1524" onclick="copyCode('code-1769482284975-1524')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1524" class="language-markdown">&quot;자동결제를 위한 빌링키 발급 프로세스를 구현하는 코드를 작성해줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h4>5. 결제 취소 및 환불</h4>
+<div class="code-block" data-language="markdown">
+  <div class="code-block__header" style="background-color: #083fa1; color: #fff">
+    <span class="code-block__language">Markdown</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1525" onclick="copyCode('code-1769482284975-1525')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1525" class="language-markdown">&quot;부분 취소를 지원하는 결제 취소 API 연동 코드를 작성해줘&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">1 line</span>
+  </div>
+</div>
+
+<h2 id="실전-예제">실전 예제 {#실전-예제}</h2>
+<h3 id="1-결제위젯-초기화-react-typescript">1. 결제위젯 초기화 (React + TypeScript) {#1-결제위젯-초기화-react-typescript}</h3>
+<div class="code-block" data-language="typescript">
+  <div class="code-block__header" style="background-color: #3178c6; color: #fff">
+    <span class="code-block__language">TypeScript</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1526" onclick="copyCode('code-1769482284975-1526')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1526" class="language-typescript">// AI에게 요청할 프롬프트
+&quot;토스페이먼츠 V2 결제위젯을 React TypeScript 환경에서 초기화하는 
+커스텀 훅을 만들어줘. 로딩 상태와 에러 처리를 포함해줘.&quot;
+
+<p>// 예상 결과 코드
+import { useEffect, useState } from &#39;react&#39;;
+import { loadTossPayments, TossPaymentsInstance } from &#39;@tosspayments/tosspayments-sdk&#39;;</p>
+<p>interface UsePaymentWidgetReturn {
+  paymentWidget: TossPaymentsInstance | null;
+  loading: boolean;
+  error: Error | null;
+}</p>
+<p>export const usePaymentWidget = (clientKey: string): UsePaymentWidgetReturn =&gt; {
+  const [paymentWidget, setPaymentWidget] = useState&lt;TossPaymentsInstance | null&gt;(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState&lt;Error | null&gt;(null);</p>
+<p>  useEffect(() =&gt; {
+    const initializeWidget = async () =&gt; {
+      try {
+        const tossPayments = await loadTossPayments(clientKey);
+        setPaymentWidget(tossPayments);
+      } catch (err) {
+        setError(err as Error);
+      } finally {
+        setLoading(false);
+      }
+    };</p>
+<pre><code>initializeWidget();
+</code></pre>
+<p>  }, [clientKey]);</p>
+<p>  return { paymentWidget, loading, error };
+};</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">30 lines</span>
+  </div></p>
+</div>
+
+<h3 id="2-결제-승인-요청-nodejs">2. 결제 승인 요청 (Node.js) {#2-결제-승인-요청-nodejs}</h3>
+<div class="code-block" data-language="javascript">
+  <div class="code-block__header" style="background-color: #f7df1e; color: #000">
+    <span class="code-block__language">JavaScript</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1527" onclick="copyCode('code-1769482284975-1527')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1527" class="language-javascript">// AI에게 요청할 프롬프트
+&quot;토스페이먼츠 V2 API로 결제 승인을 요청하는 Node.js 함수를 작성해줘.
+axios를 사용하고, 에러 타입별로 처리를 구분해줘.&quot;
+
+<p>// 예상 결과 코드
+const axios = require(&#39;axios&#39;);</p>
+<p>async function confirmPayment(paymentKey, orderId, amount) {
+  const secretKey = process.env.TOSS_SECRET_KEY;
+  const basicToken = Buffer.from(<code>${secretKey}:</code>).toString(&#39;base64&#39;);</p>
+<p>  try {
+    const response = await axios.post(
+      &#39;<a href="https://api.tosspayments.com/v2/payments/confirm&#39">https://api.tosspayments.com/v2/payments/confirm&amp;#39</a>;,
+      {
+        paymentKey,
+        orderId,
+        amount
+      },
+      {
+        headers: {
+          &#39;Authorization&#39;: <code>Basic ${basicToken}</code>,
+          &#39;Content-Type&#39;: &#39;application/json&#39;
+        }
+      }
+    );</p>
+<pre><code>return {
+  success: true,
+  data: response.data
+};
+</code></pre>
+<p>  } catch (error) {
+    // 에러 타입별 처리
+    if (error.response) {
+      const { status, data } = error.response;</p>
+<pre><code>  switch (status) {
+    case 400:
+      console.error(&amp;#39;잘못된 요청:&amp;#39;, data.message);
+      break;
+    case 401:
+      console.error(&amp;#39;인증 실패&amp;#39;);
+      break;
+    case 404:
+      console.error(&amp;#39;결제 정보를 찾을 수 없음&amp;#39;);
+      break;
+    default:
+      console.error(&amp;#39;결제 승인 실패:&amp;#39;, data.message);
+  }
+}
+
+return {
+  success: false,
+  error: error.response?.data || error.message
+};
+</code></pre>
+<p>  }
+}</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">53 lines</span>
+  </div></p>
+</div>
+
+<h3 id="3-결제-취소-처리">3. 결제 취소 처리 {#3-결제-취소-처리}</h3>
+<div class="code-block" data-language="python">
+  <div class="code-block__header" style="background-color: #3776ab; color: #fff">
+    <span class="code-block__language">Python</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1528" onclick="copyCode('code-1769482284975-1528')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1528" class="language-python"># AI에게 요청할 프롬프트
+&quot;Python Django에서 토스페이먼츠 V2 결제 취소 API를 호출하는 
+서비스 클래스를 작성해줘. 부분 취소도 지원해야 해.&quot;
+
+<h1>예상 결과 코드</h1>
+<p>import requests
+from django.conf import settings
+import base64</p>
+<p>class TossPaymentsService:
+    def <strong>init</strong>(self):
+        self.secret_key = settings.TOSS_SECRET_KEY
+        self.base_url = &quot;<a href="https://api.tosspayments.com/v2">https://api.tosspayments.com/v2</a>&quot;
+        self.headers = {
+            &quot;Authorization&quot;: f&quot;Basic {base64.b64encode(f&#39;{self.secret_key}:&#39;.encode()).decode()}&quot;,
+            &quot;Content-Type&quot;: &quot;application/json&quot;
+        }</p>
+<pre><code>def cancel_payment(self, payment_key, cancel_reason, cancel_amount=None):
+    &amp;quot;&amp;quot;&amp;quot;
+    결제 취소 요청
+    
+    Args:
+        payment_key: 결제 키
+        cancel_reason: 취소 사유
+        cancel_amount: 부분 취소 금액 (None이면 전액 취소)
+    
+    Returns:
+        dict: API 응답
+    &amp;quot;&amp;quot;&amp;quot;
+    url = f&amp;quot;{self.base_url}/payments/{payment_key}/cancel&amp;quot;
+    
+    data = {&amp;quot;cancelReason&amp;quot;: cancel_reason}
+    
+    if cancel_amount is not None:
+        data[&amp;quot;cancelAmount&amp;quot;] = cancel_amount
+    
+    try:
+        response = requests.post(url, json=data, headers=self.headers)
+        response.raise_for_status()
+        return {&amp;quot;success&amp;quot;: True, &amp;quot;data&amp;quot;: response.json()}
+    except requests.exceptions.RequestException as e:
+        return {
+            &amp;quot;success&amp;quot;: False, 
+            &amp;quot;error&amp;quot;: str(e),
+            &amp;quot;status_code&amp;quot;: getattr(e.response, &amp;#39;status_code&amp;#39;, None)
+        }&lt;/code&gt;&lt;/pre&gt;
+</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">45 lines</span>
+  </div>
+</div>
+
+<h2 id="문제-해결-및-팁">문제 해결 및 팁 {#문제-해결-및-팁}</h2>
+<h3 id="자주-발생하는-문제">자주 발생하는 문제 {#자주-발생하는-문제}</h3>
+<h4>1. MCP 서버 연결 실패</h4>
+<div class="code-block" data-language="bash">
+  <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
+    <span class="code-block__language">Bash</span>
+    <button class="code-block__copy" data-code-id="code-1769482284975-1529" onclick="copyCode('code-1769482284975-1529')" title="Copy code">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+        <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+      </svg>
+      <span>Copy</span>
+    </button>
+  </div>
+  <pre class="code-block__content"><code id="code-1769482284975-1529" class="language-bash"># npx 캐시 클리어
+npx clear-npx-cache
+
+<h1>수동으로 패키지 설치</h1>
+<p>npm install -g @tosspayments/integration-guide-mcp@latest</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
+  </div></p>
+</div>
+
+<h4>2. 버전 충돌</h4>
+<ul>
+<li>항상 프롬프트에 v1/v2 명시</li>
+<li>기본값은 v2이므로 v1 사용 시 반드시 명시</li>
+</ul>
+<h4>3. 컨텍스트 부족</h4>
+<ul>
+<li>llms.txt URL을 프롬프트에 포함</li>
+<li>구체적인 기술 스택 명시</li>
+<li>예제 코드나 기존 코드 제공</li>
+</ul>
+<h3 id="성능-최적화-팁">성능 최적화 팁 {#성능-최적화-팁}</h3>
+<ol>
+<li><p><strong>캐싱 활용</strong></p>
+<ul>
+<li>MCP 서버는 문서를 캐싱하므로 반복 질문 시 빠른 응답</li>
+</ul>
+</li>
+<li><p><strong>구체적인 질문</strong></p>
+<ul>
+<li>&quot;결제 연동 방법&quot; ❌</li>
+<li>&quot;React에서 토스페이먼츠 V2 결제위젯 초기화 방법&quot; ✅</li>
+</ul>
+</li>
+<li><p><strong>단계별 접근</strong></p>
+<ul>
+<li>전체 시스템을 한 번에 요청하지 말고 단계별로 구현</li>
+</ul>
+</li>
+</ol>
+<h3 id="추가-리소스">추가 리소스 {#추가-리소스}</h3>
+<ul>
+<li>📚 <a href="https://docs.tosspayments.com">토스페이먼츠 개발자 문서</a></li>
+<li>💬 <a href="https://techchat.tosspayments.com">토스페이먼츠 개발자 커뮤니티</a></li>
+<li>📝 <a href="https://toss.tech/article/tosspayments-mcp">토스 기술 블로그 - MCP 서버 구현기</a></li>
+<li>💻 <a href="https://github.com/tosspayments?q=sample">GitHub 샘플 코드</a></li>
+</ul>
+<h2 id="결론">결론 {#결론}</h2>
+<p>토스페이먼츠의 llms.txt와 MCP 서버를 활용하면 AI 도구가 결제 연동에 필요한 정확한 컨텍스트를 이해하고, 더 나은 코드를 생성할 수 있습니다. </p>
+<p>특히 MCP 서버는 단순한 문서 검색을 넘어 토스페이먼츠의 결제 도메인 지식을 AI에게 효과적으로 전달하는 역할을 합니다.</p>
+<h3 id="핵심-요약">핵심 요약 {#핵심-요약}</h3>
+<ul>
+<li>✅ llms.txt로 기본 컨텍스트 제공</li>
+<li>✅ MCP 서버로 정확한 도메인 지식 전달</li>
+<li>✅ 개발도구별 간편한 설정</li>
+<li>✅ 구체적인 프롬프트로 정확한 코드 생성</li>
+</ul>
+<hr>
+<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<ul>
+<li><a href="/articles/ai-developmenttools-practical.html" class="internal-link">AI 개발도구 활용법</a></li>
+<li><a href="/articles/mcp.html" class="internal-link">MCP 프로토콜 이해하기</a></li>
+<li><a href="/articles/article.html" class="internal-link">결제 시스템 아키텍처</a></li>
+<li><a href="/articles/prompt-engineering-guide.html" class="internal-link">프롬프트 엔지니어링 가이드</a></li>
+<li><a href="/articles/api-integration.html" class="internal-link">API 연동 베스트 프랙티스</a></li>
+</ul>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              <a href="/tag/AI.html" class="article-tag">AI</a><a href="/tag/LLM활용.html" class="article-tag">LLM활용</a><a href="/tag/개발.html" class="article-tag">개발</a><a href="/tag/결제시스템.html" class="article-tag">결제시스템</a><a href="/tag/API.html" class="article-tag">API</a><a href="/tag/토스페이먼츠.html" class="article-tag">토스페이먼츠</a><a href="/tag/MCP.html" class="article-tag">MCP</a><a href="/tag/서버.html" class="article-tag">서버</a><a href="/tag/자동화.html" class="article-tag">자동화</a><a href="/tag/AI도구.html" class="article-tag">AI도구</a><a href="/tag/Claude-Code.html" class="article-tag">Claude-Code</a><a href="/tag/프롬프트.html" class="article-tag">프롬프트</a><a href="/tag/엔지니어링.html" class="article-tag">엔지니어링</a>
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/llms-integration-guide.html&text=토스페이먼츠 LLMs 결제연동 가이드" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/llms-integration-guide.html&title=토스페이먼츠 LLMs 결제연동 가이드" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/llms-integration-guide.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/tech-analyst.html" class="author-bio__card">
+          <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">기술 분석가</h3>
+            <p class="author-bio__role">AI Tools Analyst</p>
+            <p class="author-bio__text">AI 도구와 LLM 활용에 대한 심층 분석을 제공합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/sima-2-ai-how-to.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/llm-guides-placeholder.svg"
+             alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          LLM 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h3>
+          <p class="article-card__excerpt">핵심 아이디어: SIMA 2는 가상 환경에서 독립적으로 학습하는 AI로, 이는 교육 시스템 자체를 근본적으로 변화시킬 수 있는 잠재력을 가지고 있습니다. 1.  || #배경 및 맥락 2.  || #핵심 개념 3.  || #SIMA 2의 작동 원리 4.  || #교육에...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">8 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/chatgpt-perfect-practical-guide-beginners.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/llm-guides-placeholder.svg"
+             alt="ChatGPT 완벽 활용 가이드 - 초보자편"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          LLM 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">ChatGPT 완벽 활용 가이드 - 초보자편</h3>
+          <p class="article-card__excerpt">"복잡한 AI 도구를 마치 친구와 대화하듯 쉽게 사용할 수 있다면?" 이 가이드는 개발 초보자들이 ChatGPT를 실전에서 효과적으로 활용할 수 있도록 파인만 기법과 스토리텔링으로 설명합니다. --- 1.  || #ChatGPT란 무엇인가 2.  || #왜 개발자에게...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/chatgpt-perfect-practical-guide-part-2-advanced.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/llm-guides-placeholder.svg"
+             alt="ChatGPT 완벽 활용 가이드 Part 2 - 고급편"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #f59e0b">
+          LLM 가이드
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">ChatGPT 완벽 활용 가이드 Part 2 - 고급편</h3>
+          <p class="article-card__excerpt">"기초를 넘어, 전문가처럼 ChatGPT를 활용하는 방법" Part 1에서 배운 기초를 바탕으로, 이제 고급 기법과 실전 활용법을 마스터합니다. ⬅️ 이전:  || ChatGPT완벽활용가이드Part1기초편 --- 1.  || #Interactive 대화형 2.  ||...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
+              <span>기술 분석가</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI 기술 자료 저널</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>
