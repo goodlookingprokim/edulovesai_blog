@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lovable 프롬프트 바이블 초보자 가이드 Part1 | AI 기술 자료 저널</title>
+  <meta name="description" content="---  tags:    - AI/프롬프트    - 초보자/가이드    - Lovable    - Feynman    - 스토리텔링  created: &#39;2025-11-11&#39;  lastmodified: &#39;2025-11-11&#39;  status: active  type:...">
+  
+  <!-- Open Graph -->
+  <meta property="og:title" content="Lovable 프롬프트 바이블 초보자 가이드 Part1">
+  <meta property="og:description" content="---  tags:    - AI/프롬프트    - 초보자/가이드    - Lovable    - Feynman    - 스토리텔링  created: &#39;2025-11-11&#39;  lastmodified: &#39;2025-11-11&#39;  status: active  type:...">
+  <meta property="og:image" content="/assets/images/prompt-engineering-placeholder.svg">
+  <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/lovable-prompt-beginners-guide-part1.html">
+  <meta property="og:type" content="article">
+  
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Lovable 프롬프트 바이블 초보자 가이드 Part1">
+  <meta name="twitter:description" content="---  tags:    - AI/프롬프트    - 초보자/가이드    - Lovable    - Feynman    - 스토리텔링  created: &#39;2025-11-11&#39;  lastmodified: &#39;2025-11-11&#39;  status: active  type:...">
+  <meta name="twitter:image" content="/assets/images/prompt-engineering-placeholder.svg">
+  
+  <link rel="stylesheet" href="/styles/main.css">
+  <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/lovable-prompt-beginners-guide-part1.html">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <a href="/" class="site-logo">
+        <span class="site-logo__text">AI 기술 자료 저널</span>
+      </a>
+      <nav class="site-nav">
+        <a href="/category/agent-patterns.html">Agent 패턴</a>
+        <a href="/category/prompt-engineering.html">프롬프트</a>
+        <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/llm-guides.html">LLM 가이드</a>
+        <a href="/category/claude-skills.html">Claude Skills</a>
+        <a href="/category/claude-code.html">Claude Code</a>
+      </nav>
+      <button class="menu-toggle" aria-label="Toggle menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Article -->
+  <article class="article">
+    <!-- Hero -->
+    <header class="article-hero">
+      <div class="container">
+        <a href="/category/prompt-engineering.html" class="article-category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </a>
+        <h1 class="article-title">Lovable 프롬프트 바이블 초보자 가이드 Part1</h1>
+        <div class="article-meta">
+          <a href="/journalist/prompt-master.html" class="article-author">
+            <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-author__avatar">
+            <div class="article-author__info">
+              <span class="article-author__name">프롬프트 마스터</span>
+              <span class="article-author__role">Prompt Engineering Specialist</span>
+            </div>
+          </a>
+          <div class="article-meta__details">
+            <time datetime="2026년 1월 27일">2026년 1월 27일</time>
+            <span class="article-meta__separator">·</span>
+            <span>5 min read</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Content with Sidebar -->
+    <div class="article-layout">
+      <div class="container">
+        <div class="article-layout__wrapper">
+          <!-- Main Content -->
+          <div class="article-content">
+            <!-- Table of Contents (auto-generated for articles with 3+ headings) -->
+            
+
+            <hr>
+<h2> tags:
+   - AI/프롬프트
+   - 초보자/가이드
+   - Lovable
+   - Feynman
+   - 스토리텔링
+ created: &#39;2025-11-11&#39;
+ last_modified: &#39;2025-11-11&#39;
+ status: active
+ type: 가이드
+ priority: high</h2>
+<h1>Lovable AI 프롬프트 바이블: 초보 개발자를 위한 완벽 가이드 (Part 1)</h1>
+<p> 이 노트는 Lovable 플랫폼에서 AI 프롬프트를 배우는 초보 개발자를 위한 가이드입니다. 페이만 기법(어려운 개념을 아이에게 설명하듯 단순화)과 스토리텔링(이야기를 통해 이해 돕기)을 활용해 간단하고 상세하게 설명합니다. 각 레벨(초보, 중급, 고급)에 맞는 예시를 포함하며, 용어 사전(Glossary)으로 어려운 용어를 쉽게 풀어 설명합니다.</p>
+<h2>📋 목차</h2>
+<ol>
+<li><a href="#개요" class="internal-link internal-link--section">개요</a></li>
+<li><a href="#배경-및-맥락" class="internal-link internal-link--section">배경 및 맥락</a></li>
+<li><a href="#핵심-개념-기능" class="internal-link internal-link--section">핵심 개념 기능</a></li>
+<li><a href="#구현-방법-활용법" class="internal-link internal-link--section">구현 방법 활용법</a></li>
+<li><a href="#사례-및-예시" class="internal-link internal-link--section">사례 및 예시</a></li>
+<li><a href="#장단점-분석" class="internal-link internal-link--section">장단점 분석</a></li>
+<li><a href="#실무-적용점" class="internal-link internal-link--section">실무 적용점</a></li>
+<li><a href="#용어-사전-glossary" class="internal-link internal-link--section">용어 사전 (Glossary)</a></li>
+</ol>
+<p> (Part 2: 고급 레벨 프롬프팅, 사례 연구, 문제 해결 등으로 이어짐)</p>
+<h2>개요</h2>
+<ul>
+<li><strong>핵심 주제</strong>: Lovable AI에서 프롬프트를 통해 코딩 없이 지능형 앱을 만드는 방법.</li>
+<li><strong>목적</strong>: 초보 개발자가 AI 프롬프트를 쉽게 배우고, 실전에서 적용할 수 있도록 돕기.</li>
+<li><strong>범위</strong>: Part 1은 기본 개념부터 2레벨 프롬프팅까지. 페이만 기법으로 단순화, 스토리텔링으로 재미있게 설명.</li>
+</ul>
+<h2>배경 및 맥락</h2>
+<p> 상상해 보세요. 당신은 요리사 초보자예요. 레시피 없이 요리하면 엉망이 되죠? AI 프롬프트는 마치 레시피처럼 AI에게 &#39;어떻게 요리할지&#39; 지시하는 거예요. 2025년, Lovable은 코딩 없이 AI 앱을 만드는 &#39;노코드&#39; 플랫폼이에요. 전통 코딩은 복잡하지만, Lovable은 프롬프트로 간단히 해결!</p>
+<p> 페이만 기법으로: AI는 똑똑한 아이예요. 당신이 &quot;사과 먹어&quot;라고 하면 그냥 먹지만, &quot;빨간 사과를 썰어서 샐러드에 넣어&quot;라고 하면 제대로 해요. 프롬프트가 그 &#39;상세 지시&#39;예요.</p>
+<p> 예시 (초보 레벨): &quot;안녕, AI야. 오늘 날씨 알려줘.&quot; → AI가 대답하지만, 더 구체적으로 &quot;서울 날씨를 간단히 요약해줘&quot;라고 하면 정확해져요.</p>
+<h2>핵심 개념 기능</h2>
+<p> Lovable의 프롬프트는 &#39;모듈&#39;처럼 재사용 가능해요. 4단계 레벨로 배워요:</p>
+<h3>레벨 1: 훈련 바퀴 프롬프팅 (초보)</h3>
+<p> 스토리: 자전거 초보가 보조 바퀴를 달고 타는 것처럼, 템플릿으로 안전하게 시작.
+ 페이만: AI에게 &quot;이 문단 요약해: [문단]&quot;이라고 하면, AI가 &quot;이건 ...에 관한 거야&quot;처럼 답해.
+ 예시 (초보): 이메일 생성기 – &quot;친구에게 생일 축하 이메일 써줘. 형식: 인사 + 본문 + 마무리.&quot;
+ 예시 (중급): Q&amp;A 봇 – 템플릿으로 답변 형식 고정.</p>
+<h3>레벨 2: 훈련 바퀴 없는 프롬프팅 (초보~중급)</h3>
+<p> 스토리: 보조 바퀴를 떼고 자유롭게 타는 단계. AI가 창의적으로 응답하지만, 당신이 명확히 지시.
+ 페이만: &quot;전문 작가처럼 이 문단을 설득력 있게 다시 써.&quot; – AI가 자유롭게 하지만, 역할 부여로 안정.
+ 예시 (초보): &quot;고객 피드백 분석해: [피드백]. 3가지 문제점 나열.&quot;
+ 예시 (중급): 브랜드 톤 맞춰 콘텐츠 생성 – &quot;우리 회사 스타일로 블로그 포스트 써.&quot;
+ 예시 (고급): 변수 사용 – &quot;{{주제}}에 대해 {{톤}}으로 설명해.&quot;</p>
+<h2>구현 방법 활용법</h2>
+<ol>
+<li>Lovable 설치: 웹에서 시작 (노코드!).</li>
+<li>프롬프트 작성: 역할 + 지시 + 형식.</li>
+<li>테스트: 입력 바꿔가며 확인.</li>
+</ol>
+<p> 스토리: 요리사처럼 재료(입력) 준비 → 레시피(프롬프트) 적용 → 맛보기(테스트).</p>
+<p> 체크리스트:</p>
+<ul>
+<li><input disabled="" type="checkbox"> 역할 명확히 (e.g., &quot;개발자처럼&quot;).</li>
+<li><input disabled="" type="checkbox"> 출력 형식 지정 (e.g., 불릿 포인트).</li>
+<li><input disabled="" type="checkbox"> 예외 처리 (e.g., &quot;모르면 물어봐&quot;).</li>
+</ul>
+<h2>사례 및 예시</h2>
+<p> 초보 사례: 간단 챗봇 – &quot;사용자 질문에 답해: [질문]. 친근하게.&quot;
+ 중급: 콘텐츠 생성기 – &quot;블로그 아이디어 5개 brainstorm 해.&quot;
+ 고급: 체인 프롬프트 – 첫 프롬프트로 요약 → 둘째로 분석.</p>
+<p> 스토리: 초보 개발자 &#39;민준&#39;이 Lovable로 첫 앱(날씨 어드바이저) 만듦. 레벨 1부터 시작해 성공!</p>
+<h2>장단점 분석</h2>
+<p> 장점: 코딩 없이 빠름, 재미있음 (스토리처럼 자연).
+ 단점: 프롬프트 잘못 쓰면 AI가 &#39;헷갈림&#39; (페이만처럼 단순화로 극복).
+ 초보: 쉽지만, 연습 필요.</p>
+<h2>실무 적용점</h2>
+<ul>
+<li>프로젝트 시작: 레벨 1로 기본 앱.</li>
+<li>팀 협업: 프롬프트 라이브러리 공유.</li>
+<li>다음 단계: Part 2로 고급 배우기.</li>
+</ul>
+<h2>용어 사전 (Glossary)</h2>
+<ul>
+<li><strong>프롬프트 (Prompt)</strong>: AI에게 주는 지시어. 마치 레시피처럼 상세할수록 좋음.</li>
+<li><strong>노코드 (No-Code)</strong>: 코딩 없이 앱 만드는 방법. 그림 그리듯 직관적.</li>
+<li><strong>LLM (Large Language Model)</strong>: 대형 언어 모델, AI의 &#39;뇌&#39; (e.g., ChatGPT).</li>
+<li><strong>메타 프롬프팅 (Meta Prompting)</strong>: AI에게 프롬프트를 개선하게 함. &#39;코치&#39; 역할.</li>
+<li><strong>체인 프롬프트 (Prompt Chaining)</strong>: 프롬프트를 연결해 복잡 작업. 단계별 요리처럼.</li>
+</ul>
+<h2>연결된 노트</h2>
+<ul>
+<li><a href="/articles/prompt-engineeringcontext-engineering-complete-guide.html" class="internal-link">프롬프트 엔지니어링/Context Engineering 완전 가이드</a></li>
+<li><a href="/articles/claudeskillsperfectguidepart1.html" class="internal-link">Claude_Skills_완벽_가이드_Part1</a></li>
+<li><a href="/articles/lovablepromptbeginnersguidepart2.html" class="internal-link">Lovable_프롬프트_바이블_초보자_가이드_Part2</a> (생성 예정)</li>
+</ul>
+<p> <strong>참고</strong>: 이 노트는 Lovable Prompting Bible를 기반으로 초보자 맞춤. 더 궁금하면 물어보세요!</p>
+
+            
+            <!-- Tags -->
+            <div class="article-tags">
+              
+            </div>
+          </div>
+          
+          <!-- Sidebar -->
+          <aside class="article-sidebar">
+            <div class="sidebar-section">
+              <div class="sidebar-header">
+                <span>RECENT ESSAYS</span>
+                <span class="sidebar-arrow">→</span>
+              </div>
+              <div class="sidebar-posts">
+                
+        <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
+            <span class="sidebar-post__author">Claude 전문가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+              </div>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+
+    <!-- Share -->
+    <div class="article-share">
+      <div class="container container--narrow">
+        <span>Share this article:</span>
+        <div class="share-buttons">
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/lovable-prompt-beginners-guide-part1.html&text=Lovable 프롬프트 바이블 초보자 가이드 Part1" 
+             class="share-btn share-btn--twitter" 
+             target="_blank" 
+             rel="noopener">
+            Twitter
+          </a>
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/lovable-prompt-beginners-guide-part1.html&title=Lovable 프롬프트 바이블 초보자 가이드 Part1" 
+             class="share-btn share-btn--linkedin" 
+             target="_blank" 
+             rel="noopener">
+            LinkedIn
+          </a>
+          <button class="share-btn share-btn--copy" data-url="https://passeth.github.io/MY-BLOG_OBSI/articles/lovable-prompt-beginners-guide-part1.html">
+            Copy Link
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Author Bio -->
+    <aside class="author-bio">
+      <div class="container container--narrow">
+        <a href="/journalist/prompt-master.html" class="author-bio__card">
+          <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="author-bio__avatar">
+          <div class="author-bio__content">
+            <h3 class="author-bio__name">프롬프트 마스터</h3>
+            <p class="author-bio__role">Prompt Engineering Specialist</p>
+            <p class="author-bio__text">효과적인 프롬프트 작성 기법과 엔지니어링 전략을 연구합니다.</p>
+            <span class="author-bio__link">View all articles →</span>
+          </div>
+        </a>
+      </div>
+    </aside>
+  </article>
+
+  <!-- Related Articles -->
+  <section class="related-section">
+    <div class="container">
+      <h2 class="section-title">Related Articles</h2>
+      <div class="related-grid">
+        
+    <article class="article-card article-card--small">
+      <a href="/articles/lovable-prompt-engineering-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/prompt-engineering-placeholder.svg"
+             alt="Lovable 프롬프트 엔지니어링 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Lovable 프롬프트 엔지니어링 완전 가이드</h3>
+          <p class="article-card__excerpt">"2025년, 시장의 승자는 최고의 AI 모델을 가진 기업이 아니라, AI와 가장 잘 소통하는 기업이 될 것이다." <div style="background: #e3f2fd; border: 1px solid #2196F3; padding: 10px;...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">
+              <span>프롬프트 마스터</span>
+            </div>
+            <span class="article-card__reading-time">60 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/context-engineering-complete-prompt.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/prompt-engineering-placeholder.svg"
+             alt="Context Engineering 완전 정복 - 프롬프트를 넘어서"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Context Engineering 완전 정복 - 프롬프트를 넘어서</h3>
+          <p class="article-card__excerpt">1. #충격적인 진실 - 프롬프트 엔지니어링은 낡았다 2. #Context Engineering이 뭔가요 3. #왜 AI는 실패할까 컨텍스트 부족 문제 4. #Context Engineering의 핵심 구조 5. #PRP 워크플로우 완전 이해 6. #실전 예제로...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">
+              <span>프롬프트 마스터</span>
+            </div>
+            <span class="article-card__reading-time">41 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+    <article class="article-card article-card--small">
+      <a href="/articles/context-engineering-complete-guide.html" class="article-card__link">
+        
+      <div class="article-card__image">
+        <img src="/assets/images/prompt-engineering-placeholder.svg"
+             alt="Context Engineering 완전 가이드"
+             loading="lazy">
+        <span class="article-card__category" style="background-color: #ec4899">
+          프롬프트 엔지니어링
+        </span>
+      </div>
+        <div class="article-card__content">
+          <h3 class="article-card__title">Context Engineering 완전 가이드</h3>
+          <p class="article-card__excerpt">1. #개요 2. #Context Engineering이란 3. #프롬프트 엔지니어링과의 차이점 4. #핵심 구성 요소 5. #파일 구조와 역할 6. #실제 워크플로우 7. #구현 방법 8. #활용 사례 9. #모범 사례 10. #문제 해결 11. #실무 적용 전략...</p>
+          <div class="article-card__meta">
+            <div class="article-card__author">
+              <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">
+              <span>프롬프트 마스터</span>
+            </div>
+            <span class="article-card__reading-time">35 min</span>
+          </div>
+        </div>
+      </a>
+    </article>
+  
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="site-logo">
+            <span class="site-logo__text">AI 기술 자료 저널</span>
+          </span>
+          <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
+        </div>
+        <div class="footer-links">
+          <h4>Categories</h4>
+          <a href="/category/ai-tools.html">AI 도구</a>
+          <a href="/category/claude-code.html">Claude Code</a>
+          <a href="/category/mcp-servers.html">MCP</a>
+          <a href="/category/development-guides.html">개발 가이드</a>
+          <a href="/category/tutorials.html">튜토리얼</a>
+          <a href="/category/obsidian-integration.html">Obsidian</a>
+        </div>
+        <div class="footer-links">
+          <h4>Resources</h4>
+          <a href="/feed.xml">RSS Feed</a>
+          <a href="/sitemap.xml">Sitemap</a>
+          <a href="/admin/">Admin</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

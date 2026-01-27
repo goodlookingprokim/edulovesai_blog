@@ -210,6 +210,35 @@ function validateRequiredFiles(buildDir, result) {
 }
 
 /**
+ * Validate article titles (no Untitled articles)
+ */
+function validateArticleTitles(articles, result) {
+  let validCount = 0;
+  let totalCount = 0;
+
+  for (const article of articles) {
+    totalCount++;
+
+    if (!article.title || article.title === 'Untitled' || article.title.toLowerCase().startsWith('untitled')) {
+      addFail(result);
+      addIssue(
+        result,
+        'warning',
+        'Article Title',
+        `Missing or invalid title: "${article.title || 'null'}"`,
+        article.slug,
+        `Add title to frontmatter or check filename`
+      );
+    } else {
+      validCount++;
+      addPass(result);
+    }
+  }
+
+  return { valid: validCount, total: totalCount };
+}
+
+/**
  * Validate article HTML files were generated
  */
 function validateArticlePages(articles, buildDir, result) {
@@ -418,17 +447,22 @@ function validate(articles, config, options = {}) {
   const requiredStatus = requiredResult.valid === requiredResult.total ? '✅' : '❌';
   console.log(`${requiredStatus} Required Files: ${requiredResult.valid}/${requiredResult.total} exist`);
 
-  // 5. Validate article pages
+  // 5. Validate article titles
+  const titleResult = validateArticleTitles(articles, result);
+  const titleStatus = titleResult.valid === titleResult.total ? '✅' : '⚠️';
+  console.log(`${titleStatus} Article Titles: ${titleResult.valid}/${titleResult.total} valid`);
+
+  // 6. Validate article pages
   const pagesResult = validateArticlePages(articles, buildDir, result);
   const pagesStatus = pagesResult.valid === pagesResult.total ? '✅' : '❌';
   console.log(`${pagesStatus} Article Pages: ${pagesResult.valid}/${pagesResult.total} generated`);
 
-  // 6. Validate nav categories
+  // 7. Validate nav categories
   const navResult = validateNavCategories(buildDir, result);
   const navStatus = navResult.valid === navResult.total ? '✅' : '⚠️';
   console.log(`${navStatus} Nav Categories: ${navResult.valid}/${navResult.total} valid`);
 
-  // 7. Validate internal links (optional, can be slow)
+  // 8. Validate internal links (optional, can be slow)
   if (options.validateLinks !== false) {
     const linksResult = validateInternalLinks(articles, buildDir, result);
     if (linksResult.total > 0) {
@@ -470,6 +504,7 @@ module.exports = {
   validateAvatars,
   validatePlaceholders,
   validateRequiredFiles,
+  validateArticleTitles,
   validateArticlePages,
   validateNavCategories,
   validateInternalLinks

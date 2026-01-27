@@ -8,17 +8,45 @@ const categoryMapper = require('./category-mapper');
 const readingTime = require('./reading-time');
 
 /**
+ * Convert filename to readable title
+ * @param {string} filename - File name (e.g., "chapter_06_Planning.md")
+ * @returns {string} Readable title (e.g., "Chapter 06 Planning")
+ */
+function filenameToTitle(filename) {
+  if (!filename) return 'Untitled';
+
+  return filename
+    // Remove .md extension
+    .replace(/\.md$/i, '')
+    // Remove leading emoji and special characters
+    .replace(/^[^\w가-힣]+/, '')
+    // Replace underscores with spaces
+    .replace(/_/g, ' ')
+    // Replace hyphens with spaces (but keep compound words)
+    .replace(/-(?=[A-Z])/g, ' ')
+    // Capitalize first letter of each word (except already capitalized)
+    .replace(/\b([a-z])/g, (match) => match.toUpperCase())
+    // Clean up multiple spaces
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
  * Transform Obsidian frontmatter to Blog format
  * @param {object} obsidianFrontmatter - Original Obsidian YAML data
  * @param {string} content - Markdown content for excerpt/reading time
  * @param {string} folderPath - Folder path for category mapping
+ * @param {string} filename - Original filename for title fallback
  * @returns {object} Transformed blog frontmatter
  */
-function transform(obsidianFrontmatter, content, folderPath) {
+function transform(obsidianFrontmatter, content, folderPath, filename = null) {
   const fm = obsidianFrontmatter || {};
 
+  // Get title: use frontmatter title, or generate from filename
+  const title = fm.title || filenameToTitle(filename);
+
   // Generate slug from title
-  const slug = fm.slug || slugGenerator.generate(fm.title || 'untitled');
+  const slug = fm.slug || slugGenerator.generate(title);
 
   // Map category from folder path
   const category = categoryMapper.mapFromPath(folderPath);
@@ -40,7 +68,7 @@ function transform(obsidianFrontmatter, content, folderPath) {
 
   return {
     // Core fields
-    title: fm.title || 'Untitled',
+    title,
     slug,
     date: formatDate(fm.created) || formatDate(fm.date) || new Date().toISOString().split('T')[0],
     updated: formatDate(fm.last_modified) || formatDate(fm.updated),

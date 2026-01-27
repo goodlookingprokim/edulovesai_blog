@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 3: Parallelization | AI &amp; Development Journal</title>
-  <meta name="description" content="In the previous chapters, we&#39;ve explored Prompt Chaining for sequential workflows and Routing for dynamic decision-making and transitions between diff...">
+  <title>Chapter 03 Parallelization | AI 기술 자료 저널</title>
+  <meta name="description" content="In the previous chapters, we&#39;ve explored Prompt Chaining for sequential workflows and Routing for dynamic decision-making and transitions between...">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="Chapter 3: Parallelization">
-  <meta property="og:description" content="In the previous chapters, we&#39;ve explored Prompt Chaining for sequential workflows and Routing for dynamic decision-making and transitions between diff...">
-  <meta property="og:image" content="/assets/images/ai-tools-placeholder.svg">
+  <meta property="og:title" content="Chapter 03 Parallelization">
+  <meta property="og:description" content="In the previous chapters, we&#39;ve explored Prompt Chaining for sequential workflows and Routing for dynamic decision-making and transitions between...">
+  <meta property="og:image" content="/assets/images/agent-patterns-placeholder.svg">
   <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-03-parallelization.html">
   <meta property="og:type" content="article">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Chapter 3: Parallelization">
-  <meta name="twitter:description" content="In the previous chapters, we&#39;ve explored Prompt Chaining for sequential workflows and Routing for dynamic decision-making and transitions between diff...">
-  <meta name="twitter:image" content="/assets/images/ai-tools-placeholder.svg">
+  <meta name="twitter:title" content="Chapter 03 Parallelization">
+  <meta name="twitter:description" content="In the previous chapters, we&#39;ve explored Prompt Chaining for sequential workflows and Routing for dynamic decision-making and transitions between...">
+  <meta name="twitter:image" content="/assets/images/agent-patterns-placeholder.svg">
   
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-03-parallelization.html">
@@ -28,15 +28,15 @@
   <header class="site-header">
     <div class="container">
       <a href="/" class="site-logo">
-        <span class="site-logo__text">AI &amp; Development Journal</span>
+        <span class="site-logo__text">AI 기술 자료 저널</span>
       </a>
       <nav class="site-nav">
+        <a href="/category/agent-patterns.html">Agent 패턴</a>
+        <a href="/category/prompt-engineering.html">프롬프트</a>
         <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/llm-guides.html">LLM 가이드</a>
+        <a href="/category/claude-skills.html">Claude Skills</a>
         <a href="/category/claude-code.html">Claude Code</a>
-        <a href="/category/mcp-servers.html">MCP</a>
-        <a href="/category/development-guides.html">개발 가이드</a>
-        <a href="/category/tutorials.html">튜토리얼</a>
-        <a href="/category/obsidian-integration.html">Obsidian</a>
       </nav>
       <button class="menu-toggle" aria-label="Toggle menu">
         <span></span>
@@ -51,22 +51,22 @@
     <!-- Hero -->
     <header class="article-hero">
       <div class="container">
-        <a href="/category/ai-tools.html" class="article-category" style="background-color: #6366f1">
-          AI 도구
+        <a href="/category/agent-patterns.html" class="article-category" style="background-color: #6366f1">
+          Agent 패턴
         </a>
-        <h1 class="article-title">Chapter 3: Parallelization</h1>
+        <h1 class="article-title">Chapter 03 Parallelization</h1>
         <div class="article-meta">
-          <a href="/journalist/tech-expert.html" class="article-author">
-            <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-author__avatar">
+          <a href="/journalist/agent-architect.html" class="article-author">
+            <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-author__avatar">
             <div class="article-author__info">
-              <span class="article-author__name">기술 전문가</span>
-              <span class="article-author__role">AI &amp; Development Writer</span>
+              <span class="article-author__name">에이전트 아키텍트</span>
+              <span class="article-author__role">AI Agent Systems Designer</span>
             </div>
           </a>
           <div class="article-meta__details">
-            <time datetime="2025년 12월 13일">2025년 12월 13일</time>
+            <time datetime="2026년 1월 27일">2026년 1월 27일</time>
             <span class="article-meta__separator">·</span>
-            <span>18 read</span>
+            <span>23 min read</span>
           </div>
         </div>
       </div>
@@ -242,18 +242,18 @@
 </nav>
 
             <h1>Chapter 3: Parallelization</h1>
-<h2 id="개요">개요 {#개요}</h2>
+<h2 id="개요">개요</h2>
 <p>In the previous chapters, we&#39;ve explored Prompt Chaining for sequential workflows and Routing for dynamic decision-making and transitions between different paths. While these patterns are essential, many complex agentic tasks involve multiple sub-tasks that can be executed simultaneously rather than one after another. This is where the Parallelization pattern becomes crucial.</p>
 <p>이전 챕터에서 순차적 워크플로우를 위한 Prompt Chaining과 다른 경로 간의 동적 의사결정 및 전환을 위한 Routing을 탐구했습니다. 이러한 패턴은 필수적이지만, 많은 복잡한 에이전트 작업은 하나씩 순차적으로 실행되는 대신 동시에 실행될 수 있는 여러 하위 작업을 포함합니다. 이것이 Parallelization 패턴이 중요한 이유입니다.</p>
-<h2 id="패턴-개요-pattern-overview">패턴 개요 (Pattern Overview) {#패턴-개요-pattern-overview}</h2>
-<h3 id="핵심-개념">핵심 개념 {#핵심-개념}</h3>
+<h2 id="패턴-개요-pattern-overview">패턴 개요 (Pattern Overview)</h2>
+<h3 id="핵심-개념">핵심 개념</h3>
 <p>Parallelization involves executing multiple components, such as LLM calls, tool usages, or even entire sub-agents, concurrently (see Fig.1). Instead of waiting for one step to complete before starting the next, parallel execution allows independent tasks to run at the same time, significantly reducing the overall execution time for tasks that can be broken down into independent parts.</p>
 <p>병렬화는 LLM 호출, 도구 사용 또는 전체 하위 에이전트와 같은 여러 구성 요소를 동시에 실행하는 것을 포함합니다(그림 1 참조). 한 단계가 완료될 때까지 기다린 다음 다음 단계를 시작하는 대신, 병렬 실행은 독립적인 작업이 동시에 실행될 수 있게 하여 독립적인 부분으로 분해될 수 있는 작업의 전체 실행 시간을 크게 줄입니다.</p>
 <p>**Parallelization(병렬화)**은 LLM 호출, 도구 사용 또는 전체 하위 에이전트와 같은 여러 구성 요소를 동시에 실행하는 것을 포함합니다(그림 1 참조).</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769481055341-6969" onclick="copyCode('code-1769481055341-6969')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012290-648" onclick="copyCode('code-1769517012290-648')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -261,7 +261,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055341-6969" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769517012290-648" class="language-mermaid">graph TD
     A[User Query&lt;br/&gt;사용자 쿼리] --&gt; B[Parallel Execution&lt;br/&gt;병렬 실행]
     B --&gt; C[Task 1&lt;br/&gt;작업 1]
     B --&gt; D[Task 2&lt;br/&gt;작업 2]
@@ -271,15 +271,14 @@
     E --&gt; F
     F --&gt; G[Final Result&lt;br/&gt;최종 결과]
     
-<pre><code>style A fill:#ff9999
-style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style G fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">12 lines</span>
   </div>
 </div>
 
-<h3 id="순차적-접근-vs-병렬-접근">순차적 접근 vs 병렬 접근 {#순차적-접근-vs-병렬-접근}</h3>
+<h3 id="순차적-접근-vs-병렬-접근">순차적 접근 vs 병렬 접근</h3>
 <p>Consider an agent designed to research a topic and summarize its findings. A sequential approach might:</p>
 <p>주제를 연구하고 결과를 요약하도록 설계된 에이전트를 고려해보세요. 순차적 접근은 다음과 같을 수 있습니다:</p>
 <p><strong>순차적 접근</strong>:</p>
@@ -322,10 +321,10 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><p>요약 A와 B에서 최종 답변 종합 (이 단계는 일반적으로 순차적이며 병렬 단계가 완료될 때까지 대기)</p>
 </li>
 </ol>
-<h3 id="핵심-아이디어">핵심 아이디어 {#핵심-아이디어}</h3>
+<h3 id="핵심-아이디어">핵심 아이디어</h3>
 <p>The core idea is to identify parts of the workflow that do not depend on the output of other parts and execute them in parallel. This is particularly effective when dealing with external services (like APIs or databases) that have latency, as you can issue multiple requests concurrently.</p>
 <p>핵심 아이디어는 워크플로우의 다른 부분의 출력에 의존하지 않는 부분을 식별하고 병렬로 실행하는 것입니다. 이는 지연 시간이 있는 외부 서비스(API 또는 데이터베이스)를 다룰 때 특히 효과적입니다. 여러 요청을 동시에 발행할 수 있습니다.</p>
-<h3 id="프레임워크-지원">프레임워크 지원 {#프레임워크-지원}</h3>
+<h3 id="프레임워크-지원">프레임워크 지원</h3>
 <p>Implementing parallelization often requires frameworks that support asynchronous execution or multi-threading/multi-processing. Modern agentic frameworks are designed with asynchronous operations in mind, allowing you to easily define steps that can run in parallel.</p>
 <p>병렬화 구현은 종종 비동기 실행 또는 다중 스레딩/다중 처리를 지원하는 프레임워크가 필요합니다. 현대적인 에이전트 프레임워크는 비동기 작업을 염두에 두고 설계되어 병렬로 실행될 수 있는 단계를 쉽게 정의할 수 있습니다.</p>
 <p>Frameworks like LangChain, LangGraph, and Google ADK provide mechanisms for parallel execution. In LangChain Expression Language (LCEL), you can achieve parallel execution by combining runnable objects using operators like | (for sequential) and by structuring your chains or graphs to have branches that execute concurrently. LangGraph, with its graph structure, allows you to define multiple nodes that can be executed from a single state transition, effectively enabling parallel branches in the workflow. Google ADK provides robust, native mechanisms to facilitate and manage the parallel execution of agents, significantly enhancing the efficiency and scalability of complex, multi-agent systems. This inherent capability within the ADK framework allows developers to design and implement solutions where multiple agents can operate concurrently, rather than sequentially.</p>
@@ -336,66 +335,66 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>LangGraph</strong>: 그래프 구조를 통해 단일 상태 전환에서 실행될 수 있는 여러 노드를 정의할 수 있어 워크플로우에서 병렬 분기를 효과적으로 활성화합니다</li>
 <li><strong>Google ADK</strong>: 에이전트의 병렬 실행을 촉진하고 관리하기 위한 견고한 네이티브 메커니즘을 제공하여 복잡한 다중 에이전트 시스템의 효율성과 확장성을 크게 향상시킵니다. 이 ADK 프레임워크 내의 고유한 기능을 통해 개발자는 여러 에이전트가 순차적으로가 아닌 동시에 작동할 수 있는 솔루션을 설계하고 구현할 수 있습니다.</li>
 </ul>
-<h2>실용적 응용 및 사용 사례 (Practical Applications &amp; Use Cases) {#실용적-응용-및-사용-사례-practical-applications-use-cases}</h2>
+<h2>실용적 응용 및 사용 사례 (Practical Applications &amp; Use Cases) </h2>
 <p>Parallelization is a powerful pattern for optimizing agent performance across various applications:</p>
 <p>병렬화는 다양한 애플리케이션에서 에이전트 성능을 최적화하는 강력한 패턴입니다:</p>
-<h3 id="1-정보-수집-및-연구-information-gathering-and-research">1. 정보 수집 및 연구 (Information Gathering and Research) {#1-정보-수집-및-연구-information-gathering-and-research}</h3>
+<h3 id="1-정보-수집-및-연구-information-gathering-and-research">1. 정보 수집 및 연구 (Information Gathering and Research)</h3>
 <p>여러 소스에서 동시에 정보를 수집하는 것은 전형적인 사용 사례입니다.</p>
 <p><strong>예시: 회사 연구 에이전트</strong></p>
 <ul>
 <li><strong>병렬 작업</strong>: 뉴스 기사 검색, 주식 데이터 가져오기, 소셜 미디어 언급 확인, 회사 데이터베이스 쿼리를 동시에 수행</li>
 <li><strong>이점</strong>: 순차적 조회보다 훨씬 빠르게 포괄적인 관점을 수집</li>
 </ul>
-<h3 id="2-데이터-처리-및-분석-data-processing-and-analysis">2. 데이터 처리 및 분석 (Data Processing and Analysis) {#2-데이터-처리-및-분석-data-processing-and-analysis}</h3>
+<h3 id="2-데이터-처리-및-분석-data-processing-and-analysis">2. 데이터 처리 및 분석 (Data Processing and Analysis)</h3>
 <p>다른 분석 기술을 적용하거나 다른 데이터 세그먼트를 동시에 처리합니다.</p>
 <p><strong>예시: 고객 피드백 분석 에이전트</strong></p>
 <ul>
 <li><strong>병렬 작업</strong>: 감정 분석 실행, 키워드 추출, 피드백 분류, 긴급 문제 식별을 피드백 항목 배치에 걸쳐 동시에 수행</li>
 <li><strong>이점</strong>: 빠르게 다면적 분석 제공</li>
 </ul>
-<h3 id="3-다중-api-또는-도구-상호작용-multi-api-or-tool-interaction">3. 다중 API 또는 도구 상호작용 (Multi-API or Tool Interaction) {#3-다중-api-또는-도구-상호작용-multi-api-or-tool-interaction}</h3>
+<h3 id="3-다중-api-또는-도구-상호작용-multi-api-or-tool-interaction">3. 다중 API 또는 도구 상호작용 (Multi-API or Tool Interaction)</h3>
 <p>다른 유형의 정보를 수집하거나 다른 작업을 수행하기 위해 여러 독립적인 API 또는 도구를 호출합니다.</p>
 <p><strong>예시: 여행 계획 에이전트</strong></p>
 <ul>
 <li><strong>병렬 작업</strong>: 항공편 가격 확인, 호텔 가용성 검색, 지역 이벤트 조회, 레스토랑 추천 찾기를 동시에 수행</li>
 <li><strong>이점</strong>: 더 빠르게 완전한 여행 계획 제시</li>
 </ul>
-<h3 id="4-다중-구성-요소를-가진-콘텐츠-생성-content-generation-with-multiple-compo">4. 다중 구성 요소를 가진 콘텐츠 생성 (Content Generation with Multiple Components) {#4-다중-구성-요소를-가진-콘텐츠-생성-content-generation-with-multiple-compo}</h3>
+<h3 id="4-다중-구성-요소를-가진-콘텐츠-생성-content-generation-with-multiple-compo">4. 다중 구성 요소를 가진 콘텐츠 생성 (Content Generation with Multiple Components)</h3>
 <p>복잡한 콘텐츠의 다른 부분을 병렬로 생성합니다.</p>
 <p><strong>예시: 마케팅 이메일 생성 에이전트</strong></p>
 <ul>
 <li><strong>병렬 작업</strong>: 제목 줄 생성, 이메일 본문 초안 작성, 관련 이미지 찾기, 행동 유도 버튼 텍스트 생성을 동시에 수행</li>
 <li><strong>이점</strong>: 최종 이메일을 더 효율적으로 조립</li>
 </ul>
-<h3 id="5-검증-및-확인-validation-and-verification">5. 검증 및 확인 (Validation and Verification) {#5-검증-및-확인-validation-and-verification}</h3>
+<h3 id="5-검증-및-확인-validation-and-verification">5. 검증 및 확인 (Validation and Verification)</h3>
 <p>여러 독립적인 확인 또는 검증을 동시에 수행합니다.</p>
 <p><strong>예시: 사용자 입력 검증 에이전트</strong></p>
 <ul>
 <li><strong>병렬 작업</strong>: 이메일 형식 확인, 전화번호 검증, 데이터베이스에 대한 주소 확인, 욕설 확인을 동시에 수행</li>
 <li><strong>이점</strong>: 입력 유효성에 대한 더 빠른 피드백 제공</li>
 </ul>
-<h3 id="6-멀티모달-처리-multi-modal-processing">6. 멀티모달 처리 (Multi-Modal Processing) {#6-멀티모달-처리-multi-modal-processing}</h3>
+<h3 id="6-멀티모달-처리-multi-modal-processing">6. 멀티모달 처리 (Multi-Modal Processing)</h3>
 <p>동일한 입력의 다른 모달리티(텍스트, 이미지, 오디오)를 동시에 처리합니다.</p>
 <p><strong>예시: 소셜 미디어 게시 분석 에이전트</strong></p>
 <ul>
 <li><strong>병렬 작업</strong>: 텍스트에 대한 감정 및 키워드 분석과 이미지에 대한 객체 및 장면 설명 분석을 동시에 수행</li>
 <li><strong>이점</strong>: 다른 모달리티에서 통찰을 더 빠르게 통합</li>
 </ul>
-<h3 id="7-ab-테스트-또는-다중-옵션-생성-ab-testing-or-multiple-options-generati">7. A/B 테스트 또는 다중 옵션 생성 (A/B Testing or Multiple Options Generation) {#7-ab-테스트-또는-다중-옵션-생성-ab-testing-or-multiple-options-generati}</h3>
+<h3 id="7-ab-테스트-또는-다중-옵션-생성-ab-testing-or-multiple-options-generati">7. A/B 테스트 또는 다중 옵션 생성 (A/B Testing or Multiple Options Generation)</h3>
 <p>최선의 것을 선택하기 위해 응답 또는 출력의 여러 변형을 병렬로 생성합니다.</p>
 <p><strong>예시: 창의적 텍스트 옵션 생성 에이전트</strong></p>
 <ul>
 <li><strong>병렬 작업</strong>: 약간 다른 프롬프트나 모델을 사용하여 기사에 대한 세 가지 다른 헤드라인을 동시에 생성</li>
 <li><strong>이점</strong>: 빠른 비교 및 최선의 옵션 선택 허용</li>
 </ul>
-<h2 id="실습-코드-예제-hands-on-code-example">실습 코드 예제 (Hands-On Code Example) {#실습-코드-예제-hands-on-code-example}</h2>
-<h3 id="langchain-예제">LangChain 예제 {#langchain-예제}</h3>
+<h2 id="실습-코드-예제-hands-on-code-example">실습 코드 예제 (Hands-On Code Example)</h2>
+<h3 id="langchain-예제">LangChain 예제</h3>
 <p>LangChain 프레임워크 내에서 병렬 실행은 LangChain Expression Language (LCEL)에 의해 촉진됩니다. 주요 방법은 딕셔너리 또는 리스트 구성 내에 여러 실행 가능한 구성 요소를 구조화하는 것을 포함합니다.</p>
 <h4>전체 코드</h4>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769481055341-6970" onclick="copyCode('code-1769481055341-6970')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012290-649" onclick="copyCode('code-1769517012290-649')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -403,7 +402,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055341-6970" class="language-python">import os
+  <pre class="code-block__content"><code id="code-1769517012290-649" class="language-python">import os
 import asyncio
 from typing import Optional
 from langchain_openai import ChatOpenAI
@@ -411,77 +410,85 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 from langchain_core.runnables import Runnable, RunnableParallel, RunnablePassthrough
 
-<h1>--- Configuration ---</h1>
-<p>try:
+# --- Configuration ---
+try:
     llm: Optional[ChatOpenAI] = ChatOpenAI(model=&quot;gpt-4o-mini&quot;, temperature=0.7)
 except Exception as e:
     print(f&quot;Error initializing language model: {e}&quot;)
-    llm = None</p>
-<h1>--- 독립적인 체인 정의 ---</h1>
-<h1>이 세 가지 체인은 병렬로 실행될 수 있는 별개의 작업을 나타냅니다.</h1>
-<p>summarize_chain: Runnable = (
+    llm = None
+
+# --- 독립적인 체인 정의 ---
+# 이 세 가지 체인은 병렬로 실행될 수 있는 별개의 작업을 나타냅니다.
+summarize_chain: Runnable = (
     ChatPromptTemplate.from_messages([
         (&quot;system&quot;, &quot;Summarize the following topic concisely:&quot;),
         (&quot;user&quot;, &quot;{topic}&quot;)
     ])
     | llm
     | StrOutputParser()
-)</p>
-<p>questions_chain: Runnable = (
+)
+
+questions_chain: Runnable = (
     ChatPromptTemplate.from_messages([
         (&quot;system&quot;, &quot;Generate three interesting questions about the following topic:&quot;),
         (&quot;user&quot;, &quot;{topic}&quot;)
     ])
     | llm
     | StrOutputParser()
-)</p>
-<p>terms_chain: Runnable = (
+)
+
+terms_chain: Runnable = (
     ChatPromptTemplate.from_messages([
         (&quot;system&quot;, &quot;Identify 5-10 key terms from the following topic, separated by commas:&quot;),
         (&quot;user&quot;, &quot;{topic}&quot;)
     ])
     | llm
     | StrOutputParser()
-)</p>
-<h1>--- 병렬 + 종합 체인 구축 ---</h1>
-<h1>1. 병렬로 실행할 작업 블록 정의</h1>
-<p>map_chain = RunnableParallel({
+)
+
+# --- 병렬 + 종합 체인 구축 ---
+# 1. 병렬로 실행할 작업 블록 정의
+map_chain = RunnableParallel({
     &quot;summary&quot;: summarize_chain,
     &quot;questions&quot;: questions_chain,
     &quot;key_terms&quot;: terms_chain,
     &quot;topic&quot;: RunnablePassthrough(),  # 원래 주제를 통과
-})</p>
-<h1>2. 병렬 결과를 결합할 최종 종합 프롬프트 정의</h1>
-<p>synthesis_prompt = ChatPromptTemplate.from_messages([
+})
+
+# 2. 병렬 결과를 결합할 최종 종합 프롬프트 정의
+synthesis_prompt = ChatPromptTemplate.from_messages([
     (&quot;system&quot;, &quot;&quot;&quot;Based on the following information:
 Summary: {summary}
 Related Questions: {questions}
 Key Terms: {key_terms}
 Synthesize a comprehensive answer.&quot;&quot;&quot;),
     (&quot;user&quot;, &quot;Original topic: {topic}&quot;)
-])</p>
-<h1>3. 병렬 결과를 종합 프롬프트로 직접 파이핑하여 전체 체인 구성</h1>
-<p>full_parallel_chain = map_chain | synthesis_prompt | llm | StrOutputParser()</p>
-<h1>--- 체인 실행 ---</h1>
-<p>async def run_parallel_example(topic: str) -&gt; None:
+])
+
+# 3. 병렬 결과를 종합 프롬프트로 직접 파이핑하여 전체 체인 구성
+full_parallel_chain = map_chain | synthesis_prompt | llm | StrOutputParser()
+
+# --- 체인 실행 ---
+async def run_parallel_example(topic: str) -&gt; None:
     &quot;&quot;&quot;특정 주제로 병렬 처리 체인을 비동기적으로 호출하고 종합 결과를 인쇄합니다.&quot;&quot;&quot;
     if not llm:
         print(&quot;LLM not initialized. Cannot run example.&quot;)
-        return</p>
-<pre><code>print(f&amp;quot;\n--- Running Parallel LangChain Example for Topic: &amp;#39;{topic}&amp;#39; ---&amp;quot;)
-try:
-    response = await full_parallel_chain.ainvoke(topic)
-    print(&amp;quot;\n--- Final Response ---&amp;quot;)
-    print(response)
-except Exception as e:
-    print(f&amp;quot;\nAn error occurred during chain execution: {e}&amp;quot;)
-</code></pre>
-<p>if <strong>name</strong> == &quot;<strong>main</strong>&quot;:
+        return
+    
+    print(f&quot;\n--- Running Parallel LangChain Example for Topic: &#39;{topic}&#39; ---&quot;)
+    try:
+        response = await full_parallel_chain.ainvoke(topic)
+        print(&quot;\n--- Final Response ---&quot;)
+        print(response)
+    except Exception as e:
+        print(f&quot;\nAn error occurred during chain execution: {e}&quot;)
+
+if __name__ == &quot;__main__&quot;:
     test_topic = &quot;The history of space exploration&quot;
     asyncio.run(run_parallel_example(test_topic))</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">75 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <h4>코드 설명</h4>
@@ -492,13 +499,13 @@ except Exception as e:
 <li><strong>종합 단계</strong>: 병렬 결과를 결합하여 포괄적인 답변 생성</li>
 </ol>
 <p><strong>참고</strong>: asyncio는 동시성을 제공하지만 병렬성을 제공하지는 않습니다. 단일 스레드에서 이벤트 루프를 사용하여 작업이 유휴 상태일 때(예: 네트워크 요청 대기) 작업 간에 지능적으로 전환합니다.</p>
-<h3 id="google-adk-예제">Google ADK 예제 {#google-adk-예제}</h3>
+<h3 id="google-adk-예제">Google ADK 예제</h3>
 <p>Google ADK 프레임워크 내에서 이러한 개념을 구체적으로 보여주는 예제입니다.</p>
 <h4>코드 구조</h4>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769481055341-6971" onclick="copyCode('code-1769481055341-6971')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012290-650" onclick="copyCode('code-1769517012290-650')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -506,87 +513,94 @@ except Exception as e:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055341-6971" class="language-python">from google.adk.agents import LlmAgent, ParallelAgent, SequentialAgent
+  <pre class="code-block__content"><code id="code-1769517012290-650" class="language-python">from google.adk.agents import LlmAgent, ParallelAgent, SequentialAgent
 from google.adk.tools import google_search
 
-<p>GEMINI_MODEL = &quot;gemini-2.0-flash&quot;</p>
-<h1>--- 1. 연구자 하위 에이전트 정의 (병렬로 실행) ---</h1>
-<h1>연구자 1: 재생 가능 에너지</h1>
-<p>researcher_agent_1 = LlmAgent(
+GEMINI_MODEL = &quot;gemini-2.0-flash&quot;
+
+# --- 1. 연구자 하위 에이전트 정의 (병렬로 실행) ---
+# 연구자 1: 재생 가능 에너지
+researcher_agent_1 = LlmAgent(
     name=&quot;RenewableEnergyResearcher&quot;,
     model=GEMINI_MODEL,
     instruction=&quot;&quot;&quot;You are an AI Research Assistant specializing in energy.
     Research the latest advancements in &#39;renewable energy sources&#39;.
     Use the Google Search tool provided.
     Summarize your key findings concisely (1-2 sentences).
-    Output <em>only</em> the summary.
+    Output *only* the summary.
     &quot;&quot;&quot;,
     description=&quot;Researches renewable energy sources.&quot;,
     tools=[google_search],
     output_key=&quot;renewable_energy_result&quot;
-)</p>
-<h1>연구자 2: 전기 자동차</h1>
-<p>researcher_agent_2 = LlmAgent(
+)
+
+# 연구자 2: 전기 자동차
+researcher_agent_2 = LlmAgent(
     name=&quot;EVResearcher&quot;,
     model=GEMINI_MODEL,
     instruction=&quot;&quot;&quot;You are an AI Research Assistant specializing in transportation.
     Research the latest developments in &#39;electric vehicle technology&#39;.
     Use the Google Search tool provided.
     Summarize your key findings concisely (1-2 sentences).
-    Output <em>only</em> the summary.
+    Output *only* the summary.
     &quot;&quot;&quot;,
     description=&quot;Researches electric vehicle technology.&quot;,
     tools=[google_search],
     output_key=&quot;ev_technology_result&quot;
-)</p>
-<h1>연구자 3: 탄소 포집</h1>
-<p>researcher_agent_3 = LlmAgent(
+)
+
+# 연구자 3: 탄소 포집
+researcher_agent_3 = LlmAgent(
     name=&quot;CarbonCaptureResearcher&quot;,
     model=GEMINI_MODEL,
     instruction=&quot;&quot;&quot;You are an AI Research Assistant specializing in climate solutions.
     Research the current state of &#39;carbon capture methods&#39;.
     Use the Google Search tool provided.
     Summarize your key findings concisely (1-2 sentences).
-    Output <em>only</em> the summary.
+    Output *only* the summary.
     &quot;&quot;&quot;,
     description=&quot;Researches carbon capture methods.&quot;,
     tools=[google_search],
     output_key=&quot;carbon_capture_result&quot;
-)</p>
-<h1>--- 2. ParallelAgent 생성 (연구자를 동시에 실행) ---</h1>
-<p>parallel_research_agent = ParallelAgent(
+)
+
+# --- 2. ParallelAgent 생성 (연구자를 동시에 실행) ---
+parallel_research_agent = ParallelAgent(
     name=&quot;ParallelWebResearchAgent&quot;,
     sub_agents=[researcher_agent_1, researcher_agent_2, researcher_agent_3],
     description=&quot;Runs multiple research agents in parallel to gather information.&quot;
-)</p>
-<h1>--- 3. 병합 에이전트 정의 (병렬 에이전트 이후 실행) ---</h1>
-<p>merger_agent = LlmAgent(
+)
+
+# --- 3. 병합 에이전트 정의 (병렬 에이전트 이후 실행) ---
+merger_agent = LlmAgent(
     name=&quot;SynthesisAgent&quot;,
     model=GEMINI_MODEL,
     instruction=&quot;&quot;&quot;You are an AI Assistant responsible for combining research findings into a structured report.
     Your primary task is to synthesize the following research summaries,
     clearly attributing findings to their source areas. Structure your
-    response using headings for each topic.</p>
-<pre><code>**Input Summaries:**
-* **Renewable Energy:** {renewable_energy_result}
-* **Electric Vehicles:** {ev_technology_result}
-* **Carbon Capture:** {carbon_capture_result}
+    response using headings for each topic.
+    
+    **Input Summaries:**
+    * **Renewable Energy:** {renewable_energy_result}
+    * **Electric Vehicles:** {ev_technology_result}
+    * **Carbon Capture:** {carbon_capture_result}
+    
+    Output *only* the structured report following this format.
+    &quot;&quot;&quot;,
+    description=&quot;Combines research findings from parallel agents into a structured, cited report.&quot;
+)
 
-Output *only* the structured report following this format.
-&amp;quot;&amp;quot;&amp;quot;,
-description=&amp;quot;Combines research findings from parallel agents into a structured, cited report.&amp;quot;
-</code></pre>
-<p>)</p>
-<h1>--- 4. SequentialAgent 생성 (전체 흐름 조정) ---</h1>
-<p>sequential_pipeline_agent = SequentialAgent(
+# --- 4. SequentialAgent 생성 (전체 흐름 조정) ---
+sequential_pipeline_agent = SequentialAgent(
     name=&quot;ResearchAndSynthesisPipeline&quot;,
     sub_agents=[parallel_research_agent, merger_agent],
     description=&quot;Coordinates parallel research and synthesizes the results.&quot;
-)</p>
-<p>root_agent = sequential_pipeline_agent</code></pre>
+)
+
+root_agent = sequential_pipeline_agent</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">77 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <h4>코드 설명</h4>
@@ -597,18 +611,18 @@ description=&amp;quot;Combines research findings from parallel agents into a str
 <li><strong>병합 에이전트</strong>: 병렬 연구 결과를 구조화된 보고서로 종합</li>
 <li><strong>SequentialAgent</strong>: 전체 워크플로우를 조정하여 먼저 병렬 연구를 수행한 다음 결과를 종합</li>
 </ol>
-<h2 id="한눈에-보기-at-a-glance">한눈에 보기 (At a Glance) {#한눈에-보기-at-a-glance}</h2>
-<h3 id="무엇-what">무엇 (What) {#무엇-what}</h3>
+<h2 id="한눈에-보기-at-a-glance">한눈에 보기 (At a Glance)</h2>
+<h3 id="무엇-what">무엇 (What)</h3>
 <p>많은 에이전트 워크플로우는 최종 목표를 달성하기 위해 완료되어야 하는 여러 하위 작업을 포함합니다. 각 작업이 이전 작업이 완료될 때까지 기다리는 순수한 순차적 실행은 종종 비효율적이고 느립니다.</p>
-<h3 id="왜-why">왜 (Why) {#왜-why}</h3>
+<h3 id="왜-why">왜 (Why)</h3>
 <p>병렬화 패턴은 독립적인 작업의 동시 실행을 가능하게 하여 표준화된 솔루션을 제공합니다. 에이전트 프레임워크는 이러한 동시 작업을 정의하고 관리하기 위한 내장 구성을 제공합니다.</p>
-<h3 id="경험-법칙-rule-of-thumb">경험 법칙 (Rule of Thumb) {#경험-법칙-rule-of-thumb}</h3>
+<h3 id="경험-법칙-rule-of-thumb">경험 법칙 (Rule of Thumb)</h3>
 <p>여러 API에서 데이터를 가져오거나, 다른 데이터 청크를 처리하거나, 나중에 종합하기 위해 여러 콘텐츠 조각을 생성하는 것과 같이 워크플로우에 동시에 실행될 수 있는 여러 독립적인 작업이 포함된 경우 이 패턴을 사용하세요.</p>
-<h3 id="시각적-요약">시각적 요약 {#시각적-요약}</h3>
+<h3 id="시각적-요약">시각적 요약</h3>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769481055341-6972" onclick="copyCode('code-1769481055341-6972')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012290-651" onclick="copyCode('code-1769517012290-651')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -616,7 +630,7 @@ description=&amp;quot;Combines research findings from parallel agents into a str
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055341-6972" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769517012290-651" class="language-mermaid">graph TD
     A[Input&lt;br/&gt;입력] --&gt; B[Parallel Tasks&lt;br/&gt;병렬 작업]
     B --&gt; C[Task 1&lt;br/&gt;작업 1]
     B --&gt; D[Task 2&lt;br/&gt;작업 2]
@@ -627,15 +641,14 @@ description=&amp;quot;Combines research findings from parallel agents into a str
     F --&gt; G[Synthesis&lt;br/&gt;종합]
     G --&gt; H[Output&lt;br/&gt;출력]
     
-<pre><code>style A fill:#ff9999
-style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style H fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">13 lines</span>
   </div>
 </div>
 
-<h2 id="핵심-요약-key-takeaways">핵심 요약 (Key Takeaways) {#핵심-요약-key-takeaways}</h2>
+<h2 id="핵심-요약-key-takeaways">핵심 요약 (Key Takeaways)</h2>
 <ol>
 <li><p><strong>병렬화는 효율성을 향상시키기 위해 독립적인 작업을 동시에 실행하는 패턴입니다</strong></p>
 </li>
@@ -652,18 +665,18 @@ style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><p><strong>병렬화는 전체 지연 시간을 줄이고 복잡한 작업에 대해 에이전트 시스템을 더 반응적으로 만드는 데 도움이 됩니다</strong></p>
 </li>
 </ol>
-<h2 id="결론">결론 {#결론}</h2>
+<h2 id="결론">결론</h2>
 <p>병렬화 패턴은 독립적인 하위 작업을 동시에 실행하여 계산 워크플로우를 최적화하는 방법입니다. 이 접근 방식은 여러 모델 추론이나 외부 서비스 호출을 포함하는 복잡한 작업에서 전체 지연 시간을 줄입니다.</p>
 <p>프레임워크는 이 패턴을 구현하기 위한 고유한 메커니즘을 제공합니다. LangChain에서는 RunnableParallel과 같은 구성을 사용하여 여러 처리 체인을 명시적으로 정의하고 동시에 실행합니다. 반면 Google Agent Developer Kit (ADK)와 같은 프레임워크는 주요 코디네이터 모델이 다른 하위 작업을 전문 에이전트에 할당하여 동시에 작동할 수 있는 다중 에이전트 위임을 통해 병렬화를 달성할 수 있습니다.</p>
 <p>병렬 처리를 순차적(체이닝) 및 조건부(라우팅) 제어 흐름과 통합함으로써, 다양한 복잡한 작업을 효율적으로 관리할 수 있는 정교하고 고성능 계산 시스템을 구축할 수 있습니다.</p>
-<h2 id="이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation) {#이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati}</h2>
-<h3 id="병렬-컴퓨팅-이론">병렬 컴퓨팅 이론 {#병렬-컴퓨팅-이론}</h3>
+<h2 id="이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation)</h2>
+<h3 id="병렬-컴퓨팅-이론">병렬 컴퓨팅 이론</h3>
 <p>병렬화 패턴은 병렬 컴퓨팅의 기본 원칙에 기반합니다. Amdahl의 법칙(1967)은 병렬화의 이론적 한계를 설명합니다:</p>
 <p><strong>Amdahl&#39;s Law</strong>:</p>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769481055341-6973" onclick="copyCode('code-1769481055341-6973')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012290-652" onclick="copyCode('code-1769517012290-652')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -671,20 +684,19 @@ style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055341-6973" class="language-plaintext">Speedup = 1 / (S + (1-S)/N)</code></pre>
+  <pre class="code-block__content"><code id="code-1769517012290-652" class="language-plaintext">Speedup = 1 / (S + (1-S)/N)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
 </div>
-여기서 S는 순차적 부분의 비율, N은 프로세서 수입니다.
-
+<p>여기서 S는 순차적 부분의 비율, N은 프로세서 수입니다.</p>
 <p><strong>병렬화에서의 함의</strong>:</p>
 <ul>
 <li>독립적인 작업만 병렬화 가능</li>
 <li>순차적 의존성이 있는 작업은 병렬화 불가</li>
 <li>최대 속도 향상은 순차적 부분에 의해 제한됨</li>
 </ul>
-<h3 id="동시성-이론-concurrency-theory">동시성 이론 (Concurrency Theory) {#동시성-이론-concurrency-theory}</h3>
+<h3 id="동시성-이론-concurrency-theory">동시성 이론 (Concurrency Theory)</h3>
 <p>동시성 이론은 여러 작업이 동시에 실행될 때의 동작을 연구합니다:</p>
 <ol>
 <li><strong>경쟁 조건 (Race Condition)</strong>: 공유 자원에 대한 동시 접근 문제</li>
@@ -697,7 +709,7 @@ style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>공유 상태가 있는 경우 동기화 필요</li>
 <li>작업 완료 후 결과 통합 시 동기화 포인트 필요</li>
 </ul>
-<h3 id="작업-스케줄링-이론">작업 스케줄링 이론 {#작업-스케줄링-이론}</h3>
+<h3 id="작업-스케줄링-이론">작업 스케줄링 이론</h3>
 <p>작업 스케줄링은 병렬 실행의 효율성을 결정합니다:</p>
 <p><strong>스케줄링 알고리즘</strong>:</p>
 <ul>
@@ -705,7 +717,7 @@ style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>우선순위 기반</strong>: 중요도에 따른 실행 순서</li>
 <li><strong>부하 균형 (Load Balancing)</strong>: 작업을 균등하게 분산</li>
 </ul>
-<h3 id="비동기-프로그래밍-모델">비동기 프로그래밍 모델 {#비동기-프로그래밍-모델}</h3>
+<h3 id="비동기-프로그래밍-모델">비동기 프로그래밍 모델</h3>
 <p>비동기 프로그래밍은 I/O 바운드 작업의 병렬화를 가능하게 합니다:</p>
 <p><strong>이벤트 루프 모델</strong>:</p>
 <ul>
@@ -713,13 +725,13 @@ style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>I/O 대기 시간 동안 다른 작업 실행</li>
 <li>콜백, Promise, async/await 패턴</li>
 </ul>
-<h2 id="성능-최적화-기법-performance-optimization-techniques">성능 최적화 기법 (Performance Optimization Techniques) {#성능-최적화-기법-performance-optimization-techniques}</h2>
-<h3 id="1-작업-분할-전략">1. 작업 분할 전략 {#1-작업-분할-전략}</h3>
+<h2 id="성능-최적화-기법-performance-optimization-techniques">성능 최적화 기법 (Performance Optimization Techniques)</h2>
+<h3 id="1-작업-분할-전략">1. 작업 분할 전략</h3>
 <p>작업을 효율적으로 분할하는 방법:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769481055341-6974" onclick="copyCode('code-1769481055341-6974')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012290-653" onclick="copyCode('code-1769517012290-653')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -727,7 +739,7 @@ style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055341-6974" class="language-python">def divide_tasks(tasks: List[Task], num_workers: int) -&gt; List[List[Task]]:
+  <pre class="code-block__content"><code id="code-1769517012290-653" class="language-python">def divide_tasks(tasks: List[Task], num_workers: int) -&gt; List[List[Task]]:
     &quot;&quot;&quot;작업을 워커 수에 맞게 분할&quot;&quot;&quot;
     chunk_size = len(tasks) // num_workers
     return [tasks[i:i+chunk_size] for i in range(0, len(tasks), chunk_size)]</code></pre>
@@ -736,12 +748,12 @@ style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
   </div>
 </div>
 
-<h3 id="2-동적-부하-균형">2. 동적 부하 균형 {#2-동적-부하-균형}</h3>
+<h3 id="2-동적-부하-균형">2. 동적 부하 균형</h3>
 <p>실행 중 작업 부하를 모니터링하고 재분배:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769481055341-6975" onclick="copyCode('code-1769481055341-6975')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012290-654" onclick="copyCode('code-1769517012290-654')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -749,31 +761,30 @@ style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055341-6975" class="language-python">async def dynamic_load_balancer(tasks: List[Task]):
+  <pre class="code-block__content"><code id="code-1769517012290-654" class="language-python">async def dynamic_load_balancer(tasks: List[Task]):
     &quot;&quot;&quot;동적 부하 균형 조정&quot;&quot;&quot;
     workers = [Worker() for _ in range(num_workers)]
     task_queue = asyncio.Queue()
     
-<pre><code>for task in tasks:
-    await task_queue.put(task)
-
-# 가장 바쁘지 않은 워커에 작업 할당
-while not task_queue.empty():
-    task = await task_queue.get()
-    worker = min(workers, key=lambda w: w.queue_size())
-    await worker.process(task)&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    for task in tasks:
+        await task_queue.put(task)
+    
+    # 가장 바쁘지 않은 워커에 작업 할당
+    while not task_queue.empty():
+        task = await task_queue.get()
+        worker = min(workers, key=lambda w: w.queue_size())
+        await worker.process(task)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">13 lines</span>
   </div>
 </div>
 
-<h3 id="3-배치-처리-최적화">3. 배치 처리 최적화 {#3-배치-처리-최적화}</h3>
+<h3 id="3-배치-처리-최적화">3. 배치 처리 최적화</h3>
 <p>작은 작업을 배치로 묶어 오버헤드 감소:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769481055341-6976" onclick="copyCode('code-1769481055341-6976')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012290-655" onclick="copyCode('code-1769517012290-655')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -781,7 +792,7 @@ while not task_queue.empty():
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055341-6976" class="language-python">async def batch_processor(items: List[Item], batch_size: int = 10):
+  <pre class="code-block__content"><code id="code-1769517012290-655" class="language-python">async def batch_processor(items: List[Item], batch_size: int = 10):
     &quot;&quot;&quot;배치 처리로 효율성 향상&quot;&quot;&quot;
     batches = [items[i:i+batch_size] for i in range(0, len(items), batch_size)]
     results = await asyncio.gather(*[process_batch(batch) for batch in batches])
@@ -791,12 +802,12 @@ while not task_queue.empty():
   </div>
 </div>
 
-<h3 id="4-리소스-풀링">4. 리소스 풀링 {#4-리소스-풀링}</h3>
+<h3 id="4-리소스-풀링">4. 리소스 풀링</h3>
 <p>제한된 리소스를 효율적으로 관리:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769481055341-6977" onclick="copyCode('code-1769481055341-6977')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012290-656" onclick="copyCode('code-1769517012290-656')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -804,45 +815,45 @@ while not task_queue.empty():
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055341-6977" class="language-python">from asyncio import Semaphore
+  <pre class="code-block__content"><code id="code-1769517012290-656" class="language-python">from asyncio import Semaphore
 
-<p>async def resource_pool_processor(tasks: List[Task], max_concurrent: int = 5):
+async def resource_pool_processor(tasks: List[Task], max_concurrent: int = 5):
     &quot;&quot;&quot;세마포어를 사용한 리소스 풀 관리&quot;&quot;&quot;
-    semaphore = Semaphore(max_concurrent)</p>
-<pre><code>async def process_with_limit(task):
-    async with semaphore:
-        return await process_task(task)
-
-return await asyncio.gather(*[process_with_limit(task) for task in tasks])&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    semaphore = Semaphore(max_concurrent)
+    
+    async def process_with_limit(task):
+        async with semaphore:
+            return await process_task(task)
+    
+    return await asyncio.gather(*[process_with_limit(task) for task in tasks])</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
 </div>
 
-<h2 id="트레이드오프-및-한계점-trade-offs-and-limitations">트레이드오프 및 한계점 (Trade-offs and Limitations) {#트레이드오프-및-한계점-trade-offs-and-limitations}</h2>
-<h3 id="병렬화의-이점">병렬화의 이점 {#병렬화의-이점}</h3>
+<h2 id="트레이드오프-및-한계점-trade-offs-and-limitations">트레이드오프 및 한계점 (Trade-offs and Limitations)</h2>
+<h3 id="병렬화의-이점">병렬화의 이점</h3>
 <ol>
 <li><strong>지연 시간 감소</strong>: 독립적인 작업을 동시에 실행하여 전체 시간 단축</li>
 <li><strong>처리량 증가</strong>: 단위 시간당 더 많은 작업 처리</li>
 <li><strong>리소스 활용도 향상</strong>: 유휴 시간 최소화</li>
 </ol>
-<h3 id="병렬화의-한계">병렬화의 한계 {#병렬화의-한계}</h3>
+<h3 id="병렬화의-한계">병렬화의 한계</h3>
 <ol>
 <li><strong>Amdahl의 법칙 제약</strong>: 순차적 부분이 병렬화 이점을 제한</li>
 <li><strong>오버헤드</strong>: 작업 분할, 통신, 동기화 비용</li>
 <li><strong>복잡도 증가</strong>: 디버깅 및 유지보수 어려움</li>
 <li><strong>리소스 경쟁</strong>: 공유 자원에 대한 경쟁으로 인한 성능 저하</li>
 </ol>
-<h3 id="완화-전략">완화 전략 {#완화-전략}</h3>
+<h3 id="완화-전략">완화 전략</h3>
 <ol>
 <li><strong>의존성 분석</strong>: 작업 간 의존성을 정확히 파악</li>
 <li><strong>그래니율러리티 최적화</strong>: 작업 크기를 적절히 조정</li>
 <li><strong>비동기 I/O 활용</strong>: I/O 대기 시간 활용</li>
 <li><strong>캐싱</strong>: 중복 계산 방지</li>
 </ol>
-<h2 id="관련-패턴과의-비교-comparison-with-related-patterns">관련 패턴과의 비교 (Comparison with Related Patterns) {#관련-패턴과의-비교-comparison-with-related-patterns}</h2>
-<h3 id="parallelization-vs-sequential-processing">Parallelization vs. Sequential Processing {#parallelization-vs-sequential-processing}</h3>
+<h2 id="관련-패턴과의-비교-comparison-with-related-patterns">관련 패턴과의 비교 (Comparison with Related Patterns)</h2>
+<h3 id="parallelization-vs-sequential-processing">Parallelization vs. Sequential Processing</h3>
 <table>
 <thead>
 <tr>
@@ -877,19 +888,19 @@ return await asyncio.gather(*[process_with_limit(task) for task in tasks])&lt;/c
 <td>독립적 작업</td>
 </tr>
 </tbody></table>
-<h3 id="parallelization-vs-concurrency">Parallelization vs. Concurrency {#parallelization-vs-concurrency}</h3>
+<h3 id="parallelization-vs-concurrency">Parallelization vs. Concurrency</h3>
 <p>병렬화와 동시성은 유사하지만 다른 개념입니다:</p>
 <ul>
 <li><strong>병렬화 (Parallelism)</strong>: 실제로 동시에 실행 (멀티 코어)</li>
 <li><strong>동시성 (Concurrency)</strong>: 동시에 실행되는 것처럼 보임 (단일 코어, 시분할)</li>
 </ul>
-<h2 id="실무-적용-사례-확장-extended-practical-applications">실무 적용 사례 확장 (Extended Practical Applications) {#실무-적용-사례-확장-extended-practical-applications}</h2>
-<h3 id="1-대규모-데이터-처리-파이프라인">1. 대규모 데이터 처리 파이프라인 {#1-대규모-데이터-처리-파이프라인}</h3>
+<h2 id="실무-적용-사례-확장-extended-practical-applications">실무 적용 사례 확장 (Extended Practical Applications)</h2>
+<h3 id="1-대규모-데이터-처리-파이프라인">1. 대규모 데이터 처리 파이프라인</h3>
 <p>분산 병렬 처리 시스템:</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769481055341-6978" onclick="copyCode('code-1769481055341-6978')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012290-657" onclick="copyCode('code-1769517012290-657')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -897,7 +908,7 @@ return await asyncio.gather(*[process_with_limit(task) for task in tasks])&lt;/c
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055341-6978" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769517012290-657" class="language-mermaid">graph TD
     A[Data Source&lt;br/&gt;데이터 소스] --&gt; B[Partition&lt;br/&gt;분할]
     B --&gt; C[Worker 1&lt;br/&gt;워커 1]
     B --&gt; D[Worker 2&lt;br/&gt;워커 2]
@@ -907,27 +918,26 @@ return await asyncio.gather(*[process_with_limit(task) for task in tasks])&lt;/c
     E --&gt; F
     F --&gt; G[Result&lt;br/&gt;결과]
     
-<pre><code>style A fill:#ff9999
-style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style G fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">12 lines</span>
   </div>
 </div>
 
-<h3 id="2-실시간-모니터링-시스템">2. 실시간 모니터링 시스템 {#2-실시간-모니터링-시스템}</h3>
+<h3 id="2-실시간-모니터링-시스템">2. 실시간 모니터링 시스템</h3>
 <p>여러 소스에서 동시에 데이터 수집:</p>
 <ul>
 <li><strong>병렬 데이터 수집</strong>: 여러 API에서 동시에 데이터 수집</li>
 <li><strong>실시간 분석</strong>: 수집된 데이터를 병렬로 분석</li>
 <li><strong>집계 및 알림</strong>: 결과를 통합하여 실시간 알림</li>
 </ul>
-<h3 id="3-분산-웹-크롤링">3. 분산 웹 크롤링 {#3-분산-웹-크롤링}</h3>
+<h3 id="3-분산-웹-크롤링">3. 분산 웹 크롤링</h3>
 <p>여러 웹사이트를 동시에 크롤링:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769481055341-6979" onclick="copyCode('code-1769481055341-6979')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012290-658" onclick="copyCode('code-1769517012290-658')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -935,24 +945,23 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055341-6979" class="language-python">async def parallel_crawler(urls: List[str], max_concurrent: int = 10):
+  <pre class="code-block__content"><code id="code-1769517012290-658" class="language-python">async def parallel_crawler(urls: List[str], max_concurrent: int = 10):
     &quot;&quot;&quot;병렬 웹 크롤링&quot;&quot;&quot;
     semaphore = asyncio.Semaphore(max_concurrent)
     
-<pre><code>async def crawl_with_limit(url):
-    async with semaphore:
-        return await fetch_and_parse(url)
-
-results = await asyncio.gather(*[crawl_with_limit(url) for url in urls])
-return results&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    async def crawl_with_limit(url):
+        async with semaphore:
+            return await fetch_and_parse(url)
+    
+    results = await asyncio.gather(*[crawl_with_limit(url) for url in urls])
+    return results</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
 </div>
 
-<h2 id="참고-자료-references">참고 자료 (References) {#참고-자료-references}</h2>
-<h3 id="학술-논문">학술 논문 {#학술-논문}</h3>
+<h2 id="참고-자료-references">참고 자료 (References)</h2>
+<h3 id="학술-논문">학술 논문</h3>
 <ol>
 <li><p>Amdahl, G. M. (1967). &quot;Validity of the single processor approach to achieving large scale computing capabilities.&quot; <em>AFIPS Conference Proceedings</em>, 30, 483-485.</p>
 </li>
@@ -965,7 +974,7 @@ return results&lt;/code&gt;&lt;/pre&gt;
 <li><p>Herlihy, M., &amp; Shavit, N. (2012). <em>The Art of Multiprocessor Programming</em>. Morgan Kaufmann.</p>
 </li>
 </ol>
-<h3 id="프레임워크-및-도구-문서">프레임워크 및 도구 문서 {#프레임워크-및-도구-문서}</h3>
+<h3 id="프레임워크-및-도구-문서">프레임워크 및 도구 문서</h3>
 <ol>
 <li><p>LangChain Expression Language (LCEL) Documentation (Parallelism):
 <a href="https://python.langchain.com/docs/concepts/lcel/">https://python.langchain.com/docs/concepts/lcel/</a></p>
@@ -980,7 +989,7 @@ return results&lt;/code&gt;&lt;/pre&gt;
 <a href="https://docs.ray.io/">https://docs.ray.io/</a></p>
 </li>
 </ol>
-<h3 id="추가-학습-자료">추가 학습 자료 {#추가-학습-자료}</h3>
+<h3 id="추가-학습-자료">추가 학습 자료</h3>
 <ol start="5">
 <li><p>&quot;Introduction to Parallel Computing&quot; by Ananth Grama et al.</p>
 </li>
@@ -995,7 +1004,7 @@ return results&lt;/code&gt;&lt;/pre&gt;
             
             <!-- Tags -->
             <div class="article-tags">
-              <a href="/tag/ai-tools.html" class="article-tag">ai-tools</a><a href="/tag/analysis.html" class="article-tag">analysis</a>
+              
             </div>
           </div>
           
@@ -1008,53 +1017,53 @@ return results&lt;/code&gt;&lt;/pre&gt;
               </div>
               <div class="sidebar-posts">
                 
-        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
-          <div class="sidebar-post__image">
-            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
-          </div>
-          <div class="sidebar-post__content">
-            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
-            <span class="sidebar-post__author">개발 가이드</span>
-          </div>
-        </a>
-      
-        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
-          <div class="sidebar-post__image">
-            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
-          </div>
-          <div class="sidebar-post__content">
-            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
-            <span class="sidebar-post__author">개발 가이드</span>
-          </div>
-        </a>
-      
-        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
-          <div class="sidebar-post__image">
-            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
-          </div>
-          <div class="sidebar-post__content">
-            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
-            <span class="sidebar-post__author">Claude 전문가</span>
-          </div>
-        </a>
-      
         <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
           <div class="sidebar-post__image">
             <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
           </div>
           <div class="sidebar-post__content">
             <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
-            <span class="sidebar-post__author">기술 전문가</span>
+            <span class="sidebar-post__author">Claude 전문가</span>
           </div>
         </a>
       
-        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
           <div class="sidebar-post__image">
-            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
           </div>
           <div class="sidebar-post__content">
-            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
-            <span class="sidebar-post__author">개발 가이드</span>
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
           </div>
         </a>
       
@@ -1070,13 +1079,13 @@ return results&lt;/code&gt;&lt;/pre&gt;
       <div class="container container--narrow">
         <span>Share this article:</span>
         <div class="share-buttons">
-          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-03-parallelization.html&text=Chapter 3: Parallelization" 
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-03-parallelization.html&text=Chapter 03 Parallelization" 
              class="share-btn share-btn--twitter" 
              target="_blank" 
              rel="noopener">
             Twitter
           </a>
-          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-03-parallelization.html&title=Chapter 3: Parallelization" 
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-03-parallelization.html&title=Chapter 03 Parallelization" 
              class="share-btn share-btn--linkedin" 
              target="_blank" 
              rel="noopener">
@@ -1092,12 +1101,12 @@ return results&lt;/code&gt;&lt;/pre&gt;
     <!-- Author Bio -->
     <aside class="author-bio">
       <div class="container container--narrow">
-        <a href="/journalist/tech-expert.html" class="author-bio__card">
-          <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="author-bio__avatar">
+        <a href="/journalist/agent-architect.html" class="author-bio__card">
+          <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="author-bio__avatar">
           <div class="author-bio__content">
-            <h3 class="author-bio__name">기술 전문가</h3>
-            <p class="author-bio__role">AI &amp; Development Writer</p>
-            <p class="author-bio__text">AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.</p>
+            <h3 class="author-bio__name">에이전트 아키텍트</h3>
+            <p class="author-bio__role">AI Agent Systems Designer</p>
+            <p class="author-bio__text">AI 에이전트 시스템 설계와 디자인 패턴을 전문으로 다룹니다.</p>
             <span class="author-bio__link">View all articles →</span>
           </div>
         </a>
@@ -1112,73 +1121,73 @@ return results&lt;/code&gt;&lt;/pre&gt;
       <div class="related-grid">
         
     <article class="article-card article-card--small">
-      <a href="/articles/claude-code-perfect-guide.html" class="article-card__link">
+      <a href="/articles/chapter-00-introduction.html" class="article-card__link">
         
       <div class="article-card__image">
-        <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg"
-             alt="Claude Code 완벽 마스터 가이드"
+        <img src="/assets/images/agent-patterns-placeholder.svg"
+             alt="Chapter 00 Introduction"
              loading="lazy">
         <span class="article-card__category" style="background-color: #6366f1">
-          AI 도구
+          Agent 패턴
         </span>
       </div>
         <div class="article-card__content">
-          <h3 class="article-card__title">Claude Code 완벽 마스터 가이드</h3>
-          <p class="article-card__excerpt">! || 999-Attachments/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg 스레드에 ==Choi.OpenAI 글==을 학습용으로 사용하기 위해 편집한 파일입니다. ==Special thanks...</p>
+          <h3 class="article-card__title">Chapter 00 Introduction</h3>
+          <p class="article-card__excerpt">Welcome to "Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems." As we look across the landscape of modern artificial...</p>
           <div class="article-card__meta">
             <div class="article-card__author">
-              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
-              <span>기술 전문가</span>
+              <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-card__avatar">
+              <span>에이전트 아키텍트</span>
             </div>
-            <span class="article-card__reading-time">17 min</span>
+            <span class="article-card__reading-time">15 min</span>
           </div>
         </div>
       </a>
     </article>
   
     <article class="article-card article-card--small">
-      <a href="/articles/ai-agent-guide-part-1-basics.html" class="article-card__link">
+      <a href="/articles/chapter-00-what-makes-an-ai-system-an-agent.html" class="article-card__link">
         
       <div class="article-card__image">
-        <img src="/assets/images/ai-tools-placeholder.svg"
-             alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편"
+        <img src="/assets/images/agent-patterns-placeholder.svg"
+             alt="Chapter 00 What Makes An AI System An Agent"
              loading="lazy">
         <span class="article-card__category" style="background-color: #6366f1">
-          AI 도구
+          Agent 패턴
         </span>
       </div>
         <div class="article-card__content">
-          <h3 class="article-card__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h3>
-          <p class="article-card__excerpt">🎯 이 가이드의 목표: 초보 개발자도 금융권 AI 에이전트를 이해하고 구축할 수 있도록 돕습니다. 📚 학습 방식: 파인만 기법 + 스토리텔링 + 3단계 예제 (기초→중급→고급) --- 1.  || #AI 에이전트란 무엇인가요 2.  || #금융 기관에 AI...</p>
+          <h3 class="article-card__title">Chapter 00 What Makes An AI System An Agent</h3>
+          <p class="article-card__excerpt">In simple terms, an AI agent is a system designed to perceive its environment and take actions to achieve a specific goal. It's an evolution from a...</p>
           <div class="article-card__meta">
             <div class="article-card__author">
-              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
-              <span>기술 전문가</span>
+              <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-card__avatar">
+              <span>에이전트 아키텍트</span>
             </div>
-            <span class="article-card__reading-time">31 min</span>
+            <span class="article-card__reading-time">32 min</span>
           </div>
         </div>
       </a>
     </article>
   
     <article class="article-card article-card--small">
-      <a href="/articles/ai-agent-guide-part-2-real-world.html" class="article-card__link">
+      <a href="/articles/chapter-01-prompt-chaining.html" class="article-card__link">
         
       <div class="article-card__image">
-        <img src="/assets/images/ai-tools-placeholder.svg"
-             alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편"
+        <img src="/assets/images/agent-patterns-placeholder.svg"
+             alt="Chapter 01 Prompt Chaining"
              loading="lazy">
         <span class="article-card__category" style="background-color: #6366f1">
-          AI 도구
+          Agent 패턴
         </span>
       </div>
         <div class="article-card__content">
-          <h3 class="article-card__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h3>
-          <p class="article-card__excerpt">🎯 Part 2의 목표: 실제로 구축 가능한 아키텍처 설계와 구현 로드맵 제시 👥 대상: Part 1을 읽고 실제 프로젝트를 시작하려는 개발팀 --- 1.  || #아키텍처 패턴 설계 2.  || #구현 로드맵 단계별 가이드 3.  || #팀 구성과 역할 4. ...</p>
+          <h3 class="article-card__title">Chapter 01 Prompt Chaining</h3>
+          <p class="article-card__excerpt">Prompt chaining, sometimes referred to as Pipeline pattern, represents a powerful paradigm for handling intricate tasks when leveraging large...</p>
           <div class="article-card__meta">
             <div class="article-card__author">
-              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
-              <span>기술 전문가</span>
+              <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-card__avatar">
+              <span>에이전트 아키텍트</span>
             </div>
             <span class="article-card__reading-time">46 min</span>
           </div>
@@ -1196,7 +1205,7 @@ return results&lt;/code&gt;&lt;/pre&gt;
       <div class="footer-grid">
         <div class="footer-brand">
           <span class="site-logo">
-            <span class="site-logo__text">AI &amp; Development Journal</span>
+            <span class="site-logo__text">AI 기술 자료 저널</span>
           </span>
           <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
         </div>
@@ -1217,7 +1226,7 @@ return results&lt;/code&gt;&lt;/pre&gt;
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
       </div>
     </div>
   </footer>

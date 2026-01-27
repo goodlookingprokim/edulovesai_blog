@@ -254,11 +254,12 @@ function getObsidianArticles() {
   // Process each file
   for (const file of obsidianFiles) {
     try {
-      // Transform frontmatter
+      // Transform frontmatter (pass filename for title fallback)
       const transformedFm = frontmatterTransformer.transform(
         file.frontmatter,
         file.markdown,
-        file.folderPath
+        file.folderPath,
+        file.filename
       );
 
       // Skip drafts

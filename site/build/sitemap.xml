@@ -282,152 +282,152 @@
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-00-introduction.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-1.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-00-what-makes-an-ai-system-an-agent.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-2.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-01-prompt-chaining.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-3.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-02-routing.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-4.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-03-parallelization.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-5.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-04-reflection.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-6.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-05-tool-use.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-7.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-06-planning.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-8.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-07-multi-agent.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-9.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-08-memory-management.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-10.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-09-learning-and-adaptation.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-11.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-10-model-context-protocol.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-12.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-11-goal-setting-and-monitoring.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-13.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-12-exception-handling-and-recovery.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-14.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-13-human-in-the-loop.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-15.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-14-knowledge-retrieval.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-16.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-15-inter-agent-communication.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-17.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-16-resource-aware.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-18.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-17-reasoning-techniques.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-19.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-18-guardrails.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-20.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-19-evaluation-and-monitoring.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-21.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-20-prioritization.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-22.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-21-exploration.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-23.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/lovable-ai-prompt-beginners-guide.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-24.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/rag-guide.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-25.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/ai.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-26.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/lovable-ai-prompt-beginners-guide-part-1.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-27.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/lovable-prompt-beginners-guide-part1.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-28.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/beginners-development-prompt-guide-part1.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>
   <url>
-    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/untitled-29.html</loc>
+    <loc>https://passeth.github.io/MY-BLOG_OBSI/articles/aws-install-perfect-guide.html</loc>
     <priority>0.9</priority>
     <changefreq>weekly</changefreq>
   </url>

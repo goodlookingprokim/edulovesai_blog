@@ -3,21 +3,21 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Chapter 15: Inter-Agent Communication (A2A) | AI &amp; Development Journal</title>
-  <meta name="description" content="Individual AI agents, despite their advanced capabilities, often face limitations when tackling complex and multifaceted problems. To overcome this, I...">
+  <title>Chapter 15 Inter Agent Communication | AI 기술 자료 저널</title>
+  <meta name="description" content="Individual AI agents, despite their advanced capabilities, often face limitations when tackling complex and multifaceted problems. To overcome this,...">
   
   <!-- Open Graph -->
-  <meta property="og:title" content="Chapter 15: Inter-Agent Communication (A2A)">
-  <meta property="og:description" content="Individual AI agents, despite their advanced capabilities, often face limitations when tackling complex and multifaceted problems. To overcome this, I...">
-  <meta property="og:image" content="/assets/images/ai-tools-placeholder.svg">
+  <meta property="og:title" content="Chapter 15 Inter Agent Communication">
+  <meta property="og:description" content="Individual AI agents, despite their advanced capabilities, often face limitations when tackling complex and multifaceted problems. To overcome this,...">
+  <meta property="og:image" content="/assets/images/agent-patterns-placeholder.svg">
   <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-15-inter-agent-communication.html">
   <meta property="og:type" content="article">
   
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Chapter 15: Inter-Agent Communication (A2A)">
-  <meta name="twitter:description" content="Individual AI agents, despite their advanced capabilities, often face limitations when tackling complex and multifaceted problems. To overcome this, I...">
-  <meta name="twitter:image" content="/assets/images/ai-tools-placeholder.svg">
+  <meta name="twitter:title" content="Chapter 15 Inter Agent Communication">
+  <meta name="twitter:description" content="Individual AI agents, despite their advanced capabilities, often face limitations when tackling complex and multifaceted problems. To overcome this,...">
+  <meta name="twitter:image" content="/assets/images/agent-patterns-placeholder.svg">
   
   <link rel="stylesheet" href="/styles/main.css">
   <link rel="canonical" href="https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-15-inter-agent-communication.html">
@@ -28,15 +28,15 @@
   <header class="site-header">
     <div class="container">
       <a href="/" class="site-logo">
-        <span class="site-logo__text">AI &amp; Development Journal</span>
+        <span class="site-logo__text">AI 기술 자료 저널</span>
       </a>
       <nav class="site-nav">
+        <a href="/category/agent-patterns.html">Agent 패턴</a>
+        <a href="/category/prompt-engineering.html">프롬프트</a>
         <a href="/category/ai-tools.html">AI 도구</a>
+        <a href="/category/llm-guides.html">LLM 가이드</a>
+        <a href="/category/claude-skills.html">Claude Skills</a>
         <a href="/category/claude-code.html">Claude Code</a>
-        <a href="/category/mcp-servers.html">MCP</a>
-        <a href="/category/development-guides.html">개발 가이드</a>
-        <a href="/category/tutorials.html">튜토리얼</a>
-        <a href="/category/obsidian-integration.html">Obsidian</a>
       </nav>
       <button class="menu-toggle" aria-label="Toggle menu">
         <span></span>
@@ -51,22 +51,22 @@
     <!-- Hero -->
     <header class="article-hero">
       <div class="container">
-        <a href="/category/ai-tools.html" class="article-category" style="background-color: #6366f1">
-          AI 도구
+        <a href="/category/agent-patterns.html" class="article-category" style="background-color: #6366f1">
+          Agent 패턴
         </a>
-        <h1 class="article-title">Chapter 15: Inter-Agent Communication (A2A)</h1>
+        <h1 class="article-title">Chapter 15 Inter Agent Communication</h1>
         <div class="article-meta">
-          <a href="/journalist/tech-expert.html" class="article-author">
-            <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-author__avatar">
+          <a href="/journalist/agent-architect.html" class="article-author">
+            <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-author__avatar">
             <div class="article-author__info">
-              <span class="article-author__name">기술 전문가</span>
-              <span class="article-author__role">AI &amp; Development Writer</span>
+              <span class="article-author__name">에이전트 아키텍트</span>
+              <span class="article-author__role">AI Agent Systems Designer</span>
             </div>
           </a>
           <div class="article-meta__details">
-            <time datetime="2025년 12월 13일">2025년 12월 13일</time>
+            <time datetime="2026년 1월 27일">2026년 1월 27일</time>
             <span class="article-meta__separator">·</span>
-            <span>19 read</span>
+            <span>28 min read</span>
           </div>
         </div>
       </div>
@@ -245,18 +245,18 @@
 </nav>
 
             <h1>Chapter 15: Inter-Agent Communication (A2A)</h1>
-<h2 id="개요">개요 {#개요}</h2>
+<h2 id="개요">개요</h2>
 <p>Individual AI agents, despite their advanced capabilities, often face limitations when tackling complex and multifaceted problems. To overcome this, Inter-Agent Communication (A2A) enables diverse AI agents to effectively collaborate, even when built with potentially different frameworks. This collaboration includes seamless coordination, task delegation, and information exchange.</p>
 <p>Google&#39;s A2A protocol is an open standard designed to facilitate this universal communication. This chapter explores A2A, its practical applications, and its implementation within Google ADK.</p>
 <p>개별 AI 에이전트는 고급 기능을 가지고 있어도 복잡하고 다면적인 문제를 해결할 때 종종 제한에 직면합니다. 이를 극복하기 위해 Inter-Agent Communication (A2A)는 다양한 AI 에이전트가 잠재적으로 다른 프레임워크로 구축되어도 효과적으로 협업할 수 있게 합니다. 이 협업은 원활한 조정, 작업 위임 및 정보 교환을 포함합니다.</p>
 <p>Google의 A2A 프로토콜은 이러한 범용 통신을 용이하게 하도록 설계된 개방형 표준입니다. 이 챕터는 A2A, 그 실용적인 응용 및 Google ADK 내에서의 구현을 탐구합니다.</p>
-<h2 id="패턴-개요-pattern-overview">패턴 개요 (Pattern Overview) {#패턴-개요-pattern-overview}</h2>
+<h2 id="패턴-개요-pattern-overview">패턴 개요 (Pattern Overview)</h2>
 <p>The Agent2Agent (A2A) protocol is an open standard designed to enable communication and collaboration between different AI agent frameworks. It ensures interoperability, allowing AI agents developed with technologies like LangGraph, CrewAI, or Google ADK to work together regardless of their origin or framework differences.</p>
 <p>Agent2Agent (A2A) 프로토콜은 서로 다른 AI 에이전트 프레임워크 간의 통신 및 협업을 가능하게 하도록 설계된 개방형 표준입니다. 상호 운용성을 보장하여 LangGraph, CrewAI 또는 Google ADK와 같은 기술로 개발된 AI 에이전트가 출처나 프레임워크 차이와 관계없이 함께 작동할 수 있게 합니다.</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7118" onclick="copyCode('code-1769481055402-7118')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-797" onclick="copyCode('code-1769517012350-797')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -264,40 +264,39 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7118" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769517012350-797" class="language-mermaid">graph TD
     A[User&lt;br/&gt;사용자] --&gt; B[A2A Client&lt;br/&gt;A2A 클라이언트]
     B --&gt; C[A2A Protocol&lt;br/&gt;A2A 프로토콜]
     C --&gt; D[A2A Server&lt;br/&gt;A2A 서버]
     D --&gt; E[Remote Agent&lt;br/&gt;원격 에이전트]
     
-<pre><code>B --&amp;gt; B1[Client Agent&amp;lt;br/&amp;gt;클라이언트 에이전트]
-D --&amp;gt; D1[Server Agent&amp;lt;br/&amp;gt;서버 에이전트]
-
-C --&amp;gt; C1[Agent Card&amp;lt;br/&amp;gt;에이전트 카드]
-C --&amp;gt; C2[Discovery&amp;lt;br/&amp;gt;발견]
-C --&amp;gt; C3[Communication&amp;lt;br/&amp;gt;통신]
-C --&amp;gt; C4[Security&amp;lt;br/&amp;gt;보안]
-
-style A fill:#ff9999
-style E fill:#99ff99
-style C fill:#ffcc99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    B --&gt; B1[Client Agent&lt;br/&gt;클라이언트 에이전트]
+    D --&gt; D1[Server Agent&lt;br/&gt;서버 에이전트]
+    
+    C --&gt; C1[Agent Card&lt;br/&gt;에이전트 카드]
+    C --&gt; C2[Discovery&lt;br/&gt;발견]
+    C --&gt; C3[Communication&lt;br/&gt;통신]
+    C --&gt; C4[Security&lt;br/&gt;보안]
+    
+    style A fill:#ff9999
+    style E fill:#99ff99
+    style C fill:#ffcc99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">17 lines</span>
   </div>
 </div>
 
-<h3 id="a2a-지원">A2A 지원 {#a2a-지원}</h3>
+<h3 id="a2a-지원">A2A 지원</h3>
 <p>A2A는 Atlassian, Box, LangChain, MongoDB, Salesforce, SAP, ServiceNow를 포함한 다양한 기술 회사 및 서비스 제공업체에 의해 지원됩니다. Microsoft는 Azure AI Foundry 및 Copilot Studio에 A2A를 통합할 계획이며, 개방형 프로토콜에 대한 약속을 보여줍니다. 또한 Auth0와 SAP은 플랫폼 및 에이전트에 A2A 지원을 통합하고 있습니다.</p>
 <p>오픈소스 프로토콜로서 A2A는 진화와 광범위한 채택을 용이하게 하기 위한 커뮤니티 기여를 환영합니다.</p>
-<h2 id="핵심-개념-core-concepts">핵심 개념 (Core Concepts) {#핵심-개념-core-concepts}</h2>
+<h2 id="핵심-개념-core-concepts">핵심 개념 (Core Concepts)</h2>
 <p>A2A 프로토콜은 여러 핵심 개념을 기반으로 에이전트 상호작용을 위한 구조화된 접근 방식을 제공합니다. 이러한 개념에 대한 철저한 이해는 A2A 호환 시스템을 개발하거나 통합하는 모든 사람에게 중요합니다.</p>
-<h3 id="1-핵심-행위자-core-actors">1. 핵심 행위자 (Core Actors) {#1-핵심-행위자-core-actors}</h3>
+<h3 id="1-핵심-행위자-core-actors">1. 핵심 행위자 (Core Actors)</h3>
 <p>A2A는 세 가지 주요 엔티티를 포함합니다:</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7119" onclick="copyCode('code-1769481055402-7119')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-798" onclick="copyCode('code-1769517012350-798')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -305,14 +304,13 @@ style C fill:#ffcc99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7119" class="language-mermaid">graph LR
+  <pre class="code-block__content"><code id="code-1769517012350-798" class="language-mermaid">graph LR
     A[User&lt;br/&gt;사용자] --&gt; B[A2A Client&lt;br/&gt;A2A 클라이언트]
     B --&gt; C[A2A Server&lt;br/&gt;A2A 서버]
     C --&gt; D[Remote Agent&lt;br/&gt;원격 에이전트]
     
-<pre><code>style A fill:#ff9999
-style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style D fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">7 lines</span>
   </div>
@@ -323,7 +321,7 @@ style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>A2A Client (클라이언트 에이전트)</strong>: 사용자를 대신하여 행동하거나 정보를 요청하는 애플리케이션 또는 AI 에이전트입니다.</li>
 <li><strong>A2A Server (원격 에이전트)</strong>: 클라이언트 요청을 처리하고 결과를 반환하는 HTTP 엔드포인트를 제공하는 AI 에이전트 또는 시스템입니다. 원격 에이전트는 &quot;불투명한&quot; 시스템으로 작동하며, 클라이언트가 내부 운영 세부사항을 이해할 필요가 없습니다.</li>
 </ul>
-<h3 id="2-에이전트-카드-agent-card">2. 에이전트 카드 (Agent Card) {#2-에이전트-카드-agent-card}</h3>
+<h3 id="2-에이전트-카드-agent-card">2. 에이전트 카드 (Agent Card)</h3>
 <p>에이전트의 디지털 신원은 일반적으로 JSON 파일인 Agent Card에 의해 정의됩니다.</p>
 <p><strong>포함 정보</strong>:</p>
 <ul>
@@ -337,7 +335,7 @@ style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <div class="code-block" data-language="json">
   <div class="code-block__header" style="background-color: #292929; color: #fff">
     <span class="code-block__language">JSON</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7120" onclick="copyCode('code-1769481055402-7120')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-799" onclick="copyCode('code-1769517012350-799')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -345,7 +343,7 @@ style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7120" class="language-json">{
+  <pre class="code-block__content"><code id="code-1769517012350-799" class="language-json">{
   &quot;name&quot;: &quot;WeatherBot&quot;,
   &quot;description&quot;: &quot;Provides accurate weather forecasts and historical data.&quot;,
   &quot;url&quot;: &quot;http://weather-service.example.com/a2a&quot;,
@@ -392,13 +390,13 @@ style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
   </div>
 </div>
 
-<h3 id="3-에이전트-발견-agent-discovery">3. 에이전트 발견 (Agent Discovery) {#3-에이전트-발견-agent-discovery}</h3>
+<h3 id="3-에이전트-발견-agent-discovery">3. 에이전트 발견 (Agent Discovery)</h3>
 <p>클라이언트가 사용 가능한 A2A 서버의 기능을 설명하는 Agent Card를 찾을 수 있게 합니다.</p>
 <p><strong>발견 전략</strong>:</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7121" onclick="copyCode('code-1769481055402-7121')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-800" onclick="copyCode('code-1769517012350-800')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -406,17 +404,16 @@ style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7121" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769517012350-800" class="language-mermaid">graph TD
     A[Agent Discovery&lt;br/&gt;에이전트 발견] --&gt; B[Well-Known URI&lt;br/&gt;잘 알려진 URI]
     A --&gt; C[Curated Registries&lt;br/&gt;큐레이션된 레지스트리]
     A --&gt; D[Direct Configuration&lt;br/&gt;직접 구성]
     
-<pre><code>B --&amp;gt; B1[.well-known/agent.json&amp;lt;br/&amp;gt;표준화된 경로]
-C --&amp;gt; C1[중앙화된 카탈로그&amp;lt;br/&amp;gt;엔터프라이즈 환경]
-D --&amp;gt; D1[임베드 또는 비공개 공유&amp;lt;br/&amp;gt;밀접하게 결합된 시스템]
-
-style A fill:#ffcc99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    B --&gt; B1[.well-known/agent.json&lt;br/&gt;표준화된 경로]
+    C --&gt; C1[중앙화된 카탈로그&lt;br/&gt;엔터프라이즈 환경]
+    D --&gt; D1[임베드 또는 비공개 공유&lt;br/&gt;밀접하게 결합된 시스템]
+    
+    style A fill:#ffcc99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
@@ -428,7 +425,7 @@ style A fill:#ffcc99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>Direct Configuration</strong>: Agent Card 정보가 임베드되거나 비공개로 공유됩니다. 동적 발견이 중요하지 않은 밀접하게 결합되거나 비공개 시스템에 적합합니다.</li>
 </ul>
 <p><strong>보안 고려사항</strong>: 선택한 방법과 관계없이 Agent Card 엔드포인트를 보호하는 것이 중요합니다. 액세스 제어, 상호 TLS (mTLS), 또는 네트워크 제한을 통해 이를 달성할 수 있으며, 특히 카드에 민감한(비밀은 아니지만) 정보가 포함된 경우 그렇습니다.</p>
-<h3 id="4-통신-및-작업-communications-and-tasks">4. 통신 및 작업 (Communications and Tasks) {#4-통신-및-작업-communications-and-tasks}</h3>
+<h3 id="4-통신-및-작업-communications-and-tasks">4. 통신 및 작업 (Communications and Tasks)</h3>
 <p>A2A 프레임워크에서 통신은 장기 실행 프로세스를 위한 작업의 기본 단위를 나타내는 비동기 작업을 중심으로 구조화됩니다.</p>
 <p><strong>작업 구조</strong>:</p>
 <ul>
@@ -449,12 +446,12 @@ style A fill:#ffcc99&lt;/code&gt;&lt;/pre&gt;
 A2A 프레임워크 내의 모든 통신은 페이로드에 JSON-RPC 2.0 프로토콜을 사용하여 HTTP(S)를 통해 수행됩니다.</p>
 <p><strong>컨텍스트 ID (Context ID)</strong>:
 여러 상호작용에 걸쳐 연속성을 유지하기 위해 서버 생성 contextId가 관련 작업을 그룹화하고 컨텍스트를 보존하는 데 사용됩니다.</p>
-<h3 id="5-상호작용-메커니즘-interaction-mechanisms">5. 상호작용 메커니즘 (Interaction Mechanisms) {#5-상호작용-메커니즘-interaction-mechanisms}</h3>
+<h3 id="5-상호작용-메커니즘-interaction-mechanisms">5. 상호작용 메커니즘 (Interaction Mechanisms)</h3>
 <p>A2A는 다양한 AI 애플리케이션 요구사항에 맞는 여러 상호작용 방법을 제공합니다:</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7122" onclick="copyCode('code-1769481055402-7122')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-801" onclick="copyCode('code-1769517012350-801')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -462,27 +459,26 @@ A2A 프레임워크 내의 모든 통신은 페이로드에 JSON-RPC 2.0 프로�
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7122" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769517012350-801" class="language-mermaid">graph TD
     A[Interaction Mechanisms&lt;br/&gt;상호작용 메커니즘] --&gt; B[Synchronous Request/Response&lt;br/&gt;동기 요청/응답]
     A --&gt; C[Asynchronous Polling&lt;br/&gt;비동기 폴링]
     A --&gt; D[Streaming Updates - SSE&lt;br/&gt;스트리밍 업데이트]
     A --&gt; E[Push Notifications - Webhooks&lt;br/&gt;푸시 알림]
     
-<pre><code>B --&amp;gt; B1[즉시 작업&amp;lt;br/&amp;gt;빠른 응답]
-C --&amp;gt; C1[장기 작업&amp;lt;br/&amp;gt;상태 확인]
-D --&amp;gt; D1[실시간 업데이트&amp;lt;br/&amp;gt;점진적 결과]
-E --&amp;gt; E1[매우 장기 작업&amp;lt;br/&amp;gt;비동기 알림]
-
-style A fill:#ffcc99,stroke:#ff9900,stroke-width:3px
-style B fill:#99ccff,stroke:#0066cc,stroke-width:2px
-style C fill:#99ffcc,stroke:#00cc66,stroke-width:2px
-style D fill:#ffccff,stroke:#cc00cc,stroke-width:2px
-style E fill:#ffff99,stroke:#cc9900,stroke-width:2px
-style B1 fill:#e6f3ff,stroke:#0066cc,stroke-width:1px
-style C1 fill:#e6ffe6,stroke:#00cc66,stroke-width:1px
-style D1 fill:#ffe6ff,stroke:#cc00cc,stroke-width:1px
-style E1 fill:#ffffe6,stroke:#cc9900,stroke-width:1px&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    B --&gt; B1[즉시 작업&lt;br/&gt;빠른 응답]
+    C --&gt; C1[장기 작업&lt;br/&gt;상태 확인]
+    D --&gt; D1[실시간 업데이트&lt;br/&gt;점진적 결과]
+    E --&gt; E1[매우 장기 작업&lt;br/&gt;비동기 알림]
+    
+    style A fill:#ffcc99,stroke:#ff9900,stroke-width:3px
+    style B fill:#99ccff,stroke:#0066cc,stroke-width:2px
+    style C fill:#99ffcc,stroke:#00cc66,stroke-width:2px
+    style D fill:#ffccff,stroke:#cc00cc,stroke-width:2px
+    style E fill:#ffff99,stroke:#cc9900,stroke-width:2px
+    style B1 fill:#e6f3ff,stroke:#0066cc,stroke-width:1px
+    style C1 fill:#e6ffe6,stroke:#00cc66,stroke-width:1px
+    style D1 fill:#ffe6ff,stroke:#cc00cc,stroke-width:1px
+    style E1 fill:#ffffe6,stroke:#cc9900,stroke-width:1px</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">20 lines</span>
   </div>
@@ -503,7 +499,7 @@ style E1 fill:#ffffe6,stroke:#cc9900,stroke-width:1px&lt;/code&gt;&lt;/pre&gt;
 <div class="code-block" data-language="json">
   <div class="code-block__header" style="background-color: #292929; color: #fff">
     <span class="code-block__language">JSON</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7123" onclick="copyCode('code-1769481055402-7123')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-802" onclick="copyCode('code-1769517012350-802')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -511,7 +507,7 @@ style E1 fill:#ffffe6,stroke:#cc9900,stroke-width:1px&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7123" class="language-json">{
+  <pre class="code-block__content"><code id="code-1769517012350-802" class="language-json">{
   &quot;jsonrpc&quot;: &quot;2.0&quot;,
   &quot;id&quot;: &quot;1&quot;,
   &quot;method&quot;: &quot;sendTask&quot;,
@@ -540,7 +536,7 @@ style E1 fill:#ffffe6,stroke:#cc9900,stroke-width:1px&lt;/code&gt;&lt;/pre&gt;
 <div class="code-block" data-language="json">
   <div class="code-block__header" style="background-color: #292929; color: #fff">
     <span class="code-block__language">JSON</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7124" onclick="copyCode('code-1769481055402-7124')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-803" onclick="copyCode('code-1769517012350-803')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -548,7 +544,7 @@ style E1 fill:#ffffe6,stroke:#cc9900,stroke-width:1px&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7124" class="language-json">{
+  <pre class="code-block__content"><code id="code-1769517012350-803" class="language-json">{
   &quot;jsonrpc&quot;: &quot;2.0&quot;,
   &quot;id&quot;: &quot;2&quot;,
   &quot;method&quot;: &quot;sendTaskSubscribe&quot;,
@@ -574,13 +570,13 @@ style E1 fill:#ffffe6,stroke:#cc9900,stroke-width:1px&lt;/code&gt;&lt;/pre&gt;
 </div>
 
 <p>동기 요청은 <code>sendTask</code> 메서드를 사용하며, 클라이언트가 단일 완전한 답변을 요청하고 기대합니다. 반면 스트리밍 요청은 <code>sendTaskSubscribe</code> 메서드를 사용하여 지속적인 연결을 설정하고, 에이전트가 시간에 걸쳐 여러 점진적 업데이트나 부분 결과를 보낼 수 있게 합니다.</p>
-<h3 id="6-보안-security">6. 보안 (Security) {#6-보안-security}</h3>
+<h3 id="6-보안-security">6. 보안 (Security)</h3>
 <p>Inter-Agent Communication (A2A)는 시스템 아키텍처의 중요한 구성 요소이며, 여러 내장 메커니즘을 통해 견고성과 무결성을 보장합니다.</p>
 <p><strong>보안 메커니즘</strong>:</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7125" onclick="copyCode('code-1769481055402-7125')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-804" onclick="copyCode('code-1769517012350-804')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -588,19 +584,18 @@ style E1 fill:#ffffe6,stroke:#cc9900,stroke-width:1px&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7125" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769517012350-804" class="language-mermaid">graph TD
     A[Security&lt;br/&gt;보안] --&gt; B[Mutual TLS&lt;br/&gt;상호 TLS]
     A --&gt; C[Audit Logs&lt;br/&gt;감사 로그]
     A --&gt; D[Agent Card Declaration&lt;br/&gt;에이전트 카드 선언]
     A --&gt; E[Credential Handling&lt;br/&gt;자격 증명 처리]
     
-<pre><code>B --&amp;gt; B1[암호화 및 인증된 연결]
-C --&amp;gt; C1[모든 통신 기록]
-D --&amp;gt; D1[인증 요구사항 명시]
-E --&amp;gt; E1[OAuth 2.0 또는 API 키]
-
-style A fill:#ffcc99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    B --&gt; B1[암호화 및 인증된 연결]
+    C --&gt; C1[모든 통신 기록]
+    D --&gt; D1[인증 요구사항 명시]
+    E --&gt; E1[OAuth 2.0 또는 API 키]
+    
+    style A fill:#ffcc99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">12 lines</span>
   </div>
@@ -616,12 +611,12 @@ style A fill:#ffcc99&lt;/code&gt;&lt;/pre&gt;
 <li><p><strong>Credential Handling</strong>: 에이전트는 일반적으로 OAuth 2.0 토큰 또는 API 키와 같은 안전한 자격 증명을 사용하여 인증하며, HTTP 헤더를 통해 전달됩니다. 이 방법은 URL이나 메시지 본문에서 자격 증명 노출을 방지하여 전체 보안을 향상시킵니다.</p>
 </li>
 </ul>
-<h2 id="a2a-vs-mcp">A2A vs. MCP {#a2a-vs-mcp}</h2>
+<h2 id="a2a-vs-mcp">A2A vs. MCP</h2>
 <p>A2A는 Anthropic의 Model Context Protocol (MCP)을 보완하는 프로토콜입니다(그림 1 참조).</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7126" onclick="copyCode('code-1769481055402-7126')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-805" onclick="copyCode('code-1769517012350-805')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -629,17 +624,16 @@ style A fill:#ffcc99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7126" class="language-mermaid">graph LR
+  <pre class="code-block__content"><code id="code-1769517012350-805" class="language-mermaid">graph LR
     A[MCP&lt;br/&gt;Model Context Protocol] --&gt; A1[Context Structure&lt;br/&gt;컨텍스트 구조]
     A --&gt; A2[External Data &amp; Tools&lt;br/&gt;외부 데이터 및 도구]
     
-<pre><code>B[A2A&amp;lt;br/&amp;gt;Agent2Agent] --&amp;gt; B1[Agent Coordination&amp;lt;br/&amp;gt;에이전트 조정]
-B --&amp;gt; B2[Task Delegation&amp;lt;br/&amp;gt;작업 위임]
-B --&amp;gt; B3[Collaboration&amp;lt;br/&amp;gt;협업]
-
-style A fill:#ffcc99
-style B fill:#99ccff&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    B[A2A&lt;br/&gt;Agent2Agent] --&gt; B1[Agent Coordination&lt;br/&gt;에이전트 조정]
+    B --&gt; B2[Task Delegation&lt;br/&gt;작업 위임]
+    B --&gt; B3[Collaboration&lt;br/&gt;협업]
+    
+    style A fill:#ffcc99
+    style B fill:#99ccff</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
@@ -651,25 +645,25 @@ style B fill:#99ccff&lt;/code&gt;&lt;/pre&gt;
 <li><strong>A2A</strong>: 에이전트 간의 조정 및 통신을 용이하게 하여 작업 위임 및 협업을 가능하게 함</li>
 </ul>
 <p><strong>목표</strong>: A2A의 목표는 효율성을 향상시키고, 통합 비용을 줄이며, 복잡한 다중 에이전트 AI 시스템 개발에서 혁신과 상호 운용성을 촉진하는 것입니다.</p>
-<h2>실용적 응용 및 사용 사례 (Practical Applications &amp; Use Cases) {#실용적-응용-및-사용-사례-practical-applications-use-cases}</h2>
+<h2>실용적 응용 및 사용 사례 (Practical Applications &amp; Use Cases) </h2>
 <p>The A2A protocol enables inter-agent collaboration across various scenarios:</p>
 <p>A2A 프로토콜은 다양한 시나리오에서 에이전트 간 협업을 가능하게 합니다:</p>
 <p>Inter-Agent Communication은 다양한 도메인에서 정교한 AI 솔루션을 구축하는 데 필수적이며, 모듈성, 확장성 및 향상된 지능을 가능하게 합니다.</p>
-<h3 id="1-다중-프레임워크-협업">1. 다중 프레임워크 협업 {#1-다중-프레임워크-협업}</h3>
+<h3 id="1-다중-프레임워크-협업">1. 다중 프레임워크 협업</h3>
 <p>A2A의 주요 사용 사례는 기본 프레임워크(예: ADK, LangChain, CrewAI)와 관계없이 독립적인 AI 에이전트가 통신하고 협업할 수 있게 하는 것입니다. 이것은 다른 에이전트가 문제의 다른 측면에 특화된 복잡한 다중 에이전트 시스템을 구축하는 데 기본적입니다.</p>
-<h3 id="2-자동화된-워크플로우-조정">2. 자동화된 워크플로우 조정 {#2-자동화된-워크플로우-조정}</h3>
+<h3 id="2-자동화된-워크플로우-조정">2. 자동화된 워크플로우 조정</h3>
 <p>엔터프라이즈 설정에서 A2A는 에이전트가 작업을 위임하고 조정할 수 있게 하여 복잡한 워크플로우를 용이하게 할 수 있습니다.</p>
 <p><strong>예시</strong>: 에이전트가 초기 데이터 수집을 처리한 다음, 분석을 위해 다른 에이전트에게 위임하고, 마지막으로 보고서 생성을 위해 세 번째 에이전트에게 위임할 수 있으며, 모두 A2A 프로토콜을 통해 통신합니다.</p>
-<h3 id="3-동적-정보-검색">3. 동적 정보 검색 {#3-동적-정보-검색}</h3>
+<h3 id="3-동적-정보-검색">3. 동적 정보 검색</h3>
 <p>에이전트는 실시간 정보를 검색하고 교환하기 위해 통신할 수 있습니다.</p>
 <p><strong>예시</strong>: 주요 에이전트가 전문 &quot;데이터 가져오기 에이전트&quot;에서 라이브 시장 데이터를 요청할 수 있으며, 이는 외부 API를 사용하여 정보를 수집하고 다시 보냅니다.</p>
-<h2 id="실습-코드-예제-hands-on-code-example">실습 코드 예제 (Hands-On Code Example) {#실습-코드-예제-hands-on-code-example}</h2>
-<h3 id="adk-기반-a2a-서버-설정">ADK 기반 A2A 서버 설정 {#adk-기반-a2a-서버-설정}</h3>
+<h2 id="실습-코드-예제-hands-on-code-example">실습 코드 예제 (Hands-On Code Example)</h2>
+<h3 id="adk-기반-a2a-서버-설정">ADK 기반 A2A 서버 설정</h3>
 <p>이 예제는 Google 인증 도구를 사용하여 ADK 기반 에이전트로 A2A 서버를 설정하는 방법을 보여줍니다.</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7127" onclick="copyCode('code-1769481055402-7127')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-806" onclick="copyCode('code-1769517012350-806')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -677,7 +671,7 @@ style B fill:#99ccff&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7127" class="language-python">import datetime
+  <pre class="code-block__content"><code id="code-1769517012350-806" class="language-python">import datetime
 import os
 import asyncio
 from google.adk.agents import LlmAgent
@@ -688,7 +682,7 @@ from google.adk.sessions import InMemorySessionService
 from google.adk.memory import InMemoryMemoryService
 from google.adk.artifacts import InMemoryArtifactService
 
-<p>async def create_agent(client_id, client_secret) -&gt; LlmAgent:
+async def create_agent(client_id, client_secret) -&gt; LlmAgent:
     &quot;&quot;&quot;ADK 에이전트를 구성합니다.&quot;&quot;&quot;
     toolset = CalendarToolset(client_id=client_id, client_secret=client_secret)
     return LlmAgent(
@@ -707,82 +701,84 @@ from google.adk.artifacts import InMemoryArtifactService
         Today is {datetime.datetime.now()}.
         &quot;&quot;&quot;,
         tools=await toolset.get_tools(),
-    )</p>
-<p>def main(host: str, port: int):
+    )
+
+def main(host: str, port: int):
     # API 키가 설정되었는지 확인
     # Vertex AI API를 사용하는 경우 필요하지 않음
     if os.getenv(&#39;GOOGLE_GENAI_USE_VERTEXAI&#39;) != &#39;TRUE&#39; and not os.getenv(&#39;GOOGLE_API_KEY&#39;):
         raise ValueError(
             &#39;GOOGLE_API_KEY environment variable not set and &#39;
             &#39;GOOGLE_GENAI_USE_VERTEXAI is not TRUE.&#39;
-        )</p>
-<pre><code># 에이전트 스킬 정의
-skill = AgentSkill(
-    id=&amp;#39;check_availability&amp;#39;,
-    name=&amp;#39;Check Availability&amp;#39;,
-    description=&amp;quot;Checks a user&amp;#39;s availability for a time using their Google Calendar&amp;quot;,
-    tags=[&amp;#39;calendar&amp;#39;],
-    examples=[&amp;#39;Am I free from 10am to 11am tomorrow?&amp;#39;],
-)
+        )
+    
+    # 에이전트 스킬 정의
+    skill = AgentSkill(
+        id=&#39;check_availability&#39;,
+        name=&#39;Check Availability&#39;,
+        description=&quot;Checks a user&#39;s availability for a time using their Google Calendar&quot;,
+        tags=[&#39;calendar&#39;],
+        examples=[&#39;Am I free from 10am to 11am tomorrow?&#39;],
+    )
+    
+    # 에이전트 카드 생성
+    agent_card = AgentCard(
+        name=&#39;Calendar Agent&#39;,
+        description=&quot;An agent that can manage a user&#39;s calendar&quot;,
+        url=f&#39;http://{host}:{port}/&#39;,
+        version=&#39;1.0.0&#39;,
+        defaultInputModes=[&#39;text&#39;],
+        defaultOutputModes=[&#39;text&#39;],
+        capabilities=AgentCapabilities(streaming=True),
+        skills=[skill],
+    )
+    
+    # ADK 에이전트 생성
+    adk_agent = asyncio.run(create_agent(
+        client_id=os.getenv(&#39;GOOGLE_CLIENT_ID&#39;),
+        client_secret=os.getenv(&#39;GOOGLE_CLIENT_SECRET&#39;),
+    ))
+    
+    # ADK Runner 설정
+    runner = ADKRunner(
+        app_name=agent_card.name,
+        agent=adk_agent,
+        artifact_service=InMemoryArtifactService(),
+        session_service=InMemorySessionService(),
+        memory_service=InMemoryMemoryService(),
+    )
+    
+    # A2A 서버 시작
+    a2a_runner = Runner(
+        agent_card=agent_card,
+        adk_runner=runner,
+    )
+    
+    a2a_runner.run(host=host, port=port)
 
-# 에이전트 카드 생성
-agent_card = AgentCard(
-    name=&amp;#39;Calendar Agent&amp;#39;,
-    description=&amp;quot;An agent that can manage a user&amp;#39;s calendar&amp;quot;,
-    url=f&amp;#39;http://{host}:{port}/&amp;#39;,
-    version=&amp;#39;1.0.0&amp;#39;,
-    defaultInputModes=[&amp;#39;text&amp;#39;],
-    defaultOutputModes=[&amp;#39;text&amp;#39;],
-    capabilities=AgentCapabilities(streaming=True),
-    skills=[skill],
-)
-
-# ADK 에이전트 생성
-adk_agent = asyncio.run(create_agent(
-    client_id=os.getenv(&amp;#39;GOOGLE_CLIENT_ID&amp;#39;),
-    client_secret=os.getenv(&amp;#39;GOOGLE_CLIENT_SECRET&amp;#39;),
-))
-
-# ADK Runner 설정
-runner = ADKRunner(
-    app_name=agent_card.name,
-    agent=adk_agent,
-    artifact_service=InMemoryArtifactService(),
-    session_service=InMemorySessionService(),
-    memory_service=InMemoryMemoryService(),
-)
-
-# A2A 서버 시작
-a2a_runner = Runner(
-    agent_card=agent_card,
-    adk_runner=runner,
-)
-
-a2a_runner.run(host=host, port=port)
-</code></pre>
-<p>if <strong>name</strong> == &quot;<strong>main</strong>&quot;:
+if __name__ == &quot;__main__&quot;:
     main(host=&quot;localhost&quot;, port=8080)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">84 lines</span>
-  </div></p>
+  </div>
 </div>
 
-<h3 id="코드-설명">코드 설명 {#코드-설명}</h3>
+<h3 id="코드-설명">코드 설명</h3>
 <p>이 Python 코드는 비동기 함수 <code>create_agent</code>를 정의하여 ADK LlmAgent를 구성합니다. 제공된 클라이언트 자격 증명을 사용하여 Google Calendar API에 액세스하기 위해 <code>CalendarToolset</code>을 초기화하는 것으로 시작합니다.</p>
 <p>이후 지정된 Gemini 모델, 설명적 이름 및 사용자의 캘린더를 관리하기 위한 지시사항으로 <code>LlmAgent</code> 인스턴스가 생성됩니다. 에이전트는 <code>CalendarToolset</code>의 캘린더 도구로 제공되어 Calendar API와 상호작용하고 캘린더 상태 또는 수정에 대한 사용자 쿼리에 응답할 수 있습니다.</p>
 <p>에이전트의 지시사항은 시간적 컨텍스트를 위해 현재 날짜를 동적으로 통합합니다.</p>
-<h2 id="한눈에-보기-at-a-glance">한눈에 보기 (At a Glance) {#한눈에-보기-at-a-glance}</h2>
-<h3 id="무엇-what">무엇 (What) {#무엇-what}</h3>
+<h2 id="한눈에-보기-at-a-glance">한눈에 보기 (At a Glance)</h2>
+<h3 id="무엇-what">무엇 (What)</h3>
 <p>개별 AI 에이전트는 고급 기능을 가지고 있어도 복잡하고 다면적인 문제를 해결할 때 종종 제한에 직면합니다. 서로 다른 프레임워크로 구축된 에이전트 간의 통신과 협업을 위한 표준화된 방법 없이는 복잡한 다중 에이전트 시스템을 구축하는 것이 어렵고 비효율적입니다.</p>
-<h3 id="왜-why">왜 (Why) {#왜-why}</h3>
+<h3 id="왜-why">왜 (Why)</h3>
 <p>Inter-Agent Communication (A2A) 패턴은 서로 다른 AI 에이전트 프레임워크 간의 통신 및 협업을 가능하게 하는 개방형 표준 프로토콜을 제공하여 표준화된 솔루션을 제공합니다. 이는 상호 운용성을 보장하여 LangGraph, CrewAI 또는 Google ADK와 같은 기술로 개발된 에이전트가 출처나 프레임워크 차이와 관계없이 함께 작동할 수 있게 합니다.</p>
-<h3 id="경험-법칙-rule-of-thumb">경험 법칙 (Rule of Thumb) {#경험-법칙-rule-of-thumb}</h3>
+<h3 id="경험-법칙-rule-of-thumb">경험 법칙 (Rule of Thumb)</h3>
 <p>서로 다른 프레임워크로 구축된 여러 AI 에이전트가 통신하고 협업해야 하는 복잡한 다중 에이전트 시스템을 구축할 때 이 패턴을 사용하세요. 엔터프라이즈 워크플로우 조정, 동적 정보 검색, 또는 모듈성과 확장성이 중요한 시스템에 이상적입니다.</p>
-<h3 id="시각적-요약">시각적 요약 {#시각적-요약}</h3>
+<h3 id="시각적-요약">시각적 요약</h3>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7128" onclick="copyCode('code-1769481055402-7128')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-807" onclick="copyCode('code-1769517012350-807')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -790,7 +786,7 @@ a2a_runner.run(host=host, port=port)
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7128" class="language-mermaid">graph LR
+  <pre class="code-block__content"><code id="code-1769517012350-807" class="language-mermaid">graph LR
     A[Agent A&lt;br/&gt;에이전트 A] --&gt; C[A2A Protocol&lt;br/&gt;A2A 프로토콜]
     B[Agent B&lt;br/&gt;에이전트 B] --&gt; C
     D[Agent C&lt;br/&gt;에이전트 C] --&gt; C
@@ -798,15 +794,14 @@ a2a_runner.run(host=host, port=port)
     C --&gt; F[Task Delegation&lt;br/&gt;작업 위임]
     C --&gt; G[Information Exchange&lt;br/&gt;정보 교환]
     
-<pre><code>style C fill:#ffcc99
-style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style C fill:#ffcc99
+    style E fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
 </div>
 
-<h2 id="핵심-요약-key-takeaways">핵심 요약 (Key Takeaways) {#핵심-요약-key-takeaways}</h2>
+<h2 id="핵심-요약-key-takeaways">핵심 요약 (Key Takeaways)</h2>
 <ol>
 <li><p><strong>Inter-Agent Communication (A2A)는 서로 다른 AI 에이전트 프레임워크 간의 통신 및 협업을 가능하게 하는 개방형 표준 프로토콜입니다</strong></p>
 </li>
@@ -825,12 +820,12 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><p><strong>실용적인 애플리케이션은 다중 프레임워크 협업, 자동화된 워크플로우 조정, 동적 정보 검색을 포함합니다</strong></p>
 </li>
 </ol>
-<h2 id="결론">결론 {#결론}</h2>
+<h2 id="결론">결론</h2>
 <p>Inter-Agent Communication (A2A)는 복잡하고 다면적인 문제를 해결하기 위해 서로 다른 프레임워크로 구축된 AI 에이전트 간의 효과적인 협업을 가능하게 하는 중요한 패턴입니다. 개방형 표준 프로토콜로서 A2A는 상호 운용성을 보장하고, 통신 및 작업 위임을 용이하게 하며, 복잡한 다중 에이전트 시스템의 개발을 단순화합니다.</p>
 <p>A2A의 핵심 개념(핵심 행위자, Agent Card, 에이전트 발견, 통신 및 작업, 상호작용 메커니즘, 보안)을 이해하는 것은 효과적인 다중 에이전트 시스템을 설계, 구현 및 적용하는 데 필수적입니다.</p>
 <p>실용적인 애플리케이션은 다중 프레임워크 협업, 자동화된 워크플로우 조정, 동적 정보 검색을 포함하여 A2A가 다양한 도메인에서 정교한 AI 솔루션을 구축하는 데 어떻게 기여하는지 보여줍니다.</p>
-<h2 id="이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation) {#이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati}</h2>
-<h3 id="분산-시스템-통신-이론">분산 시스템 통신 이론 {#분산-시스템-통신-이론}</h3>
+<h2 id="이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation)</h2>
+<h3 id="분산-시스템-통신-이론">분산 시스템 통신 이론</h3>
 <p>A2A는 분산 시스템의 통신 원칙을 구현합니다. Lamport(1978)의 분산 시스템 이론은 시간과 순서의 개념을 다룹니다.</p>
 <p><strong>분산 시스템 특성</strong>:</p>
 <ul>
@@ -844,7 +839,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>에이전트 간 독립적 실패</li>
 <li>이벤트 순서 보장 메커니즘</li>
 </ul>
-<h3 id="에이전트-통신-언어-agent-communication-language-acl">에이전트 통신 언어 (Agent Communication Language, ACL) {#에이전트-통신-언어-agent-communication-language-acl}</h3>
+<h3 id="에이전트-통신-언어-agent-communication-language-acl">에이전트 통신 언어 (Agent Communication Language, ACL)</h3>
 <p>FIPA (Foundation for Intelligent Physical Agents)는 에이전트 통신을 위한 표준을 제시합니다.</p>
 <p><strong>ACL 구성 요소</strong>:</p>
 <ul>
@@ -858,7 +853,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>JSON-RPC 2.0 기반 메시지 형식</li>
 <li>Agent Card를 통한 온톨로지 정의</li>
 </ul>
-<h3 id="메시지-전달-패턴-message-passing-patterns">메시지 전달 패턴 (Message Passing Patterns) {#메시지-전달-패턴-message-passing-patterns}</h3>
+<h3 id="메시지-전달-패턴-message-passing-patterns">메시지 전달 패턴 (Message Passing Patterns)</h3>
 <p>분산 시스템의 메시지 전달 패턴:</p>
 <p><strong>통신 패턴</strong>:</p>
 <ul>
@@ -874,7 +869,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>이벤트 기반 통신</li>
 <li>푸시 알림 지원</li>
 </ul>
-<h3 id="보안-및-신뢰-이론">보안 및 신뢰 이론 {#보안-및-신뢰-이론}</h3>
+<h3 id="보안-및-신뢰-이론">보안 및 신뢰 이론</h3>
 <p>분산 시스템에서의 보안:</p>
 <p><strong>보안 메커니즘</strong>:</p>
 <ul>
@@ -890,13 +885,13 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>포괄적인 감사 로깅</li>
 <li>안전한 자격 증명 처리</li>
 </ul>
-<h2 id="성능-최적화-기법-performance-optimization-techniques">성능 최적화 기법 (Performance Optimization Techniques) {#성능-최적화-기법-performance-optimization-techniques}</h2>
-<h3 id="1-연결-풀링-및-재사용">1. 연결 풀링 및 재사용 {#1-연결-풀링-및-재사용}</h3>
+<h2 id="성능-최적화-기법-performance-optimization-techniques">성능 최적화 기법 (Performance Optimization Techniques)</h2>
+<h3 id="1-연결-풀링-및-재사용">1. 연결 풀링 및 재사용</h3>
 <p>A2A 서버 연결 재사용:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7129" onclick="copyCode('code-1769481055402-7129')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-808" onclick="copyCode('code-1769517012350-808')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -904,36 +899,35 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7129" class="language-python">class A2AConnectionPool:
+  <pre class="code-block__content"><code id="code-1769517012350-808" class="language-python">class A2AConnectionPool:
     def __init__(self, max_connections=10):
         self.pool = {}
         self.max_connections = max_connections
     
-<pre><code>def get_connection(self, agent_url: str) -&amp;gt; A2AConnection:
-    &amp;quot;&amp;quot;&amp;quot;연결 풀에서 연결 가져오기&amp;quot;&amp;quot;&amp;quot;
-    if agent_url not in self.pool:
-        if len(self.pool) &amp;gt;= self.max_connections:
-            # 가장 오래된 연결 제거
-            oldest = min(self.pool.items(), key=lambda x: x[1].last_used)
-            del self.pool[oldest[0]]
+    def get_connection(self, agent_url: str) -&gt; A2AConnection:
+        &quot;&quot;&quot;연결 풀에서 연결 가져오기&quot;&quot;&quot;
+        if agent_url not in self.pool:
+            if len(self.pool) &gt;= self.max_connections:
+                # 가장 오래된 연결 제거
+                oldest = min(self.pool.items(), key=lambda x: x[1].last_used)
+                del self.pool[oldest[0]]
+            
+            self.pool[agent_url] = A2AConnection(agent_url)
         
-        self.pool[agent_url] = A2AConnection(agent_url)
-    
-    connection = self.pool[agent_url]
-    connection.last_used = time.time()
-    return connection&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+        connection = self.pool[agent_url]
+        connection.last_used = time.time()
+        return connection</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">18 lines</span>
   </div>
 </div>
 
-<h3 id="2-배치-요청-처리">2. 배치 요청 처리 {#2-배치-요청-처리}</h3>
+<h3 id="2-배치-요청-처리">2. 배치 요청 처리</h3>
 <p>여러 요청을 배치로 처리:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7130" onclick="copyCode('code-1769481055402-7130')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-809" onclick="copyCode('code-1769517012350-809')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -941,7 +935,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7130" class="language-python">async def batch_a2a_requests(requests: List[A2ARequest]) -&gt; List[A2AResponse]:
+  <pre class="code-block__content"><code id="code-1769517012350-809" class="language-python">async def batch_a2a_requests(requests: List[A2ARequest]) -&gt; List[A2AResponse]:
     &quot;&quot;&quot;A2A 요청 배치 처리&quot;&quot;&quot;
     # 독립적인 요청은 병렬 처리
     independent_requests = [r for r in requests if r.is_independent]
@@ -949,19 +943,18 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
         a2a_client.send(request) for request in independent_requests
     ])
     
-<pre><code>return responses&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    return responses</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">9 lines</span>
   </div>
 </div>
 
-<h3 id="3-스트리밍-최적화">3. 스트리밍 최적화 {#3-스트리밍-최적화}</h3>
+<h3 id="3-스트리밍-최적화">3. 스트리밍 최적화</h3>
 <p>대용량 응답의 스트리밍 처리:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7131" onclick="copyCode('code-1769481055402-7131')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-810" onclick="copyCode('code-1769517012350-810')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -969,7 +962,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7131" class="language-python">async def stream_a2a_response(request: A2ARequest):
+  <pre class="code-block__content"><code id="code-1769517012350-810" class="language-python">async def stream_a2a_response(request: A2ARequest):
     &quot;&quot;&quot;A2A 응답 스트리밍&quot;&quot;&quot;
     async for chunk in a2a_client.stream(request):
         # 청크 단위로 처리하여 메모리 효율성 향상
@@ -979,12 +972,12 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
   </div>
 </div>
 
-<h3 id="4-캐싱-전략">4. 캐싱 전략 {#4-캐싱-전략}</h3>
+<h3 id="4-캐싱-전략">4. 캐싱 전략</h3>
 <p>자주 사용되는 에이전트 정보 캐싱:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7132" onclick="copyCode('code-1769481055402-7132')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-811" onclick="copyCode('code-1769517012350-811')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -992,51 +985,51 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7132" class="language-python">from functools import lru_cache
+  <pre class="code-block__content"><code id="code-1769517012350-811" class="language-python">from functools import lru_cache
 
-<p>class CachedA2AClient:
-    def <strong>init</strong>(self, a2a_client):
+class CachedA2AClient:
+    def __init__(self, a2a_client):
         self.client = a2a_client
-        self.agent_card_cache = {}</p>
-<pre><code>@lru_cache(maxsize=100)
-async def get_agent_card(self, agent_url: str) -&amp;gt; AgentCard:
-    &amp;quot;&amp;quot;&amp;quot;캐시된 에이전트 카드 가져오기&amp;quot;&amp;quot;&amp;quot;
-    if agent_url in self.agent_card_cache:
-        return self.agent_card_cache[agent_url]
+        self.agent_card_cache = {}
     
-    card = await self.client.discover_agent(agent_url)
-    self.agent_card_cache[agent_url] = card
-    return card&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    @lru_cache(maxsize=100)
+    async def get_agent_card(self, agent_url: str) -&gt; AgentCard:
+        &quot;&quot;&quot;캐시된 에이전트 카드 가져오기&quot;&quot;&quot;
+        if agent_url in self.agent_card_cache:
+            return self.agent_card_cache[agent_url]
+        
+        card = await self.client.discover_agent(agent_url)
+        self.agent_card_cache[agent_url] = card
+        return card</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">15 lines</span>
   </div>
 </div>
 
-<h2 id="트레이드오프-및-한계점-trade-offs-and-limitations">트레이드오프 및 한계점 (Trade-offs and Limitations) {#트레이드오프-및-한계점-trade-offs-and-limitations}</h2>
-<h3 id="a2a의-장점">A2A의 장점 {#a2a의-장점}</h3>
+<h2 id="트레이드오프-및-한계점-trade-offs-and-limitations">트레이드오프 및 한계점 (Trade-offs and Limitations)</h2>
+<h3 id="a2a의-장점">A2A의 장점</h3>
 <ol>
 <li><strong>상호 운용성</strong>: 다양한 에이전트 간 통신</li>
 <li><strong>표준화</strong>: 일관된 통신 프로토콜</li>
 <li><strong>확장성</strong>: 새로운 에이전트 쉽게 추가</li>
 <li><strong>보안</strong>: 강력한 보안 메커니즘</li>
 </ol>
-<h3 id="a2a의-한계">A2A의 한계 {#a2a의-한계}</h3>
+<h3 id="a2a의-한계">A2A의 한계</h3>
 <ol>
 <li><strong>프로토콜 오버헤드</strong>: 표준화로 인한 오버헤드</li>
 <li><strong>네트워크 지연</strong>: 분산 통신 지연</li>
 <li><strong>복잡도</strong>: 분산 시스템의 복잡성</li>
 <li><strong>의존성</strong>: 네트워크 및 인프라 의존</li>
 </ol>
-<h3 id="완화-전략">완화 전략 {#완화-전략}</h3>
+<h3 id="완화-전략">완화 전략</h3>
 <ol>
 <li><strong>효율적 프로토콜</strong>: 최소한의 오버헤드 설계</li>
 <li><strong>로컬 최적화</strong>: 가능한 경우 로컬 통신</li>
 <li><strong>비동기 처리</strong>: 비동기로 지연 시간 최소화</li>
 <li><strong>견고한 인프라</strong>: 안정적인 네트워크 인프라</li>
 </ol>
-<h2 id="관련-패턴과의-비교-comparison-with-related-patterns">관련 패턴과의 비교 (Comparison with Related Patterns) {#관련-패턴과의-비교-comparison-with-related-patterns}</h2>
-<h3 id="a2a-vs-mcp">A2A vs. MCP {#a2a-vs-mcp}</h3>
+<h2 id="관련-패턴과의-비교-comparison-with-related-patterns">관련 패턴과의 비교 (Comparison with Related Patterns)</h2>
+<h3 id="a2a-vs-mcp">A2A vs. MCP</h3>
 <table>
 <thead>
 <tr>
@@ -1066,19 +1059,19 @@ async def get_agent_card(self, agent_url: str) -&amp;gt; AgentCard:
 <td>고급 (mTLS)</td>
 </tr>
 </tbody></table>
-<h3 id="a2a-vs-direct-api-calls">A2A vs. Direct API Calls {#a2a-vs-direct-api-calls}</h3>
+<h3 id="a2a-vs-direct-api-calls">A2A vs. Direct API Calls</h3>
 <ul>
 <li><strong>A2A</strong>: 표준화된 프로토콜</li>
 <li><strong>Direct API</strong>: 직접 API 호출</li>
 <li><strong>선택</strong>: 상호 운용성이 필요하면 A2A</li>
 </ul>
-<h2 id="실무-적용-사례-확장-extended-practical-applications">실무 적용 사례 확장 (Extended Practical Applications) {#실무-적용-사례-확장-extended-practical-applications}</h2>
-<h3 id="1-분산-에이전트-네트워크">1. 분산 에이전트 네트워크 {#1-분산-에이전트-네트워크}</h3>
+<h2 id="실무-적용-사례-확장-extended-practical-applications">실무 적용 사례 확장 (Extended Practical Applications)</h2>
+<h3 id="1-분산-에이전트-네트워크">1. 분산 에이전트 네트워크</h3>
 <p>여러 조직의 에이전트가 협력:</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7133" onclick="copyCode('code-1769481055402-7133')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-812" onclick="copyCode('code-1769517012350-812')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1086,26 +1079,25 @@ async def get_agent_card(self, agent_url: str) -&amp;gt; AgentCard:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7133" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769517012350-812" class="language-mermaid">graph TD
     A[Organization A&lt;br/&gt;조직 A] --&gt; B[A2A Network&lt;br/&gt;A2A 네트워크]
     C[Organization B&lt;br/&gt;조직 B] --&gt; B
     D[Organization C&lt;br/&gt;조직 C] --&gt; B
     B --&gt; E[Collaborative Task&lt;br/&gt;협업 작업]
     
-<pre><code>style A fill:#ff9999
-style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style E fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">8 lines</span>
   </div>
 </div>
 
-<h3 id="2-마이크로서비스-통신">2. 마이크로서비스 통신 {#2-마이크로서비스-통신}</h3>
+<h3 id="2-마이크로서비스-통신">2. 마이크로서비스 통신</h3>
 <p>마이크로서비스를 A2A 에이전트로 노출:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769481055402-7134" onclick="copyCode('code-1769481055402-7134')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769517012350-813" onclick="copyCode('code-1769517012350-813')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1113,44 +1105,43 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769481055402-7134" class="language-python">class MicroserviceA2ABridge:
+  <pre class="code-block__content"><code id="code-1769517012350-813" class="language-python">class MicroserviceA2ABridge:
     def __init__(self, microservice: Microservice):
         self.service = microservice
         self.agent_card = self.create_agent_card()
     
-<pre><code>def create_agent_card(self) -&amp;gt; AgentCard:
-    &amp;quot;&amp;quot;&amp;quot;마이크로서비스를 A2A 에이전트로 노출&amp;quot;&amp;quot;&amp;quot;
-    return AgentCard(
-        name=self.service.name,
-        description=self.service.description,
-        url=self.service.endpoint,
-        skills=self.service.capabilities,
-        authentication={&amp;#39;schemes&amp;#39;: [&amp;#39;apiKey&amp;#39;]}
-    )
-
-async def handle_a2a_request(self, request: A2ARequest) -&amp;gt; A2AResponse:
-    &amp;quot;&amp;quot;&amp;quot;A2A 요청을 마이크로서비스 호출로 변환&amp;quot;&amp;quot;&amp;quot;
-    # A2A 요청을 서비스 호출로 변환
-    service_request = self.convert_to_service_request(request)
-    service_response = await self.service.handle(service_request)
+    def create_agent_card(self) -&gt; AgentCard:
+        &quot;&quot;&quot;마이크로서비스를 A2A 에이전트로 노출&quot;&quot;&quot;
+        return AgentCard(
+            name=self.service.name,
+            description=self.service.description,
+            url=self.service.endpoint,
+            skills=self.service.capabilities,
+            authentication={&#39;schemes&#39;: [&#39;apiKey&#39;]}
+        )
     
-    # 서비스 응답을 A2A 응답으로 변환
-    return self.convert_to_a2a_response(service_response)&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    async def handle_a2a_request(self, request: A2ARequest) -&gt; A2AResponse:
+        &quot;&quot;&quot;A2A 요청을 마이크로서비스 호출로 변환&quot;&quot;&quot;
+        # A2A 요청을 서비스 호출로 변환
+        service_request = self.convert_to_service_request(request)
+        service_response = await self.service.handle(service_request)
+        
+        # 서비스 응답을 A2A 응답으로 변환
+        return self.convert_to_a2a_response(service_response)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">23 lines</span>
   </div>
 </div>
 
-<h3 id="3-에코시스템-통합">3. 에코시스템 통합 {#3-에코시스템-통합}</h3>
+<h3 id="3-에코시스템-통합">3. 에코시스템 통합</h3>
 <p>다양한 에이전트 에코시스템 통합:</p>
 <ul>
 <li><strong>에이전트 발견</strong>: Well-Known URI를 통한 자동 발견</li>
 <li><strong>레지스트리 통합</strong>: 중앙 레지스트리와 통합</li>
 <li><strong>크로스 플랫폼</strong>: 다양한 플랫폼 간 통신</li>
 </ul>
-<h2 id="참고-자료-references">참고 자료 (References) {#참고-자료-references}</h2>
-<h3 id="학술-논문">학술 논문 {#학술-논문}</h3>
+<h2 id="참고-자료-references">참고 자료 (References)</h2>
+<h3 id="학술-논문">학술 논문</h3>
 <ol>
 <li><p>Lamport, L. (1978). &quot;Time, clocks, and the ordering of events in a distributed system.&quot; <em>Communications of the ACM</em>, 21(7), 558-565.</p>
 </li>
@@ -1163,7 +1154,7 @@ async def handle_a2a_request(self, request: A2ARequest) -&amp;gt; A2AResponse:
 <li><p>Tanenbaum, A. S., &amp; Van Steen, M. (2017). <em>Distributed Systems: Principles and Paradigms</em> (3rd ed.). Pearson.</p>
 </li>
 </ol>
-<h3 id="프레임워크-및-도구-문서">프레임워크 및 도구 문서 {#프레임워크-및-도구-문서}</h3>
+<h3 id="프레임워크-및-도구-문서">프레임워크 및 도구 문서</h3>
 <ol>
 <li><p>A2A Protocol Specification:
 <a href="https://github.com/google-a2a/a2a-spec">https://github.com/google-a2a/a2a-spec</a></p>
@@ -1175,7 +1166,7 @@ async def handle_a2a_request(self, request: A2ARequest) -&amp;gt; A2AResponse:
 <a href="https://google.github.io/adk-docs/a2a/">https://google.github.io/adk-docs/a2a/</a></p>
 </li>
 </ol>
-<h3 id="추가-학습-자료">추가 학습 자료 {#추가-학습-자료}</h3>
+<h3 id="추가-학습-자료">추가 학습 자료</h3>
 <ol start="4">
 <li><p>&quot;Distributed Systems: Concepts and Design&quot; by George Coulouris et al.</p>
 </li>
@@ -1190,7 +1181,7 @@ async def handle_a2a_request(self, request: A2ARequest) -&amp;gt; A2AResponse:
             
             <!-- Tags -->
             <div class="article-tags">
-              <a href="/tag/ai-tools.html" class="article-tag">ai-tools</a><a href="/tag/analysis.html" class="article-tag">analysis</a>
+              
             </div>
           </div>
           
@@ -1203,53 +1194,53 @@ async def handle_a2a_request(self, request: A2ARequest) -&amp;gt; A2AResponse:
               </div>
               <div class="sidebar-posts">
                 
-        <a href="/articles/microsoft-winappcli-technical-deep-dive.html" class="sidebar-post">
-          <div class="sidebar-post__image">
-            <img src="/assets/images/development-guides-placeholder.svg" alt="Microsoft WinAppCli - Technical Deep Dive" loading="lazy">
-          </div>
-          <div class="sidebar-post__content">
-            <h4 class="sidebar-post__title">Microsoft WinAppCli - Technical Deep Dive</h4>
-            <span class="sidebar-post__author">개발 가이드</span>
-          </div>
-        </a>
-      
-        <a href="/articles/winapp-cli-complete.html" class="sidebar-post">
-          <div class="sidebar-post__image">
-            <img src="/assets/images/development-guides-placeholder.svg" alt="WinApp CLI 완전 정복" loading="lazy">
-          </div>
-          <div class="sidebar-post__content">
-            <h4 class="sidebar-post__title">WinApp CLI 완전 정복</h4>
-            <span class="sidebar-post__author">개발 가이드</span>
-          </div>
-        </a>
-      
-        <a href="/articles/claude-code-complete-guide.html" class="sidebar-post">
-          <div class="sidebar-post__image">
-            <img src="/assets/images/claude-code-placeholder.svg" alt="Claude Code 슬래시 명령어 완전 정복 가이드" loading="lazy">
-          </div>
-          <div class="sidebar-post__content">
-            <h4 class="sidebar-post__title">Claude Code 슬래시 명령어 완전 정복 가이드</h4>
-            <span class="sidebar-post__author">Claude 전문가</span>
-          </div>
-        </a>
-      
         <a href="/articles/claude-code-perfect-guide.html" class="sidebar-post">
           <div class="sidebar-post__image">
             <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg" alt="Claude Code 완벽 마스터 가이드" loading="lazy">
           </div>
           <div class="sidebar-post__content">
             <h4 class="sidebar-post__title">Claude Code 완벽 마스터 가이드</h4>
-            <span class="sidebar-post__author">기술 전문가</span>
+            <span class="sidebar-post__author">Claude 전문가</span>
           </div>
         </a>
       
-        <a href="/articles/flutter-beginners-guide-quick-start.html" class="sidebar-post">
+        <a href="/articles/sima-2-ai-how-to.html" class="sidebar-post">
           <div class="sidebar-post__image">
-            <img src="/assets/images/development-guides-placeholder.svg" alt="Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)" loading="lazy">
+            <img src="/assets/images/llm-guides-placeholder.svg" alt="SIMA 2 AI 자율학습이 교육을 혁신하는 방법" loading="lazy">
           </div>
           <div class="sidebar-post__content">
-            <h4 class="sidebar-post__title">Flutter 입문자 가이드 - 빠른 네비게이션 (Quick Start)</h4>
-            <span class="sidebar-post__author">개발 가이드</span>
+            <h4 class="sidebar-post__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-1-basics.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-guide-part-2-real-world.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
+          </div>
+        </a>
+      
+        <a href="/articles/ai-agent-python-beginners-perfect-guide.html" class="sidebar-post">
+          <div class="sidebar-post__image">
+            <img src="/assets/images/ai-resources-placeholder.svg" alt="AI 에이전트 Python 초보자 완벽 가이드" loading="lazy">
+          </div>
+          <div class="sidebar-post__content">
+            <h4 class="sidebar-post__title">AI 에이전트 Python 초보자 완벽 가이드</h4>
+            <span class="sidebar-post__author">기술 분석가</span>
           </div>
         </a>
       
@@ -1265,13 +1256,13 @@ async def handle_a2a_request(self, request: A2ARequest) -&amp;gt; A2AResponse:
       <div class="container container--narrow">
         <span>Share this article:</span>
         <div class="share-buttons">
-          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-15-inter-agent-communication.html&text=Chapter 15: Inter-Agent Communication (A2A)" 
+          <a href="https://twitter.com/intent/tweet?url=https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-15-inter-agent-communication.html&text=Chapter 15 Inter Agent Communication" 
              class="share-btn share-btn--twitter" 
              target="_blank" 
              rel="noopener">
             Twitter
           </a>
-          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-15-inter-agent-communication.html&title=Chapter 15: Inter-Agent Communication (A2A)" 
+          <a href="https://www.linkedin.com/shareArticle?mini=true&url=https://passeth.github.io/MY-BLOG_OBSI/articles/chapter-15-inter-agent-communication.html&title=Chapter 15 Inter Agent Communication" 
              class="share-btn share-btn--linkedin" 
              target="_blank" 
              rel="noopener">
@@ -1287,12 +1278,12 @@ async def handle_a2a_request(self, request: A2ARequest) -&amp;gt; A2AResponse:
     <!-- Author Bio -->
     <aside class="author-bio">
       <div class="container container--narrow">
-        <a href="/journalist/tech-expert.html" class="author-bio__card">
-          <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="author-bio__avatar">
+        <a href="/journalist/agent-architect.html" class="author-bio__card">
+          <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="author-bio__avatar">
           <div class="author-bio__content">
-            <h3 class="author-bio__name">기술 전문가</h3>
-            <p class="author-bio__role">AI &amp; Development Writer</p>
-            <p class="author-bio__text">AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.</p>
+            <h3 class="author-bio__name">에이전트 아키텍트</h3>
+            <p class="author-bio__role">AI Agent Systems Designer</p>
+            <p class="author-bio__text">AI 에이전트 시스템 설계와 디자인 패턴을 전문으로 다룹니다.</p>
             <span class="author-bio__link">View all articles →</span>
           </div>
         </a>
@@ -1307,73 +1298,73 @@ async def handle_a2a_request(self, request: A2ARequest) -&amp;gt; A2AResponse:
       <div class="related-grid">
         
     <article class="article-card article-card--small">
-      <a href="/articles/claude-code-perfect-guide.html" class="article-card__link">
+      <a href="/articles/chapter-00-introduction.html" class="article-card__link">
         
       <div class="article-card__image">
-        <img src="/assets/images/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg"
-             alt="Claude Code 완벽 마스터 가이드"
+        <img src="/assets/images/agent-patterns-placeholder.svg"
+             alt="Chapter 00 Introduction"
              loading="lazy">
         <span class="article-card__category" style="background-color: #6366f1">
-          AI 도구
+          Agent 패턴
         </span>
       </div>
         <div class="article-card__content">
-          <h3 class="article-card__title">Claude Code 완벽 마스터 가이드</h3>
-          <p class="article-card__excerpt">! || 999-Attachments/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg 스레드에 ==Choi.OpenAI 글==을 학습용으로 사용하기 위해 편집한 파일입니다. ==Special thanks...</p>
+          <h3 class="article-card__title">Chapter 00 Introduction</h3>
+          <p class="article-card__excerpt">Welcome to "Agentic Design Patterns: A Hands-On Guide to Building Intelligent Systems." As we look across the landscape of modern artificial...</p>
           <div class="article-card__meta">
             <div class="article-card__author">
-              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
-              <span>기술 전문가</span>
+              <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-card__avatar">
+              <span>에이전트 아키텍트</span>
             </div>
-            <span class="article-card__reading-time">17 min</span>
+            <span class="article-card__reading-time">15 min</span>
           </div>
         </div>
       </a>
     </article>
   
     <article class="article-card article-card--small">
-      <a href="/articles/ai-agent-guide-part-1-basics.html" class="article-card__link">
+      <a href="/articles/chapter-00-what-makes-an-ai-system-an-agent.html" class="article-card__link">
         
       <div class="article-card__image">
-        <img src="/assets/images/ai-tools-placeholder.svg"
-             alt="금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편"
+        <img src="/assets/images/agent-patterns-placeholder.svg"
+             alt="Chapter 00 What Makes An AI System An Agent"
              loading="lazy">
         <span class="article-card__category" style="background-color: #6366f1">
-          AI 도구
+          Agent 패턴
         </span>
       </div>
         <div class="article-card__content">
-          <h3 class="article-card__title">금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편</h3>
-          <p class="article-card__excerpt">🎯 이 가이드의 목표: 초보 개발자도 금융권 AI 에이전트를 이해하고 구축할 수 있도록 돕습니다. 📚 학습 방식: 파인만 기법 + 스토리텔링 + 3단계 예제 (기초→중급→고급) --- 1.  || #AI 에이전트란 무엇인가요 2.  || #금융 기관에 AI...</p>
+          <h3 class="article-card__title">Chapter 00 What Makes An AI System An Agent</h3>
+          <p class="article-card__excerpt">In simple terms, an AI agent is a system designed to perceive its environment and take actions to achieve a specific goal. It's an evolution from a...</p>
           <div class="article-card__meta">
             <div class="article-card__author">
-              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
-              <span>기술 전문가</span>
+              <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-card__avatar">
+              <span>에이전트 아키텍트</span>
             </div>
-            <span class="article-card__reading-time">31 min</span>
+            <span class="article-card__reading-time">32 min</span>
           </div>
         </div>
       </a>
     </article>
   
     <article class="article-card article-card--small">
-      <a href="/articles/ai-agent-guide-part-2-real-world.html" class="article-card__link">
+      <a href="/articles/chapter-01-prompt-chaining.html" class="article-card__link">
         
       <div class="article-card__image">
-        <img src="/assets/images/ai-tools-placeholder.svg"
-             alt="금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편"
+        <img src="/assets/images/agent-patterns-placeholder.svg"
+             alt="Chapter 01 Prompt Chaining"
              loading="lazy">
         <span class="article-card__category" style="background-color: #6366f1">
-          AI 도구
+          Agent 패턴
         </span>
       </div>
         <div class="article-card__content">
-          <h3 class="article-card__title">금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편</h3>
-          <p class="article-card__excerpt">🎯 Part 2의 목표: 실제로 구축 가능한 아키텍처 설계와 구현 로드맵 제시 👥 대상: Part 1을 읽고 실제 프로젝트를 시작하려는 개발팀 --- 1.  || #아키텍처 패턴 설계 2.  || #구현 로드맵 단계별 가이드 3.  || #팀 구성과 역할 4. ...</p>
+          <h3 class="article-card__title">Chapter 01 Prompt Chaining</h3>
+          <p class="article-card__excerpt">Prompt chaining, sometimes referred to as Pipeline pattern, represents a powerful paradigm for handling intricate tasks when leveraging large...</p>
           <div class="article-card__meta">
             <div class="article-card__author">
-              <img src="/assets/personas/tech-expert.svg" alt="기술 전문가" class="article-card__avatar">
-              <span>기술 전문가</span>
+              <img src="/assets/personas/agent-architect.svg" alt="에이전트 아키텍트" class="article-card__avatar">
+              <span>에이전트 아키텍트</span>
             </div>
             <span class="article-card__reading-time">46 min</span>
           </div>
@@ -1391,7 +1382,7 @@ async def handle_a2a_request(self, request: A2ARequest) -&amp;gt; A2AResponse:
       <div class="footer-grid">
         <div class="footer-brand">
           <span class="site-logo">
-            <span class="site-logo__text">AI &amp; Development Journal</span>
+            <span class="site-logo__text">AI 기술 자료 저널</span>
           </span>
           <p>AI 도구와 개발 기술의 실전 경험과 인사이트를 공유하는 기술 블로그</p>
         </div>
@@ -1412,7 +1403,7 @@ async def handle_a2a_request(self, request: A2ARequest) -&amp;gt; A2AResponse:
         </div>
       </div>
       <div class="footer-bottom">
-        <p>&copy; 2026 AI &amp; Development Journal. All rights reserved.</p>
+        <p>&copy; 2026 AI 기술 자료 저널. All rights reserved.</p>
       </div>
     </div>
   </footer>
