@@ -338,18 +338,52 @@ Access at `http://localhost:3000/admin/` to:
 
 ## 📦 Build Process
 
-The build script (`site/src/build.js`) performs:
+The build script (`site/src/build.js`) performs a comprehensive transformation pipeline:
 
-1. Scans `/content/` for markdown files
-2. Parses YAML frontmatter
-3. Converts Markdown → HTML via marked.js
-4. Generates:
-   - Homepage
-   - Article pages
-   - Category pages
-   - Journalist pages
-   - RSS feed
-   - Sitemap
+### Content Sources
+1. **Obsidian Vault** (READ-ONLY): Syncs from `/Users/.../Obsidian Vault/R - Resources/AI 및 개발`
+2. **Local Content**: Scans `/content/` for markdown files
+
+### Transformation Pipeline
+
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  Obsidian Sync  │     │  Preprocessors  │     │  Postprocessors │
+│  (READ-ONLY)    │ ──▶ │  Transform MD   │ ──▶ │  Optimize HTML  │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+```
+
+### Utility Modules (`site/src/utils/`)
+| Module | Function |
+|--------|----------|
+| `frontmatter-transformer` | Obsidian YAML → Blog YAML format |
+| `category-mapper` | Folder path → Category mapping (8 categories) |
+| `slug-generator` | Korean title → URL-safe slug |
+| `reading-time` | Mixed content reading time (500자/분, 200 words/min) |
+| `obsidian-sync` | READ-ONLY vault scanning |
+
+### Preprocessors (`site/src/preprocessors/`)
+| Preprocessor | Function |
+|--------------|----------|
+| `obsidian-links` | `[[wiki links]]` → HTML anchors |
+| `callouts` | Note/Tip/Warning → styled blocks |
+| `code-blocks` | Enhanced code with language badge + copy button |
+| `toc-generator` | Auto TOC for articles with 3+ headings |
+
+### Postprocessors (`site/src/postprocessors/`)
+| Postprocessor | Function |
+|---------------|----------|
+| `performance` | content-visibility, lazy loading |
+| `image-optimizer` | fetchpriority, alt text generation |
+
+### Build Output
+- Homepage
+- Article pages (with TOC, callouts, code blocks)
+- Category pages
+- Journalist pages
+- Tag pages
+- RSS feed
+- Sitemap
 
 ## 🚢 Deployment
 

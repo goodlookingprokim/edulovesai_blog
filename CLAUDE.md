@@ -31,32 +31,41 @@ A complete AI-powered journal platform for cosmetics innovation, connecting Obsi
 ```
 MY-BLOG_OBSI/
 ├── content/                    # Markdown content
-│   ├── development/            # AI cosmetics R&D
-│   ├── products/               # Product reviews
-│   ├── ingredients/            # Ingredient science
-│   ├── trends/                 # Industry trends
-│   ├── tips/                   # Beauty tips
+│   ├── ai-tools/               # AI tools & analysis
+│   ├── claude-code/            # Claude Code guides
+│   ├── mcp-servers/            # MCP server guides
+│   ├── development-guides/     # Development tutorials
+│   ├── obsidian-integration/   # Obsidian AI workflows
+│   ├── tutorials/              # Step-by-step tutorials
 │   └── _assets/                # Images & media
 ├── site/
-│   ├── public/                 # Static assets
+│   ├── public/                 # Static assets (CSS, JS)
 │   ├── src/
-│   │   ├── components/         # HTML components
-│   │   ├── styles/             # CSS files
-│   │   ├── utils/              # JS utilities
-│   │   └── pages/              # Page templates
+│   │   ├── utils/              # Utility modules
+│   │   │   ├── frontmatter-transformer.js
+│   │   │   ├── category-mapper.js
+│   │   │   ├── slug-generator.js
+│   │   │   ├── reading-time.js
+│   │   │   └── obsidian-sync.js
+│   │   ├── preprocessors/      # Content preprocessors
+│   │   │   ├── obsidian-links.js
+│   │   │   ├── callouts.js
+│   │   │   ├── code-blocks.js
+│   │   │   └── toc-generator.js
+│   │   ├── postprocessors/     # HTML postprocessors
+│   │   │   ├── performance.js
+│   │   │   └── image-optimizer.js
+│   │   ├── pages/              # HTML templates
+│   │   ├── build.js            # Main build script
+│   │   └── dev-server.js       # Development server
 │   ├── admin/                  # Admin dashboard
 │   └── build/                  # Generated output
-├── obsidian/
-│   ├── .obsidian/              # Obsidian config
-│   │   ├── plugins/
-│   │   ├── templates/
-│   │   └── snippets/
-│   ├── skills/                 # Claude Code skills
-│   └── commands/               # Custom commands
+├── .obsidian/                  # Obsidian config
+├── .claude/skills/             # Claude Code skills
 └── docs/
-    ├── CLAUDE.md               # This file
+    ├── PERSONAS.md             # Journalist personas
     ├── YAML_SCHEMA.md          # Frontmatter spec
-    └── PERSONAS.md             # Journalist personas
+    └── WORKFLOW.md             # Content workflow
 ```
 
 ## Development Guidelines
@@ -144,16 +153,39 @@ npm run dev
 npm run build
 ```
 
+### Build Pipeline
+
+The build system (`site/src/build.js`) processes content through a comprehensive pipeline:
+
+```
+┌─────────────────┐     ┌─────────────────┐     ┌─────────────────┐
+│  Content Sync   │     │  Preprocessors  │     │  Postprocessors │
+│  (Obsidian +    │ ──▶ │  (Transform MD) │ ──▶ │  (Optimize HTML)│
+│   Local)        │     │                 │     │                 │
+└─────────────────┘     └─────────────────┘     └─────────────────┘
+```
+
 ### Build Steps
 
-1. Scan `/content/` folders for `.md` files
-2. Parse YAML frontmatter
-3. Convert Markdown to HTML
-4. Apply page templates
-5. Optimize images
-6. Generate RSS feed (`/feed.xml`)
-7. Generate sitemap (`/sitemap.xml`)
-8. Output to `/site/build/`
+1. **Obsidian Sync** - Scan Obsidian vault (READ-ONLY)
+2. **Local Scan** - Scan `/content/` folders for `.md` files
+3. **Frontmatter Transform** - Convert Obsidian YAML → Blog format
+4. **Category Mapping** - Map folder paths to categories
+5. **Preprocessing**:
+   - Convert `[[wiki links]]` to HTML anchors
+   - Transform callouts (NOTE, TIP, WARNING, etc.)
+   - Enhance code blocks with language badge + copy button
+   - Generate TOC for articles with 3+ headings
+6. **Markdown → HTML** - Convert via marked.js
+7. **Postprocessing**:
+   - Add lazy loading to images
+   - Add fetchpriority to above-fold images
+   - Generate alt text
+8. **Generate Output**:
+   - Homepage, Article pages, Category pages
+   - Tag pages, Journalist pages
+   - RSS feed, Sitemap
+9. **Output to `/site/build/`**
 
 ### Environment Variables
 
