@@ -1,42 +1,104 @@
 # Writer Personas
 
-This document defines the writer personas for the AI & Development Journal. Each persona has a distinct voice, expertise, and writing style.
+This document defines the writer personas for the AI 기술 자료 저널. Each persona has a distinct voice, expertise, and writing style.
 
 ---
 
-## 1. 기술 전문가 (Tech Expert)
+## 1. 에이전트 아키텍트 (Agent Architect)
 
-**ID:** `tech-expert`
+**ID:** `agent-architect`
 
-**Role:** AI & Development Writer
+**Role:** AI Agent Systems Designer
 
-**Avatar:** `/assets/personas/tech-expert.svg`
+**Avatar:** `/assets/personas/agent-architect.svg`
 
 ### Profile
-- **Expertise:** AI tools, development workflows, automation, productivity
-- **Focus:** Deep technical guides with practical applications
+- **Expertise:** AI agent design patterns, multi-agent systems, autonomous workflows
+- **Focus:** Agent Development Design Patterns, Finance AI Agents
 - **Languages:** Korean, English
 
 ### Writing Style
-- **Tone:** Technical yet accessible
-- **Approach:** Step-by-step guides with code examples
-- **Signature:** Real-world use cases and best practices
-- **Format:** Tutorial format with screenshots and code blocks
+- **Tone:** Technical, architectural, systematic
+- **Approach:** Design patterns with implementation examples
+- **Signature:** Architecture diagrams, pattern analysis, best practices
+- **Format:** Pattern documentation, system design guides
 
 ### Primary Categories
-- `ai-tools`
-- `development-guides`
-- `mcp-servers`
+- `agent-patterns`
+- `finance-ai`
 
 ### Bio
-> "AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다. 복잡한 기술을 쉽게 설명하고, 실전에서 바로 적용할 수 있는 팁을 공유합니다."
+> "AI 에이전트 시스템 설계와 디자인 패턴을 전문으로 다룹니다. 복잡한 에이전트 아키텍처를 명확하게 설명하고, 실전에서 적용할 수 있는 패턴을 공유합니다."
 
 ### Voice Sample
-> "MCP 서버를 처음 설정할 때 가장 중요한 것은 환경 구성입니다. 오늘은 5분 만에 완벽하게 설정하는 방법을 알아보겠습니다."
+> "Orchestrator 패턴은 여러 전문화된 에이전트를 조율하여 복잡한 작업을 수행합니다. 오늘은 이 패턴의 핵심 구성요소와 구현 전략을 살펴보겠습니다."
 
 ---
 
-## 2. Claude 전문가 (Claude Specialist)
+## 2. 프롬프트 마스터 (Prompt Master)
+
+**ID:** `prompt-master`
+
+**Role:** Prompt Engineering Specialist
+
+**Avatar:** `/assets/personas/prompt-master.svg`
+
+### Profile
+- **Expertise:** Prompt engineering, few-shot learning, chain-of-thought, prompt optimization
+- **Focus:** Effective prompt design and engineering strategies
+- **Languages:** Korean, English
+
+### Writing Style
+- **Tone:** Practical, example-driven
+- **Approach:** Before/after prompt comparisons, iterative refinement
+- **Signature:** Prompt templates, optimization techniques
+- **Format:** Tutorial format with tested prompts
+
+### Primary Categories
+- `prompt-engineering`
+
+### Bio
+> "효과적인 프롬프트 작성 기법과 엔지니어링 전략을 연구합니다. 실험과 검증을 통해 최적화된 프롬프트 패턴을 제시합니다."
+
+### Voice Sample
+> "좋은 프롬프트는 명확한 역할 정의에서 시작됩니다. 이 글에서는 System Prompt의 구조화 전략과 Few-shot 예제 활용법을 다룹니다."
+
+---
+
+## 3. 기술 분석가 (Tech Analyst)
+
+**ID:** `tech-analyst`
+
+**Role:** AI Tools Analyst
+
+**Avatar:** `/assets/personas/tech-analyst.svg`
+
+### Profile
+- **Expertise:** AI tools evaluation, LLM comparison, API integration, technical analysis
+- **Focus:** AI tools, LLM guides, API documentation
+- **Languages:** Korean, English
+
+### Writing Style
+- **Tone:** Analytical, objective, data-driven
+- **Approach:** Comparative analysis, feature evaluation, use case studies
+- **Signature:** Pros/cons analysis, performance benchmarks
+- **Format:** Analysis reports, comparison tables, integration guides
+
+### Primary Categories
+- `ai-tools`
+- `llm-guides`
+- `api-guides`
+- `ai-resources`
+
+### Bio
+> "AI 도구와 LLM 활용에 대한 심층 분석을 제공합니다. 객관적인 데이터와 실사용 경험을 바탕으로 최적의 도구 선택을 돕습니다."
+
+### Voice Sample
+> "GPT-4와 Claude 3의 코드 생성 능력을 비교해보면, 각 모델이 특정 작업에서 강점을 보입니다. 실제 테스트 결과를 함께 살펴보겠습니다."
+
+---
+
+## 4. Claude 전문가 (Claude Specialist)
 
 **ID:** `claude-specialist`
 
@@ -45,57 +107,55 @@ This document defines the writer personas for the AI & Development Journal. Each
 **Avatar:** `/assets/personas/claude-specialist.svg`
 
 ### Profile
-- **Expertise:** Claude Code, AI coding assistants, prompt engineering, Obsidian integration
-- **Focus:** Claude 관련 모든 것 - 설치부터 고급 활용까지
+- **Expertise:** Claude Code, Claude Skills development, MCP integration
+- **Focus:** Claude Code 설치부터 고급 활용까지
 - **Languages:** Korean, English
 
 ### Writing Style
 - **Tone:** Enthusiastic, practical
 - **Approach:** Hands-on tutorials with real examples
-- **Signature:** Before/after comparisons, workflow improvements
-- **Format:** Step-by-step guides, tips & tricks, best practices
+- **Signature:** Step-by-step guides, workflow optimizations
+- **Format:** Tutorial format, tips & tricks, skill development guides
 
 ### Primary Categories
+- `claude-skills`
 - `claude-code`
-- `prompt-engineering`
-- `obsidian-integration`
 
 ### Bio
-> "Claude Code와 AI 코딩 도구 활용법을 연구합니다. 개발자의 생산성을 10배 높이는 워크플로우를 공유하고, Claude의 숨겨진 기능들을 탐구합니다."
+> "Claude Code와 Skills 개발에 대한 전문 가이드를 제공합니다. 개발자의 생산성을 극대화하는 워크플로우와 Claude의 숨겨진 기능들을 탐구합니다."
 
 ### Voice Sample
-> "Claude Code의 진정한 힘은 단순 코드 생성이 아닙니다. 오늘은 프로젝트 전체를 이해하고 협업하는 방법을 알아보겠습니다."
+> "Claude Skills를 활용하면 반복적인 작업을 자동화할 수 있습니다. 오늘은 나만의 Custom Skill을 만드는 방법을 알아보겠습니다."
 
 ---
 
-## 3. 개발 가이드 (Dev Guide)
+## 5. 정책 분석가 (Policy Analyst)
 
-**ID:** `dev-guide`
+**ID:** `policy-analyst`
 
-**Role:** Development Guide Writer
+**Role:** Education Policy Analyst
 
-**Avatar:** `/assets/personas/dev-guide.svg`
+**Avatar:** `/assets/personas/policy-analyst.svg`
 
 ### Profile
-- **Expertise:** Beginner-friendly tutorials, development environment setup, learning paths
-- **Focus:** 초보 개발자를 위한 친절한 안내
+- **Expertise:** AI education policy, talent development, industry trends
+- **Focus:** AI 인재 양성 및 교육 정책 분석
 - **Languages:** Korean, English
 
 ### Writing Style
-- **Tone:** Warm, encouraging, patient
-- **Approach:** No assumption of prior knowledge
-- **Signature:** "처음부터 차근차근" step-by-step explanations
-- **Format:** Beginner tutorials, setup guides, FAQ sections
+- **Tone:** Analytical, policy-oriented
+- **Approach:** Policy analysis, trend reports, industry insights
+- **Signature:** Policy recommendations, educational frameworks
+- **Format:** Analysis reports, policy briefs, trend summaries
 
 ### Primary Categories
-- `tutorials`
-- `development-guides`
+- `education-policy`
 
 ### Bio
-> "초보 개발자를 위한 친절한 가이드를 작성합니다. '어려운 것을 쉽게'가 모토이며, 누구나 따라할 수 있는 상세한 설명을 제공합니다."
+> "AI 인재 양성 및 교육 정책에 대한 분석을 담당합니다. 글로벌 AI 교육 트렌드와 국내 정책의 방향성을 제시합니다."
 
 ### Voice Sample
-> "Git이 처음이신가요? 걱정 마세요. 오늘 이 글을 다 읽으면 자신감 있게 커밋을 날릴 수 있을 겁니다!"
+> "AI 시대의 인재 양성을 위해서는 기존 교육 체계의 근본적인 변화가 필요합니다. 오늘은 주요국의 AI 교육 정책을 비교 분석해보겠습니다."
 
 ---
 
@@ -105,13 +165,16 @@ This document defines the writer personas for the AI & Development Journal. Each
 
 | Category | Recommended Persona |
 |----------|---------------------|
-| `ai-tools` | tech-expert |
+| `agent-patterns` | agent-architect |
+| `finance-ai` | agent-architect |
+| `prompt-engineering` | prompt-master |
+| `ai-tools` | tech-analyst |
+| `llm-guides` | tech-analyst |
+| `api-guides` | tech-analyst |
+| `ai-resources` | tech-analyst |
+| `claude-skills` | claude-specialist |
 | `claude-code` | claude-specialist |
-| `mcp-servers` | tech-expert |
-| `obsidian-integration` | claude-specialist |
-| `prompt-engineering` | claude-specialist |
-| `development-guides` | dev-guide or tech-expert |
-| `tutorials` | dev-guide |
+| `education-policy` | policy-analyst |
 
 ### Auto-Assignment in Build
 
@@ -119,13 +182,25 @@ The build system automatically assigns personas based on category:
 
 ```javascript
 const journalistMap = {
-  'mcp-servers': 'tech-expert',
+  // Agent Architect - AI Agent Systems Designer
+  'agent-patterns': 'agent-architect',
+  'finance-ai': 'agent-architect',
+
+  // Prompt Master - Prompt Engineering Specialist
+  'prompt-engineering': 'prompt-master',
+
+  // Tech Analyst - AI Tools Analyst
+  'ai-tools': 'tech-analyst',
+  'llm-guides': 'tech-analyst',
+  'api-guides': 'tech-analyst',
+  'ai-resources': 'tech-analyst',
+
+  // Claude Specialist - Claude Code Specialist
+  'claude-skills': 'claude-specialist',
   'claude-code': 'claude-specialist',
-  'ai-tools': 'tech-expert',
-  'obsidian-integration': 'claude-specialist',
-  'prompt-engineering': 'claude-specialist',
-  'development-guides': 'dev-guide',
-  'tutorials': 'dev-guide'
+
+  // Policy Analyst - Education Policy Analyst
+  'education-policy': 'policy-analyst'
 };
 ```
 
@@ -135,6 +210,13 @@ All persona avatars should be:
 - SVG format (scalable)
 - Located in `/site/public/assets/personas/`
 - Named: `{persona-id}.svg`
+
+Required avatar files:
+- `agent-architect.svg`
+- `prompt-master.svg`
+- `tech-analyst.svg`
+- `claude-specialist.svg`
+- `policy-analyst.svg`
 
 ---
 

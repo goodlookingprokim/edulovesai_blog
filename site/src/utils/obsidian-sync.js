@@ -9,7 +9,7 @@ const path = require('path');
 const matter = require('gray-matter');
 
 // Obsidian source directory (READ-ONLY)
-const OBSIDIAN_SOURCE = '/Users/jmacpro/Documents/Obsidian Vault/R - Resources/AI 및 개발';
+const OBSIDIAN_SOURCE = '/Users/jmacpro/Documents/Obsidian Vault/R - Resources/AI 및 개발/AI 기술 자료';
 
 /**
  * Scan Obsidian vault for markdown files

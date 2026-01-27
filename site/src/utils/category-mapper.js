@@ -3,89 +3,98 @@
  * Maps Obsidian folder paths to blog categories
  */
 
-// Folder path to category mapping
+// Folder path to category mapping (AI 기술 자료 subfolder structure)
 const FOLDER_CATEGORY_MAP = {
-  // MCP related
-  'MCP 시스템': 'mcp-servers',
-  'MCP 활용': 'mcp-servers',
-  'MCP': 'mcp-servers',
-
-  // Claude Code
-  'Claude Code': 'claude-code',
-  'Claude': 'claude-code',
-
-  // AI Tools
-  'AI 기술 자료': 'ai-tools',
-  'AI 도구 분석': 'ai-tools',
-  'AI 도구': 'ai-tools',
-  'AI': 'ai-tools',
-
-  // Obsidian Integration
-  'Obsidian AI 통합': 'obsidian-integration',
-  'Obsidian AI 통합 가이드': 'obsidian-integration',
-  'Obsidian': 'obsidian-integration',
+  // Agent Development Design Patterns
+  'Agent Development Design Patterns': 'agent-patterns',
+  'Agent Patterns': 'agent-patterns',
 
   // Prompt Engineering
   '프롬프트 엔지니어링': 'prompt-engineering',
   '프롬프트': 'prompt-engineering',
 
-  // Development Guides
-  '개발 도구 가이드': 'development-guides',
-  '개발 가이드': 'development-guides',
-  '개발 도구': 'development-guides',
+  // AI Tools Analysis
+  'AI 도구 분석': 'ai-tools',
+  'AI 도구': 'ai-tools',
 
-  // Flutter
-  'Flutter': 'flutter',
-  'FlutterDev': 'flutter',
+  // Claude Skills
+  'Claude Skills': 'claude-skills',
 
-  // Windows Development
-  'WinAppDev': 'development-guides',
+  // LLM Usage Guides
+  'LLM 활용 가이드': 'llm-guides',
+  'LLM 가이드': 'llm-guides',
 
-  // Default
-  'tutorials': 'tutorials'
+  // Education & Training Policy
+  '인재 양성 및 교육 정책': 'education-policy',
+  '교육 정책': 'education-policy',
+
+  // Claude Code Usage
+  'Claude Code 활용': 'claude-code',
+  'Claude Code': 'claude-code',
+
+  // Finance AI Agent
+  '금융 AI Agent': 'finance-ai',
+  '금융 AI': 'finance-ai',
+
+  // API Guides
+  'API Guide': 'api-guides',
+  'API 가이드': 'api-guides',
+
+  // Root-level files (default)
+  'AI 기술 자료': 'ai-resources'
 };
 
-// Category metadata
+// Category metadata (10 categories for AI 기술 자료)
 const CATEGORY_META = {
-  'mcp-servers': {
-    name: 'MCP 서버',
-    description: 'Model Context Protocol 서버 설치 및 활용',
-    color: '#10b981'
+  'agent-patterns': {
+    name: 'Agent 패턴',
+    description: 'AI 에이전트 개발 디자인 패턴 및 아키텍처',
+    color: '#6366f1'
   },
-  'claude-code': {
-    name: 'Claude Code',
-    description: 'Claude Code 가이드 및 팁',
-    color: '#ff6b35'
+  'prompt-engineering': {
+    name: '프롬프트 엔지니어링',
+    description: '효과적인 프롬프트 작성법과 기법',
+    color: '#ec4899'
   },
   'ai-tools': {
     name: 'AI 도구',
     description: 'AI 도구 분석 및 활용법',
-    color: '#6366f1'
+    color: '#10b981'
   },
-  'obsidian-integration': {
-    name: 'Obsidian 통합',
-    description: 'Obsidian AI 워크플로우',
+  'claude-skills': {
+    name: 'Claude Skills',
+    description: 'Claude Code Skills 개발 및 활용',
     color: '#8b5cf6'
   },
-  'prompt-engineering': {
-    name: '프롬프트 엔지니어링',
-    description: '효과적인 프롬프트 작성법',
-    color: '#ec4899'
-  },
-  'development-guides': {
-    name: '개발 가이드',
-    description: '개발 도구 및 환경 설정',
+  'llm-guides': {
+    name: 'LLM 가이드',
+    description: 'LLM 활용 가이드 및 모범 사례',
     color: '#f59e0b'
   },
-  'flutter': {
-    name: 'Flutter',
-    description: 'Flutter 앱 개발 가이드',
-    color: '#02569B'
-  },
-  'tutorials': {
-    name: '튜토리얼',
-    description: '단계별 실습 가이드',
+  'education-policy': {
+    name: '교육 정책',
+    description: 'AI 인재 양성 및 교육 정책',
     color: '#14b8a6'
+  },
+  'claude-code': {
+    name: 'Claude Code',
+    description: 'Claude Code 활용 가이드',
+    color: '#ff6b35'
+  },
+  'finance-ai': {
+    name: '금융 AI',
+    description: '금융 분야 AI 에이전트',
+    color: '#ef4444'
+  },
+  'api-guides': {
+    name: 'API 가이드',
+    description: 'API 개발 및 통합 가이드',
+    color: '#3b82f6'
+  },
+  'ai-resources': {
+    name: 'AI 자료',
+    description: 'AI 기술 일반 자료',
+    color: '#a855f7'
   }
 };
 
@@ -95,7 +104,7 @@ const CATEGORY_META = {
  * @returns {string} Category slug
  */
 function mapFromPath(folderPath) {
-  if (!folderPath) return 'tutorials';
+  if (!folderPath) return 'ai-resources';
 
   // Normalize path
   const normalizedPath = folderPath.replace(/\\/g, '/');
@@ -118,7 +127,7 @@ function mapFromPath(folderPath) {
     }
   }
 
-  return 'tutorials';
+  return 'ai-resources';
 }
 
 /**
@@ -127,7 +136,7 @@ function mapFromPath(folderPath) {
  * @returns {object} Category metadata
  */
 function getMeta(categorySlug) {
-  return CATEGORY_META[categorySlug] || CATEGORY_META['tutorials'];
+  return CATEGORY_META[categorySlug] || CATEGORY_META['ai-resources'];
 }
 
 /**

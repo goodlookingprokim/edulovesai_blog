@@ -83,7 +83,7 @@ function mapStatus(status) {
     'draft': 'draft',
     'archived': 'archived'
   };
-  return statusMap[status] || 'draft';
+  return statusMap[status] || 'published';
 }
 
 /**
@@ -144,20 +144,31 @@ function generateExcerpt(content) {
 }
 
 /**
- * Assign journalist based on category
+ * Assign journalist based on category (5 personas for AI 기술 자료)
  */
 function assignJournalist(category) {
   const journalistMap = {
-    'mcp-servers': 'tech-expert',
+    // Agent Architect - AI Agent Systems Designer
+    'agent-patterns': 'agent-architect',
+    'finance-ai': 'agent-architect',
+
+    // Prompt Master - Prompt Engineering Specialist
+    'prompt-engineering': 'prompt-master',
+
+    // Tech Analyst - AI Tools Analyst
+    'ai-tools': 'tech-analyst',
+    'llm-guides': 'tech-analyst',
+    'api-guides': 'tech-analyst',
+    'ai-resources': 'tech-analyst',
+
+    // Claude Specialist - Claude Code Specialist
+    'claude-skills': 'claude-specialist',
     'claude-code': 'claude-specialist',
-    'ai-tools': 'tech-expert',
-    'obsidian-integration': 'claude-specialist',
-    'prompt-engineering': 'claude-specialist',
-    'development-guides': 'dev-guide',
-    'tutorials': 'dev-guide',
-    'flutter': 'dev-guide'
+
+    // Policy Analyst - Education Policy Analyst
+    'education-policy': 'policy-analyst'
   };
-  return journalistMap[category] || 'tech-expert';
+  return journalistMap[category] || 'tech-analyst';
 }
 
 /**

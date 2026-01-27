@@ -55,7 +55,7 @@ const CONFIG = {
   publicDir: path.join(__dirname, '../public'),
   obsidianDir: obsidianSync.OBSIDIAN_SOURCE,
   siteUrl: process.env.SITE_URL || 'https://passeth.github.io/MY-BLOG_OBSI',
-  siteName: 'AI & Development Journal',
+  siteName: 'AI 기술 자료 저널',
   categories: [],
   enableObsidianSync: true // Toggle Obsidian integration
 };
@@ -76,25 +76,37 @@ function scanCategories() {
 // Initialize categories from folder scan
 CONFIG.categories = scanCategories();
 
-// Persona data
+// Persona data (5 personas for AI 기술 자료)
 const PERSONAS = {
-  'tech-expert': {
-    name: '기술 전문가',
-    role: 'AI & Development Writer',
-    avatar: '/assets/personas/tech-expert.svg',
-    bio: 'AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다.'
+  'agent-architect': {
+    name: '에이전트 아키텍트',
+    role: 'AI Agent Systems Designer',
+    avatar: '/assets/personas/agent-architect.svg',
+    bio: 'AI 에이전트 시스템 설계와 디자인 패턴을 전문으로 다룹니다.'
+  },
+  'prompt-master': {
+    name: '프롬프트 마스터',
+    role: 'Prompt Engineering Specialist',
+    avatar: '/assets/personas/prompt-master.svg',
+    bio: '효과적인 프롬프트 작성 기법과 엔지니어링 전략을 연구합니다.'
+  },
+  'tech-analyst': {
+    name: '기술 분석가',
+    role: 'AI Tools Analyst',
+    avatar: '/assets/personas/tech-analyst.svg',
+    bio: 'AI 도구와 LLM 활용에 대한 심층 분석을 제공합니다.'
   },
   'claude-specialist': {
     name: 'Claude 전문가',
     role: 'Claude Code Specialist',
     avatar: '/assets/personas/claude-specialist.svg',
-    bio: 'Claude Code와 AI 코딩 도구 활용법을 연구합니다.'
+    bio: 'Claude Code와 Skills 개발에 대한 전문 가이드를 제공합니다.'
   },
-  'dev-guide': {
-    name: '개발 가이드',
-    role: 'Development Guide Writer',
-    avatar: '/assets/personas/dev-guide.svg',
-    bio: '초보 개발자를 위한 친절한 가이드를 작성합니다.'
+  'policy-analyst': {
+    name: '정책 분석가',
+    role: 'Education Policy Analyst',
+    avatar: '/assets/personas/policy-analyst.svg',
+    bio: 'AI 인재 양성 및 교육 정책에 대한 분석을 담당합니다.'
   }
 };
 
