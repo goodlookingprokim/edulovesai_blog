@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg-finance" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg-finance)"/>
+  <g fill="white" fill-opacity="0.15">
+    <polyline points="100,350 200,280 300,320 400,200 500,250 600,150 700,180" stroke="white" stroke-width="4" fill="none" stroke-opacity="0.3"/>
+    <circle cx="200" cy="280" r="10"/>
+    <circle cx="400" cy="200" r="10"/>
+    <circle cx="600" cy="150" r="10"/>
+    <rect x="150" y="100" width="80" height="100" rx="5"/>
+    <rect x="550" y="80" width="80" height="120" rx="5"/>
+  </g>
+  <text x="400" y="200" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">Finance AI</text>
+  <text x="400" y="260" font-family="system-ui, sans-serif" font-size="24" fill="white" fill-opacity="0.8" text-anchor="middle">금융 분야 AI 에이전트</text>
+</svg>

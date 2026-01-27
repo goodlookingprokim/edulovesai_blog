@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg-api" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2563eb;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg-api)"/>
+  <g fill="white" fill-opacity="0.15">
+    <rect x="100" y="150" width="150" height="150" rx="15"/>
+    <rect x="550" y="150" width="150" height="150" rx="15"/>
+    <path d="M250 225 L350 225 L350 180 L450 225 L350 270 L350 225" stroke="white" stroke-width="4" fill="none" stroke-opacity="0.3"/>
+    <path d="M450 225 L550 225" stroke="white" stroke-width="4" stroke-dasharray="10,5" stroke-opacity="0.3"/>
+  </g>
+  <text x="400" y="200" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">API Guides</text>
+  <text x="400" y="260" font-family="system-ui, sans-serif" font-size="24" fill="white" fill-opacity="0.8" text-anchor="middle">API 개발 및 통합 가이드</text>
+</svg>

@@ -1,10 +1,17 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 300' width='400' height='300'>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
   <defs>
-    <linearGradient id='grad' x1='0%' y1='0%' x2='100%' y2='100%'>
-      <stop offset='0%' style='stop-color:#6366f1'/>
-      <stop offset='100%' style='stop-color:#8b5cf6'/>
+    <linearGradient id="bg-claude" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b35;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e85d26;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width='400' height='300' fill='url(#grad)'/>
-  <text x='200' y='160' font-family='sans-serif' font-size='24' fill='white' text-anchor='middle'>claude-code</text>
+  <rect width="800" height="450" fill="url(#bg-claude)"/>
+  <g fill="white" fill-opacity="0.1">
+    <rect x="100" y="80" width="600" height="300" rx="15"/>
+    <text x="130" y="140" font-family="monospace" font-size="20" fill="white" fill-opacity="0.3">$ claude</text>
+    <rect x="130" y="210" width="300" height="8" rx="4"/>
+    <rect x="130" y="240" width="200" height="8" rx="4"/>
+  </g>
+  <text x="400" y="200" font-family="system-ui, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">Claude Code</text>
+  <text x="400" y="260" font-family="system-ui, sans-serif" font-size="24" fill="white" fill-opacity="0.8" text-anchor="middle">Claude Code 활용 가이드</text>
 </svg>
