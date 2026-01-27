@@ -248,21 +248,21 @@
 </nav>
 
             <h1>Chapter 16: Resource-Aware Optimization</h1>
-<h2 id="개요">개요 {#개요}</h2>
+<h2 id="개요">개요</h2>
 <p>Resource-Aware Optimization enables intelligent agents to dynamically monitor and manage computational, temporal, and financial resources during operation. This differs from simple planning, which primarily focuses on action sequencing. Resource-Aware Optimization requires agents to make decisions about action execution to achieve goals within specified resource budgets or to optimize efficiency.</p>
 <p>This involves choosing between more accurate but costly models versus faster and cheaper ones, or deciding whether to allocate additional computation for more refined responses versus returning faster but less detailed answers.</p>
 <p>For example, consider an agent tasked with analyzing a large dataset for a financial analyst. If the analyst needs a preliminary report immediately, the agent might use a faster, cheaper model to quickly summarize key trends. However, if the analyst requires highly accurate predictions for critical investment decisions and has a larger budget and more time, the agent will allocate more resources to leverage a powerful, slower, but more accurate predictive model. A key strategy in this category is fallback mechanisms, which act as safety nets when preferred models are overloaded or limited and unavailable. To ensure graceful degradation, the system automatically switches to default or cheaper models, maintaining service continuity rather than failing completely.</p>
 <p>Resource-Aware Optimization는 지능형 에이전트가 작동 중에 계산, 시간 및 재정적 리소스를 동적으로 모니터링하고 관리할 수 있게 합니다. 이것은 주로 행동 순서에 초점을 맞추는 단순한 계획과 다릅니다. Resource-Aware Optimization는 에이전트가 지정된 리소스 예산 내에서 목표를 달성하거나 효율성을 최적화하기 위해 행동 실행에 대한 결정을 내리도록 요구합니다.</p>
 <p>이것은 더 정확하지만 비용이 많이 드는 모델과 더 빠르고 저렴한 모델 사이에서 선택하거나, 더 정제된 응답을 위해 추가 계산을 할당할지, 아니면 더 빠르지만 덜 상세한 답변을 반환할지 결정하는 것을 포함합니다.</p>
 <p>예를 들어, 금융 분석가를 위해 대규모 데이터셋을 분석하는 작업을 맡은 에이전트를 고려해보세요. 분석가가 즉시 예비 보고서가 필요한 경우, 에이전트는 주요 트렌드를 빠르게 요약하기 위해 더 빠르고 저렴한 모델을 사용할 수 있습니다. 그러나 분석가가 중요한 투자 결정을 위해 매우 정확한 예측이 필요하고 더 큰 예산과 더 많은 시간이 있는 경우, 에이전트는 강력하고 느리지만 더 정확한 예측 모델을 활용하기 위해 더 많은 리소스를 할당할 것입니다. 이 범주에서 핵심 전략은 폴백 메커니즘으로, 선호하는 모델이 과부하되거나 제한되어 사용할 수 없을 때 안전장치 역할을 합니다. 우아한 성능 저하를 보장하기 위해 시스템은 자동으로 기본 또는 더 저렴한 모델로 전환하여 완전히 실패하는 대신 서비스 연속성을 유지합니다.</p>
-<h2 id="패턴-개요-pattern-overview">패턴 개요 (Pattern Overview) {#패턴-개요-pattern-overview}</h2>
+<h2 id="패턴-개요-pattern-overview">패턴 개요 (Pattern Overview)</h2>
 <p>Resource-aware optimization is paramount in developing intelligent agent systems that operate efficiently and effectively within real-world constraints.</p>
 <p>리소스 인식 최적화는 실제 세계 제약 내에서 효율적이고 효과적으로 작동하는 지능형 에이전트 시스템을 개발하는 데 매우 중요합니다.</p>
 <p>Resource-Aware Optimization는 에이전트가 작업의 복잡성, 사용 가능한 리소스, 예산 제약에 따라 동적으로 모델과 도구를 선택할 수 있게 합니다.</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284845-814" onclick="copyCode('code-1769482284845-814')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253332-814" onclick="copyCode('code-1769484253332-814')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -270,7 +270,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284845-814" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253332-814" class="language-mermaid">graph TD
     A[User Query&lt;br/&gt;사용자 쿼리] --&gt; B[Router Agent&lt;br/&gt;라우터 에이전트]
     B --&gt; C{Query Complexity&lt;br/&gt;쿼리 복잡성}
     C --&gt;|Simple&lt;br/&gt;단순| D[Fast Model&lt;br/&gt;빠른 모델&lt;br/&gt;Gemini Flash]
@@ -281,23 +281,22 @@
     G --&gt; H[Feedback&lt;br/&gt;피드백]
     H --&gt; B
     
-<pre><code>style A fill:#ff9999
-style F fill:#99ff99
-style B fill:#ffcc99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style F fill:#99ff99
+    style B fill:#ffcc99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">14 lines</span>
   </div>
 </div>
 
-<h3 id="핵심-전략">핵심 전략 {#핵심-전략}</h3>
+<h3 id="핵심-전략">핵심 전략</h3>
 <ol>
 <li><strong>동적 모델 전환</strong>: 작업의 복잡성과 사용 가능한 리소스에 따라 LLM을 전략적으로 선택</li>
 <li><strong>폴백 메커니즘</strong>: 선호 모델이 사용 불가능할 때 자동으로 대체 모델로 전환</li>
 <li><strong>비용 최적화</strong>: 예산 제약 내에서 적절한 모델 선택</li>
 <li><strong>지연 시간 최적화</strong>: 실시간 시스템에서 빠른 응답을 위한 모델 선택</li>
 </ol>
-<h2 id="실용적-응용-및-사용-사례">실용적 응용 및 사용 사례 {#실용적-응용-및-사용-사례}</h2>
+<h2 id="실용적-응용-및-사용-사례">실용적 응용 및 사용 사례</h2>
 <p>Resource-Aware Optimization enables intelligent agents to dynamically monitor and manage computational, temporal, and financial resources during operation. This involves choosing between more accurate but costly models versus faster and cheaper ones, or deciding whether to allocate additional computation for more refined responses versus returning faster but less detailed answers.</p>
 <p>리소스 인식 최적화는 지능형 에이전트가 작동 중에 계산, 시간 및 재정적 리소스를 동적으로 모니터링하고 관리할 수 있게 합니다. 이것은 더 정확하지만 비용이 많이 드는 모델과 더 빠르고 저렴한 모델 사이에서 선택하거나, 더 정제된 응답을 위해 추가 계산을 할당할지, 아니면 더 빠르지만 덜 상세한 답변을 반환할지 결정하는 것을 포함합니다.</p>
 <ul>
@@ -308,17 +307,17 @@ style B fill:#ffcc99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>데이터 사용 관리</strong>: 대역폭이나 저장 공간을 절약하기 위해 전체 데이터셋 다운로드 대신 요약된 데이터 검색 선택</li>
 <li><strong>적응형 작업 할당</strong>: 다중 에이전트 시스템에서 에이전트가 현재 계산 부하나 사용 가능한 시간을 기반으로 작업을 자체 할당</li>
 </ul>
-<h2 id="실습-코드-예제">실습 코드 예제 {#실습-코드-예제}</h2>
+<h2 id="실습-코드-예제">실습 코드 예제</h2>
 <p>사용자 질문에 답변하는 지능형 시스템은 각 질문의 난이도를 평가할 수 있습니다. 간단한 쿼리의 경우 Gemini Flash와 같은 비용 효율적인 언어 모델을 활용합니다. 복잡한 문의의 경우 더 강력하지만 비용이 많이 드는 언어 모델(예: Gemini Pro)을 고려합니다. 더 강력한 모델을 사용할지에 대한 결정은 리소스 가용성, 특히 예산 및 시간 제약에 따라 달라집니다. 이 시스템은 적절한 모델을 동적으로 선택합니다.</p>
 <p>예를 들어, 계층적 에이전트로 구축된 여행 계획자를 고려해보세요. 사용자의 복잡한 요청을 이해하고, 이를 다단계 여정으로 분해하며, 논리적 결정을 내리는 고수준 계획은 Gemini Pro와 같은 정교하고 더 강력한 LLM에 의해 관리됩니다. 이것은 컨텍스트에 대한 깊은 이해와 추론 능력이 필요한 &quot;계획자&quot; 에이전트입니다.</p>
 <p>그러나 계획이 수립되면, 그 계획 내의 개별 작업(예: 항공편 가격 조회, 호텔 가용성 확인, 레스토랑 리뷰 찾기)은 본질적으로 간단하고 반복적인 웹 쿼리입니다. 이러한 &quot;도구 함수 호출&quot;은 Gemini Flash와 같은 더 빠르고 저렴한 모델에 의해 실행될 수 있습니다. 저렴한 모델이 이러한 간단한 웹 검색에 사용될 수 있는 이유를 시각화하는 것이 더 쉽지만, 복잡한 계획 단계는 일관되고 논리적인 여행 계획을 보장하기 위해 더 고급 모델의 더 큰 지능을 필요로 합니다.</p>
 <p>Google의 ADK는 모듈식 및 확장 가능한 애플리케이션을 가능하게 하는 다중 에이전트 아키텍처를 통해 이 접근 방식을 지원합니다. 다양한 에이전트가 특수 작업을 처리할 수 있습니다. 모델 유연성은 Gemini Pro와 Gemini Flash를 모두 포함하여 다양한 Gemini 모델을 직접 사용하거나 LiteLLM을 통해 다른 모델을 통합할 수 있게 합니다. ADK의 오케스트레이션 기능은 적응형 행동을 위한 동적 LLM 기반 라우팅을 지원합니다. 내장된 평가 기능은 에이전트 성능을 체계적으로 평가할 수 있게 하며, 이는 시스템 정제에 사용될 수 있습니다(평가 및 모니터링 챕터 참조).</p>
-<h3 id="adk-에이전트-예제">ADK 에이전트 예제 {#adk-에이전트-예제}</h3>
+<h3 id="adk-에이전트-예제">ADK 에이전트 예제</h3>
 <p>다음은 동일한 설정이지만 다른 모델과 비용을 사용하는 두 에이전트를 정의합니다.</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284845-815" onclick="copyCode('code-1769482284845-815')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253332-815" onclick="copyCode('code-1769484253332-815')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -326,18 +325,19 @@ style B fill:#ffcc99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284845-815" class="language-python"># 개념적 Python 구조, 실행 가능한 코드가 아님
+  <pre class="code-block__content"><code id="code-1769484253332-815" class="language-python"># 개념적 Python 구조, 실행 가능한 코드가 아님
 from google.adk.agents import Agent
 
-<h1>더 비싼 Gemini Pro 2.5를 사용하는 에이전트</h1>
-<p>gemini_pro_agent = Agent(
+# 더 비싼 Gemini Pro 2.5를 사용하는 에이전트
+gemini_pro_agent = Agent(
     name=&quot;GeminiProAgent&quot;,
     model=&quot;gemini-2.5-pro&quot;,  # 실제 모델 이름이 다른 경우를 위한 플레이스홀더
     description=&quot;A highly capable agent for complex queries.&quot;,
     instruction=&quot;You are an expert assistant for complex problem-solving.&quot;
-)</p>
-<h1>덜 비싼 Gemini Flash 2.5를 사용하는 에이전트</h1>
-<p>gemini_flash_agent = Agent(
+)
+
+# 덜 비싼 Gemini Flash 2.5를 사용하는 에이전트
+gemini_flash_agent = Agent(
     name=&quot;GeminiFlashAgent&quot;,
     model=&quot;gemini-2.5-flash&quot;,  # 실제 모델 이름이 다른 경우를 위한 플레이스홀더
     description=&quot;A fast and efficient agent for simple queries.&quot;,
@@ -345,7 +345,7 @@ from google.adk.agents import Agent
 )</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">16 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p>라우터 에이전트는 쿼리 길이와 같은 간단한 메트릭을 기반으로 쿼리를 지시할 수 있으며, 짧은 쿼리는 덜 비싼 모델로, 긴 쿼리는 더 강력한 모델로 보냅니다. 그러나 더 정교한 라우터 에이전트는 LLM 또는 ML 모델을 활용하여 쿼리의 뉘앙스와 복잡성을 분석할 수 있습니다. 이 LLM 라우터는 어떤 다운스트림 언어 모델이 가장 적합한지 결정할 수 있습니다. 예를 들어, 사실 회상을 요청하는 쿼리는 Flash 모델로 라우팅되고, 깊은 분석이 필요한 복잡한 쿼리는 Pro 모델로 라우팅됩니다.</p>
@@ -353,7 +353,7 @@ from google.adk.agents import Agent
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284845-816" onclick="copyCode('code-1769482284845-816')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253332-816" onclick="copyCode('code-1769484253332-816')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -361,42 +361,42 @@ from google.adk.agents import Agent
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284845-816" class="language-python"># 개념적 Python 구조, 실행 가능한 코드가 아님
+  <pre class="code-block__content"><code id="code-1769484253332-816" class="language-python"># 개념적 Python 구조, 실행 가능한 코드가 아님
 from google.adk.agents import Agent, BaseAgent
 from google.adk.events import Event
 from google.adk.agents.invocation_context import InvocationContext
 import asyncio
 
-<p>class QueryRouterAgent(BaseAgent):
+class QueryRouterAgent(BaseAgent):
     name: str = &quot;QueryRouter&quot;
-    description: str = &quot;Routes user queries to the appropriate LLM agent based on complexity.&quot;</p>
-<pre><code>async def _run_async_impl(self, context: InvocationContext) -&amp;gt; AsyncGenerator[Event, None]:
-    user_query = context.current_message.text  # 텍스트 입력 가정
-    query_length = len(user_query.split())  # 간단한 메트릭: 단어 수
+    description: str = &quot;Routes user queries to the appropriate LLM agent based on complexity.&quot;
     
-    if query_length &amp;lt; 20:  # 단순성 vs 복잡성에 대한 예제 임계값
-        print(f&amp;quot;Routing to Gemini Flash Agent for short query (length: {query_length})&amp;quot;)
-        # 실제 ADK 설정에서는 &amp;#39;transfer_to_agent&amp;#39;를 사용하거나 직접 호출
-        # 데모를 위해 호출을 시뮬레이션하고 응답을 생성
-        response = await gemini_flash_agent.run_async(context.current_message)
-        yield Event(author=self.name, content=f&amp;quot;Flash Agent processed: {response}&amp;quot;)
-    else:
-        print(f&amp;quot;Routing to Gemini Pro Agent for long query (length: {query_length})&amp;quot;)
-        response = await gemini_pro_agent.run_async(context.current_message)
-        yield Event(author=self.name, content=f&amp;quot;Pro Agent processed: {response}&amp;quot;)&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    async def _run_async_impl(self, context: InvocationContext) -&gt; AsyncGenerator[Event, None]:
+        user_query = context.current_message.text  # 텍스트 입력 가정
+        query_length = len(user_query.split())  # 간단한 메트릭: 단어 수
+        
+        if query_length &lt; 20:  # 단순성 vs 복잡성에 대한 예제 임계값
+            print(f&quot;Routing to Gemini Flash Agent for short query (length: {query_length})&quot;)
+            # 실제 ADK 설정에서는 &#39;transfer_to_agent&#39;를 사용하거나 직접 호출
+            # 데모를 위해 호출을 시뮬레이션하고 응답을 생성
+            response = await gemini_flash_agent.run_async(context.current_message)
+            yield Event(author=self.name, content=f&quot;Flash Agent processed: {response}&quot;)
+        else:
+            print(f&quot;Routing to Gemini Pro Agent for long query (length: {query_length})&quot;)
+            response = await gemini_pro_agent.run_async(context.current_message)
+            yield Event(author=self.name, content=f&quot;Pro Agent processed: {response}&quot;)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">23 lines</span>
   </div>
 </div>
 
-<h3 id="critique-agent-비판-에이전트">Critique Agent (비판 에이전트) {#critique-agent-비판-에이전트}</h3>
+<h3 id="critique-agent-비판-에이전트">Critique Agent (비판 에이전트)</h3>
 <p>Critique Agent는 언어 모델의 응답을 평가하여 여러 기능을 제공하는 피드백을 제공합니다. 자기 수정을 위해 오류나 불일치를 식별하여 응답 에이전트가 개선된 품질을 위해 출력을 정제하도록 유도합니다. 또한 성능 모니터링을 위해 응답을 체계적으로 평가하며, 최적화에 사용되는 정확성 및 관련성과 같은 메트릭을 추적합니다. 또한 피드백은 강화 학습이나 파인튜닝을 신호할 수 있습니다. 예를 들어, 부적절한 Flash 모델 응답을 일관되게 식별하면 라우터 에이전트의 로직을 정제할 수 있습니다. 비판 에이전트는 예산을 직접 관리하지는 않지만, 간단한 쿼리를 Pro 모델로 보내거나 복잡한 쿼리를 Flash 모델로 보내는 것과 같은 차선의 라우팅 선택을 식별함으로써 간접적인 예산 관리에 기여합니다. 이는 리소스 할당과 비용 절감을 개선하는 조정을 알립니다.</p>
 <p>Critique Agent는 응답 에이전트에서 생성된 텍스트만 검토하도록 구성하거나 원래 쿼리와 생성된 텍스트를 모두 검토하도록 구성할 수 있어 초기 질문에 대한 응답의 정렬을 포괄적으로 평가할 수 있습니다.</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284845-817" onclick="copyCode('code-1769482284845-817')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253332-817" onclick="copyCode('code-1769484253332-817')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -404,25 +404,24 @@ import asyncio
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284845-817" class="language-python">CRITIC_SYSTEM_PROMPT = &quot;&quot;&quot;
+  <pre class="code-block__content"><code id="code-1769484253332-817" class="language-python">CRITIC_SYSTEM_PROMPT = &quot;&quot;&quot;
 You are the **Critic Agent**, serving as the quality assurance arm of
 our collaborative research assistant system. Your primary function is
 to **meticulously review and challenge** information from the
 Researcher Agent, guaranteeing **accuracy, completeness, and unbiased
 presentation**.
 
-<p>Your duties encompass:</p>
-<ul>
-<li><strong>Assessing research findings</strong> for factual correctness,
-thoroughness, and potential leanings.</li>
-<li><strong>Identifying any missing data</strong> or inconsistencies in reasoning.</li>
-<li><strong>Raising critical questions</strong> that could refine or expand the
-current understanding.</li>
-<li><strong>Offering constructive suggestions</strong> for enhancement or exploring
-different angles.</li>
-<li><strong>Validating that the final output is comprehensive</strong> and balanced.</li>
-</ul>
-<p>All criticism must be constructive. Your goal is to fortify the
+Your duties encompass:
+* **Assessing research findings** for factual correctness,
+thoroughness, and potential leanings.
+* **Identifying any missing data** or inconsistencies in reasoning.
+* **Raising critical questions** that could refine or expand the
+current understanding.
+* **Offering constructive suggestions** for enhancement or exploring
+different angles.
+* **Validating that the final output is comprehensive** and balanced.
+
+All criticism must be constructive. Your goal is to fortify the
 research, not invalidate it. Structure your feedback clearly, drawing
 attention to specific points for revision. Your overarching aim is to
 ensure the final research product meets the highest possible quality
@@ -430,11 +429,11 @@ standards.
 &quot;&quot;&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">21 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p>Critic Agent는 역할, 책임 및 피드백 접근 방식을 설명하는 사전 정의된 시스템 프롬프를 기반으로 작동합니다. 이 에이전트를 위한 잘 설계된 프롬프는 평가자로서의 기능을 명확히 설정해야 합니다. 비판적 초점을 위한 영역을 지정하고 단순한 거부가 아닌 건설적인 피드백을 제공하는 것을 강조해야 합니다. 프롬프는 또한 강점과 약점 모두를 식별하도록 장려하고, 에이전트가 피드백을 구조화하고 제시하는 방법을 안내해야 합니다.</p>
-<h3 id="openai를-사용한-실습-코드">OpenAI를 사용한 실습 코드 {#openai를-사용한-실습-코드}</h3>
+<h3 id="openai를-사용한-실습-코드">OpenAI를 사용한 실습 코드</h3>
 <p>이 시스템은 사용자 쿼리를 효율적으로 처리하기 위해 리소스 인식 최적화 전략을 사용합니다. 먼저 각 쿼리를 세 가지 범주 중 하나로 분류하여 가장 적절하고 비용 효율적인 처리 경로를 결정합니다. 이 접근 방식은 간단한 요청에 계산 리소스를 낭비하는 것을 피하면서 복잡한 쿼리가 필요한 관심을 받도록 보장합니다. 세 가지 범주는 다음과 같습니다:</p>
 <ul>
 <li><strong>simple</strong>: 복잡한 추론이나 외부 데이터 없이 직접 답변할 수 있는 간단한 질문</li>
@@ -446,7 +445,7 @@ standards.
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284845-818" onclick="copyCode('code-1769482284845-818')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253332-818" onclick="copyCode('code-1769484253332-818')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -454,7 +453,7 @@ standards.
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284845-818" class="language-python"># MIT License
+  <pre class="code-block__content"><code id="code-1769484253332-818" class="language-python"># MIT License
 # Copyright (c) 2025 Mahtab Syed
 # https://www.linkedin.com/in/mahtabsyed/
 import os
@@ -463,19 +462,23 @@ import json
 from dotenv import load_dotenv
 from openai import OpenAI
 
-<h1>환경 변수 로드</h1>
-<p>load_dotenv()</p>
-<p>OPENAI_API_KEY = os.getenv(&quot;OPENAI_API_KEY&quot;)
+# 환경 변수 로드
+load_dotenv()
+
+OPENAI_API_KEY = os.getenv(&quot;OPENAI_API_KEY&quot;)
 GOOGLE_CUSTOM_SEARCH_API_KEY = os.getenv(&quot;GOOGLE_CUSTOM_SEARCH_API_KEY&quot;)
-GOOGLE_CSE_ID = os.getenv(&quot;GOOGLE_CSE_ID&quot;)</p>
-<p>if not OPENAI_API_KEY or not GOOGLE_CUSTOM_SEARCH_API_KEY or not GOOGLE_CSE_ID:
+GOOGLE_CSE_ID = os.getenv(&quot;GOOGLE_CSE_ID&quot;)
+
+if not OPENAI_API_KEY or not GOOGLE_CUSTOM_SEARCH_API_KEY or not GOOGLE_CSE_ID:
     raise ValueError(
         &quot;Please set OPENAI_API_KEY, GOOGLE_CUSTOM_SEARCH_API_KEY, and &quot;
         &quot;GOOGLE_CSE_ID in your .env file.&quot;
-    )</p>
-<p>client = OpenAI(api_key=OPENAI_API_KEY)</p>
-<h1>--- 1단계: 프롬프트 분류 ---</h1>
-<p>def classify_prompt(prompt: str) -&gt; dict:
+    )
+
+client = OpenAI(api_key=OPENAI_API_KEY)
+
+# --- 1단계: 프롬프트 분류 ---
+def classify_prompt(prompt: str) -&gt; dict:
     system_message = {
         &quot;role&quot;: &quot;system&quot;,
         &quot;content&quot;: (
@@ -500,10 +503,11 @@ GOOGLE_CSE_ID = os.getenv(&quot;GOOGLE_CSE_ID&quot;)</p>
         model=&quot;gpt-4o&quot;, messages=[system_message, user_message], temperature=1
     )
     reply = response.choices[0].message.content
-    return json.loads(reply)</p>
-<h1>--- 2단계: Google 검색 ---</h1>
-<p>def google_search(query: str, num_results=1) -&gt; list:
-    url = &quot;<a href="https://www.googleapis.com/customsearch/v1">https://www.googleapis.com/customsearch/v1</a>&quot;
+    return json.loads(reply)
+
+# --- 2단계: Google 검색 ---
+def google_search(query: str, num_results=1) -&gt; list:
+    url = &quot;https://www.googleapis.com/customsearch/v1&quot;
     params = {
         &quot;key&quot;: GOOGLE_CUSTOM_SEARCH_API_KEY,
         &quot;cx&quot;: GOOGLE_CSE_ID,
@@ -526,9 +530,10 @@ GOOGLE_CSE_ID = os.getenv(&quot;GOOGLE_CSE_ID&quot;)</p>
         else:
             return []
     except requests.exceptions.RequestException as e:
-        return {&quot;error&quot;: str(e)}</p>
-<h1>--- 3단계: 응답 생성 ---</h1>
-<p>def generate_response(prompt: str, classification: str, search_results=None) -&gt; str:
+        return {&quot;error&quot;: str(e)}
+
+# --- 3단계: 응답 생성 ---
+def generate_response(prompt: str, classification: str, search_results=None) -&gt; str:
     if classification == &quot;simple&quot;:
         model = &quot;gpt-4o-mini&quot;
         full_prompt = prompt
@@ -548,44 +553,47 @@ GOOGLE_CSE_ID = os.getenv(&quot;GOOGLE_CSE_ID&quot;)</p>
         else:
             search_context = &quot;No search results found.&quot;
         full_prompt = f&quot;&quot;&quot;Use the following web results to answer the user query:
-{search_context}</p>
-<p>Query: {prompt}&quot;&quot;&quot;</p>
-<pre><code>response = client.chat.completions.create(
-    model=model,
-    messages=[{&amp;quot;role&amp;quot;: &amp;quot;user&amp;quot;, &amp;quot;content&amp;quot;: full_prompt}],
-    temperature=1,
-)
-return response.choices[0].message.content, model
-</code></pre>
-<h1>--- 4단계: 통합 라우터 ---</h1>
-<p>def handle_prompt(prompt: str) -&gt; dict:
+{search_context}
+
+Query: {prompt}&quot;&quot;&quot;
+    
+    response = client.chat.completions.create(
+        model=model,
+        messages=[{&quot;role&quot;: &quot;user&quot;, &quot;content&quot;: full_prompt}],
+        temperature=1,
+    )
+    return response.choices[0].message.content, model
+
+# --- 4단계: 통합 라우터 ---
+def handle_prompt(prompt: str) -&gt; dict:
     classification_result = classify_prompt(prompt)
     classification = classification_result[&quot;classification&quot;]
     search_results = None
     if classification == &quot;internet_search&quot;:
         search_results = google_search(prompt)
     answer, model = generate_response(prompt, classification, search_results)
-    return {&quot;classification&quot;: classification, &quot;response&quot;: answer, &quot;model&quot;: model}</p>
-<h1>테스트</h1>
-<p>test_prompt = &quot;What is the capital of Australia?&quot;</p>
-<h1>test_prompt = &quot;Explain the impact of quantum computing on cryptography.&quot;</h1>
-<h1>test_prompt = &quot;When does the Australian Open 2026 start, give me full date?&quot;</h1>
-<p>result = handle_prompt(test_prompt)
+    return {&quot;classification&quot;: classification, &quot;response&quot;: answer, &quot;model&quot;: model}
+
+# 테스트
+test_prompt = &quot;What is the capital of Australia?&quot;
+# test_prompt = &quot;Explain the impact of quantum computing on cryptography.&quot;
+# test_prompt = &quot;When does the Australian Open 2026 start, give me full date?&quot;
+result = handle_prompt(test_prompt)
 print(&quot; Classification:&quot;, result[&quot;classification&quot;])
 print(&quot; Model Used:&quot;, result[&quot;model&quot;])
 print(&quot; Response:\n&quot;, result[&quot;response&quot;])</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">119 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p>이 Python 코드는 사용자 질문에 답변하기 위한 프롬프트 라우팅 시스템을 구현합니다. OpenAI와 Google Custom Search를 위한 .env 파일에서 필요한 API 키를 로드하는 것으로 시작합니다. 핵심 기능은 사용자의 프롬프트를 세 가지 범주로 분류하는 것입니다: simple, reasoning, 또는 internet search. 전용 함수가 이 분류 단계를 위해 OpenAI 모델을 활용합니다. 프롬프트가 최신 정보를 요구하는 경우 Google Custom Search API를 사용하여 Google 검색이 수행됩니다. 다른 함수는 분류를 기반으로 적절한 OpenAI 모델을 선택하여 최종 응답을 생성합니다. 인터넷 검색 쿼리의 경우 검색 결과가 모델에 컨텍스트로 제공됩니다. 주요 handle_prompt 함수는 이 워크플로를 조정하며, 응답을 생성하기 전에 분류 및 검색(필요한 경우) 함수를 호출합니다. 분류, 사용된 모델 및 생성된 답변을 반환합니다. 이 시스템은 더 나은 응답을 위해 다양한 유형의 쿼리를 최적화된 방법으로 효율적으로 지시합니다.</p>
-<h3 id="openrouter를-사용한-실습-코드-예제">OpenRouter를 사용한 실습 코드 예제 {#openrouter를-사용한-실습-코드-예제}</h3>
+<h3 id="openrouter를-사용한-실습-코드-예제">OpenRouter를 사용한 실습 코드 예제</h3>
 <p>OpenRouter는 단일 API 엔드포인트를 통해 수백 개의 AI 모델에 대한 통합 인터페이스를 제공합니다. 자동화된 장애 조치 및 비용 최적화를 제공하며, 선호하는 SDK나 프레임워크를 통해 쉽게 통합할 수 있습니다.</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284845-819" onclick="copyCode('code-1769482284845-819')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253332-819" onclick="copyCode('code-1769484253332-819')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -593,11 +601,11 @@ print(&quot; Response:\n&quot;, result[&quot;response&quot;])</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284845-819" class="language-python">import requests
+  <pre class="code-block__content"><code id="code-1769484253332-819" class="language-python">import requests
 import json
 
-<p>response = requests.post(
-    url=&quot;<a href="https://openrouter.ai/api/v1/chat/completions">https://openrouter.ai/api/v1/chat/completions</a>&quot;,
+response = requests.post(
+    url=&quot;https://openrouter.ai/api/v1/chat/completions&quot;,
     headers={
         &quot;Authorization&quot;: &quot;Bearer &lt;OPENROUTER_API_KEY&gt;&quot;,
         &quot;HTTP-Referer&quot;: &quot;&lt;YOUR_SITE_URL&gt;&quot;,  # 선택사항. openrouter.ai의 순위를 위한 사이트 URL
@@ -615,7 +623,7 @@ import json
 )</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">19 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p>이 코드 스니펫은 requests 라이브러리를 사용하여 OpenRouter API와 상호작용합니다. 사용자 메시지와 함께 채팅 완성 엔드포인트에 POST 요청을 보냅니다. 요청에는 API 키가 있는 인증 헤더와 선택적 사이트 정보가 포함됩니다. 목표는 지정된 언어 모델(이 경우 &quot;openai/gpt-4o&quot;)로부터 응답을 받는 것입니다.</p>
@@ -626,7 +634,7 @@ import json
 <div class="code-block" data-language="json">
   <div class="code-block__header" style="background-color: #292929; color: #fff">
     <span class="code-block__language">JSON</span>
-    <button class="code-block__copy" data-code-id="code-1769482284845-820" onclick="copyCode('code-1769482284845-820')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253332-820" onclick="copyCode('code-1769484253332-820')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -634,7 +642,7 @@ import json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284845-820" class="language-json">{
+  <pre class="code-block__content"><code id="code-1769484253332-820" class="language-json">{
   &quot;model&quot;: &quot;openrouter/auto&quot;,
   ... // 기타 매개변수
 }</code></pre>
@@ -649,7 +657,7 @@ import json
 <div class="code-block" data-language="json">
   <div class="code-block__header" style="background-color: #292929; color: #fff">
     <span class="code-block__language">JSON</span>
-    <button class="code-block__copy" data-code-id="code-1769482284845-821" onclick="copyCode('code-1769482284845-821')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253332-821" onclick="copyCode('code-1769484253332-821')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -657,7 +665,7 @@ import json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284845-821" class="language-json">{
+  <pre class="code-block__content"><code id="code-1769484253332-821" class="language-json">{
   &quot;models&quot;: [&quot;anthropic/claude-3.5-sonnet&quot;, &quot;gryphe/mythomax-l2-13b&quot;],
   ... // 기타 매개변수
 }</code></pre>
@@ -667,34 +675,34 @@ import json
 </div>
 
 <p>OpenRouter는 사용 가능한 AI 모델을 누적 토큰 생산량에 따라 순위를 매기는 상세한 리더보드(<a href="https://openrouter.ai/rankings)%EB%A5%BC">https://openrouter.ai/rankings)를</a> 제공합니다. 또한 다양한 제공업체(ChatGPT, Gemini, Claude)의 최신 모델도 제공합니다.</p>
-<h2 id="동적-모델-전환을-넘어서-에이전트-리소스-최적화의-스펙트럼">동적 모델 전환을 넘어서: 에이전트 리소스 최적화의 스펙트럼 {#동적-모델-전환을-넘어서-에이전트-리소스-최적화의-스펙트럼}</h2>
+<h2 id="동적-모델-전환을-넘어서-에이전트-리소스-최적화의-스펙트럼">동적 모델 전환을 넘어서: 에이전트 리소스 최적화의 스펙트럼</h2>
 <p>리소스 인식 최적화는 실제 제약 조건 내에서 효율적이고 효과적으로 작동하는 지능형 에이전트 시스템을 개발하는 데 매우 중요합니다. 추가 기술들을 살펴보겠습니다:</p>
-<h3 id="1-동적-모델-전환-dynamic-model-switching">1. 동적 모델 전환 (Dynamic Model Switching) {#1-동적-모델-전환-dynamic-model-switching}</h3>
+<h3 id="1-동적-모델-전환-dynamic-model-switching">1. 동적 모델 전환 (Dynamic Model Switching)</h3>
 <p>작업의 복잡성과 사용 가능한 계산 리소스를 기반으로 대규모 언어 모델을 전략적으로 선택하는 중요한 기술입니다. 간단한 쿼리에 직면하면 경량의 비용 효율적인 LLM을 배포할 수 있는 반면, 복잡하고 다면적인 문제는 더 정교하고 리소스 집약적인 모델의 활용을 필요로 합니다.</p>
-<h3>2. 적응형 도구 사용 및 선택 (Adaptive Tool Use &amp; Selection) {#2-적응형-도구-사용-및-선택-adaptive-tool-use-selection}</h3>
+<h3>2. 적응형 도구 사용 및 선택 (Adaptive Tool Use &amp; Selection) </h3>
 <p>에이전트가 도구 모음에서 지능적으로 선택할 수 있도록 보장하며, 각 특정 하위 작업에 가장 적절하고 효율적인 도구를 선택합니다. API 사용 비용, 지연 시간 및 실행 시간과 같은 요소를 신중하게 고려합니다. 이 동적 도구 선택은 외부 API 및 서비스의 사용을 최적화하여 전체 시스템 효율성을 향상시킵니다.</p>
-<h3>3. 컨텍스트 정제 및 요약 (Contextual Pruning &amp; Summarization) {#3-컨텍스트-정제-및-요약-contextual-pruning-summarization}</h3>
+<h3>3. 컨텍스트 정제 및 요약 (Contextual Pruning &amp; Summarization) </h3>
 <p>에이전트가 처리하는 정보의 양을 관리하는 데 중요한 역할을 하며, 프롬프트 토큰 수를 전략적으로 최소화하고 상호작용 기록에서 가장 관련성 높은 정보만 지능적으로 요약하고 선택적으로 유지함으로써 추론 비용을 줄입니다. 이는 불필요한 계산 오버헤드를 방지합니다.</p>
-<h3 id="4-사전-예방적-리소스-예측-proactive-resource-prediction">4. 사전 예방적 리소스 예측 (Proactive Resource Prediction) {#4-사전-예방적-리소스-예측-proactive-resource-prediction}</h3>
+<h3 id="4-사전-예방적-리소스-예측-proactive-resource-prediction">4. 사전 예방적 리소스 예측 (Proactive Resource Prediction)</h3>
 <p>미래 워크로드 및 시스템 요구사항을 예측하여 리소스 수요를 예상하는 것을 포함하며, 이는 사전 예방적 할당 및 리소스 관리를 가능하게 하여 시스템 응답성을 보장하고 병목 현상을 방지합니다.</p>
-<h3 id="5-다중-에이전트-시스템의-비용-인식-탐색-cost-sensitive-exploration">5. 다중 에이전트 시스템의 비용 인식 탐색 (Cost-Sensitive Exploration) {#5-다중-에이전트-시스템의-비용-인식-탐색-cost-sensitive-exploration}</h3>
+<h3 id="5-다중-에이전트-시스템의-비용-인식-탐색-cost-sensitive-exploration">5. 다중 에이전트 시스템의 비용 인식 탐색 (Cost-Sensitive Exploration)</h3>
 <p>최적화 고려사항을 전통적인 계산 비용과 함께 통신 비용을 포함하도록 확장하여 에이전트가 협업하고 정보를 공유하는 데 사용하는 전략에 영향을 미치며, 전체 리소스 지출을 최소화하는 것을 목표로 합니다.</p>
-<h3 id="6-에너지-효율적-배포-energy-efficient-deployment">6. 에너지 효율적 배포 (Energy-Efficient Deployment) {#6-에너지-효율적-배포-energy-efficient-deployment}</h3>
+<h3 id="6-에너지-효율적-배포-energy-efficient-deployment">6. 에너지 효율적 배포 (Energy-Efficient Deployment)</h3>
 <p>엄격한 리소스 제약이 있는 환경에 특별히 맞춰져 있으며, 지능형 에이전트 시스템의 에너지 발자국을 최소화하여 운영 시간을 연장하고 전체 운영 비용을 줄이는 것을 목표로 합니다.</p>
-<h3>7. 병렬화 및 분산 컴퓨팅 인식 (Parallelization &amp; Distributed Computing Awareness) {#7-병렬화-및-분산-컴퓨팅-인식-parallelization-distributed-computing-awar}</h3>
+<h3>7. 병렬화 및 분산 컴퓨팅 인식 (Parallelization &amp; Distributed Computing Awareness) </h3>
 <p>분산 리소스를 활용하여 에이전트의 처리 능력 및 처리량을 향상시키며, 계산 워크로드를 여러 머신이나 프로세서에 분산시켜 더 큰 효율성과 더 빠른 작업 완료를 달성합니다.</p>
-<h3 id="8-학습된-리소스-할당-정책-learned-resource-allocation-policies">8. 학습된 리소스 할당 정책 (Learned Resource Allocation Policies) {#8-학습된-리소스-할당-정책-learned-resource-allocation-policies}</h3>
+<h3 id="8-학습된-리소스-할당-정책-learned-resource-allocation-policies">8. 학습된 리소스 할당 정책 (Learned Resource Allocation Policies)</h3>
 <p>학습 메커니즘을 도입하여 에이전트가 피드백 및 성능 메트릭을 기반으로 시간이 지남에 따라 리소스 할당 전략을 적응하고 최적화할 수 있게 하며, 지속적인 정제를 통해 효율성을 개선합니다.</p>
-<h3 id="9-우아한-성능-저하-및-폴백-메커니즘-graceful-degradation-and-fallback-mech">9. 우아한 성능 저하 및 폴백 메커니즘 (Graceful Degradation and Fallback Mechanisms) {#9-우아한-성능-저하-및-폴백-메커니즘-graceful-degradation-and-fallback-mech}</h3>
+<h3 id="9-우아한-성능-저하-및-폴백-메커니즘-graceful-degradation-and-fallback-mech">9. 우아한 성능 저하 및 폴백 메커니즘 (Graceful Degradation and Fallback Mechanisms)</h3>
 <p>지능형 에이전트 시스템이 리소스 제약이 심각할 때도 감소된 용량일 수 있지만 계속 작동할 수 있도록 보장하며, 성능을 우아하게 저하시키고 대체 전략으로 폴백하여 운영을 유지하고 필수 기능을 제공합니다.</p>
-<h2 id="한눈에-보기-at-a-glance">한눈에 보기 (At a Glance) {#한눈에-보기-at-a-glance}</h2>
-<h3 id="무엇-what">무엇 (What) {#무엇-what}</h3>
+<h2 id="한눈에-보기-at-a-glance">한눈에 보기 (At a Glance)</h2>
+<h3 id="무엇-what">무엇 (What)</h3>
 <p>Resource-Aware Optimization는 지능형 시스템에서 계산, 시간 및 재정적 리소스의 소비를 관리하는 도전을 해결합니다. LLM 기반 애플리케이션은 비용이 많이 들고 느릴 수 있으며, 모든 작업에 대해 최상의 모델이나 도구를 선택하는 것은 종종 비효율적입니다. 이것은 시스템 출력의 품질과 이를 생성하는 데 필요한 리소스 간의 근본적인 트레이드오프를 만듭니다. 동적 관리 전략 없이는 시스템이 다양한 작업 복잡성에 적응하거나 예산 및 성능 제약 내에서 작동할 수 없습니다.</p>
-<h3 id="왜-why">왜 (Why) {#왜-why}</h3>
+<h3 id="왜-why">왜 (Why)</h3>
 <p>표준화된 솔루션은 작업에 따라 지능적으로 리소스를 모니터링하고 할당하는 에이전트 시스템을 구축하는 것입니다. 이 패턴은 일반적으로 들어오는 요청의 복잡성을 먼저 분류하기 위해 &quot;Router Agent&quot;를 사용합니다. 그런 다음 요청이 가장 적합한 LLM 또는 도구로 전달됩니다—간단한 쿼리에는 빠르고 저렴한 모델, 복잡한 추론에는 더 강력한 모델. &quot;Critique Agent&quot;는 응답의 품질을 평가하여 라우팅 로직을 시간이 지남에 따라 개선하기 위한 피드백을 제공함으로써 프로세스를 더욱 정제할 수 있습니다. 이 동적 다중 에이전트 접근 방식은 시스템이 효율적으로 작동하며 응답 품질과 비용 효율성의 균형을 맞추도록 보장합니다.</p>
-<h3 id="경험-법칙-rule-of-thumb">경험 법칙 (Rule of Thumb) {#경험-법칙-rule-of-thumb}</h3>
+<h3 id="경험-법칙-rule-of-thumb">경험 법칙 (Rule of Thumb)</h3>
 <p>API 호출이나 계산 능력에 대한 엄격한 재정 예산 하에서 운영할 때, 빠른 응답 시간이 중요한 지연 시간 민감 애플리케이션을 구축할 때, 제한된 배터리 수명을 가진 엣지 장치와 같은 리소스 제약 하드웨어에 에이전트를 배포할 때, 응답 품질과 운영 비용 간의 트레이드오프를 프로그래밍 방식으로 균형을 맞출 때, 그리고 다양한 작업이 다양한 리소스 요구사항을 가진 복잡한 다단계 워크플로를 관리할 때 이 패턴을 사용하세요.</p>
-<h2 id="핵심-요약-key-takeaways">핵심 요약 (Key Takeaways) {#핵심-요약-key-takeaways}</h2>
+<h2 id="핵심-요약-key-takeaways">핵심 요약 (Key Takeaways)</h2>
 <ol>
 <li><p><strong>Resource-Aware Optimization는 필수적입니다</strong>: 지능형 에이전트는 계산, 시간 및 재정적 리소스를 동적으로 관리할 수 있습니다. 모델 사용 및 실행 경로에 대한 결정은 실시간 제약 및 목표를 기반으로 이루어집니다.</p>
 </li>
@@ -709,15 +717,15 @@ import json
 <li><p><strong>추가 리소스 인식 최적화</strong>: 다른 방법에는 적응형 도구 사용 및 선택, 컨텍스트 정제 및 요약, 사전 예방적 리소스 예측, 다중 에이전트 시스템의 비용 인식 탐색, 에너지 효율적 배포, 병렬화 및 분산 컴퓨팅 인식, 학습된 리소스 할당 정책, 우아한 성능 저하 및 폴백 메커니즘, 그리고 중요한 작업의 우선순위 지정이 포함됩니다.</p>
 </li>
 </ol>
-<h2 id="결론">결론 {#결론}</h2>
+<h2 id="결론">결론</h2>
 <p>리소스 인식 최적화는 지능형 에이전트 개발에 필수적이며, 실제 제약 조건 내에서 효율적인 작동을 가능하게 합니다. 계산, 시간 및 재정적 리소스를 관리함으로써 에이전트는 최적의 성능과 비용 효율성을 달성할 수 있습니다. 동적 모델 전환, 적응형 도구 사용, 컨텍스트 정제와 같은 기술은 이러한 효율성을 달성하는 데 중요합니다. 학습된 리소스 할당 정책 및 우아한 성능 저하를 포함한 고급 전략은 다양한 조건에서 에이전트의 적응성과 복원력을 향상시킵니다. 에이전트 설계에 이러한 최적화 원칙을 통합하는 것은 확장 가능하고 견고하며 지속 가능한 AI 시스템을 구축하는 데 기본적입니다.</p>
-<h2 id="참고-자료-references">참고 자료 (References) {#참고-자료-references}</h2>
+<h2 id="참고-자료-references">참고 자료 (References)</h2>
 <ol>
 <li>Google&#39;s Agent Development Kit (ADK): <a href="https://google.github.io/adk-docs/">https://google.github.io/adk-docs/</a></li>
 <li>Gemini Flash 2.5 &amp; Gemini 2.5 Pro: <a href="https://aistudio.google.com/">https://aistudio.google.com/</a></li>
 </ol>
-<h2 id="이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation) {#이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati}</h2>
-<h3 id="최적화-이론-optimization-theory">최적화 이론 (Optimization Theory) {#최적화-이론-optimization-theory}</h3>
+<h2 id="이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation)</h2>
+<h3 id="최적화-이론-optimization-theory">최적화 이론 (Optimization Theory)</h3>
 <p>Resource-Aware Optimization은 최적화 이론의 원칙을 적용합니다.</p>
 <p><strong>최적화 문제</strong>:</p>
 <ul>
@@ -731,7 +739,7 @@ import json
 <li>시간 최소화: 지연 시간 제약 내에서 최적 경로 선택</li>
 <li>품질 최대화: 리소스 제약 내에서 최대 품질 달성</li>
 </ul>
-<h3 id="비용-효과-분석-cost-benefit-analysis">비용-효과 분석 (Cost-Benefit Analysis) {#비용-효과-분석-cost-benefit-analysis}</h3>
+<h3 id="비용-효과-분석-cost-benefit-analysis">비용-효과 분석 (Cost-Benefit Analysis)</h3>
 <p>비용-효과 분석은 리소스 투입과 결과를 비교합니다.</p>
 <p><strong>비용-효과 원칙</strong>:</p>
 <ul>
@@ -745,7 +753,7 @@ import json
 <li>작업 복잡도에 따른 모델 선택</li>
 <li>동적 모델 전환</li>
 </ul>
-<h3 id="적응적-리소스-관리-adaptive-resource-management">적응적 리소스 관리 (Adaptive Resource Management) {#적응적-리소스-관리-adaptive-resource-management}</h3>
+<h3 id="적응적-리소스-관리-adaptive-resource-management">적응적 리소스 관리 (Adaptive Resource Management)</h3>
 <p>시스템이 동적으로 리소스를 조정합니다.</p>
 <p><strong>적응 메커니즘</strong>:</p>
 <ul>
@@ -761,7 +769,7 @@ import json
 <li>동적 모델 선택</li>
 <li>성능 평가 및 피드백</li>
 </ul>
-<h3 id="게임-이론-리소스-경쟁">게임 이론: 리소스 경쟁 {#게임-이론-리소스-경쟁}</h3>
+<h3 id="게임-이론-리소스-경쟁">게임 이론: 리소스 경쟁</h3>
 <p>여러 에이전트가 리소스를 경쟁할 때 게임 이론이 적용됩니다.</p>
 <p><strong>리소스 할당 게임</strong>:</p>
 <ul>
@@ -776,13 +784,13 @@ import json
 <li>공정한 리소스 할당</li>
 <li>우선순위 기반 할당</li>
 </ul>
-<h2 id="성능-최적화-기법-performance-optimization-techniques">성능 최적화 기법 (Performance Optimization Techniques) {#성능-최적화-기법-performance-optimization-techniques}</h2>
-<h3 id="1-동적-모델-선택-최적화">1. 동적 모델 선택 최적화 {#1-동적-모델-선택-최적화}</h3>
+<h2 id="성능-최적화-기법-performance-optimization-techniques">성능 최적화 기법 (Performance Optimization Techniques)</h2>
+<h3 id="1-동적-모델-선택-최적화">1. 동적 모델 선택 최적화</h3>
 <p>작업 특성에 따른 최적 모델 선택:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284845-822" onclick="copyCode('code-1769482284845-822')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253332-822" onclick="copyCode('code-1769484253332-822')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -790,7 +798,7 @@ import json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284845-822" class="language-python">class DynamicModelSelector:
+  <pre class="code-block__content"><code id="code-1769484253332-822" class="language-python">class DynamicModelSelector:
     def __init__(self):
         self.models = {
             &#39;simple&#39;: {&#39;model&#39;: &#39;gpt-4o-mini&#39;, &#39;cost&#39;: 0.1, &#39;latency&#39;: 0.5},
@@ -800,40 +808,39 @@ import json
         self.budget = 100.0
         self.time_limit = 10.0
     
-<pre><code>def select_model(self, task_complexity: float, 
-                available_budget: float, 
-                time_constraint: float) -&amp;gt; str:
-    &amp;quot;&amp;quot;&amp;quot;작업 특성에 따른 모델 선택&amp;quot;&amp;quot;&amp;quot;
-    # 비용-효과 분석
-    candidates = []
-    for level, specs in self.models.items():
-        if (specs[&amp;#39;cost&amp;#39;] &amp;lt;= available_budget and 
-            specs[&amp;#39;latency&amp;#39;] &amp;lt;= time_constraint):
-            # 예상 품질 점수
-            quality_score = self.estimate_quality(level, task_complexity)
-            # 비용-효과 비율
-            efficiency = quality_score / specs[&amp;#39;cost&amp;#39;]
-            candidates.append((level, efficiency, specs))
-    
-    # 최고 효율 모델 선택
-    if candidates:
-        best = max(candidates, key=lambda x: x[1])
-        return best[0]
-    
-    # 제약 조건 내 최선의 모델
-    return self.fallback_selection(available_budget, time_constraint)&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    def select_model(self, task_complexity: float, 
+                    available_budget: float, 
+                    time_constraint: float) -&gt; str:
+        &quot;&quot;&quot;작업 특성에 따른 모델 선택&quot;&quot;&quot;
+        # 비용-효과 분석
+        candidates = []
+        for level, specs in self.models.items():
+            if (specs[&#39;cost&#39;] &lt;= available_budget and 
+                specs[&#39;latency&#39;] &lt;= time_constraint):
+                # 예상 품질 점수
+                quality_score = self.estimate_quality(level, task_complexity)
+                # 비용-효과 비율
+                efficiency = quality_score / specs[&#39;cost&#39;]
+                candidates.append((level, efficiency, specs))
+        
+        # 최고 효율 모델 선택
+        if candidates:
+            best = max(candidates, key=lambda x: x[1])
+            return best[0]
+        
+        # 제약 조건 내 최선의 모델
+        return self.fallback_selection(available_budget, time_constraint)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">32 lines</span>
   </div>
 </div>
 
-<h3 id="2-리소스-예산-관리">2. 리소스 예산 관리 {#2-리소스-예산-관리}</h3>
+<h3 id="2-리소스-예산-관리">2. 리소스 예산 관리</h3>
 <p>리소스 사용량을 예산 내로 제한:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284845-823" onclick="copyCode('code-1769482284845-823')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253332-823" onclick="copyCode('code-1769484253332-823')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -841,47 +848,46 @@ import json
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284845-823" class="language-python">class ResourceBudgetManager:
+  <pre class="code-block__content"><code id="code-1769484253332-823" class="language-python">class ResourceBudgetManager:
     def __init__(self, daily_budget: float):
         self.daily_budget = daily_budget
         self.used_budget = 0.0
         self.usage_history = []
     
-<pre><code>def check_budget(self, estimated_cost: float) -&amp;gt; bool:
-    &amp;quot;&amp;quot;&amp;quot;예산 확인&amp;quot;&amp;quot;&amp;quot;
-    if self.used_budget + estimated_cost &amp;gt; self.daily_budget:
-        return False
-    return True
-
-def allocate_resource(self, cost: float):
-    &amp;quot;&amp;quot;&amp;quot;리소스 할당 및 예산 차감&amp;quot;&amp;quot;&amp;quot;
-    if self.check_budget(cost):
-        self.used_budget += cost
-        self.usage_history.append({
-            &amp;#39;cost&amp;#39;: cost,
-            &amp;#39;timestamp&amp;#39;: datetime.now()
-        })
+    def check_budget(self, estimated_cost: float) -&gt; bool:
+        &quot;&quot;&quot;예산 확인&quot;&quot;&quot;
+        if self.used_budget + estimated_cost &gt; self.daily_budget:
+            return False
         return True
-    else:
-        # 예산 초과 시 저비용 대안 사용
-        return self.use_fallback()
-
-def reset_daily_budget(self):
-    &amp;quot;&amp;quot;&amp;quot;일일 예산 초기화&amp;quot;&amp;quot;&amp;quot;
-    self.used_budget = 0.0
-    self.usage_history = []&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    
+    def allocate_resource(self, cost: float):
+        &quot;&quot;&quot;리소스 할당 및 예산 차감&quot;&quot;&quot;
+        if self.check_budget(cost):
+            self.used_budget += cost
+            self.usage_history.append({
+                &#39;cost&#39;: cost,
+                &#39;timestamp&#39;: datetime.now()
+            })
+            return True
+        else:
+            # 예산 초과 시 저비용 대안 사용
+            return self.use_fallback()
+    
+    def reset_daily_budget(self):
+        &quot;&quot;&quot;일일 예산 초기화&quot;&quot;&quot;
+        self.used_budget = 0.0
+        self.usage_history = []</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">29 lines</span>
   </div>
 </div>
 
-<h3 id="3-지연-시간-최적화">3. 지연 시간 최적화 {#3-지연-시간-최적화}</h3>
+<h3 id="3-지연-시간-최적화">3. 지연 시간 최적화</h3>
 <p>응답 시간을 최소화하는 전략:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284845-824" onclick="copyCode('code-1769482284845-824')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253332-824" onclick="copyCode('code-1769484253332-824')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -889,46 +895,45 @@ def reset_daily_budget(self):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284845-824" class="language-python">class LatencyOptimizer:
+  <pre class="code-block__content"><code id="code-1769484253332-824" class="language-python">class LatencyOptimizer:
     def __init__(self):
         self.model_latencies = {}
         self.cache = {}
     
-<pre><code>def optimize_for_latency(self, query: str, max_latency: float) -&amp;gt; str:
-    &amp;quot;&amp;quot;&amp;quot;지연 시간 제약 내 최적 모델 선택&amp;quot;&amp;quot;&amp;quot;
-    # 캐시 확인
-    if query in self.cache:
-        return self.cache[query]
-    
-    # 빠른 모델부터 시도
-    for model_name, latency in sorted(
-        self.model_latencies.items(), 
-        key=lambda x: x[1]
-    ):
-        if latency &amp;lt;= max_latency:
-            # 모델이 제약을 만족하면 사용
-            result = self.use_model(model_name, query)
-            self.cache[query] = result
-            return result
-    
-    # 제약을 만족하는 모델이 없으면 가장 빠른 모델 사용
-    fastest_model = min(
-        self.model_latencies.items(), 
-        key=lambda x: x[1]
-    )[0]
-    return self.use_model(fastest_model, query)&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    def optimize_for_latency(self, query: str, max_latency: float) -&gt; str:
+        &quot;&quot;&quot;지연 시간 제약 내 최적 모델 선택&quot;&quot;&quot;
+        # 캐시 확인
+        if query in self.cache:
+            return self.cache[query]
+        
+        # 빠른 모델부터 시도
+        for model_name, latency in sorted(
+            self.model_latencies.items(), 
+            key=lambda x: x[1]
+        ):
+            if latency &lt;= max_latency:
+                # 모델이 제약을 만족하면 사용
+                result = self.use_model(model_name, query)
+                self.cache[query] = result
+                return result
+        
+        # 제약을 만족하는 모델이 없으면 가장 빠른 모델 사용
+        fastest_model = min(
+            self.model_latencies.items(), 
+            key=lambda x: x[1]
+        )[0]
+        return self.use_model(fastest_model, query)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">28 lines</span>
   </div>
 </div>
 
-<h3 id="4-에너지-효율-최적화">4. 에너지 효율 최적화 {#4-에너지-효율-최적화}</h3>
+<h3 id="4-에너지-효율-최적화">4. 에너지 효율 최적화</h3>
 <p>에너지 소비를 최소화:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284845-825" onclick="copyCode('code-1769482284845-825')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253332-825" onclick="copyCode('code-1769484253332-825')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -936,7 +941,7 @@ def reset_daily_budget(self):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284845-825" class="language-python">class EnergyOptimizer:
+  <pre class="code-block__content"><code id="code-1769484253332-825" class="language-python">class EnergyOptimizer:
     def __init__(self):
         self.energy_profiles = {
             &#39;cpu_intensive&#39;: 10.0,
@@ -945,47 +950,46 @@ def reset_daily_budget(self):
             &#39;network_intensive&#39;: 2.0
         }
     
-<pre><code>def optimize_energy(self, task: Task, available_energy: float):
-    &amp;quot;&amp;quot;&amp;quot;에너지 제약 내 최적 작업 할당&amp;quot;&amp;quot;&amp;quot;
-    # 작업 유형 분석
-    task_type = self.analyze_task_type(task)
-    energy_cost = self.energy_profiles.get(task_type, 10.0)
-    
-    if energy_cost &amp;gt; available_energy:
-        # 에너지 부족 시 저에너지 대안 사용
-        return self.use_low_energy_alternative(task)
-    
-    return self.execute_task(task, task_type)&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    def optimize_energy(self, task: Task, available_energy: float):
+        &quot;&quot;&quot;에너지 제약 내 최적 작업 할당&quot;&quot;&quot;
+        # 작업 유형 분석
+        task_type = self.analyze_task_type(task)
+        energy_cost = self.energy_profiles.get(task_type, 10.0)
+        
+        if energy_cost &gt; available_energy:
+            # 에너지 부족 시 저에너지 대안 사용
+            return self.use_low_energy_alternative(task)
+        
+        return self.execute_task(task, task_type)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">20 lines</span>
   </div>
 </div>
 
-<h2 id="트레이드오프-및-한계점-trade-offs-and-limitations">트레이드오프 및 한계점 (Trade-offs and Limitations) {#트레이드오프-및-한계점-trade-offs-and-limitations}</h2>
-<h3 id="resource-aware-optimization의-장점">Resource-Aware Optimization의 장점 {#resource-aware-optimization의-장점}</h3>
+<h2 id="트레이드오프-및-한계점-trade-offs-and-limitations">트레이드오프 및 한계점 (Trade-offs and Limitations)</h2>
+<h3 id="resource-aware-optimization의-장점">Resource-Aware Optimization의 장점</h3>
 <ol>
 <li><strong>비용 효율성</strong>: 예산 내에서 최적 성능</li>
 <li><strong>응답 속도</strong>: 지연 시간 최소화</li>
 <li><strong>확장성</strong>: 리소스 제약 내 확장</li>
 <li><strong>지속 가능성</strong>: 에너지 효율 향상</li>
 </ol>
-<h3 id="resource-aware-optimization의-한계">Resource-Aware Optimization의 한계 {#resource-aware-optimization의-한계}</h3>
+<h3 id="resource-aware-optimization의-한계">Resource-Aware Optimization의 한계</h3>
 <ol>
 <li><strong>복잡도</strong>: 리소스 관리의 복잡성</li>
 <li><strong>예측 어려움</strong>: 리소스 요구 예측 어려움</li>
 <li><strong>최적화 오버헤드</strong>: 최적화 자체의 비용</li>
 <li><strong>균형점 찾기</strong>: 비용, 속도, 품질 간 균형</li>
 </ol>
-<h3 id="완화-전략">완화 전략 {#완화-전략}</h3>
+<h3 id="완화-전략">완화 전략</h3>
 <ol>
 <li><strong>휴리스틱</strong>: 간단한 규칙 기반 선택</li>
 <li><strong>학습 기반</strong>: 과거 데이터로 예측 모델 학습</li>
 <li><strong>점진적 최적화</strong>: 단계적 최적화로 오버헤드 감소</li>
 <li><strong>다목적 최적화</strong>: 여러 목표를 동시에 고려</li>
 </ol>
-<h2 id="관련-패턴과의-비교-comparison-with-related-patterns">관련 패턴과의 비교 (Comparison with Related Patterns) {#관련-패턴과의-비교-comparison-with-related-patterns}</h2>
-<h3 id="resource-aware-vs-performance-optimized">Resource-Aware vs. Performance-Optimized {#resource-aware-vs-performance-optimized}</h3>
+<h2 id="관련-패턴과의-비교-comparison-with-related-patterns">관련 패턴과의 비교 (Comparison with Related Patterns)</h2>
+<h3 id="resource-aware-vs-performance-optimized">Resource-Aware vs. Performance-Optimized</h3>
 <table>
 <thead>
 <tr>
@@ -1015,19 +1019,19 @@ def reset_daily_budget(self):
 <td>리소스 제한</td>
 </tr>
 </tbody></table>
-<h3 id="resource-aware-vs-static-allocation">Resource-Aware vs. Static Allocation {#resource-aware-vs-static-allocation}</h3>
+<h3 id="resource-aware-vs-static-allocation">Resource-Aware vs. Static Allocation</h3>
 <ul>
 <li><strong>Resource-Aware</strong>: 동적 리소스 조정</li>
 <li><strong>Static Allocation</strong>: 고정 리소스 할당</li>
 <li><strong>선택</strong>: 환경 변화 정도에 따라 선택</li>
 </ul>
-<h2 id="실무-적용-사례-확장-extended-practical-applications">실무 적용 사례 확장 (Extended Practical Applications) {#실무-적용-사례-확장-extended-practical-applications}</h2>
-<h3 id="1-클라우드-비용-최적화">1. 클라우드 비용 최적화 {#1-클라우드-비용-최적화}</h3>
+<h2 id="실무-적용-사례-확장-extended-practical-applications">실무 적용 사례 확장 (Extended Practical Applications)</h2>
+<h3 id="1-클라우드-비용-최적화">1. 클라우드 비용 최적화</h3>
 <p>클라우드 리소스 사용 최적화:</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284845-826" onclick="copyCode('code-1769482284845-826')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253332-826" onclick="copyCode('code-1769484253332-826')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1035,7 +1039,7 @@ def reset_daily_budget(self):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284845-826" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253332-826" class="language-mermaid">graph TD
     A[Workload&lt;br/&gt;작업 부하] --&gt; B[Resource Analyzer&lt;br/&gt;리소스 분석기]
     B --&gt; C[Cost Optimizer&lt;br/&gt;비용 최적화기]
     C --&gt; D[Model Selector&lt;br/&gt;모델 선택기]
@@ -1043,20 +1047,19 @@ def reset_daily_budget(self):
     E --&gt; F[Cost Monitoring&lt;br/&gt;비용 모니터링]
     F --&gt; B
     
-<pre><code>style A fill:#ff9999
-style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style E fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
 </div>
 
-<h3 id="2-엣지-컴퓨팅-최적화">2. 엣지 컴퓨팅 최적화 {#2-엣지-컴퓨팅-최적화}</h3>
+<h3 id="2-엣지-컴퓨팅-최적화">2. 엣지 컴퓨팅 최적화</h3>
 <p>제한된 리소스를 가진 엣지 디바이스:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284845-827" onclick="copyCode('code-1769482284845-827')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253332-827" onclick="copyCode('code-1769484253332-827')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1064,7 +1067,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284845-827" class="language-python">class EdgeDeviceOptimizer:
+  <pre class="code-block__content"><code id="code-1769484253332-827" class="language-python">class EdgeDeviceOptimizer:
     def __init__(self):
         self.available_resources = {
             &#39;cpu&#39;: 2.0,  # GHz
@@ -1077,33 +1080,32 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
             &#39;medium&#39;: {&#39;cpu&#39;: 2.0, &#39;memory&#39;: 2.0, &#39;battery&#39;: 20}
         }
     
-<pre><code>def select_model_for_edge(self, task: Task) -&amp;gt; str:
-    &amp;quot;&amp;quot;&amp;quot;엣지 디바이스에 적합한 모델 선택&amp;quot;&amp;quot;&amp;quot;
-    # 사용 가능한 리소스 확인
-    available = self.check_available_resources()
-    
-    # 작업 복잡도 분석
-    complexity = self.analyze_complexity(task)
-    
-    # 리소스 제약 내 최적 모델 선택
-    for model_size in [&amp;#39;tiny&amp;#39;, &amp;#39;small&amp;#39;, &amp;#39;medium&amp;#39;]:
-        profile = self.model_profiles[model_size]
-        if (profile[&amp;#39;cpu&amp;#39;] &amp;lt;= available[&amp;#39;cpu&amp;#39;] and
-            profile[&amp;#39;memory&amp;#39;] &amp;lt;= available[&amp;#39;memory&amp;#39;] and
-            profile[&amp;#39;battery&amp;#39;] &amp;lt;= available[&amp;#39;battery&amp;#39;]):
-            # 복잡도에 맞는 최소 모델 선택
-            if self.can_handle_complexity(model_size, complexity):
-                return model_size
-    
-    # 리소스 부족 시 클라우드로 오프로드
-    return self.offload_to_cloud(task)&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    def select_model_for_edge(self, task: Task) -&gt; str:
+        &quot;&quot;&quot;엣지 디바이스에 적합한 모델 선택&quot;&quot;&quot;
+        # 사용 가능한 리소스 확인
+        available = self.check_available_resources()
+        
+        # 작업 복잡도 분석
+        complexity = self.analyze_complexity(task)
+        
+        # 리소스 제약 내 최적 모델 선택
+        for model_size in [&#39;tiny&#39;, &#39;small&#39;, &#39;medium&#39;]:
+            profile = self.model_profiles[model_size]
+            if (profile[&#39;cpu&#39;] &lt;= available[&#39;cpu&#39;] and
+                profile[&#39;memory&#39;] &lt;= available[&#39;memory&#39;] and
+                profile[&#39;battery&#39;] &lt;= available[&#39;battery&#39;]):
+                # 복잡도에 맞는 최소 모델 선택
+                if self.can_handle_complexity(model_size, complexity):
+                    return model_size
+        
+        # 리소스 부족 시 클라우드로 오프로드
+        return self.offload_to_cloud(task)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">33 lines</span>
   </div>
 </div>
 
-<h3 id="3-실시간-시스템-최적화">3. 실시간 시스템 최적화 {#3-실시간-시스템-최적화}</h3>
+<h3 id="3-실시간-시스템-최적화">3. 실시간 시스템 최적화</h3>
 <p>지연 시간이 중요한 실시간 시스템:</p>
 <ul>
 <li><strong>우선순위 기반 처리</strong>: 긴급 작업 우선 처리</li>
@@ -1111,8 +1113,8 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>캐싱</strong>: 자주 사용되는 결과 캐싱</li>
 <li><strong>병렬 처리</strong>: 독립 작업 병렬 처리</li>
 </ul>
-<h2 id="참고-자료-references">참고 자료 (References) {#참고-자료-references}</h2>
-<h3 id="학술-논문">학술 논문 {#학술-논문}</h3>
+<h2 id="참고-자료-references">참고 자료 (References)</h2>
+<h3 id="학술-논문">학술 논문</h3>
 <ol>
 <li><p>Boyd, S., &amp; Vandenberghe, L. (2004). <em>Convex Optimization</em>. Cambridge University Press.</p>
 </li>
@@ -1125,7 +1127,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><p>Fedus, W., et al. (2022). &quot;Switch Transformers: Scaling to Trillion Parameter Models with Simple and Efficient Sparsity.&quot; <em>Journal of Machine Learning Research</em>, 23(120), 1-39.</p>
 </li>
 </ol>
-<h3 id="프레임워크-및-도구-문서">프레임워크 및 도구 문서 {#프레임워크-및-도구-문서}</h3>
+<h3 id="프레임워크-및-도구-문서">프레임워크 및 도구 문서</h3>
 <ol>
 <li><p>Google ADK Agent Documentation:
 <a href="https://google.github.io/adk-docs/agents/">https://google.github.io/adk-docs/agents/</a></p>
@@ -1137,7 +1139,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <a href="https://openrouter.ai/docs/quickstart">https://openrouter.ai/docs/quickstart</a></p>
 </li>
 </ol>
-<h3 id="추가-학습-자료">추가 학습 자료 {#추가-학습-자료}</h3>
+<h3 id="추가-학습-자료">추가 학습 자료</h3>
 <ol start="4">
 <li><p>&quot;Introduction to Linear Optimization&quot; by Dimitris Bertsimas &amp; John N. Tsitsiklis</p>
 </li>

@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Anthropic 프롬프트 엔지니어링 튜토리얼 완전 가이드 | AI 기술 자료 저널</title>
-  <meta name="description" content="1.  || #개요 2.  || #튜토리얼 구성 3.  || #핵심 학습 내용 4.  || #기본 프롬프트 기법 5.  || #고급 프롬프트 기법 6.  || #부록 및 확장 기법 7.  || #실무 적용 가이드 8.  || #학습 로드맵 - 제공자:...">
+  <meta name="description" content="1. #개요 2. #튜토리얼 구성 3. #핵심 학습 내용 4. #기본 프롬프트 기법 5. #고급 프롬프트 기법 6. #부록 및 확장 기법 7. #실무 적용 가이드 8. #학습 로드맵 - 제공자: Anthropic 공식 - 플랫폼: Amazon Bedrock 연동 -...">
   
   <!-- Open Graph -->
   <meta property="og:title" content="Anthropic 프롬프트 엔지니어링 튜토리얼 완전 가이드">
-  <meta property="og:description" content="1.  || #개요 2.  || #튜토리얼 구성 3.  || #핵심 학습 내용 4.  || #기본 프롬프트 기법 5.  || #고급 프롬프트 기법 6.  || #부록 및 확장 기법 7.  || #실무 적용 가이드 8.  || #학습 로드맵 - 제공자:...">
+  <meta property="og:description" content="1. #개요 2. #튜토리얼 구성 3. #핵심 학습 내용 4. #기본 프롬프트 기법 5. #고급 프롬프트 기법 6. #부록 및 확장 기법 7. #실무 적용 가이드 8. #학습 로드맵 - 제공자: Anthropic 공식 - 플랫폼: Amazon Bedrock 연동 -...">
   <meta property="og:image" content="/assets/images/prompt-engineering-placeholder.svg">
   <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/anthropic-prompt-engineering-tutorial-complete-guide.html">
   <meta property="og:type" content="article">
@@ -16,7 +16,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Anthropic 프롬프트 엔지니어링 튜토리얼 완전 가이드">
-  <meta name="twitter:description" content="1.  || #개요 2.  || #튜토리얼 구성 3.  || #핵심 학습 내용 4.  || #기본 프롬프트 기법 5.  || #고급 프롬프트 기법 6.  || #부록 및 확장 기법 7.  || #실무 적용 가이드 8.  || #학습 로드맵 - 제공자:...">
+  <meta name="twitter:description" content="1. #개요 2. #튜토리얼 구성 3. #핵심 학습 내용 4. #기본 프롬프트 기법 5. #고급 프롬프트 기법 6. #부록 및 확장 기법 7. #실무 적용 가이드 8. #학습 로드맵 - 제공자: Anthropic 공식 - 플랫폼: Amazon Bedrock 연동 -...">
   <meta name="twitter:image" content="/assets/images/prompt-engineering-placeholder.svg">
   
   <link rel="stylesheet" href="/styles/main.css">
@@ -203,7 +203,7 @@
 </nav>
 
             <h1>Anthropic 프롬프트 엔지니어링 튜토리얼 완전 가이드</h1>
-<h2 id="목차">📋 목차 {#목차}</h2>
+<h2 id="목차">📋 목차</h2>
 <ol>
 <li><a href="#개요" class="internal-link internal-link--section">개요</a></li>
 <li><a href="#튜토리얼-구성" class="internal-link internal-link--section">튜토리얼 구성</a></li>
@@ -214,8 +214,8 @@
 <li><a href="#실무-적용-가이드" class="internal-link internal-link--section">실무 적용 가이드</a></li>
 <li><a href="#학습-로드맵" class="internal-link internal-link--section">학습 로드맵</a></li>
 </ol>
-<h2 id="개요">개요 {#개요}</h2>
-<h3 id="프로젝트-정보">프로젝트 정보 {#프로젝트-정보}</h3>
+<h2 id="개요">개요</h2>
+<h3 id="프로젝트-정보">프로젝트 정보</h3>
 <ul>
 <li><strong>제공자</strong>: Anthropic 공식</li>
 <li><strong>플랫폼</strong>: Amazon Bedrock 연동</li>
@@ -223,15 +223,15 @@
 <li><strong>난이도</strong>: 초급 → 고급 단계별 구성</li>
 <li><strong>목표</strong>: Claude를 활용한 효과적인 프롬프트 엔지니어링 마스터</li>
 </ul>
-<h3 id="주요-특징">주요 특징 {#주요-특징}</h3>
+<h3 id="주요-특징">주요 특징</h3>
 <ul>
 <li><strong>실습 중심</strong>: 이론과 실습을 결합한 대화형 학습</li>
 <li><strong>체계적 구성</strong>: 기초부터 고급까지 단계별 학습</li>
 <li><strong>실무 활용</strong>: 바로 적용 가능한 실전 기법</li>
 <li><strong>Amazon Bedrock 통합</strong>: 클라우드 환경에서 바로 실행</li>
 </ul>
-<h2 id="튜토리얼-구성">튜토리얼 구성 {#튜토리얼-구성}</h2>
-<h3 id="전체-14개-모듈-구성">📚 전체 14개 모듈 구성 {#전체-14개-모듈-구성}</h3>
+<h2 id="튜토리얼-구성">튜토리얼 구성</h2>
+<h3 id="전체-14개-모듈-구성">📚 전체 14개 모듈 구성</h3>
 <h4>🎯 기본 과정 (모듈 0-9)</h4>
 <ol>
 <li><strong>00_Tutorial_How-To</strong>: 튜토리얼 사용법 및 기본 가이드</li>
@@ -252,8 +252,8 @@
 <li><strong>10_3_Performance_Evaluations</strong>: 성능 평가 및 측정</li>
 <li><strong>10_4_Search_</strong>: 검색 기능 및 정보 검색 최적화</li>
 </ol>
-<h2 id="핵심-학습-내용">핵심 학습 내용 {#핵심-학습-내용}</h2>
-<h3 id="1-프롬프트-엔지니어링-기초-원리">1. 프롬프트 엔지니어링 기초 원리 {#1-프롬프트-엔지니어링-기초-원리}</h3>
+<h2 id="핵심-학습-내용">핵심 학습 내용</h2>
+<h3 id="1-프롬프트-엔지니어링-기초-원리">1. 프롬프트 엔지니어링 기초 원리</h3>
 <h4>효과적인 프롬프트의 4가지 핵심 요소</h4>
 <ul>
 <li><strong>명확성 (Clarity)</strong>: 모호함 없는 명확한 지시</li>
@@ -265,7 +265,7 @@
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1601" onclick="copyCode('code-1769482285004-1601')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1601" onclick="copyCode('code-1769484253473-1601')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -273,13 +273,13 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1601" class="language-plaintext">[역할 설정] + [작업 정의] + [맥락 제공] + [출력 형식] + [제약 조건]</code></pre>
+  <pre class="code-block__content"><code id="code-1769484253473-1601" class="language-plaintext">[역할 설정] + [작업 정의] + [맥락 제공] + [출력 형식] + [제약 조건]</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
 </div>
 
-<h3 id="2-역할-기반-프롬프팅-role-prompting">2. 역할 기반 프롬프팅 (Role Prompting) {#2-역할-기반-프롬프팅-role-prompting}</h3>
+<h3 id="2-역할-기반-프롬프팅-role-prompting">2. 역할 기반 프롬프팅 (Role Prompting)</h3>
 <h4>효과적인 역할 부여 방법</h4>
 <ul>
 <li><strong>전문가 역할</strong>: &quot;당신은 마케팅 전문가입니다&quot;</li>
@@ -292,12 +292,12 @@
 <li>경험 수준 및 배경 정보 포함</li>
 <li>역할에 맞는 톤앤매너 설정</li>
 </ul>
-<h3 id="3-데이터와-지시사항-분리">3. 데이터와 지시사항 분리 {#3-데이터와-지시사항-분리}</h3>
+<h3 id="3-데이터와-지시사항-분리">3. 데이터와 지시사항 분리</h3>
 <h4>구조화된 프롬프트 작성</h4>
 <div class="code-block" data-language="xml">
   <div class="code-block__header" style="background-color: #0060ac; color: #fff">
     <span class="code-block__language">XML</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1602" onclick="copyCode('code-1769482285004-1602')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1602" onclick="copyCode('code-1769484253473-1602')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -305,36 +305,37 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1602" class="language-xml">&lt;instructions&gt;
+  <pre class="code-block__content"><code id="code-1769484253473-1602" class="language-xml">&lt;instructions&gt;
 다음 데이터를 분석하여 핵심 인사이트를 도출하세요.
 &lt;/instructions&gt;
 
-<p>&lt;data&gt;
+&lt;data&gt;
 [실제 데이터 내용]
-&lt;/data&gt;</p>
-<p>&lt;format&gt;</p>
-<ol>
-<li>핵심 발견사항</li>
-<li>트렌드 분석</li>
-<li>권장사항
-&lt;/format&gt;</code></pre>  <div class="code-block__footer">
- <span class="code-block__lines">11 lines</span>
+&lt;/data&gt;
+
+&lt;format&gt;
+1. 핵심 발견사항
+2. 트렌드 분석
+3. 권장사항
+&lt;/format&gt;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">11 lines</span>
   </div>
-</div></li>
-</ol>
+</div>
+
 <h4>분리의 장점</h4>
 <ul>
 <li><strong>혼동 방지</strong>: 데이터와 지시사항 구분 명확</li>
 <li><strong>재사용성</strong>: 동일한 구조로 다양한 데이터 처리</li>
 <li><strong>정확성</strong>: 잘못된 해석 가능성 감소</li>
 </ul>
-<h2 id="기본-프롬프트-기법">기본 프롬프트 기법 {#기본-프롬프트-기법}</h2>
-<h3 id="1-명확하고-직접적인-프롬프팅">1. 명확하고 직접적인 프롬프팅 {#1-명확하고-직접적인-프롬프팅}</h3>
+<h2 id="기본-프롬프트-기법">기본 프롬프트 기법</h2>
+<h3 id="1-명확하고-직접적인-프롬프팅">1. 명확하고 직접적인 프롬프팅</h3>
 <h4>DO: 명확한 지시</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1603" onclick="copyCode('code-1769482285004-1603')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1603" onclick="copyCode('code-1769484253473-1603')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -342,7 +343,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1603" class="language-plaintext">&quot;다음 텍스트를 3개의 핵심 포인트로 요약해 주세요.&quot;</code></pre>
+  <pre class="code-block__content"><code id="code-1769484253473-1603" class="language-plaintext">&quot;다음 텍스트를 3개의 핵심 포인트로 요약해 주세요.&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
@@ -352,7 +353,7 @@
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1604" onclick="copyCode('code-1769482285004-1604')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1604" onclick="copyCode('code-1769484253473-1604')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -360,18 +361,18 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1604" class="language-plaintext">&quot;이 텍스트에 대해 뭔가 해주세요.&quot;</code></pre>
+  <pre class="code-block__content"><code id="code-1769484253473-1604" class="language-plaintext">&quot;이 텍스트에 대해 뭔가 해주세요.&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
 </div>
 
-<h3 id="2-출력-포맷-지정">2. 출력 포맷 지정 {#2-출력-포맷-지정}</h3>
+<h3 id="2-출력-포맷-지정">2. 출력 포맷 지정</h3>
 <h4>JSON 형태 출력</h4>
 <div class="code-block" data-language="json">
   <div class="code-block__header" style="background-color: #292929; color: #fff">
     <span class="code-block__language">JSON</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1605" onclick="copyCode('code-1769482285004-1605')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1605" onclick="copyCode('code-1769484253473-1605')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -379,7 +380,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1605" class="language-json">{
+  <pre class="code-block__content"><code id="code-1769484253473-1605" class="language-json">{
   &quot;요약&quot;: &quot;핵심 내용 요약&quot;,
   &quot;키워드&quot;: [&quot;키워드1&quot;, &quot;키워드2&quot;, &quot;키워드3&quot;],
   &quot;감정&quot;: &quot;긍정적/부정적/중립적&quot;
@@ -393,7 +394,7 @@
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1606" onclick="copyCode('code-1769482285004-1606')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1606" onclick="copyCode('code-1769484253473-1606')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -401,7 +402,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1606" class="language-plaintext">| 항목 | 내용 | 중요도 |
+  <pre class="code-block__content"><code id="code-1769484253473-1606" class="language-plaintext">| 항목 | 내용 | 중요도 |
 |------|------|--------|
 | 항목1 | 설명1 | 높음 |
 | 항목2 | 설명2 | 중간 |</code></pre>
@@ -410,12 +411,12 @@
   </div>
 </div>
 
-<h3 id="3-단계별-사고-프롬프팅">3. 단계별 사고 프롬프팅 {#3-단계별-사고-프롬프팅}</h3>
+<h3 id="3-단계별-사고-프롬프팅">3. 단계별 사고 프롬프팅</h3>
 <h4>Chain of Thought (CoT) 기법</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1607" onclick="copyCode('code-1769482285004-1607')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1607" onclick="copyCode('code-1769484253473-1607')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -423,7 +424,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1607" class="language-plaintext">&quot;다음 문제를 단계별로 풀어보세요:
+  <pre class="code-block__content"><code id="code-1769484253473-1607" class="language-plaintext">&quot;다음 문제를 단계별로 풀어보세요:
 1. 먼저 문제를 이해하고
 2. 필요한 정보를 파악하고
 3. 논리적으로 해결하세요&quot;</code></pre>
@@ -436,7 +437,7 @@
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1608" onclick="copyCode('code-1769482285004-1608')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1608" onclick="copyCode('code-1769484253473-1608')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -444,25 +445,25 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1608" class="language-plaintext">&lt;thinking&gt;
+  <pre class="code-block__content"><code id="code-1769484253473-1608" class="language-plaintext">&lt;thinking&gt;
 이 문제를 해결하기 위해서는...
 &lt;/thinking&gt;
 
-<p>&lt;answer&gt;
+&lt;answer&gt;
 최종 답변
 &lt;/answer&gt;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">6 lines</span>
-  </div></p>
+  </div>
 </div>
 
-<h2 id="고급-프롬프트-기법">고급 프롬프트 기법 {#고급-프롬프트-기법}</h2>
-<h3 id="1-few-shot-프롬프팅">1. Few-Shot 프롬프팅 {#1-few-shot-프롬프팅}</h3>
+<h2 id="고급-프롬프트-기법">고급 프롬프트 기법</h2>
+<h3 id="1-few-shot-프롬프팅">1. Few-Shot 프롬프팅</h3>
 <h4>예시 기반 학습</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1609" onclick="copyCode('code-1769482285004-1609')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1609" onclick="copyCode('code-1769484253473-1609')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -470,26 +471,27 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1609" class="language-plaintext">예시 1:
+  <pre class="code-block__content"><code id="code-1769484253473-1609" class="language-plaintext">예시 1:
 입력: &quot;오늘 날씨가 좋아요&quot;
 출력: 감정: 긍정적, 주제: 날씨
 
-<p>예시 2:
+예시 2:
 입력: &quot;교통이 너무 막혀요&quot;
-출력: 감정: 부정적, 주제: 교통</p>
-<p>이제 다음을 분석하세요:
+출력: 감정: 부정적, 주제: 교통
+
+이제 다음을 분석하세요:
 입력: &quot;새로운 프로젝트가 시작되었어요&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">8 lines</span>
-  </div></p>
+  </div>
 </div>
 
-<h3 id="2-환각-방지-기법">2. 환각 방지 기법 {#2-환각-방지-기법}</h3>
+<h3 id="2-환각-방지-기법">2. 환각 방지 기법</h3>
 <h4>불확실성 인정 방법</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1610" onclick="copyCode('code-1769482285004-1610')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1610" onclick="copyCode('code-1769484253473-1610')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -497,7 +499,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1610" class="language-plaintext">&quot;확실하지 않은 정보는 &#39;확실하지 않음&#39;으로 표시하세요.&quot;
+  <pre class="code-block__content"><code id="code-1769484253473-1610" class="language-plaintext">&quot;확실하지 않은 정보는 &#39;확실하지 않음&#39;으로 표시하세요.&quot;
 &quot;추측이나 가정은 명확히 구분하여 표시하세요.&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">2 lines</span>
@@ -508,7 +510,7 @@
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1611" onclick="copyCode('code-1769482285004-1611')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1611" onclick="copyCode('code-1769484253473-1611')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -516,18 +518,18 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1611" class="language-plaintext">&quot;모든 사실적 정보는 출처를 명시하거나 &#39;출처 불명&#39;으로 표시하세요.&quot;</code></pre>
+  <pre class="code-block__content"><code id="code-1769484253473-1611" class="language-plaintext">&quot;모든 사실적 정보는 출처를 명시하거나 &#39;출처 불명&#39;으로 표시하세요.&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
 </div>
 
-<h3 id="3-복잡한-프롬프트-작성">3. 복잡한 프롬프트 작성 {#3-복잡한-프롬프트-작성}</h3>
+<h3 id="3-복잡한-프롬프트-작성">3. 복잡한 프롬프트 작성</h3>
 <h4>다단계 작업 분할</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1612" onclick="copyCode('code-1769482285004-1612')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1612" onclick="copyCode('code-1769484253473-1612')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -535,7 +537,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1612" class="language-plaintext">1단계: 텍스트 분석
+  <pre class="code-block__content"><code id="code-1769484253473-1612" class="language-plaintext">1단계: 텍스트 분석
 2단계: 핵심 주제 추출
 3단계: 감정 분석
 4단계: 종합 결론 도출</code></pre>
@@ -548,7 +550,7 @@
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1613" onclick="copyCode('code-1769482285004-1613')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1613" onclick="copyCode('code-1769484253473-1613')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -556,7 +558,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1613" class="language-plaintext">IF 긍정적 감정 &gt; 70% THEN &quot;긍정적 리뷰&quot;
+  <pre class="code-block__content"><code id="code-1769484253473-1613" class="language-plaintext">IF 긍정적 감정 &gt; 70% THEN &quot;긍정적 리뷰&quot;
 ELSE IF 부정적 감정 &gt; 70% THEN &quot;부정적 리뷰&quot;
 ELSE &quot;중립적 리뷰&quot;</code></pre>
   <div class="code-block__footer">
@@ -564,13 +566,13 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
   </div>
 </div>
 
-<h2 id="부록-및-확장-기법">부록 및 확장 기법 {#부록-및-확장-기법}</h2>
-<h3 id="1-프롬프트-체이닝-prompt-chaining">1. 프롬프트 체이닝 (Prompt Chaining) {#1-프롬프트-체이닝-prompt-chaining}</h3>
+<h2 id="부록-및-확장-기법">부록 및 확장 기법</h2>
+<h3 id="1-프롬프트-체이닝-prompt-chaining">1. 프롬프트 체이닝 (Prompt Chaining)</h3>
 <h4>순차적 프롬프트 연결</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1614" onclick="copyCode('code-1769482285004-1614')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1614" onclick="copyCode('code-1769484253473-1614')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -578,7 +580,7 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1614" class="language-plaintext">프롬프트 1: 데이터 수집 및 정리
+  <pre class="code-block__content"><code id="code-1769484253473-1614" class="language-plaintext">프롬프트 1: 데이터 수집 및 정리
 ↓
 프롬프트 2: 데이터 분석 및 패턴 파악
 ↓
@@ -594,12 +596,12 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
 <li>단계별 검증 및 품질 관리</li>
 <li>오류 발생 시 롤백 메커니즘</li>
 </ul>
-<h3 id="2-도구-사용-tool-use">2. 도구 사용 (Tool Use) {#2-도구-사용-tool-use}</h3>
+<h3 id="2-도구-사용-tool-use">2. 도구 사용 (Tool Use)</h3>
 <h4>함수 호출 기법</h4>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1615" onclick="copyCode('code-1769482285004-1615')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1615" onclick="copyCode('code-1769484253473-1615')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -607,16 +609,16 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1615" class="language-python">def analyze_sentiment(text):
+  <pre class="code-block__content"><code id="code-1769484253473-1615" class="language-python">def analyze_sentiment(text):
     # 감정 분석 함수
     pass
 
-<p>def extract_keywords(text):
+def extract_keywords(text):
     # 키워드 추출 함수
     pass</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">6 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <h4>API 연동 활용</h4>
@@ -625,7 +627,7 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
 <li>실시간 정보 업데이트</li>
 <li>다양한 서비스 통합</li>
 </ul>
-<h3 id="3-성능-평가-및-측정">3. 성능 평가 및 측정 {#3-성능-평가-및-측정}</h3>
+<h3 id="3-성능-평가-및-측정">3. 성능 평가 및 측정</h3>
 <h4>평가 지표</h4>
 <ul>
 <li><strong>정확성</strong>: 올바른 답변 비율</li>
@@ -637,7 +639,7 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1616" onclick="copyCode('code-1769482285004-1616')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1616" onclick="copyCode('code-1769484253473-1616')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -645,7 +647,7 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1616" class="language-plaintext">버전 A: 기본 프롬프트
+  <pre class="code-block__content"><code id="code-1769484253473-1616" class="language-plaintext">버전 A: 기본 프롬프트
 버전 B: 개선된 프롬프트
 → 성능 비교 분석</code></pre>
   <div class="code-block__footer">
@@ -653,8 +655,8 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
   </div>
 </div>
 
-<h2 id="실무-적용-가이드">실무 적용 가이드 {#실무-적용-가이드}</h2>
-<h3 id="1-산업별-활용-사례">1. 산업별 활용 사례 {#1-산업별-활용-사례}</h3>
+<h2 id="실무-적용-가이드">실무 적용 가이드</h2>
+<h3 id="1-산업별-활용-사례">1. 산업별 활용 사례</h3>
 <h4>마케팅 분야</h4>
 <ul>
 <li>고객 피드백 분석</li>
@@ -673,12 +675,12 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
 <li>평가 문항 생성</li>
 <li>개인화 학습 지원</li>
 </ul>
-<h3 id="2-업무-프로세스-통합">2. 업무 프로세스 통합 {#2-업무-프로세스-통합}</h3>
+<h3 id="2-업무-프로세스-통합">2. 업무 프로세스 통합</h3>
 <h4>일상 업무 자동화</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1617" onclick="copyCode('code-1769482285004-1617')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1617" onclick="copyCode('code-1769484253473-1617')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -686,7 +688,7 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1617" class="language-plaintext">1. 이메일 분류 및 요약
+  <pre class="code-block__content"><code id="code-1769484253473-1617" class="language-plaintext">1. 이메일 분류 및 요약
 2. 회의록 생성 및 액션 아이템 추출
 3. 보고서 초안 작성
 4. 데이터 분석 및 시각화</code></pre>
@@ -701,12 +703,12 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
 <li>리스크 평가 및 관리</li>
 <li>예측 및 시나리오 분석</li>
 </ul>
-<h3 id="3-프롬프트-관리-시스템">3. 프롬프트 관리 시스템 {#3-프롬프트-관리-시스템}</h3>
+<h3 id="3-프롬프트-관리-시스템">3. 프롬프트 관리 시스템</h3>
 <h4>프롬프트 라이브러리 구축</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482285004-1618" onclick="copyCode('code-1769482285004-1618')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253473-1618" onclick="copyCode('code-1769484253473-1618')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -714,7 +716,7 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482285004-1618" class="language-plaintext">📁 프롬프트 라이브러리/
+  <pre class="code-block__content"><code id="code-1769484253473-1618" class="language-plaintext">📁 프롬프트 라이브러리/
 ├── 📁 기본 템플릿/
 ├── 📁 업무별 템플릿/
 ├── 📁 고급 기법/
@@ -730,33 +732,33 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
 <li>성능 비교 및 최적화</li>
 <li>팀 간 프롬프트 공유</li>
 </ul>
-<h2 id="학습-로드맵">학습 로드맵 {#학습-로드맵}</h2>
-<h3 id="초급-단계-1-2주">🎯 초급 단계 (1-2주) {#초급-단계-1-2주}</h3>
+<h2 id="학습-로드맵">학습 로드맵</h2>
+<h3 id="초급-단계-1-2주">🎯 초급 단계 (1-2주)</h3>
 <ul>
 <li><input disabled="" type="checkbox"> 00-02 모듈: 기본 구조 및 명확한 프롬프팅</li>
 <li><input disabled="" type="checkbox"> 실습: 간단한 작업 자동화</li>
 <li><input disabled="" type="checkbox"> 목표: 기본 프롬프트 작성 능력 습득</li>
 </ul>
-<h3 id="중급-단계-3-4주">🚀 중급 단계 (3-4주) {#중급-단계-3-4주}</h3>
+<h3 id="중급-단계-3-4주">🚀 중급 단계 (3-4주)</h3>
 <ul>
 <li><input disabled="" type="checkbox"> 03-06 모듈: 역할 부여 및 출력 포맷</li>
 <li><input disabled="" type="checkbox"> 실습: 복잡한 분석 작업 수행</li>
 <li><input disabled="" type="checkbox"> 목표: 구조화된 프롬프트 설계 능력</li>
 </ul>
-<h3 id="고급-단계-5-8주">🏆 고급 단계 (5-8주) {#고급-단계-5-8주}</h3>
+<h3 id="고급-단계-5-8주">🏆 고급 단계 (5-8주)</h3>
 <ul>
 <li><input disabled="" type="checkbox"> 07-09 모듈: 예시 활용 및 환각 방지</li>
 <li><input disabled="" type="checkbox"> 실습: 실무 프로젝트 적용</li>
 <li><input disabled="" type="checkbox"> 목표: 전문가 수준의 프롬프트 엔지니어링</li>
 </ul>
-<h3 id="전문가-단계-9-12주">🎓 전문가 단계 (9-12주) {#전문가-단계-9-12주}</h3>
+<h3 id="전문가-단계-9-12주">🎓 전문가 단계 (9-12주)</h3>
 <ul>
 <li><input disabled="" type="checkbox"> 10.1-10.4 모듈: 체이닝 및 도구 사용</li>
 <li><input disabled="" type="checkbox"> 실습: 시스템 통합 및 자동화</li>
 <li><input disabled="" type="checkbox"> 목표: 엔터프라이즈 레벨 솔루션 구축</li>
 </ul>
-<h2 id="체크리스트-및-실습-가이드">체크리스트 및 실습 가이드 {#체크리스트-및-실습-가이드}</h2>
-<h3 id="학습-진도-체크리스트">📋 학습 진도 체크리스트 {#학습-진도-체크리스트}</h3>
+<h2 id="체크리스트-및-실습-가이드">체크리스트 및 실습 가이드</h2>
+<h3 id="학습-진도-체크리스트">📋 학습 진도 체크리스트</h3>
 <ul>
 <li><input disabled="" type="checkbox"> 각 모듈별 이론 학습 완료</li>
 <li><input disabled="" type="checkbox"> 실습 예제 직접 수행</li>
@@ -764,21 +766,21 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
 <li><input disabled="" type="checkbox"> 성능 측정 및 개선 수행</li>
 <li><input disabled="" type="checkbox"> 팀 또는 커뮤니티 피드백 수집</li>
 </ul>
-<h3 id="실습-환경-구성">🛠️ 실습 환경 구성 {#실습-환경-구성}</h3>
+<h3 id="실습-환경-구성">🛠️ 실습 환경 구성</h3>
 <ul>
 <li><input disabled="" type="checkbox"> Amazon Bedrock 계정 설정</li>
 <li><input disabled="" type="checkbox"> Jupyter 노트북 환경 구축</li>
 <li><input disabled="" type="checkbox"> Claude API 키 설정</li>
 <li><input disabled="" type="checkbox"> 필요한 Python 패키지 설치</li>
 </ul>
-<h3 id="성과-측정-방법">📊 성과 측정 방법 {#성과-측정-방법}</h3>
+<h3 id="성과-측정-방법">📊 성과 측정 방법</h3>
 <ul>
 <li><input disabled="" type="checkbox"> 작업 완료 시간 측정</li>
 <li><input disabled="" type="checkbox"> 출력 품질 평가</li>
 <li><input disabled="" type="checkbox"> 사용자 만족도 조사</li>
 <li><input disabled="" type="checkbox"> 비즈니스 임팩트 분석</li>
 </ul>
-<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<h2 id="연결된-노트">연결된 노트</h2>
 <ul>
 <li><strong>상위 개념</strong>: <a href="/articles/ai-prompt-engineering-complete-guide.html" class="internal-link">AI 프롬프트 엔지니어링 완전 가이드</a></li>
 <li><strong>관련 도구</strong>: <a href="/articles/claude-ai-practical.html" class="internal-link">Claude AI 활용법</a>, <a href="/articles/amazon-bedrock-setup.html" class="internal-link">Amazon Bedrock 설정</a></li>
@@ -946,7 +948,7 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
       </div>
         <div class="article-card__content">
           <h3 class="article-card__title">Context Engineering 완전 정복 - 프롬프트를 넘어서</h3>
-          <p class="article-card__excerpt">1.  || #충격적인 진실 - 프롬프트 엔지니어링은 낡았다 2.  || #Context Engineering이 뭔가요 3.  || #왜 AI는 실패할까 컨텍스트 부족 문제 4.  || #Context Engineering의 핵심 구조 5.  || #PRP 워크플로우...</p>
+          <p class="article-card__excerpt">1. #충격적인 진실 - 프롬프트 엔지니어링은 낡았다 2. #Context Engineering이 뭔가요 3. #왜 AI는 실패할까 컨텍스트 부족 문제 4. #Context Engineering의 핵심 구조 5. #PRP 워크플로우 완전 이해 6. #실전 예제로...</p>
           <div class="article-card__meta">
             <div class="article-card__author">
               <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">
@@ -971,7 +973,7 @@ ELSE &quot;중립적 리뷰&quot;</code></pre>
       </div>
         <div class="article-card__content">
           <h3 class="article-card__title">Context Engineering 완전 가이드</h3>
-          <p class="article-card__excerpt">1.  || #개요 2.  || #Context Engineering이란 3.  || #프롬프트 엔지니어링과의 차이점 4.  || #핵심 구성 요소 5.  || #파일 구조와 역할 6.  || #실제 워크플로우 7.  || #구현 방법 8.  || #활용 사례 9. ...</p>
+          <p class="article-card__excerpt">1. #개요 2. #Context Engineering이란 3. #프롬프트 엔지니어링과의 차이점 4. #핵심 구성 요소 5. #파일 구조와 역할 6. #실제 워크플로우 7. #구현 방법 8. #활용 사례 9. #모범 사례 10. #문제 해결 11. #실무 적용 전략...</p>
           <div class="article-card__meta">
             <div class="article-card__author">
               <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">

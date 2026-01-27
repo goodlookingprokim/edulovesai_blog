@@ -153,7 +153,7 @@ function addHeadingIds(content, headings) {
 }
 
 /**
- * Post-process HTML to add heading IDs
+ * Post-process HTML to add heading IDs and clean anchor syntax
  * Call this after marked.js conversion
  * @param {string} html - HTML content
  * @param {Array} headings - Heading objects
@@ -165,14 +165,21 @@ function addIdsToHtml(html, headings) {
   let result = html;
 
   for (const heading of headings) {
-    // Match heading tag with the text
+    // Match heading tag with the text (including any {#id} marker)
     const pattern = new RegExp(
       `<h${heading.level}>([^<]*${escapeRegex(heading.text)}[^<]*)</h${heading.level}>`,
       'i'
     );
 
-    result = result.replace(pattern, `<h${heading.level} id="${heading.id}">$1</h${heading.level}>`);
+    result = result.replace(pattern, (match, content) => {
+      // Remove {#id} syntax from visible content
+      const cleanContent = content.replace(/\s*\{#[^}]+\}/g, '');
+      return `<h${heading.level} id="${heading.id}">${cleanContent}</h${heading.level}>`;
+    });
   }
+
+  // Also clean any remaining {#id} syntax in headings
+  result = result.replace(/(<h[1-6][^>]*>)([^<]*)\s*\{#[^}]+\}([^<]*<\/h[1-6]>)/gi, '$1$2$3');
 
   return result;
 }

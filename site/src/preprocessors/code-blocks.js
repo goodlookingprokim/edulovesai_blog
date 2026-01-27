@@ -45,14 +45,20 @@ const LANGUAGE_CONFIG = {
 // Default config for unknown languages
 const DEFAULT_CONFIG = { name: 'Code', color: '#6b7280', textColor: '#fff' };
 
+// Storage for code blocks during processing
+const codeBlockStorage = new Map();
+
 /**
- * Process code blocks in markdown
- * Note: This runs BEFORE marked.js conversion, so we work with markdown syntax
+ * Process code blocks in markdown - Phase 1: Extract and replace with placeholders
+ * This prevents marked.js from processing code content
  * @param {string} markdown - Markdown content
- * @returns {string} Markdown with enhanced code block markers
+ * @returns {string} Markdown with code block placeholders
  */
 function process(markdown) {
   if (!markdown) return '';
+
+  // Clear storage for new processing
+  codeBlockStorage.clear();
 
   // Pattern for fenced code blocks
   const codeBlockPattern = /```(\w*)\n([\s\S]*?)```/g;
@@ -63,9 +69,8 @@ function process(markdown) {
     const lines = code.split('\n').filter(line => line !== '').length;
     const codeId = generateId();
 
-    // Return a special marker that will be processed after marked.js
-    // We use a custom HTML structure that marked won't touch
-    return `<div class="code-block" data-language="${language}">
+    // Create the HTML for code block
+    const codeBlockHtml = `<div class="code-block" data-language="${language}">
   <div class="code-block__header" style="background-color: ${config.color}; color: ${config.textColor}">
     <span class="code-block__language">${config.name}</span>
     <button class="code-block__copy" data-code-id="${codeId}" onclick="copyCode('${codeId}')" title="Copy code">
@@ -81,7 +86,31 @@ function process(markdown) {
     <span class="code-block__lines">${lines} line${lines !== 1 ? 's' : ''}</span>
   </div>
 </div>`;
+
+    // Store the HTML and return a unique placeholder that marked won't touch
+    const placeholder = `<!--CODEBLOCK_${codeId}-->`;
+    codeBlockStorage.set(placeholder, codeBlockHtml);
+
+    return placeholder;
   });
+}
+
+/**
+ * Restore code blocks after marked.js processing - Phase 2
+ * @param {string} html - HTML content with placeholders
+ * @returns {string} HTML with restored code blocks
+ */
+function restore(html) {
+  if (!html) return '';
+
+  let result = html;
+  for (const [placeholder, codeBlockHtml] of codeBlockStorage) {
+    // Also handle case where marked wrapped placeholder in <p> tags
+    result = result.replace(`<p>${placeholder}</p>`, codeBlockHtml);
+    result = result.replace(placeholder, codeBlockHtml);
+  }
+
+  return result;
 }
 
 /**
@@ -180,6 +209,7 @@ function copyCode(codeId) {
 
 module.exports = {
   process,
+  restore,
   getLanguageConfig,
   hasCodeBlocks,
   countCodeBlocks,

@@ -267,7 +267,10 @@ function getObsidianArticles() {
       const preprocessed = preprocessContent(file.markdown, articleMap);
 
       // Convert to HTML
-      const html = marked(preprocessed.markdown);
+      let html = marked(preprocessed.markdown);
+
+      // Restore code blocks (placeholders -> actual HTML)
+      html = codeBlocks.restore(html);
 
       // Postprocess HTML
       const finalHtml = postprocessContent(html, preprocessed.headings);
@@ -335,7 +338,10 @@ function getLocalArticles() {
           const preprocessed = preprocessContent(markdown);
 
           // Convert to HTML
-          const html = marked(preprocessed.markdown);
+          let html = marked(preprocessed.markdown);
+
+          // Restore code blocks (placeholders -> actual HTML)
+          html = codeBlocks.restore(html);
 
           // Postprocess HTML
           const finalHtml = postprocessContent(html, preprocessed.headings);

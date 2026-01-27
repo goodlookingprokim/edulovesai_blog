@@ -169,7 +169,7 @@ priority: high</h2>
 <blockquote>
 <p><strong>스토리 서론</strong>: 상상해 보세요. 당신은 마을의 작은 빵집 주인입니다. AI는 당신의 똑똑한 조수인데, 빵 레시피를 어떻게 말하느냐에 따라 맛있는 빵(좋은 결과)이 나오거나, 이상한 빵(잘못된 출력)이 나옵니다. 이 가이드는 그 &#39;레시피 말하기&#39; 기술, 즉 프롬프트를 어떻게 잘 만드는지 알려줍니다. 초보자부터 시작해 점점 전문가가 되는 여정을 따라가 보세요!</p>
 </blockquote>
-<h2 id="목차">📋 목차 {#목차}</h2>
+<h2 id="목차">📋 목차</h2>
 <ol>
 <li><a href="#lovable-ai란-무엇인가" class="internal-link internal-link--section">Lovable AI란 무엇인가</a></li>
 <li><a href="#프롬프트의-4단계-수준" class="internal-link internal-link--section">프롬프트의 4단계 수준</a></li>
@@ -178,60 +178,60 @@ priority: high</h2>
 <li><a href="#효과적인-프롬프트-만드는-팁-스토리-예시" class="internal-link internal-link--section">효과적인 프롬프트 만드는 팁 (스토리 예시)</a></li>
 </ol>
 <p><em>(전체 가이드는 Part 1~3으로 나뉩니다. Part 2: 고급 수준, Part 3: 사례 연구와 용어집)</em></p>
-<h2 id="lovable-ai란-무엇인가">Lovable AI란 무엇인가 {#lovable-ai란-무엇인가}</h2>
-<h3 id="feynman-설명-아이에게-설명하기">Feynman 설명: 아이에게 설명하기 {#feynman-설명-아이에게-설명하기}</h3>
+<h2 id="lovable-ai란-무엇인가">Lovable AI란 무엇인가</h2>
+<h3 id="feynman-설명-아이에게-설명하기">Feynman 설명: 아이에게 설명하기</h3>
 <p>Lovable AI는 &#39;코드 없이 AI 앱 만드는 도구&#39;예요. 마치 레고 블록처럼, AI에게 &quot;이렇게 해!&quot;라고 말하는 &#39;프롬프트&#39; 블록을 쌓아 앱을 만듭니다. 전통 코딩은 복잡한 기계 조립 같지만, Lovable은 그림 그리듯 쉽죠.</p>
-<h3 id="스토리-예시-빵집-주인의-하루">스토리 예시: 빵집 주인의 하루 {#스토리-예시-빵집-주인의-하루}</h3>
+<h3 id="스토리-예시-빵집-주인의-하루">스토리 예시: 빵집 주인의 하루</h3>
 <p>빵집 주인 &#39;민준&#39;은 Lovable로 AI 조수를 만듭니다. 고객이 &quot;오늘 빵 추천해줘&quot;라고 하면, AI가 과거 주문(메모리)을 보고 &quot;따뜻한 크루아상 어때요?&quot;라고 답해요. 민준은 코딩 없이 프롬프트로 이 &#39;똑똑함&#39;을 만들었어요. 초보 개발자처럼, 민준도 처음엔 간단한 프롬프트부터 시작했죠.</p>
-<h3 id="초보자-예시-스킬-레벨-1-완전-초보">초보자 예시 (스킬 레벨 1: 완전 초보) {#초보자-예시-스킬-레벨-1-완전-초보}</h3>
+<h3 id="초보자-예시-스킬-레벨-1-완전-초보">초보자 예시 (스킬 레벨 1: 완전 초보)</h3>
 <ul>
 <li><strong>입력</strong>: &quot;빵 종류 나열해.&quot;</li>
 <li><strong>Lovable 프롬프트</strong>: &quot;친절한 빵집 주인으로, 3가지 빵을 추천해. 각 빵에 간단 설명 추가.&quot;</li>
 <li><strong>출력</strong>: &quot;1. 크루아상: 바삭한 층층이. 2. 식빵: 부드러운 맛.&quot;</li>
 </ul>
 <p>이처럼 Lovable은 비개발자도 AI 앱을 만듭니다. (자세한 비교는 Part 2 참조)</p>
-<h2 id="프롬프트의-4단계-수준">프롬프트의 4단계 수준 {#프롬프트의-4단계-수준}</h2>
+<h2 id="프롬프트의-4단계-수준">프롬프트의 4단계 수준</h2>
 <p>프롬프트는 자전거 타기처럼 단계별로 배웁니다. 초보는 &#39;훈련 바퀴&#39;로 안전하게, 고수는 자유롭게!</p>
-<h3 id="feynman-설명">Feynman 설명 {#feynman-설명}</h3>
+<h3 id="feynman-설명">Feynman 설명</h3>
 <p>프롬프트는 AI에게 주는 &#39;지시서&#39;예요. 레벨 1은 템플릿(준비된 양식)으로 쉽고, 레벨 4는 AI가 지시서를 고쳐주는 &#39;스마트&#39; 단계죠. 마치 학교에서 선생님이 과제 양식을 주다가, 나중엔 스스로 쓰게 하는 거예요.</p>
-<h3 id="스토리-개요">스토리 개요 {#스토리-개요}</h3>
+<h3 id="스토리-개요">스토리 개요</h3>
 <p>&#39;지훈&#39; 개발자는 레벨 1로 간단 챗봇을 만들고, 레벨 4로 복잡한 앱을 완성합니다. 각 레벨에서 실수와 성장 스토리를 따라가 보세요.</p>
-<h2 id="레벨-1-훈련-바퀴-프롬프팅-초보자-예시">레벨 1: 훈련 바퀴 프롬프팅 (초보자 예시) {#레벨-1-훈련-바퀴-프롬프팅-초보자-예시}</h2>
-<h3 id="feynman-설명-단순화">Feynman 설명: 단순화 {#feynman-설명-단순화}</h3>
+<h2 id="레벨-1-훈련-바퀴-프롬프팅-초보자-예시">레벨 1: 훈련 바퀴 프롬프팅 (초보자 예시)</h2>
+<h3 id="feynman-설명-단순화">Feynman 설명: 단순화</h3>
 <p>이건 &#39;양식 채우기&#39;예요. AI에게 미리 예시를 주면, 비슷하게 따라 해요. 자전거에 바퀴를 달아 넘어지지 않게 하죠. 초보가 예측 가능한 결과를 원할 때 좋아요.</p>
-<h3 id="스토리-예시-지훈의-첫-챗봇">스토리 예시: 지훈의 첫 챗봇 {#스토리-예시-지훈의-첫-챗봇}</h3>
+<h3 id="스토리-예시-지훈의-첫-챗봇">스토리 예시: 지훈의 첫 챗봇</h3>
 <p>지훈은 카페 앱을 만듭니다. &quot;메뉴 추천해&quot; 입력에 AI가 항상 &quot;커피: 3000원&quot;처럼 답하게 하려 해요. 처음엔 AI가 이상한 답을 해서 좌절하지만, 템플릿으로 고칩니다.</p>
-<h3 id="초보자-예시-스킬-레벨-1">초보자 예시 (스킬 레벨 1) {#초보자-예시-스킬-레벨-1}</h3>
+<h3 id="초보자-예시-스킬-레벨-1">초보자 예시 (스킬 레벨 1)</h3>
 <ul>
 <li><strong>프롬프트</strong>: &quot;고객: &#39;추천 메뉴는?&#39; AI: &#39;아메리카노 (3000원, 상큼함). 라떼 (4000원, 부드러움).&#39;&quot;</li>
 <li><strong>테스트 입력</strong>: &quot;오늘 뭐 마실까?&quot;</li>
 <li><strong>출력</strong>: &quot;아메리카노 (3000원, 상큼함).&quot;</li>
 </ul>
-<h3 id="기본-예시-스킬-레벨-2-약간-익숙">기본 예시 (스킬 레벨 2: 약간 익숙) {#기본-예시-스킬-레벨-2-약간-익숙}</h3>
+<h3 id="기본-예시-스킬-레벨-2-약간-익숙">기본 예시 (스킬 레벨 2: 약간 익숙)</h3>
 <ul>
 <li>더 복잡: &quot;고객 불만: &#39;커피 맛없어.&#39; AI: &#39;죄송합니다. 다음엔 무료 교환 드릴게요.&#39;&quot;</li>
 <li>이점: 안전하지만, 유연성 부족 (예: 예상치 못한 질문에 약함).</li>
 </ul>
 <p>언제 업그레이드? 템플릿이 답답할 때! (Part 2로 이어짐)</p>
-<h2 id="레벨-2-훈련-바퀴-없는-프롬프팅-기초-예시">레벨 2: 훈련 바퀴 없는 프롬프팅 (기초 예시) {#레벨-2-훈련-바퀴-없는-프롬프팅-기초-예시}</h2>
-<h3 id="feynman-설명">Feynman 설명 {#feynman-설명}</h3>
+<h2 id="레벨-2-훈련-바퀴-없는-프롬프팅-기초-예시">레벨 2: 훈련 바퀴 없는 프롬프팅 (기초 예시)</h2>
+<h3 id="feynman-설명">Feynman 설명</h3>
 <p>이제 바퀴를 떼고 직접 타는 거예요. AI 역할 부여하고, 자유롭게 지시하지만 명확히! &quot;너는 선생님, 아이에게 설명해&quot;처럼요.</p>
-<h3 id="스토리-예시-지훈의-성장">스토리 예시: 지훈의 성장 {#스토리-예시-지훈의-성장}</h3>
+<h3 id="스토리-예시-지훈의-성장">스토리 예시: 지훈의 성장</h3>
 <p>지훈은 레벨 1에서 벗어나 &quot;너는 카페 바리스타야. 고객 취향 물어보고 추천해&quot; 프롬프트로 만듭니다. AI가 대화처럼 응답해 카페 앱이 살아나요.</p>
-<h3 id="기초-예시-스킬-레벨-2">기초 예시 (스킬 레벨 2) {#기초-예시-스킬-레벨-2}</h3>
+<h3 id="기초-예시-스킬-레벨-2">기초 예시 (스킬 레벨 2)</h3>
 <ul>
 <li><strong>프롬프트</strong>: &quot;너는 친절한 바리스타. 고객 메시지 분석해 취향 맞춤 추천. 목록 형식으로.&quot;</li>
 <li><strong>입력</strong>: &quot;달콤한 거 좋아해.&quot;</li>
 <li><strong>출력</strong>: &quot;- 카페라떼: 달콤한 우유 맛. - 프라페: 시원한 디저트.&quot;</li>
 </ul>
-<h3 id="중급-예시-스킬-레벨-3-약간-경험">중급 예시 (스킬 레벨 3: 약간 경험) {#중급-예시-스킬-레벨-3-약간-경험}</h3>
+<h3 id="중급-예시-스킬-레벨-3-약간-경험">중급 예시 (스킬 레벨 3: 약간 경험)</h3>
 <ul>
 <li>조건 추가: &quot;만약 알레르기 있으면 물어봐.&quot;</li>
 <li>이점: 자연스러운 응답, 하지만 AI가 오해할 수 있음.</li>
 </ul>
 <p>팁: 명확히 하세요! &quot;목록으로, 100자 이내.&quot; (고급 레벨은 Part 2)</p>
 <p><em>(Part 1 끝. Part 2에서 레벨 3-4와 베스트 프랙티스 이어집니다.)</em></p>
-<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<h2 id="연결된-노트">연결된 노트</h2>
 <ul>
 <li><a href="/articles/prompt-engineeringcontext-engineering-complete-guide.html" class="internal-link">프롬프트 엔지니어링/Context Engineering 완전 가이드</a></li>
 <li><a href="/articles/anthropicpromptengineeringtutorialcompleteguide.html" class="internal-link">Anthropic_프롬프트_엔지니어링_튜토리얼_완전_가이드</a></li>
@@ -396,7 +396,7 @@ priority: high</h2>
       </div>
         <div class="article-card__content">
           <h3 class="article-card__title">Context Engineering 완전 정복 - 프롬프트를 넘어서</h3>
-          <p class="article-card__excerpt">1.  || #충격적인 진실 - 프롬프트 엔지니어링은 낡았다 2.  || #Context Engineering이 뭔가요 3.  || #왜 AI는 실패할까 컨텍스트 부족 문제 4.  || #Context Engineering의 핵심 구조 5.  || #PRP 워크플로우...</p>
+          <p class="article-card__excerpt">1. #충격적인 진실 - 프롬프트 엔지니어링은 낡았다 2. #Context Engineering이 뭔가요 3. #왜 AI는 실패할까 컨텍스트 부족 문제 4. #Context Engineering의 핵심 구조 5. #PRP 워크플로우 완전 이해 6. #실전 예제로...</p>
           <div class="article-card__meta">
             <div class="article-card__author">
               <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">
@@ -421,7 +421,7 @@ priority: high</h2>
       </div>
         <div class="article-card__content">
           <h3 class="article-card__title">Context Engineering 완전 가이드</h3>
-          <p class="article-card__excerpt">1.  || #개요 2.  || #Context Engineering이란 3.  || #프롬프트 엔지니어링과의 차이점 4.  || #핵심 구성 요소 5.  || #파일 구조와 역할 6.  || #실제 워크플로우 7.  || #구현 방법 8.  || #활용 사례 9. ...</p>
+          <p class="article-card__excerpt">1. #개요 2. #Context Engineering이란 3. #프롬프트 엔지니어링과의 차이점 4. #핵심 구성 요소 5. #파일 구조와 역할 6. #실제 워크플로우 7. #구현 방법 8. #활용 사례 9. #모범 사례 10. #문제 해결 11. #실무 적용 전략...</p>
           <div class="article-card__meta">
             <div class="article-card__author">
               <img src="/assets/personas/prompt-master.svg" alt="프롬프트 마스터" class="article-card__avatar">

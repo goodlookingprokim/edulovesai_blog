@@ -120,14 +120,21 @@ function formatDate(dateStr) {
 function generateExcerpt(content) {
   if (!content) return '';
 
-  // Remove markdown syntax
+  // Remove markdown and Obsidian syntax
   const plainText = content
+    .replace(/%%[\s\S]*?%%/g, '') // Obsidian comments (hidden)
     .replace(/^#+\s+.*$/gm, '') // Headers
     .replace(/!\[.*?\]\(.*?\)/g, '') // Images
+    .replace(/!\[\[@?[^\]]+\]\]/g, '') // Obsidian images/embeds
     .replace(/\[([^\]]+)\]\(.*?\)/g, '$1') // Links
-    .replace(/\[\[([^\]|]+)\|?([^\]]*)\]\]/g, '$2 || $1') // Obsidian links
+    .replace(/\[\[([^\]|]+)\|?([^\]]*)\]\]/g, (m, p1, p2) => p2 || p1) // Obsidian links
     .replace(/```[\s\S]*?```/g, '') // Code blocks
     .replace(/`[^`]+`/g, '') // Inline code
+    .replace(/==([^=]+)==/g, '$1') // Obsidian highlights
+    .replace(/\{#[^}]+\}/g, '') // Heading anchors
+    .replace(/\s*\^[\w-]+\s*$/gm, '') // Block IDs
+    .replace(/\$\$[\s\S]+?\$\$/g, '') // Block LaTeX
+    .replace(/\$[^$\n]+?\$/g, '') // Inline LaTeX
     .replace(/[*_~]+/g, '') // Bold/italic/strikethrough
     .replace(/>\s*\[!.*?\].*$/gm, '') // Callout headers
     .replace(/^>\s*/gm, '') // Blockquotes

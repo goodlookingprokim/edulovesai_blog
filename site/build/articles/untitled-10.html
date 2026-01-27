@@ -266,17 +266,17 @@
 </nav>
 
             <h1>Chapter 9: Learning and Adaptation</h1>
-<h2 id="개요">개요 {#개요}</h2>
+<h2 id="개요">개요</h2>
 <p>Learning and adaptation play crucial roles in enhancing the capabilities of AI agents. These processes enable agents to evolve beyond their predefined parameters and improve autonomously through experience and environmental interactions. By learning and adapting, agents can effectively handle new situations and optimize their performance without constant manual intervention.</p>
 <p>학습과 적응은 인공지능 에이전트의 능력을 향상시키는 데 중요한 역할을 합니다. 이러한 프로세스는 에이전트가 사전 정의된 매개변수를 넘어서 진화할 수 있게 하며, 경험과 환경 상호작용을 통해 자율적으로 개선할 수 있게 합니다. 학습하고 적응함으로써, 에이전트는 새로운 상황을 효과적으로 관리하고 지속적인 수동 개입 없이 성능을 최적화할 수 있습니다.</p>
-<h2 id="패턴-개요-pattern-overview">패턴 개요 (Pattern Overview) {#패턴-개요-pattern-overview}</h2>
-<h3 id="핵심-개념">핵심 개념 {#핵심-개념}</h3>
+<h2 id="패턴-개요-pattern-overview">패턴 개요 (Pattern Overview)</h2>
+<h3 id="핵심-개념">핵심 개념</h3>
 <p>Agents learn and adapt by changing their thinking, behavior, or knowledge based on new experiences and data. This allows agents to evolve from simply following instructions to becoming smarter over time.</p>
 <p>에이전트는 새로운 경험과 데이터를 기반으로 사고, 행동 또는 지식을 변경함으로써 학습하고 적응합니다. 이를 통해 에이전트는 단순히 지시를 따르는 것에서 시간이 지남에 따라 더 똑똑해지는 것으로 진화할 수 있습니다.</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-722" onclick="copyCode('code-1769482284813-722')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-722" onclick="copyCode('code-1769484253297-722')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -284,28 +284,27 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-722" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253297-722" class="language-mermaid">graph TD
     A[Agent&lt;br/&gt;에이전트] --&gt; B[Experience&lt;br/&gt;경험]
     B --&gt; C[Learning&lt;br/&gt;학습]
     C --&gt; D[Adaptation&lt;br/&gt;적응]
     D --&gt; E[Improved Performance&lt;br/&gt;향상된 성능]
     E --&gt; A
     
-<pre><code>style A fill:#ff9999
-style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style E fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">9 lines</span>
   </div>
 </div>
 
-<h3 id="학습-방법">학습 방법 {#학습-방법}</h3>
+<h3 id="학습-방법">학습 방법</h3>
 <p>Agents can learn through various methods:</p>
 <p>에이전트는 다양한 방법으로 학습할 수 있습니다:</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-723" onclick="copyCode('code-1769482284813-723')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-723" onclick="copyCode('code-1769484253297-723')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -313,7 +312,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-723" class="language-mermaid">graph TB
+  <pre class="code-block__content"><code id="code-1769484253297-723" class="language-mermaid">graph TB
     A[Learning Methods&lt;br/&gt;학습 방법] --&gt; B[Reinforcement Learning&lt;br/&gt;강화 학습]
     A --&gt; C[Supervised Learning&lt;br/&gt;지도 학습]
     A --&gt; D[Unsupervised Learning&lt;br/&gt;비지도 학습]
@@ -321,13 +320,12 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
     A --&gt; F[Online Learning&lt;br/&gt;온라인 학습]
     A --&gt; G[Memory-Based Learning&lt;br/&gt;메모리 기반 학습]
     
-<pre><code>B --&amp;gt; B1[보상 및 패널티를 통해&amp;lt;br/&amp;gt;최적 행동 학습]
-C --&amp;gt; C1[레이블된 예제로부터&amp;lt;br/&amp;gt;입력-출력 연결 학습]
-D --&amp;gt; D1[레이블 없는 데이터에서&amp;lt;br/&amp;gt;패턴 발견]
-E --&amp;gt; E1[최소 예제나 명확한 지시로&amp;lt;br/&amp;gt;새 작업에 빠르게 적응]
-F --&amp;gt; F1[새 데이터로 지식을&amp;lt;br/&amp;gt;지속적으로 업데이트]
-G --&amp;gt; G1[과거 경험을 회상하여&amp;lt;br/&amp;gt;현재 행동 조정]&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    B --&gt; B1[보상 및 패널티를 통해&lt;br/&gt;최적 행동 학습]
+    C --&gt; C1[레이블된 예제로부터&lt;br/&gt;입력-출력 연결 학습]
+    D --&gt; D1[레이블 없는 데이터에서&lt;br/&gt;패턴 발견]
+    E --&gt; E1[최소 예제나 명확한 지시로&lt;br/&gt;새 작업에 빠르게 적응]
+    F --&gt; F1[새 데이터로 지식을&lt;br/&gt;지속적으로 업데이트]
+    G --&gt; G1[과거 경험을 회상하여&lt;br/&gt;현재 행동 조정]</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">14 lines</span>
   </div>
@@ -357,9 +355,9 @@ G --&amp;gt; G1[과거 경험을 회상하여&amp;lt;br/&amp;gt;현재 행동 �
 <p><strong>Memory-Based Learning</strong>: Agents recall past experiences to adjust current behavior in similar situations.</p>
 <p><strong>메모리 기반 학습</strong>: 에이전트가 과거 경험을 회상하여 유사한 상황에서 현재 행동을 조정합니다.</p>
 <p><strong>적용 분야</strong>: 컨텍스트 인식 및 의사결정 향상에 효과적이며, 메모리 회상 기능을 가진 에이전트에 유용</p>
-<h3 id="적응-adaptation">적응 (Adaptation) {#적응-adaptation}</h3>
+<h3 id="적응-adaptation">적응 (Adaptation)</h3>
 <p>에이전트는 학습을 기반으로 전략, 이해 또는 목표를 변경함으로써 적응합니다. 이는 예측할 수 없고, 변화하거나 새로운 환경의 에이전트에게 필수적입니다.</p>
-<h3 id="proximal-policy-optimization-ppo">Proximal Policy Optimization (PPO) {#proximal-policy-optimization-ppo}</h3>
+<h3 id="proximal-policy-optimization-ppo">Proximal Policy Optimization (PPO)</h3>
 <p>PPO는 로봇의 관절이나 게임의 캐릭터를 제어하는 것과 같이 연속적인 행동 범위를 가진 환경에서 에이전트를 훈련시키는 데 사용되는 강화 학습 알고리즘입니다.</p>
 <h4>핵심 아이디어</h4>
 <p>PPO의 핵심 아이디어는 에이전트의 정책(의사결정 전략)에 작고 신중한 업데이트를 만드는 것입니다. 성능이 붕괴될 수 있는 급격한 변경을 피합니다.</p>
@@ -367,7 +365,7 @@ G --&amp;gt; G1[과거 경험을 회상하여&amp;lt;br/&amp;gt;현재 행동 �
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-724" onclick="copyCode('code-1769482284813-724')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-724" onclick="copyCode('code-1769484253297-724')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -375,7 +373,7 @@ G --&amp;gt; G1[과거 경험을 회상하여&amp;lt;br/&amp;gt;현재 행동 �
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-724" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253297-724" class="language-mermaid">graph TD
     A[Current Policy&lt;br/&gt;현재 정책] --&gt; B[Collect Data&lt;br/&gt;데이터 수집]
     B --&gt; C[Evaluate Surrogate Goal&lt;br/&gt;대리 목표 평가]
     C --&gt; D[Clipping Mechanism&lt;br/&gt;클리핑 메커니즘]
@@ -383,9 +381,8 @@ G --&amp;gt; G1[과거 경험을 회상하여&amp;lt;br/&amp;gt;현재 행동 �
     E --&gt; F[Improved Policy&lt;br/&gt;개선된 정책]
     F --&gt; A
     
-<pre><code>style A fill:#ff9999
-style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style F fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
@@ -398,7 +395,7 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>클리핑 메커니즘</strong>: 이것이 PPO의 안정성의 핵심입니다. 현재 정책 주변에 &quot;신뢰 영역&quot; 또는 안전 지대를 생성합니다. 알고리즘은 현재 전략과 너무 다른 업데이트를 만드는 것이 방지됩니다</li>
 </ol>
 <p><strong>결과</strong>: PPO는 성능 개선과 알려진 작동 전략에 가까이 유지하는 것 사이의 균형을 맞춥니다. 이는 훈련 중 재앙적 실패를 방지하고 더 안정적인 학습으로 이어집니다.</p>
-<h3 id="direct-preference-optimization-dpo">Direct Preference Optimization (DPO) {#direct-preference-optimization-dpo}</h3>
+<h3 id="direct-preference-optimization-dpo">Direct Preference Optimization (DPO)</h3>
 <p>DPO는 대형 언어 모델(LLMs)을 인간 선호도와 정렬하도록 특별히 설계된 더 최근의 방법입니다.</p>
 <h4>PPO 접근 방식 (2단계 프로세스)</h4>
 <ol>
@@ -414,32 +411,32 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>본질적으로 모델에게 &quot;선호되는 것과 같은 응답을 생성할 확률을 높이고, 비선호되는 것과 같은 응답을 생성할 확률을 낮추라&quot;고 가르침</li>
 </ul>
 <p><strong>결과</strong>: DPO는 인간 선호도 데이터에서 언어 모델을 직접 최적화함으로써 정렬을 단순화합니다. 이는 별도의 보상 모델을 훈련하고 사용하는 복잡성과 잠재적 불안정성을 피하여 정렬 프로세스를 더 효율적이고 견고하게 만듭니다.</p>
-<h2>실용적 응용 및 사용 사례 (Practical Applications &amp; Use Cases) {#실용적-응용-및-사용-사례-practical-applications-use-cases}</h2>
+<h2>실용적 응용 및 사용 사례 (Practical Applications &amp; Use Cases) </h2>
 <p>적응형 에이전트는 경험적 데이터에 의해 구동되는 반복적 업데이트를 통해 가변 환경에서 향상된 성능을 보여줍니다.</p>
-<h3 id="1-개인화된-어시스턴트-에이전트">1. 개인화된 어시스턴트 에이전트 {#1-개인화된-어시스턴트-에이전트}</h3>
+<h3 id="1-개인화된-어시스턴트-에이전트">1. 개인화된 어시스턴트 에이전트</h3>
 <p>개별 사용자 행동의 종단 분석을 통해 상호작용 프로토콜을 정제하여 고도로 최적화된 응답 생성을 보장합니다.</p>
-<h3 id="2-트레이딩-봇-에이전트">2. 트레이딩 봇 에이전트 {#2-트레이딩-봇-에이전트}</h3>
+<h3 id="2-트레이딩-봇-에이전트">2. 트레이딩 봇 에이전트</h3>
 <p>고해상도 실시간 시장 데이터를 기반으로 모델 매개변수를 동적으로 조정하여 의사결정 알고리즘을 최적화하여 재정적 수익을 극대화하고 위험 요소를 완화합니다.</p>
-<h3 id="3-애플리케이션-에이전트">3. 애플리케이션 에이전트 {#3-애플리케이션-에이전트}</h3>
+<h3 id="3-애플리케이션-에이전트">3. 애플리케이션 에이전트</h3>
 <p>관찰된 사용자 행동을 기반으로 동적 수정을 통해 사용자 인터페이스와 기능을 최적화하여 사용자 참여도와 시스템 직관성을 증가시킵니다.</p>
-<h3 id="4-로봇-및-자율-주행-차량-에이전트">4. 로봇 및 자율 주행 차량 에이전트 {#4-로봇-및-자율-주행-차량-에이전트}</h3>
+<h3 id="4-로봇-및-자율-주행-차량-에이전트">4. 로봇 및 자율 주행 차량 에이전트</h3>
 <p>센서 데이터와 과거 행동 분석을 통합하여 다양한 환경 조건에서 안전하고 효율적인 작동을 가능하게 하는 내비게이션 및 응답 능력을 향상시킵니다.</p>
-<h3 id="5-사기-탐지-에이전트">5. 사기 탐지 에이전트 {#5-사기-탐지-에이전트}</h3>
+<h3 id="5-사기-탐지-에이전트">5. 사기 탐지 에이전트</h3>
 <p>새로 식별된 사기 패턴으로 예측 모델을 정제하여 이상 탐지를 개선하여 시스템 보안을 향상시키고 재정적 손실을 최소화합니다.</p>
-<h3 id="6-추천-에이전트">6. 추천 에이전트 {#6-추천-에이전트}</h3>
+<h3 id="6-추천-에이전트">6. 추천 에이전트</h3>
 <p>사용자 선호도 학습 알고리즘을 사용하여 콘텐츠 선택 정밀도를 개선하여 고도로 개인화되고 컨텍스트적으로 관련성 있는 추천을 제공합니다.</p>
-<h3 id="7-게임-ai-에이전트">7. 게임 AI 에이전트 {#7-게임-ai-에이전트}</h3>
+<h3 id="7-게임-ai-에이전트">7. 게임 AI 에이전트</h3>
 <p>전략 알고리즘을 동적으로 적응시켜 게임 복잡성과 도전을 증가시켜 플레이어 참여도를 향상시킵니다.</p>
-<h3 id="8-지식-기반-학습-에이전트">8. 지식 기반 학습 에이전트 {#8-지식-기반-학습-에이전트}</h3>
+<h3 id="8-지식-기반-학습-에이전트">8. 지식 기반 학습 에이전트</h3>
 <p>에이전트는 Retrieval Augmented Generation (RAG)를 활용하여 문제 설명과 검증된 솔루션의 동적 지식 기반을 유지할 수 있습니다(Chapter 14 참조). 성공적인 전략과 직면한 도전을 저장함으로써, 에이전트는 의사결정 중에 이 데이터를 참조할 수 있으며, 이전에 성공한 패턴을 적용하거나 알려진 함정을 피함으로써 새 상황에 더 효과적으로 적응할 수 있습니다.</p>
-<h2 id="사례-연구-self-improving-coding-agent-sica">사례 연구: Self-Improving Coding Agent (SICA) {#사례-연구-self-improving-coding-agent-sica}</h2>
+<h2 id="사례-연구-self-improving-coding-agent-sica">사례 연구: Self-Improving Coding Agent (SICA)</h2>
 <p>Self-Improving Coding Agent (SICA)는 Maxime Robeyns, Laurence Aitchison, Martin Szummer이 개발한 것으로, 에이전트 기반 학습의 발전을 나타내며 에이전트가 자체 소스 코드를 수정할 수 있는 능력을 보여줍니다.</p>
-<h3 id="sica의-자기-개선-메커니즘">SICA의 자기 개선 메커니즘 {#sica의-자기-개선-메커니즘}</h3>
+<h3 id="sica의-자기-개선-메커니즘">SICA의 자기 개선 메커니즘</h3>
 <p>SICA의 자기 개선은 반복적 주기를 통해 작동합니다(그림 1 참조):</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-725" onclick="copyCode('code-1769482284813-725')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-725" onclick="copyCode('code-1769484253297-725')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -447,7 +444,7 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-725" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253297-725" class="language-mermaid">graph TD
     A[Archive Review&lt;br/&gt;아카이브 검토] --&gt; B[Select Best Version&lt;br/&gt;최선 버전 선택]
     B --&gt; C[Analyze Archive&lt;br/&gt;아카이브 분석]
     C --&gt; D[Modify Codebase&lt;br/&gt;코드베이스 수정]
@@ -455,9 +452,8 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
     E --&gt; F[Record Results&lt;br/&gt;결과 기록]
     F --&gt; A
     
-<pre><code>style A fill:#ff9999
-style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style F fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
@@ -471,7 +467,7 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>테스트</strong>: 수정된 에이전트가 벤치마크에 대해 테스트되고 결과가 아카이브에 기록됨</li>
 <li><strong>반복</strong>: 이 프로세스가 반복되어 과거 성능으로부터 직접 학습을 용이하게 함</li>
 </ol>
-<h3 id="sica의-발전">SICA의 발전 {#sica의-발전}</h3>
+<h3 id="sica의-발전">SICA의 발전</h3>
 <p>SICA는 상당한 자기 개선을 거쳐 코드 편집 및 내비게이션에서 발전을 이끌었습니다:</p>
 <p><strong>코드 편집 발전</strong>:</p>
 <ul>
@@ -485,7 +481,7 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>&quot;Hybrid Symbol Locator&quot; 개발: 빠른 검색과 AST 확인을 결합</li>
 <li>최적화: &quot;Optimized AST Parsing in Hybrid Symbol Locator&quot;를 통해 관련 코드 섹션에 집중하여 검색 속도 개선</li>
 </ul>
-<h3 id="sica의-아키텍처">SICA의 아키텍처 {#sica의-아키텍처}</h3>
+<h3 id="sica의-아키텍처">SICA의 아키텍처</h3>
 <p>SICA의 아키텍처는 기본 파일 작업, 명령 실행 및 산술 계산을 위한 기본 도구 키트를 포함합니다:</p>
 <p><strong>구성 요소</strong>:</p>
 <ul>
@@ -504,7 +500,7 @@ SICA의 LLM은 단기 메모리인 컨텍스트 창 내에서 정보를 구조�
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-726" onclick="copyCode('code-1769482284813-726')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-726" onclick="copyCode('code-1769484253297-726')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -512,32 +508,31 @@ SICA의 LLM은 단기 메모리인 컨텍스트 창 내에서 정보를 구조�
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-726" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253297-726" class="language-mermaid">graph TD
     A[Context Window Structure&lt;br/&gt;컨텍스트 창 구조] --&gt; B[System Prompt&lt;br/&gt;시스템 프롬프트]
     A --&gt; C[Core Prompt&lt;br/&gt;핵심 프롬프트]
     A --&gt; D[Assistant Messages&lt;br/&gt;어시스턴트 메시지]
     
-<pre><code>B --&amp;gt; B1[Agent Goals&amp;lt;br/&amp;gt;에이전트 목표]
-B --&amp;gt; B2[Tool Documentation&amp;lt;br/&amp;gt;도구 문서]
-B --&amp;gt; B3[System Instructions&amp;lt;br/&amp;gt;시스템 지시사항]
-
-C --&amp;gt; C1[Problem Statement&amp;lt;br/&amp;gt;문제 설명]
-C --&amp;gt; C2[Open Files Content&amp;lt;br/&amp;gt;열린 파일 내용]
-C --&amp;gt; C3[Directory Map&amp;lt;br/&amp;gt;디렉토리 맵]
-
-D --&amp;gt; D1[Step-by-step Reasoning&amp;lt;br/&amp;gt;단계별 추론]
-D --&amp;gt; D2[Tool Call Records&amp;lt;br/&amp;gt;도구 호출 기록]
-D --&amp;gt; D3[Overseer Communications&amp;lt;br/&amp;gt;감독자 통신]
-
-style A fill:#ff9999&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    B --&gt; B1[Agent Goals&lt;br/&gt;에이전트 목표]
+    B --&gt; B2[Tool Documentation&lt;br/&gt;도구 문서]
+    B --&gt; B3[System Instructions&lt;br/&gt;시스템 지시사항]
+    
+    C --&gt; C1[Problem Statement&lt;br/&gt;문제 설명]
+    C --&gt; C2[Open Files Content&lt;br/&gt;열린 파일 내용]
+    C --&gt; C3[Directory Map&lt;br/&gt;디렉토리 맵]
+    
+    D --&gt; D1[Step-by-step Reasoning&lt;br/&gt;단계별 추론]
+    D --&gt; D2[Tool Call Records&lt;br/&gt;도구 호출 기록]
+    D --&gt; D3[Overseer Communications&lt;br/&gt;감독자 통신]
+    
+    style A fill:#ff9999</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">18 lines</span>
   </div>
 </div>
 
 <p>이 구조는 효율적인 정보 흐름을 용이하게 하여 LLM 작동을 향상시키고 처리 시간과 비용을 줄입니다.</p>
-<h3 id="sica의-구현-세부사항">SICA의 구현 세부사항 {#sica의-구현-세부사항}</h3>
+<h3 id="sica의-구현-세부사항">SICA의 구현 세부사항</h3>
 <p><strong>모듈식 아키텍처</strong>:</p>
 <ul>
 <li>여러 하위 에이전트 포함: 코딩 에이전트, 문제 해결 에이전트, 추론 에이전트</li>
@@ -563,14 +558,14 @@ style A fill:#ff9999&lt;/code&gt;&lt;/pre&gt;
 <li>초기 SICA 구현에서 주목할 만한 도전 과제는 LLM 기반 에이전트가 각 메타 개선 반복 동안 독립적으로 새롭고, 혁신적이며, 실현 가능하고, 매력적인 수정을 제안하도록 프롬프트하는 것이었음</li>
 <li>이 제한은 특히 LLM 에이전트에서 개방형 학습과 진정한 창의성을 육성하는 것으로, 현재 연구의 주요 조사 영역으로 남아있음</li>
 </ul>
-<h2 id="alphaevolve와-openevolve">AlphaEvolve와 OpenEvolve {#alphaevolve와-openevolve}</h2>
-<h3 id="alphaevolve">AlphaEvolve {#alphaevolve}</h3>
+<h2 id="alphaevolve와-openevolve">AlphaEvolve와 OpenEvolve</h2>
+<h3 id="alphaevolve">AlphaEvolve</h3>
 <p>AlphaEvolve는 Google이 개발한 알고리즘을 발견하고 최적화하도록 설계된 AI 에이전트입니다.</p>
 <h4>아키텍처</h4>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-727" onclick="copyCode('code-1769482284813-727')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-727" onclick="copyCode('code-1769484253297-727')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -578,7 +573,7 @@ style A fill:#ff9999&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-727" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253297-727" class="language-mermaid">graph TD
     A[AlphaEvolve] --&gt; B[Gemini Flash&lt;br/&gt;제안 생성]
     A --&gt; C[Gemini Pro&lt;br/&gt;분석 및 정제]
     B --&gt; D[Automated Evaluation&lt;br/&gt;자동 평가]
@@ -587,9 +582,8 @@ style A fill:#ff9999&lt;/code&gt;&lt;/pre&gt;
     E --&gt; F[Iterative Improvement&lt;br/&gt;반복적 개선]
     F --&gt; G[Optimized Algorithms&lt;br/&gt;최적화된 알고리즘]
     
-<pre><code>style A fill:#ff9999
-style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style G fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">11 lines</span>
   </div>
@@ -618,13 +612,13 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>행렬 곱셈을 위한 새로운 알고리즘 발견: 48개의 스칼라 곱셈을 사용하는 4x4 복소수 값 행렬 방법으로 이전에 알려진 솔루션을 초과</li>
 <li>수학 연구: 50개 이상의 열린 문제에 대해 75%의 경우에서 기존 최첨단 솔루션을 재발견하고 20%의 경우에서 기존 솔루션을 개선 (예: 키싱 수 문제에서의 발전 포함)</li>
 </ul>
-<h3 id="openevolve">OpenEvolve {#openevolve}</h3>
+<h3 id="openevolve">OpenEvolve</h3>
 <p>OpenEvolve는 LLM을 활용하여 코드를 반복적으로 최적화하는 진화 코딩 에이전트입니다(그림 3 참조).</p>
 <h4>아키텍처</h4>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-728" onclick="copyCode('code-1769482284813-728')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-728" onclick="copyCode('code-1769484253297-728')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -632,24 +626,23 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-728" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253297-728" class="language-mermaid">graph TD
     A[Controller&lt;br/&gt;컨트롤러] --&gt; B[Program Sampler&lt;br/&gt;프로그램 샘플러]
     A --&gt; C[Program Database&lt;br/&gt;프로그램 데이터베이스]
     A --&gt; D[Evaluator Pool&lt;br/&gt;평가자 풀]
     A --&gt; E[LLM Ensembles&lt;br/&gt;LLM 앙상블]
     
-<pre><code>B --&amp;gt; F[Code Generation&amp;lt;br/&amp;gt;코드 생성]
-C --&amp;gt; G[Storage&amp;lt;br/&amp;gt;저장]
-D --&amp;gt; H[Evaluation&amp;lt;br/&amp;gt;평가]
-E --&amp;gt; I[Optimization&amp;lt;br/&amp;gt;최적화]
-
-F --&amp;gt; G
-G --&amp;gt; H
-H --&amp;gt; I
-I --&amp;gt; G
-
-style A fill:#ff9999&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    B --&gt; F[Code Generation&lt;br/&gt;코드 생성]
+    C --&gt; G[Storage&lt;br/&gt;저장]
+    D --&gt; H[Evaluation&lt;br/&gt;평가]
+    E --&gt; I[Optimization&lt;br/&gt;최적화]
+    
+    F --&gt; G
+    G --&gt; H
+    H --&gt; I
+    I --&gt; G
+    
+    style A fill:#ff9999</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">17 lines</span>
   </div>
@@ -667,7 +660,7 @@ style A fill:#ff9999&lt;/code&gt;&lt;/pre&gt;
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-729" onclick="copyCode('code-1769482284813-729')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-729" onclick="copyCode('code-1769484253297-729')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -675,36 +668,38 @@ style A fill:#ff9999&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-729" class="language-python">from openevolve import OpenEvolve
+  <pre class="code-block__content"><code id="code-1769484253297-729" class="language-python">from openevolve import OpenEvolve
 
-<h1>시스템 초기화</h1>
-<p>evolve = OpenEvolve(
+# 시스템 초기화
+evolve = OpenEvolve(
     initial_program_path=&quot;path/to/initial_program.py&quot;,
     evaluation_file=&quot;path/to/evaluator.py&quot;,
     config_path=&quot;path/to/config.yaml&quot;
-)</p>
-<h1>진화 실행</h1>
-<p>best_program = await evolve.run(iterations=1000)</p>
-<p>print(f&quot;Best program metrics:&quot;)
+)
+
+# 진화 실행
+best_program = await evolve.run(iterations=1000)
+
+print(f&quot;Best program metrics:&quot;)
 for name, value in best_program.metrics.items():
     print(f&quot;  {name}: {value:.4f}&quot;)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">12 lines</span>
-  </div></p>
+  </div>
 </div>
 
-<h2 id="한눈에-보기-at-a-glance">한눈에 보기 (At a Glance) {#한눈에-보기-at-a-glance}</h2>
-<h3 id="무엇-what">무엇 (What) {#무엇-what}</h3>
+<h2 id="한눈에-보기-at-a-glance">한눈에 보기 (At a Glance)</h2>
+<h3 id="무엇-what">무엇 (What)</h3>
 <p>AI 에이전트는 종종 사전 프로그래밍된 로직이 불충분한 동적이고 예측할 수 없는 환경에서 작동합니다. 초기 설계 중에 예상하지 못한 새로운 상황에 직면할 때 성능이 저하될 수 있습니다. 경험으로부터 학습할 수 있는 능력 없이는 에이전트가 전략을 최적화하거나 시간이 지남에 따라 상호작용을 개인화할 수 없습니다.</p>
-<h3 id="왜-why">왜 (Why) {#왜-why}</h3>
+<h3 id="왜-why">왜 (Why)</h3>
 <p>표준화된 솔루션은 학습 및 적응 메커니즘을 통합하여 정적 에이전트를 동적이고 진화하는 시스템으로 변환하는 것입니다. 이를 통해 에이전트가 새 데이터와 상호작용을 기반으로 지식과 행동을 자율적으로 정제할 수 있습니다.</p>
-<h3 id="경험-법칙-rule-of-thumb">경험 법칙 (Rule of Thumb) {#경험-법칙-rule-of-thumb}</h3>
+<h3 id="경험-법칙-rule-of-thumb">경험 법칙 (Rule of Thumb)</h3>
 <p>동적, 불확실하거나 진화하는 환경에서 작동해야 하는 에이전트를 구축할 때 이 패턴을 사용하세요. 개인화, 지속적인 성능 개선 및 새로운 상황을 자율적으로 처리할 수 있는 능력이 필요한 애플리케이션에 필수적입니다.</p>
-<h3 id="시각적-요약">시각적 요약 {#시각적-요약}</h3>
+<h3 id="시각적-요약">시각적 요약</h3>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-730" onclick="copyCode('code-1769482284813-730')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-730" onclick="copyCode('code-1769484253297-730')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -712,22 +707,21 @@ for name, value in best_program.metrics.items():
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-730" class="language-mermaid">graph LR
+  <pre class="code-block__content"><code id="code-1769484253297-730" class="language-mermaid">graph LR
     A[Agent&lt;br/&gt;에이전트] --&gt; B[Experience&lt;br/&gt;경험]
     B --&gt; C[Learn&lt;br/&gt;학습]
     C --&gt; D[Adapt&lt;br/&gt;적응]
     D --&gt; E[Improve&lt;br/&gt;개선]
     E --&gt; A
     
-<pre><code>style A fill:#ff9999
-style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style E fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">9 lines</span>
   </div>
 </div>
 
-<h2 id="핵심-요약-key-takeaways">핵심 요약 (Key Takeaways) {#핵심-요약-key-takeaways}</h2>
+<h2 id="핵심-요약-key-takeaways">핵심 요약 (Key Takeaways)</h2>
 <ol>
 <li><p><strong>학습과 적응은 에이전트가 경험을 사용하여 하는 일을 더 잘하고 새로운 상황을 처리하는 것에 관한 것입니다</strong></p>
 </li>
@@ -748,11 +742,11 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><p><strong>AlphaEvolve는 Google의 AI 에이전트로, LLM과 진화 프레임워크를 활용하여 알고리즘을 자율적으로 발견하고 최적화하여 기본 연구와 실용적 컴퓨팅 애플리케이션을 크게 향상시킵니다</strong></p>
 </li>
 </ol>
-<h2 id="결론">결론 {#결론}</h2>
+<h2 id="결론">결론</h2>
 <p>이 챕터는 인공지능에서 학습과 적응의 중요한 역할을 검토합니다. AI 에이전트는 지속적인 데이터 획득과 경험을 통해 성능을 향상시킵니다. Self-Improving Coding Agent (SICA)는 코드 수정을 통해 능력을 자율적으로 개선함으로써 이를 보여줍니다.</p>
 <p>우리는 아키텍처, 애플리케이션, 계획, 다중 에이전트 협업, 메모리 관리, 학습 및 적응을 포함한 에이전트 AI의 기본 구성 요소를 검토했습니다. 학습 원칙은 특히 다중 에이전트 시스템에서 조정된 개선에 필수적입니다. 이를 달성하려면 튜닝 데이터가 각 참여 에이전트의 개별 입력과 출력을 캡처하여 완전한 상호작용 궤적을 정확하게 반영해야 합니다.</p>
 <p>이러한 요소들은 Google의 AlphaEvolve와 같은 중요한 발전에 기여합니다. 이 AI 시스템은 LLM, 자동 평가 및 진화 접근 방식을 통해 알고리즘을 독립적으로 발견하고 정제하여 과학 연구 및 계산 기술에서 진전을 이끌어냅니다. 이러한 패턴을 결합하여 정교한 AI 시스템을 구축할 수 있습니다. AlphaEvolve와 같은 발전은 AI 에이전트에 의한 자율적 알고리즘 발견 및 최적화가 달성 가능함을 보여줍니다.</p>
-<h2 id="참고-자료-references">참고 자료 (References) {#참고-자료-references}</h2>
+<h2 id="참고-자료-references">참고 자료 (References)</h2>
 <ol>
 <li><p>Sutton, R. S., &amp; Barto, A. G. (2018). Reinforcement Learning: An Introduction. MIT Press.</p>
 </li>
@@ -774,8 +768,8 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <a href="https://github.com/codelion/openevolve">https://github.com/codelion/openevolve</a></p>
 </li>
 </ol>
-<h2 id="이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation) {#이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati}</h2>
-<h3 id="강화-학습-이론-reinforcement-learning-theory">강화 학습 이론 (Reinforcement Learning Theory) {#강화-학습-이론-reinforcement-learning-theory}</h3>
+<h2 id="이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation)</h2>
+<h3 id="강화-학습-이론-reinforcement-learning-theory">강화 학습 이론 (Reinforcement Learning Theory)</h3>
 <p>강화 학습은 에이전트가 환경과 상호작용하며 보상을 최대화하는 행동을 학습하는 방법입니다.</p>
 <p><strong>강화 학습 구성 요소</strong>:</p>
 <ul>
@@ -797,7 +791,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>RLHF보다 간단하고 효율적</li>
 <li>정렬(Alignment) 문제 해결</li>
 </ul>
-<h3 id="적응-이론-adaptation-theory">적응 이론 (Adaptation Theory) {#적응-이론-adaptation-theory}</h3>
+<h3 id="적응-이론-adaptation-theory">적응 이론 (Adaptation Theory)</h3>
 <p>생물학적 적응 이론은 에이전트의 적응 메커니즘을 설명합니다.</p>
 <p><strong>적응 메커니즘</strong>:</p>
 <ul>
@@ -811,7 +805,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>온라인 학습: 실시간 데이터로 모델 업데이트</li>
 <li>메타 학습: 학습 방법 자체를 학습</li>
 </ul>
-<h3 id="전이-학습-transfer-learning">전이 학습 (Transfer Learning) {#전이-학습-transfer-learning}</h3>
+<h3 id="전이-학습-transfer-learning">전이 학습 (Transfer Learning)</h3>
 <p>전이 학습은 한 도메인에서 학습한 지식을 다른 도메인에 적용합니다.</p>
 <p><strong>전이 학습 유형</strong>:</p>
 <ul>
@@ -825,7 +819,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>프롬프트 엔지니어링을 통한 작업 적응</li>
 <li>컨텍스트 학습 (In-context Learning)</li>
 </ul>
-<h3 id="메타-학습-meta-learning">메타 학습 (Meta-Learning) {#메타-학습-meta-learning}</h3>
+<h3 id="메타-학습-meta-learning">메타 학습 (Meta-Learning)</h3>
 <p>메타 학습은 &quot;학습하는 방법을 학습&quot;하는 것입니다.</p>
 <p><strong>메타 학습 접근법</strong>:</p>
 <ul>
@@ -839,13 +833,13 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>적은 데이터로 효과적 학습</li>
 <li>일반화 능력 향상</li>
 </ul>
-<h2 id="성능-최적화-기법-performance-optimization-techniques">성능 최적화 기법 (Performance Optimization Techniques) {#성능-최적화-기법-performance-optimization-techniques}</h2>
-<h3 id="1-적응적-학습률">1. 적응적 학습률 {#1-적응적-학습률}</h3>
+<h2 id="성능-최적화-기법-performance-optimization-techniques">성능 최적화 기법 (Performance Optimization Techniques)</h2>
+<h3 id="1-적응적-학습률">1. 적응적 학습률</h3>
 <p>작업 진행에 따라 학습률 조정:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-731" onclick="copyCode('code-1769482284813-731')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-731" onclick="copyCode('code-1769484253297-731')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -853,34 +847,33 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-731" class="language-python">class AdaptiveLearningRate:
+  <pre class="code-block__content"><code id="code-1769484253297-731" class="language-python">class AdaptiveLearningRate:
     def __init__(self, initial_lr=0.001):
         self.lr = initial_lr
         self.best_performance = float(&#39;-inf&#39;)
         self.patience = 0
     
-<pre><code>def update(self, current_performance: float):
-    &amp;quot;&amp;quot;&amp;quot;성능 기반 학습률 조정&amp;quot;&amp;quot;&amp;quot;
-    if current_performance &amp;gt; self.best_performance:
-        self.best_performance = current_performance
-        self.patience = 0
-    else:
-        self.patience += 1
-        if self.patience &amp;gt; 10:
-            self.lr *= 0.5  # 학습률 감소
-            self.patience = 0&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    def update(self, current_performance: float):
+        &quot;&quot;&quot;성능 기반 학습률 조정&quot;&quot;&quot;
+        if current_performance &gt; self.best_performance:
+            self.best_performance = current_performance
+            self.patience = 0
+        else:
+            self.patience += 1
+            if self.patience &gt; 10:
+                self.lr *= 0.5  # 학습률 감소
+                self.patience = 0</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">16 lines</span>
   </div>
 </div>
 
-<h3 id="2-경험-재생-experience-replay">2. 경험 재생 (Experience Replay) {#2-경험-재생-experience-replay}</h3>
+<h3 id="2-경험-재생-experience-replay">2. 경험 재생 (Experience Replay)</h3>
 <p>과거 경험을 재사용하여 학습 효율 향상:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-732" onclick="copyCode('code-1769482284813-732')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-732" onclick="copyCode('code-1769484253297-732')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -888,34 +881,33 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-732" class="language-python">class ExperienceReplay:
+  <pre class="code-block__content"><code id="code-1769484253297-732" class="language-python">class ExperienceReplay:
     def __init__(self, capacity=10000):
         self.buffer = deque(maxlen=capacity)
     
-<pre><code>def add(self, experience: Experience):
-    &amp;quot;&amp;quot;&amp;quot;경험 추가&amp;quot;&amp;quot;&amp;quot;
-    self.buffer.append(experience)
-
-def sample(self, batch_size: int) -&amp;gt; List[Experience]:
-    &amp;quot;&amp;quot;&amp;quot;랜덤 샘플링&amp;quot;&amp;quot;&amp;quot;
-    return random.sample(self.buffer, batch_size)
-
-def learn_from_replay(self, agent, batch_size=32):
-    &amp;quot;&amp;quot;&amp;quot;재생 경험으로 학습&amp;quot;&amp;quot;&amp;quot;
-    batch = self.sample(batch_size)
-    agent.update_policy(batch)&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    def add(self, experience: Experience):
+        &quot;&quot;&quot;경험 추가&quot;&quot;&quot;
+        self.buffer.append(experience)
+    
+    def sample(self, batch_size: int) -&gt; List[Experience]:
+        &quot;&quot;&quot;랜덤 샘플링&quot;&quot;&quot;
+        return random.sample(self.buffer, batch_size)
+    
+    def learn_from_replay(self, agent, batch_size=32):
+        &quot;&quot;&quot;재생 경험으로 학습&quot;&quot;&quot;
+        batch = self.sample(batch_size)
+        agent.update_policy(batch)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">16 lines</span>
   </div>
 </div>
 
-<h3 id="3-자기-수정-메커니즘">3. 자기 수정 메커니즘 {#3-자기-수정-메커니즘}</h3>
+<h3 id="3-자기-수정-메커니즘">3. 자기 수정 메커니즘</h3>
 <p>에이전트가 자신의 코드를 수정:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-733" onclick="copyCode('code-1769482284813-733')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-733" onclick="copyCode('code-1769484253297-733')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -923,42 +915,41 @@ def learn_from_replay(self, agent, batch_size=32):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-733" class="language-python">class SelfModifyingAgent:
+  <pre class="code-block__content"><code id="code-1769484253297-733" class="language-python">class SelfModifyingAgent:
     def __init__(self):
         self.code = self.initial_code
         self.performance_history = []
     
-<pre><code>def evaluate_performance(self) -&amp;gt; float:
-    &amp;quot;&amp;quot;&amp;quot;성능 평가&amp;quot;&amp;quot;&amp;quot;
-    # 성능 메트릭 계산
-    return performance_score
-
-def modify_code(self):
-    &amp;quot;&amp;quot;&amp;quot;코드 자기 수정&amp;quot;&amp;quot;&amp;quot;
-    current_performance = self.evaluate_performance()
-    self.performance_history.append(current_performance)
+    def evaluate_performance(self) -&gt; float:
+        &quot;&quot;&quot;성능 평가&quot;&quot;&quot;
+        # 성능 메트릭 계산
+        return performance_score
     
-    # 성능이 개선되지 않으면 코드 수정
-    if len(self.performance_history) &amp;gt; 1:
-        if self.performance_history[-1] &amp;lt;= self.performance_history[-2]:
-            # LLM을 사용하여 코드 개선 제안
-            improvement = self.llm.suggest_improvement(
-                self.code,
-                self.performance_history
-            )
-            self.code = self.apply_improvement(improvement)&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    def modify_code(self):
+        &quot;&quot;&quot;코드 자기 수정&quot;&quot;&quot;
+        current_performance = self.evaluate_performance()
+        self.performance_history.append(current_performance)
+        
+        # 성능이 개선되지 않으면 코드 수정
+        if len(self.performance_history) &gt; 1:
+            if self.performance_history[-1] &lt;= self.performance_history[-2]:
+                # LLM을 사용하여 코드 개선 제안
+                improvement = self.llm.suggest_improvement(
+                    self.code,
+                    self.performance_history
+                )
+                self.code = self.apply_improvement(improvement)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">24 lines</span>
   </div>
 </div>
 
-<h3 id="4-앙상블-학습">4. 앙상블 학습 {#4-앙상블-학습}</h3>
+<h3 id="4-앙상블-학습">4. 앙상블 학습</h3>
 <p>여러 모델의 예측을 결합:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-734" onclick="copyCode('code-1769482284813-734')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-734" onclick="copyCode('code-1769484253297-734')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -966,54 +957,53 @@ def modify_code(self):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-734" class="language-python">class EnsembleLearner:
+  <pre class="code-block__content"><code id="code-1769484253297-734" class="language-python">class EnsembleLearner:
     def __init__(self, models: List[Model]):
         self.models = models
     
-<pre><code>def predict(self, input_data):
-    &amp;quot;&amp;quot;&amp;quot;앙상블 예측&amp;quot;&amp;quot;&amp;quot;
-    predictions = [model.predict(input_data) for model in self.models]
+    def predict(self, input_data):
+        &quot;&quot;&quot;앙상블 예측&quot;&quot;&quot;
+        predictions = [model.predict(input_data) for model in self.models]
+        
+        # 투표 또는 평균
+        if self.voting == &#39;hard&#39;:
+            return mode(predictions)
+        else:
+            return np.mean(predictions, axis=0)
     
-    # 투표 또는 평균
-    if self.voting == &amp;#39;hard&amp;#39;:
-        return mode(predictions)
-    else:
-        return np.mean(predictions, axis=0)
-
-def update_ensemble(self, new_data):
-    &amp;quot;&amp;quot;&amp;quot;앙상블 업데이트&amp;quot;&amp;quot;&amp;quot;
-    for model in self.models:
-        model.update(new_data)&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    def update_ensemble(self, new_data):
+        &quot;&quot;&quot;앙상블 업데이트&quot;&quot;&quot;
+        for model in self.models:
+            model.update(new_data)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">18 lines</span>
   </div>
 </div>
 
-<h2 id="트레이드오프-및-한계점-trade-offs-and-limitations">트레이드오프 및 한계점 (Trade-offs and Limitations) {#트레이드오프-및-한계점-trade-offs-and-limitations}</h2>
-<h3 id="학습-및-적응의-장점">학습 및 적응의 장점 {#학습-및-적응의-장점}</h3>
+<h2 id="트레이드오프-및-한계점-trade-offs-and-limitations">트레이드오프 및 한계점 (Trade-offs and Limitations)</h2>
+<h3 id="학습-및-적응의-장점">학습 및 적응의 장점</h3>
 <ol>
 <li><strong>성능 향상</strong>: 경험으로부터 지속적 개선</li>
 <li><strong>적응성</strong>: 변화하는 환경에 대응</li>
 <li><strong>효율성</strong>: 반복 작업의 자동화</li>
 <li><strong>일반화</strong>: 다양한 상황에 적용 가능</li>
 </ol>
-<h3 id="학습-및-적응의-한계">학습 및 적응의 한계 {#학습-및-적응의-한계}</h3>
+<h3 id="학습-및-적응의-한계">학습 및 적응의 한계</h3>
 <ol>
 <li><strong>학습 시간</strong>: 효과적 학습에 시간 소요</li>
 <li><strong>오버피팅</strong>: 특정 데이터에 과도하게 적합</li>
 <li><strong>불안정성</strong>: 학습 과정의 불안정</li>
 <li><strong>해석 어려움</strong>: 학습된 패턴의 이해 어려움</li>
 </ol>
-<h3 id="완화-전략">완화 전략 {#완화-전략}</h3>
+<h3 id="완화-전략">완화 전략</h3>
 <ol>
 <li><strong>정규화</strong>: 오버피팅 방지</li>
 <li><strong>검증 세트</strong>: 일반화 성능 평가</li>
 <li><strong>안정화 기법</strong>: 학습 과정 안정화</li>
 <li><strong>해석 가능성 도구</strong>: 학습 결과 시각화 및 분석</li>
 </ol>
-<h2 id="관련-패턴과의-비교-comparison-with-related-patterns">관련 패턴과의 비교 (Comparison with Related Patterns) {#관련-패턴과의-비교-comparison-with-related-patterns}</h2>
-<h3 id="learning-vs-static-systems">Learning vs. Static Systems {#learning-vs-static-systems}</h3>
+<h2 id="관련-패턴과의-비교-comparison-with-related-patterns">관련 패턴과의 비교 (Comparison with Related Patterns)</h2>
+<h3 id="learning-vs-static-systems">Learning vs. Static Systems</h3>
 <table>
 <thead>
 <tr>
@@ -1043,19 +1033,19 @@ def update_ensemble(self, new_data):
 <td>높음</td>
 </tr>
 </tbody></table>
-<h3 id="online-learning-vs-batch-learning">Online Learning vs. Batch Learning {#online-learning-vs-batch-learning}</h3>
+<h3 id="online-learning-vs-batch-learning">Online Learning vs. Batch Learning</h3>
 <ul>
 <li><strong>Online Learning</strong>: 실시간으로 데이터 처리 및 학습</li>
 <li><strong>Batch Learning</strong>: 데이터 수집 후 일괄 학습</li>
 <li><strong>에이전트 시스템</strong>: 온라인 학습이 더 적합 (실시간 적응)</li>
 </ul>
-<h2 id="실무-적용-사례-확장-extended-practical-applications">실무 적용 사례 확장 (Extended Practical Applications) {#실무-적용-사례-확장-extended-practical-applications}</h2>
-<h3 id="1-적응형-추천-시스템">1. 적응형 추천 시스템 {#1-적응형-추천-시스템}</h3>
+<h2 id="실무-적용-사례-확장-extended-practical-applications">실무 적용 사례 확장 (Extended Practical Applications)</h2>
+<h3 id="1-적응형-추천-시스템">1. 적응형 추천 시스템</h3>
 <p>사용자 행동에 따라 추천 전략 조정:</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-735" onclick="copyCode('code-1769482284813-735')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-735" onclick="copyCode('code-1769484253297-735')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1063,33 +1053,32 @@ def update_ensemble(self, new_data):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-735" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253297-735" class="language-mermaid">graph TD
     A[User Interaction&lt;br/&gt;사용자 상호작용] --&gt; B[Behavior Analysis&lt;br/&gt;행동 분석]
     B --&gt; C[Model Update&lt;br/&gt;모델 업데이트]
     C --&gt; D[Improved Recommendations&lt;br/&gt;개선된 추천]
     D --&gt; A
     
-<pre><code>style A fill:#ff9999
-style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style D fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">8 lines</span>
   </div>
 </div>
 
-<h3 id="2-자율-주행-시스템">2. 자율 주행 시스템 {#2-자율-주행-시스템}</h3>
+<h3 id="2-자율-주행-시스템">2. 자율 주행 시스템</h3>
 <p>도로 환경에 적응하는 주행 시스템:</p>
 <ul>
 <li><strong>온라인 학습</strong>: 새로운 도로 조건 학습</li>
 <li><strong>전이 학습</strong>: 다른 지역으로 지식 전이</li>
 <li><strong>메타 학습</strong>: 새로운 상황에 빠르게 적응</li>
 </ul>
-<h3 id="3-적응형-게임-ai">3. 적응형 게임 AI {#3-적응형-게임-ai}</h3>
+<h3 id="3-적응형-게임-ai">3. 적응형 게임 AI</h3>
 <p>플레이어 스타일에 맞춰 조정되는 게임 AI:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284813-736" onclick="copyCode('code-1769482284813-736')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253297-736" onclick="copyCode('code-1769484253297-736')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1097,33 +1086,32 @@ style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284813-736" class="language-python">class AdaptiveGameAI:
+  <pre class="code-block__content"><code id="code-1769484253297-736" class="language-python">class AdaptiveGameAI:
     def __init__(self):
         self.difficulty = 0.5
         self.player_skill_history = []
     
-<pre><code>def adapt_to_player(self, player_performance: float):
-    &amp;quot;&amp;quot;&amp;quot;플레이어 성능에 맞춰 난이도 조정&amp;quot;&amp;quot;&amp;quot;
-    self.player_skill_history.append(player_performance)
-    
-    # 최근 성능 평균 계산
-    recent_avg = np.mean(self.player_skill_history[-10:])
-    
-    # 난이도 조정
-    if recent_avg &amp;gt; 0.8:  # 플레이어가 잘함
-        self.difficulty = min(1.0, self.difficulty + 0.1)
-    elif recent_avg &amp;lt; 0.3:  # 플레이어가 어려워함
-        self.difficulty = max(0.0, self.difficulty - 0.1)
-    
-    return self.difficulty&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    def adapt_to_player(self, player_performance: float):
+        &quot;&quot;&quot;플레이어 성능에 맞춰 난이도 조정&quot;&quot;&quot;
+        self.player_skill_history.append(player_performance)
+        
+        # 최근 성능 평균 계산
+        recent_avg = np.mean(self.player_skill_history[-10:])
+        
+        # 난이도 조정
+        if recent_avg &gt; 0.8:  # 플레이어가 잘함
+            self.difficulty = min(1.0, self.difficulty + 0.1)
+        elif recent_avg &lt; 0.3:  # 플레이어가 어려워함
+            self.difficulty = max(0.0, self.difficulty - 0.1)
+        
+        return self.difficulty</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">19 lines</span>
   </div>
 </div>
 
-<h2 id="참고-자료-references">참고 자료 (References) {#참고-자료-references}</h2>
-<h3 id="학술-논문">학술 논문 {#학술-논문}</h3>
+<h2 id="참고-자료-references">참고 자료 (References)</h2>
+<h3 id="학술-논문">학술 논문</h3>
 <ol>
 <li><p>Sutton, R. S., &amp; Barto, A. G. (2018). <em>Reinforcement Learning: An Introduction</em> (2nd ed.). MIT Press.</p>
 </li>
@@ -1138,7 +1126,7 @@ style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><p>Thrun, S., &amp; Pratt, L. (Eds.). (2012). <em>Learning to Learn</em>. Springer.</p>
 </li>
 </ol>
-<h3 id="프레임워크-및-도구-문서">프레임워크 및 도구 문서 {#프레임워크-및-도구-문서}</h3>
+<h3 id="프레임워크-및-도구-문서">프레임워크 및 도구 문서</h3>
 <ol>
 <li><p>OpenAI Fine-tuning:
 <a href="https://platform.openai.com/docs/guides/fine-tuning">https://platform.openai.com/docs/guides/fine-tuning</a></p>
@@ -1150,7 +1138,7 @@ style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <a href="https://huggingface.co/docs/transformers/training">https://huggingface.co/docs/transformers/training</a></p>
 </li>
 </ol>
-<h3 id="추가-학습-자료">추가 학습 자료 {#추가-학습-자료}</h3>
+<h3 id="추가-학습-자료">추가 학습 자료</h3>
 <ol start="4">
 <li><p>&quot;Deep Reinforcement Learning&quot; by Pieter Abbeel</p>
 </li>

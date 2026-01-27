@@ -248,18 +248,18 @@
 </nav>
 
             <h1>Chapter 14: Knowledge Retrieval (RAG)</h1>
-<h2 id="개요">개요 {#개요}</h2>
+<h2 id="개요">개요</h2>
 <p>LLMs demonstrate remarkable capabilities in generating human-like text. However, their knowledge base is typically limited to their training data, restricting access to real-time information, specific company data, or highly specialized details. Knowledge Retrieval (RAG, or Retrieval Augmented Generation) addresses these limitations. RAG enables LLMs to access and integrate external, current, and context-specific information, enhancing the accuracy, relevance, and factual grounding of their outputs.</p>
 <p>For AI agents, this is crucial as it allows them to ground their actions and responses in real-time, verifiable data beyond static training. This capability enables them to accurately perform complex tasks such as accessing the latest company policies to answer specific questions or checking current inventory before placing orders.</p>
 <p>LLM은 인간과 같은 텍스트를 생성하는 상당한 능력을 보여줍니다. 그러나 그들의 지식 기반은 일반적으로 훈련된 데이터로 제한되어 실시간 정보, 특정 회사 데이터 또는 고도로 전문적인 세부사항에 대한 접근을 제한합니다. Knowledge Retrieval (RAG, 또는 Retrieval Augmented Generation)은 이러한 제한을 해결합니다. RAG는 LLM이 외부, 현재 및 컨텍스트별 정보에 접근하고 통합할 수 있게 하여 출력의 정확성, 관련성 및 사실적 기반을 향상시킵니다.</p>
 <p>AI 에이전트의 경우, 이것은 정적 훈련을 넘어서는 실시간, 검증 가능한 데이터에 기반하여 행동과 응답을 근거 있게 만들 수 있게 하므로 중요합니다. 이 능력은 최신 회사 정책에 접근하여 특정 질문에 답하거나 주문을 하기 전에 현재 재고를 확인하는 것과 같은 복잡한 작업을 정확하게 수행할 수 있게 합니다.</p>
-<h2 id="패턴-개요-pattern-overview">패턴 개요 (Pattern Overview) {#패턴-개요-pattern-overview}</h2>
+<h2 id="패턴-개요-pattern-overview">패턴 개요 (Pattern Overview)</h2>
 <p>The Knowledge Retrieval (RAG) pattern significantly enhances LLM capabilities by enabling access to external knowledge bases before generating responses. Instead of relying solely on internal, pre-trained knowledge, RAG allows LLMs to &quot;look up&quot; information, much like humans reference books or search the internet.</p>
 <p>Knowledge Retrieval (RAG) 패턴은 응답을 생성하기 전에 외부 지식 기반에 접근할 수 있게 하여 LLM의 기능을 크게 향상시킵니다. 내부, 사전 훈련된 지식에만 의존하는 대신, RAG는 LLM이 인간이 책을 참조하거나 인터넷을 검색하는 것처럼 정보를 &quot;조회&quot;할 수 있게 합니다.</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284836-785" onclick="copyCode('code-1769482284836-785')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253322-785" onclick="copyCode('code-1769484253322-785')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -267,7 +267,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284836-785" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253322-785" class="language-mermaid">graph TD
     A[User Query&lt;br/&gt;사용자 쿼리] --&gt; B[Retrieval&lt;br/&gt;검색]
     B --&gt; C[Knowledge Base&lt;br/&gt;지식 기반]
     C --&gt; D[Relevant Chunks&lt;br/&gt;관련 청크]
@@ -276,15 +276,14 @@
     F --&gt; G[LLM Generation&lt;br/&gt;LLM 생성]
     G --&gt; H[Response with Citations&lt;br/&gt;인용이 있는 응답]
     
-<pre><code>style A fill:#ff9999
-style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style H fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">11 lines</span>
   </div>
 </div>
 
-<h3 id="rag-프로세스">RAG 프로세스 {#rag-프로세스}</h3>
+<h3 id="rag-프로세스">RAG 프로세스</h3>
 <p>When a user provides a question or prompt to an AI system using RAG, the query is not sent directly to the LLM. Instead, the system first searches a vast external knowledge base (a highly organized library of documents, databases, or web pages) to find relevant information.</p>
 <p>사용자가 RAG를 사용하는 AI 시스템에 질문이나 프롬프트를 제공할 때, 쿼리는 LLM에 직접 전송되지 않습니다. 대신 시스템은 먼저 광범위한 외부 지식 기반(문서, 데이터베이스 또는 웹 페이지의 고도로 조직화된 라이브러리)을 검색하여 관련 정보를 찾습니다.</p>
 <p><strong>프로세스 단계</strong>:</p>
@@ -294,7 +293,7 @@ style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>증강</strong>: 추출된 조각을 원래 프롬프트에 &quot;증강&quot;하거나 추가하여 더 풍부하고 정보에 입각한 쿼리 생성</li>
 <li><strong>LLM 생성</strong>: 이 향상된 프롬프트가 LLM에 전송되어 검색된 데이터에 사실적으로 근거를 둔 유창하고 자연스러운 응답 생성</li>
 </ol>
-<h3 id="핵심-개념">핵심 개념 {#핵심-개념}</h3>
+<h3 id="핵심-개념">핵심 개념</h3>
 <h4>1. 임베딩 (Embeddings)</h4>
 <p>LLM의 맥락에서 임베딩은 텍스트(단어, 구, 또는 전체 문서)의 수치 표현입니다.</p>
 <p><strong>특징</strong>:</p>
@@ -344,7 +343,7 @@ style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <p><strong>검색 알고리즘</strong>: 사용자의 쿼리도 벡터로 변환되면, 데이터베이스는 HNSW(Hierarchical Navigable Small World)와 같은 고도로 최적화된 알고리즘을 사용하여 수백만 개의 벡터를 빠르게 검색하고 의미상 &quot;가장 가까운&quot; 벡터를 찾습니다.</p>
 <p><strong>구현</strong>: Pinecone, Weaviate와 같은 관리형 데이터베이스부터 Chroma DB, Milvus, Qdrant와 같은 오픈소스 솔루션까지 다양한 형태로 구현됩니다. Redis, Elasticsearch, Postgres(pgvector 확장 사용)와 같은 기존 데이터베이스도 벡터 검색 기능으로 증강될 수 있습니다.</p>
 <p><strong>핵심 라이브러리</strong>: Meta AI의 FAISS 또는 Google Research의 ScaNN과 같은 라이브러리가 이러한 시스템의 효율성에 기본적입니다.</p>
-<h3 id="rag의-도전-과제">RAG의 도전 과제 {#rag의-도전-과제}</h3>
+<h3 id="rag의-도전-과제">RAG의 도전 과제</h3>
 <p>RAG 패턴은 강력하지만 도전 과제가 없지는 않습니다:</p>
 <h4>1. 분산된 정보</h4>
 <p>쿼리에 답하는 데 필요한 정보가 단일 청크에 국한되지 않고 문서의 여러 부분 또는 여러 문서에 걸쳐 분산될 수 있습니다.</p>
@@ -359,7 +358,7 @@ style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <p><strong>지속적인 관리</strong>: 이 지식은 최신 상태를 유지하기 위해 주기적인 조정이 필요하며, 회사 위키와 같은 진화하는 소스를 다룰 때 중요한 작업입니다.</p>
 <h4>5. 성능 영향</h4>
 <p>이 전체 프로세스는 성능에 눈에 띄는 영향을 줄 수 있으며, 지연 시간, 운영 비용 및 최종 프롬프트에서 사용되는 토큰 수를 증가시킵니다.</p>
-<h3 id="graph-rag">Graph RAG {#graph-rag}</h3>
+<h3 id="graph-rag">Graph RAG</h3>
 <p>GraphRAG는 정보 검색을 위해 단순한 벡터 데이터베이스 대신 지식 그래프를 활용하는 Retrieval-Augmented Generation의 고급 형태입니다.</p>
 <p><strong>특징</strong>:</p>
 <ul>
@@ -380,12 +379,12 @@ style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>시스템의 효과는 기본 그래프 구조의 품질과 완전성에 전적으로 의존</li>
 </ul>
 <p><strong>결론</strong>: GraphRAG는 깊고 상호 연결된 통찰이 표준 RAG의 속도와 단순성보다 더 중요한 경우에 탁월합니다.</p>
-<h3 id="agentic-rag">Agentic RAG {#agentic-rag}</h3>
+<h3 id="agentic-rag">Agentic RAG</h3>
 <p>이 패턴의 진화인 Agentic RAG는 추론 및 의사결정 계층을 도입하여 정보 추출의 신뢰성을 크게 향상시킵니다.</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284836-786" onclick="copyCode('code-1769482284836-786')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253322-786" onclick="copyCode('code-1769484253322-786')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -393,7 +392,7 @@ style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284836-786" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253322-786" class="language-mermaid">graph TD
     A[User Query&lt;br/&gt;사용자 쿼리] --&gt; B[Agent&lt;br/&gt;에이전트]
     B --&gt; C[Retrieval&lt;br/&gt;검색]
     C --&gt; D[Source Validation&lt;br/&gt;소스 검증]
@@ -404,10 +403,9 @@ style H fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
     H --&gt; I[LLM Generation&lt;br/&gt;LLM 생성]
     I --&gt; J[Accurate Response&lt;br/&gt;정확한 응답]
     
-<pre><code>style A fill:#ff9999
-style J fill:#99ff99
-style B fill:#ffcc99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style J fill:#99ff99
+    style B fill:#ffcc99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">14 lines</span>
   </div>
@@ -431,33 +429,33 @@ style B fill:#ffcc99&lt;/code&gt;&lt;/pre&gt;
 <li>에이전트의 반성, 도구 사용 및 다단계 추론 사이클이 표준, 직접 검색 프로세스보다 더 많은 시간이 걸리므로 지연 시간 증가</li>
 <li>에이전트 자체가 새로운 오류 소스가 될 수 있음: 결함이 있는 추론 프로세스로 인해 무용한 루프에 갇히거나, 작업을 오해하거나, 관련 정보를 부적절하게 버려 최종 응답의 품질을 저하시킬 수 있음</li>
 </ul>
-<h2>실용적 응용 및 사용 사례 (Practical Applications &amp; Use Cases) {#실용적-응용-및-사용-사례-practical-applications-use-cases}</h2>
+<h2>실용적 응용 및 사용 사례 (Practical Applications &amp; Use Cases) </h2>
 <p>The RAG pattern enables real-time information access and accurate response generation across various domains:</p>
 <p>RAG 패턴은 다양한 도메인에서 실시간 정보 접근과 정확한 응답 생성을 가능하게 합니다:</p>
 <p>Knowledge Retrieval (RAG)는 다양한 산업에서 대형 언어 모델(LLM)이 활용되는 방식을 변화시키고 있으며, 더 정확하고 컨텍스트적으로 관련성 있는 응답을 제공하는 능력을 향상시킵니다.</p>
-<h3 id="1-엔터프라이즈-검색-및-qa">1. 엔터프라이즈 검색 및 Q&amp;A {#1-엔터프라이즈-검색-및-qa}</h3>
+<h3 id="1-엔터프라이즈-검색-및-qa">1. 엔터프라이즈 검색 및 Q&amp;A</h3>
 <p>조직은 HR 정책, 기술 매뉴얼 및 제품 사양과 같은 내부 문서를 사용하여 직원 문의에 응답하는 내부 챗봇을 개발할 수 있습니다.</p>
 <p><strong>RAG 역할</strong>: RAG 시스템은 이러한 문서에서 관련 섹션을 추출하여 LLM의 응답을 알립니다.</p>
-<h3 id="2-고객-지원-및-헬프데스크">2. 고객 지원 및 헬프데스크 {#2-고객-지원-및-헬프데스크}</h3>
+<h3 id="2-고객-지원-및-헬프데스크">2. 고객 지원 및 헬프데스크</h3>
 <p>RAG 기반 시스템은 제품 매뉴얼, 자주 묻는 질문(FAQ) 및 지원 티켓에서 정보에 접근하여 고객 쿼리에 정확하고 일관된 응답을 제공할 수 있습니다.</p>
 <p><strong>효과</strong>: 일상적인 문제에 대한 직접적인 인간 개입의 필요성을 줄일 수 있습니다.</p>
-<h3 id="3-개인화된-콘텐츠-추천">3. 개인화된 콘텐츠 추천 {#3-개인화된-콘텐츠-추천}</h3>
+<h3 id="3-개인화된-콘텐츠-추천">3. 개인화된 콘텐츠 추천</h3>
 <p>기본 키워드 매칭 대신, RAG는 사용자의 선호도나 이전 상호작용과 의미적으로 관련된 콘텐츠(기사, 제품)를 식별하고 검색할 수 있습니다.</p>
 <p><strong>결과</strong>: 더 관련성 있는 추천으로 이어집니다.</p>
-<h3 id="4-뉴스-및-현재-이벤트-요약">4. 뉴스 및 현재 이벤트 요약 {#4-뉴스-및-현재-이벤트-요약}</h3>
+<h3 id="4-뉴스-및-현재-이벤트-요약">4. 뉴스 및 현재 이벤트 요약</h3>
 <p>LLM은 실시간 뉴스 피드와 통합될 수 있습니다.</p>
 <p><strong>프로세스</strong>: 현재 이벤트에 대해 프롬프트를 받으면, RAG 시스템은 최근 기사를 검색하여 LLM이 최신 요약을 생성할 수 있게 합니다.</p>
-<h3 id="5-법률-연구">5. 법률 연구 {#5-법률-연구}</h3>
+<h3 id="5-법률-연구">5. 법률 연구</h3>
 <p>법률 문서, 판례 및 법률 데이터베이스에서 정보를 검색하여 법률 연구를 지원할 수 있습니다.</p>
-<h3 id="6-의료-진단-지원">6. 의료 진단 지원 {#6-의료-진단-지원}</h3>
+<h3 id="6-의료-진단-지원">6. 의료 진단 지원</h3>
 <p>의료 문헌, 임상 가이드라인 및 환자 기록에서 정보를 검색하여 의료 전문가를 지원할 수 있습니다.</p>
-<h2 id="실습-코드-예제-hands-on-code-example">실습 코드 예제 (Hands-On Code Example) {#실습-코드-예제-hands-on-code-example}</h2>
-<h3 id="예제-1-google-search를-사용한-rag-adk">예제 1: Google Search를 사용한 RAG (ADK) {#예제-1-google-search를-사용한-rag-adk}</h3>
+<h2 id="실습-코드-예제-hands-on-code-example">실습 코드 예제 (Hands-On Code Example)</h2>
+<h3 id="예제-1-google-search를-사용한-rag-adk">예제 1: Google Search를 사용한 RAG (ADK)</h3>
 <p>Google Search를 사용하여 RAG를 수행하고 LLM을 검색 결과에 근거 있게 만드는 방법을 보여줍니다.</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284836-787" onclick="copyCode('code-1769482284836-787')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253322-787" onclick="copyCode('code-1769484253322-787')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -465,10 +463,10 @@ style B fill:#ffcc99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284836-787" class="language-python">from google.adk.tools import google_search
+  <pre class="code-block__content"><code id="code-1769484253322-787" class="language-python">from google.adk.tools import google_search
 from google.adk.agents import Agent
 
-<p>search_agent = Agent(
+search_agent = Agent(
     name=&quot;research_assistant&quot;,
     model=&quot;gemini-2.0-flash-exp&quot;,
     instruction=&quot;You help users research topics. When asked, use the Google Search tool to find current information and provide accurate, cited responses.&quot;,
@@ -476,15 +474,15 @@ from google.adk.agents import Agent
 )</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">8 lines</span>
-  </div></p>
+  </div>
 </div>
 
-<h3 id="예제-2-vertex-ai-rag-기능-사용-adk">예제 2: Vertex AI RAG 기능 사용 (ADK) {#예제-2-vertex-ai-rag-기능-사용-adk}</h3>
+<h3 id="예제-2-vertex-ai-rag-기능-사용-adk">예제 2: Vertex AI RAG 기능 사용 (ADK)</h3>
 <p>이 섹션은 Google ADK 내에서 Vertex AI RAG 기능을 활용하는 방법을 설명합니다.</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284836-788" onclick="copyCode('code-1769482284836-788')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253322-788" onclick="copyCode('code-1769484253322-788')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -492,41 +490,44 @@ from google.adk.agents import Agent
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284836-788" class="language-python"># google.adk.memory 모듈에서 필요한 VertexAiRagMemoryService 클래스를 가져옵니다.
+  <pre class="code-block__content"><code id="code-1769484253322-788" class="language-python"># google.adk.memory 모듈에서 필요한 VertexAiRagMemoryService 클래스를 가져옵니다.
 from google.adk.memory import VertexAiRagMemoryService
 
-<p>RAG_CORPUS_RESOURCE_NAME = (
+RAG_CORPUS_RESOURCE_NAME = (
     &quot;projects/your-gcp-project-id/locations/us-central1/&quot;
     &quot;ragCorpora/your-corpus-id&quot;
-)</p>
-<h1>검색할 상위 유사 결과 수에 대한 선택적 매개변수 정의</h1>
-<h1>이것은 RAG 서비스가 반환할 관련 문서 청크 수를 제어합니다.</h1>
-<p>SIMILARITY_TOP_K = 5</p>
-<h1>벡터 거리 임계값에 대한 선택적 매개변수 정의</h1>
-<h1>이 임계값은 검색된 결과에 허용되는 최대 의미적 거리를 결정합니다.</h1>
-<h1>이 값보다 큰 거리를 가진 결과는 필터링될 수 있습니다.</h1>
-<p>VECTOR_DISTANCE_THRESHOLD = 0.7</p>
-<h1>VertexAiRagMemoryService 인스턴스 초기화</h1>
-<h1>이것은 Vertex AI RAG Corpus에 대한 연결을 설정합니다.</h1>
-<h1>- rag_corpus: RAG Corpus의 고유 식별자를 지정합니다.</h1>
-<h1>- similarity_top_k: 가져올 유사 결과의 최대 수를 설정합니다.</h1>
-<h1>- vector_distance_threshold: 결과 필터링을 위한 유사성 임계값을 정의합니다.</h1>
-<p>memory_service = VertexAiRagMemoryService(
+)
+
+# 검색할 상위 유사 결과 수에 대한 선택적 매개변수 정의
+# 이것은 RAG 서비스가 반환할 관련 문서 청크 수를 제어합니다.
+SIMILARITY_TOP_K = 5
+
+# 벡터 거리 임계값에 대한 선택적 매개변수 정의
+# 이 임계값은 검색된 결과에 허용되는 최대 의미적 거리를 결정합니다.
+# 이 값보다 큰 거리를 가진 결과는 필터링될 수 있습니다.
+VECTOR_DISTANCE_THRESHOLD = 0.7
+
+# VertexAiRagMemoryService 인스턴스 초기화
+# 이것은 Vertex AI RAG Corpus에 대한 연결을 설정합니다.
+# - rag_corpus: RAG Corpus의 고유 식별자를 지정합니다.
+# - similarity_top_k: 가져올 유사 결과의 최대 수를 설정합니다.
+# - vector_distance_threshold: 결과 필터링을 위한 유사성 임계값을 정의합니다.
+memory_service = VertexAiRagMemoryService(
     rag_corpus=RAG_CORPUS_RESOURCE_NAME,
     similarity_top_k=SIMILARITY_TOP_K,
     vector_distance_threshold=VECTOR_DISTANCE_THRESHOLD
 )</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">23 lines</span>
-  </div></p>
+  </div>
 </div>
 
-<h3 id="예제-3-langchain을-사용한-완전한-rag-파이프라인">예제 3: LangChain을 사용한 완전한 RAG 파이프라인 {#예제-3-langchain을-사용한-완전한-rag-파이프라인}</h3>
+<h3 id="예제-3-langchain을-사용한-완전한-rag-파이프라인">예제 3: LangChain을 사용한 완전한 RAG 파이프라인</h3>
 <p>LangChain을 사용한 완전한 예제를 살펴보겠습니다.</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284836-789" onclick="copyCode('code-1769482284836-789')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253322-789" onclick="copyCode('code-1769484253322-789')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -534,7 +535,7 @@ from google.adk.memory import VertexAiRagMemoryService
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284836-789" class="language-python">import os
+  <pre class="code-block__content"><code id="code-1769484253322-789" class="language-python">import os
 import requests
 from typing import List, Dict, Any, TypedDict
 from langchain_community.document_loaders import TextLoader
@@ -551,38 +552,46 @@ import weaviate
 from weaviate.embedded import EmbeddedOptions
 import dotenv
 
-<h1>환경 변수 로드 (예: OPENAI_API_KEY)</h1>
-<p>dotenv.load_dotenv()</p>
-<h1>--- 1. 데이터 준비 (전처리) ---</h1>
-<h1>데이터 로드</h1>
-<p>url = &quot;<a href="https://github.com/langchain-ai/langchain/blob/master/docs/docs/how_to/state_of_the_union.txt">https://github.com/langchain-ai/langchain/blob/master/docs/docs/how_to/state_of_the_union.txt</a>&quot;
+# 환경 변수 로드 (예: OPENAI_API_KEY)
+dotenv.load_dotenv()
+
+# --- 1. 데이터 준비 (전처리) ---
+# 데이터 로드
+url = &quot;https://github.com/langchain-ai/langchain/blob/master/docs/docs/how_to/state_of_the_union.txt&quot;
 res = requests.get(url)
 with open(&quot;state_of_the_union.txt&quot;, &quot;w&quot;) as f:
-    f.write(res.text)</p>
-<p>loader = TextLoader(&#39;./state_of_the_union.txt&#39;)
-documents = loader.load()</p>
-<h1>문서 청킹</h1>
-<p>text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)
-chunks = text_splitter.split_documents(documents)</p>
-<h1>Weaviate에 청크 임베딩 및 저장</h1>
-<p>client = weaviate.Client(embedded_options=EmbeddedOptions())
+    f.write(res.text)
+
+loader = TextLoader(&#39;./state_of_the_union.txt&#39;)
+documents = loader.load()
+
+# 문서 청킹
+text_splitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)
+chunks = text_splitter.split_documents(documents)
+
+# Weaviate에 청크 임베딩 및 저장
+client = weaviate.Client(embedded_options=EmbeddedOptions())
 vectorstore = Weaviate.from_documents(
     client=client,
     documents=chunks,
     embedding=OpenAIEmbeddings(),
     by_text=False
-)</p>
-<h1>검색기 정의</h1>
-<p>retriever = vectorstore.as_retriever()</p>
-<h1>LLM 초기화</h1>
-<p>llm = ChatOpenAI(model_name=&quot;gpt-3.5-turbo&quot;, temperature=0)</p>
-<h1>--- 2. LangGraph를 위한 상태 정의 ---</h1>
-<p>class RAGGraphState(TypedDict):
+)
+
+# 검색기 정의
+retriever = vectorstore.as_retriever()
+
+# LLM 초기화
+llm = ChatOpenAI(model_name=&quot;gpt-3.5-turbo&quot;, temperature=0)
+
+# --- 2. LangGraph를 위한 상태 정의 ---
+class RAGGraphState(TypedDict):
     question: str
     documents: List[Document]
-    generation: str</p>
-<h1>--- 3. 노드(함수) 정의 ---</h1>
-<p>def retrieve_documents_node(state: RAGGraphState) -&gt; RAGGraphState:
+    generation: str
+
+# --- 3. 노드(함수) 정의 ---
+def retrieve_documents_node(state: RAGGraphState) -&gt; RAGGraphState:
     &quot;&quot;&quot;사용자의 질문을 기반으로 문서를 검색합니다.&quot;&quot;&quot;
     question = state[&quot;question&quot;]
     documents = retriever.invoke(question)
@@ -590,71 +599,79 @@ vectorstore = Weaviate.from_documents(
         &quot;documents&quot;: documents,
         &quot;question&quot;: question,
         &quot;generation&quot;: &quot;&quot;
-    }</p>
-<p>def generate_response_node(state: RAGGraphState) -&gt; RAGGraphState:
+    }
+
+def generate_response_node(state: RAGGraphState) -&gt; RAGGraphState:
     &quot;&quot;&quot;검색된 문서를 기반으로 LLM을 사용하여 응답을 생성합니다.&quot;&quot;&quot;
     question = state[&quot;question&quot;]
-    documents = state[&quot;documents&quot;]</p>
-<pre><code># 프롬프트 템플릿
-template = &amp;quot;&amp;quot;&amp;quot;You are an assistant for question-answering tasks.
-</code></pre>
-<p>Use the following pieces of retrieved context to answer the question.
+    documents = state[&quot;documents&quot;]
+    
+    # 프롬프트 템플릿
+    template = &quot;&quot;&quot;You are an assistant for question-answering tasks.
+Use the following pieces of retrieved context to answer the question.
 If you don&#39;t know the answer, just say that you don&#39;t know.
-Use three sentences maximum and keep the answer concise.</p>
-<p>Question: {question}
+Use three sentences maximum and keep the answer concise.
+
+Question: {question}
 Context: {context}
 Answer:
 &quot;&quot;&quot;
-    prompt = ChatPromptTemplate.from_template(template)</p>
-<pre><code># 문서에서 컨텍스트 포맷
-context = &amp;quot;\n\n&amp;quot;.join([doc.page_content for doc in documents])
+    prompt = ChatPromptTemplate.from_template(template)
+    
+    # 문서에서 컨텍스트 포맷
+    context = &quot;\n\n&quot;.join([doc.page_content for doc in documents])
+    
+    # RAG 체인 생성
+    rag_chain = prompt | llm | StrOutputParser()
+    
+    # 체인 호출
+    generation = rag_chain.invoke({
+        &quot;context&quot;: context,
+        &quot;question&quot;: question
+    })
+    
+    return {
+        &quot;question&quot;: question,
+        &quot;documents&quot;: documents,
+        &quot;generation&quot;: generation
+    }
 
-# RAG 체인 생성
-rag_chain = prompt | llm | StrOutputParser()
+# --- 4. LangGraph 그래프 구축 ---
+workflow = StateGraph(RAGGraphState)
 
-# 체인 호출
-generation = rag_chain.invoke({
-    &amp;quot;context&amp;quot;: context,
-    &amp;quot;question&amp;quot;: question
-})
+# 노드 추가
+workflow.add_node(&quot;retrieve&quot;, retrieve_documents_node)
+workflow.add_node(&quot;generate&quot;, generate_response_node)
 
-return {
-    &amp;quot;question&amp;quot;: question,
-    &amp;quot;documents&amp;quot;: documents,
-    &amp;quot;generation&amp;quot;: generation
-}
-</code></pre>
-<h1>--- 4. LangGraph 그래프 구축 ---</h1>
-<p>workflow = StateGraph(RAGGraphState)</p>
-<h1>노드 추가</h1>
-<p>workflow.add_node(&quot;retrieve&quot;, retrieve_documents_node)
-workflow.add_node(&quot;generate&quot;, generate_response_node)</p>
-<h1>진입점 설정</h1>
-<p>workflow.set_entry_point(&quot;retrieve&quot;)</p>
-<h1>엣지(전환) 추가</h1>
-<p>workflow.add_edge(&quot;retrieve&quot;, &quot;generate&quot;)
-workflow.add_edge(&quot;generate&quot;, END)</p>
-<h1>그래프 컴파일</h1>
-<p>app = workflow.compile()</p>
-<h1>--- 5. RAG 애플리케이션 실행 ---</h1>
-<p>if <strong>name</strong> == &quot;<strong>main</strong>&quot;:
+# 진입점 설정
+workflow.set_entry_point(&quot;retrieve&quot;)
+
+# 엣지(전환) 추가
+workflow.add_edge(&quot;retrieve&quot;, &quot;generate&quot;)
+workflow.add_edge(&quot;generate&quot;, END)
+
+# 그래프 컴파일
+app = workflow.compile()
+
+# --- 5. RAG 애플리케이션 실행 ---
+if __name__ == &quot;__main__&quot;:
     print(&quot;\n--- Running RAG Query ---&quot;)
     query = &quot;What did the president say about Justice Breyer&quot;
     inputs = {&quot;question&quot;: query}
     for s in app.stream(inputs):
-        print(s)</p>
-<pre><code>print(&amp;quot;\n--- Running another RAG Query ---&amp;quot;)
-query_2 = &amp;quot;What did the president say about the economy?&amp;quot;
-inputs_2 = {&amp;quot;question&amp;quot;: query_2}
-for s in app.stream(inputs_2):
-    print(s)&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+        print(s)
+    
+    print(&quot;\n--- Running another RAG Query ---&quot;)
+    query_2 = &quot;What did the president say about the economy?&quot;
+    inputs_2 = {&quot;question&quot;: query_2}
+    for s in app.stream(inputs_2):
+        print(s)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">114 lines</span>
   </div>
 </div>
 
-<h3 id="코드-설명">코드 설명 {#코드-설명}</h3>
+<h3 id="코드-설명">코드 설명</h3>
 <p>이 Python 코드는 LangChain과 LangGraph로 구현된 Retrieval-Augmented Generation (RAG) 파이프라인을 보여줍니다.</p>
 <p><strong>프로세스</strong>:</p>
 <ol>
@@ -666,18 +683,18 @@ for s in app.stream(inputs_2):
 <li><code>generate_response_node</code>: 검색된 정보와 사전 정의된 프롬프트 템플릿을 사용하여 OpenAI 대형 언어 모델(LLM)을 사용하여 응답 생성</li>
 </ol>
 <p><strong>결과</strong>: <code>app.stream</code> 메서드를 통해 RAG 파이프라인을 통해 쿼리를 실행할 수 있으며, 시스템이 컨텍스트적으로 관련성 있는 출력을 생성하는 능력을 보여줍니다.</p>
-<h2 id="한눈에-보기-at-a-glance">한눈에 보기 (At a Glance) {#한눈에-보기-at-a-glance}</h2>
-<h3 id="무엇-what">무엇 (What) {#무엇-what}</h3>
+<h2 id="한눈에-보기-at-a-glance">한눈에 보기 (At a Glance)</h2>
+<h3 id="무엇-what">무엇 (What)</h3>
 <p>LLM은 인상적인 텍스트 생성 능력을 가지고 있지만 근본적으로 훈련 데이터에 의해 제한됩니다. 이 지식은 정적이며, 실시간 정보나 비공개, 도메인별 데이터를 포함하지 않습니다. 결과적으로 그들의 응답은 오래되었거나 부정확하거나 전문 작업에 필요한 특정 컨텍스트가 부족할 수 있습니다.</p>
-<h3 id="왜-why">왜 (Why) {#왜-why}</h3>
+<h3 id="왜-why">왜 (Why)</h3>
 <p>Retrieval-Augmented Generation (RAG) 패턴은 LLM을 외부 지식 소스에 연결하여 표준화된 솔루션을 제공합니다. 쿼리를 받으면 시스템은 먼저 지정된 지식 기반에서 관련 정보 스니펫을 검색합니다. 이러한 스니펫은 그 다음 원래 프롬프트에 추가되어 시기 적절하고 특정한 컨텍스트로 풍부하게 만듭니다.</p>
-<h3 id="경험-법칙-rule-of-thumb">경험 법칙 (Rule of Thumb) {#경험-법칙-rule-of-thumb}</h3>
+<h3 id="경험-법칙-rule-of-thumb">경험 법칙 (Rule of Thumb)</h3>
 <p>LLM이 원래 훈련 데이터의 일부가 아닌 특정, 최신 또는 독점 정보를 기반으로 질문에 답하거나 콘텐츠를 생성해야 할 때 이 패턴을 사용하세요. 내부 문서에 대한 Q&amp;A 시스템 구축, 고객 지원 봇, 인용이 있는 검증 가능한 사실 기반 응답이 필요한 애플리케이션에 이상적입니다.</p>
-<h3 id="시각적-요약">시각적 요약 {#시각적-요약}</h3>
+<h3 id="시각적-요약">시각적 요약</h3>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284836-790" onclick="copyCode('code-1769482284836-790')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253322-790" onclick="copyCode('code-1769484253322-790')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -685,7 +702,7 @@ for s in app.stream(inputs_2):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284836-790" class="language-mermaid">graph LR
+  <pre class="code-block__content"><code id="code-1769484253322-790" class="language-mermaid">graph LR
     A[Query&lt;br/&gt;쿼리] --&gt; B[Retrieval&lt;br/&gt;검색]
     B --&gt; C[Knowledge Base&lt;br/&gt;지식 기반]
     C --&gt; D[Relevant Chunks&lt;br/&gt;관련 청크]
@@ -693,15 +710,14 @@ for s in app.stream(inputs_2):
     E --&gt; F[LLM&lt;br/&gt;LLM]
     F --&gt; G[Response&lt;br/&gt;응답]
     
-<pre><code>style A fill:#ff9999
-style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style G fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
 </div>
 
-<h2 id="핵심-요약-key-takeaways">핵심 요약 (Key Takeaways) {#핵심-요약-key-takeaways}</h2>
+<h2 id="핵심-요약-key-takeaways">핵심 요약 (Key Takeaways)</h2>
 <ol>
 <li><p><strong>Knowledge Retrieval (RAG)는 LLM이 외부, 최신 및 특정 정보에 접근할 수 있게 하여 향상시킵니다</strong></p>
 </li>
@@ -720,13 +736,13 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><p><strong>RAG는 LLM을 닫힌 책 대화자에서 강력한 열린 책 추론 도구로 변환합니다</strong></p>
 </li>
 </ol>
-<h2 id="결론">결론 {#결론}</h2>
+<h2 id="결론">결론</h2>
 <p>결론적으로, Retrieval-Augmented Generation (RAG)는 대형 언어 모델의 정적 지식의 핵심 제한을 외부, 최신 데이터 소스에 연결하여 해결합니다. 프로세스는 먼저 관련 정보 스니펫을 검색한 다음 사용자의 프롬프트를 증강하여 LLM이 더 정확하고 컨텍스트적으로 인식하는 응답을 생성할 수 있게 합니다.</p>
 <p>임베딩, 의미적 검색 및 벡터 데이터베이스와 같은 기본 기술로 가능해지며, 이는 키워드뿐만 아니라 의미를 기반으로 정보를 찾습니다. 검증 가능한 데이터에 출력을 근거를 두어 RAG는 사실적 오류를 크게 줄이고 인용을 통해 독점 정보 사용을 허용하여 신뢰를 향상시킵니다.</p>
 <p>고급 진화인 Agentic RAG는 검색된 지식을 능동적으로 검증, 조정 및 합성하는 추론 계층을 도입하여 더 큰 신뢰성을 제공합니다. 마찬가지로 GraphRAG와 같은 전문 접근 방식은 명시적 데이터 관계를 탐색하기 위해 지식 그래프를 활용하여 고도로 복잡하고 상호 연결된 쿼리에 대한 답변을 합성할 수 있게 합니다.</p>
 <p>이러한 고급 방법은 복잡성과 지연 시간을 추가하지만, 최종 응답의 깊이와 신뢰성을 극적으로 개선합니다. 이러한 패턴의 실용적인 애플리케이션은 이미 엔터프라이즈 검색 및 고객 지원부터 개인화된 콘텐츠 제공에 이르기까지 산업을 변화시키고 있습니다.</p>
-<h2 id="이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation) {#이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati}</h2>
-<h3 id="정보-검색-이론-information-retrieval-theory">정보 검색 이론 (Information Retrieval Theory) {#정보-검색-이론-information-retrieval-theory}</h3>
+<h2 id="이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation)</h2>
+<h3 id="정보-검색-이론-information-retrieval-theory">정보 검색 이론 (Information Retrieval Theory)</h3>
 <p>RAG는 정보 검색의 핵심 원칙에 기반합니다. Salton &amp; McGill(1986)의 벡터 공간 모델은 문서를 벡터로 표현하여 유사도를 계산합니다.</p>
 <p><strong>정보 검색 모델</strong>:</p>
 <ul>
@@ -740,7 +756,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>쿼리와 문서 간 코사인 유사도 계산</li>
 <li>상위 유사 문서 검색</li>
 </ul>
-<h3 id="분산-표현-이론-distributed-representation-theory">분산 표현 이론 (Distributed Representation Theory) {#분산-표현-이론-distributed-representation-theory}</h3>
+<h3 id="분산-표현-이론-distributed-representation-theory">분산 표현 이론 (Distributed Representation Theory)</h3>
 <p>Mikolov et al.(2013)의 Word2Vec은 단어를 벡터로 표현하는 방법을 제시했습니다.</p>
 <p><strong>임베딩의 발전</strong>:</p>
 <ul>
@@ -754,7 +770,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>코사인 유사도로 의미적 유사성 측정</li>
 <li>키워드 매칭을 넘어 의미 이해</li>
 </ul>
-<h3 id="청킹-이론-chunking-theory">청킹 이론 (Chunking Theory) {#청킹-이론-chunking-theory}</h3>
+<h3 id="청킹-이론-chunking-theory">청킹 이론 (Chunking Theory)</h3>
 <p>효과적인 RAG를 위해서는 적절한 청킹 전략이 중요합니다.</p>
 <p><strong>청킹 전략</strong>:</p>
 <ul>
@@ -768,7 +784,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>청크 크기와 검색 정확도 균형</li>
 <li>도메인 특화 청킹 전략</li>
 </ul>
-<h3 id="하이브리드-검색-이론">하이브리드 검색 이론 {#하이브리드-검색-이론}</h3>
+<h3 id="하이브리드-검색-이론">하이브리드 검색 이론</h3>
 <p>키워드 검색과 의미 검색을 결합한 하이브리드 접근법:</p>
 <p><strong>BM25 + 벡터 검색</strong>:</p>
 <ul>
@@ -782,13 +798,13 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>다양한 쿼리 유형에 효과적</li>
 <li>검색 정확도 향상</li>
 </ul>
-<h2 id="성능-최적화-기법-performance-optimization-techniques">성능 최적화 기법 (Performance Optimization Techniques) {#성능-최적화-기법-performance-optimization-techniques}</h2>
-<h3 id="1-하이브리드-검색-최적화">1. 하이브리드 검색 최적화 {#1-하이브리드-검색-최적화}</h3>
+<h2 id="성능-최적화-기법-performance-optimization-techniques">성능 최적화 기법 (Performance Optimization Techniques)</h2>
+<h3 id="1-하이브리드-검색-최적화">1. 하이브리드 검색 최적화</h3>
 <p>BM25와 벡터 검색 결합:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284836-791" onclick="copyCode('code-1769482284836-791')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253322-791" onclick="copyCode('code-1769484253322-791')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -796,31 +812,30 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284836-791" class="language-python">def hybrid_search(query: str, top_k: int = 10) -&gt; List[Document]:
+  <pre class="code-block__content"><code id="code-1769484253322-791" class="language-python">def hybrid_search(query: str, top_k: int = 10) -&gt; List[Document]:
     &quot;&quot;&quot;하이브리드 검색&quot;&quot;&quot;
     # BM25 검색
     bm25_results = bm25_search(query, top_k=top_k * 2)
     
-<pre><code># 벡터 검색
-query_embedding = embed(query)
-vector_results = vector_search(query_embedding, top_k=top_k * 2)
-
-# 결과 통합 (RRF - Reciprocal Rank Fusion)
-combined = reciprocal_rank_fusion(bm25_results, vector_results)
-
-return combined[:top_k]&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    # 벡터 검색
+    query_embedding = embed(query)
+    vector_results = vector_search(query_embedding, top_k=top_k * 2)
+    
+    # 결과 통합 (RRF - Reciprocal Rank Fusion)
+    combined = reciprocal_rank_fusion(bm25_results, vector_results)
+    
+    return combined[:top_k]</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">13 lines</span>
   </div>
 </div>
 
-<h3 id="2-적응형-청킹">2. 적응형 청킹 {#2-적응형-청킹}</h3>
+<h3 id="2-적응형-청킹">2. 적응형 청킹</h3>
 <p>문서 특성에 따라 청킹 전략 조정:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284836-792" onclick="copyCode('code-1769482284836-792')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253322-792" onclick="copyCode('code-1769484253322-792')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -828,7 +843,7 @@ return combined[:top_k]&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284836-792" class="language-python">class AdaptiveChunker:
+  <pre class="code-block__content"><code id="code-1769484253322-792" class="language-python">class AdaptiveChunker:
     def __init__(self):
         self.chunking_strategies = {
             &#39;code&#39;: CodeChunker(),
@@ -837,23 +852,22 @@ return combined[:top_k]&lt;/code&gt;&lt;/pre&gt;
             &#39;mixed&#39;: MixedChunker()
         }
     
-<pre><code>def chunk(self, document: Document) -&amp;gt; List[Chunk]:
-    &amp;quot;&amp;quot;&amp;quot;문서 유형에 따른 적응형 청킹&amp;quot;&amp;quot;&amp;quot;
-    doc_type = self.detect_document_type(document)
-    chunker = self.chunking_strategies.get(doc_type, ProseChunker())
-    return chunker.chunk(document)&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    def chunk(self, document: Document) -&gt; List[Chunk]:
+        &quot;&quot;&quot;문서 유형에 따른 적응형 청킹&quot;&quot;&quot;
+        doc_type = self.detect_document_type(document)
+        chunker = self.chunking_strategies.get(doc_type, ProseChunker())
+        return chunker.chunk(document)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">14 lines</span>
   </div>
 </div>
 
-<h3 id="3-재랭킹-re-ranking">3. 재랭킹 (Re-ranking) {#3-재랭킹-re-ranking}</h3>
+<h3 id="3-재랭킹-re-ranking">3. 재랭킹 (Re-ranking)</h3>
 <p>초기 검색 결과를 더 정교한 모델로 재랭킹:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284836-793" onclick="copyCode('code-1769482284836-793')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253322-793" onclick="copyCode('code-1769484253322-793')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -861,31 +875,30 @@ return combined[:top_k]&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284836-793" class="language-python">def rerank_results(query: str, initial_results: List[Document]) -&gt; List[Document]:
+  <pre class="code-block__content"><code id="code-1769484253322-793" class="language-python">def rerank_results(query: str, initial_results: List[Document]) -&gt; List[Document]:
     &quot;&quot;&quot;검색 결과 재랭킹&quot;&quot;&quot;
     # 더 정교한 모델로 재랭킹
     reranker = CrossEncoder(&#39;cross-encoder/ms-marco-MiniLM-L-6-v2&#39;)
     
-<pre><code>scores = []
-for doc in initial_results:
-    score = reranker.predict([(query, doc.content)])
-    scores.append((doc, score))
-
-# 점수 순으로 정렬
-reranked = sorted(scores, key=lambda x: x[1], reverse=True)
-return [doc for doc, _ in reranked]&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    scores = []
+    for doc in initial_results:
+        score = reranker.predict([(query, doc.content)])
+        scores.append((doc, score))
+    
+    # 점수 순으로 정렬
+    reranked = sorted(scores, key=lambda x: x[1], reverse=True)
+    return [doc for doc, _ in reranked]</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">13 lines</span>
   </div>
 </div>
 
-<h3 id="4-캐싱-및-인덱싱-최적화">4. 캐싱 및 인덱싱 최적화 {#4-캐싱-및-인덱싱-최적화}</h3>
+<h3 id="4-캐싱-및-인덱싱-최적화">4. 캐싱 및 인덱싱 최적화</h3>
 <p>빠른 검색을 위한 인덱스 최적화:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284836-794" onclick="copyCode('code-1769482284836-794')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253322-794" onclick="copyCode('code-1769484253322-794')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -893,67 +906,66 @@ return [doc for doc, _ in reranked]&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284836-794" class="language-python">class OptimizedRAGIndex:
+  <pre class="code-block__content"><code id="code-1769484253322-794" class="language-python">class OptimizedRAGIndex:
     def __init__(self):
         self.vector_index = AnnoyIndex(embedding_dim, &#39;angular&#39;)
         self.bm25_index = BM25Okapi()
         self.metadata_cache = {}
     
-<pre><code>def build_index(self, documents: List[Document]):
-    &amp;quot;&amp;quot;&amp;quot;최적화된 인덱스 구축&amp;quot;&amp;quot;&amp;quot;
-    # 벡터 인덱스
-    for i, doc in enumerate(documents):
-        embedding = embed(doc.content)
-        self.vector_index.add_item(i, embedding)
-        self.metadata_cache[i] = doc.metadata
+    def build_index(self, documents: List[Document]):
+        &quot;&quot;&quot;최적화된 인덱스 구축&quot;&quot;&quot;
+        # 벡터 인덱스
+        for i, doc in enumerate(documents):
+            embedding = embed(doc.content)
+            self.vector_index.add_item(i, embedding)
+            self.metadata_cache[i] = doc.metadata
+        
+        # BM25 인덱스
+        tokenized_docs = [doc.content.split() for doc in documents]
+        self.bm25_index = BM25Okapi(tokenized_docs)
+        
+        # 인덱스 최적화
+        self.vector_index.build(10)
     
-    # BM25 인덱스
-    tokenized_docs = [doc.content.split() for doc in documents]
-    self.bm25_index = BM25Okapi(tokenized_docs)
-    
-    # 인덱스 최적화
-    self.vector_index.build(10)
-
-def search(self, query: str, top_k: int = 10):
-    &amp;quot;&amp;quot;&amp;quot;최적화된 검색&amp;quot;&amp;quot;&amp;quot;
-    # 병렬 검색
-    bm25_scores, vector_scores = await asyncio.gather(
-        self.bm25_search(query),
-        self.vector_search(query)
-    )
-    
-    # 결과 통합
-    return self.combine_results(bm25_scores, vector_scores, top_k)&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    def search(self, query: str, top_k: int = 10):
+        &quot;&quot;&quot;최적화된 검색&quot;&quot;&quot;
+        # 병렬 검색
+        bm25_scores, vector_scores = await asyncio.gather(
+            self.bm25_search(query),
+            self.vector_search(query)
+        )
+        
+        # 결과 통합
+        return self.combine_results(bm25_scores, vector_scores, top_k)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">31 lines</span>
   </div>
 </div>
 
-<h2 id="트레이드오프-및-한계점-trade-offs-and-limitations">트레이드오프 및 한계점 (Trade-offs and Limitations) {#트레이드오프-및-한계점-trade-offs-and-limitations}</h2>
-<h3 id="rag의-장점">RAG의 장점 {#rag의-장점}</h3>
+<h2 id="트레이드오프-및-한계점-trade-offs-and-limitations">트레이드오프 및 한계점 (Trade-offs and Limitations)</h2>
+<h3 id="rag의-장점">RAG의 장점</h3>
 <ol>
 <li><strong>정확성</strong>: 검증 가능한 정보 기반 응답</li>
 <li><strong>최신성</strong>: 최신 정보 접근 가능</li>
 <li><strong>투명성</strong>: 인용을 통한 출처 명시</li>
 <li><strong>도메인 특화</strong>: 특정 도메인 지식 통합</li>
 </ol>
-<h3 id="rag의-한계">RAG의 한계 {#rag의-한계}</h3>
+<h3 id="rag의-한계">RAG의 한계</h3>
 <ol>
 <li><strong>검색 품질</strong>: 검색 결과 품질에 의존</li>
 <li><strong>컨텍스트 제한</strong>: 검색된 문서만 사용</li>
 <li><strong>지연 시간</strong>: 검색 및 생성 시간</li>
 <li><strong>비용</strong>: 임베딩 및 검색 비용</li>
 </ol>
-<h3 id="완화-전략">완화 전략 {#완화-전략}</h3>
+<h3 id="완화-전략">완화 전략</h3>
 <ol>
 <li><strong>검색 품질 향상</strong>: 하이브리드 검색, 재랭킹</li>
 <li><strong>컨텍스트 확장</strong>: 더 많은 문서 검색</li>
 <li><strong>비동기 처리</strong>: 검색과 생성을 병렬 처리</li>
 <li><strong>비용 최적화</strong>: 캐싱, 배치 처리</li>
 </ol>
-<h2 id="관련-패턴과의-비교-comparison-with-related-patterns">관련 패턴과의 비교 (Comparison with Related Patterns) {#관련-패턴과의-비교-comparison-with-related-patterns}</h2>
-<h3 id="rag-vs-fine-tuning">RAG vs. Fine-tuning {#rag-vs-fine-tuning}</h3>
+<h2 id="관련-패턴과의-비교-comparison-with-related-patterns">관련 패턴과의 비교 (Comparison with Related Patterns)</h2>
+<h3 id="rag-vs-fine-tuning">RAG vs. Fine-tuning</h3>
 <table>
 <thead>
 <tr>
@@ -983,20 +995,20 @@ def search(self, query: str, top_k: int = 10):
 <td>높음 (인용)</td>
 </tr>
 </tbody></table>
-<h3 id="rag-vs-tool-use">RAG vs. Tool Use {#rag-vs-tool-use}</h3>
+<h3 id="rag-vs-tool-use">RAG vs. Tool Use</h3>
 <p>RAG와 Tool Use는 서로 보완적:</p>
 <ul>
 <li><strong>RAG</strong>: 정적 지식 기반 검색</li>
 <li><strong>Tool Use</strong>: 동적 정보 및 행동</li>
 <li><strong>결합</strong>: RAG로 배경 지식, Tool Use로 실시간 정보</li>
 </ul>
-<h2 id="실무-적용-사례-확장-extended-practical-applications">실무 적용 사례 확장 (Extended Practical Applications) {#실무-적용-사례-확장-extended-practical-applications}</h2>
-<h3 id="1-엔터프라이즈-지식-관리">1. 엔터프라이즈 지식 관리 {#1-엔터프라이즈-지식-관리}</h3>
+<h2 id="실무-적용-사례-확장-extended-practical-applications">실무 적용 사례 확장 (Extended Practical Applications)</h2>
+<h3 id="1-엔터프라이즈-지식-관리">1. 엔터프라이즈 지식 관리</h3>
 <p>회사 내부 지식 기반 구축:</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284836-795" onclick="copyCode('code-1769482284836-795')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253322-795" onclick="copyCode('code-1769484253322-795')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1004,21 +1016,20 @@ def search(self, query: str, top_k: int = 10):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284836-795" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253322-795" class="language-mermaid">graph TD
     A[Employee Query&lt;br/&gt;직원 쿼리] --&gt; B[RAG System&lt;br/&gt;RAG 시스템]
     B --&gt; C[Internal Knowledge Base&lt;br/&gt;내부 지식 기반]
     C --&gt; D[Relevant Documents&lt;br/&gt;관련 문서]
     D --&gt; E[Answer with Citations&lt;br/&gt;인용이 있는 답변]
     
-<pre><code>style A fill:#ff9999
-style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style E fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">8 lines</span>
   </div>
 </div>
 
-<h3 id="2-법률-문서-분석">2. 법률 문서 분석 {#2-법률-문서-분석}</h3>
+<h3 id="2-법률-문서-분석">2. 법률 문서 분석</h3>
 <p>법률 문서의 자동 분석 및 질의응답:</p>
 <ul>
 <li><strong>문서 인덱싱</strong>: 법률 문서를 벡터 데이터베이스에 저장</li>
@@ -1026,12 +1037,12 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>인용 제공</strong>: 관련 법조문 인용</li>
 <li><strong>GraphRAG</strong>: 법률 간 관계 분석</li>
 </ul>
-<h3 id="3-의료-지식-기반">3. 의료 지식 기반 {#3-의료-지식-기반}</h3>
+<h3 id="3-의료-지식-기반">3. 의료 지식 기반</h3>
 <p>의료 문헌 기반 진단 지원:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284836-796" onclick="copyCode('code-1769482284836-796')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253322-796" onclick="copyCode('code-1769484253322-796')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1039,41 +1050,40 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284836-796" class="language-python">class MedicalRAGSystem:
+  <pre class="code-block__content"><code id="code-1769484253322-796" class="language-python">class MedicalRAGSystem:
     def __init__(self):
         self.knowledge_base = MedicalKnowledgeBase()
         self.retriever = HybridRetriever()
         self.generator = MedicalLLM()
     
-<pre><code>def answer_medical_query(self, query: str, patient_context: dict) -&amp;gt; Answer:
-    &amp;quot;&amp;quot;&amp;quot;의료 질의에 답변&amp;quot;&amp;quot;&amp;quot;
-    # 환자 컨텍스트와 쿼리 결합
-    enhanced_query = self.enhance_query(query, patient_context)
-    
-    # 관련 의료 문헌 검색
-    relevant_papers = self.retriever.search(enhanced_query, top_k=5)
-    
-    # 증거 기반 답변 생성
-    answer = self.generator.generate(
-        query=query,
-        context=patient_context,
-        retrieved_docs=relevant_papers
-    )
-    
-    # 인용 및 출처 제공
-    return Answer(
-        text=answer,
-        citations=[paper.citation for paper in relevant_papers],
-        confidence=self.calculate_confidence(answer, relevant_papers)
-    )&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    def answer_medical_query(self, query: str, patient_context: dict) -&gt; Answer:
+        &quot;&quot;&quot;의료 질의에 답변&quot;&quot;&quot;
+        # 환자 컨텍스트와 쿼리 결합
+        enhanced_query = self.enhance_query(query, patient_context)
+        
+        # 관련 의료 문헌 검색
+        relevant_papers = self.retriever.search(enhanced_query, top_k=5)
+        
+        # 증거 기반 답변 생성
+        answer = self.generator.generate(
+            query=query,
+            context=patient_context,
+            retrieved_docs=relevant_papers
+        )
+        
+        # 인용 및 출처 제공
+        return Answer(
+            text=answer,
+            citations=[paper.citation for paper in relevant_papers],
+            confidence=self.calculate_confidence(answer, relevant_papers)
+        )</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">27 lines</span>
   </div>
 </div>
 
-<h2 id="참고-자료-references">참고 자료 (References) {#참고-자료-references}</h2>
-<h3 id="학술-논문">학술 논문 {#학술-논문}</h3>
+<h2 id="참고-자료-references">참고 자료 (References)</h2>
+<h3 id="학술-논문">학술 논문</h3>
 <ol>
 <li><p>Lewis, P., et al. (2020). &quot;Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.&quot; <em>Advances in Neural Information Processing Systems</em>, 33.</p>
 </li>
@@ -1090,7 +1100,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><p>Liu, N. F., et al. (2024). &quot;Lost in the Middle: How Language Models Use Long Contexts.&quot; <em>arXiv preprint arXiv:2307.03172</em>.</p>
 </li>
 </ol>
-<h3 id="프레임워크-및-도구-문서">프레임워크 및 도구 문서 {#프레임워크-및-도구-문서}</h3>
+<h3 id="프레임워크-및-도구-문서">프레임워크 및 도구 문서</h3>
 <ol>
 <li><p>LangChain RAG Documentation:
 <a href="https://python.langchain.com/docs/use_cases/question_answering/">https://python.langchain.com/docs/use_cases/question_answering/</a></p>
@@ -1105,7 +1115,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <a href="https://www.pinecone.io/">https://www.pinecone.io/</a></p>
 </li>
 </ol>
-<h3 id="추가-학습-자료">추가 학습 자료 {#추가-학습-자료}</h3>
+<h3 id="추가-학습-자료">추가 학습 자료</h3>
 <ol start="5">
 <li><p>&quot;Neural Information Retrieval&quot; by Bhaskar Mitra &amp; Nick Craswell</p>
 </li>

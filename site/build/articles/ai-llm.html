@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AI는 어떻게 대화를 기억할까? - LLM 메모리의 비밀 | AI 기술 자료 저널</title>
-  <meta name="description" content="1.  || #충격적인 진실 - AI는 기억력이 없다 2.  || #AI가 기억하는 것처럼 보이는 마법의 원리 3.  || #토큰과 컨텍스트 윈도우 이해하기 4.  || #대화가 길어질 때의 문제점 5.  || #AI의 메모리 한계를 극복하는 방법 6.  || #실전...">
+  <meta name="description" content="1. #충격적인 진실 - AI는 기억력이 없다 2. #AI가 기억하는 것처럼 보이는 마법의 원리 3. #토큰과 컨텍스트 윈도우 이해하기 4. #대화가 길어질 때의 문제점 5. #AI의 메모리 한계를 극복하는 방법 6. #실전 활용 팁 7. #핵심 정리 ---...">
   
   <!-- Open Graph -->
   <meta property="og:title" content="AI는 어떻게 대화를 기억할까? - LLM 메모리의 비밀">
-  <meta property="og:description" content="1.  || #충격적인 진실 - AI는 기억력이 없다 2.  || #AI가 기억하는 것처럼 보이는 마법의 원리 3.  || #토큰과 컨텍스트 윈도우 이해하기 4.  || #대화가 길어질 때의 문제점 5.  || #AI의 메모리 한계를 극복하는 방법 6.  || #실전...">
+  <meta property="og:description" content="1. #충격적인 진실 - AI는 기억력이 없다 2. #AI가 기억하는 것처럼 보이는 마법의 원리 3. #토큰과 컨텍스트 윈도우 이해하기 4. #대화가 길어질 때의 문제점 5. #AI의 메모리 한계를 극복하는 방법 6. #실전 활용 팁 7. #핵심 정리 ---...">
   <meta property="og:image" content="/assets/images/llm-guides-placeholder.svg">
   <meta property="og:url" content="https://passeth.github.io/MY-BLOG_OBSI/articles/ai-llm.html">
   <meta property="og:type" content="article">
@@ -16,7 +16,7 @@
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="AI는 어떻게 대화를 기억할까? - LLM 메모리의 비밀">
-  <meta name="twitter:description" content="1.  || #충격적인 진실 - AI는 기억력이 없다 2.  || #AI가 기억하는 것처럼 보이는 마법의 원리 3.  || #토큰과 컨텍스트 윈도우 이해하기 4.  || #대화가 길어질 때의 문제점 5.  || #AI의 메모리 한계를 극복하는 방법 6.  || #실전...">
+  <meta name="twitter:description" content="1. #충격적인 진실 - AI는 기억력이 없다 2. #AI가 기억하는 것처럼 보이는 마법의 원리 3. #토큰과 컨텍스트 윈도우 이해하기 4. #대화가 길어질 때의 문제점 5. #AI의 메모리 한계를 극복하는 방법 6. #실전 활용 팁 7. #핵심 정리 ---...">
   <meta name="twitter:image" content="/assets/images/llm-guides-placeholder.svg">
   
   <link rel="stylesheet" href="/styles/main.css">
@@ -194,7 +194,7 @@
 </nav>
 
             <h1>AI는 어떻게 대화를 기억할까? - LLM 메모리의 비밀</h1>
-<h2 id="목차">📋 목차 {#목차}</h2>
+<h2 id="목차">📋 목차</h2>
 <ol>
 <li><a href="#충격적인-진실-ai는-기억력이-없다" class="internal-link internal-link--section">충격적인 진실 - AI는 기억력이 없다</a></li>
 <li><a href="#ai가-기억하는-것처럼-보이는-마법의-원리" class="internal-link internal-link--section">AI가 기억하는 것처럼 보이는 마법의 원리</a></li>
@@ -205,18 +205,18 @@
 <li><a href="#핵심-정리" class="internal-link internal-link--section">핵심 정리</a></li>
 </ol>
 <hr>
-<h2 id="충격적인-진실-ai는-기억력이-없다">충격적인 진실 - AI는 기억력이 없다! {#충격적인-진실-ai는-기억력이-없다}</h2>
-<h3 id="놀라운-사실">🎭 놀라운 사실 {#놀라운-사실}</h3>
+<h2 id="충격적인-진실-ai는-기억력이-없다">충격적인 진실 - AI는 기억력이 없다!</h2>
+<h3 id="놀라운-사실">🎭 놀라운 사실</h3>
 <blockquote>
 <p>ChatGPT와 대화할 때, AI가 여러분의 이름을 기억하고, 지난 대화를 이어가는 것처럼 느껴지죠? 하지만 <strong>AI는 사실 아무것도 기억하지 못합니다</strong>!</p>
 </blockquote>
-<h3 id="실생활-비유로-이해하기">📖 실생활 비유로 이해하기 {#실생활-비유로-이해하기}</h3>
+<h3 id="실생활-비유로-이해하기">📖 실생활 비유로 이해하기</h3>
 <p><strong>상황</strong>: 여러분이 건망증이 심한 친구를 만난다고 상상해보세요.</p>
 <p><strong>일반적인 친구</strong>:</p>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1234" onclick="copyCode('code-1769482284933-1234')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1234" onclick="copyCode('code-1769484253414-1234')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -224,7 +224,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1234" class="language-plaintext">당신: &quot;어제 말한 영화 봤어?&quot;
+  <pre class="code-block__content"><code id="code-1769484253414-1234" class="language-plaintext">당신: &quot;어제 말한 영화 봤어?&quot;
 친구: &quot;응! 재미있더라~&quot; (뇌에서 기억을 꺼내옴)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">2 lines</span>
@@ -235,7 +235,7 @@
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1235" onclick="copyCode('code-1769482284933-1235')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1235" onclick="copyCode('code-1769484253414-1235')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -243,7 +243,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1235" class="language-plaintext">당신: &quot;어제 말한 영화 봤어?&quot;
+  <pre class="code-block__content"><code id="code-1769484253414-1235" class="language-plaintext">당신: &quot;어제 말한 영화 봤어?&quot;
 AI: &quot;어...? 무슨 영화?&quot; (기억 못함)
 당신: [어제 대화 내용을 노트에 적어서 다시 보여줌]
 AI: &quot;아! 이 노트를 보니 기억났어! 재미있었어!&quot; (노트를 읽고 답변)</code></pre>
@@ -253,7 +253,7 @@ AI: &quot;아! 이 노트를 보니 기억났어! 재미있었어!&quot; (노트
 </div>
 
 <p><strong>핵심</strong>: AI는 매번 대화 노트(컨텍스트)를 다시 읽어야 합니다!</p>
-<h3 id="왜-이렇게-설계되었을까요">🤔 왜 이렇게 설계되었을까요? {#왜-이렇게-설계되었을까요}</h3>
+<h3 id="왜-이렇게-설계되었을까요">🤔 왜 이렇게 설계되었을까요?</h3>
 <p><strong>WHY (왜)</strong>: LLM은 <strong>통계적 패턴 매칭 기계</strong>이기 때문입니다.</p>
 <p><strong>실생활 비유</strong>:</p>
 <ul>
@@ -271,13 +271,13 @@ AI: &quot;아! 이 노트를 보니 기억났어! 재미있었어!&quot; (노트
 <li>다음 메시지가 오면 1번부터 반복</li>
 </ol>
 <hr>
-<h2 id="ai가-기억하는-것처럼-보이는-마법의-원리">AI가 기억하는 것처럼 보이는 마법의 원리 {#ai가-기억하는-것처럼-보이는-마법의-원리}</h2>
-<h3>🎪 마술의 비밀: &#39;첨부(Append)&#39; 기법 {#마술의-비밀-첨부append-기법}</h3>
+<h2 id="ai가-기억하는-것처럼-보이는-마법의-원리">AI가 기억하는 것처럼 보이는 마법의 원리</h2>
+<h3>🎪 마술의 비밀: &#39;첨부(Append)&#39; 기법 </h3>
 <h4>일반인의 상상 (❌ 틀림)</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1236" onclick="copyCode('code-1769482284933-1236')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1236" onclick="copyCode('code-1769484253414-1236')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -285,7 +285,7 @@ AI: &quot;아! 이 노트를 보니 기억났어! 재미있었어!&quot; (노트
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1236" class="language-plaintext">[AI의 뇌 💭]
+  <pre class="code-block__content"><code id="code-1769484253414-1236" class="language-plaintext">[AI의 뇌 💭]
 ├── 2024년 대화
 ├── 어제 대화
 └── 방금 대화 ← 여기에 저장!</code></pre>
@@ -298,7 +298,7 @@ AI: &quot;아! 이 노트를 보니 기억났어! 재미있었어!&quot; (노트
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1237" onclick="copyCode('code-1769482284933-1237')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1237" onclick="copyCode('code-1769484253414-1237')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -306,30 +306,32 @@ AI: &quot;아! 이 노트를 보니 기억났어! 재미있었어!&quot; (노트
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1237" class="language-plaintext">매번 새로 시작!
+  <pre class="code-block__content"><code id="code-1769484253414-1237" class="language-plaintext">매번 새로 시작!
 
-<p>사용자: &quot;안녕?&quot;
+사용자: &quot;안녕?&quot;
 AI에게 전달: &quot;안녕?&quot;
-AI 답변: &quot;안녕하세요!&quot;</p>
-<p>사용자: &quot;내 이름은 철수야&quot;
+AI 답변: &quot;안녕하세요!&quot;
+
+사용자: &quot;내 이름은 철수야&quot;
 AI에게 전달: &quot;안녕?\n안녕하세요!\n내 이름은 철수야&quot;
-AI 답변: &quot;반갑습니다, 철수님!&quot;</p>
-<p>사용자: &quot;내 이름 기억해?&quot;
+AI 답변: &quot;반갑습니다, 철수님!&quot;
+
+사용자: &quot;내 이름 기억해?&quot;
 AI에게 전달: &quot;안녕?\n안녕하세요!\n내 이름은 철수야\n반갑습니다, 철수님!\n내 이름 기억해?&quot;
 AI 답변: &quot;네, 철수님이시죠!&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p><strong>핵심</strong>: 매번 <strong>전체 대화를 다시 읽습니다</strong>!</p>
 <hr>
-<h3 id="기초-예제-대화-문맥이-어떻게-쌓이는지">🌱 기초 예제: 대화 문맥이 어떻게 쌓이는지 {#기초-예제-대화-문맥이-어떻게-쌓이는지}</h3>
+<h3 id="기초-예제-대화-문맥이-어떻게-쌓이는지">🌱 기초 예제: 대화 문맥이 어떻게 쌓이는지</h3>
 <h4>Step 1: 첫 번째 메시지</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1238" onclick="copyCode('code-1769482284933-1238')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1238" onclick="copyCode('code-1769484253414-1238')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -337,26 +339,25 @@ AI 답변: &quot;네, 철수님이시죠!&quot;</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1238" class="language-plaintext">📝 AI가 받는 입력:
+  <pre class="code-block__content"><code id="code-1769484253414-1238" class="language-plaintext">📝 AI가 받는 입력:
 &quot;파이썬이 뭐야?&quot;
 
-<p>🤖 AI 처리:</p>
-<ul>
-<li>토큰 수: 4개 (파이썬, 이, 뭐, 야)</li>
-<li>컨텍스트: &quot;파이썬이 뭐야?&quot;</li>
-</ul>
-<p>💬 AI 답변:
+🤖 AI 처리:
+- 토큰 수: 4개 (파이썬, 이, 뭐, 야)
+- 컨텍스트: &quot;파이썬이 뭐야?&quot;
+
+💬 AI 답변:
 &quot;파이썬은 프로그래밍 언어입니다.&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">7 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <h4>Step 2: 두 번째 메시지</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1239" onclick="copyCode('code-1769482284933-1239')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1239" onclick="copyCode('code-1769484253414-1239')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -364,28 +365,27 @@ AI 답변: &quot;네, 철수님이시죠!&quot;</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1239" class="language-plaintext">📝 AI가 받는 입력:
+  <pre class="code-block__content"><code id="code-1769484253414-1239" class="language-plaintext">📝 AI가 받는 입력:
 사용자: &quot;파이썬이 뭐야?&quot;
 AI: &quot;파이썬은 프로그래밍 언어입니다.&quot;
 사용자: &quot;어떻게 배워?&quot;
 
-<p>🤖 AI 처리:</p>
-<ul>
-<li>토큰 수: 약 15개 (이전 대화 + 새 질문)</li>
-<li>컨텍스트: 전체 대화</li>
-</ul>
-<p>💬 AI 답변:
+🤖 AI 처리:
+- 토큰 수: 약 15개 (이전 대화 + 새 질문)
+- 컨텍스트: 전체 대화
+
+💬 AI 답변:
 &quot;초보자는 기본 문법부터 시작하세요.&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">9 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <h4>Step 3: 세 번째 메시지</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1240" onclick="copyCode('code-1769482284933-1240')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1240" onclick="copyCode('code-1769484253414-1240')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -393,21 +393,21 @@ AI: &quot;파이썬은 프로그래밍 언어입니다.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1240" class="language-plaintext">📝 AI가 받는 입력:
+  <pre class="code-block__content"><code id="code-1769484253414-1240" class="language-plaintext">📝 AI가 받는 입력:
 사용자: &quot;파이썬이 뭐야?&quot;
 AI: &quot;파이썬은 프로그래밍 언어입니다.&quot;
 사용자: &quot;어떻게 배워?&quot;
 AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
 사용자: &quot;추천 책 있어?&quot;
 
-<p>🤖 AI 처리:</p>
-<ul>
-<li>토큰 수: 약 30개 (계속 증가!)</li>
-<li>컨텍스트: 전체 대화 (계속 늘어남)</code></pre><div class="code-block__footer">
-  <span class="code-block__lines">9 lines</span>
+🤖 AI 처리:
+- 토큰 수: 약 30개 (계속 증가!)
+- 컨텍스트: 전체 대화 (계속 늘어남)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
 </div>
-</div></li>
-</ul>
+
 <p><strong>🤔 생각해보기</strong>: 대화를 100번 주고받으면 어떻게 될까요?</p>
 <details>
 <summary>답변 보기</summary>
@@ -419,8 +419,8 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
 <li>비용도 폭증하고, 속도도 느려집니다</details></li>
 </ul>
 <hr>
-<h2 id="토큰과-컨텍스트-윈도우-이해하기">토큰과 컨텍스트 윈도우 이해하기 {#토큰과-컨텍스트-윈도우-이해하기}</h2>
-<h3 id="토큰token이-뭔가요">🧩 토큰(Token)이 뭔가요? {#토큰token이-뭔가요}</h3>
+<h2 id="토큰과-컨텍스트-윈도우-이해하기">토큰과 컨텍스트 윈도우 이해하기</h2>
+<h3 id="토큰token이-뭔가요">🧩 토큰(Token)이 뭔가요?</h3>
 <p><strong>5살 아이에게 설명한다면</strong>:</p>
 <blockquote>
 <p>&quot;토큰은 AI가 읽는 단어 조각이에요. 긴 단어는 여러 조각으로 나눠집니다!&quot;</p>
@@ -430,7 +430,7 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1241" onclick="copyCode('code-1769482284933-1241')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1241" onclick="copyCode('code-1769484253414-1241')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -438,21 +438,21 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1241" class="language-plaintext">&quot;안녕하세요&quot;
+  <pre class="code-block__content"><code id="code-1769484253414-1241" class="language-plaintext">&quot;안녕하세요&quot;
 → [&quot;안녕&quot;, &quot;하세요&quot;] (2 토큰)
 
-<p>&quot;프로그래밍은재미있어요&quot;
+&quot;프로그래밍은재미있어요&quot;
 → [&quot;프로그래밍&quot;, &quot;은&quot;, &quot;재미&quot;, &quot;있&quot;, &quot;어요&quot;] (5 토큰)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">4 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p><strong>영어</strong>:</p>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1242" onclick="copyCode('code-1769482284933-1242')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1242" onclick="copyCode('code-1769484253414-1242')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -460,14 +460,14 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1242" class="language-plaintext">&quot;Hello, world!&quot;
+  <pre class="code-block__content"><code id="code-1769484253414-1242" class="language-plaintext">&quot;Hello, world!&quot;
 → [&quot;Hello&quot;, &quot;,&quot;, &quot; world&quot;, &quot;!&quot;] (4 tokens)
 
-<p>&quot;Unbelievable&quot;
+&quot;Unbelievable&quot;
 → [&quot;Un&quot;, &quot;believ&quot;, &quot;able&quot;] (3 tokens)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">4 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p><strong>일반 규칙</strong>:</p>
@@ -476,12 +476,12 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
 <li>영어: 대략 <strong>4글자 = 1토큰</strong></li>
 <li>공백, 문장부호도 토큰!</li>
 </ul>
-<h3 id="컨텍스트-윈도우context-window란">📦 컨텍스트 윈도우(Context Window)란? {#컨텍스트-윈도우context-window란}</h3>
+<h3 id="컨텍스트-윈도우context-window란">📦 컨텍스트 윈도우(Context Window)란?</h3>
 <p><strong>실생활 비유</strong>: 책상의 크기</p>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1243" onclick="copyCode('code-1769482284933-1243')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1243" onclick="copyCode('code-1769484253414-1243')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -489,36 +489,38 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1243" class="language-plaintext">작은 책상 (GPT-3.5)
+  <pre class="code-block__content"><code id="code-1769484253414-1243" class="language-plaintext">작은 책상 (GPT-3.5)
 ┌─────────────────┐
 │ 최대 4,096 토큰  │  ← A4 용지 10장 정도
 └─────────────────┘
 
-<p>중간 책상 (GPT-4)
+중간 책상 (GPT-4)
 ┌───────────────────────────┐
 │ 최대 8,192 토큰             │  ← A4 용지 20장
-└───────────────────────────┘</p>
-<p>큰 책상 (GPT-4 Turbo)
+└───────────────────────────┘
+
+큰 책상 (GPT-4 Turbo)
 ┌─────────────────────────────────────────┐
 │ 최대 128,000 토큰                         │  ← 책 300쪽!
-└─────────────────────────────────────────┘</p>
-<p>초대형 책상 (Claude 3.5 Sonnet)
+└─────────────────────────────────────────┘
+
+초대형 책상 (Claude 3.5 Sonnet)
 ┌───────────────────────────────────────────────────┐
 │ 최대 200,000 토큰                                   │  ← 책 500쪽!
 └───────────────────────────────────────────────────┘</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">16 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p><strong>핵심</strong>: 책상이 가득 차면 오래된 종이(대화)를 버려야 합니다!</p>
 <hr>
-<h3 id="중급-예제-토큰-한계-체험하기">🌿 중급 예제: 토큰 한계 체험하기 {#중급-예제-토큰-한계-체험하기}</h3>
+<h3 id="중급-예제-토큰-한계-체험하기">🌿 중급 예제: 토큰 한계 체험하기</h3>
 <h4>시나리오: GPT-3.5와 긴 대화 (최대 4,096 토큰)</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1244" onclick="copyCode('code-1769482284933-1244')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1244" onclick="copyCode('code-1769484253414-1244')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -526,24 +528,24 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1244" class="language-plaintext">대화 1: &quot;자기소개 해줘&quot; (500 토큰)
+  <pre class="code-block__content"><code id="code-1769484253414-1244" class="language-plaintext">대화 1: &quot;자기소개 해줘&quot; (500 토큰)
 대화 2: &quot;취미가 뭐야?&quot; (700 토큰)
 대화 3: &quot;좋아하는 음식은?&quot; (800 토큰)
 대화 4: &quot;여행 가고 싶은 곳은?&quot; (900 토큰)
 대화 5: &quot;꿈이 뭐야?&quot; (1,000 토큰)
 대화 6: &quot;첫 번째 질문 뭐였지?&quot; (200 토큰)
 
-<p>총 토큰: 4,100 토큰 ← 한계 초과!</code></pre>
+총 토큰: 4,100 토큰 ← 한계 초과!</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">7 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p><strong>AI의 반응</strong>:</p>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1245" onclick="copyCode('code-1769482284933-1245')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1245" onclick="copyCode('code-1769484253414-1245')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -551,21 +553,21 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1245" class="language-plaintext">⚠️ 오류: 컨텍스트 윈도우 초과!
+  <pre class="code-block__content"><code id="code-1769484253414-1245" class="language-plaintext">⚠️ 오류: 컨텍스트 윈도우 초과!
 
-<p>해결 방법:</p>
-<ol>
-<li>가장 오래된 대화 삭제 (대화 1 제거)</li>
-<li>요약본 생성 (&quot;자기소개 했음&quot; - 50 토큰)</code></pre>  <div class="code-block__footer">
- <span class="code-block__lines">4 lines</span>
+해결 방법:
+1. 가장 오래된 대화 삭제 (대화 1 제거)
+2. 요약본 생성 (&quot;자기소개 했음&quot; - 50 토큰)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">4 lines</span>
   </div>
-</div></li>
-</ol>
+</div>
+
 <p><strong>결과</strong>:</p>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1246" onclick="copyCode('code-1769482284933-1246')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1246" onclick="copyCode('code-1769484253414-1246')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -573,17 +575,17 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1246" class="language-plaintext">요약: &quot;자기소개 했음&quot; (50 토큰)
+  <pre class="code-block__content"><code id="code-1769484253414-1246" class="language-plaintext">요약: &quot;자기소개 했음&quot; (50 토큰)
 대화 2: &quot;취미가 뭐야?&quot; (700 토큰)
 대화 3: &quot;좋아하는 음식은?&quot; (800 토큰)
 대화 4: &quot;여행 가고 싶은 곳은?&quot; (900 토큰)
 대화 5: &quot;꿈이 뭐야?&quot; (1,000 토큰)
 대화 6: &quot;첫 번째 질문 뭐였지?&quot; (200 토큰)
 
-<p>총 토큰: 3,650 토큰 ← 해결!</code></pre>
+총 토큰: 3,650 토큰 ← 해결!</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">7 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p><strong>하지만 문제</strong>:</p>
@@ -592,13 +594,13 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
 <li>&quot;자기소개에서 뭐라고 했지?&quot;라고 물어보면 답변 못함!</li>
 </ul>
 <hr>
-<h2 id="대화가-길어질-때의-문제점">대화가 길어질 때의 문제점 {#대화가-길어질-때의-문제점}</h2>
-<h3 id="문제-1-비용-폭증">💸 문제 1: 비용 폭증 {#문제-1-비용-폭증}</h3>
+<h2 id="대화가-길어질-때의-문제점">대화가 길어질 때의 문제점</h2>
+<h3 id="문제-1-비용-폭증">💸 문제 1: 비용 폭증</h3>
 <h4>토큰 가격 (GPT-4 기준, 2024년)</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1247" onclick="copyCode('code-1769482284933-1247')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1247" onclick="copyCode('code-1769484253414-1247')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -606,7 +608,7 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1247" class="language-plaintext">입력 토큰: $0.03 / 1,000 토큰
+  <pre class="code-block__content"><code id="code-1769484253414-1247" class="language-plaintext">입력 토큰: $0.03 / 1,000 토큰
 출력 토큰: $0.06 / 1,000 토큰</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">2 lines</span>
@@ -618,7 +620,7 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1248" onclick="copyCode('code-1769482284933-1248')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1248" onclick="copyCode('code-1769484253414-1248')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -626,7 +628,7 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1248" class="language-plaintext">평균 대화 길이: 100 토큰/회
+  <pre class="code-block__content"><code id="code-1769484253414-1248" class="language-plaintext">평균 대화 길이: 100 토큰/회
 총 누적 토큰:
   1회: 100 토큰
   2회: 200 토큰
@@ -634,18 +636,18 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
   ...
   10회: 1,000 토큰
 
-<p>총합: 5,500 토큰 (누적 합계)
+총합: 5,500 토큰 (누적 합계)
 비용: $0.165 (약 220원)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">9 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p><strong>긴 대화 (100회)</strong>:</p>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1249" onclick="copyCode('code-1769482284933-1249')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1249" onclick="copyCode('code-1769484253414-1249')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -653,26 +655,26 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1249" class="language-plaintext">평균 대화 길이: 100 토큰/회
+  <pre class="code-block__content"><code id="code-1769484253414-1249" class="language-plaintext">평균 대화 길이: 100 토큰/회
 총 누적 토큰:
   1회: 100
   2회: 200
   ...
   100회: 10,000 토큰
 
-<p>총합: 505,000 토큰 (!)
+총합: 505,000 토큰 (!)
 비용: $15.15 (약 20,000원!)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">8 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p><strong>🎯 핵심 통찰</strong>: 대화가 2배 길어지면 비용은 <strong>4배 증가</strong>합니다!</p>
-<h3 id="문제-2-응답-속도-저하">⏱️ 문제 2: 응답 속도 저하 {#문제-2-응답-속도-저하}</h3>
+<h3 id="문제-2-응답-속도-저하">⏱️ 문제 2: 응답 속도 저하</h3>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1250" onclick="copyCode('code-1769482284933-1250')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1250" onclick="copyCode('code-1769484253414-1250')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -680,16 +682,16 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1250" class="language-plaintext">토큰 수에 따른 응답 시간:
+  <pre class="code-block__content"><code id="code-1769484253414-1250" class="language-plaintext">토큰 수에 따른 응답 시간:
 
-<p>100 토큰:   ████ 0.5초
+100 토큰:   ████ 0.5초
 500 토큰:   ████████ 1초
 1,000 토큰: ████████████████ 2초
 5,000 토큰: ████████████████████████████████ 5초
 10,000 토큰: ████████████████████████████████████████████████ 10초+</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">6 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p><strong>실생활 비유</strong>:</p>
@@ -697,11 +699,11 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
 <li>100페이지 책 읽기 vs 1,000페이지 책 읽기</li>
 <li>당연히 1,000페이지가 10배 오래 걸리죠!</li>
 </ul>
-<h3 id="문제-3-오래된-대화-손실">🗑️ 문제 3: 오래된 대화 손실 {#문제-3-오래된-대화-손실}</h3>
+<h3 id="문제-3-오래된-대화-손실">🗑️ 문제 3: 오래된 대화 손실</h3>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1251" onclick="copyCode('code-1769482284933-1251')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1251" onclick="copyCode('code-1769484253414-1251')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -709,9 +711,9 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1251" class="language-plaintext">컨텍스트 윈도우: 4,096 토큰
+  <pre class="code-block__content"><code id="code-1769484253414-1251" class="language-plaintext">컨텍스트 윈도우: 4,096 토큰
 
-<p>대화 진행:
+대화 진행:
 ┌────────────────────────────────┐
 │ 대화 1-10: 중요한 설정 정보     │  ← 잘려나감!
 ├────────────────────────────────┤
@@ -725,20 +727,20 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
   한계선 (4,096 토큰)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">13 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p><strong>결과</strong>: AI가 처음에 했던 중요한 약속을 까먹습니다!</p>
 <hr>
-<h2 id="ai의-메모리-한계를-극복하는-방법">AI의 메모리 한계를 극복하는 방법 {#ai의-메모리-한계를-극복하는-방법}</h2>
-<h3 id="방법-1-대화-요약-summarization">🛠️ 방법 1: 대화 요약 (Summarization) {#방법-1-대화-요약-summarization}</h3>
+<h2 id="ai의-메모리-한계를-극복하는-방법">AI의 메모리 한계를 극복하는 방법</h2>
+<h3 id="방법-1-대화-요약-summarization">🛠️ 방법 1: 대화 요약 (Summarization)</h3>
 <p><strong>개념</strong>: 오래된 대화를 짧게 요약해서 보관</p>
 <h4>🌱 기초 예제</h4>
 <p><strong>원본 대화 (500 토큰)</strong>:</p>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1252" onclick="copyCode('code-1769482284933-1252')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1252" onclick="copyCode('code-1769484253414-1252')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -746,23 +748,23 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1252" class="language-plaintext">사용자: &quot;나는 철수야. 나이는 25살이고, 서울에 살아.
+  <pre class="code-block__content"><code id="code-1769484253414-1252" class="language-plaintext">사용자: &quot;나는 철수야. 나이는 25살이고, 서울에 살아.
         프로그래밍을 배우고 싶은데 파이썬부터 시작하려고 해.
         취미는 게임하기야.&quot;
 
-<p>AI: &quot;반갑습니다 철수님! 25살에 프로그래밍을 시작하시는군요.
+AI: &quot;반갑습니다 철수님! 25살에 프로그래밍을 시작하시는군요.
      서울에 좋은 학원들이 많습니다. 파이썬은 초보자에게
      최고의 선택입니다. 게임 개발도 파이썬으로 할 수 있어요!&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">6 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p><strong>요약본 (50 토큰)</strong>:</p>
 <div class="code-block" data-language="yaml">
   <div class="code-block__header" style="background-color: #cb171e; color: #fff">
     <span class="code-block__language">YAML</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1253" onclick="copyCode('code-1769482284933-1253')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1253" onclick="copyCode('code-1769484253414-1253')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -770,7 +772,7 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1253" class="language-yaml">user_profile:
+  <pre class="code-block__content"><code id="code-1769484253414-1253" class="language-yaml">user_profile:
   name: &quot;철수&quot;
   age: 25
   location: &quot;서울&quot;
@@ -786,7 +788,7 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1254" onclick="copyCode('code-1769482284933-1254')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1254" onclick="copyCode('code-1769484253414-1254')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -794,27 +796,26 @@ AI: &quot;초보자는 기본 문법부터 시작하세요.&quot;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1254" class="language-python"># 의사코드 (Pseudocode)
+  <pre class="code-block__content"><code id="code-1769484253414-1254" class="language-python"># 의사코드 (Pseudocode)
 class ConversationManager:
     def __init__(self):
         self.history = []
         self.summary = &quot;&quot;
         self.MAX_TOKENS = 4000
 
-<pre><code>def add_message(self, message):
-    self.history.append(message)
+    def add_message(self, message):
+        self.history.append(message)
 
-    # 토큰 수 확인
-    total_tokens = self.count_tokens(self.history)
+        # 토큰 수 확인
+        total_tokens = self.count_tokens(self.history)
 
-    if total_tokens &amp;gt; self.MAX_TOKENS:
-        # 오래된 대화 요약
-        old_conversations = self.history[:10]  # 처음 10개
-        self.summary = self.summarize(old_conversations)
+        if total_tokens &gt; self.MAX_TOKENS:
+            # 오래된 대화 요약
+            old_conversations = self.history[:10]  # 처음 10개
+            self.summary = self.summarize(old_conversations)
 
-        # 요약으로 대체
-        self.history = self.history[10:]  # 최근 대화만 유지&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+            # 요약으로 대체
+            self.history = self.history[10:]  # 최근 대화만 유지</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">16 lines</span>
   </div>
@@ -824,7 +825,7 @@ class ConversationManager:
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1255" onclick="copyCode('code-1769482284933-1255')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1255" onclick="copyCode('code-1769484253414-1255')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -832,29 +833,28 @@ class ConversationManager:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1255" class="language-plaintext">1. 대화 40개 누적 → 토큰 4,500개 (한계 초과!)
+  <pre class="code-block__content"><code id="code-1769484253414-1255" class="language-plaintext">1. 대화 40개 누적 → 토큰 4,500개 (한계 초과!)
 
-<ol start="2">
-<li><p>처음 10개 대화 선택
-&quot;사용자 프로필: 철수, 25살, 파이썬 학습 중...&quot;</p>
-</li>
-<li><p>요약본 생성 (50 토큰)</p>
-</li>
-<li><p>새로운 구조:
-[요약 50토큰] + [최근 대화 30개 3,000토큰] = 3,050 토큰 ✅</code></pre></p>
+2. 처음 10개 대화 선택
+   &quot;사용자 프로필: 철수, 25살, 파이썬 학습 중...&quot;
+
+3. 요약본 생성 (50 토큰)
+
+4. 새로운 구조:
+   [요약 50토큰] + [최근 대화 30개 3,000토큰] = 3,050 토큰 ✅</code></pre>
   <div class="code-block__footer">
- <span class="code-block__lines">6 lines</span>
+    <span class="code-block__lines">6 lines</span>
   </div>
-</div></li>
-</ol>
+</div>
+
 <hr>
-<h3 id="방법-2-세션-메모리-관리-session-memory">🛠️ 방법 2: 세션 메모리 관리 (Session Memory) {#방법-2-세션-메모리-관리-session-memory}</h3>
+<h3 id="방법-2-세션-메모리-관리-session-memory">🛠️ 방법 2: 세션 메모리 관리 (Session Memory)</h3>
 <p><strong>개념</strong>: 중요도에 따라 대화를 선별적으로 보관</p>
 <h4>전략 A: 시간 기반 (Time-based)</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1256" onclick="copyCode('code-1769482284933-1256')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1256" onclick="copyCode('code-1769484253414-1256')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -862,23 +862,23 @@ class ConversationManager:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1256" class="language-plaintext">최근 N개 메시지만 유지
+  <pre class="code-block__content"><code id="code-1769484253414-1256" class="language-plaintext">최근 N개 메시지만 유지
 
-<p>┌─────────────────────────────┐
+┌─────────────────────────────┐
 │ 메시지 1-20  [삭제]          │
 ├─────────────────────────────┤
 │ 메시지 21-30 [유지]          │  ← 최근 10개만!
 └─────────────────────────────┘</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">6 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <h4>전략 B: 중요도 기반 (Importance-based)</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1257" onclick="copyCode('code-1769482284933-1257')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1257" onclick="copyCode('code-1769484253414-1257')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -886,23 +886,24 @@ class ConversationManager:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1257" class="language-plaintext">중요 키워드가 포함된 대화는 보존
+  <pre class="code-block__content"><code id="code-1769484253414-1257" class="language-plaintext">중요 키워드가 포함된 대화는 보존
 
-<p>중요 키워드: [&quot;비밀번호&quot;, &quot;프로젝트&quot;, &quot;마감일&quot;]</p>
-<p>메시지 1: &quot;안녕하세요&quot; → [삭제]
+중요 키워드: [&quot;비밀번호&quot;, &quot;프로젝트&quot;, &quot;마감일&quot;]
+
+메시지 1: &quot;안녕하세요&quot; → [삭제]
 메시지 2: &quot;프로젝트 마감일은 12월 31일&quot; → [보존] ⭐
 메시지 3: &quot;날씨 어때?&quot; → [삭제]
 메시지 4: &quot;비밀번호는 1234&quot; → [보존] ⭐</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">6 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <h4>🌳 고급 예제: 하이브리드 전략</h4>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1258" onclick="copyCode('code-1769482284933-1258')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1258" onclick="copyCode('code-1769484253414-1258')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -910,34 +911,33 @@ class ConversationManager:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1258" class="language-python">class SmartMemoryManager:
+  <pre class="code-block__content"><code id="code-1769484253414-1258" class="language-python">class SmartMemoryManager:
     def prioritize_messages(self, messages):
         scored_messages = []
 
-<pre><code>    for msg in messages:
-        score = 0
+        for msg in messages:
+            score = 0
 
-        # 1. 최신성 점수 (최근일수록 높음)
-        score += msg.recency_score()
+            # 1. 최신성 점수 (최근일수록 높음)
+            score += msg.recency_score()
 
-        # 2. 중요 키워드 점수
-        if &amp;quot;프로젝트&amp;quot; in msg.text:
-            score += 10
-        if &amp;quot;마감&amp;quot; in msg.text:
-            score += 10
+            # 2. 중요 키워드 점수
+            if &quot;프로젝트&quot; in msg.text:
+                score += 10
+            if &quot;마감&quot; in msg.text:
+                score += 10
 
-        # 3. 사용자 정보 점수
-        if msg.contains_user_info():
-            score += 15
+            # 3. 사용자 정보 점수
+            if msg.contains_user_info():
+                score += 15
 
-        scored_messages.append((msg, score))
+            scored_messages.append((msg, score))
 
-    # 점수 높은 순으로 정렬
-    scored_messages.sort(key=lambda x: x[1], reverse=True)
+        # 점수 높은 순으로 정렬
+        scored_messages.sort(key=lambda x: x[1], reverse=True)
 
-    # 상위 N개만 유지
-    return [msg for msg, score in scored_messages[:20]]&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+        # 상위 N개만 유지
+        return [msg for msg, score in scored_messages[:20]]</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">20 lines</span>
   </div>
@@ -947,7 +947,7 @@ class ConversationManager:
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1259" onclick="copyCode('code-1769482284933-1259')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1259" onclick="copyCode('code-1769484253414-1259')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -955,7 +955,7 @@ class ConversationManager:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1259" class="language-plaintext">원본 30개 메시지:
+  <pre class="code-block__content"><code id="code-1769484253414-1259" class="language-plaintext">원본 30개 메시지:
 1. &quot;안녕&quot; (점수: 1)
 2. &quot;프로젝트 시작일은 1월&quot; (점수: 25) ⭐
 3. &quot;날씨 좋네&quot; (점수: 1)
@@ -963,21 +963,21 @@ class ConversationManager:
 5. &quot;마감일 12월&quot; (점수: 25) ⭐
 ...
 
-<p>필터링 후 (점수 15 이상만):</p>
-<ul>
-<li>메시지 2, 4, 5, ... (중요한 것만 보존!)</code></pre><div class="code-block__footer">
-  <span class="code-block__lines">9 lines</span>
+필터링 후 (점수 15 이상만):
+- 메시지 2, 4, 5, ... (중요한 것만 보존!)</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">9 lines</span>
+  </div>
 </div>
-</div></li>
-</ul>
+
 <hr>
-<h3 id="방법-3-장기-메모리-long-term-memory">🛠️ 방법 3: 장기 메모리 (Long-term Memory) {#방법-3-장기-메모리-long-term-memory}</h3>
+<h3 id="방법-3-장기-메모리-long-term-memory">🛠️ 방법 3: 장기 메모리 (Long-term Memory)</h3>
 <p><strong>개념</strong>: 대화를 외부 데이터베이스에 저장하고 필요할 때 검색</p>
 <h4>아키텍처</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1260" onclick="copyCode('code-1769482284933-1260')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1260" onclick="copyCode('code-1769484253414-1260')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -985,7 +985,7 @@ class ConversationManager:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1260" class="language-plaintext">┌─────────────┐
+  <pre class="code-block__content"><code id="code-1769484253414-1260" class="language-plaintext">┌─────────────┐
 │   사용자     │
 └──────┬──────┘
        │
@@ -1016,7 +1016,7 @@ class ConversationManager:
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1261" onclick="copyCode('code-1769482284933-1261')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1261" onclick="copyCode('code-1769484253414-1261')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1024,30 +1024,29 @@ class ConversationManager:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1261" class="language-plaintext">1. 사용자 질문: &quot;지난주에 논의한 프로젝트 예산이 얼마였지?&quot;
+  <pre class="code-block__content"><code id="code-1769484253414-1261" class="language-plaintext">1. 사용자 질문: &quot;지난주에 논의한 프로젝트 예산이 얼마였지?&quot;
 
-<ol start="2">
-<li><p>벡터 검색:
-&quot;프로젝트 예산&quot; 키워드로 과거 대화 검색</p>
-</li>
-<li><p>검색 결과 (과거 대화):
-&quot;프로젝트 예산은 5천만원으로 결정했습니다.&quot;</p>
-</li>
-<li><p>AI에게 전달:
-[검색된 과거 대화] + [현재 질문]</p>
-</li>
-<li><p>AI 답변:
-&quot;지난주에 프로젝트 예산을 5천만원으로 결정하셨습니다.&quot;</code></pre></p>
+2. 벡터 검색:
+   &quot;프로젝트 예산&quot; 키워드로 과거 대화 검색
+
+3. 검색 결과 (과거 대화):
+   &quot;프로젝트 예산은 5천만원으로 결정했습니다.&quot;
+
+4. AI에게 전달:
+   [검색된 과거 대화] + [현재 질문]
+
+5. AI 답변:
+   &quot;지난주에 프로젝트 예산을 5천만원으로 결정하셨습니다.&quot;</code></pre>
   <div class="code-block__footer">
- <span class="code-block__lines">9 lines</span>
+    <span class="code-block__lines">9 lines</span>
   </div>
-</div></li>
-</ol>
+</div>
+
 <h4>🌳 고급 예제: 계층적 메모리 구조</h4>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1262" onclick="copyCode('code-1769482284933-1262')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1262" onclick="copyCode('code-1769484253414-1262')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1055,7 +1054,7 @@ class ConversationManager:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1262" class="language-plaintext">┌─────────────────────────────────────┐
+  <pre class="code-block__content"><code id="code-1769484253414-1262" class="language-plaintext">┌─────────────────────────────────────┐
 │         에피소드 메모리                │
 │  &quot;2024년 1월 15일 프로젝트 회의&quot;      │
 │  &quot;2024년 2월 3일 예산 확정&quot;           │
@@ -1085,7 +1084,7 @@ class ConversationManager:
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1263" onclick="copyCode('code-1769482284933-1263')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1263" onclick="copyCode('code-1769484253414-1263')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1093,40 +1092,37 @@ class ConversationManager:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1263" class="language-plaintext">질문: &quot;프로젝트 예산 승인은 어떻게 해?&quot;
+  <pre class="code-block__content"><code id="code-1769484253414-1263" class="language-plaintext">질문: &quot;프로젝트 예산 승인은 어떻게 해?&quot;
 
-<ol>
-<li><p>에피소드 메모리 검색:
-→ &quot;2024년 2월 3일 예산 확정&quot; 찾음</p>
-</li>
-<li><p>의미적 메모리 검색:
-→ &quot;예산&quot; 관련 모든 개념 로드</p>
-</li>
-<li><p>절차적 메모리 검색:
-→ &quot;예산 승인 프로세스&quot; 가이드 로드</p>
-</li>
-<li><p>통합 답변 생성:
-&quot;예산 승인은 다음 절차를 따릅니다:</p>
-<ol>
-<li>제안서 작성</li>
-<li>팀장 검토</li>
-<li>경영진 승인
- 지난번에는 5천만원으로 승인받으셨습니다.&quot;</code></pre>  <div class="code-block__footer">
- <span class="code-block__lines">13 lines</span>
+1. 에피소드 메모리 검색:
+   → &quot;2024년 2월 3일 예산 확정&quot; 찾음
+
+2. 의미적 메모리 검색:
+   → &quot;예산&quot; 관련 모든 개념 로드
+
+3. 절차적 메모리 검색:
+   → &quot;예산 승인 프로세스&quot; 가이드 로드
+
+4. 통합 답변 생성:
+   &quot;예산 승인은 다음 절차를 따릅니다:
+    1. 제안서 작성
+    2. 팀장 검토
+    3. 경영진 승인
+    지난번에는 5천만원으로 승인받으셨습니다.&quot;</code></pre>
+  <div class="code-block__footer">
+    <span class="code-block__lines">13 lines</span>
   </div>
-</div></li>
-</ol>
-</li>
-</ol>
+</div>
+
 <hr>
-<h2 id="실전-활용-팁">실전 활용 팁 {#실전-활용-팁}</h2>
-<h3 id="팁-1-시스템-프롬프트에-중요-정보-고정">💡 팁 1: 시스템 프롬프트에 중요 정보 고정 {#팁-1-시스템-프롬프트에-중요-정보-고정}</h3>
+<h2 id="실전-활용-팁">실전 활용 팁</h2>
+<h3 id="팁-1-시스템-프롬프트에-중요-정보-고정">💡 팁 1: 시스템 프롬프트에 중요 정보 고정</h3>
 <p><strong>문제</strong>: 대화가 길어지면 처음 설정이 사라짐</p>
 <p><strong>해결책</strong>: 시스템 프롬프트 활용</p>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1264" onclick="copyCode('code-1769482284933-1264')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1264" onclick="copyCode('code-1769484253414-1264')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1134,7 +1130,7 @@ class ConversationManager:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1264" class="language-plaintext">일반 대화:
+  <pre class="code-block__content"><code id="code-1769484253414-1264" class="language-plaintext">일반 대화:
 사용자: &quot;넌 친절한 AI야&quot;
 사용자: &quot;코드 짜줘&quot;
 사용자: &quot;디버깅 해줘&quot;
@@ -1143,7 +1139,7 @@ class ConversationManager:
 사용자: &quot;넌 어떤 AI야?&quot;
 AI: &quot;...기억 안 남&quot; ❌
 
-<p>시스템 프롬프트 사용:
+시스템 프롬프트 사용:
 ┌────────────────────────────┐
 │ 시스템: &quot;너는 친절한 AI다&quot;   │  ← 항상 최상단에 고정!
 ├────────────────────────────┤
@@ -1156,14 +1152,14 @@ AI: &quot;...기억 안 남&quot; ❌
 └────────────────────────────┘</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">19 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p><strong>구현 예시 (OpenAI API)</strong>:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1265" onclick="copyCode('code-1769482284933-1265')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1265" onclick="copyCode('code-1769484253414-1265')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1171,7 +1167,7 @@ AI: &quot;...기억 안 남&quot; ❌
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1265" class="language-python">messages = [
+  <pre class="code-block__content"><code id="code-1769484253414-1265" class="language-python">messages = [
     {
         &quot;role&quot;: &quot;system&quot;,
         &quot;content&quot;: &quot;당신은 친절한 프로그래밍 튜터입니다.&quot;  # 항상 유지!
@@ -1185,12 +1181,12 @@ AI: &quot;...기억 안 남&quot; ❌
   </div>
 </div>
 
-<h3 id="팁-2-주기적으로-컨텍스트-요약하기">💡 팁 2: 주기적으로 컨텍스트 요약하기 {#팁-2-주기적으로-컨텍스트-요약하기}</h3>
+<h3 id="팁-2-주기적으로-컨텍스트-요약하기">💡 팁 2: 주기적으로 컨텍스트 요약하기</h3>
 <p><strong>전략</strong>: 10~20개 메시지마다 자동 요약</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1266" onclick="copyCode('code-1769482284933-1266')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1266" onclick="copyCode('code-1769484253414-1266')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1198,32 +1194,31 @@ AI: &quot;...기억 안 남&quot; ❌
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1266" class="language-python">class ChatManager:
+  <pre class="code-block__content"><code id="code-1769484253414-1266" class="language-python">class ChatManager:
     def __init__(self):
         self.messages = []
         self.summary = &quot;&quot;
         self.message_count = 0
 
-<pre><code>def add_message(self, user_msg, ai_response):
-    self.messages.append({&amp;quot;user&amp;quot;: user_msg, &amp;quot;ai&amp;quot;: ai_response})
-    self.message_count += 1
+    def add_message(self, user_msg, ai_response):
+        self.messages.append({&quot;user&quot;: user_msg, &quot;ai&quot;: ai_response})
+        self.message_count += 1
 
-    # 20개마다 요약
-    if self.message_count % 20 == 0:
-        self.create_summary()
+        # 20개마다 요약
+        if self.message_count % 20 == 0:
+            self.create_summary()
 
-def create_summary(self):
-    # 현재 대화들을 요약
-    summary_prompt = f&amp;quot;&amp;quot;&amp;quot;
-    다음 대화를 3-5 문장으로 요약해주세요:
-    {self.messages}
-    &amp;quot;&amp;quot;&amp;quot;
+    def create_summary(self):
+        # 현재 대화들을 요약
+        summary_prompt = f&quot;&quot;&quot;
+        다음 대화를 3-5 문장으로 요약해주세요:
+        {self.messages}
+        &quot;&quot;&quot;
 
-    self.summary = call_ai_api(summary_prompt)
+        self.summary = call_ai_api(summary_prompt)
 
-    # 오래된 메시지 삭제
-    self.messages = self.messages[-10:]  # 최근 10개만 유지&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+        # 오래된 메시지 삭제
+        self.messages = self.messages[-10:]  # 최근 10개만 유지</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">20 lines</span>
   </div>
@@ -1233,7 +1228,7 @@ def create_summary(self):
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1267" onclick="copyCode('code-1769482284933-1267')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1267" onclick="copyCode('code-1769484253414-1267')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1241,23 +1236,23 @@ def create_summary(self):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1267" class="language-plaintext">대화 20개 (2,000 토큰)
+  <pre class="code-block__content"><code id="code-1769484253414-1267" class="language-plaintext">대화 20개 (2,000 토큰)
    ↓ 요약
 요약본 (200 토큰) + 최근 10개 (1,000 토큰) = 1,200 토큰
 
-<p>토큰 절약: 40%! 💰</code></pre>
+토큰 절약: 40%! 💰</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">4 lines</span>
-  </div></p>
+  </div>
 </div>
 
-<h3 id="팁-3-불필요한-대화-제거">💡 팁 3: 불필요한 대화 제거 {#팁-3-불필요한-대화-제거}</h3>
+<h3 id="팁-3-불필요한-대화-제거">💡 팁 3: 불필요한 대화 제거</h3>
 <p><strong>문제</strong>: &quot;ㅋㅋㅋ&quot;, &quot;ㅇㅇ&quot; 같은 무의미한 대화가 쌓임</p>
 <p><strong>해결책</strong>: 필터링</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1268" onclick="copyCode('code-1769482284933-1268')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1268" onclick="copyCode('code-1769484253414-1268')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1265,35 +1260,35 @@ def create_summary(self):
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1268" class="language-python">def is_meaningful(message):
+  <pre class="code-block__content"><code id="code-1769484253414-1268" class="language-python">def is_meaningful(message):
     # 최소 길이 체크
     if len(message) &lt; 5:
         return False
 
-<pre><code># 의미 있는 단어 포함 여부
-meaningful_words = [&amp;quot;프로젝트&amp;quot;, &amp;quot;코드&amp;quot;, &amp;quot;질문&amp;quot;, &amp;quot;설명&amp;quot;]
-if any(word in message for word in meaningful_words):
+    # 의미 있는 단어 포함 여부
+    meaningful_words = [&quot;프로젝트&quot;, &quot;코드&quot;, &quot;질문&quot;, &quot;설명&quot;]
+    if any(word in message for word in meaningful_words):
+        return True
+
+    # 순수 이모티콘/초성만 있는지 체크
+    if message in [&quot;ㅋㅋㅋ&quot;, &quot;ㅇㅇ&quot;, &quot;ㄱㅅ&quot;, &quot;ㄴㄴ&quot;]:
+        return False
+
     return True
 
-# 순수 이모티콘/초성만 있는지 체크
-if message in [&amp;quot;ㅋㅋㅋ&amp;quot;, &amp;quot;ㅇㅇ&amp;quot;, &amp;quot;ㄱㅅ&amp;quot;, &amp;quot;ㄴㄴ&amp;quot;]:
-    return False
-
-return True
-</code></pre>
-<h1>사용</h1>
-<p>messages = [msg for msg in messages if is_meaningful(msg[&#39;content&#39;])]</code></pre>
+# 사용
+messages = [msg for msg in messages if is_meaningful(msg[&#39;content&#39;])]</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">14 lines</span>
-  </div></p>
+  </div>
 </div>
 
-<h3 id="팁-4-중요-정보는-별도-저장">💡 팁 4: 중요 정보는 별도 저장 {#팁-4-중요-정보는-별도-저장}</h3>
+<h3 id="팁-4-중요-정보는-별도-저장">💡 팁 4: 중요 정보는 별도 저장</h3>
 <p><strong>패턴</strong>: 사용자 프로필 관리</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1269" onclick="copyCode('code-1769482284933-1269')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1269" onclick="copyCode('code-1769484253414-1269')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1301,44 +1296,44 @@ return True
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1269" class="language-python">class UserProfile:
+  <pre class="code-block__content"><code id="code-1769484253414-1269" class="language-python">class UserProfile:
     def __init__(self):
         self.name = None
         self.preferences = {}
         self.projects = []
 
-<pre><code>def extract_from_conversation(self, message):
-    # &amp;quot;내 이름은 철수야&amp;quot; 감지
-    if &amp;quot;이름은&amp;quot; in message:
-        self.name = extract_name(message)
+    def extract_from_conversation(self, message):
+        # &quot;내 이름은 철수야&quot; 감지
+        if &quot;이름은&quot; in message:
+            self.name = extract_name(message)
 
-    # &amp;quot;파이썬 좋아해&amp;quot; 감지
-    if &amp;quot;좋아&amp;quot; in message:
-        interest = extract_interest(message)
-        self.preferences[&amp;#39;favorite_language&amp;#39;] = interest
+        # &quot;파이썬 좋아해&quot; 감지
+        if &quot;좋아&quot; in message:
+            interest = extract_interest(message)
+            self.preferences[&#39;favorite_language&#39;] = interest
 
-def get_context(self):
-    return f&amp;quot;&amp;quot;&amp;quot;
-    사용자 정보:
-    - 이름: {self.name}
-    - 선호 언어: {self.preferences.get(&amp;#39;favorite_language&amp;#39;)}
-    - 진행 프로젝트: {self.projects}
-    &amp;quot;&amp;quot;&amp;quot;
-</code></pre>
-<h1>매 대화마다</h1>
-<p>profile = UserProfile()
+    def get_context(self):
+        return f&quot;&quot;&quot;
+        사용자 정보:
+        - 이름: {self.name}
+        - 선호 언어: {self.preferences.get(&#39;favorite_language&#39;)}
+        - 진행 프로젝트: {self.projects}
+        &quot;&quot;&quot;
+
+# 매 대화마다
+profile = UserProfile()
 profile.extract_from_conversation(user_message)
 context = profile.get_context()  # 항상 최신 프로필 정보 유지</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">24 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <p><strong>효과</strong>:</p>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284933-1270" onclick="copyCode('code-1769482284933-1270')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253414-1270" onclick="copyCode('code-1769484253414-1270')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1346,20 +1341,21 @@ context = profile.get_context()  # 항상 최신 프로필 정보 유지</code><
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284933-1270" class="language-plaintext">기존 방식:
+  <pre class="code-block__content"><code id="code-1769484253414-1270" class="language-plaintext">기존 방식:
 [1,000개 대화 전체] → 50,000 토큰
 
-<p>프로필 추출 방식:
-[프로필 요약 100 토큰] + [최근 대화 20개 2,000 토큰] = 2,100 토큰</p>
-<p>토큰 절약: 95%! 🎉</code></pre>
+프로필 추출 방식:
+[프로필 요약 100 토큰] + [최근 대화 20개 2,000 토큰] = 2,100 토큰
+
+토큰 절약: 95%! 🎉</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">5 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <hr>
-<h2 id="핵심-정리">핵심 정리 {#핵심-정리}</h2>
-<h3 id="꼭-기억할-7가지">✅ 꼭 기억할 7가지 {#꼭-기억할-7가지}</h3>
+<h2 id="핵심-정리">핵심 정리</h2>
+<h3 id="꼭-기억할-7가지">✅ 꼭 기억할 7가지</h3>
 <ol>
 <li><p><strong>AI는 기억하지 않고 &#39;다시 읽는다&#39;</strong></p>
 <ul>
@@ -1410,7 +1406,7 @@ context = profile.get_context()  # 항상 최신 프로필 정보 유지</code><
 </li>
 </ol>
 <hr>
-<h3 id="한눈에-보는-비교표">📊 한눈에 보는 비교표 {#한눈에-보는-비교표}</h3>
+<h3 id="한눈에-보는-비교표">📊 한눈에 보는 비교표</h3>
 <table>
 <thead>
 <tr>
@@ -1451,7 +1447,7 @@ context = profile.get_context()  # 항상 최신 프로필 정보 유지</code><
 </tr>
 </tbody></table>
 <hr>
-<h3 id="실전-체크리스트">🎯 실전 체크리스트 {#실전-체크리스트}</h3>
+<h3 id="실전-체크리스트">🎯 실전 체크리스트</h3>
 <p>대화형 AI 시스템을 만들 때:</p>
 <ul>
 <li><input disabled="" type="checkbox"> 컨텍스트 윈도우 크기 확인했나요?</li>
@@ -1464,7 +1460,7 @@ context = profile.get_context()  # 항상 최신 프로필 정보 유지</code><
 <li><input disabled="" type="checkbox"> 장기 메모리 시스템을 고려했나요?</li>
 </ul>
 <hr>
-<h3 id="미래-전망">🔮 미래 전망 {#미래-전망}</h3>
+<h3 id="미래-전망">🔮 미래 전망</h3>
 <p><strong>현재 연구 방향</strong>:</p>
 <ol>
 <li><p><strong>무한 컨텍스트 모델</strong></p>
@@ -1494,7 +1490,7 @@ context = profile.get_context()  # 항상 최신 프로필 정보 유지</code><
 </li>
 </ol>
 <hr>
-<h3 id="생각해볼-질문들">🤔 생각해볼 질문들 {#생각해볼-질문들}</h3>
+<h3 id="생각해볼-질문들">🤔 생각해볼 질문들</h3>
 <ol>
 <li><p><strong>윤리적 고민</strong>: AI가 모든 대화를 영구 저장한다면?</p>
 <ul>
@@ -1516,7 +1512,7 @@ context = profile.get_context()  # 항상 최신 프로필 정보 유지</code><
 </li>
 </ol>
 <hr>
-<h2 id="연결된-노트">연결된 노트 {#연결된-노트}</h2>
+<h2 id="연결된-노트">연결된 노트</h2>
 <ul>
 <li><a href="/articles/prompt-engineering-basics.html" class="internal-link">프롬프트 엔지니어링 기초</a></li>
 <li><a href="/articles/openai-api-use-guide.html" class="internal-link">OpenAI API 사용 가이드</a></li>
@@ -1527,7 +1523,7 @@ context = profile.get_context()  # 항상 최신 프로필 정보 유지</code><
 <li><a href="/articles/practical.html" class="internal-link">컨텍스트 윈도우 최대한 활용하기</a></li>
 </ul>
 <hr>
-<h2 id="참고-자료">참고 자료 {#참고-자료}</h2>
+<h2 id="참고-자료">참고 자료</h2>
 <ul>
 <li><strong>OpenAI Cookbook</strong>: <a href="https://cookbook.openai.com/">https://cookbook.openai.com/</a></li>
 <li><strong>Session Memory 예제</strong>: <a href="https://platform.openai.com/docs/guides/memory">https://platform.openai.com/docs/guides/memory</a></li>
@@ -1674,7 +1670,7 @@ context = profile.get_context()  # 항상 최신 프로필 정보 유지</code><
       </div>
         <div class="article-card__content">
           <h3 class="article-card__title">SIMA 2 AI 자율학습이 교육을 혁신하는 방법</h3>
-          <p class="article-card__excerpt">핵심 아이디어: SIMA 2는 가상 환경에서 독립적으로 학습하는 AI로, 이는 교육 시스템 자체를 근본적으로 변화시킬 수 있는 잠재력을 가지고 있습니다. 1.  || #배경 및 맥락 2.  || #핵심 개념 3.  || #SIMA 2의 작동 원리 4.  || #교육에...</p>
+          <p class="article-card__excerpt">핵심 아이디어: SIMA 2는 가상 환경에서 독립적으로 학습하는 AI로, 이는 교육 시스템 자체를 근본적으로 변화시킬 수 있는 잠재력을 가지고 있습니다. 1. #배경 및 맥락 2. #핵심 개념 3. #SIMA 2의 작동 원리 4. #교육에 미치는 영향 5. #실전...</p>
           <div class="article-card__meta">
             <div class="article-card__author">
               <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
@@ -1699,7 +1695,7 @@ context = profile.get_context()  # 항상 최신 프로필 정보 유지</code><
       </div>
         <div class="article-card__content">
           <h3 class="article-card__title">ChatGPT 완벽 활용 가이드 - 초보자편</h3>
-          <p class="article-card__excerpt">"복잡한 AI 도구를 마치 친구와 대화하듯 쉽게 사용할 수 있다면?" 이 가이드는 개발 초보자들이 ChatGPT를 실전에서 효과적으로 활용할 수 있도록 파인만 기법과 스토리텔링으로 설명합니다. --- 1.  || #ChatGPT란 무엇인가 2.  || #왜 개발자에게...</p>
+          <p class="article-card__excerpt">"복잡한 AI 도구를 마치 친구와 대화하듯 쉽게 사용할 수 있다면?" 이 가이드는 개발 초보자들이 ChatGPT를 실전에서 효과적으로 활용할 수 있도록 파인만 기법과 스토리텔링으로 설명합니다. --- 1. #ChatGPT란 무엇인가 2. #왜 개발자에게 필요한가 3....</p>
           <div class="article-card__meta">
             <div class="article-card__author">
               <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">
@@ -1724,7 +1720,7 @@ context = profile.get_context()  # 항상 최신 프로필 정보 유지</code><
       </div>
         <div class="article-card__content">
           <h3 class="article-card__title">ChatGPT 완벽 활용 가이드 Part 2 - 고급편</h3>
-          <p class="article-card__excerpt">"기초를 넘어, 전문가처럼 ChatGPT를 활용하는 방법" Part 1에서 배운 기초를 바탕으로, 이제 고급 기법과 실전 활용법을 마스터합니다. ⬅️ 이전:  || ChatGPT완벽활용가이드Part1기초편 --- 1.  || #Interactive 대화형 2.  ||...</p>
+          <p class="article-card__excerpt">"기초를 넘어, 전문가처럼 ChatGPT를 활용하는 방법" Part 1에서 배운 기초를 바탕으로, 이제 고급 기법과 실전 활용법을 마스터합니다. ⬅️ 이전: ChatGPT완벽활용가이드Part1기초편 --- 1. #Interactive 대화형 2. #Dialogue...</p>
           <div class="article-card__meta">
             <div class="article-card__author">
               <img src="/assets/personas/tech-analyst.svg" alt="기술 분석가" class="article-card__avatar">

@@ -5,13 +5,13 @@
     <link>https://passeth.github.io/MY-BLOG_OBSI</link>
     <description>AI 도구와 개발 기술에 대한 심층 가이드</description>
     <language>ko-KR</language>
-    <lastBuildDate>Tue, 27 Jan 2026 02:51:25 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 27 Jan 2026 03:24:13 GMT</lastBuildDate>
     <atom:link href="https://passeth.github.io/MY-BLOG_OBSI/feed.xml" rel="self" type="application/rss+xml"/>
     
     <item>
       <title><![CDATA[Claude Code 완벽 마스터 가이드]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-perfect-guide.html</link>
-      <description><![CDATA[! || 999-Attachments/Claude-Code-마스터-가이드-Choi-OpenAI-정리--poster-1766707261525.jpg 스레드에 ==Choi.OpenAI 글==을 학습용으로 사용하기 위해 편집한 파일입니다. ==Special thanks...]]></description>
+      <description><![CDATA[스레드에 Choi.OpenAI 글을 학습용으로 사용하기 위해 편집한 파일입니다. Special thanks to Choi.OpenAI. 당신 덕분에 2025년에 엄청난 성장을 할 수 있었습니다. 대단히 고맙습니다. 원본 링크:...]]></description>
       <pubDate>Fri, 26 Dec 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-code-perfect-guide.html</guid>
       <author>Claude 전문가</author>
@@ -21,7 +21,7 @@
     <item>
       <title><![CDATA[SIMA 2 AI 자율학습이 교육을 혁신하는 방법]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/sima-2-ai-how-to.html</link>
-      <description><![CDATA[핵심 아이디어: SIMA 2는 가상 환경에서 독립적으로 학습하는 AI로, 이는 교육 시스템 자체를 근본적으로 변화시킬 수 있는 잠재력을 가지고 있습니다. 1.  || #배경 및 맥락 2.  || #핵심 개념 3.  || #SIMA 2의 작동 원리 4.  || #교육에...]]></description>
+      <description><![CDATA[핵심 아이디어: SIMA 2는 가상 환경에서 독립적으로 학습하는 AI로, 이는 교육 시스템 자체를 근본적으로 변화시킬 수 있는 잠재력을 가지고 있습니다. 1. #배경 및 맥락 2. #핵심 개념 3. #SIMA 2의 작동 원리 4. #교육에 미치는 영향 5. #실전...]]></description>
       <pubDate>Sun, 16 Nov 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/sima-2-ai-how-to.html</guid>
       <author>기술 분석가</author>
@@ -31,7 +31,7 @@
     <item>
       <title><![CDATA[금융 서비스 AI 에이전트 구축 가이드 - Part 1: 기초편]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-guide-part-1-basics.html</link>
-      <description><![CDATA[🎯 이 가이드의 목표: 초보 개발자도 금융권 AI 에이전트를 이해하고 구축할 수 있도록 돕습니다. 📚 학습 방식: 파인만 기법 + 스토리텔링 + 3단계 예제 (기초→중급→고급) --- 1.  || #AI 에이전트란 무엇인가요 2.  || #금융 기관에 AI...]]></description>
+      <description><![CDATA[🎯 이 가이드의 목표: 초보 개발자도 금융권 AI 에이전트를 이해하고 구축할 수 있도록 돕습니다. 📚 학습 방식: 파인만 기법 + 스토리텔링 + 3단계 예제 (기초→중급→고급) --- 1. #AI 에이전트란 무엇인가요 2. #금융 기관에 AI 에이전트가 필요한...]]></description>
       <pubDate>Sun, 16 Nov 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-guide-part-1-basics.html</guid>
       <author>기술 분석가</author>
@@ -41,7 +41,7 @@
     <item>
       <title><![CDATA[금융 서비스 AI 에이전트 구축 가이드 - Part 2: 실전편]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-guide-part-2-real-world.html</link>
-      <description><![CDATA[🎯 Part 2의 목표: 실제로 구축 가능한 아키텍처 설계와 구현 로드맵 제시 👥 대상: Part 1을 읽고 실제 프로젝트를 시작하려는 개발팀 --- 1.  || #아키텍처 패턴 설계 2.  || #구현 로드맵 단계별 가이드 3.  || #팀 구성과 역할 4. ...]]></description>
+      <description><![CDATA[🎯 Part 2의 목표: 실제로 구축 가능한 아키텍처 설계와 구현 로드맵 제시 👥 대상: Part 1을 읽고 실제 프로젝트를 시작하려는 개발팀 --- 1. #아키텍처 패턴 설계 2. #구현 로드맵 단계별 가이드 3. #팀 구성과 역할 4. #실제 성공 사례 심층...]]></description>
       <pubDate>Sun, 16 Nov 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-guide-part-2-real-world.html</guid>
       <author>기술 분석가</author>
@@ -51,7 +51,7 @@
     <item>
       <title><![CDATA[AI 에이전트 Python 초보자 완벽 가이드]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-python-beginners-perfect-guide.html</link>
-      <description><![CDATA[1.  || #들어가며 - AI 에이전트는 마법이 아닙니다 2.  || #AI 에이전트란 무엇인가요 3.  || #핵심 3요소 이해하기 4.  || #예제 1 - 기초 (5살 아이도 이해하는 수준) 5.  || #예제 2 - 중급 (실무에서 바로 쓰는 수준) 6. ...]]></description>
+      <description><![CDATA[1. #들어가며 - AI 에이전트는 마법이 아닙니다 2. #AI 에이전트란 무엇인가요 3. #핵심 3요소 이해하기 4. #예제 1 - 기초 (5살 아이도 이해하는 수준) 5. #예제 2 - 중급 (실무에서 바로 쓰는 수준) 6. #예제 3 - 고급 (도구를 활용하는...]]></description>
       <pubDate>Fri, 14 Nov 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-python-beginners-perfect-guide.html</guid>
       <author>기술 분석가</author>
@@ -61,7 +61,7 @@
     <item>
       <title><![CDATA[AI 에이전트 Python 초보자 완벽 가이드 Part 2 - 실전 프로젝트편]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-python-beginners-perfect-guide-part-2-real-world.html</link>
-      <description><![CDATA[💡 이전 편을 아직 안 보셨나요?  Part 1 - 기초 개념편 || AI에이전트Python초보자완벽가이드을 먼저 읽고 오시면 더 잘 이해할 수 있어요! --- 1.  || #시작하기 전에 - 요리사가 되는 여정 2.  || #프로젝트 1 - 나만의 일기장 친구...]]></description>
+      <description><![CDATA[💡 이전 편을 아직 안 보셨나요?  Part 1 - 기초 개념편을 먼저 읽고 오시면 더 잘 이해할 수 있어요! --- 1. #시작하기 전에 - 요리사가 되는 여정 2. #프로젝트 1 - 나만의 일기장 친구 만들기 3. #프로젝트 2 - 영어 공부 도우미 선생님 4....]]></description>
       <pubDate>Fri, 14 Nov 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/ai-agent-python-beginners-perfect-guide-part-2-real-world.html</guid>
       <author>기술 분석가</author>
@@ -81,7 +81,7 @@
     <item>
       <title><![CDATA[Claude Skills 완벽 가이드 Part 1 - Skills의 세계로]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills-perfect-guide-part-1-skills.html</link>
-      <description><![CDATA[이 가이드는 누구를 위한 것인가요? - Claude AI를 처음 사용하시는 분 🤖 - "Skills가 뭐예요?" 궁금하신 분 🤔 - AI를 더 똑똑하게 활용하고 싶으신 분 💡 - 생산성을 높이고 싶은 개발자/창작자 🚀 --- 1.  || #들어가며 - AI...]]></description>
+      <description><![CDATA[이 가이드는 누구를 위한 것인가요? - Claude AI를 처음 사용하시는 분 🤖 - "Skills가 뭐예요?" 궁금하신 분 🤔 - AI를 더 똑똑하게 활용하고 싶으신 분 💡 - 생산성을 높이고 싶은 개발자/창작자 🚀 --- 1. #들어가며 - AI 비서에게...]]></description>
       <pubDate>Fri, 24 Oct 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills-perfect-guide-part-1-skills.html</guid>
       <author>기술 분석가</author>
@@ -91,7 +91,7 @@
     <item>
       <title><![CDATA[Claude Skills 완벽 가이드 Part 2 - Skills 둘러보기]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills-perfect-guide-part-2-skills.html</link>
-      <description><![CDATA[이번 Part에서는: - 80+ Skills를 카테고리별로 소개해요! 📚 - 각 Skill이 정확히 뭘 하는지 배워요! 🎯 - 실전 사용 예제를 봐요! 💡 - 나에게 필요한 Skill을 찾아요! 🔍 --- 1.  || #문서 관리 Skills (가장 인기!)...]]></description>
+      <description><![CDATA[이번 Part에서는: - 80+ Skills를 카테고리별로 소개해요! 📚 - 각 Skill이 정확히 뭘 하는지 배워요! 🎯 - 실전 사용 예제를 봐요! 💡 - 나에게 필요한 Skill을 찾아요! 🔍 --- 1. #문서 관리 Skills (가장 인기!) 2....]]></description>
       <pubDate>Fri, 24 Oct 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills-perfect-guide-part-2-skills.html</guid>
       <author>기술 분석가</author>
@@ -101,7 +101,7 @@
     <item>
       <title><![CDATA[Claude Skills 완벽 가이드 Part 3 - 실전 활용과 Skill 만들기]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills-perfect-guide-part-3-real-world-practical-skill.html</link>
-      <description><![CDATA[이번 Part에서는: - 실제 업무에서 Skills 활용하기! 💼 - 나만의 Skill 만드는 법! 🛠️ - Pro 사용자 팁과 트릭! 💡 - 문제 해결 방법! 🔧 --- 1.  || #실전 활용 사례 2.  || #나만의 Skill 만들기 3.  ||...]]></description>
+      <description><![CDATA[이번 Part에서는: - 실제 업무에서 Skills 활용하기! 💼 - 나만의 Skill 만드는 법! 🛠️ - Pro 사용자 팁과 트릭! 💡 - 문제 해결 방법! 🔧 --- 1. #실전 활용 사례 2. #나만의 Skill 만들기 3. #Skills 조합 전략...]]></description>
       <pubDate>Fri, 24 Oct 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills-perfect-guide-part-3-real-world-practical-skill.html</guid>
       <author>기술 분석가</author>
@@ -111,7 +111,7 @@
     <item>
       <title><![CDATA[Claude Skills 완벽 가이드 - 종합 색인 (MOC)]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills-perfect-guide-moc.html</link>
-      <description><![CDATA[Map of Content (MOC) Claude Skills의 모든 것을 한눈에! 필요한 정보를 빠르게 찾고, 학습 경로를 안내합니다. 🗺️ --- --- --- Part 1 전체 보기 || ClaudeSkills완벽가이드Part1 | 섹션 | 핵심 내용 | 시간...]]></description>
+      <description><![CDATA[Map of Content (MOC) Claude Skills의 모든 것을 한눈에! 필요한 정보를 빠르게 찾고, 학습 경로를 안내합니다. 🗺️ --- --- --- Part 1 전체 보기 | 섹션 | 핵심 내용 | 시간 |...]]></description>
       <pubDate>Fri, 24 Oct 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills-perfect-guide-moc.html</guid>
       <author>기술 분석가</author>
@@ -121,7 +121,7 @@
     <item>
       <title><![CDATA[Playwright Skill 완전 가이드 - 목차 및 학습 경로]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/playwright-skill-complete-guide.html</link>
-      <description><![CDATA[한 번에 보는 전체 학습 지도 초보 개발자부터 실무 전문가까지 단계별로 성장할 수 있는 완벽한 가이드입니다. --- 난이도: 초보자 | 소요시간: 25분 | 목표: 첫 자동화 완성 학습 내용: -  || #왜 Playwright를 배워야 할까 - 현실 예시를 통한...]]></description>
+      <description><![CDATA[한 번에 보는 전체 학습 지도 초보 개발자부터 실무 전문가까지 단계별로 성장할 수 있는 완벽한 가이드입니다. --- 난이도: 초보자 | 소요시간: 25분 | 목표: 첫 자동화 완성 학습 내용: - #왜 Playwright를 배워야 할까 - 현실 예시를 통한 동기 부여...]]></description>
       <pubDate>Thu, 23 Oct 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/playwright-skill-complete-guide.html</guid>
       <author>Claude 전문가</author>
@@ -131,7 +131,7 @@
     <item>
       <title><![CDATA[Claude Skills 완벽 가이드 Part 1 - 기본 개념과 시작하기]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills-perfect-guide-part-1-basic-getting-started.html</link>
-      <description><![CDATA[🎯 이 가이드의 목표: Claude Skills가 무엇인지, 왜 필요한지, 어떻게 시작하는지를 5살 아이도 이해할 수 있을 만큼 쉽게 설명합니다. --- 1.  || #스킬이란 무엇일까요? - 실생활 이야기로 시작하기 2.  || #Claude Skills의 탄생...]]></description>
+      <description><![CDATA[🎯 이 가이드의 목표: Claude Skills가 무엇인지, 왜 필요한지, 어떻게 시작하는지를 5살 아이도 이해할 수 있을 만큼 쉽게 설명합니다. --- 1. #스킬이란 무엇일까요? - 실생활 이야기로 시작하기 2. #Claude Skills의 탄생 배경 3....]]></description>
       <pubDate>Fri, 17 Oct 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills-perfect-guide-part-1-basic-getting-started.html</guid>
       <author>Claude 전문가</author>
@@ -141,7 +141,7 @@
     <item>
       <title><![CDATA[Claude Skills 완벽 가이드 Part 2 - 실전 활용: 창의성과 개발]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills-perfect-guide-part-2-real-world-practical-development.html</link>
-      <description><![CDATA[🎯 이 가이드의 목표: 실제 프로젝트에서 바로 사용할 수 있는 Skills를 단계별 예제와 함께 배웁니다. --- 1.  || #창의적 Skills로 예술가처럼 작업하기 2.  || #개발자 Skills로 프로처럼 코딩하기 3.  || #실전 프로젝트 - 포트폴리오...]]></description>
+      <description><![CDATA[🎯 이 가이드의 목표: 실제 프로젝트에서 바로 사용할 수 있는 Skills를 단계별 예제와 함께 배웁니다. --- 1. #창의적 Skills로 예술가처럼 작업하기 2. #개발자 Skills로 프로처럼 코딩하기 3. #실전 프로젝트 - 포트폴리오 웹사이트 만들기 4....]]></description>
       <pubDate>Fri, 17 Oct 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills-perfect-guide-part-2-real-world-practical-development.html</guid>
       <author>Claude 전문가</author>
@@ -151,7 +151,7 @@
     <item>
       <title><![CDATA[Claude Skills 완벽 가이드 Part 3 - 고급 활용과 맞춤 제작]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills-perfect-guide-part-3-advanced-practical.html</link>
-      <description><![CDATA[🎯 이 가이드의 목표: 기업 환경에서 사용하는 전문가급 Skills 활용법과 나만의 고급 Skill을 직접 제작하는 방법을 배웁니다. --- 1.  || #기업 커뮤니케이션 Skills 2.  || #브랜드 가이드라인 자동화 3.  || #문서 처리 Skills...]]></description>
+      <description><![CDATA[🎯 이 가이드의 목표: 기업 환경에서 사용하는 전문가급 Skills 활용법과 나만의 고급 Skill을 직접 제작하는 방법을 배웁니다. --- 1. #기업 커뮤니케이션 Skills 2. #브랜드 가이드라인 자동화 3. #문서 처리 Skills 심화 4. #나만의...]]></description>
       <pubDate>Fri, 17 Oct 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/claude-skills-perfect-guide-part-3-advanced-practical.html</guid>
       <author>Claude 전문가</author>
@@ -161,7 +161,7 @@
     <item>
       <title><![CDATA[anthropics/skills 저장소 활용 완벽 가이드]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/anthropicsskills-practical-perfect-guide.html</link>
-      <description><![CDATA[🎯 이 가이드의 목표: Anthropic 공식 Skills 저장소를 100% 활용하여 생산성을 극대화하는 방법을 배웁니다. --- 1.  || #저장소란 무엇인가? - 비유로 이해하기 2.  || #anthropics skills 저장소 구조 완전 분석 3.  ||...]]></description>
+      <description><![CDATA[🎯 이 가이드의 목표: Anthropic 공식 Skills 저장소를 100% 활용하여 생산성을 극대화하는 방법을 배웁니다. --- 1. #저장소란 무엇인가? - 비유로 이해하기 2. #anthropics skills 저장소 구조 완전 분석 3. #Skills 설치...]]></description>
       <pubDate>Fri, 17 Oct 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/anthropicsskills-practical-perfect-guide.html</guid>
       <author>Claude 전문가</author>
@@ -181,7 +181,7 @@
     <item>
       <title><![CDATA[Docling - 문서 처리 AI 도구 완벽 가이드 (Part 1: 기초편)]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/docling-ai-tools-perfect-guide-part-1-basics.html</link>
-      <description><![CDATA[한 줄 요약: Docling은 PDF, DOCX, PPTX 등 다양한 문서를 AI로 읽고 분석하여 Markdown, HTML 등으로 변환해주는 Python 라이브러리입니다. --- 1.  || #Docling이란 무엇인가 2.  || #왜 Docling이 필요한가...]]></description>
+      <description><![CDATA[한 줄 요약: Docling은 PDF, DOCX, PPTX 등 다양한 문서를 AI로 읽고 분석하여 Markdown, HTML 등으로 변환해주는 Python 라이브러리입니다. --- 1. #Docling이란 무엇인가 2. #왜 Docling이 필요한가 3....]]></description>
       <pubDate>Tue, 14 Oct 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/docling-ai-tools-perfect-guide-part-1-basics.html</guid>
       <author>기술 분석가</author>
@@ -191,7 +191,7 @@
     <item>
       <title><![CDATA[Docling - 문서 처리 AI 도구 완벽 가이드 (Part 2: 실전편)]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/docling-ai-tools-perfect-guide-part-2-real-world.html</link>
-      <description><![CDATA[Part 2 요약: Docling의 고급 기능, AI 연동, 실무 활용 사례를 상세히 다룹니다. --- 1.  || #고급 변환 옵션과 설정 2.  || #다양한 문서 형식 처리 3.  || #OCR과 스캔 문서 처리 4.  || #AI 프레임워크 연동 5.  ||...]]></description>
+      <description><![CDATA[Part 2 요약: Docling의 고급 기능, AI 연동, 실무 활용 사례를 상세히 다룹니다. --- 1. #고급 변환 옵션과 설정 2. #다양한 문서 형식 처리 3. #OCR과 스캔 문서 처리 4. #AI 프레임워크 연동 5. #CLI 명령줄 도구 활용 6....]]></description>
       <pubDate>Tue, 14 Oct 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/docling-ai-tools-perfect-guide-part-2-real-world.html</guid>
       <author>기술 분석가</author>
@@ -201,7 +201,7 @@
     <item>
       <title><![CDATA[ChatGPT 완벽 활용 가이드 - 초보자편]]></title>
       <link>https://passeth.github.io/MY-BLOG_OBSI/articles/chatgpt-perfect-practical-guide-beginners.html</link>
-      <description><![CDATA["복잡한 AI 도구를 마치 친구와 대화하듯 쉽게 사용할 수 있다면?" 이 가이드는 개발 초보자들이 ChatGPT를 실전에서 효과적으로 활용할 수 있도록 파인만 기법과 스토리텔링으로 설명합니다. --- 1.  || #ChatGPT란 무엇인가 2.  || #왜 개발자에게...]]></description>
+      <description><![CDATA["복잡한 AI 도구를 마치 친구와 대화하듯 쉽게 사용할 수 있다면?" 이 가이드는 개발 초보자들이 ChatGPT를 실전에서 효과적으로 활용할 수 있도록 파인만 기법과 스토리텔링으로 설명합니다. --- 1. #ChatGPT란 무엇인가 2. #왜 개발자에게 필요한가 3....]]></description>
       <pubDate>Sun, 12 Oct 2025 00:00:00 GMT</pubDate>
       <guid>https://passeth.github.io/MY-BLOG_OBSI/articles/chatgpt-perfect-practical-guide-beginners.html</guid>
       <author>기술 분석가</author>

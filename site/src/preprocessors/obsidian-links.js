@@ -6,7 +6,7 @@
 const slugGenerator = require('../utils/slug-generator');
 
 /**
- * Process Obsidian wiki links in markdown content
+ * Process Obsidian wiki links and special syntax in markdown content
  * @param {string} markdown - Markdown content
  * @param {Map} articleMap - Map of title -> slug for internal links
  * @returns {string} Processed markdown
@@ -15,6 +15,33 @@ function process(markdown, articleMap = new Map()) {
   if (!markdown) return '';
 
   let result = markdown;
+
+  // ===== Obsidian Special Syntax =====
+
+  // Remove comments: %%text%% -> (hidden)
+  // Both single-line and multi-line comments
+  result = result.replace(/%%[\s\S]*?%%/g, '');
+
+  // Remove block IDs: ^block-id at end of line -> (empty)
+  result = result.replace(/\s*\^[\w-]+\s*$/gm, '');
+
+  // Process highlights: ==text== -> <mark>text</mark>
+  result = result.replace(/==([^=]+)==/g, '<mark>$1</mark>');
+
+  // Remove heading anchor syntax: {#anchor} -> (empty)
+  result = result.replace(/\s*\{#[^}]+\}/g, '');
+
+  // Process strikethrough: ~~text~~ -> <del>text</del>
+  result = result.replace(/~~([^~]+)~~/g, '<del>$1</del>');
+
+  // Process inline LaTeX: $formula$ -> <span class="math-inline">formula</span>
+  // Avoid matching $$ (block) or $ in code
+  result = result.replace(/(?<!\$)\$(?!\$)([^$\n]+?)\$(?!\$)/g, '<span class="math-inline">$1</span>');
+
+  // Process block LaTeX: $$formula$$ -> <div class="math-block">formula</div>
+  result = result.replace(/\$\$([\s\S]+?)\$\$/g, '<div class="math-block">$1</div>');
+
+  // ===== Wiki Links =====
 
   // Pattern 1: [[Note Title|Display Text]] - link with custom display text
   result = result.replace(/\[\[([^\]|]+)\|([^\]]+)\]\]/g, (match, noteTitle, displayText) => {

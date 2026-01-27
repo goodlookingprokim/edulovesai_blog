@@ -254,11 +254,11 @@
 </nav>
 
             <h1>Chapter 1: Prompt Chaining</h1>
-<h2 id="개요">개요 {#개요}</h2>
+<h2 id="개요">개요</h2>
 <p>Prompt chaining, sometimes referred to as Pipeline pattern, represents a powerful paradigm for handling intricate tasks when leveraging large language models (LLMs). Rather than expecting an LLM to solve a complex problem in a single, monolithic step, prompt chaining advocates for a divide-and-conquer strategy.</p>
 <p>Prompt Chaining(프롬프트 체이닝)은 때로는 Pipeline 패턴이라고도 불리며, 대형 언어 모델(LLMs)을 활용할 때 복잡한 작업을 처리하기 위한 강력한 패러다임을 나타냅니다. 단일의 거대한 단계에서 LLM이 복잡한 문제를 해결할 것을 기대하는 대신, prompt chaining은 분할 정복(divide-and-conquer) 전략을 옹호합니다.</p>
-<h2 id="패턴-개요-pattern-overview">패턴 개요 (Pattern Overview) {#패턴-개요-pattern-overview}</h2>
-<h3 id="핵심-개념">핵심 개념 {#핵심-개념}</h3>
+<h2 id="패턴-개요-pattern-overview">패턴 개요 (Pattern Overview)</h2>
+<h3 id="핵심-개념">핵심 개념</h3>
 <p>The core idea is to break down the original, daunting problem into a sequence of smaller, more manageable sub-problems. Each sub-problem is addressed individually through a specifically designed prompt, and the output generated from one prompt is strategically fed as input into the subsequent prompt in the chain.</p>
 <p>핵심 아이디어는 원래의 어려운 문제를 더 작고 관리 가능한 하위 문제의 시퀀스로 분해하는 것입니다. 각 하위 문제는 특별히 설계된 프롬프트를 통해 개별적으로 처리되며, 한 프롬프트에서 생성된 출력은 전략적으로 체인의 후속 프롬프트에 입력으로 공급됩니다.</p>
 <p>This sequential processing technique inherently introduces modularity and clarity into the interaction with LLMs. By decomposing a complex task, it becomes easier to understand and debug each individual step, making the overall process more robust and interpretable. Each step in the chain can be meticulously crafted and optimized to focus on a specific aspect of the larger problem, leading to more accurate and focused outputs.</p>
@@ -266,7 +266,7 @@
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-608" onclick="copyCode('code-1769482284770-608')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-608" onclick="copyCode('code-1769484253252-608')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -274,7 +274,7 @@
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-608" class="language-mermaid">graph LR
+  <pre class="code-block__content"><code id="code-1769484253252-608" class="language-mermaid">graph LR
     A[Complex Task&lt;br/&gt;복잡한 작업] --&gt; B[Step 1&lt;br/&gt;Prompt 1]
     B --&gt; C[Output 1]
     C --&gt; D[Step 2&lt;br/&gt;Prompt 2]
@@ -282,15 +282,14 @@
     E --&gt; F[Step 3&lt;br/&gt;Prompt 3]
     F --&gt; G[Final Output&lt;br/&gt;최종 출력]
     
-<pre><code>style A fill:#ff9999
-style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style G fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
 </div>
 
-<h3 id="prompt-chaining의-이점">Prompt Chaining의 이점 {#prompt-chaining의-이점}</h3>
+<h3 id="prompt-chaining의-이점">Prompt Chaining의 이점</h3>
 <h4>1. 모듈성과 명확성 (Modularity and Clarity)</h4>
 <p>This sequential processing technique inherently introduces modularity and clarity into the interaction with LLMs.</p>
 <p>이 순차적 처리 기술은 LLM과의 상호작용에 본질적으로 모듈성과 명확성을 도입합니다:</p>
@@ -327,13 +326,13 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>프롬프트 시퀀스를 전략적으로 구조화함으로써 에이전트는 다단계 추론, 계획 및 의사결정이 필요한 작업에 참여할 수 있음</li>
 <li>이러한 에이전트 워크플로우는 인간의 사고 과정을 더 밀접하게 모방할 수 있어 복잡한 도메인 및 시스템과의 더 자연스럽고 효과적인 상호작용을 허용</li>
 </ul>
-<h3 id="단일-프롬프트의-한계-limitations-of-single-prompts">단일 프롬프트의 한계 (Limitations of Single Prompts) {#단일-프롬프트의-한계-limitations-of-single-prompts}</h3>
+<h3 id="단일-프롬프트의-한계-limitations-of-single-prompts">단일 프롬프트의 한계 (Limitations of Single Prompts)</h3>
 <p>For multifaceted tasks, using a single, complex prompt for an LLM can be inefficient, causing the model to struggle with constraints and instructions, potentially leading to instruction neglect where parts of the prompt are overlooked, contextual drift where the model loses track of the initial context, error propagation where early errors amplify, prompts which require a longer context window where the model gets insufficient information to respond back and hallucination where the cognitive load increases the chance of incorrect information.</p>
 <p>다면적 작업의 경우, LLM에 대한 단일의 복잡한 프롬프트 사용은 비효율적일 수 있으며, 모델이 제약 조건과 지시사항으로 어려움을 겪을 수 있습니다. 이는 프롬프트의 일부가 간과되는 지시사항 무시(instruction neglect), 모델이 초기 컨텍스트를 잃는 컨텍스트 드리프트(contextual drift), 초기 오류가 증폭되는 오류 전파(error propagation), 모델이 응답하기에 충분한 정보를 얻지 못하는 긴 컨텍스트 창이 필요한 프롬프트, 인지 부하가 증가하여 잘못된 정보가 생성될 가능성이 증가하는 환각(hallucination)으로 이어질 수 있습니다.</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-609" onclick="copyCode('code-1769482284770-609')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-609" onclick="copyCode('code-1769484253252-609')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -341,19 +340,18 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-609" class="language-mermaid">graph TB
+  <pre class="code-block__content"><code id="code-1769484253252-609" class="language-mermaid">graph TB
     A[Single Complex Prompt&lt;br/&gt;단일 복잡한 프롬프트] --&gt; B[Instruction Neglect&lt;br/&gt;지시사항 무시]
     A --&gt; C[Contextual Drift&lt;br/&gt;컨텍스트 드리프트]
     A --&gt; D[Error Propagation&lt;br/&gt;오류 전파]
     A --&gt; E[Insufficient Context&lt;br/&gt;부족한 컨텍스트]
     A --&gt; F[Hallucination&lt;br/&gt;환각]
     
-<pre><code>B --&amp;gt; B1[프롬프트의 일부가&amp;lt;br/&amp;gt;간과됨]
-C --&amp;gt; C1[모델이 초기&amp;lt;br/&amp;gt;컨텍스트를 잃음]
-D --&amp;gt; D1[초기 오류가&amp;lt;br/&amp;gt;증폭됨]
-E --&amp;gt; E1[모델이 응답하기에&amp;lt;br/&amp;gt;충분한 정보 부족]
-F --&amp;gt; F1[인지 부하 증가로&amp;lt;br/&amp;gt;잘못된 정보 생성]&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    B --&gt; B1[프롬프트의 일부가&lt;br/&gt;간과됨]
+    C --&gt; C1[모델이 초기&lt;br/&gt;컨텍스트를 잃음]
+    D --&gt; D1[초기 오류가&lt;br/&gt;증폭됨]
+    E --&gt; E1[모델이 응답하기에&lt;br/&gt;충분한 정보 부족]
+    F --&gt; F1[인지 부하 증가로&lt;br/&gt;잘못된 정보 생성]</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">12 lines</span>
   </div>
@@ -377,7 +375,7 @@ F --&amp;gt; F1[인지 부하 증가로&amp;lt;br/&amp;gt;잘못된 정보 생�
 <li>이메일 초안 작성</li>
 </ul>
 <p>모델은 요약은 잘 할 수 있지만 데이터 추출이나 이메일 작성에 실패할 수 있습니다.</p>
-<h3 id="순차적-분해를-통한-신뢰성-향상-enhanced-reliability-through-sequential-de">순차적 분해를 통한 신뢰성 향상 (Enhanced Reliability Through Sequential Decomposition) {#순차적-분해를-통한-신뢰성-향상-enhanced-reliability-through-sequential-de}</h3>
+<h3 id="순차적-분해를-통한-신뢰성-향상-enhanced-reliability-through-sequential-de">순차적 분해를 통한 신뢰성 향상 (Enhanced Reliability Through Sequential Decomposition)</h3>
 <p>Prompt chaining addresses these challenges by breaking the complex task into a focused, sequential workflow, which significantly improves reliability and control. Given the example above, a pipeline or chained approach can be described as follows:</p>
 <p>Prompt chaining은 복잡한 작업을 집중된 순차적 워크플로우로 분해하여 이러한 도전을 해결하며, 신뢰성과 제어를 크게 향상시킵니다.</p>
 <h4>예시: 시장 조사 보고서 처리 파이프라인</h4>
@@ -385,7 +383,7 @@ F --&amp;gt; F1[인지 부하 증가로&amp;lt;br/&amp;gt;잘못된 정보 생�
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-610" onclick="copyCode('code-1769482284770-610')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-610" onclick="copyCode('code-1769484253252-610')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -393,7 +391,7 @@ F --&amp;gt; F1[인지 부하 증가로&amp;lt;br/&amp;gt;잘못된 정보 생�
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-610" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253252-610" class="language-mermaid">graph TD
     A[Market Research Report&lt;br/&gt;시장 조사 보고서] --&gt; B[Step 1: Summarization&lt;br/&gt;요약]
     B --&gt; C[Summary Output&lt;br/&gt;요약 출력]
     C --&gt; D[Step 2: Trend Identification&lt;br/&gt;트렌드 식별]
@@ -401,9 +399,8 @@ F --&amp;gt; F1[인지 부하 증가로&amp;lt;br/&amp;gt;잘못된 정보 생�
     E --&gt; F[Step 3: Email Composition&lt;br/&gt;이메일 작성]
     F --&gt; G[Final Email&lt;br/&gt;최종 이메일]
     
-<pre><code>style A fill:#ff9999
-style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style G fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
@@ -415,7 +412,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-611" onclick="copyCode('code-1769482284770-611')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-611" onclick="copyCode('code-1769484253252-611')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -423,19 +420,20 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-611" class="language-plaintext">&quot;다음 시장 조사 보고서의 주요 결과를 요약하세요: [텍스트]&quot;</code></pre>
+  <pre class="code-block__content"><code id="code-1769484253252-611" class="language-plaintext">&quot;다음 시장 조사 보고서의 주요 결과를 요약하세요: [텍스트]&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
 </div>
-- 모델의 유일한 초점은 요약이며, 이 초기 단계의 정확도를 높입니다
-
+<ul>
+<li>모델의 유일한 초점은 요약이며, 이 초기 단계의 정확도를 높입니다</li>
+</ul>
 <p><strong>2. Second Prompt (Trend Identification)</strong>: &quot;Using the summary, identify the top three emerging trends and extract the specific data points that support each trend: [output from step 1].&quot; This prompt is now more constrained and builds directly upon a validated output.</p>
 <p><strong>2. 두 번째 프롬프트 (트렌드 식별)</strong></p>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-612" onclick="copyCode('code-1769482284770-612')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-612" onclick="copyCode('code-1769484253252-612')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -443,19 +441,20 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-612" class="language-plaintext">&quot;요약을 사용하여 상위 3개의 신흥 트렌드를 식별하고 각 트렌드를 지원하는 특정 데이터 포인트를 추출하세요: [1단계 출력]&quot;</code></pre>
+  <pre class="code-block__content"><code id="code-1769484253252-612" class="language-plaintext">&quot;요약을 사용하여 상위 3개의 신흥 트렌드를 식별하고 각 트렌드를 지원하는 특정 데이터 포인트를 추출하세요: [1단계 출력]&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
 </div>
-- 이 프롬프트는 이제 더 제한적이며 검증된 출력을 직접 기반으로 구축됩니다
-
+<ul>
+<li>이 프롬프트는 이제 더 제한적이며 검증된 출력을 직접 기반으로 구축됩니다</li>
+</ul>
 <p><strong>3. Third Prompt (Email Composition)</strong>: &quot;Draft a concise email to the marketing team that outlines the following trends and their supporting data: [output from step 2].&quot;</p>
 <p><strong>3. 세 번째 프롬프트 (이메일 작성)</strong></p>
 <div class="code-block" data-language="plaintext">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Plain Text</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-613" onclick="copyCode('code-1769482284770-613')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-613" onclick="copyCode('code-1769484253252-613')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -463,7 +462,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-613" class="language-plaintext">&quot;다음 트렌드와 지원 데이터를 설명하는 마케팅 팀에 대한 간결한 이메일을 작성하세요: [2단계 출력]&quot;</code></pre>
+  <pre class="code-block__content"><code id="code-1769484253252-613" class="language-plaintext">&quot;다음 트렌드와 지원 데이터를 설명하는 마케팅 팀에 대한 간결한 이메일을 작성하세요: [2단계 출력]&quot;</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
@@ -486,7 +485,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>후속 프롬프트: &quot;무역 분석가&quot;</li>
 <li>세 번째 프롬프트: &quot;전문 문서 작성자&quot;</li>
 </ul>
-<h3 id="구조화된-출력의-역할-the-role-of-structured-output">구조화된 출력의 역할 (The Role of Structured Output) {#구조화된-출력의-역할-the-role-of-structured-output}</h3>
+<h3 id="구조화된-출력의-역할-the-role-of-structured-output">구조화된 출력의 역할 (The Role of Structured Output)</h3>
 <p>The reliability of a prompt chain is highly dependent on the integrity of the data passed between steps. If the output of one prompt is ambiguous or poorly formatted, the subsequent prompt may fail due to faulty input. To mitigate this, specifying a structured output format, such as JSON or XML, is crucial.</p>
 <p>프롬프트 체인의 신뢰성은 단계 간에 전달되는 데이터의 무결성에 크게 의존합니다. 한 프롬프트의 출력이 모호하거나 형식이 잘못된 경우, 후속 프롬프트는 잘못된 입력으로 인해 실패할 수 있습니다.</p>
 <h4>구조화된 출력 형식 지정</h4>
@@ -495,7 +494,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <div class="code-block" data-language="json">
   <div class="code-block__header" style="background-color: #292929; color: #fff">
     <span class="code-block__language">JSON</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-614" onclick="copyCode('code-1769482284770-614')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-614" onclick="copyCode('code-1769484253252-614')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -503,7 +502,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-614" class="language-json">{
+  <pre class="code-block__content"><code id="code-1769484253252-614" class="language-json">{
   &quot;trends&quot;: [
     {
       &quot;trend_name&quot;: &quot;AI-Powered Personalization&quot;,
@@ -528,15 +527,15 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>자연어를 해석하는 데서 발생할 수 있는 오류를 최소화</li>
 <li>견고한 다단계 LLM 기반 시스템을 구축하는 핵심 구성 요소</li>
 </ul>
-<h2>실용적 응용 및 사용 사례 (Practical Applications &amp; Use Cases) {#실용적-응용-및-사용-사례-practical-applications-use-cases}</h2>
+<h2>실용적 응용 및 사용 사례 (Practical Applications &amp; Use Cases) </h2>
 <p>Prompt chaining은 에이전트 시스템을 구축할 때 광범위한 시나리오에 적용할 수 있는 다재다능한 패턴입니다. 핵심 유틸리티는 복잡한 문제를 순차적이고 관리 가능한 단계로 분해하는 데 있습니다.</p>
-<h3 id="1-정보-처리-워크플로우-information-processing-workflows">1. 정보 처리 워크플로우 (Information Processing Workflows) {#1-정보-처리-워크플로우-information-processing-workflows}</h3>
+<h3 id="1-정보-처리-워크플로우-information-processing-workflows">1. 정보 처리 워크플로우 (Information Processing Workflows)</h3>
 <p>많은 작업은 여러 변환을 통해 원시 정보를 처리하는 것을 포함합니다.</p>
 <h4>예시: 문서 분석 및 보고서 생성</h4>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-615" onclick="copyCode('code-1769482284770-615')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-615" onclick="copyCode('code-1769484253252-615')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -544,16 +543,15 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-615" class="language-mermaid">graph LR
+  <pre class="code-block__content"><code id="code-1769484253252-615" class="language-mermaid">graph LR
     A[URL/Document&lt;br/&gt;URL/문서] --&gt; B[Extract Text&lt;br/&gt;텍스트 추출]
     B --&gt; C[Summarize&lt;br/&gt;요약]
     C --&gt; D[Extract Entities&lt;br/&gt;엔티티 추출]
     D --&gt; E[Search Knowledge Base&lt;br/&gt;지식 기반 검색]
     E --&gt; F[Generate Report&lt;br/&gt;보고서 생성]
     
-<pre><code>style A fill:#ff9999
-style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style F fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">9 lines</span>
   </div>
@@ -573,14 +571,14 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>AI 기반 연구 어시스턴트 개발</li>
 <li>복잡한 보고서 생성</li>
 </ul>
-<h3 id="2-복잡한-쿼리-답변-complex-query-answering">2. 복잡한 쿼리 답변 (Complex Query Answering) {#2-복잡한-쿼리-답변-complex-query-answering}</h3>
+<h3 id="2-복잡한-쿼리-답변-complex-query-answering">2. 복잡한 쿼리 답변 (Complex Query Answering)</h3>
 <p>여러 단계의 추론이나 정보 검색이 필요한 복잡한 질문에 답하는 것은 주요 사용 사례입니다.</p>
 <h4>예시: 1929년 주식 시장 붕괴 분석</h4>
 <p><strong>질문</strong>: &quot;1929년 주식 시장 붕괴의 주요 원인은 무엇이었고, 정부 정책은 어떻게 대응했나요?&quot;</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-616" onclick="copyCode('code-1769482284770-616')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-616" onclick="copyCode('code-1769484253252-616')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -588,7 +586,7 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-616" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253252-616" class="language-mermaid">graph TD
     A[User Query&lt;br/&gt;사용자 쿼리] --&gt; B[Identify Sub-questions&lt;br/&gt;하위 질문 식별]
     B --&gt; C[Research Causes&lt;br/&gt;원인 조사]
     B --&gt; D[Research Government Response&lt;br/&gt;정부 대응 조사]
@@ -596,9 +594,8 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
     D --&gt; E
     E --&gt; F[Final Answer&lt;br/&gt;최종 답변]
     
-<pre><code>style A fill:#ff9999
-style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style F fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
@@ -626,13 +623,13 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 </li>
 </ol>
 <p><strong>결론</strong>: 복잡한 작업은 종종 독립적인 데이터 수집을 위한 병렬 처리와 종합 및 정제의 종속 단계를 위한 프롬프트 체이닝을 결합합니다.</p>
-<h3 id="3-데이터-추출-및-변환-data-extraction-and-transformation">3. 데이터 추출 및 변환 (Data Extraction and Transformation) {#3-데이터-추출-및-변환-data-extraction-and-transformation}</h3>
+<h3 id="3-데이터-추출-및-변환-data-extraction-and-transformation">3. 데이터 추출 및 변환 (Data Extraction and Transformation)</h3>
 <p>비구조화된 텍스트를 구조화된 형식으로 변환하는 것은 일반적으로 출력의 정확도와 완전성을 개선하기 위해 순차적 수정이 필요한 반복 프로세스를 통해 달성됩니다.</p>
 <h4>예시: 송장 문서 처리</h4>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-617" onclick="copyCode('code-1769482284770-617')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-617" onclick="copyCode('code-1769484253252-617')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -640,16 +637,15 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-617" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253252-617" class="language-mermaid">graph TD
     A[Invoice Document&lt;br/&gt;송장 문서] --&gt; B[Extract Fields&lt;br/&gt;필드 추출]
     B --&gt; C{Validation&lt;br/&gt;검증}
     C --&gt;|Missing/Malformed&lt;br/&gt;누락/형식 오류| D[Refine Extraction&lt;br/&gt;추출 정제]
     C --&gt;|Valid&lt;br/&gt;유효함| E[Structured Data&lt;br/&gt;구조화된 데이터]
     D --&gt; C
     
-<pre><code>style A fill:#ff9999
-style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style E fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">9 lines</span>
   </div>
@@ -678,14 +674,14 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 </li>
 </ol>
 <p>이 체인된 텍스트 추출, 데이터 정규화, 외부 도구 사용의 시퀀스는 단일 LLM 쿼리에서 신뢰할 수 있게 얻기 어려운 최종 정확한 결과를 달성합니다.</p>
-<h3 id="4-콘텐츠-생성-워크플로우-content-generation-workflows">4. 콘텐츠 생성 워크플로우 (Content Generation Workflows) {#4-콘텐츠-생성-워크플로우-content-generation-workflows}</h3>
+<h3 id="4-콘텐츠-생성-워크플로우-content-generation-workflows">4. 콘텐츠 생성 워크플로우 (Content Generation Workflows)</h3>
 <p>The composition of complex content is a procedural task that is typically decomposed into distinct phases, including initial ideation, structural outlining, drafting, and subsequent revision.</p>
 <p>복잡한 콘텐츠의 구성은 일반적으로 초기 아이디어 생성, 구조적 개요 작성, 초안 작성, 후속 수정을 포함하는 별개의 단계로 분해되는 절차적 작업입니다.</p>
 <h4>예시: 문서 작성 프로세스</h4>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-618" onclick="copyCode('code-1769482284770-618')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-618" onclick="copyCode('code-1769484253252-618')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -693,7 +689,7 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-618" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253252-618" class="language-mermaid">graph TD
     A[User Interest&lt;br/&gt;사용자 관심사] --&gt; B[Generate Topics&lt;br/&gt;주제 생성]
     B --&gt; C[Select Topic&lt;br/&gt;주제 선택]
     C --&gt; D[Generate Outline&lt;br/&gt;개요 생성]
@@ -703,9 +699,8 @@ style E fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
     G --&gt; H[Review &amp; Refine&lt;br/&gt;검토 및 정제]
     H --&gt; I[Final Document&lt;br/&gt;최종 문서]
     
-<pre><code>style A fill:#ff9999
-style I fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style I fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">12 lines</span>
   </div>
@@ -745,7 +740,7 @@ style I fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>기술 문서</li>
 <li>구조화된 텍스트 콘텐츠의 다른 형태</li>
 </ul>
-<h3 id="5-상태를-가진-대화형-에이전트-conversational-agents-with-state">5. 상태를 가진 대화형 에이전트 (Conversational Agents with State) {#5-상태를-가진-대화형-에이전트-conversational-agents-with-state}</h3>
+<h3 id="5-상태를-가진-대화형-에이전트-conversational-agents-with-state">5. 상태를 가진 대화형 에이전트 (Conversational Agents with State)</h3>
 <p>Although comprehensive state management architectures employ methods more complex than sequential linking, prompt chaining provides a foundational mechanism for preserving conversational continuity. This technique maintains context by constructing each conversational turn as a new prompt that systematically incorporates information or extracted entities from preceding interactions in the dialogue sequence.</p>
 <p>포괄적인 상태 관리 아키텍처는 순차적 연결보다 더 복잡한 방법을 사용하지만, 프롬프트 체이닝은 대화 연속성을 보존하기 위한 기초 메커니즘을 제공합니다.</p>
 <h4>대화 연속성 유지</h4>
@@ -753,7 +748,7 @@ style I fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-619" onclick="copyCode('code-1769482284770-619')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-619" onclick="copyCode('code-1769484253252-619')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -761,16 +756,15 @@ style I fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-619" class="language-mermaid">graph LR
+  <pre class="code-block__content"><code id="code-1769484253252-619" class="language-mermaid">graph LR
     A[User Utterance 1&lt;br/&gt;사용자 발화 1] --&gt; B[Process &amp; Extract&lt;br/&gt;처리 및 추출]
     B --&gt; C[Update State&lt;br/&gt;상태 업데이트]
     C --&gt; D[Generate Response&lt;br/&gt;응답 생성]
     D --&gt; E[User Utterance 2&lt;br/&gt;사용자 발화 2]
     E --&gt; B
     
-<pre><code>style A fill:#ff9999
-style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style D fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">9 lines</span>
   </div>
@@ -798,14 +792,14 @@ style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <h4>원칙</h4>
 <p>This principle is fundamental to the development of conversational agents, enabling them to maintain context and coherence across extended, multi-turn dialogues. By preserving the conversational history, the system can understand and appropriately respond to user inputs that depend on previously exchanged information.</p>
 <p>이 원칙은 대화형 에이전트 개발에 기본적이며, 확장된 다중 턴 대화에 걸쳐 컨텍스트와 일관성을 유지할 수 있게 합니다. 대화 기록을 보존함으로써 시스템은 이전에 교환된 정보에 의존하는 사용자 입력을 이해하고 적절하게 응답할 수 있습니다.</p>
-<h3 id="6-코드-생성-및-정제-code-generation-and-refinement">6. 코드 생성 및 정제 (Code Generation and Refinement) {#6-코드-생성-및-정제-code-generation-and-refinement}</h3>
+<h3 id="6-코드-생성-및-정제-code-generation-and-refinement">6. 코드 생성 및 정제 (Code Generation and Refinement)</h3>
 <p>The generation of functional code is typically a multi-stage process, requiring a problem to be decomposed into a sequence of discrete logical operations that are executed progressively.</p>
 <p>기능적 코드의 생성은 일반적으로 문제를 점진적으로 실행되는 별개의 논리적 작업의 시퀀스로 분해하는 다단계 프로세스가 필요합니다.</p>
 <h4>예시: 코드 생성 워크플로우</h4>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-620" onclick="copyCode('code-1769482284770-620')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-620" onclick="copyCode('code-1769484253252-620')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -813,7 +807,7 @@ style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-620" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253252-620" class="language-mermaid">graph TD
     A[User Request&lt;br/&gt;사용자 요청] --&gt; B[Understand &amp; Pseudocode&lt;br/&gt;이해 및 의사코드]
     B --&gt; C[Write Initial Code&lt;br/&gt;초기 코드 작성]
     C --&gt; D[Identify Issues&lt;br/&gt;문제 식별]
@@ -821,9 +815,8 @@ style D fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
     E --&gt; F[Add Documentation&lt;br/&gt;문서화 추가]
     F --&gt; G[Final Code&lt;br/&gt;최종 코드]
     
-<pre><code>style A fill:#ff9999
-style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style G fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
@@ -860,7 +853,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>결정론적 로직 삽입</strong>: 모델 호출 사이에 중간 데이터 처리, 출력 검증, 워크플로우 내 조건부 분기를 가능하게 함</li>
 <li><strong>신뢰성 향상</strong>: 그렇지 않으면 신뢰할 수 없거나 불완전한 결과로 이어질 수 있는 단일의 다면적 요청을 기본 실행 프레임워크에 의해 관리되는 구조화된 작업 시퀀스로 변환</li>
 </ul>
-<h3 id="7-멀티모달-및-다단계-추론-multimodal-and-multi-step-reasoning">7. 멀티모달 및 다단계 추론 (Multimodal and Multi-step Reasoning) {#7-멀티모달-및-다단계-추론-multimodal-and-multi-step-reasoning}</h3>
+<h3 id="7-멀티모달-및-다단계-추론-multimodal-and-multi-step-reasoning">7. 멀티모달 및 다단계 추론 (Multimodal and Multi-step Reasoning)</h3>
 <p>Analyzing datasets with diverse modalities necessitates breaking down the problem into smaller, prompt-based tasks. For example, interpreting an image that contains a picture with embedded text, labels highlighting specific text segments, and tabular data explaining each label, requires such an approach.</p>
 <p>다양한 모달리티를 가진 데이터셋을 분석하는 것은 문제를 더 작은 프롬프트 기반 작업으로 분해하는 것을 필요로 합니다.</p>
 <h4>예시: 이미지 분석</h4>
@@ -880,10 +873,10 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><p><strong>프롬프트 3</strong>: 수집된 정보를 테이블을 사용하여 해석하여 필요한 출력 결정</p>
 </li>
 </ul>
-<h2 id="실습-코드-예제-hands-on-code-example">실습 코드 예제 (Hands-On Code Example) {#실습-코드-예제-hands-on-code-example}</h2>
+<h2 id="실습-코드-예제-hands-on-code-example">실습 코드 예제 (Hands-On Code Example)</h2>
 <p>Implementing prompt chaining ranges from direct, sequential function calls within a script to the utilization of specialized frameworks designed to manage control flow, state, and component integration. Frameworks such as LangChain, LangGraph, Crew AI, and the Google Agent Development Kit (ADK) offer structured environments for constructing and executing these multi-step processes, which is particularly advantageous for complex architectures.</p>
 <p>프롬프트 체이닝 구현은 스크립트 내에서 직접적인 순차적 함수 호출부터 제어 흐름, 상태 및 구성 요소 통합을 관리하도록 설계된 특수 프레임워크 활용까지 다양합니다.</p>
-<h3 id="프레임워크-선택">프레임워크 선택 {#프레임워크-선택}</h3>
+<h3 id="프레임워크-선택">프레임워크 선택</h3>
 <p>For the purpose of demonstration, LangChain and LangGraph are suitable choices as their core APIs are explicitly designed for composing chains and graphs of operations. LangChain provides foundational abstractions for linear sequences, while LangGraph extends these capabilities to support stateful and cyclical computations, which are necessary for implementing more sophisticated agentic behaviors. This example will focus on a fundamental linear sequence.</p>
 <p>LangChain, LangGraph, Crew AI, Google Agent Development Kit (ADK)와 같은 프레임워크는 이러한 다단계 프로세스를 구성하고 실행하기 위한 구조화된 환경을 제공하며, 특히 복잡한 아키텍처에 유리합니다.</p>
 <p>이 예제에서는 LangChain과 LangGraph를 사용합니다:</p>
@@ -892,7 +885,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>LangGraph</strong>: 상태 저장 및 순환 계산을 지원하도록 이러한 기능을 확장하여 더 정교한 에이전트 동작 구현에 필요</li>
 </ul>
 <p>이 예제는 기본적인 선형 시퀀스에 집중합니다.</p>
-<h3 id="코드-예제-데이터-처리-파이프라인">코드 예제: 데이터 처리 파이프라인 {#코드-예제-데이터-처리-파이프라인}</h3>
+<h3 id="코드-예제-데이터-처리-파이프라인">코드 예제: 데이터 처리 파이프라인</h3>
 <p>The following code implements a two-step prompt chain that functions as a data processing pipeline. The initial stage is designed to parse unstructured text and extract specific information. The subsequent stage then receives this extracted output and transforms it into a structured data format.</p>
 <p>다음 코드는 데이터 처리 파이프라인으로 기능하는 2단계 프롬프트 체인을 구현합니다. 초기 단계는 비구조화된 텍스트를 파싱하고 특정 정보를 추출하도록 설계되었으며, 후속 단계는 이 추출된 출력을 받아 구조화된 데이터 형식으로 변환합니다.</p>
 <h4>설치 및 설정</h4>
@@ -900,7 +893,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <div class="code-block" data-language="bash">
   <div class="code-block__header" style="background-color: #4eaa25; color: #fff">
     <span class="code-block__language">Bash</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-621" onclick="copyCode('code-1769482284770-621')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-621" onclick="copyCode('code-1769484253252-621')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -908,7 +901,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-621" class="language-bash">pip install langchain langchain-community langchain-openai langgraph</code></pre>
+  <pre class="code-block__content"><code id="code-1769484253252-621" class="language-bash">pip install langchain langchain-community langchain-openai langgraph</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">1 line</span>
   </div>
@@ -919,7 +912,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-622" onclick="copyCode('code-1769482284770-622')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-622" onclick="copyCode('code-1769484253252-622')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -927,44 +920,52 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-622" class="language-python">import os
+  <pre class="code-block__content"><code id="code-1769484253252-622" class="language-python">import os
 from langchain_openai import ChatOpenAI
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
-<h1>보안을 위해 .env 파일에서 환경 변수 로드</h1>
-<h1>from dotenv import load_dotenv</h1>
-<h1>load_dotenv()</h1>
-<h1>.env 파일에 OPENAI_API_KEY가 설정되어 있는지 확인</h1>
-<h1>언어 모델 초기화 (ChatOpenAI 사용 권장)</h1>
-<p>llm = ChatOpenAI(temperature=0)</p>
-<h1>--- 프롬프트 1: 정보 추출 ---</h1>
-<p>prompt_extract = ChatPromptTemplate.from_template(
+# 보안을 위해 .env 파일에서 환경 변수 로드
+# from dotenv import load_dotenv
+# load_dotenv()
+# .env 파일에 OPENAI_API_KEY가 설정되어 있는지 확인
+
+# 언어 모델 초기화 (ChatOpenAI 사용 권장)
+llm = ChatOpenAI(temperature=0)
+
+# --- 프롬프트 1: 정보 추출 ---
+prompt_extract = ChatPromptTemplate.from_template(
     &quot;Extract the technical specifications from the following text:\n\n{text_input}&quot;
-)</p>
-<h1>--- 프롬프트 2: JSON으로 변환 ---</h1>
-<p>prompt_transform = ChatPromptTemplate.from_template(
+)
+
+# --- 프롬프트 2: JSON으로 변환 ---
+prompt_transform = ChatPromptTemplate.from_template(
     &quot;Transform the following specifications into a JSON object with &#39;cpu&#39;, &#39;memory&#39;, and &#39;storage&#39; as keys:\n\n{specifications}&quot;
-)</p>
-<h1>--- LCEL을 사용하여 체인 구축 ---</h1>
-<h1>StrOutputParser()는 LLM의 메시지 출력을 간단한 문자열로 변환합니다.</h1>
-<p>extraction_chain = prompt_extract | llm | StrOutputParser()</p>
-<h1>전체 체인은 추출 체인의 출력을 변환 프롬프트의 &#39;specifications&#39; 변수로 전달합니다.</h1>
-<p>full_chain = (
+)
+
+# --- LCEL을 사용하여 체인 구축 ---
+# StrOutputParser()는 LLM의 메시지 출력을 간단한 문자열로 변환합니다.
+extraction_chain = prompt_extract | llm | StrOutputParser()
+
+# 전체 체인은 추출 체인의 출력을 변환 프롬프트의 &#39;specifications&#39; 변수로 전달합니다.
+full_chain = (
     {&quot;specifications&quot;: extraction_chain}
     | prompt_transform
     | llm
     | StrOutputParser()
-)</p>
-<h1>--- 체인 실행 ---</h1>
-<p>input_text = &quot;The new laptop model features a 3.5 GHz octa-core processor, 16GB of RAM, and a 1TB NVMe SSD.&quot;</p>
-<h1>입력 텍스트 딕셔너리로 체인을 실행합니다.</h1>
-<p>final_result = full_chain.invoke({&quot;text_input&quot;: input_text})</p>
-<p>print(&quot;\n--- Final JSON Output ---&quot;)
+)
+
+# --- 체인 실행 ---
+input_text = &quot;The new laptop model features a 3.5 GHz octa-core processor, 16GB of RAM, and a 1TB NVMe SSD.&quot;
+
+# 입력 텍스트 딕셔너리로 체인을 실행합니다.
+final_result = full_chain.invoke({&quot;text_input&quot;: input_text})
+
+print(&quot;\n--- Final JSON Output ---&quot;)
 print(final_result)</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">34 lines</span>
-  </div></p>
+  </div>
 </div>
 
 <h4>코드 설명</h4>
@@ -1002,7 +1003,7 @@ print(final_result)</code></pre>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-623" onclick="copyCode('code-1769482284770-623')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-623" onclick="copyCode('code-1769484253252-623')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1010,7 +1011,7 @@ print(final_result)</code></pre>
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-623" class="language-mermaid">graph LR
+  <pre class="code-block__content"><code id="code-1769484253252-623" class="language-mermaid">graph LR
     A[Input Text&lt;br/&gt;입력 텍스트] --&gt; B[Prompt 1&lt;br/&gt;Extract]
     B --&gt; C[LLM Call 1&lt;br/&gt;LLM 호출 1]
     C --&gt; D[Extracted Specs&lt;br/&gt;추출된 사양]
@@ -1018,23 +1019,22 @@ print(final_result)</code></pre>
     E --&gt; F[LLM Call 2&lt;br/&gt;LLM 호출 2]
     F --&gt; G[JSON Output&lt;br/&gt;JSON 출력]
     
-<pre><code>style A fill:#ff9999
-style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style G fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
 </div>
 
-<h2 id="컨텍스트-엔지니어링-및-프롬프트-엔지니어링-context-engineering-and-prompt-engin">컨텍스트 엔지니어링 및 프롬프트 엔지니어링 (Context Engineering and Prompt Engineering) {#컨텍스트-엔지니어링-및-프롬프트-엔지니어링-context-engineering-and-prompt-engin}</h2>
-<h3 id="컨텍스트-엔지니어링-context-engineering">컨텍스트 엔지니어링 (Context Engineering) {#컨텍스트-엔지니어링-context-engineering}</h3>
+<h2 id="컨텍스트-엔지니어링-및-프롬프트-엔지니어링-context-engineering-and-prompt-engin">컨텍스트 엔지니어링 및 프롬프트 엔지니어링 (Context Engineering and Prompt Engineering)</h2>
+<h3 id="컨텍스트-엔지니어링-context-engineering">컨텍스트 엔지니어링 (Context Engineering)</h3>
 <p>Context Engineering (see Fig.1) is the systematic discipline of designing, constructing, and delivering a complete informational environment to an AI model prior to token generation. This methodology asserts that the quality of a model&#39;s output is less dependent on the model&#39;s architecture itself and more on the richness of the context provided.</p>
 <p><strong>Fig.1</strong>: Context Engineering is the discipline of building a rich, comprehensive informational environment for an AI, as the quality of this context is a primary factor in enabling advanced Agentic performance.</p>
 <p>컨텍스트 엔지니어링(그림 1 참조)은 토큰 생성 전에 AI 모델에 완전한 정보 환경을 설계, 구성 및 제공하는 체계적인 학문입니다. 이 방법론은 모델 출력의 품질이 모델의 아키텍처 자체보다 제공된 컨텍스트의 풍부함에 더 의존한다고 주장합니다.</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-624" onclick="copyCode('code-1769482284770-624')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-624" onclick="copyCode('code-1769484253252-624')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1042,24 +1042,23 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-624" class="language-mermaid">graph TB
+  <pre class="code-block__content"><code id="code-1769484253252-624" class="language-mermaid">graph TB
     A[Context Engineering&lt;br/&gt;컨텍스트 엔지니어링] --&gt; B[System Prompt&lt;br/&gt;시스템 프롬프트]
     A --&gt; C[Retrieved Documents&lt;br/&gt;검색된 문서]
     A --&gt; D[Tool Outputs&lt;br/&gt;도구 출력]
     A --&gt; E[Implicit Data&lt;br/&gt;암시적 데이터]
     
-<pre><code>B --&amp;gt; B1[AI의 운영 매개변수를&amp;lt;br/&amp;gt;정의하는 기본 지시사항]
-C --&amp;gt; C1[지식 기반에서&amp;lt;br/&amp;gt;정보를 가져옴]
-D --&amp;gt; D2[외부 API 사용 결과&amp;lt;br/&amp;gt;실시간 데이터]
-E --&amp;gt; E1[사용자 신원&amp;lt;br/&amp;gt;상호작용 기록&amp;lt;br/&amp;gt;환경 상태]
-
-B1 --&amp;gt; F[Rich Context&amp;lt;br/&amp;gt;풍부한 컨텍스트]
-C1 --&amp;gt; F
-D2 --&amp;gt; F
-E1 --&amp;gt; F
-
-F --&amp;gt; G[High-Quality Output&amp;lt;br/&amp;gt;고품질 출력]&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    B --&gt; B1[AI의 운영 매개변수를&lt;br/&gt;정의하는 기본 지시사항]
+    C --&gt; C1[지식 기반에서&lt;br/&gt;정보를 가져옴]
+    D --&gt; D2[외부 API 사용 결과&lt;br/&gt;실시간 데이터]
+    E --&gt; E1[사용자 신원&lt;br/&gt;상호작용 기록&lt;br/&gt;환경 상태]
+    
+    B1 --&gt; F[Rich Context&lt;br/&gt;풍부한 컨텍스트]
+    C1 --&gt; F
+    D2 --&gt; F
+    E1 --&gt; F
+    
+    F --&gt; G[High-Quality Output&lt;br/&gt;고품질 출력]</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">17 lines</span>
   </div>
@@ -1114,8 +1113,8 @@ F --&amp;gt; G[High-Quality Output&amp;lt;br/&amp;gt;고품질 출력]&lt;/code&
 <li>모델이 사용자의 의도, 기록 및 현재 환경에 대한 잘 둥근 이해를 갖도록 보장</li>
 <li>궁극적으로 컨텍스트 엔지니어링은 상태 없는 챗봇을 고도로 능력 있고 상황 인식 시스템으로 발전시키는 데 중요한 방법론</li>
 </ul>
-<h2 id="한눈에-보기-at-a-glance">한눈에 보기 (At a Glance) {#한눈에-보기-at-a-glance}</h2>
-<h3 id="무엇-what">무엇 (What) {#무엇-what}</h3>
+<h2 id="한눈에-보기-at-a-glance">한눈에 보기 (At a Glance)</h2>
+<h3 id="무엇-what">무엇 (What)</h3>
 <p>복잡한 작업은 단일 프롬프트 내에서 처리될 때 LLM을 압도하여 상당한 성능 문제를 일으킵니다:</p>
 <ul>
 <li>모델의 인지 부하가 증가</li>
@@ -1123,7 +1122,7 @@ F --&amp;gt; G[High-Quality Output&amp;lt;br/&amp;gt;고품질 출력]&lt;/code&
 <li>단일 프롬프트가 여러 제약 조건과 순차적 추론 단계를 효과적으로 관리하기 어려움</li>
 <li>신뢰할 수 없고 부정확한 출력 결과</li>
 </ul>
-<h3 id="왜-why">왜 (Why) {#왜-why}</h3>
+<h3 id="왜-why">왜 (Why)</h3>
 <p>프롬프트 체이닝은 복잡한 문제를 상호 연결된 하위 작업의 시퀀스로 분해하여 표준화된 솔루션을 제공합니다:</p>
 <ul>
 <li>체인의 각 단계는 특정 작업을 수행하기 위해 집중된 프롬프트를 사용하여 신뢰성과 제어를 크게 향상</li>
@@ -1131,7 +1130,7 @@ F --&amp;gt; G[High-Quality Output&amp;lt;br/&amp;gt;고품질 출력]&lt;/code&
 <li>이 모듈식 분할 정복 전략은 프로세스를 더 관리하기 쉽고, 디버깅하기 쉽게 만들며, 단계 사이에 외부 도구나 구조화된 데이터 형식의 통합을 허용</li>
 <li>다단계 추론을 수행하고 복잡한 워크플로우를 실행할 수 있는 정교한 다단계 에이전트 시스템을 개발하기 위한 기초 패턴</li>
 </ul>
-<h3 id="경험-법칙-rule-of-thumb">경험 법칙 (Rule of Thumb) {#경험-법칙-rule-of-thumb}</h3>
+<h3 id="경험-법칙-rule-of-thumb">경험 법칙 (Rule of Thumb)</h3>
 <p>다음과 같은 경우 이 패턴을 사용하세요:</p>
 <ul>
 <li>작업이 단일 프롬프트에 너무 복잡한 경우</li>
@@ -1139,11 +1138,11 @@ F --&amp;gt; G[High-Quality Output&amp;lt;br/&amp;gt;고품질 출력]&lt;/code&
 <li>단계 사이에 외부 도구와의 상호작용이 필요한 경우</li>
 <li>다단계 추론을 수행하고 상태를 유지해야 하는 에이전트 시스템을 구축하는 경우</li>
 </ul>
-<h3 id="시각적-요약-visual-summary">시각적 요약 (Visual Summary) {#시각적-요약-visual-summary}</h3>
+<h3 id="시각적-요약-visual-summary">시각적 요약 (Visual Summary)</h3>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-625" onclick="copyCode('code-1769482284770-625')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-625" onclick="copyCode('code-1769484253252-625')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1151,7 +1150,7 @@ F --&amp;gt; G[High-Quality Output&amp;lt;br/&amp;gt;고품질 출력]&lt;/code&
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-625" class="language-mermaid">graph LR
+  <pre class="code-block__content"><code id="code-1769484253252-625" class="language-mermaid">graph LR
     A[User&lt;br/&gt;사용자] --&gt; B[Agent 1&lt;br/&gt;에이전트 1]
     B --&gt; C[Output 1&lt;br/&gt;출력 1]
     C --&gt; D[Agent 2&lt;br/&gt;에이전트 2]
@@ -1159,16 +1158,15 @@ F --&amp;gt; G[High-Quality Output&amp;lt;br/&amp;gt;고품질 출력]&lt;/code&
     E --&gt; F[Agent 3&lt;br/&gt;에이전트 3]
     F --&gt; G[Final Output&lt;br/&gt;최종 출력]
     
-<pre><code>style A fill:#ff9999
-style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style G fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
   </div>
 </div>
 
 <p><strong>프롬프트 체이닝 패턴</strong>: 에이전트는 사용자로부터 일련의 프롬프트를 받으며, 각 에이전트의 출력이 체인에서 다음의 입력으로 작동합니다.</p>
-<h2 id="핵심-요약-key-takeaways">핵심 요약 (Key Takeaways) {#핵심-요약-key-takeaways}</h2>
+<h2 id="핵심-요약-key-takeaways">핵심 요약 (Key Takeaways)</h2>
 <p>다음은 주요 요약 사항입니다:</p>
 <ol>
 <li><p><strong>프롬프트 체이닝은 복잡한 작업을 더 작고 집중된 단계의 시퀀스로 분해합니다</strong></p>
@@ -1183,13 +1181,13 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><p><strong>LangChain/LangGraph 및 Google ADK와 같은 프레임워크는 이러한 다단계 시퀀스를 정의, 관리 및 실행하기 위한 견고한 도구를 제공합니다</strong></p>
 </li>
 </ol>
-<h2 id="결론">결론 {#결론}</h2>
+<h2 id="결론">결론</h2>
 <p>복잡한 문제를 더 간단하고 관리 가능한 하위 작업의 시퀀스로 분해함으로써, 프롬프트 체이닝은 대형 언어 모델을 안내하기 위한 견고한 프레임워크를 제공합니다.</p>
 <p>이 &quot;분할 정복&quot; 전략은 모델을 한 번에 하나의 특정 작업에 집중시킴으로써 출력의 신뢰성과 제어를 크게 향상시킵니다.</p>
 <p>기초 패턴으로서, 다단계 추론, 도구 통합 및 상태 관리를 수행할 수 있는 정교한 AI 에이전트 개발을 가능하게 합니다.</p>
 <p>궁극적으로, 프롬프트 체이닝을 마스터하는 것은 단일 프롬프트의 능력을 훨씬 넘어서는 복잡한 워크플로우를 실행할 수 있는 견고하고 컨텍스트 인식 시스템을 구축하는 데 중요합니다.</p>
-<h2 id="이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation) {#이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati}</h2>
-<h3 id="인지-과학적-관점">인지 과학적 관점 {#인지-과학적-관점}</h3>
+<h2 id="이론적-배경-및-학술적-근거-theoretical-background-and-academic-foundati">이론적 배경 및 학술적 근거 (Theoretical Background and Academic Foundation)</h2>
+<h3 id="인지-과학적-관점">인지 과학적 관점</h3>
 <p>프롬프트 체이닝은 인간의 인지 처리 과정과 밀접한 관련이 있습니다. 인지 과학 연구에 따르면, 인간은 복잡한 문제를 해결할 때 작업 기억(Working Memory)의 제한으로 인해 단계적으로 처리합니다. George A. Miller의 고전적인 연구(1956)는 인간의 작업 기억 용량이 약 7±2개의 청크(chunk)로 제한된다는 것을 보여주었습니다.</p>
 <p><strong>LLM과의 유사성</strong>:</p>
 <ul>
@@ -1197,7 +1195,7 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li>복잡한 작업을 여러 단계로 분해하면 각 단계에서 필요한 정보만 처리하므로 인지 부하를 줄입니다</li>
 <li>이는 Baddeley의 작업 기억 모델(1986)에서 제시한 중앙 집행기(Central Executive)의 역할과 유사합니다</li>
 </ul>
-<h3 id="계산-이론적-관점">계산 이론적 관점 {#계산-이론적-관점}</h3>
+<h3 id="계산-이론적-관점">계산 이론적 관점</h3>
 <p>프롬프트 체이닝은 계산 이론에서의 <strong>분할 정복(Divide-and-Conquer)</strong> 알고리즘 패러다임과 직접적으로 연결됩니다:</p>
 <ol>
 <li><strong>문제 분해</strong>: 복잡한 문제를 더 작은 하위 문제로 분해</li>
@@ -1205,34 +1203,34 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>결과 통합</strong>: 하위 문제의 해결책을 결합하여 최종 해결책 구성</li>
 </ol>
 <p>이 접근 방식은 시간 복잡도와 공간 복잡도를 최적화하는 데 도움이 됩니다.</p>
-<h3 id="정보-이론적-관점">정보 이론적 관점 {#정보-이론적-관점}</h3>
+<h3 id="정보-이론적-관점">정보 이론적 관점</h3>
 <p>Claude Shannon의 정보 이론(1948)에 따르면, 정보의 전달은 엔트로피와 밀접한 관련이 있습니다. 프롬프트 체이닝은:</p>
 <ul>
 <li><strong>정보 엔트로피 감소</strong>: 각 단계에서 불확실성을 점진적으로 줄여 최종 출력의 엔트로피를 최소화</li>
 <li><strong>정보 전달 최적화</strong>: 구조화된 출력 형식(JSON, XML)을 사용하여 단계 간 정보 손실을 최소화</li>
 <li><strong>상호 정보량(Mutual Information) 증가</strong>: 이전 단계의 출력과 다음 단계의 입력 간의 상호 정보량을 최대화하여 컨텍스트 보존</li>
 </ul>
-<h3 id="심리학적-근거-청킹-이론">심리학적 근거: 청킹 이론 {#심리학적-근거-청킹-이론}</h3>
+<h3 id="심리학적-근거-청킹-이론">심리학적 근거: 청킹 이론</h3>
 <p>인지 심리학의 청킹(Chunking) 이론은 프롬프트 체이닝의 효과를 설명하는 데 유용합니다:</p>
 <ul>
 <li><strong>청크 형성</strong>: 복잡한 정보를 의미 있는 단위로 그룹화</li>
 <li><strong>인지 부하 감소</strong>: 각 단계에서 처리해야 하는 정보의 양을 제한</li>
 <li><strong>패턴 인식 향상</strong>: 작은 단위로 분해된 작업에서 모델이 패턴을 더 잘 인식</li>
 </ul>
-<h3 id="기계-학습-이론-전이-학습과-파인튜닝">기계 학습 이론: 전이 학습과 파인튜닝 {#기계-학습-이론-전이-학습과-파인튜닝}</h3>
+<h3 id="기계-학습-이론-전이-학습과-파인튜닝">기계 학습 이론: 전이 학습과 파인튜닝</h3>
 <p>프롬프트 체이닝은 전이 학습(Transfer Learning)의 원칙을 활용합니다:</p>
 <ul>
 <li><strong>도메인 적응</strong>: 각 단계에서 모델이 특정 도메인에 집중하도록 유도</li>
 <li><strong>점진적 학습</strong>: 이전 단계의 지식을 다음 단계로 전달</li>
 <li><strong>특화된 역할</strong>: 각 프롬프트가 모델을 특정 역할(예: 분석가, 작가)로 특화시킴</li>
 </ul>
-<h2 id="성능-최적화-기법-performance-optimization-techniques">성능 최적화 기법 (Performance Optimization Techniques) {#성능-최적화-기법-performance-optimization-techniques}</h2>
-<h3 id="1-캐싱-전략">1. 캐싱 전략 {#1-캐싱-전략}</h3>
+<h2 id="성능-최적화-기법-performance-optimization-techniques">성능 최적화 기법 (Performance Optimization Techniques)</h2>
+<h3 id="1-캐싱-전략">1. 캐싱 전략</h3>
 <p>중간 결과를 캐싱하여 동일한 입력에 대한 재계산을 방지:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-626" onclick="copyCode('code-1769482284770-626')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-626" onclick="copyCode('code-1769484253252-626')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1240,28 +1238,29 @@ style G fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-626" class="language-python">from functools import lru_cache
+  <pre class="code-block__content"><code id="code-1769484253252-626" class="language-python">from functools import lru_cache
 from langchain.cache import InMemoryCache
 from langchain.globals import set_llm_cache
 
-<h1>LLM 응답 캐싱 활성화</h1>
-<p>set_llm_cache(InMemoryCache())</p>
-<h1>중간 결과 캐싱</h1>
-<p>@lru_cache(maxsize=128)
+# LLM 응답 캐싱 활성화
+set_llm_cache(InMemoryCache())
+
+# 중간 결과 캐싱
+@lru_cache(maxsize=128)
 def cached_extraction(text: str) -&gt; str:
     # 추출 로직
     pass</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">10 lines</span>
-  </div></p>
+  </div>
 </div>
 
-<h3 id="2-병렬-처리와-순차-처리의-균형">2. 병렬 처리와 순차 처리의 균형 {#2-병렬-처리와-순차-처리의-균형}</h3>
+<h3 id="2-병렬-처리와-순차-처리의-균형">2. 병렬 처리와 순차 처리의 균형</h3>
 <p>독립적인 단계는 병렬로 실행하고, 의존적인 단계는 순차적으로 실행:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-627" onclick="copyCode('code-1769482284770-627')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-627" onclick="copyCode('code-1769484253252-627')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1269,27 +1268,28 @@ def cached_extraction(text: str) -&gt; str:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-627" class="language-python">from langchain_core.runnables import RunnableParallel, RunnablePassthrough
+  <pre class="code-block__content"><code id="code-1769484253252-627" class="language-python">from langchain_core.runnables import RunnableParallel, RunnablePassthrough
 
-<h1>병렬 처리 가능한 단계</h1>
-<p>parallel_steps = RunnableParallel({
+# 병렬 처리 가능한 단계
+parallel_steps = RunnableParallel({
     &quot;summary&quot;: summarize_chain,
     &quot;entities&quot;: extract_entities_chain,
     &quot;sentiment&quot;: analyze_sentiment_chain
-})</p>
-<h1>순차 처리 필요한 단계</h1>
-<p>sequential_chain = parallel_steps | synthesis_chain</code></pre>
+})
+
+# 순차 처리 필요한 단계
+sequential_chain = parallel_steps | synthesis_chain</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">9 lines</span>
-  </div></p>
+  </div>
 </div>
 
-<h3 id="3-조기-종료early-stopping">3. 조기 종료(Early Stopping) {#3-조기-종료early-stopping}</h3>
+<h3 id="3-조기-종료early-stopping">3. 조기 종료(Early Stopping)</h3>
 <p>조건이 충족되면 체인을 조기에 종료하여 불필요한 계산을 방지:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-628" onclick="copyCode('code-1769482284770-628')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-628" onclick="copyCode('code-1769484253252-628')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1297,7 +1297,7 @@ def cached_extraction(text: str) -&gt; str:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-628" class="language-python">def should_continue(state):
+  <pre class="code-block__content"><code id="code-1769484253252-628" class="language-python">def should_continue(state):
     if state.get(&quot;confidence&quot;) &gt; 0.95:
         return &quot;end&quot;
     return &quot;continue&quot;</code></pre>
@@ -1306,12 +1306,12 @@ def cached_extraction(text: str) -&gt; str:
   </div>
 </div>
 
-<h3 id="4-동적-프롬프트-선택">4. 동적 프롬프트 선택 {#4-동적-프롬프트-선택}</h3>
+<h3 id="4-동적-프롬프트-선택">4. 동적 프롬프트 선택</h3>
 <p>작업의 복잡도에 따라 다른 프롬프트를 선택:</p>
 <div class="code-block" data-language="python">
   <div class="code-block__header" style="background-color: #3776ab; color: #fff">
     <span class="code-block__language">Python</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-629" onclick="copyCode('code-1769482284770-629')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-629" onclick="copyCode('code-1769484253252-629')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1319,10 +1319,10 @@ def cached_extraction(text: str) -&gt; str:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-629" class="language-python">def select_prompt(complexity: str):
-    if complexity == &quot;simple&quot;:
+  <pre class="code-block__content"><code id="code-1769484253252-629" class="language-python">def select_prompt(complexity: str):
+    if complexity &lt;mark&gt; &quot;simple&quot;:
         return simple_prompt
-    elif complexity == &quot;medium&quot;:
+    elif complexity &lt;/mark&gt; &quot;medium&quot;:
         return medium_prompt
     else:
         return complex_prompt</code></pre>
@@ -1331,30 +1331,30 @@ def cached_extraction(text: str) -&gt; str:
   </div>
 </div>
 
-<h2 id="트레이드오프-및-한계점-trade-offs-and-limitations">트레이드오프 및 한계점 (Trade-offs and Limitations) {#트레이드오프-및-한계점-trade-offs-and-limitations}</h2>
-<h3 id="장점">장점 {#장점}</h3>
+<h2 id="트레이드오프-및-한계점-trade-offs-and-limitations">트레이드오프 및 한계점 (Trade-offs and Limitations)</h2>
+<h3 id="장점">장점</h3>
 <ol>
 <li><strong>신뢰성 향상</strong>: 각 단계가 집중되어 오류 가능성 감소</li>
 <li><strong>디버깅 용이성</strong>: 문제가 발생한 단계를 쉽게 식별</li>
 <li><strong>모듈성</strong>: 각 단계를 독립적으로 수정 및 최적화 가능</li>
 <li><strong>확장성</strong>: 새로운 단계를 쉽게 추가 가능</li>
 </ol>
-<h3 id="단점-및-한계">단점 및 한계 {#단점-및-한계}</h3>
+<h3 id="단점-및-한계">단점 및 한계</h3>
 <ol>
 <li><strong>지연 시간 증가</strong>: 여러 단계를 순차적으로 실행하므로 전체 처리 시간이 증가할 수 있음</li>
 <li><strong>비용 증가</strong>: 각 단계마다 LLM 호출이 필요하므로 API 비용이 증가</li>
 <li><strong>상태 관리 복잡성</strong>: 단계 간 상태 전달이 복잡해질 수 있음</li>
 <li><strong>오류 전파</strong>: 한 단계의 오류가 후속 단계에 영향을 줄 수 있음 (구조화된 출력으로 완화 가능)</li>
 </ol>
-<h3 id="완화-전략">완화 전략 {#완화-전략}</h3>
+<h3 id="완화-전략">완화 전략</h3>
 <ol>
 <li><strong>구조화된 출력</strong>: JSON/XML 형식으로 데이터 무결성 보장</li>
 <li><strong>검증 단계</strong>: 각 단계 후 출력 검증을 통해 오류 조기 발견</li>
 <li><strong>재시도 메커니즘</strong>: 실패한 단계에 대한 재시도 로직 구현</li>
 <li><strong>폴백 전략</strong>: 복잡한 체인 실패 시 단순화된 대안 제공</li>
 </ol>
-<h2 id="관련-패턴과의-비교-comparison-with-related-patterns">관련 패턴과의 비교 (Comparison with Related Patterns) {#관련-패턴과의-비교-comparison-with-related-patterns}</h2>
-<h3 id="prompt-chaining-vs-single-prompt">Prompt Chaining vs. Single Prompt {#prompt-chaining-vs-single-prompt}</h3>
+<h2 id="관련-패턴과의-비교-comparison-with-related-patterns">관련 패턴과의 비교 (Comparison with Related Patterns)</h2>
+<h3 id="prompt-chaining-vs-single-prompt">Prompt Chaining vs. Single Prompt</h3>
 <table>
 <thead>
 <tr>
@@ -1394,19 +1394,19 @@ def cached_extraction(text: str) -&gt; str:
 <td>우수</td>
 </tr>
 </tbody></table>
-<h3 id="prompt-chaining-vs-parallel-processing">Prompt Chaining vs. Parallel Processing {#prompt-chaining-vs-parallel-processing}</h3>
+<h3 id="prompt-chaining-vs-parallel-processing">Prompt Chaining vs. Parallel Processing</h3>
 <p>프롬프트 체이닝은 순차적 의존성이 있는 작업에 적합하고, 병렬 처리는 독립적인 작업에 적합합니다. 실제 시스템에서는 두 패턴을 결합하여 사용합니다:</p>
 <ul>
 <li><strong>병렬 단계</strong>: 독립적인 데이터 수집</li>
 <li><strong>순차 단계</strong>: 종속적인 종합 및 정제</li>
 </ul>
-<h2 id="실무-적용-사례-확장-extended-practical-applications">실무 적용 사례 확장 (Extended Practical Applications) {#실무-적용-사례-확장-extended-practical-applications}</h2>
-<h3 id="1-금융-분석-자동화">1. 금융 분석 자동화 {#1-금융-분석-자동화}</h3>
+<h2 id="실무-적용-사례-확장-extended-practical-applications">실무 적용 사례 확장 (Extended Practical Applications)</h2>
+<h3 id="1-금융-분석-자동화">1. 금융 분석 자동화</h3>
 <p>복잡한 금융 보고서 분석을 위한 다단계 파이프라인:</p>
 <div class="code-block" data-language="mermaid">
   <div class="code-block__header" style="background-color: #6b7280; color: #fff">
     <span class="code-block__language">Code</span>
-    <button class="code-block__copy" data-code-id="code-1769482284770-630" onclick="copyCode('code-1769482284770-630')" title="Copy code">
+    <button class="code-block__copy" data-code-id="code-1769484253252-630" onclick="copyCode('code-1769484253252-630')" title="Copy code">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
         <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
@@ -1414,22 +1414,21 @@ def cached_extraction(text: str) -&gt; str:
       <span>Copy</span>
     </button>
   </div>
-  <pre class="code-block__content"><code id="code-1769482284770-630" class="language-mermaid">graph TD
+  <pre class="code-block__content"><code id="code-1769484253252-630" class="language-mermaid">graph TD
     A[Financial Report&lt;br/&gt;금융 보고서] --&gt; B[Data Extraction&lt;br/&gt;데이터 추출]
     B --&gt; C[Validation&lt;br/&gt;검증]
     C --&gt; D[Trend Analysis&lt;br/&gt;트렌드 분석]
     D --&gt; E[Risk Assessment&lt;br/&gt;리스크 평가]
     E --&gt; F[Report Generation&lt;br/&gt;보고서 생성]
     
-<pre><code>style A fill:#ff9999
-style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
-</code></pre>
+    style A fill:#ff9999
+    style F fill:#99ff99</code></pre>
   <div class="code-block__footer">
     <span class="code-block__lines">9 lines</span>
   </div>
 </div>
 
-<h3 id="2-법률-문서-검토">2. 법률 문서 검토 {#2-법률-문서-검토}</h3>
+<h3 id="2-법률-문서-검토">2. 법률 문서 검토</h3>
 <p>법률 문서의 자동 검토 및 요약:</p>
 <ol>
 <li><strong>문서 구조 분석</strong>: 섹션 및 조항 식별</li>
@@ -1437,7 +1436,7 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>리스크 평가</strong>: 잠재적 리스크 식별</li>
 <li><strong>요약 생성</strong>: 이해하기 쉬운 요약 생성</li>
 </ol>
-<h3 id="3-의료-진단-지원">3. 의료 진단 지원 {#3-의료-진단-지원}</h3>
+<h3 id="3-의료-진단-지원">3. 의료 진단 지원</h3>
 <p>의료 데이터 분석을 위한 체인:</p>
 <ol>
 <li><strong>증상 추출</strong>: 환자 기록에서 증상 추출</li>
@@ -1445,8 +1444,8 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><strong>가능성 평가</strong>: 가능한 진단 평가</li>
 <li><strong>권장사항 생성</strong>: 치료 권장사항 생성</li>
 </ol>
-<h2 id="참고-자료-references">참고 자료 (References) {#참고-자료-references}</h2>
-<h3 id="학술-논문">학술 논문 {#학술-논문}</h3>
+<h2 id="참고-자료-references">참고 자료 (References)</h2>
+<h3 id="학술-논문">학술 논문</h3>
 <ol>
 <li><p>Miller, G. A. (1956). &quot;The magical number seven, plus or minus two: Some limits on our capacity for processing information.&quot; <em>Psychological Review</em>, 63(2), 81-97.</p>
 </li>
@@ -1459,7 +1458,7 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <li><p>Kojima, T., et al. (2022). &quot;Large Language Models are Zero-Shot Reasoners.&quot; <em>Advances in Neural Information Processing Systems</em>, 35.</p>
 </li>
 </ol>
-<h3 id="프레임워크-및-도구-문서">프레임워크 및 도구 문서 {#프레임워크-및-도구-문서}</h3>
+<h3 id="프레임워크-및-도구-문서">프레임워크 및 도구 문서</h3>
 <ol>
 <li><p>LangChain Documentation on LCEL:
 <a href="https://python.langchain.com/v0.2/docs/core_modules/expression_language/">https://python.langchain.com/v0.2/docs/core_modules/expression_language/</a></p>
@@ -1483,7 +1482,7 @@ style F fill:#99ff99&lt;/code&gt;&lt;/pre&gt;
 <a href="https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/prompt-optimizer">https://cloud.google.com/vertex-ai/generative-ai/docs/learn/prompts/prompt-optimizer</a></p>
 </li>
 </ol>
-<h3 id="추가-학습-자료">추가 학습 자료 {#추가-학습-자료}</h3>
+<h3 id="추가-학습-자료">추가 학습 자료</h3>
 <ol start="8">
 <li><p>&quot;Prompt Engineering for Large Language Models&quot; by James Phoenix and Raza Habib (2023)</p>
 </li>
