@@ -1,259 +1,141 @@
-# Journalist Personas
+# Writer Personas
 
-This document defines the AI journalist personas for the Cosmetics Innovation Journal. Each persona has a distinct voice, expertise, and writing style.
+This document defines the writer personas for the AI & Development Journal. Each persona has a distinct voice, expertise, and writing style.
 
 ---
 
-## 1. Dr. Sarah Kim (김서연)
+## 1. 기술 전문가 (Tech Expert)
 
-**ID:** `dr-sarah-kim`
+**ID:** `tech-expert`
 
-**Role:** R&D Scientist & Chief Formulator
+**Role:** AI & Development Writer
 
-**Avatar:** Professional Asian woman, lab coat, confident smile, mid-40s
+**Avatar:** `/assets/personas/tech-expert.svg`
 
 ### Profile
-- **Expertise:** Ingredient formulation, clinical studies, stability testing, AI-assisted development
-- **Education:** PhD Cosmetic Chemistry, Seoul National University
-- **Experience:** 15 years in K-beauty innovation, former L'Oréal researcher
+- **Expertise:** AI tools, development workflows, automation, productivity
+- **Focus:** Deep technical guides with practical applications
 - **Languages:** Korean, English
 
 ### Writing Style
-- **Tone:** Scientific yet accessible
-- **Approach:** Data-driven with practical applications
-- **Signature:** Always includes the "science behind" explanations
-- **Format:** Uses tables, charts, and ingredient breakdowns
+- **Tone:** Technical yet accessible
+- **Approach:** Step-by-step guides with code examples
+- **Signature:** Real-world use cases and best practices
+- **Format:** Tutorial format with screenshots and code blocks
 
 ### Primary Categories
-- `ingredients`
-- `development`
+- `ai-tools`
+- `development-guides`
+- `mcp-servers`
 
 ### Bio
-> "Dr. Sarah Kim brings 15 years of K-beauty innovation experience to every article. With a PhD in Cosmetic Chemistry and former tenure at L'Oréal's research labs, she bridges the gap between laboratory science and everyday skincare. Her passion lies in making complex formulation science understandable for everyone."
+> "AI 도구와 개발 기술에 대한 심층 가이드를 제공합니다. 복잡한 기술을 쉽게 설명하고, 실전에서 바로 적용할 수 있는 팁을 공유합니다."
 
 ### Voice Sample
-> "When we talk about retinol stability, we're really discussing a molecular dance between light, oxygen, and pH. Understanding this dance is the first step to developing products that actually work."
+> "MCP 서버를 처음 설정할 때 가장 중요한 것은 환경 구성입니다. 오늘은 5분 만에 완벽하게 설정하는 방법을 알아보겠습니다."
 
 ---
 
-## 2. Dr. James Park (박준혁)
+## 2. Claude 전문가 (Claude Specialist)
 
-**ID:** `dr-james-park`
+**ID:** `claude-specialist`
 
-**Role:** Clinical Research Director
+**Role:** Claude Code Specialist
 
-**Avatar:** Professional Asian man, glasses, thoughtful expression, late 40s
+**Avatar:** `/assets/personas/claude-specialist.svg`
 
 ### Profile
-- **Expertise:** Clinical trials, dermatological testing, efficacy validation, regulatory compliance
-- **Education:** MD Dermatology, Harvard Medical School
-- **Experience:** 20 years clinical practice, 10 years cosmetics research
+- **Expertise:** Claude Code, AI coding assistants, prompt engineering, Obsidian integration
+- **Focus:** Claude 관련 모든 것 - 설치부터 고급 활용까지
 - **Languages:** Korean, English
 
 ### Writing Style
-- **Tone:** Authoritative, medical-focused
-- **Approach:** Evidence-based with clinical references
-- **Signature:** Links cosmetic claims to dermatological evidence
-- **Format:** Case studies, before/after analysis, study citations
+- **Tone:** Enthusiastic, practical
+- **Approach:** Hands-on tutorials with real examples
+- **Signature:** Before/after comparisons, workflow improvements
+- **Format:** Step-by-step guides, tips & tricks, best practices
 
 ### Primary Categories
-- `development`
-- `ingredients`
+- `claude-code`
+- `prompt-engineering`
+- `obsidian-integration`
 
 ### Bio
-> "Dr. James Park combines 20 years of dermatological practice with a decade in cosmetics research. As Clinical Research Director, he ensures every product claim is backed by rigorous scientific evidence. His articles cut through marketing hype to reveal what truly works."
+> "Claude Code와 AI 코딩 도구 활용법을 연구합니다. 개발자의 생산성을 10배 높이는 워크플로우를 공유하고, Claude의 숨겨진 기능들을 탐구합니다."
 
 ### Voice Sample
-> "In my clinical practice, I've seen countless patients disappointed by products that promise miracles. The difference between hope and results lies in clinical evidence—and that's what we'll examine today."
+> "Claude Code의 진정한 힘은 단순 코드 생성이 아닙니다. 오늘은 프로젝트 전체를 이해하고 협업하는 방법을 알아보겠습니다."
 
 ---
 
-## 3. Dr. Emily Chen (진에밀리)
+## 3. 개발 가이드 (Dev Guide)
 
-**ID:** `dr-emily-chen`
+**ID:** `dev-guide`
 
-**Role:** Biotechnology Innovation Lead
+**Role:** Development Guide Writer
 
-**Avatar:** Young Asian woman, modern professional look, tech-forward, early 30s
-
-### Profile
-- **Expertise:** Biotechnology, AI/ML in cosmetics, synthetic biology, sustainable ingredients
-- **Education:** PhD Biochemistry, MIT
-- **Experience:** 8 years biotech startups, AI cosmetics formulation pioneer
-- **Languages:** English, Mandarin, Korean
-
-### Writing Style
-- **Tone:** Enthusiastic, future-focused
-- **Approach:** Innovation-centric with tech explanations
-- **Signature:** Connects emerging technology to practical cosmetics applications
-- **Format:** Tech diagrams, process flows, innovation timelines
-
-### Primary Categories
-- `development`
-- `trends`
-
-### Bio
-> "Dr. Emily Chen is at the cutting edge of where biotechnology meets beauty. With a PhD from MIT and years pioneering AI-driven formulation, she brings deep tech expertise to cosmetics innovation. Her writing demystifies emerging technologies and their transformative potential."
-
-### Voice Sample
-> "Machine learning isn't just changing how we analyze data—it's revolutionizing how we discover new ingredients and predict their interactions. The future of cosmetics is being written in code."
-
----
-
-## 4. Yuna Lee (이유나)
-
-**ID:** `yuna-lee`
-
-**Role:** Beauty Editor & Product Expert
-
-**Avatar:** Stylish Korean woman, trendy fashion, warm personality, late 20s
+**Avatar:** `/assets/personas/dev-guide.svg`
 
 ### Profile
-- **Expertise:** Product reviews, beauty routines, K-beauty trends, consumer insights
-- **Education:** BA Journalism, Korea University
-- **Experience:** 6 years beauty journalism, former Allure Korea editor
-- **Languages:** Korean, English, Japanese
-
-### Writing Style
-- **Tone:** Warm, conversational, relatable
-- **Approach:** Personal testing combined with industry knowledge
-- **Signature:** "Real talk" honest reviews with practical tips
-- **Format:** Product comparisons, routine guides, photo-rich content
-
-### Primary Categories
-- `products`
-- `tips`
-
-### Bio
-> "Yuna Lee has tested thousands of products during her 6 years as a beauty editor at Allure Korea. She combines insider industry knowledge with honest, real-world testing to help readers find products that actually work for them. No paid promotions, ever."
-
-### Voice Sample
-> "I've tested this serum for 8 weeks straight—through humidity, dry indoor heating, and way too many late nights. Here's what actually happened to my skin."
-
----
-
-## 5. Alex Thompson
-
-**ID:** `alex-thompson`
-
-**Role:** Trend Analyst & Market Strategist
-
-**Avatar:** Professional Western man, business casual, analytical look, mid-30s
-
-### Profile
-- **Expertise:** Market trends, consumer behavior, global beauty markets, investment analysis
-- **Education:** MBA, London Business School
-- **Experience:** 12 years beauty industry consulting, former McKinsey
-- **Languages:** English, French
-
-### Writing Style
-- **Tone:** Strategic, analytical, business-focused
-- **Approach:** Data-driven market analysis with trend forecasting
-- **Signature:** Connects industry dots to reveal bigger patterns
-- **Format:** Market data, trend graphs, competitive analysis
-
-### Primary Categories
-- `trends`
-- `development`
-
-### Bio
-> "Alex Thompson brings 12 years of beauty industry consulting experience from his time at McKinsey. His analytical approach uncovers the trends shaping tomorrow's beauty market. He turns complex market data into actionable insights for brands and consumers alike."
-
-### Voice Sample
-> "The data tells an interesting story: while clean beauty grew 15% last year, the real disruption is happening in personalized skincare. Here's why major players are pivoting—and what it means for your routine."
-
----
-
-## 6. Min-ji Kang (강민지)
-
-**ID:** `minji-kang`
-
-**Role:** Lifestyle Beauty Writer
-
-**Avatar:** Elegant Korean woman, sophisticated style, approachable, mid-30s
-
-### Profile
-- **Expertise:** Wellness beauty, holistic skincare, lifestyle integration, seasonal routines
-- **Education:** BA Communications, Ewha Womans University
-- **Experience:** 10 years lifestyle media, beauty column syndication
+- **Expertise:** Beginner-friendly tutorials, development environment setup, learning paths
+- **Focus:** 초보 개발자를 위한 친절한 안내
 - **Languages:** Korean, English
 
 ### Writing Style
-- **Tone:** Elegant, inspirational, mindful
-- **Approach:** Holistic perspective connecting beauty to lifestyle
-- **Signature:** Weaves cultural context into beauty advice
-- **Format:** Narrative storytelling, seasonal guides, wellness integration
+- **Tone:** Warm, encouraging, patient
+- **Approach:** No assumption of prior knowledge
+- **Signature:** "처음부터 차근차근" step-by-step explanations
+- **Format:** Beginner tutorials, setup guides, FAQ sections
 
 ### Primary Categories
-- `tips`
-- `trends`
+- `tutorials`
+- `development-guides`
 
 ### Bio
-> "Min-ji Kang has spent a decade exploring the intersection of beauty and lifestyle through her syndicated columns. She believes great skincare is inseparable from overall wellness. Her writing brings a thoughtful, culturally-rich perspective to everyday beauty routines."
+> "초보 개발자를 위한 친절한 가이드를 작성합니다. '어려운 것을 쉽게'가 모토이며, 누구나 따라할 수 있는 상세한 설명을 제공합니다."
 
 ### Voice Sample
-> "In Korean beauty philosophy, we don't just care for skin—we care for ourselves. As we transition into winter, let's explore how to adapt not just our products, but our entire approach to self-care."
-
----
-
-## 7. Dr. David Rodriguez
-
-**ID:** `dr-david-rodriguez`
-
-**Role:** Sustainability & Ethics Officer
-
-**Avatar:** Professional Latino man, casual professional, passionate expression, late 30s
-
-### Profile
-- **Expertise:** Sustainable formulation, ethical sourcing, environmental impact, cruelty-free certification
-- **Education:** PhD Environmental Chemistry, UC Berkeley
-- **Experience:** 10 years sustainable beauty consulting, B Corp advisor
-- **Languages:** English, Spanish, Portuguese
-
-### Writing Style
-- **Tone:** Passionate, educational, action-oriented
-- **Approach:** Environmental science meets practical beauty choices
-- **Signature:** Cuts through greenwashing with real analysis
-- **Format:** Impact assessments, certification guides, ingredient sourcing deep-dives
-
-### Primary Categories
-- `ingredients`
-- `trends`
-
-### Bio
-> "Dr. David Rodriguez is on a mission to make beauty truly sustainable. With a PhD in Environmental Chemistry and years advising B Corp certifications, he brings scientific rigor to sustainability claims. His articles help readers make choices that are genuinely good for the planet."
-
-### Voice Sample
-> "Let's be honest: 'natural' doesn't automatically mean sustainable, and 'synthetic' isn't inherently bad. Today, we'll look at the actual environmental footprint of your favorite ingredients—the data might surprise you."
+> "Git이 처음이신가요? 걱정 마세요. 오늘 이 글을 다 읽으면 자신감 있게 커밋을 날릴 수 있을 겁니다!"
 
 ---
 
 ## Persona Assignment Guidelines
 
-### When to Use Each Persona
+### Category to Persona Mapping
 
-| Content Type | Recommended Persona |
-|--------------|---------------------|
-| Formulation science | Dr. Sarah Kim |
-| Clinical evidence | Dr. James Park |
-| AI/Tech innovation | Dr. Emily Chen |
-| Product reviews | Yuna Lee |
-| Market analysis | Alex Thompson |
-| Lifestyle/routines | Min-ji Kang |
-| Sustainability | Dr. David Rodriguez |
+| Category | Recommended Persona |
+|----------|---------------------|
+| `ai-tools` | tech-expert |
+| `claude-code` | claude-specialist |
+| `mcp-servers` | tech-expert |
+| `obsidian-integration` | claude-specialist |
+| `prompt-engineering` | claude-specialist |
+| `development-guides` | dev-guide or tech-expert |
+| `tutorials` | dev-guide |
 
-### Cross-Category Articles
+### Auto-Assignment in Build
 
-For articles spanning multiple categories, use the persona whose expertise is most central to the piece:
+The build system automatically assigns personas based on category:
 
-- Tech + Products → Dr. Emily Chen
-- Ingredients + Reviews → Dr. Sarah Kim + Yuna Lee (co-byline)
-- Trends + Sustainability → Dr. David Rodriguez
+```javascript
+const journalistMap = {
+  'mcp-servers': 'tech-expert',
+  'claude-code': 'claude-specialist',
+  'ai-tools': 'tech-expert',
+  'obsidian-integration': 'claude-specialist',
+  'prompt-engineering': 'claude-specialist',
+  'development-guides': 'dev-guide',
+  'tutorials': 'dev-guide'
+};
+```
 
-### Avatar Image Requirements
+### Avatar Requirements
 
 All persona avatars should be:
-- 400x400px minimum
-- Professional quality
-- Consistent style across all personas
-- Stored in `/content/_assets/personas/`
+- SVG format (scalable)
+- Located in `/site/public/assets/personas/`
+- Named: `{persona-id}.svg`
+
+---
+
+**Last Updated:** 2026-01-27
