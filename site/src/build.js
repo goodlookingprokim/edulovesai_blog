@@ -431,9 +431,17 @@ function renderTemplate(templateName, data) {
 }
 
 /**
- * Get image path - prioritizes first image in content body
+ * Get image path - prioritizes featured_image from YAML, then first image in content
  */
 function getImagePath(article) {
+  // 1. Featured image from YAML (highest priority - explicit author choice)
+  if (article.featured_image) {
+    if (!article.featured_image.startsWith('/') && !article.featured_image.startsWith('http')) {
+      return `/assets/images/${article.featured_image}`;
+    }
+    return article.featured_image;
+  }
+
   // Remove code blocks and commented image lines to find actual display images
   let cleanContent = article.rawContent || '';
 
@@ -443,35 +451,30 @@ function getImagePath(article) {
   // Remove indented code blocks (4+ spaces at line start)
   cleanContent = cleanContent.replace(/^(?:    |\t).*$/gm, '');
 
+  // Remove table rows (lines with | that contain example image syntax)
+  cleanContent = cleanContent.replace(/^\|.*\|$/gm, '');
+
   // Filter out commented lines (lines starting with # followed by space and image)
   cleanContent = cleanContent.split('\n')
     .filter(line => !line.match(/^#\s+!\[/))
     .join('\n');
 
-  // 1. Obsidian format
+  // 2. Obsidian format
   const obsidianImageMatch = cleanContent.match(/!\[\[@?(?:[^\]]*\/)?([^\]\/]+\.(jpg|jpeg|png|gif|webp))\]\]/i);
   if (obsidianImageMatch) {
     return `/assets/images/${obsidianImageMatch[1]}`;
   }
 
-  // 2. Standard markdown format
+  // 3. Standard markdown format
   const markdownImageMatch = cleanContent.match(/!\[.*?\]\((?:.*\/)?([^\/\)]+\.(jpg|jpeg|png|gif|webp))\)/i);
   if (markdownImageMatch) {
     return `/assets/images/${markdownImageMatch[1]}`;
   }
 
-  // 3. HTML img tag
+  // 4. HTML img tag
   const htmlImageMatch = cleanContent.match(/<img[^>]+src=["'](?:\/assets\/images\/)?([^"'\/]+\.(jpg|jpeg|png|gif|webp))["']/i);
   if (htmlImageMatch) {
     return `/assets/images/${htmlImageMatch[1]}`;
-  }
-
-  // 4. Featured image from YAML
-  if (article.featured_image) {
-    if (!article.featured_image.startsWith('/') && !article.featured_image.startsWith('http')) {
-      return `/assets/images/${article.featured_image}`;
-    }
-    return article.featured_image;
   }
 
   // 5. Fallback placeholder

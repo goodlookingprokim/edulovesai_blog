@@ -13,7 +13,7 @@ tags:
 journalist: tech-analyst
 featured: true
 status: published
-image: /assets/images/obsidian-teachers/obsidian-teachers-28.png
+featured_image: /assets/images/obsidian-teachers-hero.jpg
 ---
 
 # 초등교원을 위한 Obsidian 연수
