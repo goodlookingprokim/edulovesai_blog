@@ -21,21 +21,14 @@ import os
 import sys
 import json
 import argparse
-import base64
+# base64 - reserved for future b64_json response format
 import re
 from pathlib import Path
 from typing import Optional, Dict, Any
 from datetime import datetime
 import requests
 
-# Check for xai_sdk
-try:
-    from xai_sdk import Client
-except ImportError:
-    print("Error: xai-sdk not installed. Run: pip install xai-sdk", file=sys.stderr)
-    sys.exit(1)
-
-# Check for OpenAI SDK (used for Aurora image generation)
+# Check for OpenAI SDK (used for both chat and image generation via xAI API)
 try:
     from openai import OpenAI
 except ImportError:
@@ -210,17 +203,22 @@ Thematic Elements: {category_style['elements']}
 Output ONLY the image generation prompt, nothing else."""
 
     try:
-        client = Client(api_key=api_key)
+        # Use OpenAI-compatible API for better compatibility
+        client = OpenAI(
+            api_key=api_key,
+            base_url="https://api.x.ai/v1"
+        )
 
-        response = client.chat.create(
-            model="grok-4-1-fast-reasoning",
+        response = client.chat.completions.create(
+            model="grok-3",
             messages=[
                 {"role": "system", "content": system_prompt},
                 {"role": "user", "content": user_prompt}
-            ]
+            ],
+            max_tokens=500
         )
 
-        if hasattr(response, 'choices') and response.choices:
+        if response.choices and len(response.choices) > 0:
             return response.choices[0].message.content.strip()
         else:
             raise Exception("No response from Grok API")
@@ -251,12 +249,12 @@ def generate_image(
     print(f"Prompt: {prompt[:100]}...")
 
     try:
+        # Note: Aurora API doesn't support size parameter - generates 1024x1024 by default
         response = client.images.generate(
             model="grok-2-image-1212",
             prompt=prompt,
             n=1,
-            size=size,
-            response_format="url"  # or "b64_json"
+            response_format="url"
         )
 
         if response.data and len(response.data) > 0:
