@@ -89,7 +89,7 @@ featured_image: /assets/images/obsidian-teachers-hero.jpg
 
 ---
 
-![프롤로그: 절망의 밤](/assets/images/obsidian-teachers/obsidian-teachers-01.png)
+![프롤로그: 절망의 밤](/assets/images/obsidian-teachers/obsidian-teachers-01.jpg)
 
 ---
 
@@ -117,7 +117,7 @@ featured_image: /assets/images/obsidian-teachers-hero.jpg
 
 ---
 
-![지식의 미로](/assets/images/obsidian-teachers/obsidian-teachers-02.png)
+![지식의 미로](/assets/images/obsidian-teachers/obsidian-teachers-02.jpg)
 
 ---
 
@@ -175,7 +175,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![서랍 vs 거미줄 비교](/assets/images/obsidian-teachers/obsidian-teachers-03.png)
+![서랍 vs 거미줄 비교](/assets/images/obsidian-teachers/obsidian-teachers-03.jpg)
 
 ---
 
@@ -205,7 +205,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![뇌 시냅스와 연결된 기억](/assets/images/obsidian-teachers/obsidian-teachers-04.png)
+![뇌 시냅스와 연결된 기억](/assets/images/obsidian-teachers/obsidian-teachers-04.jpg)
 
 ---
 
@@ -238,7 +238,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![두 번째 뇌](/assets/images/obsidian-teachers/obsidian-teachers-05.png)
+![두 번째 뇌](/assets/images/obsidian-teachers/obsidian-teachers-05.jpg)
 
 ---
 
@@ -264,7 +264,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![새로운 세계의 문](/assets/images/obsidian-teachers/obsidian-teachers-06.png)
+![새로운 세계의 문](/assets/images/obsidian-teachers/obsidian-teachers-06.jpg)
 
 ---
 
@@ -284,7 +284,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ### 볼트 = 집
 
-![볼트는 집, 노트는 방](/assets/images/obsidian-teachers/obsidian-teachers-07.png)
+![볼트는 집, 노트는 방](/assets/images/obsidian-teachers/obsidian-teachers-07.jpg)
 
 ---
 
@@ -326,7 +326,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ### 왜 이게 중요한가요?
 
-![내 자료는 내 것](/assets/images/obsidian-teachers/obsidian-teachers-08.png)
+![내 자료는 내 것](/assets/images/obsidian-teachers/obsidian-teachers-08.jpg)
 
 ---
 
@@ -356,7 +356,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![마크다운 레시피](/assets/images/obsidian-teachers/obsidian-teachers-09.png)
+![마크다운 레시피](/assets/images/obsidian-teachers/obsidian-teachers-09.jpg)
 
 ---
 
@@ -396,7 +396,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![마크다운 5개의 마법 열쇠](/assets/images/obsidian-teachers/obsidian-teachers-10.png)
+![마크다운 5개의 마법 열쇠](/assets/images/obsidian-teachers/obsidian-teachers-10.jpg)
 
 ---
 
@@ -505,7 +505,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![연결의 마법: 지식 은하 속의 지현](/assets/images/obsidian-teachers/obsidian-teachers-11.png)
+![연결의 마법: 지식 은하 속의 지현](/assets/images/obsidian-teachers/obsidian-teachers-11.jpg)
 
 ---
 
@@ -543,7 +543,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![링크와 백링크의 마법](/assets/images/obsidian-teachers/obsidian-teachers-12.png)
+![링크와 백링크의 마법](/assets/images/obsidian-teachers/obsidian-teachers-12.jpg)
 
 ---
 
@@ -573,7 +573,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![옵시디언 마법 주문서](/assets/images/obsidian-teachers/obsidian-teachers-13.png)
+![옵시디언 마법 주문서](/assets/images/obsidian-teachers/obsidian-teachers-13.jpg)
 
 ---
 
@@ -687,7 +687,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![첫 그래프 뷰의 감동](/assets/images/obsidian-teachers/obsidian-teachers-14.png)
+![첫 그래프 뷰의 감동](/assets/images/obsidian-teachers/obsidian-teachers-14.jpg)
 
 ---
 
@@ -703,7 +703,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![집 꾸미기: 테마와 플러그인](/assets/images/obsidian-teachers/obsidian-teachers-15.png)
+![집 꾸미기: 테마와 플러그인](/assets/images/obsidian-teachers/obsidian-teachers-15.jpg)
 
 ---
 
@@ -722,7 +722,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ### Part A: 테마 - Obsidianite
 
-![테마 Before/After 비교](/assets/images/obsidian-teachers/obsidian-teachers-16.png)
+![테마 Before/After 비교](/assets/images/obsidian-teachers/obsidian-teachers-16.jpg)
 
 ---
 
@@ -740,7 +740,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![4가지 마법 플러그인 도구](/assets/images/obsidian-teachers/obsidian-teachers-17.png)
+![4가지 마법 플러그인 도구](/assets/images/obsidian-teachers/obsidian-teachers-17.jpg)
 
 ---
 
@@ -805,7 +805,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![Open Gate: NotebookLM으로의 포털](/assets/images/obsidian-teachers/obsidian-teachers-18.png)
+![Open Gate: NotebookLM으로의 포털](/assets/images/obsidian-teachers/obsidian-teachers-18.jpg)
 
 ---
 
@@ -829,7 +829,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![NotebookLM 활용 4컷 만화](/assets/images/obsidian-teachers/obsidian-teachers-19.png)
+![NotebookLM 활용 4컷 만화](/assets/images/obsidian-teachers/obsidian-teachers-19.jpg)
 
 ---
 
@@ -850,7 +850,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![무한의 캔버스](/assets/images/obsidian-teachers/obsidian-teachers-20.png)
+![무한의 캔버스](/assets/images/obsidian-teachers/obsidian-teachers-20.jpg)
 
 ---
 
@@ -903,7 +903,7 @@ USB에도 있고, 구글 드라이브에도 있고, 네이버 메모에도 있�
 
 ---
 
-![AI 조교의 등장](/assets/images/obsidian-teachers/obsidian-teachers-21.png)
+![AI 조교의 등장](/assets/images/obsidian-teachers/obsidian-teachers-21.jpg)
 
 ---
 
@@ -937,7 +937,7 @@ AI가 그 노트를 읽고, 맥락을 이해하고, 답변합니다!
 
 ---
 
-![@멘션의 마법](/assets/images/obsidian-teachers/obsidian-teachers-22.png)
+![@멘션의 마법](/assets/images/obsidian-teachers/obsidian-teachers-22.jpg)
 
 ---
 
@@ -975,7 +975,7 @@ AI가 그 노트를 읽고, 맥락을 이해하고, 답변합니다!
 
 ---
 
-![달인의 손끝: 단축키 마스터](/assets/images/obsidian-teachers/obsidian-teachers-23.png)
+![달인의 손끝: 단축키 마스터](/assets/images/obsidian-teachers/obsidian-teachers-23.jpg)
 
 ---
 
@@ -1007,7 +1007,7 @@ AI가 그 노트를 읽고, 맥락을 이해하고, 답변합니다!
 
 ---
 
-![나비의 변신: 지현 선생님의 변화](/assets/images/obsidian-teachers/obsidian-teachers-24.png)
+![나비의 변신: 지현 선생님의 변화](/assets/images/obsidian-teachers/obsidian-teachers-24.jpg)
 
 ---
 
@@ -1039,7 +1039,7 @@ AI가 그 노트를 읽고, 맥락을 이해하고, 답변합니다!
 
 ---
 
-![지현 선생님의 일주일](/assets/images/obsidian-teachers/obsidian-teachers-25.png)
+![지현 선생님의 일주일](/assets/images/obsidian-teachers/obsidian-teachers-25.jpg)
 
 ---
 
@@ -1047,7 +1047,7 @@ AI가 그 노트를 읽고, 맥락을 이해하고, 답변합니다!
 
 ---
 
-![지현 선생님의 고백: 성장의 초상화](/assets/images/obsidian-teachers/obsidian-teachers-26.png)
+![지현 선생님의 고백: 성장의 초상화](/assets/images/obsidian-teachers/obsidian-teachers-26.jpg)
 
 ---
 
@@ -1082,7 +1082,7 @@ AI가 그 노트를 읽고, 맥락을 이해하고, 답변합니다!
 
 ---
 
-![작은 시작의 힘: 성장하는 지식 나무](/assets/images/obsidian-teachers/obsidian-teachers-27.png)
+![작은 시작의 힘: 성장하는 지식 나무](/assets/images/obsidian-teachers/obsidian-teachers-27.jpg)
 
 ---
 
@@ -1098,7 +1098,7 @@ AI가 그 노트를 읽고, 맥락을 이해하고, 답변합니다!
 
 ---
 
-![피날레: 새로운 시작](/assets/images/obsidian-teachers/obsidian-teachers-28.png)
+![피날레: 새로운 시작](/assets/images/obsidian-teachers/obsidian-teachers-28.jpg)
 
 ---
 
