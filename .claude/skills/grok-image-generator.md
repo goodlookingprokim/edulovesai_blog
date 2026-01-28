@@ -6,6 +6,47 @@ Generate high-quality article images using xAI Grok Aurora API.
 
 When user needs to generate images for blog articles, or mentions "grok image", "aurora image", "generate article image".
 
+## Security (CRITICAL)
+
+API 키는 절대로 코드나 스크립트에 포함하지 마세요.
+
+### Secure Setup (One-time)
+```bash
+# 1. Create credentials file OUTSIDE the repository
+nano ~/.xai_credentials
+# Add line: export XAI_API_KEY="YOUR_KEY"
+
+# 2. Set restrictive permissions (owner read/write only)
+chmod 600 ~/.xai_credentials
+
+# 3. Verify
+ls -la ~/.xai_credentials  # Should show: -rw-------
+```
+
+### Secure Usage
+```bash
+# Option 1: Use the secure wrapper script
+./site/scripts/grok-image.sh --title "Article" --category "ai-tools"
+
+# Option 2: Load credentials manually
+source ~/.xai_credentials
+python site/scripts/generate-image.py --title "Article"
+```
+
+### Security Checklist
+- [ ] API 키가 `~/.xai_credentials`에 저장됨 (레포 외부)
+- [ ] 파일 권한이 `600`으로 설정됨
+- [ ] `.gitignore`에 credentials 패턴 포함됨
+- [ ] pre-commit hook이 활성화됨
+- [ ] 스크립트에 하드코딩된 키 없음
+
+### What NOT to do
+```
+❌ NEVER hardcode keys in scripts
+❌ NEVER commit .env files with real keys
+❌ NEVER share credentials in chat/email
+```
+
 ## Usage
 
 ```
@@ -135,7 +176,7 @@ content/_assets/images/2025-01-28-claude-code-guide-hero.jpg
 
 | Error | Solution |
 |-------|----------|
-| XAI_API_KEY not set | `export XAI_API_KEY='your-key'` |
+| XAI_API_KEY not set | Load from ~/.xai_credentials |
 | xai-sdk not installed | `pip install -r site/scripts/requirements.txt` |
 | Rate limit exceeded | Wait and retry, or reduce request frequency |
 | Image generation failed | Check prompt content, try simpler description |

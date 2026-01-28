@@ -12,9 +12,20 @@ Thumbs.db
 .vscode/
 .idea/
 
-# Environment
+# Environment & Secrets (CRITICAL - Never commit)
 .env
+.env.*
 .env.local
+.env.production
+*.credentials
+*credentials*
+*secret*
+*apikey*
+*api_key*
+*api-key*
+*.key
+*.pem
+*.p12
 
 # Logs
 *.log
